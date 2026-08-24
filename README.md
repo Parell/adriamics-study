@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://adriamics.com/study/">
-    <img src="..\assets\adriamics-logo.webp" alt="Adriamics" width="480" />
+    <img src="assets\adriamics-logo.webp" alt="Adriamics" width="480" />
   </a>
 </p>
 
@@ -54,11 +54,11 @@ npm run build
 
 `npm run build` is the complete build. It minifies assets, regenerates the study pages, and stages the Cloudflare deployment output in `public/`:
 
-| Command                | Purpose                                                                                                                                                                  |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `npm run build:assets` | Minifies the study CSS/JavaScript and Webmeji assets into the `*.min.css` and `*.min.js` files used by generated pages. |
-| `npm run build:notes`  | Reads `source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, `search-index.json`, and `sitemap.xml`.              |
-| `npm run build`        | Runs the asset build, notes build, and deployment staging; use this after normal content or code changes.                                                                                  |
+| Command                | Purpose                                                                                                                                                     |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run build:assets` | Minifies the study CSS/JavaScript and Webmeji assets into the `*.min.css` and `*.min.js` files used by generated pages.                                     |
+| `npm run build:notes`  | Reads `source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, `search-index.json`, and `sitemap.xml`. |
+| `npm run build`        | Runs the asset build, notes build, and deployment staging; use this after normal content or code changes.                                                   |
 
 If only lesson content, practice problems, the manifest, or prerequisite
 paths changed and the minified assets are already current, run the notes

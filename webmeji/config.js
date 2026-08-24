@@ -139,35 +139,7 @@ window.SHIMEJI_CONFIG = {
 };
 
 
-// second config ----------------------------------------------------
-
-window.MIKU_CONFIG = {
-  // pet   = hover animation (hard to see on mobile)
-  // drag  = click or touch to pick up
-  // top / left / right allow edge interactions
-  // remove whichever you don't want, the only exceptions is that bottom must always be enabled
-  ALLOWANCES: ['pet', 'drag', 'bottom', 'top', 'left', 'right'],
-
-  // movement and physics -------------------------------------------
-  // values are pixels movements per frame
-  walkspeed: 50,
-  fallspeed: 150,
-  jumpspeed: 200,
-
-  // time in ms before standing back up after falling
-  gettingupspeed: 3500,
-
-  // common idle and movement animations on the bottom edge ---------
-  // these are the most frequently used actions
-  // interval = time between frames (ms)
-  // loops = how many times the frame sequence repeats
-  // randomizeDuration sets random timeframe for actions, tune min and max to desired length
-  walk: {
-    frames: ["miku/shime1.png", "miku/shime2.png", "miku/shime3.png", "miku/shime2.png"], 
-    interval: 175, loops: 6},
-
-  stand: {
-    frames: ["miku/shime1.png"], 
+/* Unused secondary configs intentionally omitted.
     interval: 1000, loops: 1},
 
   sit: {
@@ -258,3 +230,4 @@ window.MIKU_CONFIG = {
     frames: ["miku/shime22.png"], 
     interval: 200}
 };
+*/

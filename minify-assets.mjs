@@ -13,9 +13,18 @@ const assets = [
 function run(command, args) {
   return new Promise((resolve, reject) => {
     const executable = process.platform === 'win32' && command === 'npx' ? 'npx.cmd' : command;
+    // Windows exposes npx as a .cmd shim, which requires shell execution.
     const child = spawn(executable, args, { stdio: 'inherit', shell: process.platform === 'win32' });
     child.on('error', reject);
-    child.on('close', (code) => code === 0 ? resolve() : reject(new Error(`${command} exited with code ${code}.`)));
+    child.on('close', (code, signal) => {
+      if (code === 0) {
+        resolve();
+        return;
+      }
+
+      const reason = signal ? `signal ${signal}` : `code ${code}`;
+      reject(new Error(`${command} exited with ${reason}.`));
+    });
   });
 }
 
