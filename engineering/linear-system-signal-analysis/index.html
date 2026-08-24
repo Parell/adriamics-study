@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linear System Signal Analysis | Adriamics Study</title>
+  <meta name="description" content="A signal is a function that carries information. In engineering, signals usually represent voltage, current, force, pressure, sound, position, or sensor output." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/linear-system-signal-analysis/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/linear-system-signal-analysis/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#signals-systems-and-core-models" data-notes-nav-item data-notes-toc-link>Signals, systems, and core models</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-signal-operations" data-notes-nav-item data-notes-toc-link>Basic signal operations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#system-properties" data-notes-nav-item data-notes-toc-link>System properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-time-invariant-systems" data-notes-nav-item data-notes-toc-link>Linear time-invariant systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#convolution" data-notes-nav-item data-notes-toc-link>Convolution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#frequency-response-and-steady-state-sinusoidal-analysis" data-notes-nav-item data-notes-toc-link>Frequency response and steady-state sinusoidal analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fourier-series-and-fourier-transform" data-notes-nav-item data-notes-toc-link>Fourier series and Fourier transform</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#laplace-transform" data-notes-nav-item data-notes-toc-link>Laplace transform</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#z-transform-and-discrete-time-analysis" data-notes-nav-item data-notes-toc-link>Z-transform and discrete-time analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sampling-and-reconstruction" data-notes-nav-item data-notes-toc-link>Sampling and reconstruction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#state-space-viewpoint" data-notes-nav-item data-notes-toc-link>State-space viewpoint</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Linear System Signal Analysis</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/linear-system-signal-analysis/linear-system-signal-analysis.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Flinear-system-signal-analysis%2Flinear-system-signal-analysis.md&amp;title=%5BContribute%5D%3A%20Linear%20System%20Signal%20Analysis" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/electrical-circuit-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/systems-of-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/linear-system-signal-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="signals-systems-and-core-models">Signals, systems, and core models</h1>
+<h2 id="signals">Signals</h2>
+<p>A <strong>signal</strong> is a function that carries information. In engineering, signals usually represent voltage, current, force, pressure, sound, position, or sensor output.</p>
+<p>Common classifications:</p>
+<table><thead><tr><th>Type</th><th>Example</th><th>Notes</th></tr></thead><tbody><tr><td>Continuous-time</td><td>$x(t)$</td><td>Defined for every real $t$</td></tr><tr><td>Discrete-time</td><td>$x[n]$</td><td>Defined only at integer index $n$</td></tr><tr><td>Analog</td><td>Microphone voltage</td><td>Continuous amplitude</td></tr><tr><td>Digital</td><td>Quantized samples</td><td>Finite resolution and sampled in time</td></tr><tr><td>Deterministic</td><td>$e^{-at}$</td><td>Exactly described by an equation</td></tr><tr><td>Random</td><td>Thermal noise</td><td>Described statistically</td></tr></tbody></table>
+<p>Useful elementary signals:</p>
+<div class="math-block">$$
+u(t) =
+\begin{cases}
+0, &amp; t &lt; 0 \\
+1, &amp; t \ge 0
+\end{cases}
+$$</div>
+<div class="math-block">$$
+\delta(t) \text{ is an impulse with } \int_{-\infty}^{\infty} \delta(t)\,dt = 1
+$$</div>
+<p>In discrete time:</p>
+<div class="math-block">$$
+u[n] =
+\begin{cases}
+0, &amp; n &lt; 0 \\
+1, &amp; n \ge 0
+\end{cases}
+\qquad
+\delta[n] =
+\begin{cases}
+1, &amp; n = 0 \\
+0, &amp; n \ne 0
+\end{cases}
+$$</div>
+<h2 id="systems">Systems</h2>
+<p>A <strong>system</strong> transforms an input signal into an output signal.</p>
+<p>Examples:</p>
+<ul><li><p>Electrical filter</p></li><li><p>Mechanical mass-spring-damper</p></li><li><p>Communication channel</p></li><li><p>Digital controller</p></li></ul>
+<p>The most important system class in this subject is the <strong>linear time-invariant</strong> system, or LTI system.</p>
+<hr />
+<h1 id="basic-signal-operations">Basic signal operations</h1>
+<h2 id="time-shifting">Time shifting</h2>
+<p>Delaying a signal by $t_0$:</p>
+<div class="math-block">$$
+x(t - t_0)
+$$</div>
+<p>Advancing a signal:</p>
+<div class="math-block">$$
+x(t + t_0)
+$$</div>
+<h2 id="time-scaling">Time scaling</h2>
+<p>Stretching or compressing time:</p>
+<div class="math-block">$$
+x(at)
+$$</div>
+<p>If $|a| &gt; 1$, the signal compresses in time. If $0 &lt; |a| &lt; 1$, it stretches.</p>
+<h2 id="time-reversal">Time reversal</h2>
+<div class="math-block">$$
+x(-t)
+$$</div>
+<h2 id="amplitude-scaling">Amplitude scaling</h2>
+<div class="math-block">$$
+Ax(t)
+$$</div>
+<p>This changes amplitude without changing the time axis.</p>
+<h2 id="decomposition-into-even-and-odd-parts">Decomposition into even and odd parts</h2>
+<p>Any signal can be decomposed as:</p>
+<div class="math-block">$$
+x(t) = x_e(t) + x_o(t)
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+x_e(t) = \frac{x(t) + x(-t)}{2}
+$$</div>
+<div class="math-block">$$
+x_o(t) = \frac{x(t) - x(-t)}{2}
+$$</div>
+<p>The same formulas hold in discrete time by replacing $t$ with $n$.</p>
+<hr />
+<h1 id="system-properties">System properties</h1>
+<h2 id="linearity">Linearity</h2>
+<p>A system is <strong>linear</strong> if it satisfies superposition:</p>
+<div class="math-block">$$
+\mathcal{T}\{a x_1 + b x_2\} = a\mathcal{T}\{x_1\} + b\mathcal{T}\{x_2\}
+$$</div>
+<p>Two parts:</p>
+<ul><li><p><strong>Additivity</strong></p></li><li><p><strong>Homogeneity</strong></p></li></ul>
+<h3 id="quick-test">Quick test</h3>
+<ol><li><p>Send in $x_1$ and get $y_1$.</p></li><li><p>Send in $x_2$ and get $y_2$.</p></li><li><p>Check whether $a x_1 + b x_2$ produces $a y_1 + b y_2$.</p></li></ol>
+<p>Nonlinear examples:</p>
+<ul><li><p>Squaring: $y = x^2$</p></li><li><p>Saturation and clipping</p></li><li><p>Multiplication of two signals</p></li></ul>
+<h2 id="time-invariance">Time invariance</h2>
+<p>A system is <strong>time invariant</strong> if shifting the input shifts the output by the same amount.</p>
+<p>If</p>
+<div class="math-block">$$
+x(t) \to y(t)
+$$</div>
+<p>then for any shift $t_0$,</p>
+<div class="math-block">$$
+x(t - t_0) \to y(t - t_0)
+$$</div>
+<p>If the system changes behavior over time, it is time-varying.</p>
+<h2 id="causality">Causality</h2>
+<p>A system is <strong>causal</strong> if the output at time $t$ depends only on present and past inputs, not future inputs.</p>
+<p>For discrete time, a causal system can depend on $x[n], x[n-1], x[n-2], \dots$</p>
+<h2 id="stability">Stability</h2>
+<p>In the bounded-input bounded-output sense, a system is <strong>stable</strong> if every bounded input produces a bounded output.</p>
+<p>If</p>
+<div class="math-block">$$
+|x(t)| \le M_x
+$$</div>
+<p>then stability requires</p>
+<div class="math-block">$$
+|y(t)| \le M_y
+$$</div>
+<p>for some finite $M_y$.</p>
+<h2 id="memory">Memory</h2>
+<p>A system is <strong>memoryless</strong> if output at time $t$ depends only on the input at the same time.</p>
+<p>Examples:</p>
+<ul><li><p>Memoryless: $y(t) = 3x(t)$</p></li><li><p>Has memory: $y(t) = x(t) + x(t-1)$</p></li></ul>
+<h2 id="invertibility">Invertibility</h2>
+<p>A system is <strong>invertible</strong> if the input can be uniquely recovered from the output.</p>
+<p>Example:</p>
+<div class="math-block">$$
+y(t) = 2x(t)
+$$</div>
+<p>is invertible, with inverse</p>
+<div class="math-block">$$
+x(t) = \frac{y(t)}{2}
+$$</div>
+<hr />
+<h1 id="linear-time-invariant-systems">Linear time-invariant systems</h1>
+<p>LTI systems are central because they are completely characterized by their response to an impulse.</p>
+<h2 id="impulse-response">Impulse response</h2>
+<p>For a continuous-time LTI system, the <strong>impulse response</strong> is</p>
+<div class="math-block">$$
+h(t) = \mathcal{T}\{\delta(t)\}
+$$</div>
+<p>For discrete time:</p>
+<div class="math-block">$$
+h[n] = \mathcal{T}\{\delta[n]\}
+$$</div>
+<p>Once $h$ is known, the output for any input is determined by convolution.</p>
+<h2 id="why-lti-systems-matter">Why LTI systems matter</h2>
+<p>LTI systems are useful because:</p>
+<ul><li><p>Superposition applies.</p></li><li><p>Shift invariance simplifies analysis.</p></li><li><p>Frequency-domain methods become available.</p></li><li><p>Differential or difference equations often reduce to algebra.</p></li></ul>
+<h2 id="differential-and-difference-equation-models">Differential and difference equation models</h2>
+<p>Continuous-time example:</p>
+<div class="math-block">$$
+a_1 \frac{dy(t)}{dt} + a_0 y(t) = b_1 \frac{dx(t)}{dt} + b_0 x(t)
+$$</div>
+<p>Discrete-time example:</p>
+<div class="math-block">$$
+y[n] - 0.5y[n-1] = x[n] + x[n-1]
+$$</div>
+<p>To test whether such a model is LTI, check linearity and whether the coefficients are constant over time.</p>
+<hr />
+<h1 id="convolution">Convolution</h1>
+<p>Convolution is the main tool for computing the output of an LTI system.</p>
+<h2 id="continuous-time-convolution">Continuous-time convolution</h2>
+<p>For input $x(t)$ and impulse response $h(t)$:</p>
+<div class="math-block">$$
+y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau) h(t - \tau)\,d\tau
+$$</div>
+<p>Equivalent form:</p>
+<div class="math-block">$$
+y(t) = \int_{-\infty}^{\infty} h(\tau) x(t - \tau)\,d\tau
+$$</div>
+<h2 id="discrete-time-convolution">Discrete-time convolution</h2>
+<div class="math-block">$$
+y[n] = (x * h)[n] = \sum_{k=-\infty}^{\infty} x[k] h[n-k]
+$$</div>
+<h2 id="graphical-convolution-workflow">Graphical convolution workflow</h2>
+<ol><li><p>Time-reverse one signal.</p></li><li><p>Shift it by $t$ or $n$.</p></li><li><p>Multiply pointwise with the other signal.</p></li><li><p>Integrate or sum over overlap.</p></li></ol>
+<h2 id="key-properties-of-convolution">Key properties of convolution</h2>
+<div class="math-block">$$
+x * h = h * x
+$$</div>
+<div class="math-block">$$
+x * (h_1 + h_2) = x * h_1 + x * h_2
+$$</div>
+<div class="math-block">$$
+x * \delta = x
+$$</div>
+<div class="math-block">$$
+x * \delta(t - t_0) = x(t - t_0)
+$$</div>
+<p>If one factor is a delayed impulse, convolution simply shifts the other signal.</p>
+<h2 id="physical-meaning">Physical meaning</h2>
+<p>Convolution can be viewed as:</p>
+<ul><li><p>Decomposing the input into shifted impulses</p></li><li><p>Scaling each impulse by the local input value</p></li><li><p>Summing the shifted impulse responses</p></li></ul>
+<h2 id="example-moving-average-filter">Example: moving average filter</h2>
+<p>For discrete time:</p>
+<div class="math-block">$$
+h[n] = \frac{1}{3}\big(\delta[n] + \delta[n-1] + \delta[n-2]\big)
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y[n] = \frac{1}{3}\big(x[n] + x[n-1] + x[n-2]\big)
+$$</div>
+<p>This is a simple smoothing filter.</p>
+<hr />
+<h1 id="frequency-response-and-steady-state-sinusoidal-analysis">Frequency response and steady-state sinusoidal analysis</h1>
+<h2 id="sinusoids-as-test-signals">Sinusoids as test signals</h2>
+<p>For LTI systems, complex exponentials are eigenfunctions:</p>
+<div class="math-block">$$
+x(t) = e^{j\omega t} \quad \Rightarrow \quad y(t) = H(j\omega)e^{j\omega t}
+$$</div>
+<p>where $H(j\omega)$ is the frequency response.</p>
+<p>This means the system changes only amplitude and phase, not frequency, for a sinusoidal input.</p>
+<h2 id="frequency-response">Frequency response</h2>
+<p>If the impulse response is $h(t)$, then</p>
+<div class="math-block">$$
+H(j\omega) = \int_{-\infty}^{\infty} h(t)e^{-j\omega t}\,dt
+$$</div>
+<p>For discrete time:</p>
+<div class="math-block">$$
+H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}
+$$</div>
+<h2 id="amplitude-and-phase-interpretation">Amplitude and phase interpretation</h2>
+<p>Write</p>
+<div class="math-block">$$
+H(j\omega) = |H(j\omega)|e^{j\angle H(j\omega)}
+$$</div>
+<p>Then a sinusoidal input produces:</p>
+<div class="math-block">$$
+y(t) = |H(j\omega)| \cos(\omega t + \angle H(j\omega))
+$$</div>
+<p>for a cosine input of unit amplitude.</p>
+<h2 id="bode-plots">Bode plots</h2>
+<p>A Bode plot shows:</p>
+<ul><li><p>Magnitude in dB:</p></li></ul>
+<div class="math-block">$$
+20\log_{10}|H(j\omega)|
+$$</div>
+<ul><li><p>Phase in degrees or radians</p></li></ul>
+<p>Useful for identifying:</p>
+<ul><li><p>Low-pass behavior</p></li><li><p>High-pass behavior</p></li><li><p>Band-pass behavior</p></li><li><p>Resonance</p></li></ul>
+<h2 id="poles-and-zeros">Poles and zeros</h2>
+<p>For rational transfer functions, poles and zeros strongly shape the response.</p>
+<ul><li><p>Zeros can attenuate specific frequencies.</p></li><li><p>Poles can amplify or destabilize the response.</p></li></ul>
+<p>General rule:</p>
+<ul><li><p>Poles closer to the imaginary axis or unit circle create stronger effects.</p></li></ul>
+<hr />
+<h1 id="fourier-series-and-fourier-transform">Fourier series and Fourier transform</h1>
+<h2 id="fourier-series-for-periodic-signals">Fourier series for periodic signals</h2>
+<p>If $x(t)$ is periodic with period $T$, it can be written as:</p>
+<div class="math-block">$$
+x(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\omega_0 = \frac{2\pi}{T}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+c_k = \frac{1}{T}\int_{T} x(t)e^{-jk\omega_0 t}\,dt
+$$</div>
+<p>Fourier series decomposes a periodic signal into harmonics of the fundamental frequency.</p>
+<h2 id="symmetry-shortcuts">Symmetry shortcuts</h2>
+<p>If $x(t)$ is real and even:</p>
+<ul><li><p>Coefficients are real</p></li><li><p>Sine terms vanish</p></li></ul>
+<p>If $x(t)$ is real and odd:</p>
+<ul><li><p>Cosine terms vanish</p></li></ul>
+<p>Use symmetry whenever possible to reduce algebra.</p>
+<h2 id="fourier-transform-for-aperiodic-signals">Fourier transform for aperiodic signals</h2>
+<p>The Fourier transform is</p>
+<div class="math-block">$$
+X(j\omega) = \int_{-\infty}^{\infty} x(t)e^{-j\omega t}\,dt
+$$</div>
+<p>with inverse</p>
+<div class="math-block">$$
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(j\omega)e^{j\omega t}\,d\omega
+$$</div>
+<p>It expresses a signal as a continuum of frequencies.</p>
+<h2 id="important-properties">Important properties</h2>
+<table><thead><tr><th>Property</th><th>Time domain</th><th>Frequency domain</th></tr></thead><tbody><tr><td>Linearity</td><td>$ax_1 + bx_2$</td><td>$aX_1 + bX_2$</td></tr><tr><td>Time shift</td><td>$x(t-t_0)$</td><td>$e^{-j\omega t_0}X(j\omega)$</td></tr><tr><td>Modulation</td><td>$e^{j\omega_0 t}x(t)$</td><td>$X(j(\omega-\omega_0))$</td></tr><tr><td>Convolution</td><td>$x*h$</td><td>$XH$</td></tr><tr><td>Multiplication</td><td>$x h$</td><td>Convolution in frequency</td></tr></tbody></table>
+<h2 id="parsevals-relation">Parseval&#39;s relation</h2>
+<p>Energy is preserved between time and frequency domains:</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty} |x(t)|^2\,dt
+= \frac{1}{2\pi}\int_{-\infty}^{\infty} |X(j\omega)|^2\,d\omega
+$$</div>
+<p>This is useful for energy calculations and spectral interpretation.</p>
+<h2 id="common-transforms">Common transforms</h2>
+<table><thead><tr><th>Signal</th><th>Fourier transform</th></tr></thead><tbody><tr><td>$\delta(t)$</td><td>$1$</td></tr><tr><td>$u(t)$</td><td>$\pi\delta(\omega) + \frac{1}{j\omega}$ in distribution sense</td></tr><tr><td>$e^{-at}u(t),\ a&gt;0$</td><td>$\frac{1}{a+j\omega}$</td></tr><tr><td>Rectangular pulse</td><td>Sinc-shaped spectrum</td></tr></tbody></table>
+<hr />
+<h1 id="laplace-transform">Laplace transform</h1>
+<p>The Laplace transform is the main tool for continuous-time linear systems with initial conditions.</p>
+<h2 id="definition">Definition</h2>
+<div class="math-block">$$
+X(s) = \int_{-\infty}^{\infty} x(t)e^{-st}\,dt
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+s = \sigma + j\omega
+$$</div>
+<p>The unilateral Laplace transform, used heavily in engineering, is</p>
+<div class="math-block">$$
+X(s) = \int_0^\infty x(t)e^{-st}\,dt
+$$</div>
+<h2 id="why-use-laplace-transforms">Why use Laplace transforms</h2>
+<ul><li><p>Turns differential equations into algebraic equations</p></li><li><p>Handles initial conditions naturally</p></li><li><p>Provides a pole-zero view of system behavior</p></li></ul>
+<h2 id="transfer-function">Transfer function</h2>
+<p>For an LTI system with zero initial conditions:</p>
+<div class="math-block">$$
+H(s) = \frac{Y(s)}{X(s)}
+$$</div>
+<p>For rational systems,</p>
+<div class="math-block">$$
+H(s) = \frac{N(s)}{D(s)}
+$$</div>
+<p>Poles are roots of $D(s)$ and zeros are roots of $N(s)$.</p>
+<h2 id="stability-and-causality-in-the-s-plane">Stability and causality in the $s$-plane</h2>
+<p>For a causal continuous-time LTI system:</p>
+<ul><li><p>Causality generally requires the ROC to be to the right of the rightmost pole.</p></li><li><p>Stability requires the ROC to include the $j\omega$ axis.</p></li></ul>
+<p>For rational causal systems, stability typically means all poles lie in the left-half plane.</p>
+<h2 id="solving-differential-equations">Solving differential equations</h2>
+<p>Example:</p>
+<div class="math-block">$$
+\frac{dy(t)}{dt} + ay(t) = x(t)
+$$</div>
+<p>Taking the Laplace transform with zero initial conditions:</p>
+<div class="math-block">$$
+sY(s) + aY(s) = X(s)
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+H(s) = \frac{Y(s)}{X(s)} = \frac{1}{s+a}
+$$</div>
+<h2 id="partial-fractions-and-inverse-transform">Partial fractions and inverse transform</h2>
+<p>Workflow:</p>
+<ol><li><p>Compute $Y(s) = H(s)X(s)$.</p></li><li><p>Factor the denominator.</p></li><li><p>Use partial fractions.</p></li><li><p>Match each term to a known inverse transform.</p></li></ol>
+<p>This is the standard route for transient response problems.</p>
+<hr />
+<h1 id="z-transform-and-discrete-time-analysis">Z-transform and discrete-time analysis</h1>
+<p>The Z-transform is the discrete-time counterpart of the Laplace transform.</p>
+<h2 id="definition-2">Definition</h2>
+<div class="math-block">$$
+X(z) = \sum_{n=-\infty}^{\infty} x[n]z^{-n}
+$$</div>
+<p>The unilateral form is</p>
+<div class="math-block">$$
+X(z) = \sum_{n=0}^{\infty} x[n]z^{-n}
+$$</div>
+<h2 id="transfer-function-2">Transfer function</h2>
+<p>For a discrete-time LTI system:</p>
+<div class="math-block">$$
+H(z) = \frac{Y(z)}{X(z)}
+$$</div>
+<h2 id="difference-equations">Difference equations</h2>
+<p>Example:</p>
+<div class="math-block">$$
+y[n] - ay[n-1] = x[n]
+$$</div>
+<p>Taking the Z-transform with zero initial conditions gives:</p>
+<div class="math-block">$$
+Y(z)(1 - az^{-1}) = X(z)
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+H(z) = \frac{1}{1 - az^{-1}}
+$$</div>
+<h2 id="stability-and-causality-in-the-z-plane">Stability and causality in the $z$-plane</h2>
+<p>For a causal discrete-time LTI system:</p>
+<ul><li><p>The ROC is outside the outermost pole.</p></li><li><p>Stability requires the unit circle $|z| = 1$ to lie in the ROC.</p></li></ul>
+<p>For rational causal systems, stability typically means all poles lie inside the unit circle.</p>
+<h2 id="relationship-to-fourier-analysis">Relationship to Fourier analysis</h2>
+<p>If the unit circle is in the ROC, then the frequency response is found by evaluating:</p>
+<div class="math-block">$$
+H(e^{j\omega}) = H(z)\big|_{z=e^{j\omega}}
+$$</div>
+<p>This connects the Z-transform to steady-state sinusoidal behavior.</p>
+<hr />
+<h1 id="sampling-and-reconstruction">Sampling and reconstruction</h1>
+<p>Sampling converts a continuous-time signal into a discrete-time signal:</p>
+<div class="math-block">$$
+x[n] = x(nT_s)
+$$</div>
+<p>where $T_s$ is the sampling period and</p>
+<div class="math-block">$$
+f_s = \frac{1}{T_s}
+$$</div>
+<p>is the sampling frequency.</p>
+<h2 id="nyquist-criterion">Nyquist criterion</h2>
+<p>To avoid aliasing for a band-limited signal with maximum frequency $f_{max}$:</p>
+<div class="math-block">$$
+f_s &gt; 2f_{max}
+$$</div>
+<p>The quantity $2f_{max}$ is the Nyquist rate.</p>
+<h2 id="aliasing">Aliasing</h2>
+<p>If sampling is too slow, high-frequency components fold into lower frequencies and distort the spectrum.</p>
+<p>Common fixes:</p>
+<ul><li><p>Increase sampling rate</p></li><li><p>Use an anti-aliasing low-pass filter before sampling</p></li></ul>
+<h2 id="reconstruction">Reconstruction</h2>
+<p>Ideal reconstruction uses sinc interpolation:</p>
+<div class="math-block">$$
+x(t) = \sum_{n=-\infty}^{\infty} x[n]\operatorname{sinc}\left(\frac{t-nT_s}{T_s}\right)
+$$</div>
+<p>This is idealized but useful for theory.</p>
+<hr />
+<h1 id="state-space-viewpoint">State-space viewpoint</h1>
+<p>State-space models represent systems using first-order vector equations.</p>
+<h2 id="continuous-time-form">Continuous-time form</h2>
+<div class="math-block">$$
+\dot{\mathbf{x}}(t) = A\mathbf{x}(t) + B\mathbf{u}(t)
+$$</div>
+<div class="math-block">$$
+\mathbf{y}(t) = C\mathbf{x}(t) + D\mathbf{u}(t)
+$$</div>
+<h2 id="discrete-time-form">Discrete-time form</h2>
+<div class="math-block">$$
+\mathbf{x}[n+1] = A\mathbf{x}[n] + B\mathbf{u}[n]
+$$</div>
+<div class="math-block">$$
+\mathbf{y}[n] = C\mathbf{x}[n] + D\mathbf{u}[n]
+$$</div>
+<h2 id="why-state-space-is-useful">Why state-space is useful</h2>
+<ul><li><p>Handles multiple inputs and outputs</p></li><li><p>Models internal dynamics directly</p></li><li><p>Supports modern control and estimation</p></li></ul>
+<h2 id="connection-to-transfer-functions">Connection to transfer functions</h2>
+<p>For zero initial conditions:</p>
+<div class="math-block">$$
+H(s) = C(sI - A)^{-1}B + D
+$$</div>
+<p>and similarly in discrete time,</p>
+<div class="math-block">$$
+H(z) = C(zI - A)^{-1}B + D
+$$</div>
+<p>State-space and transfer-function descriptions are equivalent for linear systems, but each is more convenient in different contexts.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<h2 id="decide-the-domain-first">Decide the domain first</h2>
+<p>Ask:</p>
+<ul><li><p>Is the system continuous or discrete?</p></li><li><p>Is the analysis time-domain or frequency-domain?</p></li><li><p>Are initial conditions given?</p></li><li><p>Is the input periodic, impulsive, sinusoidal, or arbitrary?</p></li></ul>
+<p>This decides whether to use convolution, Fourier, Laplace, or Z-transform methods.</p>
+<h2 id="standard-workflow-for-lti-problems">Standard workflow for LTI problems</h2>
+<ol><li><p>Identify whether the system is linear and time invariant.</p></li><li><p>Write the model as a differential equation, difference equation, or impulse response.</p></li><li><p>Choose the best domain:</p>
+<ul><li><p>Convolution for direct time-domain output</p></li><li><p>Fourier for steady-state frequency behavior</p></li><li><p>Laplace or Z-transform for transients and initial conditions</p></li></ul></li><li><p>Solve algebraically if possible.</p></li><li><p>Check stability, causality, and physical units.</p></li></ol>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Confusing time shift with time reversal</p></li><li><p>Forgetting that convolution reverses one signal</p></li><li><p>Treating $H(s)$ or $H(z)$ as the same thing as a Fourier transform without checking the ROC</p></li><li><p>Ignoring initial conditions in differential equations</p></li><li><p>Mixing continuous-time frequency $\omega$ with discrete-time frequency $\omega$ without noting units</p></li><li><p>Using the wrong sign convention in the complex exponential</p></li></ul>
+<h2 id="sanity-checks">Sanity checks</h2>
+<ul><li><p>Does the answer have the correct units?</p></li><li><p>Does the output remain bounded for a bounded input when the system is stable?</p></li><li><p>Does a shift in the input produce the same shift in the output for an LTI system?</p></li><li><p>Does the result reduce correctly for a simple test case such as a unit impulse or constant input?</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="core-definitions">Core definitions</h2>
+<div class="math-block">$$
+y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)\,d\tau
+$$</div>
+<div class="math-block">$$
+y[n] = (x * h)[n] = \sum_{k=-\infty}^{\infty} x[k]h[n-k]
+$$</div>
+<div class="math-block">$$
+H(j\omega) = \int_{-\infty}^{\infty} h(t)e^{-j\omega t}\,dt
+$$</div>
+<div class="math-block">$$
+H(s) = \frac{Y(s)}{X(s)}
+$$</div>
+<div class="math-block">$$
+H(z) = \frac{Y(z)}{X(z)}
+$$</div>
+<h2 id="fourier-transform-pair">Fourier transform pair</h2>
+<div class="math-block">$$
+X(j\omega) = \int_{-\infty}^{\infty} x(t)e^{-j\omega t}\,dt
+$$</div>
+<div class="math-block">$$
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} X(j\omega)e^{j\omega t}\,d\omega
+$$</div>
+<h2 id="laplace-transform-pair">Laplace transform pair</h2>
+<div class="math-block">$$
+X(s) = \int_0^\infty x(t)e^{-st}\,dt
+$$</div>
+<h2 id="z-transform-pair">Z-transform pair</h2>
+<div class="math-block">$$
+X(z) = \sum_{n=0}^{\infty} x[n]z^{-n}
+$$</div>
+<h2 id="stability-rules-of-thumb">Stability rules of thumb</h2>
+<ul><li><p>Continuous-time causal rational system: stable if all poles are in the left-half plane.</p></li><li><p>Discrete-time causal rational system: stable if all poles are inside the unit circle.</p></li></ul>
+<h2 id="sampling-rule">Sampling rule</h2>
+<div class="math-block">$$
+f_s &gt; 2f_{max}
+$$</div>
+<hr />
+<h2 id="compact-intuition">Compact intuition</h2>
+<p>The subject is built around one idea:</p>
+<blockquote><p>An LTI system is fully described by its impulse response, and every other analysis tool is a different way of exploiting that description.</p></blockquote>
+<p>If you can move comfortably between the time domain, frequency domain, and transform domain, most signal-analysis problems become routine.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="signals-systems-and-core-models">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Signals, systems, and core models">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#signals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="signals-systems-and-core-models">Signals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="signals-systems-and-core-models">Systems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="basic-signal-operations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Basic signal operations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-shifting" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="basic-signal-operations">Time shifting</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-scaling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="basic-signal-operations">Time scaling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-reversal" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="basic-signal-operations">Time reversal</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#amplitude-scaling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="basic-signal-operations">Amplitude scaling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#decomposition-into-even-and-odd-parts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="basic-signal-operations">Decomposition into even and odd parts</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="system-properties" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for System properties">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linearity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Linearity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-invariance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Time invariance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#causality" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Causality</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Stability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#memory" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Memory</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#invertibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="system-properties">Invertibility</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="linear-time-invariant-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Linear time-invariant systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#impulse-response" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-time-invariant-systems">Impulse response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-lti-systems-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-time-invariant-systems">Why LTI systems matter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#differential-and-difference-equation-models" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-time-invariant-systems">Differential and difference equation models</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="convolution" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Convolution">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuous-time-convolution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Continuous-time convolution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#discrete-time-convolution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Discrete-time convolution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graphical-convolution-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Graphical convolution workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-properties-of-convolution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Key properties of convolution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#physical-meaning" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Physical meaning</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-moving-average-filter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convolution">Example: moving average filter</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="frequency-response-and-steady-state-sinusoidal-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Frequency response and steady-state sinusoidal analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sinusoids-as-test-signals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frequency-response-and-steady-state-sinusoidal-analysis">Sinusoids as test signals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#frequency-response" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frequency-response-and-steady-state-sinusoidal-analysis">Frequency response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#amplitude-and-phase-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frequency-response-and-steady-state-sinusoidal-analysis">Amplitude and phase interpretation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bode-plots" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frequency-response-and-steady-state-sinusoidal-analysis">Bode plots</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#poles-and-zeros" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frequency-response-and-steady-state-sinusoidal-analysis">Poles and zeros</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="fourier-series-and-fourier-transform" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Fourier series and Fourier transform">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fourier-series-for-periodic-signals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Fourier series for periodic signals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#symmetry-shortcuts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Symmetry shortcuts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fourier-transform-for-aperiodic-signals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Fourier transform for aperiodic signals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#important-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Important properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#parsevals-relation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Parseval&#39;s relation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-transforms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="fourier-series-and-fourier-transform">Common transforms</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="laplace-transform" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Laplace transform">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Definition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-use-laplace-transforms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Why use Laplace transforms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#transfer-function" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Transfer function</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability-and-causality-in-the-s-plane" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Stability and causality in the $s$-plane</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solving-differential-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Solving differential equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#partial-fractions-and-inverse-transform" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplace-transform">Partial fractions and inverse transform</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="z-transform-and-discrete-time-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Z-transform and discrete-time analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definition-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="z-transform-and-discrete-time-analysis">Definition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#transfer-function-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="z-transform-and-discrete-time-analysis">Transfer function</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#difference-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="z-transform-and-discrete-time-analysis">Difference equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability-and-causality-in-the-z-plane" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="z-transform-and-discrete-time-analysis">Stability and causality in the $z$-plane</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relationship-to-fourier-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="z-transform-and-discrete-time-analysis">Relationship to Fourier analysis</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="sampling-and-reconstruction" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Sampling and reconstruction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nyquist-criterion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sampling-and-reconstruction">Nyquist criterion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#aliasing" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sampling-and-reconstruction">Aliasing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reconstruction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sampling-and-reconstruction">Reconstruction</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="state-space-viewpoint" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for State-space viewpoint">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuous-time-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-space-viewpoint">Continuous-time form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#discrete-time-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-space-viewpoint">Discrete-time form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-state-space-is-useful" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-space-viewpoint">Why state-space is useful</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#connection-to-transfer-functions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-space-viewpoint">Connection to transfer functions</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#decide-the-domain-first" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Decide the domain first</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-workflow-for-lti-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Standard workflow for LTI problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Sanity checks</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Core definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fourier-transform-pair" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Fourier transform pair</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#laplace-transform-pair" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Laplace transform pair</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#z-transform-pair" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Z-transform pair</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability-rules-of-thumb" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Stability rules of thumb</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sampling-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sampling rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compact-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Compact intuition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

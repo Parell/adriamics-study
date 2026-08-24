@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Structural Analysis | Adriamics Study</title>
+  <meta name="description" content="Structural analysis predicts the forces, reactions, displacements, and internal actions in a structure. The central distinction is between what equilibrium c..." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/structural-analysis/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#assumptions-and-notation" data-notes-nav-item data-notes-toc-link>Assumptions and notation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-and-determinacy" data-notes-nav-item data-notes-toc-link>Equilibrium and determinacy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compatibility-and-constitutive-behavior" data-notes-nav-item data-notes-toc-link>Compatibility and constitutive behavior</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#force-or-flexibility-method" data-notes-nav-item data-notes-toc-link>Force or flexibility method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-methods" data-notes-nav-item data-notes-toc-link>Energy methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stiffness-method" data-notes-nav-item data-notes-toc-link>Stiffness method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-propped-cantilever" data-notes-nav-item data-notes-toc-link>Worked example: propped cantilever</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-solution-workflow" data-notes-nav-item data-notes-toc-link>Practical solution workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#summary-checklist" data-notes-nav-item data-notes-toc-link>Summary checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Structural Analysis</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/structural-analysis/structural-analysis.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fstructural-analysis%2Fstructural-analysis.md&amp;title=%5BContribute%5D%3A%20Structural%20Analysis" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="7"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/beam-deflection/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/beam-deflection/" data-notes-nav-item>Beam Deflection</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="8"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/structural-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <p>Structural analysis predicts the forces, reactions, displacements, and internal actions in a structure. The central distinction is between what equilibrium can determine and what requires deformation information. A structure is <strong>statically determinate</strong> when equilibrium alone is sufficient. It is <strong>statically indeterminate</strong> when additional equations based on compatibility and constitutive behavior are required.</p>
+<p>The main solution families are:</p>
+<ul><li><p><strong>Force methods:</strong> choose redundant reactions or internal forces as unknowns, then enforce compatibility.</p></li><li><p><strong>Stiffness methods:</strong> choose nodal displacements as unknowns, relate them to forces with stiffness equations, and assemble the system.</p></li><li><p><strong>Energy methods:</strong> calculate a displacement or rotation from strain energy or virtual work.</p></li></ul>
+<p>These methods describe the same linear-elastic structure in different coordinates. A good analyst chooses the representation that makes the unknowns, boundary conditions, and checks clearest.</p>
+<h2 id="assumptions-and-notation">Assumptions and notation</h2>
+<p>This note uses small-displacement, linear-elastic structural models. Let $\mathbf u$ be the vector of unknown displacements, $\mathbf f$ the applied nodal-load vector, and $\mathbf r$ the support-reaction vector. For a beam or frame, $E$ is Young&#39;s modulus, $A$ is area, $I$ is the second moment of area, and $L$ is member length.</p>
+<p>The model may assume:</p>
+<ul><li><p>supports and connections behave as ideal pins, rollers, or fixed ends;</p></li><li><p>geometry and loads are known;</p></li><li><p>material properties are constant over each member;</p></li><li><p>deformation is small enough that the original geometry is adequate;</p></li><li><p>superposition is valid;</p></li><li><p>loads are applied slowly enough that inertia can be neglected.</p></li></ul>
+<p>State these assumptions before solving. A numerically precise answer from a poor idealization is not a reliable structural result.</p>
+<h2 id="equilibrium-and-determinacy">Equilibrium and determinacy</h2>
+<p>For a planar rigid body,</p>
+<div class="math-block">$$
+\sum F_x=0,\qquad \sum F_y=0,\qquad \sum M_z=0.
+$$</div>
+<p>These equations enforce global equilibrium. A free-body diagram must show every external load and every unknown reaction, with a sign convention and dimensions.</p>
+<p>For a simple planar structure, compare the number of independent unknown reaction components with the number of independent equilibrium equations. This count is a first diagnostic, not a complete test: internal releases, mechanisms, redundant members, and three-dimensional constraints can change the result.</p>
+<p>If there are more unknowns than equilibrium equations, define the degree of static indeterminacy as the excess number, subject to the structure being stable. If there are too few effective constraints, the structure is a mechanism and has no unique static solution. A stable indeterminate structure needs compatibility equations in addition to equilibrium.</p>
+<p>For a member cut, the internal actions commonly include axial force $N$, shear force $V$, and bending moment $M$. Equilibrium determines these actions for a determinate structure. Deformation relationships then connect the actions to displacement:</p>
+<div class="math-block">$$
+\varepsilon=\frac{N}{EA},\qquad
+\kappa=\frac{M}{EI},\qquad
+\gamma\ \text{(if shear deformation is modeled)}.
+$$</div>
+<h2 id="compatibility-and-constitutive-behavior">Compatibility and constitutive behavior</h2>
+<p>Compatibility means that connected parts fit together after deformation. Typical conditions are:</p>
+<ul><li><p>a fixed support has zero displacement and rotation;</p></li><li><p>a pin permits rotation but imposes the appropriate translational constraints;</p></li><li><p>connected members share the displacement of their joint;</p></li><li><p>a rigid link preserves the specified distance or relative rotation;</p></li><li><p>a support settlement imposes a known, rather than zero, displacement.</p></li></ul>
+<p>Equilibrium tells how forces balance. Compatibility tells how displacements agree. The constitutive law connects them. For an axial prismatic member,</p>
+<div class="math-block">$$
+\delta=\frac{NL}{EA}.
+$$</div>
+<p>For bending, Euler--Bernoulli beam theory gives</p>
+<div class="math-block">$$
+EI\frac{d^2v}{dx^2}=M(x),
+$$</div>
+<p>with the sign determined by the chosen convention. The boundary conditions on $v$ and $dv/dx$ provide the compatibility information needed after integrating.</p>
+<p>A support settlement, temperature change, or fabrication error can create reactions in an indeterminate structure even with no external load. Compatibility must include the imposed deformation rather than automatically setting total displacement to zero.</p>
+<h2 id="force-or-flexibility-method">Force or flexibility method</h2>
+<p>The force method uses equilibrium to express the structure in terms of selected redundants. Remove each redundant to create a primary determinate structure. Apply the real loads and unit values of the redundants, then enforce the original displacement conditions.</p>
+<p>For one redundant $X$ and a compatibility condition $\Delta=\Delta_0$,</p>
+<div class="math-block">$$
+\Delta_{load}+fX=\Delta_0,
+$$</div>
+<p>where $f$ is the flexibility coefficient: the displacement in the redundant&#39;s direction caused by a unit redundant. Therefore,</p>
+<div class="math-block">$$
+X=\frac{\Delta_0-\Delta_{load}}{f}.
+$$</div>
+<p>For multiple redundants,</p>
+<div class="math-block">$$
+\begin{bmatrix}\Delta_1\\\Delta_2\\\vdots\end{bmatrix}
+=
+\begin{bmatrix}f_{11}&amp;f_{12}&amp;\cdots\\f_{21}&amp;f_{22}&amp;\cdots\\\vdots&amp;\vdots&amp;\ddots\end{bmatrix}
+\begin{bmatrix}X_1\\X_2\\\vdots\end{bmatrix}
++\begin{bmatrix}\Delta_{1,load}\\\Delta_{2,load}\\\vdots\end{bmatrix}.
+$$</div>
+<p>The flexibility matrix is symmetric for a linear elastic conservative structure: $f_{ij}=f_{ji}$. This is a useful check on a hand calculation.</p>
+<p>For a beam, the unit-load method evaluates a displacement directly:</p>
+<div class="math-block">$$
+\Delta=\int_0^L\frac{M(x)m(x)}{EI}\,dx,
+$$</div>
+<p>where $M$ is the moment diagram from the real load and $m$ is the diagram from a unit force or unit moment in the desired direction. Include axial and torsional terms when they are significant.</p>
+<h2 id="energy-methods">Energy methods</h2>
+<p>For a linearly elastic member, the strain energy is the work stored in deformation. Common contributions are</p>
+<div class="math-block">$$
+U=\int\frac{N^2}{2EA}\,dx
++\int\frac{M^2}{2EI}\,dx
++\int\frac{T^2}{2GJ}\,dx
++\int\frac{V^2}{2kGA}\,dx.
+$$</div>
+<p>The terms are axial, bending, torsional, and shear energy. For slender beams, bending usually dominates; for short deep beams, shear may matter.</p>
+<p>Castigliano&#39;s theorem gives the displacement in the direction of a load $P_i$:</p>
+<div class="math-block">$$
+\delta_i=\frac{\partial U}{\partial P_i}.
+$$</div>
+<p>If a desired displacement has no existing load, introduce a dummy load $Q$ in that direction and evaluate</p>
+<div class="math-block">$$
+\delta=\left.\frac{\partial U}{\partial Q}\right|_{Q=0}.
+$$</div>
+<p>The unit-load method and Castigliano&#39;s theorem are closely related. Use the unit-load form for a single displacement with convenient moment diagrams; use energy differentiation when the stored-energy expression is already simple.</p>
+<h2 id="stiffness-method">Stiffness method</h2>
+<p>The stiffness method makes displacements the primary unknowns. For a linear structure,</p>
+<div class="math-block">$$
+\mathbf K\mathbf u=\mathbf f,
+$$</div>
+<p>where $\mathbf K$ is the global stiffness matrix. A member&#39;s local stiffness matrix relates its end forces to end displacements. For a two-node axial member aligned with its local axis,</p>
+<div class="math-block">$$
+\mathbf k_e=\frac{EA}{L}
+\begin{bmatrix}1&amp;-1\\-1&amp;1\end{bmatrix}.
+$$</div>
+<p>For a frame or beam, each node may have transverse displacement and rotation, so the element matrix has additional degrees of freedom. Transform local matrices into global coordinates, place each term into the rows and columns associated with the member&#39;s global degrees of freedom, and sum contributions at shared nodes.</p>
+<p>Apply prescribed supports by eliminating constrained degrees of freedom, partitioning the equations, or using a carefully controlled constraint method. After solving free displacements, recover reactions from</p>
+<div class="math-block">$$
+\mathbf r=\mathbf K\mathbf u-\mathbf f
+$$</div>
+<p>at constrained degrees of freedom. Check equilibrium, boundary conditions, symmetry, and limiting cases.</p>
+<p>The stiffness matrix is usually symmetric for a linear elastic structure without nonconservative effects. A singular matrix often indicates an unconstrained rigid-body mode or mechanism. An unexpectedly ill-conditioned matrix can indicate poor units, extreme stiffness ratios, or an inadequate model.</p>
+<h2 id="worked-example-propped-cantilever">Worked example: propped cantilever</h2>
+<p>A prismatic cantilever of length $L$ and constant $EI$ is fixed at $A$ and supported vertically by a prop at its free end $B$. A downward force $P$ is applied at $B$. The vertical reaction at $B$, call it $R_B$, is one redundant because equilibrium alone cannot determine all reactions.</p>
+<p>Remove the prop. The primary structure is a cantilever. Take upward displacement as positive. The end-load deflection from $P$ is</p>
+<div class="math-block">$$
+\delta_P=-\frac{PL^3}{3EI}.
+$$</div>
+<p>The upward redundant $R_B$ produces</p>
+<div class="math-block">$$
+\delta_R=+\frac{R_BL^3}{3EI}.
+$$</div>
+<p>Compatibility at the prop requires zero net vertical displacement:</p>
+<div class="math-block">$$
+\delta_P+\delta_R=0.
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+-\frac{PL^3}{3EI}+\frac{R_BL^3}{3EI}=0
+\quad\Longrightarrow\quad
+R_B=P.
+$$</div>
+<p>Vertical equilibrium then gives $A_y=P-R_B=0$. Moment equilibrium about $A$ gives the fixed-end reaction moment $M_A=0$ for this particular load arrangement. The result is physically reasonable: the prop carries the applied end force, leaving no net force or moment to be carried at the fixed end in the ideal model. The support still prevents translation and rotation, but its reactions happen to be zero for this loading.</p>
+<p>This example also illustrates a danger: a reaction can be zero under one load case and become nonzero under another. Never infer support irrelevance from one result.</p>
+<h2 id="practical-solution-workflow">Practical solution workflow</h2>
+<ol><li><p>Define geometry, material, loads, supports, releases, and the response of interest.</p></li><li><p>Draw a complete free-body diagram and count unknowns, equations, and possible mechanisms.</p></li><li><p>Select a sign convention and keep it through equilibrium, compatibility, and deformation equations.</p></li><li><p>Choose redundants for a force method or degrees of freedom for a stiffness method.</p></li><li><p>Write compatibility conditions, including settlements, temperature effects, and rigid-link constraints.</p></li><li><p>Solve symbolically as far as useful, then substitute values with consistent units.</p></li><li><p>Recover reactions and internal actions, then check equilibrium and boundary conditions.</p></li><li><p>Check strength, serviceability, stability, sensitivity to stiffness, and whether the assumptions remain valid.</p></li></ol>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Calling a structure indeterminate without checking whether it is stable.</p></li><li><p>Trying to solve redundant reactions from equilibrium alone.</p></li><li><p>Removing a redundant but forgetting to restore its compatibility condition.</p></li><li><p>Using a force method when the chosen primary structure is itself unstable.</p></li><li><p>Mixing displacement signs between the real-load and unit-load cases.</p></li><li><p>Applying $M/EI$ bending energy to a member where shear deformation dominates.</p></li><li><p>Constraining a stiffness-model degree of freedom twice or failing to constrain a rigid-body mode.</p></li><li><p>Treating support settlement as a load when it is actually a prescribed displacement.</p></li><li><p>Using an unverified numerical result without checking reactions and residual equilibrium.</p></li></ul>
+<h2 id="practice-problems">Practice problems</h2>
+<h3 id="problem-1-classify-the-model">Problem 1: classify the model</h3>
+<p>A planar beam has four independent reaction components and only three independent rigid-body equilibrium equations. It is stable. What additional kind of relation is required?</p>
+<p><strong>Solution.</strong></p>
+<p>The beam is statically indeterminate to degree one. One compatibility relation, together with a constitutive deformation relation such as $EI v&#39;&#39;=M$, is required.</p>
+<h3 id="problem-2-axial-compatibility">Problem 2: axial compatibility</h3>
+<p>Two identical axial bars, each with stiffness $k=EA/L$, support a rigid plate carrying a centered load $P$. The geometry is symmetric and the plate remains level. Find the force in each bar.</p>
+<p><strong>Solution.</strong></p>
+<p>Compatibility requires equal bar extensions and therefore equal forces, $N_1=N_2$. Equilibrium gives $N_1+N_2=P$, so</p>
+<div class="math-block">$$
+N_1=N_2=\frac{P}{2}.
+$$</div>
+<p>The displacement is $\delta=P/(2k)$.</p>
+<h3 id="problem-3-unit-load-displacement">Problem 3: unit-load displacement</h3>
+<p>For a beam, the real-load moment is $M(x)=P(L-x)$ and the unit-load moment for a free-end displacement is $m(x)=L-x$. Find the displacement using the unit-load method for constant $EI$.</p>
+<p><strong>Solution.</strong></p>
+<div class="math-block">$$
+\delta=\int_0^L\frac{P(L-x)^2}{EI}\,dx
+ =\frac{P}{EI}\left[\frac{(L-x)^3}{-3}\right]_0^L
+ =\frac{PL^3}{3EI}.
+$$</div>
+<p>This is the familiar cantilever end-load deflection.</p>
+<h3 id="problem-4-stiffness-interpretation">Problem 4: stiffness interpretation</h3>
+<p>A solved stiffness model has a nearly singular global matrix. Give two likely causes and one check for each.</p>
+<p><strong>Solution.</strong></p>
+<p>The model may contain an unconstrained rigid-body mode; inspect the supports and animate or inspect the corresponding eigenvector. It may also have inconsistent units or extreme stiffness ratios; audit units and compare the matrix diagonal magnitudes. A mechanism or duplicate constraint should also be checked.</p>
+<h2 id="summary-checklist">Summary checklist</h2>
+<ul><li><p>Equilibrium balances forces and moments.</p></li><li><p>Compatibility makes connected deformations fit.</p></li><li><p>Constitutive laws relate force resultants to deformation.</p></li><li><p>Force methods solve for redundant forces.</p></li><li><p>Stiffness methods solve for displacements through $\mathbf K\mathbf u=\mathbf f$.</p></li><li><p>Energy and unit-load methods find selected displacements efficiently.</p></li><li><p>Every final result needs equilibrium, compatibility, units, and physical-reasonableness checks.</p></li></ul>
+<p>Structural analysis is therefore a modeling discipline as much as an algebraic one: identify the constraints, choose the unknowns that expose them, and use independent checks before trusting the result.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Structural Analysis</em></p></li><li><p>Gere and Goodno, <em>Mechanics of Materials</em></p></li><li><p>Kassimali, <em>Structural Analysis</em></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="practice-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Practice problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-1-classify-the-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 1: classify the model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-2-axial-compatibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 2: axial compatibility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-3-unit-load-displacement" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 3: unit-load displacement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-4-stiffness-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 4: stiffness interpretation</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algebra | Adriamics Study</title>
+  <meta name="description" content="An expression is a combination of numbers, variables, and operations, but without an equals sign." />
+  <link rel="canonical" href="https://adriamics.com/study/math/algebra/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/algebra/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#expressions-and-algebraic-manipulation" data-notes-nav-item data-notes-toc-link>Expressions and algebraic manipulation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-equations-and-inequalities" data-notes-nav-item data-notes-toc-link>Linear equations and inequalities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#systems-of-equations" data-notes-nav-item data-notes-toc-link>Systems of equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponents-radicals-and-powers" data-notes-nav-item data-notes-toc-link>Exponents, radicals, and powers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#polynomials-and-factoring" data-notes-nav-item data-notes-toc-link>Polynomials and factoring</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rational-expressions" data-notes-nav-item data-notes-toc-link>Rational expressions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quadratic-equations-and-parabolas" data-notes-nav-item data-notes-toc-link>Quadratic equations and parabolas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solution-techniques-for-function-equations" data-notes-nav-item data-notes-toc-link>Solution techniques for function equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-toc-link>Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Algebra</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/algebra/algebra.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Falgebra%2Falgebra.md&amp;title=%5BContribute%5D%3A%20Algebra" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="1"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="expressions-and-algebraic-manipulation">Expressions and algebraic manipulation</h1>
+<p>An <strong>expression</strong> is a combination of numbers, variables, and operations, but without an equals sign.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+3x^2 - 5x + 2
+$$</div>
+<div class="math-block">$$
+\frac{2a - 1}{a + 4}
+$$</div>
+<h2 id="like-terms">Like terms</h2>
+<p>Only like terms can be combined.</p>
+<div class="math-block">$$
+4x + 7x = 11x
+$$</div>
+<p>but</p>
+<div class="math-block">$$
+4x + 7x^2
+$$</div>
+<p>cannot be simplified by combining coefficients.</p>
+<h2 id="distributing-and-factoring">Distributing and factoring</h2>
+<p>Distributing expands an expression:</p>
+<div class="math-block">$$
+3(x - 4) = 3x - 12
+$$</div>
+<p>Factoring reverses the process:</p>
+<div class="math-block">$$
+3x - 12 = 3(x - 4)
+$$</div>
+<h2 id="fractions-in-algebra">Fractions in algebra</h2>
+<p>To add algebraic fractions, use a common denominator:</p>
+<div class="math-block">$$
+\frac{1}{x} + \frac{1}{x + 1}
+= \frac{x + 1 + x}{x(x + 1)}
+= \frac{2x + 1}{x(x + 1)}
+$$</div>
+<p>Restrictions matter. In the example above:</p>
+<div class="math-block">$$
+x \ne 0, \quad x \ne -1
+$$</div>
+<h2 id="identities">Identities</h2>
+<p>An <strong>identity</strong> is true for all allowed values of the variable.</p>
+<aside class="callout callout--example"><div class="callout__heading"><span class="callout__label">Example</span><span class="callout__title">Squaring a binomial</span></div><div class="callout__body"><div class="math-block">$$
+(a+b)^2 = a^2 + 2ab + b^2
+$$</div>
+<p>This is not an equation to solve; it is a pattern to use.</p></div></aside>
+<hr />
+<h1 id="linear-equations-and-inequalities">Linear equations and inequalities</h1>
+<p>A <strong>linear equation</strong> has variables only to the first power.</p>
+<h2 id="one-variable-linear-equations">One-variable linear equations</h2>
+<p>Example:</p>
+<div class="math-block">$$
+5x - 7 = 18
+$$</div>
+<p>Solve by isolating the variable:</p>
+<div class="math-block">$$
+5x = 25
+$$</div>
+<div class="math-block">$$
+x = 5
+$$</div>
+<p>The same operation must be done to both sides to preserve equality.</p>
+<h2 id="equations-with-variables-on-both-sides">Equations with variables on both sides</h2>
+<p>Example:</p>
+<div class="math-block">$$
+4x + 9 = 2x + 15
+$$</div>
+<p>Move variable terms together:</p>
+<div class="math-block">$$
+2x + 9 = 15
+$$</div>
+<div class="math-block">$$
+2x = 6
+$$</div>
+<div class="math-block">$$
+x = 3
+$$</div>
+<h2 id="literal-equations">Literal equations</h2>
+<p>Sometimes the goal is to solve for one variable in terms of others.</p>
+<p>Example:</p>
+<div class="math-block">$$
+A = \frac{1}{2}bh
+$$</div>
+<p>Solve for $h$:</p>
+<div class="math-block">$$
+2A = bh
+$$</div>
+<div class="math-block">$$
+h = \frac{2A}{b}
+$$</div>
+<h2 id="inequalities">Inequalities</h2>
+<p>Solve inequalities much like equations, except for one crucial rule:</p>
+<p>If you multiply or divide by a negative number, reverse the inequality sign.</p>
+<p>Example:</p>
+<div class="math-block">$$
+-2x &gt; 8
+$$</div>
+<p>Divide by $-2$ and reverse the sign:</p>
+<div class="math-block">$$
+x &lt; -4
+$$</div>
+<h2 id="interval-notation">Interval notation</h2>
+<table><thead><tr><th>Inequality</th><th>Interval</th></tr></thead><tbody><tr><td>$x \ge 3$</td><td>$[3, \infty)$</td></tr><tr><td>$x &lt; 2$</td><td>$(-\infty, 2)$</td></tr><tr><td>$-1 &lt; x \le 4$</td><td>$(-1, 4]$</td></tr></tbody></table>
+<hr />
+<h1 id="systems-of-equations">Systems of equations</h1>
+<p>A system asks for values that satisfy multiple equations at once.</p>
+<h2 id="two-linear-equations-in-two-variables">Two linear equations in two variables</h2>
+<p>General form:</p>
+<div class="math-block">$$
+\begin{cases}
+a_1x + b_1y = c_1 \\
+a_2x + b_2y = c_2
+\end{cases}
+$$</div>
+<h2 id="main-methods">Main methods</h2>
+<table><thead><tr><th>Method</th><th>Best use</th></tr></thead><tbody><tr><td>Substitution</td><td>One variable is easy to isolate</td></tr><tr><td>Elimination</td><td>Coefficients line up well</td></tr><tr><td>Graphing</td><td>Visual interpretation is useful</td></tr></tbody></table>
+<h2 id="example-elimination">Example: elimination</h2>
+<div class="math-block">$$
+\begin{cases}
+2x + y = 7 \\
+3x - y = 8
+\end{cases}
+$$</div>
+<p>Add the equations:</p>
+<div class="math-block">$$
+5x = 15
+$$</div>
+<div class="math-block">$$
+x = 3
+$$</div>
+<p>Substitute back:</p>
+<div class="math-block">$$
+2(3) + y = 7 \Rightarrow y = 1
+$$</div>
+<p>So the solution is</p>
+<div class="math-block">$$
+(x, y) = (3, 1)
+$$</div>
+<h2 id="geometric-meaning">Geometric meaning</h2>
+<ul><li><p>One solution: the lines intersect once</p></li><li><p>No solution: the lines are parallel</p></li><li><p>Infinitely many solutions: the equations describe the same line</p></li></ul>
+<hr />
+<h1 id="exponents-radicals-and-powers">Exponents, radicals, and powers</h1>
+<p>Exponents compress repeated multiplication.</p>
+<div class="math-block">$$
+a^n = \underbrace{a \cdot a \cdot a \cdots a}_{n \text{ factors}}
+$$</div>
+<h2 id="exponent-laws">Exponent laws</h2>
+<p>For appropriate nonzero bases:</p>
+<div class="math-block">$$
+a^m a^n = a^{m+n}
+$$</div>
+<div class="math-block">$$
+\frac{a^m}{a^n} = a^{m-n}
+$$</div>
+<div class="math-block">$$
+(a^m)^n = a^{mn}
+$$</div>
+<div class="math-block">$$
+(ab)^n = a^n b^n
+$$</div>
+<div class="math-block">$$
+a^{-n} = \frac{1}{a^n}
+$$</div>
+<div class="math-block">$$
+a^0 = 1
+$$</div>
+<h2 id="rational-exponents-and-radicals">Rational exponents and radicals</h2>
+<div class="math-block">$$
+a^{1/n} = \sqrt[n]{a}
+$$</div>
+<div class="math-block">$$
+a^{m/n} = \sqrt[n]{a^m}
+$$</div>
+<p>For real-valued even roots, the radicand must be nonnegative:</p>
+<div class="math-block">$$
+\sqrt{x}
+$$</div>
+<p>requires</p>
+<div class="math-block">$$
+x \ge 0
+$$</div>
+<h2 id="simplifying-radicals">Simplifying radicals</h2>
+<div class="math-block">$$
+\sqrt{72} = \sqrt{36 \cdot 2} = 6\sqrt{2}
+$$</div>
+<h2 id="rationalizing-a-denominator">Rationalizing a denominator</h2>
+<p>Example:</p>
+<div class="math-block">$$
+\frac{1}{\sqrt{3}} = \frac{1}{\sqrt{3}} \cdot \frac{\sqrt{3}}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+$$</div>
+<hr />
+<h1 id="polynomials-and-factoring">Polynomials and factoring</h1>
+<p>A <strong>polynomial</strong> is a sum of terms of the form $ax^n$, where $n$ is a nonnegative integer.</p>
+<p>Examples:</p>
+<ul><li><p>Linear: $2x - 5$</p></li><li><p>Quadratic: $x^2 - 4x + 4$</p></li><li><p>Cubic: $x^3 + x$</p></li></ul>
+<h2 id="special-products">Special products</h2>
+<p>These patterns appear constantly:</p>
+<div class="math-block">$$
+(a+b)^2 = a^2 + 2ab + b^2
+$$</div>
+<div class="math-block">$$
+(a-b)^2 = a^2 - 2ab + b^2
+$$</div>
+<div class="math-block">$$
+(a+b)(a-b) = a^2 - b^2
+$$</div>
+<h2 id="common-factoring-methods">Common factoring methods</h2>
+<table><thead><tr><th>Method</th><th>Example</th></tr></thead><tbody><tr><td>Greatest common factor</td><td>$6x^2 + 9x = 3x(2x+3)$</td></tr><tr><td>Difference of squares</td><td>$x^2 - 25 = (x-5)(x+5)$</td></tr><tr><td>Trinomial factoring</td><td>$x^2 + 5x + 6 = (x+2)(x+3)$</td></tr><tr><td>Grouping</td><td>$ax + ay + bx + by = (a+b)(x+y)$</td></tr></tbody></table>
+<h2 id="zero-product-property">Zero-product property</h2>
+<p>If</p>
+<div class="math-block">$$
+ab = 0
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+a = 0 \quad \text{or} \quad b = 0
+$$</div>
+<p>This is the key step after factoring an equation.</p>
+<p>Example:</p>
+<div class="math-block">$$
+x^2 - 5x + 6 = 0
+$$</div>
+<div class="math-block">$$
+(x-2)(x-3) = 0
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+x = 2 \quad \text{or} \quad x = 3
+$$</div>
+<hr />
+<h1 id="rational-expressions">Rational expressions</h1>
+<p>A <strong>rational expression</strong> is a quotient of polynomials:</p>
+<div class="math-block">$$
+\frac{P(x)}{Q(x)}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+Q(x) \ne 0
+$$</div>
+<h2 id="simplifying">Simplifying</h2>
+<p>Factor first, then cancel common factors.</p>
+<div class="math-block">$$
+\frac{x^2 - 9}{x^2 - 3x}
+= \frac{(x-3)(x+3)}{x(x-3)}
+= \frac{x+3}{x}
+$$</div>
+<p>Restrictions from the original denominator remain:</p>
+<div class="math-block">$$
+x \ne 0, \quad x \ne 3
+$$</div>
+<h2 id="operations">Operations</h2>
+<h3 id="multiplication">Multiplication</h3>
+<div class="math-block">$$
+\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}
+$$</div>
+<h3 id="division">Division</h3>
+<div class="math-block">$$
+\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}
+$$</div>
+<h3 id="addition-and-subtraction">Addition and subtraction</h3>
+<p>Use a common denominator:</p>
+<div class="math-block">$$
+\frac{2}{x} - \frac{1}{x+1}
+= \frac{2(x+1) - x}{x(x+1)}
+= \frac{x+2}{x(x+1)}
+$$</div>
+<h2 id="rational-equations">Rational equations</h2>
+<p>Typical workflow:</p>
+<ol><li><p>State denominator restrictions.</p></li><li><p>Multiply both sides by the least common denominator.</p></li><li><p>Solve the resulting equation.</p></li><li><p>Check for extraneous values that make a denominator zero.</p></li></ol>
+<hr />
+<h1 id="quadratic-equations-and-parabolas">Quadratic equations and parabolas</h1>
+<p>A quadratic equation has the form</p>
+<div class="math-block">$$
+ax^2 + bx + c = 0, \quad a \ne 0
+$$</div>
+<h2 id="main-solution-methods">Main solution methods</h2>
+<table><thead><tr><th>Method</th><th>Best use</th></tr></thead><tbody><tr><td>Factoring</td><td>Simple integer roots</td></tr><tr><td>Completing the square</td><td>Deriving structure or vertex form</td></tr><tr><td>Quadratic formula</td><td>General method</td></tr></tbody></table>
+<h2 id="completing-the-square">Completing the square</h2>
+<p>Start with</p>
+<div class="math-block">$$
+x^2 + 6x - 7 = 0
+$$</div>
+<p>Move the constant:</p>
+<div class="math-block">$$
+x^2 + 6x = 7
+$$</div>
+<p>Add $\left(\frac{6}{2}\right)^2 = 9$ to both sides:</p>
+<div class="math-block">$$
+x^2 + 6x + 9 = 16
+$$</div>
+<div class="math-block">$$
+(x+3)^2 = 16
+$$</div>
+<div class="math-block">$$
+x+3 = \pm 4
+$$</div>
+<div class="math-block">$$
+x = 1 \quad \text{or} \quad x = -7
+$$</div>
+<h2 id="quadratic-formula">Quadratic formula</h2>
+<p>For</p>
+<div class="math-block">$$
+ax^2 + bx + c = 0
+$$</div>
+<p>the solutions are</p>
+<div class="math-block">$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$</div>
+<p>The discriminant</p>
+<div class="math-block">$$
+\Delta = b^2 - 4ac
+$$</div>
+<p>determines the root type:</p>
+<table><thead><tr><th>Discriminant</th><th>Result</th></tr></thead><tbody><tr><td>$\Delta &gt; 0$</td><td>two distinct real roots</td></tr><tr><td>$\Delta = 0$</td><td>one repeated real root</td></tr><tr><td>$\Delta &lt; 0$</td><td>two complex roots</td></tr></tbody></table>
+<h2 id="graph-interpretation">Graph interpretation</h2>
+<p>The graph of a quadratic function is a parabola.</p>
+<p>Vertex form:</p>
+<div class="math-block">$$
+y = a(x-h)^2 + k
+$$</div>
+<p>The vertex is</p>
+<div class="math-block">$$
+(h, k)
+$$</div>
+<p>If $a &gt; 0$, the parabola opens upward. If $a &lt; 0$, it opens downward.</p>
+<hr />
+<h1 id="solution-techniques-for-function-equations">Solution techniques for function equations</h1>
+<blockquote><p><strong>Label: Solution technique.</strong> Functions is the canonical concept note for notation, domain, range, composition, inverses, exponentials, and logarithms. This section covers only the algebraic methods used to solve equations involving those concepts.</p></blockquote>
+<p>Algebra’s role is symbolic manipulation and equation solving. Before working with a function, exponential, or logarithm here, review the relevant concepts in <a href="/study/math/functions/#2-notation-domain-codomain-and-range">function notation, domain, codomain, and range</a>, <a href="/study/math/functions/#exponential-and-logarithmic-functions">exponential and logarithmic functions</a>, and <a href="/study/math/functions/#6-composition-and-inverse-functions">composition and inverse functions</a>.</p>
+<p>For the algebraic solution methods, see:</p>
+<ul><li><p><a href="#solution-technique-applying-exponential-and-logarithmic-relationships-in-equations">Solution technique: applying exponential and logarithmic relationships in equations</a></p></li><li><p><a href="#10-problem-solving-workflow">Algebra problem-solving workflow</a></p></li></ul>
+<h2 id="solution-technique-applying-exponential-and-logarithmic-relationships-in-equations">Solution technique: applying exponential and logarithmic relationships in equations</h2>
+<p>Use a common base for exponential equations when possible. Otherwise, take logarithms of both sides. For logarithmic equations, require every argument to be positive and check the result in the original equation.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+2^{x+1}=16=2^4 \quad\Rightarrow\quad x=3
+$$</div>
+<div class="math-block">$$
+\log_3(x-1)=2 \quad\Longleftrightarrow\quad x-1=3^2 \quad\Rightarrow\quad x=10
+$$</div>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>When solving an algebra problem, use a disciplined sequence.</p>
+<h2 id="general-workflow">General workflow</h2>
+<ol><li><p>Identify the object: expression, equation, inequality, system, or function.</p></li><li><p>Note all restrictions on allowed values.</p></li><li><p>Simplify structure before solving: distribute, factor, combine like terms, or clear denominators.</p></li><li><p>Choose a method that matches the form.</p></li><li><p>Solve carefully and keep operations reversible when possible.</p></li><li><p>Check the result in the original statement, especially for rational, radical, or logarithmic problems.</p></li></ol>
+<h2 id="choosing-a-method-quickly">Choosing a method quickly</h2>
+<table><thead><tr><th>Form you see</th><th>Likely method</th></tr></thead><tbody><tr><td>Linear equation</td><td>isolate the variable</td></tr><tr><td>Quadratic set equal to zero</td><td>factor or use quadratic formula</td></tr><tr><td>Denominators with variables</td><td>multiply by LCD after stating restrictions</td></tr><tr><td>Square root present</td><td>isolate the radical, then square both sides</td></tr><tr><td>Two linear equations</td><td>substitution or elimination</td></tr><tr><td>Exponential equation</td><td>rewrite with common base or use logs</td></tr></tbody></table>
+<h2 id="example-workflow-rational-equation">Example workflow: rational equation</h2>
+<p>Solve</p>
+<div class="math-block">$$
+\frac{1}{x} + \frac{1}{2} = \frac{3}{4}
+$$</div>
+<p>Restrictions:</p>
+<div class="math-block">$$
+x \ne 0
+$$</div>
+<p>Multiply both sides by $4x$:</p>
+<div class="math-block">$$
+4 + 2x = 3x
+$$</div>
+<div class="math-block">$$
+x = 4
+$$</div>
+<p>Check:</p>
+<div class="math-block">$$
+\frac{1}{4} + \frac{1}{2} = \frac{3}{4}
+$$</div>
+<p>Valid.</p>
+<hr />
+<h1 id="common-pitfalls">Common pitfalls</h1>
+<ul><li><p>Combining unlike terms, such as treating $x + x^2$ as $2x^2$.</p></li><li><p>Canceling terms across addition, such as</p>
+<div class="math-block">$$
+  \frac{x+3}{x} \ne 1+3
+$$</div></li><li><p>Forgetting denominator restrictions in rational expressions.</p></li><li><p>Losing the $\pm$ when taking square roots:</p>
+<div class="math-block">$$
+  x^2 = 9 \Rightarrow x = \pm 3
+$$</div></li><li><p>Failing to reverse an inequality after dividing by a negative number.</p></li><li><p>Squaring both sides and keeping an extraneous solution without checking.</p></li><li><p>Applying log laws to sums incorrectly:</p>
+<div class="math-block">$$
+  \log(x+y) \ne \log x + \log y
+$$</div></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="core-identities">Core identities</h2>
+<div class="math-block">$$
+a(b+c) = ab + ac
+$$</div>
+<div class="math-block">$$
+(a+b)^2 = a^2 + 2ab + b^2
+$$</div>
+<div class="math-block">$$
+(a-b)^2 = a^2 - 2ab + b^2
+$$</div>
+<div class="math-block">$$
+a^2 - b^2 = (a-b)(a+b)
+$$</div>
+<h2 id="exponent-rules">Exponent rules</h2>
+<div class="math-block">$$
+a^m a^n = a^{m+n}
+$$</div>
+<div class="math-block">$$
+\frac{a^m}{a^n} = a^{m-n}
+$$</div>
+<div class="math-block">$$
+(a^m)^n = a^{mn}
+$$</div>
+<div class="math-block">$$
+a^{-n} = \frac{1}{a^n}
+$$</div>
+<div class="math-block">$$
+a^{m/n} = \sqrt[n]{a^m}
+$$</div>
+<h2 id="linear-and-quadratic-forms">Linear and quadratic forms</h2>
+<div class="math-block">$$
+y = mx + b
+$$</div>
+<div class="math-block">$$
+ax^2 + bx + c = 0
+$$</div>
+<div class="math-block">$$
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+$$</div>
+<h2 id="function-concepts">Function concepts</h2>
+<p>See <a href="/study/math/functions/">Functions</a> for the canonical concepts: <a href="/study/math/functions/#2-notation-domain-codomain-and-range">notation, domain, codomain, and range</a>, <a href="/study/math/functions/#exponential-and-logarithmic-functions">exponential and logarithmic functions</a>, and <a href="/study/math/functions/#6-composition-and-inverse-functions">composition and inverse functions</a>.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+<p>Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.</p>
+<blockquote></blockquote>
+<blockquote><p><strong>Scope note:</strong> This is the canonical note for symbolic manipulation and equation-solving. Use <a href="/study/math/functions/">Functions</a> for domain, codomain, composition, and inverse-function concepts.</p></blockquote>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="expressions-and-algebraic-manipulation">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Expressions and algebraic manipulation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#like-terms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expressions-and-algebraic-manipulation">Like terms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#distributing-and-factoring" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expressions-and-algebraic-manipulation">Distributing and factoring</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fractions-in-algebra" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expressions-and-algebraic-manipulation">Fractions in algebra</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expressions-and-algebraic-manipulation">Identities</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="linear-equations-and-inequalities" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Linear equations and inequalities">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#one-variable-linear-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-equations-and-inequalities">One-variable linear equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equations-with-variables-on-both-sides" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-equations-and-inequalities">Equations with variables on both sides</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#literal-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-equations-and-inequalities">Literal equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inequalities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-equations-and-inequalities">Inequalities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interval-notation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-equations-and-inequalities">Interval notation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="systems-of-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Systems of equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#two-linear-equations-in-two-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-equations">Two linear equations in two variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#main-methods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-equations">Main methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-elimination" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-equations">Example: elimination</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#geometric-meaning" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-equations">Geometric meaning</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="exponents-radicals-and-powers" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Exponents, radicals, and powers">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponent-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exponents-radicals-and-powers">Exponent laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rational-exponents-and-radicals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exponents-radicals-and-powers">Rational exponents and radicals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#simplifying-radicals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exponents-radicals-and-powers">Simplifying radicals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rationalizing-a-denominator" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exponents-radicals-and-powers">Rationalizing a denominator</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="polynomials-and-factoring" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Polynomials and factoring">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-products" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="polynomials-and-factoring">Special products</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-factoring-methods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="polynomials-and-factoring">Common factoring methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#zero-product-property" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="polynomials-and-factoring">Zero-product property</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="rational-expressions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Rational expressions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#simplifying" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rational-expressions">Simplifying</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#operations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rational-expressions">Operations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rational-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rational-expressions">Rational equations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="quadratic-equations-and-parabolas" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Quadratic equations and parabolas">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#main-solution-methods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quadratic-equations-and-parabolas">Main solution methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#completing-the-square" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quadratic-equations-and-parabolas">Completing the square</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quadratic-formula" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quadratic-equations-and-parabolas">Quadratic formula</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graph-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quadratic-equations-and-parabolas">Graph interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="solution-techniques-for-function-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Solution techniques for function equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solution-technique-applying-exponential-and-logarithmic-relationships-in-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solution-techniques-for-function-equations">Solution technique: applying exponential and logarithmic relationships in equations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">General workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#choosing-a-method-quickly" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Choosing a method quickly</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-workflow-rational-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Example workflow: rational equation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Core identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponent-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Exponent rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-and-quadratic-forms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Linear and quadratic forms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#function-concepts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Function concepts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

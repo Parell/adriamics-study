@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tribology | Adriamics Study</title>
+  <meta name="description" content="Tribology studies interacting surfaces in relative motion. It combines friction, wear, lubrication, materials, surface finish, heat, and reliability. A conta..." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/tribology/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#the-tribology-problem" data-notes-nav-item data-notes-toc-link>The tribology problem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#adhesive-and-abrasive-wear" data-notes-nav-item data-notes-toc-link>Adhesive and abrasive wear</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-mixed-and-hydrodynamic-lubrication" data-notes-nav-item data-notes-toc-link>Boundary, mixed, and hydrodynamic lubrication</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stribeck-curves" data-notes-nav-item data-notes-toc-link>Stribeck curves</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#contact-mechanics" data-notes-nav-item data-notes-toc-link>Contact mechanics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bearings-and-seals" data-notes-nav-item data-notes-toc-link>Bearings and seals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example" data-notes-nav-item data-notes-toc-link>Worked example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#progression" data-notes-nav-item data-notes-toc-link>Progression</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Tribology</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/tribology/tribology.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Ftribology%2Ftribology.md&amp;title=%5BContribute%5D%3A%20Tribology" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/fluid-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/dynamics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/tribology/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h2 id="the-tribology-problem">The tribology problem</h2>
+<p>Tribology studies interacting surfaces in relative motion. It combines friction, wear, lubrication, materials, surface finish, heat, and reliability. A contact is a system: changing load, speed, material, roughness, temperature, lubricant, or contamination can change the governing failure mechanism.</p>
+<p>For a first analysis, define normal load $W$, sliding speed $v$, apparent area $A$, friction force $F$, and wear volume $V_w$. Nominal pressure is $p=W/A$, while the pressure at microscopic asperities can be much higher. The friction coefficient is</p>
+<div class="math-block">$$
+\mu=\frac{F}{W}.
+$$</div>
+<p>Assume steady load and speed and an isothermal contact unless stated otherwise. Recheck these assumptions for start-up, vibration, contamination, thermal gradients, and transient loads.</p>
+<h2 id="adhesive-and-abrasive-wear">Adhesive and abrasive wear</h2>
+<p>Adhesive wear occurs when asperities deform, weld together, and shear during sliding. It is promoted by high contact stress, poor lubrication, clean or chemically compatible surfaces, similar materials, and insufficient hardness. Material may transfer to the counterface or become loose debris.</p>
+<p>The Archard model is a screening relation:</p>
+<div class="math-block">$$
+V_w=K\frac{WL}{H},
+$$</div>
+<p>where $K$ is a dimensionless wear coefficient, $L$ is sliding distance, and $H$ is the softer surface hardness. The coefficient depends strongly on material pair, lubrication, debris, temperature, and test method; it is not a universal material constant.</p>
+<p>Abrasive wear occurs when a hard asperity or particle cuts or plows a softer surface. Two-body abrasion has a fixed hard counterface; three-body abrasion has loose particles between surfaces. Grooves aligned with sliding, embedded particles, and directional scratches are common evidence. Control abrasion with suitable hardness, clean lubricant, filtration, seals, compatible coatings, and supported—not merely hard—surface layers.</p>
+<table><thead><tr><th>Mechanism</th><th>Typical clue</th><th>Useful control</th></tr></thead><tbody><tr><td>Fatigue wear</td><td>Pits, spalls, or flakes after repeated loading</td><td>Lower stress; improve material quality and lubrication</td></tr><tr><td>Fretting</td><td>Small oscillatory motion and oxidized debris</td><td>Increase clamping; remove motion; coat or lubricate</td></tr><tr><td>Erosive wear</td><td>Liquid or particle impact</td><td>Reduce velocity; change flow direction; use resistant material</td></tr><tr><td>Corrosive or tribochemical wear</td><td>Chemical reaction accelerated by sliding</td><td>Control chemistry, temperature, and additives</td></tr></tbody></table>
+<p>Wear can fail a system before dimensional loss becomes large: debris can damage seals, contaminate a product, change clearance, or increase friction.</p>
+<h2 id="boundary-mixed-and-hydrodynamic-lubrication">Boundary, mixed, and hydrodynamic lubrication</h2>
+<p>Lubrication separates surfaces with a fluid, solid film, or adsorbed molecular layer. A useful film parameter is</p>
+<div class="math-block">$$
+\Lambda=\frac{h_{\min}}{\sqrt{R_{q1}^2+R_{q2}^2}},
+$$</div>
+<p>where $h_{\min}$ is minimum film thickness and $R_{q1},R_{q2}$ are RMS roughness values. Approximate regimes are:</p>
+<table><thead><tr><th>Regime</th><th>Film and load support</th><th>Main concern</th></tr></thead><tbody><tr><td>Boundary, $\Lambda\lesssim1$</td><td>Asperities interact; surface films carry load</td><td>Adhesion, scuffing, chemical wear</td></tr><tr><td>Mixed, roughly $1\lesssim\Lambda\lesssim3$</td><td>Fluid film and asperities share load</td><td>Sensitivity to roughness and additives</td></tr><tr><td>Hydrodynamic or EHL</td><td>Surfaces are substantially separated by pressurized fluid</td><td>Viscous drag, heat, starvation</td></tr></tbody></table>
+<p>In hydrodynamic lubrication, motion drags fluid into a converging wedge. A simple scaling from the Reynolds equation is</p>
+<div class="math-block">$$
+p\sim\frac{\eta U L}{h^2},
+$$</div>
+<p>where $\eta$ is dynamic viscosity, $U$ is entrainment speed, $L$ is contact length, and $h$ is film thickness. Exact pressure and load capacity require the geometry and boundary conditions. In rolling contacts, elastic deformation changes the geometry, so the full-film case is called elastohydrodynamic lubrication (EHL).</p>
+<p>Boundary additives form low-shear reaction or adsorption films. Grease retains oil with a thickener; graphite and molybdenum disulfide can lubricate where liquids cannot survive. Higher viscosity usually increases film thickness but also increases drag and heat. Select viscosity at operating temperature and check compatibility with seals, coatings, elastomers, and the process environment.</p>
+<h2 id="stribeck-curves">Stribeck curves</h2>
+<p>The Stribeck curve maps friction as a contact moves from boundary to mixed to full-film lubrication. Its horizontal variable is often proportional to</p>
+<div class="math-block">$$
+S\propto\frac{\eta U}{p},
+$$</div>
+<p>where $p$ is characteristic pressure. Increasing viscosity or speed tends to increase separation; increasing load tends to reduce it.</p>
+<p>At low $\eta U/p$, asperities carry much of the load, so friction and wear risk are high. In the mixed regime, more speed or viscosity reduces asperity interaction and friction can reach a minimum. In the full-film regime, wear is low but friction rises gradually because viscous shear dissipates power.</p>
+<p>This is a design map, not a fixed lubricant property. Temperature changes viscosity; starvation limits supply; roughness changes transitions; and additives alter boundary friction. Compare tests only when load, speed, temperature, finish, lubricant condition, and run-in history are known.</p>
+<h2 id="contact-mechanics">Contact mechanics</h2>
+<p>For two smooth, nonconforming elastic bodies, Hertz theory estimates contact size and pressure without adhesion. For a sphere of radius $R$ against a flat under load $W$,</p>
+<div class="math-block">$$
+a=\left(\frac{3WR}{4E^*}\right)^{1/3},
+\qquad
+p_0=\frac{3W}{2\pi a^2},
+$$</div>
+<p>where $a$ is contact radius, $p_0$ is peak pressure, and</p>
+<div class="math-block">$$
+\frac{1}{E^*}=\frac{1-\nu_1^2}{E_1}+\frac{1-\nu_2^2}{E_2}.
+$$</div>
+<p>$E_i$ are Young&#39;s moduli and $\nu_i$ are Poisson ratios. Pressure is maximum at the center and zero at the edge. It is not uniform: $W/(\pi a^2)$ underestimates the peak by a factor of $3/2$.</p>
+<p>Line and elliptical contacts use different geometry, but the design lessons remain: local pressure can greatly exceed nominal pressure, elastic deformation changes the contact, and repeated subsurface stress can initiate fatigue. Check plastic indentation, brinelling, micropitting, scuffing, and rolling-contact fatigue alongside roughness, inclusions, residual stress, lubrication, contamination, and misalignment.</p>
+<h2 id="bearings-and-seals">Bearings and seals</h2>
+<p>Rolling-bearing selection must consider radial and axial load, speed, stiffness, misalignment, contamination, temperature, mounting, preload, clearance, lubrication, and reliability. A simplified rating-life model is</p>
+<div class="math-block">$$
+L_{10}=\left(\frac{C}{P}\right)^p,
+$$</div>
+<p>where $L_{10}$ is the life at which 90% of a group is expected to survive, $C$ is dynamic load rating, $P$ is equivalent dynamic load, and $p=3$ for ball bearings or approximately $10/3$ for roller bearings. This is not a guarantee for contaminated, poorly lubricated, misaligned, overheated, or electrically damaged bearings.</p>
+<p>Sliding bearings can be quiet and compact, but start-up often occurs in boundary or mixed lubrication. They need suitable clearance, oil supply, heat removal, and stable geometry. Excessive clearance reduces load capacity; insufficient clearance can cause seizure after thermal expansion.</p>
+<p>Seals retain lubricant and exclude contaminants. Evaluate leakage, pressure, speed, temperature, chemistry, shaft finish, runout, and friction. A seal that is too tight generates heat and wear; one that is too loose admits particles or loses lubricant. Lip, labyrinth, face, and mechanical seals each trade leakage control against friction, tolerance, and serviceability.</p>
+<h2 id="worked-example">Worked example</h2>
+<p>A sliding pad carries $W=1000$ N over $L=5.0\times10^4$ m. Let $H=1.0\times10^9$ Pa and $K=2.0\times10^{-4}$. Archard&#39;s estimate is</p>
+<div class="math-block">$$
+V_w=K\frac{WL}{H}
+ =(2.0\times10^{-4})\frac{(1000)(5.0\times10^4)}{1.0\times10^9}
+ =1.0\times10^{-5}\ \mathrm{m^3}.
+$$</div>
+<p>If allowable wear is $4.0\times10^{-6}\ \mathrm{m^3}$, the design misses the target by a factor of $2.5$. Reduce load or sliding distance, increase supported hardness, improve lubrication, or change the material pair so that the effective $K/H$ falls by at least that factor. Verify any new value under representative speed, temperature, debris, and surface finish.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Treating nominal pressure as asperity pressure or Hertz peak pressure.</p></li><li><p>Treating $K$ in Archard&#39;s law as independent of test conditions.</p></li><li><p>Assuming any lubricant reduces friction; high viscosity can increase drag and heat.</p></li><li><p>Choosing viscosity at room temperature instead of operating temperature.</p></li><li><p>Calling every lubricated contact hydrodynamic without checking film thickness and roughness.</p></li><li><p>Reading a Stribeck curve without accounting for starvation, additives, run-in, or temperature.</p></li><li><p>Treating $L_{10}$ bearing life as a guaranteed life for one machine.</p></li><li><p>Ignoring seal friction, shaft finish, runout, pressure, and chemistry.</p></li><li><p>Changing materials while overlooking abrasive contamination or misalignment.</p></li></ul>
+<h2 id="practice-problems">Practice problems</h2>
+<h3 id="problem-1-archard-wear">Problem 1: Archard wear</h3>
+<p>A pin carries $W=500$ N and slides $2.0\times10^4$ m. Let $K=1.0\times10^{-4}$ and $H=5.0\times10^8$ Pa. Find wear volume.</p>
+<p><strong>Solution:</strong></p>
+<p>$$V_w=K\frac{WL}{H}=(1.0\times10^{-4})\frac{(500)(2.0\times10^4)}{5.0\times10^8}=2.0\times10^{-6}\ \mathrm{m^3}.$$</p>
+<h3 id="problem-2-film-parameter">Problem 2: Film parameter</h3>
+<p>Given $h_{\min}=0.30\ \mu\mathrm{m}$, $R_{q1}=0.10\ \mu\mathrm{m}$, and $R_{q2}=0.14\ \mu\mathrm{m}$, find $\Lambda$.</p>
+<p><strong>Solution:</strong></p>
+<p>$$\Lambda=\frac{0.30}{\sqrt{0.10^2+0.14^2}}\approx1.7.$$</p>
+<p>The contact is likely in mixed lubrication.</p>
+<h3 id="problem-3-hertz-contact">Problem 3: Hertz contact</h3>
+<p>A steel sphere has $R=10$ mm and carries $W=100$ N against a flat. Take $E^*=200$ GPa. Estimate $a$ and $p_0$.</p>
+<p><strong>Solution:</strong></p>
+<p>$$a=\left(\frac{3(100)(0.010)}{4(200\times10^9)}\right)^{1/3}\approx1.55\times10^{-4}\ \mathrm{m},$$</p>
+<p>$$p_0=\frac{3(100)}{2\pi(1.55\times10^{-4})^2}\approx2.0\times10^9\ \mathrm{Pa}.$$</p>
+<h3 id="problem-4-bearing-life">Problem 4: Bearing life</h3>
+<p>A ball bearing has $C=12$ kN and $P=3$ kN. Estimate $L_{10}$ in millions of revolutions.</p>
+<p><strong>Solution:</strong></p>
+<p>$$L_{10}=\left(\frac{12}{3}\right)^3=64$$</p>
+<p>million revolutions. Convert to hours only after specifying speed, then check lubrication, contamination, temperature, and mounting.</p>
+<h2 id="progression">Progression</h2>
+<p>Start with load, speed, roughness, and materials; classify the wear mechanism and lubrication regime; then use Archard and Hertz relations for screening. Use Stribeck behavior to reason about transitions and bearing/seal models to connect contact conditions to machine life. The central question is not simply “what has the lowest friction?” but “what contact state gives acceptable friction, heat, wear, leakage, and reliability over the full operating cycle?”</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Stachowiak and Batchelor, <em>Engineering Tribology</em></p></li><li><p>Hamrock, Schmid, and Jacobson, <em>Fundamentals of Fluid Film Lubrication</em></p></li><li><p>Harris and Kotzalas, <em>Rolling Bearing Analysis</em></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="practice-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Practice problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-1-archard-wear" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 1: Archard wear</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-2-film-parameter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 2: Film parameter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-3-hertz-contact" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 3: Hertz contact</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-4-bearing-life" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 4: Bearing life</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

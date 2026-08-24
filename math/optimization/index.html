@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optimization | Adriamics Study</title>
+  <meta name="description" content="Optimization is the mathematics of choosing the best available option. The quantity we care about is the objective : cost, error, time, energy, risk, or perh..." />
+  <link rel="canonical" href="https://adriamics.com/study/math/optimization/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/optimization/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#the-basic-vocabulary" data-notes-nav-item data-notes-toc-link>The basic vocabulary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#unconstrained-and-constrained-optimization" data-notes-nav-item data-notes-toc-link>Unconstrained and constrained optimization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#convexity-when-local-means-global" data-notes-nav-item data-notes-toc-link>Convexity: when local means global</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#finding-an-answer-numerically" data-notes-nav-item data-notes-toc-link>Finding an answer numerically</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#important-problem-families" data-notes-nav-item data-notes-toc-link>Important problem families</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#a-practical-workflow" data-notes-nav-item data-notes-toc-link>A practical workflow</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Optimization</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/optimization/optimization.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Foptimization%2Foptimization.md&amp;title=%5BContribute%5D%3A%20Optimization" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/optimization/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/optimization/" data-notes-nav-item>Optimization</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/numerical-methods/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <p>Optimization is the mathematics of choosing the best available option. The quantity we care about is the <strong>objective</strong>: cost, error, time, energy, risk, or perhaps negative profit. The choices we are allowed to make form the <strong>feasible set</strong>.</p>
+<p>For example, if \(x\) is the amount of material in a design, we might want to</p>
+<div class="math-block">$$
+\text{minimize } f(x) \qquad \text{subject to } x\ge 0.
+$$</div>
+<p>More generally, the decision may be a vector \(\mathbf{x}\), and the problem is</p>
+<div class="math-block">$$
+\min_{\mathbf{x}\in\mathcal F} f(\mathbf{x}).
+$$</div>
+<p>Here \(f\) is the objective and \(\mathcal F\) is the feasible set. A maximization problem can be changed into minimization by minimizing \(-f\).</p>
+<h3 id="the-basic-vocabulary">The basic vocabulary</h3>
+<p>These words describe the pieces of every optimization problem:</p>
+<table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>decision variable</strong></td><td>A quantity we are allowed to choose, such as \(x\) or \(\mathbf{x}=(x,y)\).</td></tr><tr><td><strong>objective function</strong></td><td>A formula that scores a choice. We minimize it, or maximize it by changing its sign.</td></tr><tr><td><strong>constraint</strong></td><td>A rule that limits which choices are allowed.</td></tr><tr><td><strong>feasible set</strong></td><td>The collection of all choices that satisfy every constraint.</td></tr><tr><td><strong>feasible point</strong></td><td>One particular choice inside the feasible set.</td></tr><tr><td><strong>optimizer</strong></td><td>A feasible point with the best objective value.</td></tr></tbody></table>
+<p>For example, in</p>
+<div class="math-block">$$
+\min_x x^2 \qquad\text{subject to}\qquad x\ge1,
+$$</div>
+<p>\(x\) is the decision variable, \(x^2\) is the objective, and \(x\ge1\) is the constraint. The feasible set is the interval \([1,\infty)\). The optimizer is \(x=1\), because it is the allowed point closest to the unconstrained best point \(x=0\).</p>
+<p>An asterisk marks a point that we think is optimal. Thus \(x^<em>\) means &quot;the candidate value of \(x\),&quot; and \(\mathbf{x}^</em>\) means &quot;the candidate vector.&quot; The phrase &quot;evaluate the Hessian at \(\mathbf{x}^<em>\)&quot; simply means: calculate the Hessian formula, then substitute the coordinates of \(\mathbf{x}^</em>\).</p>
+<p>This note develops the ideas in stages. It uses the derivative rules from <a href="/study/math/derivatives/">Derivatives</a>, and the gradient and Hessian from <a href="/study/math/multivariable-calculus/multivariable-differential-calculus/">Multivariable Differential Calculus</a>. Matrices, eigenvalues, and numerical methods become useful later, but they are not needed for the opening examples.</p>
+<h2 id="unconstrained-and-constrained-optimization">Unconstrained and constrained optimization</h2>
+<p>Optimization problems may be unconstrained, with the best point sought anywhere in the domain, or constrained, with equality, inequality, or bound conditions restricting the feasible set. The sections below develop both cases, then connect them to convexity and numerical methods.</p>
+<h3 id="start-with-a-one-variable-problem">Start with a one-variable problem</h3>
+<p>Suppose the cost of producing \(x\) items is</p>
+<div class="math-block">$$
+C(x)=x^2-6x+13.
+$$</div>
+<p>A smooth <strong>interior</strong> minimum—one that is not at an endpoint or boundary—must have zero slope:</p>
+<div class="math-block">$$
+C&#39;(x)=2x-6=0 \quad\Longrightarrow\quad x=3.
+$$</div>
+<p>The second derivative is \(C&#39;&#39;(x)=2&gt;0\), so \(x=3\) is a local minimum. Completing the square makes the answer even clearer:</p>
+<div class="math-block">$$
+C(x)=(x-3)^2+4.
+$$</div>
+<p>Since \((x-3)^2\ge0\), the global minimum is \(C(3)=4\). This small example contains the basic workflow:</p>
+<ol><li><p>Write down the quantity to minimize.</p></li><li><p>Find candidates by setting the derivative to zero.</p></li><li><p>Classify candidates with curvature.</p></li><li><p>Check endpoints, constraints, and other candidates.</p></li></ol>
+<p>The word <strong>local</strong> means &quot;best nearby.&quot; The word <strong>global</strong> means &quot;best among every feasible choice.&quot; A stationary point—one where the derivative is zero—may be a minimum, a maximum, or neither.</p>
+<h3 id="boundaries-matter">Boundaries matter</h3>
+<p>If \(0\le x\le4\), the point \(x=3\) is feasible. But if \(0\le x\le2\), there is no interior stationary point in the feasible interval. The minimum must then occur at a boundary; compare \(C(0)\) and \(C(2)\).</p>
+<p>This is why setting the derivative equal to zero is only part of an optimization solution. Constraints can move the best point to an edge.</p>
+<h3 id="several-variables-slopes-become-a-gradient">Several variables: slopes become a gradient</h3>
+<p>Now let the decision be \(\mathbf{x}=(x,y)\). Consider</p>
+<div class="math-block">$$
+f(x,y)=(x-2)^2+2(y+1)^2+5.
+$$</div>
+<p>The objective is smallest when both squared terms are zero, so the answer is \((2,-1)\). Calculus reaches the same answer by collecting the two partial derivatives into the <strong>gradient</strong>:</p>
+<div class="math-block">$$
+\nabla f(x,y)=
+\left\langle\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\right\rangle
+=\langle2(x-2),4(y+1)\rangle.
+$$</div>
+<p>At an interior optimum there is no downhill direction left. Therefore every component of the gradient is zero:</p>
+<div class="math-block">$$
+\nabla f(x^*,y^*)=\mathbf0.
+$$</div>
+<p>For this example,</p>
+<div class="math-block">$$
+2(x-2)=0,\qquad4(y+1)=0,
+$$</div>
+<p>which gives \((x^<em>,y^</em>)=(2,-1)\). The gradient points in the direction of steepest increase, so \(-\nabla f\) points in the direction of steepest local decrease.</p>
+<h3 id="curvature-minimum-maximum-or-saddle">Curvature: minimum, maximum, or saddle?</h3>
+<p>Setting the gradient to zero finds <strong>stationary points</strong>, but does not classify them. A stationary point is only a location where the first-order slopes vanish; it might still be a minimum, a maximum, or a saddle.</p>
+<p>To study the shape near a point, use second derivatives. In two variables, the second partial derivatives form the <strong>Hessian</strong>:</p>
+<div class="math-block">$$
+\nabla^2f(x,y)=
+\begin{bmatrix}
+f_{xx}&amp;f_{xy}\\
+f_{yx}&amp;f_{yy}
+\end{bmatrix}.
+$$</div>
+<p>For the example \(f(x,y)=(x-2)^2+2(y+1)^2+5\), the stationary point is \((2,-1)\). Its Hessian is</p>
+<div class="math-block">$$
+\nabla^2f(x,y)=
+\begin{bmatrix}2&amp;0\\0&amp;4\end{bmatrix}.
+$$</div>
+<p>The Hessian <strong>at the stationary point</strong> is found by substituting \(x=2\) and \(y=-1\) into the Hessian formula. In this example the matrix happens to be the same everywhere. It says the surface curves upward in both coordinate directions, confirming a minimum.</p>
+<p>For a general stationary point, let</p>
+<div class="math-block">$$
+D=f_{xx}f_{yy}-(f_{xy})^2.
+$$</div>
+<table><thead><tr><th>Test</th><th>Conclusion</th></tr></thead><tbody><tr><td>\(D&gt;0\) and \(f_{xx}&gt;0\)</td><td>local minimum</td></tr><tr><td>\(D&gt;0\) and \(f_{xx}&lt;0\)</td><td>local maximum</td></tr><tr><td>\(D&lt;0\)</td><td>saddle point</td></tr><tr><td>\(D=0\)</td><td>test is inconclusive</td></tr></tbody></table>
+<p>A saddle point rises in some directions and falls in others. For instance, \(f(x,y)=x^2-y^2\) has gradient zero at the origin, but it is not a minimum: moving along the \(x\)-axis increases \(f\), while moving along the \(y\)-axis decreases it.</p>
+<p>For more than two variables, a <strong>positive-definite</strong> Hessian means the objective curves upward in every direction; a <strong>negative-definite</strong> Hessian curves downward; an <strong>indefinite</strong> Hessian curves upward in some directions and downward in others, indicating a saddle. These are names for the behavior of the quadratic expression \(\mathbf v^{\mathsf T}H\mathbf v\), where \(H\) is the Hessian and \(\mathbf v\) is a direction.</p>
+<h2 id="convexity-when-local-means-global">Convexity: when local means global</h2>
+<p>A function is <strong>convex</strong> when its graph has no dents that curve below a chord. In one variable, \(f&#39;&#39;(x)\ge0\) on an interval is a common way to recognize convexity. In several variables, a twice-differentiable function is convex when</p>
+<div class="math-block">$$
+\nabla^2 f(\mathbf{x})\succeq0
+$$</div>
+<p>throughout its domain. This means \(\mathbf{v}^{\mathsf T}\nabla^2f(\mathbf{x})\mathbf{v}\ge0\) for every direction \(\mathbf v\). The symbol \(\succeq0\) is shorthand for “positive semidefinite,” meaning “never curves downward,” though it may be flat in some directions.</p>
+<p>A set is convex if the straight line between any two points in it stays in the set:</p>
+<div class="math-block">$$
+\mathbf{x},\mathbf{y}\in\mathcal F,\quad0\le t\le1
+\implies t\mathbf{x}+(1-t)\mathbf{y}\in\mathcal F.
+$$</div>
+<p>A convex objective on a convex feasible set has no misleading local minima: every local minimum is global. If the objective is strictly convex, it has at most one minimizer.</p>
+<p>For the quadratic</p>
+<div class="math-block">$$
+f(\mathbf{x})=\tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}
++\mathbf c^{\mathsf T}\mathbf{x}+d,
+$$</div>
+<p>convexity is equivalent to \(Q\succeq0\). The eigenvalues of \(Q\) describe curvature in its principal directions.</p>
+<h3 id="constraints-and-the-boundary">Constraints and the boundary</h3>
+<p>Constraints describe choices that are not allowed. Common forms are</p>
+<div class="math-block">$$
+h_j(\mathbf{x})=0 \quad\text{(equality)},\qquad
+g_i(\mathbf{x})\le0 \quad\text{(inequality)},
+$$</div>
+<p>along with bounds such as \(\ell\le\mathbf{x}\le u\).</p>
+<p>Consider minimizing \(x^2+y^2\) subject to \(x+y=1\). The unconstrained minimum is \((0,0)\), but it is not feasible. The constrained minimum lies on the line \(x+y=1\), at the point closest to the origin: \((1/2,1/2)\).</p>
+<p>For a smooth equality constraint \(h(\mathbf{x})=0\), the <strong>Lagrangian</strong> packages the objective and constraint together:</p>
+<div class="math-block">$$
+\mathcal L(\mathbf{x},\lambda)=f(\mathbf{x})+\lambda h(\mathbf{x}).
+$$</div>
+<p>At a regular constrained optimum, solve</p>
+<div class="math-block">$$
+\nabla f(\mathbf{x}^*)+\lambda^*\nabla h(\mathbf{x}^*)=\mathbf0,
+\qquad h(\mathbf{x}^*)=0.
+$$</div>
+<p>Geometrically, the objective cannot decrease while staying on the constraint curve, so its gradient is parallel to the constraint&#39;s gradient.</p>
+<p>For inequalities, the Karush–Kuhn–Tucker (KKT) conditions add multipliers \(\mu_i\ge0\):</p>
+<div class="math-block">$$
+\nabla f+J_{\mathbf h}^{\mathsf T}\boldsymbol\lambda
++J_{\mathbf g}^{\mathsf T}\boldsymbol\mu=\mathbf0,
+\quad \mathbf h=0,\quad \mathbf g\le0,\quad
+\boldsymbol\mu\ge0,\quad \mu_i g_i=0.
+$$</div>
+<p>The final relation is <strong>complementary slackness</strong>. An inactive constraint has \(g_i&lt;0\), so its multiplier is zero. For convex problems with suitable regularity assumptions, KKT conditions are also sufficient for global optimality.</p>
+<h2 id="finding-an-answer-numerically">Finding an answer numerically</h2>
+<p>For simple functions we can solve equations by hand. Real objectives may have thousands or millions of variables, so numerical methods improve a current guess instead.</p>
+<h3 id="gradient-newton-and-quasi-newton-methods">Gradient, Newton, and quasi-Newton methods</h3>
+<p>Gradient descent is the basic first-order optimization method. It uses the gradient to choose a direction and a step size to improve the objective.</p>
+<h4 id="gradient-descent">Gradient descent</h4>
+<p>Starting at \(\mathbf{x}_k\), take a step downhill:</p>
+<div class="math-block">$$
+\mathbf{x}_{k+1}=\mathbf{x}_k-\alpha_k\nabla f(\mathbf{x}_k),
+$$</div>
+<p>where \(\alpha_k&gt;0\) is the step size. A step that is too small is slow; one that is too large can overshoot or diverge. Backtracking reduces a trial step until</p>
+<div class="math-block">$$
+f(\mathbf{x}_k-\alpha\mathbf g_k)
+\le f(\mathbf{x}_k)-c\alpha\|\mathbf g_k\|^2,
+\qquad0&lt;c&lt;1.
+$$</div>
+<p>Stop when the gradient and the change in the objective are both small. Poorly scaled variables create long zig-zag paths; rescaling can help.</p>
+<h4 id="newton-and-quasi-newton-methods">Newton and quasi-Newton methods</h4>
+<p>Newton&#39;s method uses curvature to choose a better direction. With \(H_k=\nabla^2f(\mathbf{x}_k)\), solve</p>
+<div class="math-block">$$
+H_k\mathbf p_k=-\nabla f(\mathbf{x}_k),
+\qquad\mathbf{x}_{k+1}=\mathbf{x}_k+\alpha_k\mathbf p_k.
+$$</div>
+<p>Near a well-behaved solution, Newton&#39;s method can converge very quickly. However, forming a Hessian is expensive, and an indefinite Hessian can point uphill. Line searches or trust regions make the method safer.</p>
+<p>Quasi-Newton methods estimate curvature from gradient changes instead of forming second derivatives. BFGS is a standard choice; L-BFGS stores only a small amount of history and is useful for large problems.</p>
+<h2 id="important-problem-families">Important problem families</h2>
+<p>Once the basic language is familiar, several useful families fit into the same picture.</p>
+<h3 id="linear-and-quadratic-programming">Linear and quadratic programming</h3>
+<p>Linear and quadratic programs are important structured optimization problems. Their objectives and constraints have algebraic forms that allow specialized solvers and stronger optimality guarantees.</p>
+<h4 id="linear-programming">Linear programming</h4>
+<p>In a linear program, both the objective and constraints are linear:</p>
+<div class="math-block">$$
+\min_{\mathbf{x}}\ \mathbf c^{\mathsf T}\mathbf x
+\quad\text{subject to}\quad A\mathbf x\le\mathbf b,\quad\mathbf x\ge\mathbf0.
+$$</div>
+<p>The feasible set is a polyhedron. If a finite optimum exists, at least one optimum occurs at a vertex, which motivates the simplex method. Interior-point methods are often effective for large sparse problems.</p>
+<h4 id="quadratic-programming">Quadratic programming</h4>
+<p>Quadratic programming uses a quadratic objective and linear constraints:</p>
+<div class="math-block">$$
+\min_{\mathbf{x}}\ \tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}
++\mathbf c^{\mathsf T}\mathbf x
+\quad\text{subject to}\quad A\mathbf x\le\mathbf b,\quad E\mathbf x=\mathbf d.
+$$</div>
+<p>When \(Q\succeq0\), the problem is convex and KKT conditions characterize the global solution. Bounded least squares, portfolios, and model predictive control are examples.</p>
+<h3 id="multi-objective-optimization">Multi-objective optimization</h3>
+<p>Often there is no single &quot;best&quot; choice: a design may trade low cost against low mass or high speed against low risk. A point is <strong>Pareto optimal</strong> if improving one objective would worsen at least one other objective. The set of such choices is the Pareto front.</p>
+<p>A common compromise is a weighted sum:</p>
+<div class="math-block">$$
+\min_{\mathbf{x}\in\mathcal F}\sum_{i=1}^m w_i\widetilde f_i(\mathbf{x}),
+\qquad w_i\ge0.
+$$</div>
+<p>Normalize the objectives first so that units and scale do not silently choose the result. Report the weights and resulting tradeoff.</p>
+<h2 id="a-practical-workflow">A practical workflow</h2>
+<ol><li><p>Define the decision variables, units, objective, and constraints. Decide which quantities are minimized or maximized.</p></li><li><p>Check feasibility and scaling. Ask whether the functions are differentiable and whether convexity makes a global answer likely.</p></li><li><p>Solve simple cases analytically. For larger smooth problems, consider gradient, Newton, or quasi-Newton methods; use LP or QP solvers when the model has that structure.</p></li><li><p>Verify the result: inspect the objective, gradient or KKT residuals, constraint violations, bounds, and sensitivity to the starting point and tolerances.</p></li><li><p>Check the model itself. A solver can accurately optimize an objective that is still a poor representation of the real decision.</p></li></ol>
+<h3 id="checkpoint">Checkpoint</h3>
+<p>You are ready to use this note when you can explain local versus global minima, find and classify a stationary point, interpret a gradient as a direction, recognize basic convexity, set up a Lagrange-multiplier system, and describe why a numerical solver needs a step-size or stopping rule.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="unconstrained-and-constrained-optimization" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Unconstrained and constrained optimization">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#start-with-a-one-variable-problem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="unconstrained-and-constrained-optimization">Start with a one-variable problem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundaries-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="unconstrained-and-constrained-optimization">Boundaries matter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#several-variables-slopes-become-a-gradient" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="unconstrained-and-constrained-optimization">Several variables: slopes become a gradient</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#curvature-minimum-maximum-or-saddle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="unconstrained-and-constrained-optimization">Curvature: minimum, maximum, or saddle?</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="convexity-when-local-means-global" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Convexity: when local means global">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constraints-and-the-boundary" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="convexity-when-local-means-global">Constraints and the boundary</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="finding-an-answer-numerically" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Finding an answer numerically">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gradient-newton-and-quasi-newton-methods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="finding-an-answer-numerically">Gradient, Newton, and quasi-Newton methods</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="important-problem-families" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Important problem families">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-and-quadratic-programming" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="important-problem-families">Linear and quadratic programming</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#multi-objective-optimization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="important-problem-families">Multi-objective optimization</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="a-practical-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for A practical workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#checkpoint" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="a-practical-workflow">Checkpoint</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

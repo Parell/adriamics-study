@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Engineering Design | Adriamics Study</title>
+  <meta name="description" content="Engineering design is iterative. Engineers rarely move straight from problem to finished product. They define the need, propose a solution, test the solution..." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/engineering-design/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#the-design-loop" data-notes-nav-item data-notes-toc-link>The design loop</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#from-need-to-requirements" data-notes-nav-item data-notes-toc-link>From need to requirements</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#concept-design-and-architecture" data-notes-nav-item data-notes-toc-link>Concept design and architecture</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interfaces-and-system-boundaries" data-notes-nav-item data-notes-toc-link>Interfaces and system boundaries</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#product-definition-cad-drawings-and-boms" data-notes-nav-item data-notes-toc-link>Product definition: CAD, drawings, and BOMs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dimensions-tolerances-and-variation" data-notes-nav-item data-notes-toc-link>Dimensions, tolerances, and variation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gd-and-t-and-datums" data-notes-nav-item data-notes-toc-link>GD&amp;T and datums</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#materials-surfaces-and-manufacturing-process-selection" data-notes-nav-item data-notes-toc-link>Materials, surfaces, and manufacturing process selection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#loads-free-body-diagrams-and-load-paths" data-notes-nav-item data-notes-toc-link>Loads, free body diagrams, and load paths</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress-strain-deflection-and-margin" data-notes-nav-item data-notes-toc-link>Stress, strain, deflection, and margin</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#failure-modes-fatigue-buckling-wear-and-details" data-notes-nav-item data-notes-toc-link>Failure modes: fatigue, buckling, wear, and details</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thermal-vibration-and-electrical-analysis" data-notes-nav-item data-notes-toc-link>Thermal, vibration, and electrical analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cae-fea-and-engineering-judgment" data-notes-nav-item data-notes-toc-link>CAE, FEA, and engineering judgment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dfma-and-manufacturability" data-notes-nav-item data-notes-toc-link>DFMA and manufacturability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quality-inspection-and-metrology" data-notes-nav-item data-notes-toc-link>Quality, inspection, and metrology</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reliability-and-risk" data-notes-nav-item data-notes-toc-link>Reliability and risk</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#failure-investigation-and-root-cause-analysis" data-notes-nav-item data-notes-toc-link>Failure investigation and root cause analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#maintainability-and-serviceability" data-notes-nav-item data-notes-toc-link>Maintainability and serviceability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#revision-control-ecos-and-configuration-management" data-notes-nav-item data-notes-toc-link>Revision control, ECOs, and configuration management</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#integrated-design-workflow" data-notes-nav-item data-notes-toc-link>Integrated design workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Engineering Design</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/engineering-design/engineering-design.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fengineering-design%2Fengineering-design.md&amp;title=%5BContribute%5D%3A%20Engineering%20Design" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/engineering-design/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="the-design-loop">The design loop</h1>
+<p>Engineering design is iterative. Engineers rarely move straight from problem to finished product. They define the need, propose a solution, test the solution against constraints, revise it, and repeat until the design is good enough to release.</p>
+<p>A simple design loop is:</p>
+<ol><li><p>Define the problem.</p></li><li><p>Convert the problem into measurable requirements.</p></li><li><p>Generate possible solutions.</p></li><li><p>Select the most promising concept.</p></li><li><p>Define the geometry, materials, interfaces, and parts.</p></li><li><p>Analyze whether the design works.</p></li><li><p>Check whether it can be manufactured and inspected.</p></li><li><p>Build and test prototypes or first articles.</p></li><li><p>Release controlled documentation.</p></li><li><p>Manage changes through revision control.</p></li></ol>
+<p>The loop matters because every design decision affects several others. A tighter tolerance may improve fit, but it may also increase cost. A stronger material may reduce failure risk, but it may be harder to machine or more prone to corrosion. A lighter part may improve performance, but it may vibrate more.</p>
+<h2 id="main-categories-of-design-work">Main categories of design work</h2>
+<table><thead><tr><th>Category</th><th>Main question</th><th>Typical outputs</th></tr></thead><tbody><tr><td>Requirements</td><td>What must the design do?</td><td>Requirement specification, acceptance criteria</td></tr><tr><td>Concept design</td><td>What solution approach should be used?</td><td>Sketches, trade studies, architecture</td></tr><tr><td>Product definition</td><td>What exactly will be built?</td><td>CAD, drawings, BOM, ICDs</td></tr><tr><td>Analysis</td><td>Will it work?</td><td>Hand calculations, FEA, thermal analysis, power budget</td></tr><tr><td>Manufacturing</td><td>Can it be made repeatedly?</td><td>Process plan, DFMA review, tooling assumptions</td></tr><tr><td>Quality</td><td>Can it be measured and accepted?</td><td>Inspection plan, metrology method, gauge studies</td></tr><tr><td>Reliability</td><td>Will it keep working in service?</td><td>FMEA, derating, fatigue checks, maintainability review</td></tr><tr><td>Release control</td><td>How are changes managed?</td><td>ECOs, revisions, configuration records</td></tr></tbody></table>
+<h2 id="running-example">Running example</h2>
+<p>Use a simple example throughout this guide: an aluminum wall bracket that holds a small sensor box.</p>
+<p>The bracket must:</p>
+<ul><li><p>Support the sensor weight.</p></li><li><p>Bolt to a wall.</p></li><li><p>Keep the sensor aligned.</p></li><li><p>Survive vibration and temperature changes.</p></li><li><p>Be easy to manufacture, inspect, and replace.</p></li></ul>
+<p>Even this simple part involves requirements, loads, material selection, CAD, drawings, tolerances, GD&amp;T, fasteners, inspection, failure modes, and revision control.</p>
+<hr />
+<h1 id="from-need-to-requirements">From need to requirements</h1>
+<p><strong>Big idea:</strong> requirements define what success means.</p>
+<p>A requirement is a clear statement of what the design must do or satisfy. Without requirements, there is no objective way to decide whether the design is correct.</p>
+<p>A weak requirement is vague:</p>
+<blockquote><p>The bracket should be strong.</p></blockquote>
+<p>A better requirement is measurable:</p>
+<blockquote><p>The bracket shall support a static vertical load of $500\ \mathrm{N}$ with a minimum factor of safety of $2.0$ against yield.</p></blockquote>
+<p>The second version can be analyzed, tested, and accepted or rejected.</p>
+<h2 id="need-requirement-and-acceptance-criterion">Need, requirement, and acceptance criterion</h2>
+<p>These three ideas are related but not the same.</p>
+<table><thead><tr><th>Item</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>Need</td><td>The real-world problem</td><td>Hold a sensor on a wall</td></tr><tr><td>Requirement</td><td>A measurable design obligation</td><td>Support $500\ \mathrm{N}$ static load</td></tr><tr><td>Acceptance criterion</td><td>The pass/fail rule</td><td>Pass if permanent deformation is not observed and calculated $N_y \ge 2.0$</td></tr></tbody></table>
+<p>A requirement says what must be true. An acceptance criterion says how the requirement will be judged.</p>
+<h2 id="requirement-types">Requirement types</h2>
+<table><thead><tr><th>Type</th><th>What it controls</th><th>Example</th></tr></thead><tbody><tr><td>Functional</td><td>What the design does</td><td>Hold the sensor box in a fixed orientation</td></tr><tr><td>Performance</td><td>How well it does it</td><td>Limit tip deflection to $1.0\ \mathrm{mm}$</td></tr><tr><td>Interface</td><td>How it connects</td><td>Use a $4$-hole wall mounting pattern</td></tr><tr><td>Environmental</td><td>Where it must work</td><td>Operate from $-20^\circ\mathrm{C}$ to $60^\circ\mathrm{C}$</td></tr><tr><td>Manufacturing</td><td>How it may be made</td><td>Use sheet metal bending or machining</td></tr><tr><td>Inspection</td><td>How it is checked</td><td>Verify hole position using a CMM or gauge plate</td></tr><tr><td>Reliability</td><td>How long it must last</td><td>No fatigue cracking over expected service life</td></tr><tr><td>Service</td><td>How it is maintained</td><td>Replaceable with standard hand tools</td></tr><tr><td>Cost or mass</td><td>Resource limits</td><td>Mass below $250\ \mathrm{g}$</td></tr></tbody></table>
+<p>Good requirements are specific, measurable, realistic, traceable, and verifiable.</p>
+<h2 id="verification-and-validation">Verification and validation</h2>
+<p><strong>Verification</strong> checks whether the design meets the written requirements.</p>
+<p><strong>Validation</strong> checks whether the requirements actually solve the user’s problem.</p>
+<table><thead><tr><th>Question</th><th>Concept</th></tr></thead><tbody><tr><td>Did we build the design right?</td><td>Verification</td></tr><tr><td>Did we build the right design?</td><td>Validation</td></tr></tbody></table>
+<p>A bracket can pass every written load test and still be a bad design if the real sensor cable cannot be installed. That is a validation problem.</p>
+<h2 id="traceability">Traceability</h2>
+<p>Traceability connects the original need to design decisions and evidence.</p>
+<div class="math-block">$$
+\text{need} \rightarrow \text{requirement} \rightarrow \text{design feature} \rightarrow \text{analysis or test} \rightarrow \text{verification result}
+$$</div>
+<p>Example:</p>
+<table><thead><tr><th>Trace item</th><th>Bracket example</th></tr></thead><tbody><tr><td>Need</td><td>Sensor must stay aligned on wall</td></tr><tr><td>Requirement</td><td>Tip deflection shall be $\le 1.0\ \mathrm{mm}$ under load</td></tr><tr><td>Design feature</td><td>Triangular rib added to bracket</td></tr><tr><td>Analysis/test</td><td>Beam estimate and FEA displacement result</td></tr><tr><td>Verification</td><td>Measured prototype deflection $0.6\ \mathrm{mm}$</td></tr></tbody></table>
+<p>Traceability prevents random design features. Every critical feature should exist for a reason.</p>
+<h2 id="common-mistakes-with-requirements">Common mistakes with requirements</h2>
+<ul><li><p>Using words like strong, light, cheap, durable, or easy without numbers.</p></li><li><p>Mixing a design solution into a requirement too early.</p></li><li><p>Forgetting environment, service, or inspection requirements.</p></li><li><p>Writing requirements that cannot be tested.</p></li><li><p>Failing to identify which requirements are critical.</p></li></ul>
+<hr />
+<h1 id="concept-design-and-architecture">Concept design and architecture</h1>
+<p><strong>Big idea:</strong> before defining details, engineers decide what kind of solution they are building.</p>
+<p>A concept is a possible way to satisfy the requirements. At this stage, the design may be sketches, rough CAD, block diagrams, prototypes, or simple calculations.</p>
+<p>The purpose is not to finish the design. The purpose is to choose a direction before spending time on detailed drawings and analysis.</p>
+<h2 id="functional-decomposition">Functional decomposition</h2>
+<p>Functional decomposition breaks a problem into smaller functions.</p>
+<p>For the bracket example:</p>
+<table><thead><tr><th>Function</th><th>Possible design feature</th></tr></thead><tbody><tr><td>Attach to wall</td><td>Bolt holes, slots, adhesive pad, clamp</td></tr><tr><td>Support sensor</td><td>Plate, arm, frame, molded housing</td></tr><tr><td>Resist bending</td><td>Rib, thicker section, triangular shape</td></tr><tr><td>Align sensor</td><td>locating pins, datum surface, machined face</td></tr><tr><td>Allow service</td><td>accessible screws, removable cover</td></tr></tbody></table>
+<p>This helps avoid jumping directly to geometry before understanding the job of each feature.</p>
+<h2 id="concept-generation">Concept generation</h2>
+<p>Common ways to generate concepts:</p>
+<ul><li><p>Sketch multiple layouts.</p></li><li><p>Change material or manufacturing process.</p></li><li><p>Change load path.</p></li><li><p>Reduce part count.</p></li><li><p>Use standard parts.</p></li><li><p>Move interfaces.</p></li><li><p>Separate functions into modules.</p></li><li><p>Combine functions into one part.</p></li></ul>
+<p>For the bracket, possible concepts might be:</p>
+<table><thead><tr><th>Concept</th><th>Strength</th><th>Cost</th><th>Manufacturability</th><th>Notes</th></tr></thead><tbody><tr><td>Machined block</td><td>High</td><td>High</td><td>Simple geometry but material waste</td><td>Good for low volume</td></tr><tr><td>Bent sheet metal bracket</td><td>Medium</td><td>Low</td><td>Good for volume</td><td>Needs bend radius and tolerance review</td></tr><tr><td>Cast bracket</td><td>High</td><td>Medium-high</td><td>Tooling required</td><td>Good for high volume</td></tr><tr><td>Plastic molded bracket</td><td>Low-medium</td><td>Low at volume</td><td>Needs ribs and draft</td><td>Environment may limit use</td></tr></tbody></table>
+<h2 id="trade-studies">Trade studies</h2>
+<p>A trade study compares options against criteria. A simple weighted score can organize the decision, but it should not replace judgment.</p>
+<p>Example scoring form:</p>
+<table><thead><tr><th>Criterion</th><th>Weight</th><th>Concept A score</th><th>Concept B score</th></tr></thead><tbody><tr><td>Strength</td><td>5</td><td>4</td><td>3</td></tr><tr><td>Cost</td><td>4</td><td>2</td><td>5</td></tr><tr><td>Mass</td><td>3</td><td>3</td><td>4</td></tr><tr><td>Assembly ease</td><td>3</td><td>4</td><td>4</td></tr><tr><td>Inspection ease</td><td>2</td><td>5</td><td>3</td></tr></tbody></table>
+<p>Weighted score for one concept:</p>
+<div class="math-block">$$
+S = \sum_{i=1}^{n} w_i s_i
+$$</div>
+<p>where $w_i$ is the criterion weight and $s_i$ is the concept score.</p>
+<p>The score is only useful if the criteria are chosen honestly and the major risks are discussed.</p>
+<h2 id="design-intent">Design intent</h2>
+<p>Design intent is the reason behind the geometry and specifications.</p>
+<p>It answers questions like:</p>
+<ul><li><p>Which surfaces locate the part?</p></li><li><p>Which features carry the load?</p></li><li><p>Which dimensions are critical?</p></li><li><p>Which tolerances protect assembly?</p></li><li><p>Which features are noncritical and can remain loose?</p></li><li><p>What should not change during a future revision?</p></li></ul>
+<p>Example:</p>
+<blockquote><p>The large rear face of the bracket is datum A because it contacts the wall. The two lower holes are datum features B and C because they locate the bracket pattern. The top surface is not a datum because it does not control function.</p></blockquote>
+<p>This kind of reasoning keeps drawings, CAD constraints, GD&amp;T, and inspection aligned.</p>
+<hr />
+<h1 id="interfaces-and-system-boundaries">Interfaces and system boundaries</h1>
+<p><strong>Big idea:</strong> many design failures happen where parts or teams meet.</p>
+<p>An interface is a boundary where one part, subsystem, supplier, or team connects to another. Interfaces must be controlled because a change on one side can break the other side.</p>
+<h2 id="types-of-interfaces">Types of interfaces</h2>
+<table><thead><tr><th>Interface type</th><th>Examples</th></tr></thead><tbody><tr><td>Mechanical</td><td>Bolt pattern, locating pin, shaft, bearing, seal, envelope</td></tr><tr><td>Electrical</td><td>Connector, voltage, current, pinout, grounding</td></tr><tr><td>Fluid</td><td>Pressure, flow rate, fitting size, leak rate</td></tr><tr><td>Thermal</td><td>Heat path, cooling contact, insulation, heat sink</td></tr><tr><td>Software or controls</td><td>signal format, timing, command structure</td></tr><tr><td>Human</td><td>handle, label, access panel, service clearance</td></tr></tbody></table>
+<p>The bracket has mechanical interfaces with the wall and sensor box. It may also have cable clearance and service interfaces.</p>
+<h2 id="interface-control-document">Interface control document</h2>
+<p>An interface control document, or ICD, records what each side must obey.</p>
+<p>Typical ICD content:</p>
+<table><thead><tr><th>ICD item</th><th>Example</th></tr></thead><tbody><tr><td>Geometry</td><td>Hole pattern, datum scheme, keep-out zone</td></tr><tr><td>Loads</td><td>Maximum force, torque, vibration input</td></tr><tr><td>Electrical</td><td>Connector model, voltage, pin assignment</td></tr><tr><td>Environment</td><td>temperature, moisture, contamination</td></tr><tr><td>Ownership</td><td>Which team controls each side</td></tr><tr><td>Verification</td><td>Inspection method or interface test</td></tr></tbody></table>
+<h2 id="why-interface-control-matters">Why interface control matters</h2>
+<p>Suppose the wall bracket team moves a mounting hole by $2\ \mathrm{mm}$ to make the bracket easier to machine. If the sensor box team is not aware of the change, the parts may no longer assemble. Interface control prevents this kind of mismatch.</p>
+<p>Interfaces should be identified early, controlled clearly, and changed formally.</p>
+<hr />
+<h1 id="product-definition-cad-drawings-and-boms">Product definition: CAD, drawings, and BOMs</h1>
+<p><strong>Big idea:</strong> product definition is the controlled description of what will be built.</p>
+<p>Once a concept is selected, the design must become specific enough for manufacturing, inspection, purchasing, assembly, and service.</p>
+<h2 id="cad">CAD</h2>
+<p>Computer-aided design, or CAD, is the digital model of a part or assembly. CAD helps engineers create geometry, check fit, generate drawings, support simulation, and communicate design intent.</p>
+<p>Common CAD file types by role:</p>
+<table><thead><tr><th>CAD item</th><th>Purpose</th></tr></thead><tbody><tr><td>Part model</td><td>Defines one component</td></tr><tr><td>Assembly model</td><td>Defines how components fit together</td></tr><tr><td>Drawing file</td><td>Produces 2D documentation</td></tr><tr><td>Simplified model</td><td>Removes details for analysis or supplier sharing</td></tr><tr><td>Manufacturing model</td><td>Supports CAM, tooling, or fixtures</td></tr></tbody></table>
+<p>CAD is not automatically a complete design. A model may show shape, but it may not show tolerances, materials, finishes, inspection rules, or revision status.</p>
+<h2 id="parametric-modeling-and-intent">Parametric modeling and intent</h2>
+<p>Parametric CAD uses dimensions, constraints, and relationships. Good models are built so important design intent survives changes.</p>
+<p>Poor modeling intent:</p>
+<ul><li><p>A hole is located from a random edge that may later move.</p></li><li><p>A fillet is added before the feature it depends on is stable.</p></li><li><p>Symmetric parts are modeled with unrelated dimensions.</p></li></ul>
+<p>Better modeling intent:</p>
+<ul><li><p>Holes are located from functional datums.</p></li><li><p>Symmetry is controlled with a center plane.</p></li><li><p>Critical dimensions are named and easy to edit.</p></li><li><p>Nonfunctional cosmetic features are added late.</p></li></ul>
+<h2 id="engineering-drawings">Engineering drawings</h2>
+<p>An engineering drawing is a controlled 2D document that defines a part or assembly for manufacture and inspection.</p>
+<p>A drawing usually includes:</p>
+<table><thead><tr><th>Drawing item</th><th>Purpose</th></tr></thead><tbody><tr><td>Views</td><td>Show geometry</td></tr><tr><td>Dimensions</td><td>Define size and location</td></tr><tr><td>Tolerances</td><td>Define allowed variation</td></tr><tr><td>GD&amp;T</td><td>Control form, orientation, and position</td></tr><tr><td>Datums</td><td>Define measurement reference frame</td></tr><tr><td>Material</td><td>Specify grade or standard</td></tr><tr><td>Surface finish</td><td>Specify roughness, coating, or treatment</td></tr><tr><td>Notes</td><td>Add manufacturing or inspection requirements</td></tr><tr><td>Title block</td><td>Identify part number, revision, owner, scale, approvals</td></tr><tr><td>Revision block</td><td>Record controlled changes</td></tr></tbody></table>
+<h2 id="model-controlled-and-drawing-controlled-design">Model-controlled and drawing-controlled design</h2>
+<p>Different organizations use different authority structures.</p>
+<table><thead><tr><th>Approach</th><th>Meaning</th></tr></thead><tbody><tr><td>Drawing-controlled</td><td>The drawing is the master definition</td></tr><tr><td>Model-controlled</td><td>The 3D model is the master definition</td></tr><tr><td>Model-based definition</td><td>Manufacturing information is embedded in the 3D model</td></tr></tbody></table>
+<p>The important rule is consistency. Do not define the same requirement in two places if they can disagree.</p>
+<h2 id="bill-of-materials">Bill of materials</h2>
+<p>A bill of materials, or BOM, lists the parts required to build a product.</p>
+<p>Common BOM fields:</p>
+<table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>Item number</td><td>Position in assembly list</td></tr><tr><td>Part number</td><td>Unique identifier</td></tr><tr><td>Description</td><td>Part name</td></tr><tr><td>Quantity</td><td>Number used per assembly</td></tr><tr><td>Revision</td><td>Controlled version</td></tr><tr><td>Material/specification</td><td>Required material or standard</td></tr><tr><td>Supplier</td><td>Approved vendor</td></tr><tr><td>Make/buy</td><td>Internal part or purchased item</td></tr><tr><td>Notes</td><td>Special handling or assembly information</td></tr></tbody></table>
+<p>The BOM connects engineering to purchasing, manufacturing, assembly, cost, inventory, and service.</p>
+<h2 id="assembly-documentation">Assembly documentation</h2>
+<p>Assemblies often need more than part drawings. They may require:</p>
+<ul><li><p>Exploded views.</p></li><li><p>Item balloons tied to the BOM.</p></li><li><p>Fastener callouts.</p></li><li><p>Torque values.</p></li><li><p>Adhesive or lubricant notes.</p></li><li><p>Assembly order.</p></li><li><p>Inspection checks.</p></li><li><p>Functional tests.</p></li><li><p>Service instructions.</p></li></ul>
+<p>For the bracket, an assembly drawing might specify bolt type, washer use, installation torque, cable routing, and sensor orientation.</p>
+<hr />
+<h1 id="dimensions-tolerances-and-variation">Dimensions, tolerances, and variation</h1>
+<p><strong>Big idea:</strong> real parts are imperfect, so design must control acceptable imperfection.</p>
+<p>No manufacturing process produces exact geometry. Tolerances define how much variation is allowed while still preserving function.</p>
+<p>A dimension has a nominal value and limits.</p>
+<p>Example:</p>
+<div class="math-block">$$
+25.00 \pm 0.10\ \mathrm{mm}
+$$</div>
+<p>This means:</p>
+<div class="math-block">$$
+24.90\ \mathrm{mm} \le x \le 25.10\ \mathrm{mm}
+$$</div>
+<p>For a general bilateral tolerance:</p>
+<div class="math-block">$$
+x_{min} = x_{nom} - T_-
+$$</div>
+<div class="math-block">$$
+x_{max} = x_{nom} + T_+
+$$</div>
+<p>For a symmetric tolerance $\pm T$:</p>
+<div class="math-block">$$
+x_{min} = x_{nom} - T
+$$</div>
+<div class="math-block">$$
+x_{max} = x_{nom} + T
+$$</div>
+<h2 id="why-tolerances-matter">Why tolerances matter</h2>
+<p>Tolerances affect:</p>
+<ul><li><p>Assembly fit.</p></li><li><p>Interchangeability.</p></li><li><p>Manufacturing cost.</p></li><li><p>Inspection cost.</p></li><li><p>Scrap rate.</p></li><li><p>Supplier capability.</p></li><li><p>Product reliability.</p></li></ul>
+<p>A loose tolerance may make assembly unreliable. A tight tolerance may make the part expensive or impossible to produce consistently.</p>
+<p>The design question is not “how tight can this be?” It is:</p>
+<blockquote><p>How loose can this be while the design still works?</p></blockquote>
+<h2 id="tolerance-types">Tolerance types</h2>
+<table><thead><tr><th>Type</th><th>Example</th><th>Meaning</th></tr></thead><tbody><tr><td>Bilateral</td><td>$25.00 \pm 0.10$</td><td>Variation allowed in both directions</td></tr><tr><td>Unilateral</td><td>$25.00^{+0.10}_{-0.00}$</td><td>Variation allowed mostly one way</td></tr><tr><td>Limit dimension</td><td>$24.90$ to $25.10$</td><td>Limits stated directly</td></tr><tr><td>General tolerance</td><td>Title-block tolerance</td><td>Default when not individually specified</td></tr><tr><td>Geometric tolerance</td><td>Position, flatness, profile</td><td>Controls shape or relationship</td></tr></tbody></table>
+<h2 id="fits-and-clearances">Fits and clearances</h2>
+<p>A clearance is the space between mating parts. A fit describes the relationship between two mating features, usually a hole and shaft.</p>
+<p>For a hole and shaft:</p>
+<div class="math-block">$$
+C = D_{hole} - D_{shaft}
+$$</div>
+<p>Minimum clearance:</p>
+<div class="math-block">$$
+C_{min} = D_{hole,min} - D_{shaft,max}
+$$</div>
+<p>Maximum clearance:</p>
+<div class="math-block">$$
+C_{max} = D_{hole,max} - D_{shaft,min}
+$$</div>
+<p>Interpretation:</p>
+<table><thead><tr><th>Result</th><th>Meaning</th></tr></thead><tbody><tr><td>$C_{min} &gt; 0$</td><td>Always clearance</td></tr><tr><td>$C_{max} &lt; 0$</td><td>Always interference</td></tr><tr><td>$C_{min} &lt; 0$ and $C_{max} &gt; 0$</td><td>Transition fit</td></tr></tbody></table>
+<p>Common fit types:</p>
+<table><thead><tr><th>Fit type</th><th>Use</th></tr></thead><tbody><tr><td>Clearance fit</td><td>Sliding, rotating, easy assembly</td></tr><tr><td>Slip fit</td><td>Removable pins, covers, service parts</td></tr><tr><td>Transition fit</td><td>Accurate location with possible light press</td></tr><tr><td>Interference fit</td><td>Pressed bushings, retained bearings, hubs</td></tr></tbody></table>
+<h2 id="tolerance-stack-up">Tolerance stack-up</h2>
+<p>Tolerance stack-up predicts how multiple part variations combine in an assembly.</p>
+<p>Suppose a bracket must leave a clearance gap $G$ between the sensor and a cover. If several dimensions affect that gap, each tolerance can increase or decrease the final clearance.</p>
+<p>Worst-case stack-up assumes every dimension is at its worst possible limit:</p>
+<div class="math-block">$$
+T_{total} = \sum_{i=1}^{n} |T_i|
+$$</div>
+<p>This is conservative. If it passes, the assembly should work even in the worst allowed combination.</p>
+<p>A statistical root-sum-square estimate is:</p>
+<div class="math-block">$$
+T_{RSS} = \sqrt{T_1^2 + T_2^2 + \cdots + T_n^2}
+$$</div>
+<p>RSS is less conservative and depends on assumptions about independent, centered process variation.</p>
+<h2 id="stack-up-workflow">Stack-up workflow</h2>
+<ol><li><p>Define the functional gap, clearance, or alignment requirement.</p></li><li><p>Draw the dimension chain from one side of the requirement to the other.</p></li><li><p>Decide which dimensions increase and decrease the gap.</p></li><li><p>Insert nominal dimensions and tolerances.</p></li><li><p>Calculate minimum and maximum possible gap.</p></li><li><p>Compare to the functional requirement.</p></li><li><p>Tighten only the dimensions that actually control the result.</p></li></ol>
+<h2 id="practical-tolerance-rule">Practical tolerance rule</h2>
+<p>Do not tolerance every feature tightly. Tighten features that control function:</p>
+<ul><li><p>Bearing seats.</p></li><li><p>Seal surfaces.</p></li><li><p>Locating holes.</p></li><li><p>Critical gaps.</p></li><li><p>Alignment surfaces.</p></li><li><p>Interfaces to other parts.</p></li></ul>
+<p>Leave nonfunctional cosmetic or clearance features with general tolerances when possible.</p>
+<hr />
+<h1 id="gd-and-t-and-datums">GD&amp;T and datums</h1>
+<p><strong>Big idea:</strong> GD&amp;T controls geometry using functional references instead of only plus/minus dimensions.</p>
+<p>Geometric Dimensioning and Tolerancing, or GD&amp;T, is a symbolic language for controlling form, orientation, location, profile, and runout.</p>
+<p>GD&amp;T is useful when ordinary coordinate dimensions do not clearly describe how the part must function or how it should be inspected.</p>
+<h2 id="datums">Datums</h2>
+<p>A datum is a theoretically exact reference used for measurement and assembly. A datum feature is the real part feature used to establish that reference.</p>
+<p>For the bracket:</p>
+<ul><li><p>The wall-contact face might define datum A.</p></li><li><p>One mounting hole might define datum B.</p></li><li><p>A second mounting hole or slot might define datum C.</p></li></ul>
+<p>This creates a repeatable coordinate frame for inspection.</p>
+<h2 id="datum-priority">Datum priority</h2>
+<table><thead><tr><th>Datum</th><th>Role</th></tr></thead><tbody><tr><td>Primary</td><td>Establishes the main locating plane or axis</td></tr><tr><td>Secondary</td><td>Further orients the part</td></tr><tr><td>Tertiary</td><td>Fully locks the remaining direction or rotation</td></tr></tbody></table>
+<p>Datums should usually be functional features: surfaces, holes, or axes that actually locate the part in use.</p>
+<h2 id="common-gd-and-t-controls">Common GD&amp;T controls</h2>
+<table><thead><tr><th>Control</th><th>What it controls</th><th>Common use</th></tr></thead><tbody><tr><td>Flatness</td><td>Surface form without a datum</td><td>Sealing or mounting faces</td></tr><tr><td>Straightness</td><td>Line or axis form</td><td>Shafts, edges, rails</td></tr><tr><td>Circularity</td><td>Roundness of a cross-section</td><td>Rotating parts</td></tr><tr><td>Cylindricity</td><td>Full cylindrical form</td><td>Precision shafts or bores</td></tr><tr><td>Parallelism</td><td>Orientation to a datum</td><td>Sliding surfaces, plates</td></tr><tr><td>Perpendicularity</td><td>$90^\circ$ orientation to a datum</td><td>Holes, brackets, mounting faces</td></tr><tr><td>Angularity</td><td>Specified angle to a datum</td><td>Angled brackets or surfaces</td></tr><tr><td>Position</td><td>Location of a feature</td><td>Hole patterns, pins, bosses</td></tr><tr><td>Profile</td><td>Shape of a line or surface</td><td>Castings, molded parts, aerodynamic shapes</td></tr><tr><td>Runout</td><td>Rotational variation</td><td>Shafts, hubs, rotating assemblies</td></tr></tbody></table>
+<h2 id="feature-control-frame">Feature control frame</h2>
+<p>A feature control frame states the geometric rule.</p>
+<p>Conceptually:</p>
+<div class="math-block">$$
+\text{control} \; | \; \text{tolerance} \; | \; \text{datum reference frame}
+$$</div>
+<p>Example meaning:</p>
+<blockquote><p>The axis of this hole must lie inside a cylindrical tolerance zone relative to datums A, B, and C.</p></blockquote>
+<h2 id="position-tolerance">Position tolerance</h2>
+<p>Position tolerance is often used for holes because it controls the allowable location of a feature relative to datums.</p>
+<p>For a circular position tolerance zone of diameter $T$, the allowed radial error from true position is:</p>
+<div class="math-block">$$
+r \le \frac{T}{2}
+$$</div>
+<p>This is different from separate $x$ and $y$ coordinate tolerances. A circular tolerance zone better matches how a round hole functions.</p>
+<h2 id="material-condition-modifiers">Material condition modifiers</h2>
+<table><thead><tr><th>Modifier</th><th>Meaning</th><th>Practical effect</th></tr></thead><tbody><tr><td>RFS</td><td>Regardless of feature size</td><td>Geometric tolerance does not depend on actual feature size</td></tr><tr><td>MMC</td><td>Maximum material condition</td><td>Allows bonus tolerance as feature departs from worst-case material condition</td></tr><tr><td>LMC</td><td>Least material condition</td><td>Protects minimum wall thickness or edge distance</td></tr></tbody></table>
+<p>For a hole, MMC is the smallest allowed hole. For a shaft or pin, MMC is the largest allowed shaft or pin.</p>
+<h2 id="gd-and-t-workflow">GD&amp;T workflow</h2>
+<ol><li><p>Identify how the part is located in the assembly.</p></li><li><p>Choose datum features from functional interfaces.</p></li><li><p>Identify which features need form, orientation, or position control.</p></li><li><p>Apply GD&amp;T only where it improves function or inspection clarity.</p></li><li><p>Check that the tolerance can be measured.</p></li><li><p>Check that the tolerance is compatible with manufacturing capability.</p></li></ol>
+<h2 id="common-gd-and-t-mistakes">Common GD&amp;T mistakes</h2>
+<ul><li><p>Choosing datums from nonfunctional surfaces.</p></li><li><p>Overusing GD&amp;T where simple dimensions are enough.</p></li><li><p>Creating datum schemes that inspection cannot reproduce.</p></li><li><p>Tightening position tolerances without stack-up justification.</p></li><li><p>Forgetting that datum order matters.</p></li></ul>
+<hr />
+<h1 id="materials-surfaces-and-manufacturing-process-selection">Materials, surfaces, and manufacturing process selection</h1>
+<p><strong>Big idea:</strong> geometry only works if the material, surface, and process are compatible with the job.</p>
+<p>Material selection and manufacturing process selection should happen together. A material that is strong on paper may be expensive, hard to machine, difficult to weld, prone to corrosion, or incompatible with the required surface finish.</p>
+<h2 id="material-selection">Material selection</h2>
+<p>Material selection is the choice of what a part is made from.</p>
+<p>Important material properties:</p>
+<table><thead><tr><th>Property</th><th>Meaning</th><th>Why it matters</th></tr></thead><tbody><tr><td>Density $\rho$</td><td>Mass per volume</td><td>Weight and inertia</td></tr><tr><td>Elastic modulus $E$</td><td>Stiffness</td><td>Deflection and vibration</td></tr><tr><td>Yield strength $\sigma_y$</td><td>Permanent deformation limit</td><td>Static strength</td></tr><tr><td>Ultimate strength</td><td>Maximum tensile stress before failure</td><td>Fracture limit</td></tr><tr><td>Fatigue strength</td><td>Resistance to cyclic loading</td><td>Long-life parts</td></tr><tr><td>Hardness</td><td>Resistance to indentation and wear</td><td>Contact surfaces</td></tr><tr><td>Toughness</td><td>Energy absorbed before fracture</td><td>Impact and crack resistance</td></tr><tr><td>Thermal conductivity $k$</td><td>Heat conduction ability</td><td>Cooling and thermal gradients</td></tr><tr><td>Coefficient of thermal expansion $\alpha$</td><td>Size change with temperature</td><td>Fits and thermal stress</td></tr><tr><td>Corrosion resistance</td><td>Resistance to chemical attack</td><td>Outdoor, wet, or chemical environments</td></tr></tbody></table>
+<h2 id="strength-versus-stiffness">Strength versus stiffness</h2>
+<p>Strength and stiffness are different.</p>
+<p>Strength asks whether the material fails:</p>
+<div class="math-block">$$
+\sigma_{max} \le \sigma_{allowable}
+$$</div>
+<p>Stiffness asks whether the part moves too much:</p>
+<div class="math-block">$$
+\delta_{max} \le \delta_{allowable}
+$$</div>
+<p>A part can be strong enough but too flexible. A rubber part may survive the load but deflect too much. A steel part may be stiff but too heavy.</p>
+<h2 id="specific-properties">Specific properties</h2>
+<p>For weight-sensitive design, compare properties per unit density.</p>
+<p>Specific strength:</p>
+<div class="math-block">$$
+\frac{\sigma_y}{\rho}
+$$</div>
+<p>Specific stiffness:</p>
+<div class="math-block">$$
+\frac{E}{\rho}
+$$</div>
+<p>These help compare materials such as aluminum, steel, titanium, composites, and plastics when mass matters.</p>
+<h2 id="thermal-expansion">Thermal expansion</h2>
+<p>Temperature changes alter dimensions:</p>
+<div class="math-block">$$
+\Delta L = \alpha L_0 \Delta T
+$$</div>
+<p>where $\alpha$ is the coefficient of thermal expansion, $L_0$ is original length, and $\Delta T$ is temperature change.</p>
+<p>Thermal expansion matters for:</p>
+<ul><li><p>Precision fits.</p></li><li><p>Mixed-material assemblies.</p></li><li><p>Electronics housings.</p></li><li><p>Bearings and seals.</p></li><li><p>Long rails or frames.</p></li><li><p>Hot or cold environments.</p></li></ul>
+<h2 id="surface-finish">Surface finish</h2>
+<p>Surface finish describes surface texture, often using roughness $R_a$.</p>
+<p>Surface finish affects:</p>
+<ul><li><p>Friction.</p></li><li><p>Wear.</p></li><li><p>Sealing.</p></li><li><p>Adhesion.</p></li><li><p>Coating quality.</p></li><li><p>Fatigue strength.</p></li><li><p>Appearance.</p></li><li><p>Cleanability.</p></li></ul>
+<p>Examples:</p>
+<table><thead><tr><th>Surface</th><th>Design concern</th></tr></thead><tbody><tr><td>Seal face</td><td>Leakage and contact pressure</td></tr><tr><td>Bearing surface</td><td>Friction, wear, lubrication</td></tr><tr><td>Sliding surface</td><td>Smooth motion and galling</td></tr><tr><td>Bonded surface</td><td>Adhesion and preparation</td></tr><tr><td>Painted surface</td><td>Corrosion protection and appearance</td></tr><tr><td>Fatigue-critical surface</td><td>Crack initiation from roughness</td></tr></tbody></table>
+<h2 id="coatings-and-treatments">Coatings and treatments</h2>
+<p>Common treatments include:</p>
+<ul><li><p>Anodizing.</p></li><li><p>Plating.</p></li><li><p>Painting.</p></li><li><p>Passivation.</p></li><li><p>Heat treatment.</p></li><li><p>Case hardening.</p></li><li><p>Shot peening.</p></li><li><p>Polishing.</p></li><li><p>Dry-film lubrication.</p></li></ul>
+<p>Coatings can change dimensions. If a coating adds thickness, it can change a fit, close a clearance, or affect thread engagement.</p>
+<h2 id="manufacturing-process-awareness">Manufacturing process awareness</h2>
+<p>Different processes have different design rules.</p>
+<table><thead><tr><th>Process</th><th>Main design concerns</th></tr></thead><tbody><tr><td>Machining</td><td>Tool access, setups, sharp internal corners, tolerance cost</td></tr><tr><td>Sheet metal</td><td>Bend radius, relief cuts, flat pattern, grain direction</td></tr><tr><td>Casting</td><td>Draft, shrinkage, porosity, wall thickness, parting line</td></tr><tr><td>Injection molding</td><td>Draft, ribs, sink marks, gate location, warpage</td></tr><tr><td>Welding</td><td>Distortion, access, heat-affected zone, inspection</td></tr><tr><td>Additive manufacturing</td><td>Supports, anisotropy, surface finish, post-processing</td></tr><tr><td>Extrusion</td><td>Constant cross-section, die design, straightness</td></tr><tr><td>Forging</td><td>Draft, grain flow, die cost, flash</td></tr></tbody></table>
+<p>A design is not finished until the chosen geometry can actually be produced by the chosen process.</p>
+<hr />
+<h1 id="loads-free-body-diagrams-and-load-paths">Loads, free body diagrams, and load paths</h1>
+<p><strong>Big idea:</strong> before calculating stress, understand where the forces go.</p>
+<p>Mechanical analysis starts by identifying loads and supports. The most important first tool is usually a free body diagram.</p>
+<h2 id="free-body-diagram">Free body diagram</h2>
+<p>A free body diagram, or FBD, isolates one body and shows all external forces and moments acting on it.</p>
+<p>For static equilibrium:</p>
+<div class="math-block">$$
+\sum F_x = 0
+$$</div>
+<div class="math-block">$$
+\sum F_y = 0
+$$</div>
+<div class="math-block">$$
+\sum M = 0
+$$</div>
+<p>In vector form:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = \mathbf{0}
+$$</div>
+<div class="math-block">$$
+\sum \mathbf{M} = \mathbf{0}
+$$</div>
+<h2 id="how-to-make-an-fbd">How to make an FBD</h2>
+<ol><li><p>Choose the body or part to isolate.</p></li><li><p>Remove surrounding parts.</p></li><li><p>Replace contacts with reaction forces or moments.</p></li><li><p>Add known applied loads.</p></li><li><p>Add weight if relevant.</p></li><li><p>Choose coordinate axes.</p></li><li><p>Write equilibrium equations.</p></li><li><p>Solve for unknown reactions.</p></li></ol>
+<p>For the wall bracket, the sensor creates a downward load and a moment at the wall. The bolts and wall contact must react those loads.</p>
+<h2 id="load-path">Load path</h2>
+<p>The load path is the route force takes through the structure.</p>
+<p>For the bracket:</p>
+<div class="math-block">$$
+\text{sensor weight} \rightarrow \text{sensor fasteners} \rightarrow \text{bracket arm} \rightarrow \text{wall bolts} \rightarrow \text{wall}
+$$</div>
+<p>Load path questions:</p>
+<ul><li><p>Where does the load enter?</p></li><li><p>Where does it leave?</p></li><li><p>Which features carry tension, compression, shear, bending, or torque?</p></li><li><p>Are there sharp corners or thin sections in the path?</p></li><li><p>Are fasteners loaded in a good direction?</p></li><li><p>Is there an alternate load path if one feature fails?</p></li></ul>
+<p>A strong-looking part can fail if the load path passes through a weak feature.</p>
+<h2 id="load-cases">Load cases</h2>
+<p>A load case is one defined loading condition.</p>
+<p>Common load cases:</p>
+<table><thead><tr><th>Load case</th><th>Example</th></tr></thead><tbody><tr><td>Static</td><td>Sensor weight under normal use</td></tr><tr><td>Peak</td><td>Installation force or accidental bump</td></tr><tr><td>Dynamic</td><td>Vibration from machinery</td></tr><tr><td>Thermal</td><td>Expansion from temperature change</td></tr><tr><td>Shipping</td><td>Drop, shock, packaging loads</td></tr><tr><td>Misuse</td><td>Reasonable overload or incorrect handling</td></tr><tr><td>Service</td><td>Loads during repair or replacement</td></tr></tbody></table>
+<p>Analysis should cover the load cases that matter for requirements and credible use.</p>
+<hr />
+<h1 id="stress-strain-deflection-and-margin">Stress, strain, deflection, and margin</h1>
+<p><strong>Big idea:</strong> mechanical analysis checks both failure and motion.</p>
+<p>A design can fail by breaking, yielding, bending too much, wearing out, overheating, buckling, or vibrating. The basic mechanical checks start with stress, strain, deflection, factor of safety, and margin.</p>
+<h2 id="stress">Stress</h2>
+<p>Stress is internal force per area.</p>
+<p>Axial normal stress:</p>
+<div class="math-block">$$
+\sigma = \frac{F}{A}
+$$</div>
+<p>Average shear stress:</p>
+<div class="math-block">$$
+\tau = \frac{V}{A}
+$$</div>
+<p>Bending stress:</p>
+<div class="math-block">$$
+\sigma = \frac{Mc}{I}
+$$</div>
+<p>where $M$ is bending moment, $c$ is distance from the neutral axis to the outer fiber, and $I$ is the second moment of area.</p>
+<p>Stress predicts whether a material will yield, crack, or fail.</p>
+<h2 id="strain">Strain</h2>
+<p>Strain is deformation compared to original length:</p>
+<div class="math-block">$$
+\varepsilon = \frac{\Delta L}{L_0}
+$$</div>
+<p>For linear elastic behavior:</p>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<p>where $E$ is elastic modulus.</p>
+<p>Stress describes internal loading. Strain describes deformation.</p>
+<h2 id="deflection">Deflection</h2>
+<p>Deflection is how much a part moves under load.</p>
+<p>For an axially loaded member:</p>
+<div class="math-block">$$
+\delta = \frac{FL}{AE}
+$$</div>
+<p>For a cantilever beam with an end load:</p>
+<div class="math-block">$$
+\delta_{max} = \frac{FL^3}{3EI}
+$$</div>
+<p>Deflection matters for:</p>
+<ul><li><p>Alignment.</p></li><li><p>Gaps.</p></li><li><p>Sealing pressure.</p></li><li><p>Gear or bearing contact.</p></li><li><p>Optical paths.</p></li><li><p>Vibration behavior.</p></li><li><p>User feel.</p></li></ul>
+<p>A bracket may have low stress but still allow the sensor to move too much.</p>
+<h2 id="factor-of-safety">Factor of safety</h2>
+<p>Factor of safety compares capacity to demand:</p>
+<div class="math-block">$$
+N = \frac{\text{capacity}}{\text{demand}}
+$$</div>
+<p>For yielding:</p>
+<div class="math-block">$$
+N_y = \frac{\sigma_y}{\sigma_{max}}
+$$</div>
+<p>A factor of safety greater than $1$ means estimated capacity exceeds estimated demand.</p>
+<p>Required factor of safety depends on:</p>
+<ul><li><p>Uncertainty in load.</p></li><li><p>Material variability.</p></li><li><p>Manufacturing quality.</p></li><li><p>Inspection quality.</p></li><li><p>Consequence of failure.</p></li><li><p>Whether people can be injured.</p></li><li><p>Whether standards specify a value.</p></li></ul>
+<h2 id="design-margin">Design margin</h2>
+<p>Design margin expresses remaining capacity:</p>
+<div class="math-block">$$
+\text{margin} = \frac{\text{capacity}}{\text{demand}} - 1
+$$</div>
+<p>Since:</p>
+<div class="math-block">$$
+N = \frac{\text{capacity}}{\text{demand}}
+$$</div>
+<p>then:</p>
+<div class="math-block">$$
+\text{margin} = N - 1
+$$</div>
+<p>Interpretation:</p>
+<table><thead><tr><th>Margin</th><th>Meaning</th></tr></thead><tbody><tr><td>Positive</td><td>Requirement is met</td></tr><tr><td>Zero</td><td>Exactly at limit</td></tr><tr><td>Negative</td><td>Requirement is not met</td></tr></tbody></table>
+<h2 id="basic-mechanical-analysis-workflow">Basic mechanical analysis workflow</h2>
+<ol><li><p>Identify the requirement.</p></li><li><p>Identify the load case.</p></li><li><p>Draw the FBD.</p></li><li><p>Find reactions and internal loads.</p></li><li><p>Calculate stress and deflection.</p></li><li><p>Compare to allowable limits.</p></li><li><p>Calculate factor of safety and margin.</p></li><li><p>Check whether assumptions are conservative and realistic.</p></li></ol>
+<hr />
+<h1 id="failure-modes-fatigue-buckling-wear-and-details">Failure modes: fatigue, buckling, wear, and details</h1>
+<p><strong>Big idea:</strong> a design can fail even when the first static calculation looks acceptable.</p>
+<p>A failure mode is a way the design stops satisfying its requirements.</p>
+<p>Common failure modes:</p>
+<table><thead><tr><th>Failure mode</th><th>Example</th></tr></thead><tbody><tr><td>Yielding</td><td>Bracket permanently bends</td></tr><tr><td>Fracture</td><td>Part cracks suddenly</td></tr><tr><td>Fatigue</td><td>Crack grows after repeated vibration</td></tr><tr><td>Buckling</td><td>Thin column or wall collapses sideways</td></tr><tr><td>Wear</td><td>Hole or bearing surface becomes loose</td></tr><tr><td>Creep</td><td>Part slowly deforms over time at temperature</td></tr><tr><td>Corrosion</td><td>Material loses section or cracks</td></tr><tr><td>Overheating</td><td>Electronics or material degrades</td></tr><tr><td>Loosening</td><td>Fastener preload is lost</td></tr><tr><td>Leakage</td><td>Seal no longer holds pressure</td></tr></tbody></table>
+<h2 id="fatigue">Fatigue</h2>
+<p>Fatigue is failure caused by repeated loading. A part can fail below yield strength if the load repeats enough times.</p>
+<p>Fatigue risk increases with:</p>
+<ul><li><p>High cyclic stress.</p></li><li><p>Stress concentrations.</p></li><li><p>Rough surfaces.</p></li><li><p>Welds.</p></li><li><p>Corrosion.</p></li><li><p>Tensile mean stress.</p></li><li><p>Poor material quality.</p></li><li><p>Vibration.</p></li></ul>
+<p>For the bracket, fatigue may matter if the wall is attached to vibrating equipment.</p>
+<h2 id="stress-concentration">Stress concentration</h2>
+<p>A stress concentration occurs where geometry creates locally high stress, such as at holes, sharp corners, grooves, notches, threads, and weld toes.</p>
+<p>A simple relation is:</p>
+<div class="math-block">$$
+\sigma_{max} = K_t \sigma_{nom}
+$$</div>
+<p>where $K_t$ is the theoretical stress concentration factor.</p>
+<p>Design responses include:</p>
+<ul><li><p>Larger fillets.</p></li><li><p>Smooth transitions.</p></li><li><p>Better surface finish.</p></li><li><p>Lower local load.</p></li><li><p>Moving holes away from high-stress areas.</p></li><li><p>Avoiding abrupt section changes.</p></li></ul>
+<h2 id="buckling">Buckling</h2>
+<p>Buckling is instability under compression. A slender member can collapse sideways before the material reaches yield.</p>
+<p>For an ideal column:</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$</div>
+<p>where:</p>
+<table><thead><tr><th>Symbol</th><th>Meaning</th></tr></thead><tbody><tr><td>$P_{cr}$</td><td>critical buckling load</td></tr><tr><td>$E$</td><td>elastic modulus</td></tr><tr><td>$I$</td><td>second moment of area</td></tr><tr><td>$L$</td><td>unsupported length</td></tr><tr><td>$K$</td><td>effective length factor based on end conditions</td></tr></tbody></table>
+<p>Buckling matters for struts, columns, thin panels, lightweight frames, sheet metal walls, and compression members.</p>
+<h2 id="fasteners-and-joints">Fasteners and joints</h2>
+<p>Fasteners are common failure points because they involve preload, friction, vibration, fatigue, and assembly variation.</p>
+<p>Important joint questions:</p>
+<ul><li><p>Is the joint loaded in tension, shear, bending, or torque?</p></li><li><p>Is preload required?</p></li><li><p>Can vibration loosen the joint?</p></li><li><p>Is thread engagement sufficient?</p></li><li><p>Is the material under the head or nut strong enough?</p></li><li><p>Is torque controlled during assembly?</p></li><li><p>Is there tool access?</p></li></ul>
+<p>Bolt torque is often used as an approximate way to create preload:</p>
+<div class="math-block">$$
+T \approx KFd
+$$</div>
+<p>where $T$ is tightening torque, $K$ is a nut factor, $F$ is preload, and $d$ is nominal bolt diameter.</p>
+<p>This estimate is rough because friction dominates the result.</p>
+<hr />
+<h1 id="thermal-vibration-and-electrical-analysis">Thermal, vibration, and electrical analysis</h1>
+<p><strong>Big idea:</strong> real products heat up, cool down, vibrate, and consume power.</p>
+<p>Engineering design is not only static strength. A product can fail because it overheats, resonates, loses voltage, expands too much, or draws more power than expected.</p>
+<h2 id="heat-transfer">Heat transfer</h2>
+<p>Heat transfer is the movement of thermal energy.</p>
+<p>The three basic modes are conduction, convection, and radiation.</p>
+<p>Conduction through a simple wall:</p>
+<div class="math-block">$$
+q = \frac{kA\Delta T}{L}
+$$</div>
+<p>Convection:</p>
+<div class="math-block">$$
+q = hA(T_s - T_\infty)
+$$</div>
+<p>Radiation:</p>
+<div class="math-block">$$
+q = \varepsilon \sigma A(T_s^4 - T_{sur}^4)
+$$</div>
+<p>where $q$ is heat transfer rate.</p>
+<h2 id="thermal-resistance">Thermal resistance</h2>
+<p>Thermal systems can often be modeled like electrical resistance:</p>
+<div class="math-block">$$
+q = \frac{\Delta T}{R_{th}}
+$$</div>
+<p>For conduction through a flat layer:</p>
+<div class="math-block">$$
+R_{th} = \frac{L}{kA}
+$$</div>
+<p>This is useful for heat sinks, electronics enclosures, motors, batteries, insulation, and thermal interfaces.</p>
+<h2 id="vibration">Vibration</h2>
+<p>Vibration is repeated motion caused by dynamic forces. It can cause noise, fatigue, loosened fasteners, sensor error, discomfort, or failure.</p>
+<p>For a simple mass-spring system:</p>
+<div class="math-block">$$
+\omega_n = \sqrt{\frac{k}{m}}
+$$</div>
+<p>Frequency in hertz is:</p>
+<div class="math-block">$$
+f_n = \frac{\omega_n}{2\pi}
+$$</div>
+<p>where $k$ is stiffness and $m$ is mass.</p>
+<h2 id="modal-analysis">Modal analysis</h2>
+<p>Modal analysis finds natural frequencies and mode shapes.</p>
+<p>A design is at risk when excitation frequencies are near natural frequencies. This can cause resonance, where vibration amplitude becomes large.</p>
+<p>Common excitation sources:</p>
+<ul><li><p>Motors.</p></li><li><p>Fans.</p></li><li><p>Engines.</p></li><li><p>Pumps.</p></li><li><p>Road input.</p></li><li><p>Rotating imbalance.</p></li><li><p>Gear mesh.</p></li><li><p>Human input.</p></li></ul>
+<p>Design responses include increasing stiffness, reducing mass, adding damping, isolating the source, or shifting excitation frequency.</p>
+<h2 id="electrical-load-analysis">Electrical load analysis</h2>
+<p>Electrical load analysis checks whether the system can safely provide required voltage, current, and power.</p>
+<p>Ohm’s law:</p>
+<div class="math-block">$$
+V = IR
+$$</div>
+<p>Power:</p>
+<div class="math-block">$$
+P = VI
+$$</div>
+<p>For a resistive load:</p>
+<div class="math-block">$$
+P = I^2R = \frac{V^2}{R}
+$$</div>
+<p>Voltage drop in a conductor:</p>
+<div class="math-block">$$
+\Delta V = IR_{wire}
+$$</div>
+<p>Too much voltage drop can cause resets, overheating, poor performance, or failure.</p>
+<h2 id="power-budget">Power budget</h2>
+<p>A power budget lists electrical loads and compares demand to available supply.</p>
+<p>Total power:</p>
+<div class="math-block">$$
+P_{total} = \sum_{i=1}^{n} P_i
+$$</div>
+<p>For a battery-powered system, a rough runtime estimate is:</p>
+<div class="math-block">$$
+t \approx \frac{E_{available}}{P_{average}}
+$$</div>
+<p>Power budgets should include:</p>
+<ul><li><p>Continuous loads.</p></li><li><p>Startup loads.</p></li><li><p>Peak loads.</p></li><li><p>Duty cycles.</p></li><li><p>Conversion efficiency.</p></li><li><p>Thermal limits.</p></li><li><p>Reserve margin.</p></li></ul>
+<hr />
+<h1 id="cae-fea-and-engineering-judgment">CAE, FEA, and engineering judgment</h1>
+<p><strong>Big idea:</strong> simulation is useful only when the model represents the real problem well enough.</p>
+<p>Computer-aided engineering, or CAE, uses software to analyze engineering behavior. Finite element analysis, or FEA, divides geometry into small elements to estimate stress, deflection, temperature, vibration, or other fields.</p>
+<p>FEA is powerful, but it is not automatically correct. The output depends on assumptions.</p>
+<h2 id="what-fea-can-help-with">What FEA can help with</h2>
+<table><thead><tr><th>Simulation type</th><th>Used for</th></tr></thead><tbody><tr><td>Static structural</td><td>Stress, deflection, reaction loads</td></tr><tr><td>Modal</td><td>Natural frequencies and mode shapes</td></tr><tr><td>Harmonic response</td><td>Steady-state vibration</td></tr><tr><td>Transient dynamic</td><td>Time-varying impact, shock, or motion</td></tr><tr><td>Thermal</td><td>Temperature and heat flow</td></tr><tr><td>CFD</td><td>Fluid flow and convection</td></tr><tr><td>Fatigue</td><td>Life under cyclic loading</td></tr><tr><td>Buckling</td><td>Stability under compression</td></tr></tbody></table>
+<h2 id="fea-workflow">FEA workflow</h2>
+<ol><li><p>Define the engineering question.</p></li><li><p>Identify the requirement and pass/fail rule.</p></li><li><p>Simplify geometry without removing important behavior.</p></li><li><p>Assign material properties.</p></li><li><p>Apply loads and constraints.</p></li><li><p>Define contacts, joints, and connections.</p></li><li><p>Mesh the model.</p></li><li><p>Solve.</p></li><li><p>Check reactions and units.</p></li><li><p>Refine the mesh and compare results.</p></li><li><p>Compare to hand calculations or test data.</p></li><li><p>Report assumptions, limitations, results, and margin.</p></li></ol>
+<h2 id="boundary-conditions">Boundary conditions</h2>
+<p>Boundary conditions often dominate simulation error.</p>
+<p>An over-constrained model may look too stiff. An under-constrained model may move unrealistically. A load applied over a tiny artificial area may create meaningless peak stress.</p>
+<p>Good boundary conditions should represent how the real part is supported, loaded, and connected.</p>
+<h2 id="mesh-convergence">Mesh convergence</h2>
+<p>Mesh convergence checks whether a result stabilizes as the mesh is refined.</p>
+<p>A simple percent-change check is:</p>
+<div class="math-block">$$
+\text{percent change} = \frac{|R_{fine} - R_{coarse}|}{|R_{fine}|}\times 100\%
+$$</div>
+<p>where $R$ is the result being tracked.</p>
+<p>Peak stress at a sharp corner may not converge because ideal sharp corners create singularities. In that case, evaluate a realistic fillet, averaged stress, or a more appropriate failure metric.</p>
+<h2 id="hand-calculations-still-matter">Hand calculations still matter</h2>
+<p>Hand calculations are used to:</p>
+<ul><li><p>Check units.</p></li><li><p>Estimate magnitude.</p></li><li><p>Reveal bad assumptions.</p></li><li><p>Verify load paths.</p></li><li><p>Provide independent comparison.</p></li><li><p>Interpret simulation results.</p></li></ul>
+<p>A simulation result should be questioned if it is not within the same order of magnitude as a simple estimate.</p>
+<hr />
+<h1 id="dfma-and-manufacturability">DFMA and manufacturability</h1>
+<p><strong>Big idea:</strong> a design is not complete unless it can be made and assembled repeatedly.</p>
+<p>Design for Manufacturing and Assembly, or DFMA, means designing parts so they are easy to make, assemble, inspect, and service.</p>
+<h2 id="dfma-goals">DFMA goals</h2>
+<p>DFMA tries to:</p>
+<ul><li><p>Reduce part count.</p></li><li><p>Simplify geometry.</p></li><li><p>Use standard materials and fasteners.</p></li><li><p>Avoid unnecessary tight tolerances.</p></li><li><p>Reduce setup changes.</p></li><li><p>Improve tool access.</p></li><li><p>Prevent incorrect assembly.</p></li><li><p>Lower cost and cycle time.</p></li><li><p>Improve inspection clarity.</p></li></ul>
+<h2 id="manufacturing-constraints-by-process">Manufacturing constraints by process</h2>
+<table><thead><tr><th>Process</th><th>Constraints to design around</th></tr></thead><tbody><tr><td>Machining</td><td>Tool access, setup count, inside corner radius, workholding</td></tr><tr><td>Sheet metal</td><td>Minimum bend radius, bend relief, flat pattern, springback</td></tr><tr><td>Casting</td><td>Draft, wall thickness, shrinkage, porosity, parting line</td></tr><tr><td>Injection molding</td><td>Draft, rib thickness, sink marks, gates, ejector marks, warpage</td></tr><tr><td>Welding</td><td>Distortion, access, heat-affected zone, fixture design</td></tr><tr><td>Additive manufacturing</td><td>Support material, build direction, anisotropy, roughness</td></tr><tr><td>Extrusion</td><td>Constant cross-section, die cost, straightness</td></tr></tbody></table>
+<h2 id="assembly-design-principles">Assembly design principles</h2>
+<p>Good assembly design usually tries to:</p>
+<ul><li><p>Make parts self-locating.</p></li><li><p>Avoid ambiguous orientation.</p></li><li><p>Use common fasteners.</p></li><li><p>Provide tool clearance.</p></li><li><p>Minimize hidden operations.</p></li><li><p>Avoid long tolerance chains.</p></li><li><p>Use keying to prevent incorrect assembly.</p></li><li><p>Make critical features visible or inspectable.</p></li><li><p>Keep service parts accessible.</p></li></ul>
+<h2 id="cost-drivers">Cost drivers</h2>
+<p>Manufacturing cost is affected by:</p>
+<ul><li><p>Material choice.</p></li><li><p>Part size and weight.</p></li><li><p>Tolerance tightness.</p></li><li><p>Surface finish.</p></li><li><p>Number of setups.</p></li><li><p>Tooling cost.</p></li><li><p>Inspection burden.</p></li><li><p>Scrap rate.</p></li><li><p>Assembly labor.</p></li><li><p>Supplier availability.</p></li><li><p>Production volume.</p></li></ul>
+<p>A common design mistake is to specify precision that function does not require.</p>
+<hr />
+<h1 id="quality-inspection-and-metrology">Quality, inspection, and metrology</h1>
+<p><strong>Big idea:</strong> inspection connects the written design to real manufactured parts.</p>
+<p>Quality is not created by inspection alone. Quality is designed into requirements, tolerances, materials, processes, assembly methods, supplier controls, and measurement systems.</p>
+<h2 id="metrology">Metrology</h2>
+<p>Metrology is the science of measurement.</p>
+<p>Measurement quality depends on:</p>
+<ul><li><p>Instrument resolution.</p></li><li><p>Calibration.</p></li><li><p>Fixturing.</p></li><li><p>Operator method.</p></li><li><p>Temperature.</p></li><li><p>Datum setup.</p></li><li><p>Surface condition.</p></li><li><p>Part flexibility.</p></li><li><p>Measurement uncertainty.</p></li></ul>
+<p>A measured value should not be treated as exact:</p>
+<div class="math-block">$$
+x = x_{measured} \pm U
+$$</div>
+<p>where $U$ is measurement uncertainty.</p>
+<h2 id="inspection-plan">Inspection plan</h2>
+<p>An inspection plan defines what will be measured, how it will be measured, how often it will be measured, and what happens if it fails.</p>
+<p>Typical fields:</p>
+<table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>Characteristic</td><td>Feature or property being checked</td></tr><tr><td>Specification</td><td>Required value or limit</td></tr><tr><td>Method</td><td>Tool or procedure used</td></tr><tr><td>Sample size</td><td>Number of parts checked</td></tr><tr><td>Frequency</td><td>How often inspection occurs</td></tr><tr><td>Reaction plan</td><td>What happens if a part fails</td></tr><tr><td>Record</td><td>Where results are stored</td></tr></tbody></table>
+<p>For the bracket, an inspection plan may include material certification, hole diameter, hole position, bracket flatness, coating thickness, and visual inspection.</p>
+<h2 id="gauge-r-and-r">Gauge R&amp;R</h2>
+<p>Gauge Repeatability and Reproducibility, or Gauge R&amp;R, checks whether the measurement system is reliable.</p>
+<ul><li><p>Repeatability: variation when the same operator measures the same part with the same gauge.</p></li><li><p>Reproducibility: variation between operators, setups, or gauges.</p></li></ul>
+<p>A poor measurement system can reject good parts or accept bad parts.</p>
+<h2 id="process-capability">Process capability</h2>
+<p>Process capability describes whether a stable manufacturing process can consistently meet tolerance.</p>
+<p>Let $USL$ be the upper specification limit, $LSL$ the lower specification limit, $\mu$ the process mean, and $\sigma$ the process standard deviation.</p>
+<p>Potential capability:</p>
+<div class="math-block">$$
+C_p = \frac{USL - LSL}{6\sigma}
+$$</div>
+<p>Centered capability:</p>
+<div class="math-block">$$
+C_{pk} = \min\left(\frac{USL - \mu}{3\sigma}, \frac{\mu - LSL}{3\sigma}\right)
+$$</div>
+<p>$C_p$ measures spread compared to tolerance width. $C_{pk}$ also accounts for whether the process is centered.</p>
+<h2 id="spc">SPC</h2>
+<p>Statistical Process Control, or SPC, tracks process data over time to detect drift, instability, and abnormal variation.</p>
+<p>SPC can reveal problems caused by:</p>
+<ul><li><p>Tool wear.</p></li><li><p>Temperature changes.</p></li><li><p>Material variation.</p></li><li><p>Machine changes.</p></li><li><p>Operator changes.</p></li><li><p>Fixture wear.</p></li></ul>
+<p>Common SPC tools:</p>
+<ul><li><p>Control charts.</p></li><li><p>Run charts.</p></li><li><p>Histograms.</p></li><li><p>Process capability studies.</p></li><li><p>Pareto charts.</p></li><li><p>Out-of-control rules.</p></li></ul>
+<h2 id="quality-control-versus-quality-assurance">Quality control versus quality assurance</h2>
+<table><thead><tr><th>Concept</th><th>Meaning</th></tr></thead><tbody><tr><td>Quality control</td><td>Detecting defects in parts or processes</td></tr><tr><td>Quality assurance</td><td>Creating systems that prevent defects</td></tr></tbody></table>
+<p>Inspection catches problems. Good design and process control prevent them.</p>
+<hr />
+<h1 id="reliability-and-risk">Reliability and risk</h1>
+<p><strong>Big idea:</strong> a design must keep working in real service, not just pass once.</p>
+<p>Reliability is the ability of a product to perform its required function for a specified time under specified conditions.</p>
+<h2 id="reliability-model">Reliability model</h2>
+<p>For a constant failure rate $\lambda$, a simple reliability model is:</p>
+<div class="math-block">$$
+R(t) = e^{-\lambda t}
+$$</div>
+<p>Mean time between failures for a repairable system is often approximated as:</p>
+<div class="math-block">$$
+MTBF = \frac{1}{\lambda}
+$$</div>
+<p>This model is useful as a basic reference, but it should not be applied blindly to all failure types.</p>
+<h2 id="mtbf-mttr-and-availability">MTBF, MTTR, and availability</h2>
+<p>MTBF is mean time between failures.</p>
+<p>MTTR is mean time to repair.</p>
+<p>Simple availability:</p>
+<div class="math-block">$$
+A = \frac{MTBF}{MTBF + MTTR}
+$$</div>
+<p>A system can improve availability by failing less often, being faster to repair, or both.</p>
+<h2 id="derating">Derating</h2>
+<p>Derating means using a component below its maximum rating.</p>
+<p>Examples:</p>
+<ul><li><p>Use a capacitor below its voltage rating.</p></li><li><p>Use a power supply below maximum load.</p></li><li><p>Keep electronics below maximum junction temperature.</p></li><li><p>Use a bearing below rated load.</p></li><li><p>Avoid running a motor continuously at its limit.</p></li></ul>
+<p>Derating reduces stress and usually improves reliability.</p>
+<h2 id="redundancy">Redundancy</h2>
+<p>Redundancy means adding backup components, paths, or functions.</p>
+<table><thead><tr><th>Type</th><th>Meaning</th></tr></thead><tbody><tr><td>Active redundancy</td><td>Backup runs at the same time</td></tr><tr><td>Standby redundancy</td><td>Backup starts after failure</td></tr><tr><td>Functional redundancy</td><td>Different method provides same function</td></tr><tr><td>Structural redundancy</td><td>Alternate load path exists</td></tr></tbody></table>
+<p>Redundancy can improve reliability, but it also adds cost, weight, complexity, and possible new failure modes.</p>
+<h2 id="fmea">FMEA</h2>
+<p>Failure Mode and Effects Analysis, or FMEA, is a structured way to predict failures and reduce risk before they happen.</p>
+<p>Common FMEA fields:</p>
+<table><thead><tr><th>Field</th><th>Meaning</th></tr></thead><tbody><tr><td>Function</td><td>What the item must do</td></tr><tr><td>Failure mode</td><td>How it could fail</td></tr><tr><td>Effect</td><td>What happens if it fails</td></tr><tr><td>Cause</td><td>Why it could fail</td></tr><tr><td>Controls</td><td>Existing prevention or detection methods</td></tr><tr><td>Severity</td><td>Seriousness of the effect</td></tr><tr><td>Occurrence</td><td>Likelihood of the cause</td></tr><tr><td>Detection</td><td>Likelihood of detection before use</td></tr><tr><td>Action</td><td>Recommended risk reduction</td></tr></tbody></table>
+<p>Traditional risk priority number:</p>
+<div class="math-block">$$
+RPN = S \times O \times D
+$$</div>
+<p>where $S$ is severity, $O$ is occurrence, and $D$ is detection ranking.</p>
+<p>RPN helps sort risks, but engineering judgment is still required. A high-severity failure may deserve action even if the RPN is not the largest.</p>
+<h2 id="fault-tree-analysis">Fault tree analysis</h2>
+<p>Fault tree analysis starts with a top-level failure and maps combinations of lower-level failures that could cause it.</p>
+<p>Common logic:</p>
+<table><thead><tr><th>Gate</th><th>Meaning</th></tr></thead><tbody><tr><td>OR</td><td>Any listed failure can cause the event</td></tr><tr><td>AND</td><td>All listed failures must occur together</td></tr></tbody></table>
+<p>Fault trees are useful for safety-critical systems and complex failure logic.</p>
+<hr />
+<h1 id="failure-investigation-and-root-cause-analysis">Failure investigation and root cause analysis</h1>
+<p><strong>Big idea:</strong> solving the visible problem is not enough; the cause must be removed.</p>
+<p>Root cause analysis finds why a failure happened so the fix prevents recurrence.</p>
+<h2 id="root-cause-workflow">Root cause workflow</h2>
+<ol><li><p>Define the problem clearly.</p></li><li><p>Contain the issue if needed.</p></li><li><p>Collect failed parts, measurements, photos, and process data.</p></li><li><p>Reconstruct what happened.</p></li><li><p>Identify possible causes.</p></li><li><p>Test the most likely causes.</p></li><li><p>Identify the root cause.</p></li><li><p>Choose corrective action.</p></li><li><p>Verify the corrective action works.</p></li><li><p>Update drawings, processes, training, or controls.</p></li></ol>
+<h2 id="5-whys">5 Whys</h2>
+<p>5 Whys is a method of asking why repeatedly until the cause chain is clear.</p>
+<p>Example:</p>
+<ol><li><p>Why did the bracket fail? Because it cracked at the mounting hole.</p></li><li><p>Why did it crack there? Because cyclic stress was high at a sharp corner.</p></li><li><p>Why was there a sharp corner? Because the drawing did not specify a fillet.</p></li><li><p>Why did the drawing omit the fillet? Because fatigue loading was not reviewed.</p></li><li><p>Why was fatigue not reviewed? Because the requirement only listed static load.</p></li></ol>
+<p>A shallow corrective action would replace the broken bracket. A better corrective action would update the requirement, add fatigue review, revise the drawing, and inspect the critical corner.</p>
+<h2 id="fishbone-diagram">Fishbone diagram</h2>
+<p>A fishbone diagram, or Ishikawa diagram, organizes possible causes into categories.</p>
+<p>Common categories:</p>
+<ul><li><p>Machine.</p></li><li><p>Method.</p></li><li><p>Material.</p></li><li><p>Measurement.</p></li><li><p>Manpower.</p></li><li><p>Environment.</p></li></ul>
+<p>It is useful because teams often jump to one explanation too early.</p>
+<h2 id="corrective-and-preventive-action">Corrective and preventive action</h2>
+<p>Corrective action fixes the existing cause.</p>
+<p>Preventive action reduces the chance of similar failures elsewhere.</p>
+<p>Examples:</p>
+<table><thead><tr><th>Problem</th><th>Corrective action</th><th>Preventive action</th></tr></thead><tbody><tr><td>Hole pattern incorrect</td><td>Revise drawing and scrap bad parts</td><td>Add drawing checklist for datum scheme</td></tr><tr><td>Coating too thick</td><td>Adjust coating process</td><td>Add coating thickness inspection</td></tr><tr><td>Fatigue crack</td><td>Add fillet and lower stress</td><td>Add fatigue review to design checklist</td></tr><tr><td>Wrong revision built</td><td>Rework inventory</td><td>Improve configuration control</td></tr></tbody></table>
+<hr />
+<h1 id="maintainability-and-serviceability">Maintainability and serviceability</h1>
+<p><strong>Big idea:</strong> a product should be designed for the people who must inspect, repair, and replace it.</p>
+<p>Maintainability is how easily a system can be kept working.</p>
+<p>Serviceability is how easily parts can be accessed, removed, repaired, or replaced.</p>
+<h2 id="maintainability-design-features">Maintainability design features</h2>
+<p>Good service design includes:</p>
+<ul><li><p>Clear access panels.</p></li><li><p>Standard tools.</p></li><li><p>Replaceable modules.</p></li><li><p>Visible labels.</p></li><li><p>Safe isolation points.</p></li><li><p>Drainage or cleanup access.</p></li><li><p>Reasonable fastener access.</p></li><li><p>Diagnostic information.</p></li><li><p>Replacement procedures.</p></li></ul>
+<h2 id="serviceability-questions">Serviceability questions</h2>
+<p>Ask:</p>
+<ul><li><p>Can the part be replaced without removing unrelated parts?</p></li><li><p>Are fasteners visible and reachable?</p></li><li><p>Can the technician tell which revision is installed?</p></li><li><p>Are sharp edges, stored energy, hot surfaces, or electrical hazards controlled?</p></li><li><p>Can the repaired system be tested afterward?</p></li><li><p>Does the design prevent incorrect reassembly?</p></li></ul>
+<p>For the bracket, serviceability might mean the sensor can be removed without removing the wall bracket, and the bracket can be replaced with common tools.</p>
+<hr />
+<h1 id="revision-control-ecos-and-configuration-management">Revision control, ECOs, and configuration management</h1>
+<p><strong>Big idea:</strong> released designs must be controlled so everyone builds the same thing.</p>
+<p>Once a design is released, uncontrolled changes can cause major problems. Manufacturing may build the wrong version, suppliers may use outdated drawings, tests may be performed on unknown hardware, or field units may not match documentation.</p>
+<h2 id="revision-control">Revision control</h2>
+<p>Revision control records released changes.</p>
+<p>A revision history should explain:</p>
+<ul><li><p>What changed.</p></li><li><p>Why it changed.</p></li><li><p>Who approved it.</p></li><li><p>When it became effective.</p></li><li><p>Which parts, drawings, CAD files, BOMs, tools, tests, or field units are affected.</p></li></ul>
+<h2 id="engineering-change-order">Engineering Change Order</h2>
+<p>An Engineering Change Order, or ECO, is a formal method for changing a released design.</p>
+<p>Typical ECO workflow:</p>
+<ol><li><p>Identify the issue or improvement.</p></li><li><p>Define affected parts, drawings, CAD, BOMs, tools, tests, inventory, and field units.</p></li><li><p>Evaluate technical impact.</p></li><li><p>Evaluate cost, schedule, supplier, manufacturing, and service impact.</p></li><li><p>Review and approve.</p></li><li><p>Release revised documentation.</p></li><li><p>Communicate effective date and implementation plan.</p></li><li><p>Keep records for traceability.</p></li></ol>
+<h2 id="configuration-management">Configuration management</h2>
+<p>Configuration management ensures the correct version of every part, document, software file, tool, and process is used together.</p>
+<p>Configuration problems include:</p>
+<ul><li><p>Drawing and CAD mismatch.</p></li><li><p>Wrong revision ordered.</p></li><li><p>Supplier using outdated files.</p></li><li><p>Prototype configuration not recorded.</p></li><li><p>Test result tied to unknown hardware.</p></li><li><p>Field unit different from released design.</p></li></ul>
+<h2 id="part-numbers-and-revisions">Part numbers and revisions</h2>
+<p>A part number identifies a controlled item. A revision identifies the version of that item.</p>
+<p>A change to form, fit, or function usually requires formal revision control. Some organizations require a new part number for changes that are not backward compatible.</p>
+<h2 id="release-package">Release package</h2>
+<p>A release package may include:</p>
+<ul><li><p>Requirement specification.</p></li><li><p>CAD models.</p></li><li><p>Drawings.</p></li><li><p>BOM.</p></li><li><p>Material specifications.</p></li><li><p>Interface documents.</p></li><li><p>Analysis reports.</p></li><li><p>Test procedures and results.</p></li><li><p>Inspection plans.</p></li><li><p>Manufacturing instructions.</p></li><li><p>ECO and approval records.</p></li></ul>
+<p>The goal is that manufacturing, inspection, suppliers, and service all use the same controlled definition.</p>
+<hr />
+<h1 id="integrated-design-workflow">Integrated design workflow</h1>
+<p><strong>Big idea:</strong> engineering design works when all the pieces are connected.</p>
+<p>A good design process does not treat requirements, CAD, tolerances, analysis, manufacturing, and reliability as separate topics. They feed each other.</p>
+<h2 id="full-workflow">Full workflow</h2>
+<ol><li><p>Define the need.</p></li><li><p>Write measurable requirements.</p></li><li><p>Identify interfaces and constraints.</p></li><li><p>Generate concepts.</p></li><li><p>Compare concepts against requirements, risk, cost, and schedule.</p></li><li><p>Select a design direction.</p></li><li><p>Build preliminary CAD.</p></li><li><p>Identify load paths and failure modes.</p></li><li><p>Select materials and manufacturing processes.</p></li><li><p>Analyze stress, deflection, thermal behavior, vibration, and power as needed.</p></li><li><p>Define datums, tolerances, GD&amp;T, fits, and surface finishes.</p></li><li><p>Perform tolerance stack-ups for critical interfaces.</p></li><li><p>Review manufacturability and assembly.</p></li><li><p>Create drawings, BOM, and inspection plans.</p></li><li><p>Build prototypes or first articles.</p></li><li><p>Test and inspect against requirements.</p></li><li><p>Revise the design based on evidence.</p></li><li><p>Release controlled documentation.</p></li><li><p>Manage changes through ECOs.</p></li><li><p>Monitor field performance and feed lessons back into future designs.</p></li></ol>
+<h2 id="choosing-the-right-tool">Choosing the right tool</h2>
+<table><thead><tr><th>Problem</th><th>Likely tool</th></tr></thead><tbody><tr><td>Unknown forces</td><td>Free body diagram</td></tr><tr><td>Strength check</td><td>Stress analysis and factor of safety</td></tr><tr><td>Excess motion</td><td>Deflection or stiffness analysis</td></tr><tr><td>Assembly fit</td><td>Tolerance stack-up</td></tr><tr><td>Hole pattern control</td><td>GD&amp;T position tolerance</td></tr><tr><td>Supplier variation</td><td>Process capability</td></tr><tr><td>Measurement disagreement</td><td>Gauge R&amp;R</td></tr><tr><td>Repeated cracking</td><td>Fatigue analysis and root cause analysis</td></tr><tr><td>Overheating</td><td>Thermal resistance or heat transfer model</td></tr><tr><td>Resonance concern</td><td>Modal analysis</td></tr><tr><td>Electrical overload</td><td>Power budget and voltage drop analysis</td></tr><tr><td>Field failures</td><td>FMEA, fault tree, and corrective action</td></tr><tr><td>Released design update</td><td>ECO and revision control</td></tr></tbody></table>
+<h2 id="design-review-questions">Design review questions</h2>
+<p>Use these questions during design reviews:</p>
+<ul><li><p>What requirement does this feature satisfy?</p></li><li><p>What is the load path?</p></li><li><p>What are the credible failure modes?</p></li><li><p>What happens at tolerance limits?</p></li><li><p>Which dimensions actually control assembly?</p></li><li><p>Are datums chosen from functional interfaces?</p></li><li><p>Is this tolerance tighter than necessary?</p></li><li><p>Can the process make this repeatedly?</p></li><li><p>Can inspection measure this reliably?</p></li><li><p>Is the material compatible with the environment?</p></li><li><p>Can the design be assembled incorrectly?</p></li><li><p>Can it be serviced without damaging other parts?</p></li><li><p>Does the analysis match real boundary conditions?</p></li><li><p>Do CAD, drawings, BOM, test reports, and suppliers use the same revision?</p></li></ul>
+<h2 id="common-design-pitfalls">Common design pitfalls</h2>
+<ul><li><p>Writing vague requirements.</p></li><li><p>Treating CAD geometry as a complete product definition.</p></li><li><p>Adding tight tolerances everywhere.</p></li><li><p>Dimensioning from nonfunctional references.</p></li><li><p>Choosing datums that do not match assembly function.</p></li><li><p>Ignoring tolerance stack-up until parts fail to fit.</p></li><li><p>Selecting material based only on strength.</p></li><li><p>Forgetting stiffness, corrosion, wear, temperature, or fatigue.</p></li><li><p>Using FEA without checking loads, constraints, mesh, and units.</p></li><li><p>Reporting factor of safety without identifying the failure mode.</p></li><li><p>Designing parts that can be made but not inspected.</p></li><li><p>Ignoring maintainability until field repair is difficult.</p></li><li><p>Letting drawings, CAD, BOMs, and suppliers drift out of revision sync.</p></li><li><p>Fixing symptoms instead of root causes.</p></li></ul>
+<h2 id="pre-release-sanity-checks">Pre-release sanity checks</h2>
+<p>Before release, check:</p>
+<ul><li><p>Requirements are measurable.</p></li><li><p>Acceptance criteria are defined.</p></li><li><p>Critical interfaces are controlled.</p></li><li><p>CAD and drawings agree.</p></li><li><p>BOM matches the assembly.</p></li><li><p>Materials and finishes are specified.</p></li><li><p>Critical dimensions have tolerances.</p></li><li><p>Datums match functional interfaces.</p></li><li><p>Stack-ups pass critical fit requirements.</p></li><li><p>Load paths are understood.</p></li><li><p>Safety factors and margins are positive.</p></li><li><p>Thermal, vibration, and electrical limits are addressed where relevant.</p></li><li><p>Manufacturing process can hold required tolerances.</p></li><li><p>Inspection method is capable.</p></li><li><p>Failure modes have been reviewed.</p></li><li><p>Service access is acceptable.</p></li><li><p>Revision and configuration records are controlled.</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="requirements-and-scoring">Requirements and scoring</h2>
+<div class="math-block">$$
+S = \sum_{i=1}^{n} w_i s_i
+$$</div>
+<h2 id="tolerances-and-fits">Tolerances and fits</h2>
+<div class="math-block">$$
+x_{min} = x_{nom} - T_-
+$$</div>
+<div class="math-block">$$
+x_{max} = x_{nom} + T_+
+$$</div>
+<div class="math-block">$$
+C = D_{hole} - D_{shaft}
+$$</div>
+<div class="math-block">$$
+C_{min} = D_{hole,min} - D_{shaft,max}
+$$</div>
+<div class="math-block">$$
+C_{max} = D_{hole,max} - D_{shaft,min}
+$$</div>
+<h2 id="tolerance-stack-up-2">Tolerance stack-up</h2>
+<div class="math-block">$$
+T_{total} = \sum_{i=1}^{n} |T_i|
+$$</div>
+<div class="math-block">$$
+T_{RSS} = \sqrt{T_1^2 + T_2^2 + \cdots + T_n^2}
+$$</div>
+<h2 id="mechanics">Mechanics</h2>
+<div class="math-block">$$
+\sum \mathbf{F} = \mathbf{0}
+$$</div>
+<div class="math-block">$$
+\sum \mathbf{M} = \mathbf{0}
+$$</div>
+<div class="math-block">$$
+\sigma = \frac{F}{A}
+$$</div>
+<div class="math-block">$$
+\tau = \frac{V}{A}
+$$</div>
+<div class="math-block">$$
+\sigma = \frac{Mc}{I}
+$$</div>
+<div class="math-block">$$
+\varepsilon = \frac{\Delta L}{L_0}
+$$</div>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<div class="math-block">$$
+\delta = \frac{FL}{AE}
+$$</div>
+<div class="math-block">$$
+\delta_{max} = \frac{FL^3}{3EI}
+$$</div>
+<div class="math-block">$$
+\sigma_{max} = K_t \sigma_{nom}
+$$</div>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$</div>
+<div class="math-block">$$
+T \approx KFd
+$$</div>
+<h2 id="safety-and-margin">Safety and margin</h2>
+<div class="math-block">$$
+N = \frac{\text{capacity}}{\text{demand}}
+$$</div>
+<div class="math-block">$$
+N_y = \frac{\sigma_y}{\sigma_{max}}
+$$</div>
+<div class="math-block">$$
+\text{margin} = \frac{\text{capacity}}{\text{demand}} - 1
+$$</div>
+<div class="math-block">$$
+\text{margin} = N - 1
+$$</div>
+<h2 id="materials-and-thermal-expansion">Materials and thermal expansion</h2>
+<div class="math-block">$$
+\frac{\sigma_y}{\rho}
+$$</div>
+<div class="math-block">$$
+\frac{E}{\rho}
+$$</div>
+<div class="math-block">$$
+\Delta L = \alpha L_0 \Delta T
+$$</div>
+<h2 id="heat-transfer-2">Heat transfer</h2>
+<div class="math-block">$$
+q = \frac{kA\Delta T}{L}
+$$</div>
+<div class="math-block">$$
+q = hA(T_s - T_\infty)
+$$</div>
+<div class="math-block">$$
+q = \varepsilon \sigma A(T_s^4 - T_{sur}^4)
+$$</div>
+<div class="math-block">$$
+q = \frac{\Delta T}{R_{th}}
+$$</div>
+<div class="math-block">$$
+R_{th} = \frac{L}{kA}
+$$</div>
+<h2 id="vibration-2">Vibration</h2>
+<div class="math-block">$$
+\omega_n = \sqrt{\frac{k}{m}}
+$$</div>
+<div class="math-block">$$
+f_n = \frac{\omega_n}{2\pi}
+$$</div>
+<h2 id="electrical">Electrical</h2>
+<div class="math-block">$$
+V = IR
+$$</div>
+<div class="math-block">$$
+P = VI
+$$</div>
+<div class="math-block">$$
+P = I^2R = \frac{V^2}{R}
+$$</div>
+<div class="math-block">$$
+\Delta V = IR_{wire}
+$$</div>
+<div class="math-block">$$
+P_{total} = \sum_{i=1}^{n} P_i
+$$</div>
+<div class="math-block">$$
+t \approx \frac{E_{available}}{P_{average}}
+$$</div>
+<h2 id="quality-and-reliability">Quality and reliability</h2>
+<div class="math-block">$$
+C_p = \frac{USL - LSL}{6\sigma}
+$$</div>
+<div class="math-block">$$
+C_{pk} = \min\left(\frac{USL - \mu}{3\sigma}, \frac{\mu - LSL}{3\sigma}\right)
+$$</div>
+<div class="math-block">$$
+R(t) = e^{-\lambda t}
+$$</div>
+<div class="math-block">$$
+MTBF = \frac{1}{\lambda}
+$$</div>
+<div class="math-block">$$
+A = \frac{MTBF}{MTBF + MTTR}
+$$</div>
+<div class="math-block">$$
+RPN = S \times O \times D
+$$</div>
+<hr />
+<h2 id="compact-intuition">Compact intuition</h2>
+<p>Engineering design is controlled problem-solving.</p>
+<p>The design starts with a need, becomes requirements, turns into geometry and interfaces, gets checked by analysis and testing, becomes manufacturable through tolerances and process choices, becomes trustworthy through inspection and reliability work, and stays controlled through revision management.</p>
+<p>A complete engineering design answers:</p>
+<ol><li><p>What must it do?</p></li><li><p>What exactly is being built?</p></li><li><p>Will it work under real loads and environments?</p></li><li><p>Can it be manufactured and inspected repeatedly?</p></li><li><p>What can fail, and how is that risk controlled?</p></li><li><p>Can it be maintained?</p></li><li><p>How are future changes controlled?</p></li></ol>
+<p>If those questions are answered clearly, the design is much more likely to survive manufacturing, testing, service, and revision.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Shigley et al., <em>Mechanical Engineering Design</em></p></li><li><p>Leake and Borgerson, <em>Engineering Design Graphics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+<p>Engineering design is the process of turning a need into a product, system, part, or process that can be built, checked, used, maintained, and changed in a controlled way.</p>
+<p>A design is not just a CAD model. A complete engineering design explains:</p>
+<ol><li><p>What the thing must do.</p></li><li><p>What is being built.</p></li><li><p>Why the chosen solution should work.</p></li><li><p>How much variation is allowed.</p></li><li><p>How it will be manufactured, inspected, and maintained.</p></li><li><p>How failures and future changes will be controlled.</p></li></ol>
+<p>The subject flows best as a sequence:</p>
+<div class="math-block">$$
+\text{need} \rightarrow \text{requirements} \rightarrow \text{concept} \rightarrow \text{definition} \rightarrow \text{analysis} \rightarrow \text{manufacturing} \rightarrow \text{verification} \rightarrow \text{release}
+$$</div>
+<p>Each topic in engineering design fits somewhere in that chain.</p>
+<hr />
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="the-design-loop">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for The design loop">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#main-categories-of-design-work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-design-loop">Main categories of design work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#running-example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-design-loop">Running example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="from-need-to-requirements" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for From need to requirements">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#need-requirement-and-acceptance-criterion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="from-need-to-requirements">Need, requirement, and acceptance criterion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#requirement-types" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="from-need-to-requirements">Requirement types</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#verification-and-validation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="from-need-to-requirements">Verification and validation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#traceability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="from-need-to-requirements">Traceability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-with-requirements" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="from-need-to-requirements">Common mistakes with requirements</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="concept-design-and-architecture" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Concept design and architecture">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#functional-decomposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="concept-design-and-architecture">Functional decomposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#concept-generation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="concept-design-and-architecture">Concept generation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trade-studies" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="concept-design-and-architecture">Trade studies</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#design-intent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="concept-design-and-architecture">Design intent</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="interfaces-and-system-boundaries" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Interfaces and system boundaries">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#types-of-interfaces" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="interfaces-and-system-boundaries">Types of interfaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interface-control-document" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="interfaces-and-system-boundaries">Interface control document</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-interface-control-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="interfaces-and-system-boundaries">Why interface control matters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="product-definition-cad-drawings-and-boms" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Product definition: CAD, drawings, and BOMs">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cad" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">CAD</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#parametric-modeling-and-intent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">Parametric modeling and intent</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#engineering-drawings" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">Engineering drawings</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#model-controlled-and-drawing-controlled-design" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">Model-controlled and drawing-controlled design</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bill-of-materials" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">Bill of materials</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#assembly-documentation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="product-definition-cad-drawings-and-boms">Assembly documentation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="dimensions-tolerances-and-variation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Dimensions, tolerances, and variation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-tolerances-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Why tolerances matter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#tolerance-types" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Tolerance types</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fits-and-clearances" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Fits and clearances</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#tolerance-stack-up" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Tolerance stack-up</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stack-up-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Stack-up workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-tolerance-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dimensions-tolerances-and-variation">Practical tolerance rule</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="gd-and-t-and-datums" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for GD&amp;T and datums">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#datums" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Datums</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#datum-priority" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Datum priority</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-gd-and-t-controls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Common GD&amp;T controls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#feature-control-frame" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Feature control frame</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#position-tolerance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Position tolerance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#material-condition-modifiers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Material condition modifiers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gd-and-t-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">GD&amp;T workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-gd-and-t-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gd-and-t-and-datums">Common GD&amp;T mistakes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="materials-surfaces-and-manufacturing-process-selection" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Materials, surfaces, and manufacturing process selection">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#material-selection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Material selection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strength-versus-stiffness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Strength versus stiffness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#specific-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Specific properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thermal-expansion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Thermal expansion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#surface-finish" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Surface finish</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#coatings-and-treatments" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Coatings and treatments</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#manufacturing-process-awareness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-surfaces-and-manufacturing-process-selection">Manufacturing process awareness</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="loads-free-body-diagrams-and-load-paths" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Loads, free body diagrams, and load paths">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#free-body-diagram" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="loads-free-body-diagrams-and-load-paths">Free body diagram</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-make-an-fbd" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="loads-free-body-diagrams-and-load-paths">How to make an FBD</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#load-path" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="loads-free-body-diagrams-and-load-paths">Load path</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#load-cases" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="loads-free-body-diagrams-and-load-paths">Load cases</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="stress-strain-deflection-and-margin" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Stress, strain, deflection, and margin">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Stress</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strain" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Strain</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#deflection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Deflection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#factor-of-safety" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Factor of safety</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#design-margin" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Design margin</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-mechanical-analysis-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-strain-deflection-and-margin">Basic mechanical analysis workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="failure-modes-fatigue-buckling-wear-and-details" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Failure modes: fatigue, buckling, wear, and details">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fatigue" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-modes-fatigue-buckling-wear-and-details">Fatigue</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress-concentration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-modes-fatigue-buckling-wear-and-details">Stress concentration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#buckling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-modes-fatigue-buckling-wear-and-details">Buckling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fasteners-and-joints" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-modes-fatigue-buckling-wear-and-details">Fasteners and joints</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="thermal-vibration-and-electrical-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Thermal, vibration, and electrical analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-transfer" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Heat transfer</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thermal-resistance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Thermal resistance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#vibration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Vibration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#modal-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Modal analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrical-load-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Electrical load analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-budget" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermal-vibration-and-electrical-analysis">Power budget</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="cae-fea-and-engineering-judgment" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for CAE, FEA, and engineering judgment">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#what-fea-can-help-with" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="cae-fea-and-engineering-judgment">What FEA can help with</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fea-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="cae-fea-and-engineering-judgment">FEA workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="cae-fea-and-engineering-judgment">Boundary conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mesh-convergence" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="cae-fea-and-engineering-judgment">Mesh convergence</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hand-calculations-still-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="cae-fea-and-engineering-judgment">Hand calculations still matter</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="dfma-and-manufacturability" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for DFMA and manufacturability">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dfma-goals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dfma-and-manufacturability">DFMA goals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#manufacturing-constraints-by-process" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dfma-and-manufacturability">Manufacturing constraints by process</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#assembly-design-principles" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dfma-and-manufacturability">Assembly design principles</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cost-drivers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="dfma-and-manufacturability">Cost drivers</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="quality-inspection-and-metrology" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Quality, inspection, and metrology">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#metrology" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">Metrology</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inspection-plan" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">Inspection plan</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gauge-r-and-r" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">Gauge R&amp;R</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#process-capability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">Process capability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spc" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">SPC</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quality-control-versus-quality-assurance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quality-inspection-and-metrology">Quality control versus quality assurance</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="reliability-and-risk" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Reliability and risk">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reliability-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">Reliability model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mtbf-mttr-and-availability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">MTBF, MTTR, and availability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#derating" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">Derating</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#redundancy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">Redundancy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fmea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">FMEA</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fault-tree-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-risk">Fault tree analysis</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="failure-investigation-and-root-cause-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Failure investigation and root cause analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#root-cause-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-investigation-and-root-cause-analysis">Root cause workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#5-whys" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-investigation-and-root-cause-analysis">5 Whys</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fishbone-diagram" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-investigation-and-root-cause-analysis">Fishbone diagram</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#corrective-and-preventive-action" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-investigation-and-root-cause-analysis">Corrective and preventive action</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="maintainability-and-serviceability" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Maintainability and serviceability">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#maintainability-design-features" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="maintainability-and-serviceability">Maintainability design features</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#serviceability-questions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="maintainability-and-serviceability">Serviceability questions</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="revision-control-ecos-and-configuration-management" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Revision control, ECOs, and configuration management">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#revision-control" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="revision-control-ecos-and-configuration-management">Revision control</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#engineering-change-order" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="revision-control-ecos-and-configuration-management">Engineering Change Order</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#configuration-management" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="revision-control-ecos-and-configuration-management">Configuration management</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#part-numbers-and-revisions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="revision-control-ecos-and-configuration-management">Part numbers and revisions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#release-package" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="revision-control-ecos-and-configuration-management">Release package</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="integrated-design-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Integrated design workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#full-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="integrated-design-workflow">Full workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#choosing-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="integrated-design-workflow">Choosing the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#design-review-questions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="integrated-design-workflow">Design review questions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-design-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="integrated-design-workflow">Common design pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pre-release-sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="integrated-design-workflow">Pre-release sanity checks</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#requirements-and-scoring" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Requirements and scoring</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#tolerances-and-fits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Tolerances and fits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#tolerance-stack-up-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Tolerance stack-up</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mechanics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Mechanics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#safety-and-margin" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Safety and margin</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#materials-and-thermal-expansion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Materials and thermal expansion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-transfer-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Heat transfer</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#vibration-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Vibration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrical" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Electrical</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quality-and-reliability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Quality and reliability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compact-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Compact intuition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

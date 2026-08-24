@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Systems of ODEs | Adriamics Study</title>
+  <meta name="description" content="Many systems can be written compactly with vectors and matrices." />
+  <link rel="canonical" href="https://adriamics.com/study/math/systems-of-odes/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/systems-of-odes/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#matrix-form-and-solution-structure" data-notes-nav-item data-notes-toc-link>Matrix form and solution structure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-autonomous-systems" data-notes-nav-item data-notes-toc-link>Linear autonomous systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#eigenmodes-as-an-ode-application" data-notes-nav-item data-notes-toc-link>Eigenmodes as an ODE application</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#the-matrix-exponential" data-notes-nav-item data-notes-toc-link>The matrix exponential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nonhomogeneous-linear-systems" data-notes-nav-item data-notes-toc-link>Nonhomogeneous linear systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-portraits-and-stability" data-notes-nav-item data-notes-toc-link>Phase portraits and stability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nonlinear-systems-and-linearization" data-notes-nav-item data-notes-toc-link>Nonlinear systems and linearization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-modeling-patterns" data-notes-nav-item data-notes-toc-link>Common modeling patterns</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Systems of ODEs</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/systems-of-odes/systems-of-odes.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fsystems-of-odes%2Fsystems-of-odes.md&amp;title=%5BContribute%5D%3A%20Systems%20of%20ODEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/systems-of-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="matrix-form-and-solution-structure">Matrix form and solution structure</h1>
+<p>Many systems can be written compactly with vectors and matrices.</p>
+<h2 id="linear-system">Linear system</h2>
+<p>A general linear system is</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A(t)\mathbf{x} + \mathbf{g}(t)
+$$</div>
+<p>where:</p>
+<ul><li><p>$\mathbf{x}(t)$ is the unknown vector</p></li><li><p>$A(t)$ is a coefficient matrix</p></li><li><p>$\mathbf{g}(t)$ is a forcing vector</p></li></ul>
+<p>If $A$ is constant and $\mathbf{g}(t)=\mathbf{0}$, the system is <strong>linear autonomous homogeneous</strong>:</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x}
+$$</div>
+<p>This is the most important case because it is fully analyzable with linear algebra.</p>
+<h2 id="superposition">Superposition</h2>
+<p>For a homogeneous linear system:</p>
+<ul><li><p>if $\mathbf{x}_1$ and $\mathbf{x}_2$ are solutions, then $\mathbf{x}_1 + \mathbf{x}_2$ is also a solution</p></li><li><p>if $c$ is a constant, then $c\mathbf{x}_1$ is also a solution</p></li></ul>
+<p>That means the set of solutions forms a vector space.</p>
+<h2 id="dimension-of-the-solution-space">Dimension of the solution space</h2>
+<p>For an $n \times n$ first-order linear homogeneous system, the general solution depends on $n$ constants. Equivalently, you need $n$ independent initial conditions to determine a unique solution.</p>
+<hr />
+<h1 id="linear-autonomous-systems">Linear autonomous systems</h1>
+<p>The canonical form is</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x}
+$$</div>
+<p>with constant matrix $A$.</p>
+<h2 id="why-this-case-matters">Why this case matters</h2>
+<p>The behavior of the system is controlled by the matrix $A$:</p>
+<ul><li><p>eigenvalues determine growth, decay, oscillation, and stability</p></li><li><p>eigenvectors determine invariant directions</p></li><li><p>the matrix exponential gives the exact solution</p></li></ul>
+<p>For a $2 \times 2$ system,</p>
+<div class="math-block">$$
+\begin{bmatrix}
+x&#39; \\
+y&#39;
+\end{bmatrix}
+=
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+$$</div>
+<p>or equivalently,</p>
+<div class="math-block">$$
+x&#39; = ax + by, \qquad y&#39; = cx + dy
+$$</div>
+<h2 id="decoupling-idea">Decoupling idea</h2>
+<p>If you can find a change of variables that diagonalizes or simplifies $A$, the system may split into independent scalar ODEs. This is the linear-algebra viewpoint behind most solution methods.</p>
+<hr />
+<h1 id="eigenmodes-as-an-ode-application">Eigenmodes as an ODE application</h1>
+<p>The eigenvalue definitions, characteristic-equation derivation, eigenspaces, and repeated-root cases are developed in the <a href="/study/math/eigenvalues/">Eigenvalues note</a>. Here we use only their consequence for time-dependent solutions: if $A\mathbf{v}=\lambda\mathbf{v}$, then</p>
+<div class="math-block">$$
+\mathbf{x}(t)=e^{\lambda t}\mathbf{v}
+$$</div>
+<p>is an eigenmode of $\mathbf{x}&#39;=A\mathbf{x}$. The mode interpretation is:</p>
+<table><thead><tr><th>Eigenvalue pattern</th><th>ODE behavior</th></tr></thead><tbody><tr><td>Real $\lambda&lt;0$</td><td>Exponential decay</td></tr><tr><td>Real $\lambda&gt;0$</td><td>Exponential growth</td></tr><tr><td>$\lambda=0$</td><td>Neutral mode</td></tr><tr><td>$\alpha\pm\beta i$</td><td>Oscillation with envelope $e^{\alpha t}$</td></tr><tr><td>Repeated/defective eigenvalue</td><td>Generalized-eigenvector terms such as $t e^{\lambda t}$ may occur</td></tr></tbody></table>
+<p>If enough independent eigenvectors exist, the general homogeneous solution is a linear combination of these modes. The table is the application recap; see <a href="/study/math/eigenvalues/">Eigenvalues</a> for how to compute and classify the eigenpairs.</p>
+<hr />
+<h1 id="the-matrix-exponential">The matrix exponential</h1>
+<p>The exact solution of</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x}, \qquad \mathbf{x}(0)=\mathbf{x}_0
+$$</div>
+<p>is</p>
+<div class="math-block">$$
+\mathbf{x}(t)=e^{At}\mathbf{x}_0
+$$</div>
+<p>where $e^{At}$ is the <strong>matrix exponential</strong>.</p>
+<h2 id="definition">Definition</h2>
+<div class="math-block">$$
+e^{At} = I + At + \frac{(At)^2}{2!} + \frac{(At)^3}{3!} + \cdots
+$$</div>
+<p>This is analogous to the scalar exponential series.</p>
+<h2 id="diagonalizable-case">Diagonalizable case</h2>
+<p>Using the diagonalization result from the <a href="/study/math/eigenvalues/#6-diagonalization">Eigenvalues note</a>, with $D = \operatorname{diag}(\lambda_1,\dots,\lambda_n)$, the matrix exponential is</p>
+<div class="math-block">$$
+e^{At} = Pe^{Dt}P^{-1}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+e^{Dt} = \operatorname{diag}(e^{\lambda_1 t}, \dots, e^{\lambda_n t})
+$$</div>
+<p>This is the cleanest computational route; the construction and validity of $P$ and $D$ belong to the <a href="/study/math/eigenvalues/#6-diagonalization">Eigenvalues note</a>.</p>
+<h2 id="practical-use">Practical use</h2>
+<p>You often do not compute the full series. Instead, use:</p>
+<ul><li><p>diagonalization</p></li><li><p>eigenvector decomposition</p></li><li><p>Jordan form when necessary</p></li><li><p>software or a calculator for large systems</p></li></ul>
+<hr />
+<h1 id="nonhomogeneous-linear-systems">Nonhomogeneous linear systems</h1>
+<p>The forced system</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t)
+$$</div>
+<p>combines natural dynamics from $A$ with external input $\mathbf{g}(t)$.</p>
+<h2 id="general-solution-structure">General solution structure</h2>
+<p>The solution is</p>
+<div class="math-block">$$
+\mathbf{x}(t) = \mathbf{x}_h(t) + \mathbf{x}_p(t)
+$$</div>
+<p>where:</p>
+<ul><li><p>$\mathbf{x}_h$ solves the homogeneous system $\mathbf{x}&#39; = A\mathbf{x}$</p></li><li><p>$\mathbf{x}_p$ is any particular solution of the full system</p></li></ul>
+<h2 id="variation-of-parameters">Variation of parameters</h2>
+<p>If $\Phi(t)$ is a fundamental matrix for $\mathbf{x}&#39; = A\mathbf{x}$, then a particular solution can be written as</p>
+<div class="math-block">$$
+\mathbf{x}_p(t) = \Phi(t)\int \Phi(t)^{-1}\mathbf{g}(t)\,dt
+$$</div>
+<p>This is the matrix version of variation of parameters for scalar ODEs.</p>
+<h2 id="common-forcing-types">Common forcing types</h2>
+<p>Forcing terms often include:</p>
+<ul><li><p>constants</p></li><li><p>polynomials</p></li><li><p>exponentials</p></li><li><p>sines and cosines</p></li><li><p>combinations of the above</p></li></ul>
+<p>For constant-coefficient systems, undetermined coefficients can work when the forcing has a simple form.</p>
+<hr />
+<h1 id="phase-portraits-and-stability">Phase portraits and stability</h1>
+<p>For a two-dimensional autonomous system, the <strong>phase plane</strong> is the $(x,y)$ plane of states. A <strong>phase portrait</strong> shows representative trajectories.</p>
+<h2 id="equilibria">Equilibria</h2>
+<p>An equilibrium point satisfies</p>
+<div class="math-block">$$
+\mathbf{f}(\mathbf{x}^*) = \mathbf{0}
+$$</div>
+<p>For a linear system $\mathbf{x}&#39; = A\mathbf{x}$, the only equilibrium is usually the origin unless the system is degenerate.</p>
+<h2 id="stability-ideas">Stability ideas</h2>
+<p>An equilibrium is:</p>
+<ul><li><p><strong>stable</strong> if nearby trajectories stay nearby</p></li><li><p><strong>asymptotically stable</strong> if nearby trajectories converge to it</p></li><li><p><strong>unstable</strong> if arbitrarily small perturbations can move away</p></li></ul>
+<p>For linear systems, the eigenvalues of $A$ determine this.</p>
+<h2 id="classification-for-2x2-systems">Classification for 2x2 systems</h2>
+<p>Let the eigenvalues of $A$ be $\lambda_1,\lambda_2$.</p>
+<table><thead><tr><th>Eigenvalue pattern</th><th>Typical behavior</th></tr></thead><tbody><tr><td>Both real, negative</td><td>Stable node</td></tr><tr><td>Both real, positive</td><td>Unstable node</td></tr><tr><td>Opposite signs</td><td>Saddle, unstable</td></tr><tr><td>Complex with negative real part</td><td>Stable spiral</td></tr><tr><td>Complex with positive real part</td><td>Unstable spiral</td></tr><tr><td>Purely imaginary</td><td>Center in the ideal linear case</td></tr></tbody></table>
+<p>If one eigenvalue is zero or repeated, examine the eigenvectors and the full normal form carefully.</p>
+<h2 id="trace-determinant-test-for-2x2-systems">Trace-determinant test for 2x2 systems</h2>
+<p>For</p>
+<div class="math-block">$$
+A=
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+$$</div>
+<p>define:</p>
+<div class="math-block">$$
+\tau = \operatorname{tr}(A)=a+d, \qquad \Delta = \det(A)=ad-bc
+$$</div>
+<p>Then the characteristic polynomial is</p>
+<div class="math-block">$$
+\lambda^2 - \tau \lambda + \Delta = 0
+$$</div>
+<p>and the discriminant is</p>
+<div class="math-block">$$
+\tau^2 - 4\Delta
+$$</div>
+<p>This quickly tells you whether the eigenvalues are real or complex and whether the origin is stable.</p>
+<hr />
+<h1 id="nonlinear-systems-and-linearization">Nonlinear systems and linearization</h1>
+<p>A nonlinear system has the form</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = \mathbf{f}(\mathbf{x})
+$$</div>
+<p>or more generally</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = \mathbf{f}(t,\mathbf{x})
+$$</div>
+<p>Nonlinear systems can have multiple equilibria, limit cycles, bifurcations, and behavior that is not captured by linear theory alone.</p>
+<h2 id="linearization">Linearization</h2>
+<p>Near an equilibrium point $\mathbf{x}^*$, approximate the system by its Jacobian matrix:</p>
+<div class="math-block">$$
+\mathbf{x}&#39; \approx J(\mathbf{x}^*)(\mathbf{x}-\mathbf{x}^*)
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+J(\mathbf{x}) =
+\left[
+\frac{\partial f_i}{\partial x_j}
+\right]
+$$</div>
+<p>This produces a linear system that approximates the nonlinear system near the equilibrium.</p>
+<h2 id="interpreting-the-linearization">Interpreting the linearization</h2>
+<ul><li><p>If the linearized system has eigenvalues with negative real part, the equilibrium is often locally asymptotically stable.</p></li><li><p>If it has an eigenvalue with positive real part, the equilibrium is unstable.</p></li><li><p>If eigenvalues lie on the imaginary axis or are zero, linearization may be inconclusive.</p></li></ul>
+<h2 id="caveat">Caveat</h2>
+<p>Linearization is a local tool. It tells you about behavior near an equilibrium, not the full global dynamics.</p>
+<hr />
+<h1 id="common-modeling-patterns">Common modeling patterns</h1>
+<h2 id="coupled-growth-and-decay">Coupled growth and decay</h2>
+<p>If one variable feeds another, the system may look like</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x}
+$$</div>
+<p>with off-diagonal terms representing interaction rates.</p>
+<h2 id="mass-spring-systems">Mass-spring systems</h2>
+<p>Second-order equations often become first-order systems by introducing velocity.</p>
+<p>For</p>
+<div class="math-block">$$
+m x&#39;&#39; + c x&#39; + kx = 0
+$$</div>
+<p>set</p>
+<div class="math-block">$$
+u = x, \qquad v = x&#39;
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+u&#39; = v, \qquad v&#39; = -\frac{k}{m}u - \frac{c}{m}v
+$$</div>
+<p>This is a standard way to convert a higher-order ODE into a system.</p>
+<h2 id="predator-prey-models">Predator-prey models</h2>
+<p>Typical nonlinear interactions are modeled by</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= f(x,y) \\
+y&#39; &amp;= g(x,y)
+\end{aligned}
+$$</div>
+<p>where growth of one species depends on the other. Equilibria are found by solving $x&#39;=0$ and $y&#39;=0$ simultaneously.</p>
+<h2 id="electrical-circuits">Electrical circuits</h2>
+<p>In circuits with capacitors and inductors, Kirchhoff&#39;s laws often produce systems for charge and current. These are frequently linear with constant coefficients.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>When solving a system of ODEs, use a disciplined sequence.</p>
+<h2 id="identify-the-type">Identify the type</h2>
+<p>Decide whether the system is:</p>
+<ul><li><p>linear or nonlinear</p></li><li><p>autonomous or nonautonomous</p></li><li><p>homogeneous or forced</p></li><li><p>one-dimensional, two-dimensional, or higher</p></li></ul>
+<h2 id="rewrite-in-matrix-form">Rewrite in matrix form</h2>
+<p>Put the system into</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t)
+$$</div>
+<p>if possible.</p>
+<h2 id="find-equilibria">Find equilibria</h2>
+<p>Set all derivatives to zero and solve the algebraic system.</p>
+<h2 id="use-the-eigenvalue-results">Use the eigenvalue results</h2>
+<p>For linear systems, obtain eigenvalues and eigenvectors using the <a href="/study/math/eigenvalues/">Eigenvalues note</a>, then interpret the resulting modes in time.</p>
+<h2 id="build-the-solution-basis">Build the solution basis</h2>
+<p>Use:</p>
+<ul><li><p>eigenvectors if $A$ is diagonalizable</p></li><li><p>generalized eigenvectors if not</p></li><li><p>variation of parameters or undetermined coefficients for forcing</p></li></ul>
+<h2 id="apply-initial-conditions">Apply initial conditions</h2>
+<p>Substitute the initial state to determine the constants.</p>
+<h2 id="interpret-the-result">Interpret the result</h2>
+<p>Check whether the solution:</p>
+<ul><li><p>grows or decays</p></li><li><p>oscillates</p></li><li><p>approaches equilibrium</p></li><li><p>matches the physical context</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="homogeneous-linear-system">Homogeneous linear system</h2>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x}
+$$</div>
+<h2 id="exact-solution">Exact solution</h2>
+<div class="math-block">$$
+\mathbf{x}(t)=e^{At}\mathbf{x}(0)
+$$</div>
+<h2 id="matrix-exponential">Matrix exponential</h2>
+<div class="math-block">$$
+e^{At}=I+At+\frac{(At)^2}{2!}+\cdots
+$$</div>
+<h2 id="eigenmode-interpretation">Eigenmode interpretation</h2>
+<p>If $A\mathbf{v}=\lambda\mathbf{v}$, then $\mathbf{x}(t)=e^{\lambda t}\mathbf{v}$; see the <a href="#4-eigenmodes-as-an-ode-application">eigenmode recap</a> and the <a href="/study/math/eigenvalues/">Eigenvalues note</a> for computation.</p>
+<h2 id="linearization-near-equilibrium">Linearization near equilibrium</h2>
+<div class="math-block">$$
+\mathbf{x}&#39; \approx J(\mathbf{x}^*)(\mathbf{x}-\mathbf{x}^*)
+$$</div>
+<h2 id="forced-linear-system">Forced linear system</h2>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t)
+$$</div>
+<h2 id="variation-of-parameters-2">Variation of parameters</h2>
+<div class="math-block">$$
+\mathbf{x}_p(t)=\Phi(t)\int \Phi(t)^{-1}\mathbf{g}(t)\,dt
+$$</div>
+<hr />
+<h2 id="key-pitfalls">Key pitfalls</h2>
+<ul><li><p>Mixing up vector solutions with scalar solutions</p></li><li><p>Forgetting that one first-order system of size $n$ needs $n$ constants</p></li><li><p>Using scalar intuition when eigenvectors are not enough</p></li><li><p>Ignoring complex eigenvalues and their oscillatory interpretation</p></li><li><p>Treating linearization as a global solution method</p></li><li><p>Forgetting to apply initial conditions after finding the general solution</p></li></ul>
+<h2 id="quick-intuition">Quick intuition</h2>
+<ul><li><p>Eigenvalues control time behavior.</p></li><li><p>Eigenvectors control directions.</p></li><li><p>The matrix exponential packages the whole solution.</p></li><li><p>Nonlinear systems are often best understood locally by linearization.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="matrix-form-and-solution-structure">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Matrix form and solution structure">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#linear-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-form-and-solution-structure">Linear system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#superposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-form-and-solution-structure">Superposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dimension-of-the-solution-space" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-form-and-solution-structure">Dimension of the solution space</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="linear-autonomous-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Linear autonomous systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-this-case-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-autonomous-systems">Why this case matters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#decoupling-idea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-autonomous-systems">Decoupling idea</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="the-matrix-exponential" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for The matrix exponential">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-matrix-exponential">Definition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diagonalizable-case" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-matrix-exponential">Diagonalizable case</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-use" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-matrix-exponential">Practical use</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="nonhomogeneous-linear-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Nonhomogeneous linear systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-solution-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonhomogeneous-linear-systems">General solution structure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variation-of-parameters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonhomogeneous-linear-systems">Variation of parameters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-forcing-types" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonhomogeneous-linear-systems">Common forcing types</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="phase-portraits-and-stability" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Phase portraits and stability">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibria" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-portraits-and-stability">Equilibria</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability-ideas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-portraits-and-stability">Stability ideas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#classification-for-2x2-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-portraits-and-stability">Classification for 2x2 systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trace-determinant-test-for-2x2-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-portraits-and-stability">Trace-determinant test for 2x2 systems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="nonlinear-systems-and-linearization" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Nonlinear systems and linearization">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linearization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonlinear-systems-and-linearization">Linearization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpreting-the-linearization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonlinear-systems-and-linearization">Interpreting the linearization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#caveat" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="nonlinear-systems-and-linearization">Caveat</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-modeling-patterns" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common modeling patterns">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#coupled-growth-and-decay" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-modeling-patterns">Coupled growth and decay</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mass-spring-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-modeling-patterns">Mass-spring systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#predator-prey-models" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-modeling-patterns">Predator-prey models</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrical-circuits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-modeling-patterns">Electrical circuits</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#identify-the-type" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Identify the type</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rewrite-in-matrix-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Rewrite in matrix form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#find-equilibria" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Find equilibria</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#use-the-eigenvalue-results" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Use the eigenvalue results</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#build-the-solution-basis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Build the solution basis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#apply-initial-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Apply initial conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpret-the-result" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Interpret the result</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#homogeneous-linear-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Homogeneous linear system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exact-solution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Exact solution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#matrix-exponential" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Matrix exponential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#eigenmode-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Eigenmode interpretation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linearization-near-equilibrium" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Linearization near equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#forced-linear-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Forced linear system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variation-of-parameters-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Variation of parameters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Key pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Quick intuition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

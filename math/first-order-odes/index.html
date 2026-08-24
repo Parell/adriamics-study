@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>First Order ODEs | Adriamics Study</title>
+  <meta name="description" content="First-order ordinary differential equations (ODEs) involve an unknown function y(x) and its first derivative y&#39; . They are the first serious class of differe..." />
+  <link rel="canonical" href="https://adriamics.com/study/math/first-order-odes/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/first-order-odes/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#first-order-odes" data-notes-nav-item data-notes-toc-link>First-Order ODEs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#initial-value-problems-and-geometric-meaning" data-notes-nav-item data-notes-toc-link>Initial value problems and geometric meaning</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#separable-equations" data-notes-nav-item data-notes-toc-link>Separable equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-first-order-equations" data-notes-nav-item data-notes-toc-link>Linear first-order equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exact-equations" data-notes-nav-item data-notes-toc-link>Exact equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#homogeneous-first-order-equations" data-notes-nav-item data-notes-toc-link>Homogeneous first-order equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bernoulli-equations" data-notes-nav-item data-notes-toc-link>Bernoulli equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#autonomous-equations-and-equilibria" data-notes-nav-item data-notes-toc-link>Autonomous equations and equilibria</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#existence-and-uniqueness" data-notes-nav-item data-notes-toc-link>Existence and uniqueness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#modeling-patterns" data-notes-nav-item data-notes-toc-link>Modeling patterns</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-toc-link>Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>First Order ODEs</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/first-order-odes/first-order-odes.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Ffirst-order-odes%2Ffirst-order-odes.md&amp;title=%5BContribute%5D%3A%20First%20Order%20ODEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="first-order-odes">First-Order ODEs</h1>
+<p>First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y&#39;$. They are the first serious class of differential equations because many modeling problems reduce to them, and because most core solution techniques appear here in their simplest form.</p>
+<h1 id="initial-value-problems-and-geometric-meaning">Initial value problems and geometric meaning</h1>
+<p>A first-order ODE usually becomes a specific problem once an initial condition is given:</p>
+<div class="math-block">$$
+\frac{dy}{dx} = f(x,y), \qquad y(x_0)=y_0
+$$</div>
+<p>This is an <strong>initial value problem</strong> (IVP).</p>
+<h2 id="general-solution-vs-particular-solution">General solution vs. particular solution</h2>
+<ul><li><p>The <strong>general solution</strong> contains one arbitrary constant.</p></li><li><p>A <strong>particular solution</strong> is obtained after using the initial condition.</p></li></ul>
+<p>Example:</p>
+<div class="math-block">$$
+y&#39; = 2x
+$$</div>
+<p>Integrating gives</p>
+<div class="math-block">$$
+y = x^2 + C
+$$</div>
+<p>If $y(1)=5$, then</p>
+<div class="math-block">$$
+5 = 1 + C \Rightarrow C=4
+$$</div>
+<p>so the particular solution is</p>
+<div class="math-block">$$
+y = x^2 + 4
+$$</div>
+<h2 id="direction-fields">Direction fields</h2>
+<p>For</p>
+<div class="math-block">$$
+y&#39; = f(x,y)
+$$</div>
+<p>the value of $f(x,y)$ gives the slope of the solution curve through the point $(x,y)$. A <strong>slope field</strong> or <strong>direction field</strong> gives qualitative information even when a closed-form solution is difficult.</p>
+<p>What to look for:</p>
+<ul><li><p>Where slopes are zero</p></li><li><p>Where slopes are positive or negative</p></li><li><p>Where slopes become large in magnitude</p></li><li><p>Whether solutions move toward or away from equilibrium values</p></li></ul>
+<hr />
+<h1 id="separable-equations">Separable equations</h1>
+<p>A first-order ODE is <strong>separable</strong> if it can be written as</p>
+<div class="math-block">$$
+\frac{dy}{dx} = g(x)h(y)
+$$</div>
+<p>so that variables can be separated:</p>
+<div class="math-block">$$
+\frac{1}{h(y)}\,dy = g(x)\,dx
+$$</div>
+<p>Then integrate both sides:</p>
+<div class="math-block">$$
+\int \frac{1}{h(y)}\,dy = \int g(x)\,dx
+$$</div>
+<h2 id="standard-workflow">Standard workflow</h2>
+<ol><li><p>Rewrite the equation so all $y$ terms are with $dy$ and all $x$ terms are with $dx$.</p></li><li><p>Integrate both sides.</p></li><li><p>Solve explicitly for $y$ if possible.</p></li><li><p>Use the initial condition.</p></li><li><p>Check for constant solutions that may have been lost when dividing by $h(y)$.</p></li></ol>
+<h2 id="example">Example</h2>
+<p>Solve</p>
+<div class="math-block">$$
+\frac{dy}{dx} = xy
+$$</div>
+<p>Separate:</p>
+<div class="math-block">$$
+\frac{1}{y}\,dy = x\,dx
+$$</div>
+<p>Integrate:</p>
+<div class="math-block">$$
+\int \frac{1}{y}\,dy = \int x\,dx
+$$</div>
+<div class="math-block">$$
+\ln |y| = \frac{x^2}{2} + C
+$$</div>
+<p>Exponentiate:</p>
+<div class="math-block">$$
+y = Ce^{x^2/2}
+$$</div>
+<p>where the constant has been renamed.</p>
+<h2 id="logistic-equation">Logistic equation</h2>
+<p>One of the most important separable models is</p>
+<div class="math-block">$$
+\frac{dP}{dt} = rP\left(1-\frac{P}{K}\right)
+$$</div>
+<p>where:</p>
+<ul><li><p>$P(t)$ is population</p></li><li><p>$r$ is intrinsic growth rate</p></li><li><p>$K$ is carrying capacity</p></li></ul>
+<p>Key behavior:</p>
+<ul><li><p>If $0 &lt; P &lt; K$, then $P$ grows.</p></li><li><p>If $P &gt; K$, then $P$ decreases.</p></li><li><p>Equilibria occur at $P=0$ and $P=K$.</p></li></ul>
+<p>Its explicit solution is</p>
+<div class="math-block">$$
+P(t) = \frac{K}{1 + Ae^{-rt}}
+$$</div>
+<p>for a constant $A$ determined by the initial condition.</p>
+<hr />
+<h1 id="linear-first-order-equations">Linear first-order equations</h1>
+<p>A first-order linear ODE has the standard form</p>
+<div class="math-block">$$
+y&#39; + p(x)y = q(x)
+$$</div>
+<p>The main tool is an <strong>integrating factor</strong>.</p>
+<h2 id="integrating-factor">Integrating factor</h2>
+<p>Define</p>
+<div class="math-block">$$
+\mu(x) = e^{\int p(x)\,dx}
+$$</div>
+<p>Multiplying the ODE by $\mu(x)$ gives</p>
+<div class="math-block">$$
+\mu y&#39; + \mu p y = \mu q
+$$</div>
+<p>and the left side becomes</p>
+<div class="math-block">$$
+\frac{d}{dx}\big(\mu y\big) = \mu q
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\mu y = \int \mu q\,dx + C
+$$</div>
+<p>and therefore</p>
+<div class="math-block">$$
+y = \frac{1}{\mu(x)}\left(\int \mu(x)q(x)\,dx + C\right)
+$$</div>
+<h2 id="example-2">Example</h2>
+<p>Solve</p>
+<div class="math-block">$$
+y&#39; + 2y = e^{-x}
+$$</div>
+<p>Here</p>
+<div class="math-block">$$
+p(x)=2, \qquad q(x)=e^{-x}
+$$</div>
+<p>The integrating factor is</p>
+<div class="math-block">$$
+\mu(x)=e^{\int 2\,dx}=e^{2x}
+$$</div>
+<p>Multiply through:</p>
+<div class="math-block">$$
+e^{2x}y&#39; + 2e^{2x}y = e^x
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{d}{dx}(e^{2x}y)=e^x
+$$</div>
+<p>Integrate:</p>
+<div class="math-block">$$
+e^{2x}y = e^x + C
+$$</div>
+<p>Hence</p>
+<div class="math-block">$$
+y = e^{-x} + Ce^{-2x}
+$$</div>
+<h2 id="common-source-of-mistakes">Common source of mistakes</h2>
+<ul><li><p>The integrating factor depends only on $p(x)$, not on $q(x)$.</p></li><li><p>The equation must first be put into the exact linear form $y&#39; + p(x)y = q(x)$.</p></li><li><p>Do not forget to divide by $\mu(x)$ at the end.</p></li></ul>
+<hr />
+<h1 id="exact-equations">Exact equations</h1>
+<p>An equation of the form</p>
+<div class="math-block">$$
+M(x,y)\,dx + N(x,y)\,dy = 0
+$$</div>
+<p>is <strong>exact</strong> if there exists a potential function $\Psi(x,y)$ such that</p>
+<div class="math-block">$$
+\frac{\partial \Psi}{\partial x} = M,
+\qquad
+\frac{\partial \Psi}{\partial y} = N
+$$</div>
+<p>Then the solution is</p>
+<div class="math-block">$$
+\Psi(x,y)=C
+$$</div>
+<h2 id="test-for-exactness">Test for exactness</h2>
+<p>If $M$ and $N$ have continuous first partial derivatives, test whether</p>
+<div class="math-block">$$
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+$$</div>
+<p>If this holds on a region, the equation is exact there.</p>
+<h2 id="solution-procedure">Solution procedure</h2>
+<ol><li><p>Verify exactness.</p></li><li><p>Integrate $M(x,y)$ with respect to $x$:</p></li></ol>
+<div class="math-block">$$
+\Psi(x,y) = \int M(x,y)\,dx + g(y)
+$$</div>
+<ol><li><p>Differentiate that expression with respect to $y$.</p></li><li><p>Match it to $N(x,y)$ to determine $g(y)$.</p></li><li><p>Write $\Psi(x,y)=C$.</p></li></ol>
+<h2 id="example-3">Example</h2>
+<p>Solve</p>
+<div class="math-block">$$
+(2xy+1)\,dx + (x^2+3y^2)\,dy = 0
+$$</div>
+<p>Here</p>
+<div class="math-block">$$
+M(x,y)=2xy+1, \qquad N(x,y)=x^2+3y^2
+$$</div>
+<p>Check:</p>
+<div class="math-block">$$
+M_y = 2x, \qquad N_x = 2x
+$$</div>
+<p>so the equation is exact.</p>
+<p>Integrate $M$ with respect to $x$:</p>
+<div class="math-block">$$
+\Psi(x,y)=x^2y + x + g(y)
+$$</div>
+<p>Differentiate with respect to $y$:</p>
+<div class="math-block">$$
+\Psi_y = x^2 + g&#39;(y)
+$$</div>
+<p>Match with $N$:</p>
+<div class="math-block">$$
+x^2 + g&#39;(y) = x^2 + 3y^2
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+g&#39;(y)=3y^2 \Rightarrow g(y)=y^3
+$$</div>
+<p>So the implicit solution is</p>
+<div class="math-block">$$
+x^2y + x + y^3 = C
+$$</div>
+<hr />
+<h1 id="homogeneous-first-order-equations">Homogeneous first-order equations</h1>
+<p>A first-order ODE of the form</p>
+<div class="math-block">$$
+\frac{dy}{dx} = F\left(\frac{y}{x}\right)
+$$</div>
+<p>is called <strong>homogeneous</strong> in the first-order sense.</p>
+<p>The substitution</p>
+<div class="math-block">$$
+y = vx
+$$</div>
+<p>or equivalently $v = y/x$ turns it into a separable equation.</p>
+<p>Since</p>
+<div class="math-block">$$
+y = vx \Rightarrow \frac{dy}{dx} = v + x\frac{dv}{dx}
+$$</div>
+<p>the equation becomes</p>
+<div class="math-block">$$
+v + x\frac{dv}{dx} = F(v)
+$$</div>
+<p>which can be rearranged into a separable form.</p>
+<h2 id="example-pattern">Example pattern</h2>
+<p>If</p>
+<div class="math-block">$$
+\frac{dy}{dx} = \frac{x+y}{x}
+= 1 + \frac{y}{x}
+$$</div>
+<p>set $y=vx$. Then</p>
+<div class="math-block">$$
+v + x\frac{dv}{dx} = 1+v
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+x\frac{dv}{dx}=1
+$$</div>
+<p>and therefore</p>
+<div class="math-block">$$
+v = \ln|x| + C
+$$</div>
+<p>Returning to $y$:</p>
+<div class="math-block">$$
+\frac{y}{x} = \ln|x| + C
+\Rightarrow
+y = x\ln|x| + Cx
+$$</div>
+<hr />
+<h1 id="bernoulli-equations">Bernoulli equations</h1>
+<p>A <strong>Bernoulli equation</strong> has the form</p>
+<div class="math-block">$$
+y&#39; + p(x)y = q(x)y^n
+$$</div>
+<p>with $n \neq 0,1$.</p>
+<p>It is nonlinear, but becomes linear after the substitution</p>
+<div class="math-block">$$
+u = y^{1-n}
+$$</div>
+<h2 id="derivation">Derivation</h2>
+<p>Differentiate:</p>
+<div class="math-block">$$
+u&#39; = (1-n)y^{-n}y&#39;
+$$</div>
+<p>After multiplying the original equation by $y^{-n}$, the equation becomes linear in $u$.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Bernoulli equations are one of the cleanest examples of a nonlinear ODE that reduces to a linear one by a well-chosen substitution.</p>
+<hr />
+<h1 id="autonomous-equations-and-equilibria">Autonomous equations and equilibria</h1>
+<p>An <strong>autonomous</strong> first-order ODE has the form</p>
+<div class="math-block">$$
+\frac{dy}{dt} = f(y)
+$$</div>
+<p>The independent variable does not appear explicitly.</p>
+<h2 id="equilibrium-solutions">Equilibrium solutions</h2>
+<p>An equilibrium occurs when</p>
+<div class="math-block">$$
+f(y)=0
+$$</div>
+<p>If $y=y^<em>$ satisfies this, then the constant function $y(t)=y^</em>$ is a solution.</p>
+<h2 id="stability">Stability</h2>
+<p>For autonomous equations, equilibrium points can often be classified from the sign of $f(y)$:</p>
+<ul><li><p>If nearby arrows point toward the equilibrium, it is <strong>stable</strong>.</p></li><li><p>If nearby arrows point away, it is <strong>unstable</strong>.</p></li><li><p>If attraction occurs on one side only, it is <strong>semistable</strong>.</p></li></ul>
+<h2 id="phase-line-analysis">Phase line analysis</h2>
+<p>To analyze</p>
+<div class="math-block">$$
+y&#39; = f(y)
+$$</div>
+<ol><li><p>Find equilibrium values by solving $f(y)=0$.</p></li><li><p>Mark them on a number line.</p></li><li><p>Determine the sign of $f(y)$ on each interval.</p></li><li><p>Use the sign to infer whether $y$ increases or decreases.</p></li></ol>
+<p>This gives the long-term behavior without solving explicitly.</p>
+<hr />
+<h1 id="existence-and-uniqueness">Existence and uniqueness</h1>
+<p>For an IVP</p>
+<div class="math-block">$$
+y&#39; = f(x,y), \qquad y(x_0)=y_0
+$$</div>
+<p>two separate questions matter:</p>
+<ul><li><p>Does a solution exist?</p></li><li><p>Is it unique?</p></li></ul>
+<h2 id="practical-theorem">Practical theorem</h2>
+<p>If $f(x,y)$ and $\partial f/\partial y$ are continuous in a rectangle containing $(x_0,y_0)$, then there exists a unique local solution through that point.</p>
+<h2 id="interpretation">Interpretation</h2>
+<ul><li><p>Continuity of $f$ supports existence.</p></li><li><p>Reasonable smoothness in $y$ supports uniqueness.</p></li></ul>
+<h2 id="example-of-non-uniqueness">Example of non-uniqueness</h2>
+<p>Consider</p>
+<div class="math-block">$$
+y&#39; = \sqrt{|y|}, \qquad y(0)=0
+$$</div>
+<p>The constant solution $y=0$ works, but nonzero solutions can also be patched through the same initial point. So uniqueness fails.</p>
+<p>This is a warning that a differential equation can look harmless and still fail to determine a single trajectory.</p>
+<hr />
+<h1 id="modeling-patterns">Modeling patterns</h1>
+<p>First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.</p>
+<h2 id="exponential-growth-and-decay">Exponential growth and decay</h2>
+<p>If a quantity changes proportionally to itself:</p>
+<div class="math-block">$$
+\frac{dy}{dt} = ky
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+y(t)=Ce^{kt}
+$$</div>
+<p>Interpretation:</p>
+<ul><li><p>$k&gt;0$: growth</p></li><li><p>$k&lt;0$: decay</p></li></ul>
+<p>Applications:</p>
+<ul><li><p>Population growth</p></li><li><p>Radioactive decay</p></li><li><p>Compound interest in continuous form</p></li></ul>
+<h2 id="newtons-law-of-cooling">Newton&#39;s law of cooling</h2>
+<p>If an object&#39;s temperature $T$ moves toward ambient temperature $T_a$:</p>
+<div class="math-block">$$
+\frac{dT}{dt} = -k(T-T_a)
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+T(t)=T_a + Ce^{-kt}
+$$</div>
+<h2 id="mixing-problems">Mixing problems</h2>
+<p>If a tank has inflow and outflow, a common model is</p>
+<div class="math-block">$$
+\frac{dQ}{dt} = \text{rate in} - \text{rate out}
+$$</div>
+<p>where $Q(t)$ is the amount of substance in the tank.</p>
+<p>These often reduce to linear first-order equations after expressing concentration as amount divided by volume.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>When facing a first-order ODE, classification is the main step.</p>
+<h2 id="fast-recognition-checklist">Fast recognition checklist</h2>
+<p>Ask these questions in order:</p>
+<ol><li><p>Can the variables be separated?</p></li><li><p>Can it be written as $y&#39; + p(x)y = q(x)$?</p></li><li><p>Can it be written as $M\,dx + N\,dy = 0$, and is it exact?</p></li><li><p>Does it depend only on $y/x$?</p></li><li><p>Is it Bernoulli?</p></li><li><p>Is it autonomous, so a phase-line analysis helps even if explicit solving is hard?</p></li></ol>
+<h2 id="practical-workflow">Practical workflow</h2>
+<ol><li><p>Rewrite the equation into a recognizable form.</p></li><li><p>Classify the type before doing algebra.</p></li><li><p>Apply the matching method cleanly.</p></li><li><p>Use the initial condition only after obtaining the general solution.</p></li><li><p>Check the domain and any excluded values.</p></li><li><p>Verify by differentiating and substituting back if the algebra was heavy.</p></li></ol>
+<h2 id="strategy-note">Strategy note</h2>
+<p>Many errors happen because a student starts manipulating symbols before identifying the equation type. Classification usually matters more than raw integration skill.</p>
+<hr />
+<h1 id="common-pitfalls">Common pitfalls</h1>
+<ul><li><p>Treating a nonlinear equation as if the superposition principle applies. It does not.</p></li><li><p>Forgetting equilibrium solutions when separating variables and dividing by an expression involving $y$.</p></li><li><p>Using the integrating factor method before first putting the equation in standard linear form.</p></li><li><p>Confusing first-order homogeneous equations with higher-level linear algebra notions of homogeneous systems.</p></li><li><p>Losing absolute values when integrating expressions like $\int \frac{1}{y}\,dy$.</p></li><li><p>Solving implicitly and then making invalid algebraic moves to force an explicit formula.</p></li><li><p>Ignoring interval restrictions caused by denominators, logarithms, or square roots.</p></li><li><p>Assuming existence implies uniqueness.</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="core-forms">Core forms</h2>
+<p>Separable:</p>
+<div class="math-block">$$
+\frac{dy}{dx} = g(x)h(y)
+$$</div>
+<p>Linear:</p>
+<div class="math-block">$$
+y&#39; + p(x)y = q(x)
+$$</div>
+<p>Exact:</p>
+<div class="math-block">$$
+M(x,y)\,dx + N(x,y)\,dy = 0
+$$</div>
+<p>Homogeneous:</p>
+<div class="math-block">$$
+\frac{dy}{dx} = F\left(\frac{y}{x}\right)
+$$</div>
+<p>Bernoulli:</p>
+<div class="math-block">$$
+y&#39; + p(x)y = q(x)y^n
+$$</div>
+<p>Autonomous:</p>
+<div class="math-block">$$
+\frac{dy}{dt} = f(y)
+$$</div>
+<h2 id="key-tools">Key tools</h2>
+<p>Integrating factor for linear equations:</p>
+<div class="math-block">$$
+\mu(x)=e^{\int p(x)\,dx}
+$$</div>
+<p>Exactness test:</p>
+<div class="math-block">$$
+\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+$$</div>
+<p>Homogeneous substitution:</p>
+<div class="math-block">$$
+y=vx, \qquad y&#39; = v + x\frac{dv}{dx}
+$$</div>
+<p>Bernoulli substitution:</p>
+<div class="math-block">$$
+u = y^{1-n}
+$$</div>
+<h2 id="high-yield-reminders">High-yield reminders</h2>
+<ul><li><p>First classify, then solve.</p></li><li><p>Check for constant solutions.</p></li><li><p>Use the initial condition after the general solution is found.</p></li><li><p>Verify important answers by substitution.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="initial-value-problems-and-geometric-meaning" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Initial value problems and geometric meaning">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-solution-vs-particular-solution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="initial-value-problems-and-geometric-meaning">General solution vs. particular solution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#direction-fields" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="initial-value-problems-and-geometric-meaning">Direction fields</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="separable-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Separable equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="separable-equations">Standard workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="separable-equations">Example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#logistic-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="separable-equations">Logistic equation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="linear-first-order-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Linear first-order equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#integrating-factor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-first-order-equations">Integrating factor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-first-order-equations">Example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-source-of-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="linear-first-order-equations">Common source of mistakes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="exact-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Exact equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#test-for-exactness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exact-equations">Test for exactness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solution-procedure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exact-equations">Solution procedure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-3" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="exact-equations">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="homogeneous-first-order-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Homogeneous first-order equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-pattern" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="homogeneous-first-order-equations">Example pattern</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="bernoulli-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Bernoulli equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#derivation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bernoulli-equations">Derivation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-it-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bernoulli-equations">Why it matters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="autonomous-equations-and-equilibria" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Autonomous equations and equilibria">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-solutions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="autonomous-equations-and-equilibria">Equilibrium solutions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="autonomous-equations-and-equilibria">Stability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-line-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="autonomous-equations-and-equilibria">Phase line analysis</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="existence-and-uniqueness" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Existence and uniqueness">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="existence-and-uniqueness">Practical theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="existence-and-uniqueness">Interpretation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-of-non-uniqueness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="existence-and-uniqueness">Example of non-uniqueness</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="modeling-patterns" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Modeling patterns">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponential-growth-and-decay" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-patterns">Exponential growth and decay</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-law-of-cooling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-patterns">Newton&#39;s law of cooling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mixing-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-patterns">Mixing problems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fast-recognition-checklist" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Fast recognition checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Practical workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strategy-note" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Strategy note</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-forms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Core forms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-tools" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Key tools</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#high-yield-reminders" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">High-yield reminders</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

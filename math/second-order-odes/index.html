@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Order ODEs | Adriamics Study</title>
+  <meta name="description" content="A second-order ordinary differential equation is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:" />
+  <link rel="canonical" href="https://adriamics.com/study/math/second-order-odes/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/second-order-odes/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#what-counts-as-a-second-order-ode" data-notes-nav-item data-notes-toc-link>What counts as a second-order ODE</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#classification-and-standard-forms" data-notes-nav-item data-notes-toc-link>Classification and standard forms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#existence-uniqueness-and-ivps" data-notes-nav-item data-notes-toc-link>Existence, uniqueness, and IVPs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#homogeneous-linear-equations-with-constant-coefficients" data-notes-nav-item data-notes-toc-link>Homogeneous linear equations with constant coefficients</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#forcing-and-particular-solutions" data-notes-nav-item data-notes-toc-link>Forcing and particular solutions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variable-coefficient-special-cases" data-notes-nav-item data-notes-toc-link>Variable-coefficient special cases</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reduction-of-order-and-variation-of-parameters" data-notes-nav-item data-notes-toc-link>Reduction of order and variation of parameters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#initial-and-boundary-value-problems" data-notes-nav-item data-notes-toc-link>Initial and boundary value problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mechanical-applications" data-notes-nav-item data-notes-toc-link>Mechanical applications</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#qualitative-behavior" data-notes-nav-item data-notes-toc-link>Qualitative behavior</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Second Order ODEs</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/second-order-odes/second-order-odes.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fsecond-order-odes%2Fsecond-order-odes.md&amp;title=%5BContribute%5D%3A%20Second%20Order%20ODEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="what-counts-as-a-second-order-ode">What counts as a second-order ODE</h1>
+<p>A <strong>second-order ordinary differential equation</strong> is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:</p>
+<div class="math-block">$$
+F(x, y, y&#39;, y&#39;&#39;) = 0
+$$</div>
+<p>The order matters because it tells you how many independent initial conditions are typically needed to determine a solution.</p>
+<p>Second-order ODEs show up naturally in:</p>
+<ul><li><p>Newtonian mechanics</p></li><li><p>vibration and wave models</p></li><li><p>electrical circuits</p></li><li><p>beam deflection and structural models</p></li><li><p>heat and diffusion problems after separation of variables</p></li></ul>
+<p>The central tasks are usually:</p>
+<ul><li><p>solve the equation exactly when possible</p></li><li><p>classify the motion or response</p></li><li><p>apply initial or boundary conditions</p></li><li><p>interpret the physical behavior</p></li></ul>
+<hr />
+<h1 id="classification-and-standard-forms">Classification and standard forms</h1>
+<h2 id="linear-vs-nonlinear">Linear vs nonlinear</h2>
+<p>A second-order ODE is <strong>linear</strong> if it can be written as</p>
+<div class="math-block">$$
+a_2(x) y&#39;&#39; + a_1(x) y&#39; + a_0(x) y = g(x)
+$$</div>
+<p>where \(y\), \(y&#39;\), and \(y&#39;&#39;\) appear only to the first power and are not multiplied together.</p>
+<p>It is <strong>nonlinear</strong> if, for example, it contains terms such as:</p>
+<div class="math-block">$$
+y^2,\quad y y&#39;,\quad \sin(y),\quad (y&#39;)^2
+$$</div>
+<h2 id="homogeneous-vs-nonhomogeneous">Homogeneous vs nonhomogeneous</h2>
+<p>The linear equation is <strong>homogeneous</strong> when</p>
+<div class="math-block">$$
+g(x) = 0
+$$</div>
+<p>and <strong>nonhomogeneous</strong> when \(g(x) \neq 0\).</p>
+<h2 id="common-standard-forms">Common standard forms</h2>
+<h3 id="general-linear-form">General linear form</h3>
+<div class="math-block">$$
+a_2(x) y&#39;&#39; + a_1(x) y&#39; + a_0(x) y = g(x)
+$$</div>
+<h3 id="normalized-form">Normalized form</h3>
+<p>If \(a_2(x) \neq 0\), divide through by \(a_2(x)\):</p>
+<div class="math-block">$$
+y&#39;&#39; + p(x) y&#39; + q(x) y = r(x)
+$$</div>
+<p>This form is often best for theory and method selection.</p>
+<h3 id="constant-coefficient-form">Constant-coefficient form</h3>
+<div class="math-block">$$
+ay&#39;&#39; + by&#39; + cy = g(x)
+$$</div>
+<p>with constants \(a \neq 0\), \(b\), and \(c\).</p>
+<hr />
+<h1 id="existence-uniqueness-and-ivps">Existence, uniqueness, and IVPs</h1>
+<p>For the initial value problem</p>
+<div class="math-block">$$
+y&#39;&#39; = f(x, y, y&#39;),\qquad y(x_0) = y_0,\qquad y&#39;(x_0) = v_0
+$$</div>
+<p>the existence and uniqueness theorem says that if \(f\) and its relevant partial derivatives are continuous near \((x_0, y_0, v_0)\), then a unique local solution exists.</p>
+<p>For linear equations in normal form</p>
+<div class="math-block">$$
+y&#39;&#39; + p(x) y&#39; + q(x) y = r(x),
+$$</div>
+<p>continuity of \(p(x)\), \(q(x)\), and \(r(x)\) on an interval is enough to guarantee a unique solution for any specified pair of initial conditions in that interval.</p>
+<h2 id="why-two-initial-conditions">Why two initial conditions?</h2>
+<p>Integrating a second-order equation effectively introduces two constants of integration. That is why you usually need:</p>
+<div class="math-block">$$
+y(x_0) = y_0,\qquad y&#39;(x_0) = v_0
+$$</div>
+<p>to pin down one specific solution.</p>
+<hr />
+<h1 id="homogeneous-linear-equations-with-constant-coefficients">Homogeneous linear equations with constant coefficients</h1>
+<p>The foundational case is</p>
+<div class="math-block">$$
+ay&#39;&#39; + by&#39; + cy = 0
+$$</div>
+<p>Try a solution of the form \(y = e^{rx}\). Substitution gives the <strong>characteristic equation</strong></p>
+<div class="math-block">$$
+ar^2 + br + c = 0
+$$</div>
+<p>The roots of this quadratic determine the solution form.</p>
+<h2 id="case-1-two-distinct-real-roots">Case 1: two distinct real roots</h2>
+<p>If \(r_1 \neq r_2\), then</p>
+<div class="math-block">$$
+y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}
+$$</div>
+<h2 id="case-2-repeated-real-root">Case 2: repeated real root</h2>
+<p>If \(r_1 = r_2 = r\), then</p>
+<div class="math-block">$$
+y(x) = (C_1 + C_2 x)e^{rx}
+$$</div>
+<p>The extra factor of \(x\) gives a second independent solution.</p>
+<h2 id="case-3-complex-conjugate-roots">Case 3: complex conjugate roots</h2>
+<p>If</p>
+<div class="math-block">$$
+r = \alpha \pm i\beta
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+y(x) = e^{\alpha x}\bigl(C_1 \cos(\beta x) + C_2 \sin(\beta x)\bigr)
+$$</div>
+<p>This is the most common form for oscillatory motion.</p>
+<h2 id="example">Example</h2>
+<p>Solve</p>
+<div class="math-block">$$
+y&#39;&#39; - 3y&#39; + 2y = 0
+$$</div>
+<p>Characteristic equation:</p>
+<div class="math-block">$$
+r^2 - 3r + 2 = 0 = (r-1)(r-2)
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y(x) = C_1 e^x + C_2 e^{2x}
+$$</div>
+<hr />
+<h1 id="forcing-and-particular-solutions">Forcing and particular solutions</h1>
+<p>For a nonhomogeneous linear equation</p>
+<div class="math-block">$$
+ay&#39;&#39; + by&#39; + cy = g(x),
+$$</div>
+<p>the general solution has the form</p>
+<div class="math-block">$$
+y = y_h + y_p
+$$</div>
+<p>where:</p>
+<ul><li><p>\(y_h\) solves the homogeneous equation</p></li><li><p>\(y_p\) is any one particular solution of the full equation</p></li></ul>
+<p>The structure of \(g(x)\) usually determines the method.</p>
+<h2 id="undetermined-coefficients">Undetermined coefficients</h2>
+<p>Use this when \(g(x)\) is built from exponentials, polynomials, sines, cosines, or products of these.</p>
+<p>Typical guesses:</p>
+<table><thead><tr><th>Forcing \(g(x)\)</th><th>Trial form for \(y_p\)</th></tr></thead><tbody><tr><td>\(e^{ax}\)</td><td>\(Ae^{ax}\)</td></tr><tr><td>\(P_n(x)\)</td><td>polynomial of degree \(n\)</td></tr><tr><td>\(\sin bx\) or \(\cos bx\)</td><td>\(A\cos bx + B\sin bx\)</td></tr><tr><td>\(e^{ax}P_n(x)\)</td><td>\(e^{ax}\) times a polynomial of degree \(n\)</td></tr><tr><td>\(e^{ax}\sin bx\), \(e^{ax}\cos bx\)</td><td>\(e^{ax}(A\cos bx + B\sin bx)\)</td></tr></tbody></table>
+<h3 id="resonance-rule">Resonance rule</h3>
+<p>If your trial solution duplicates part of \(y_h\), multiply the trial by \(x\) enough times to make it linearly independent.</p>
+<h4 id="example-of-resonance">Example of resonance</h4>
+<p>Solve</p>
+<div class="math-block">$$
+y&#39;&#39; - 2y&#39; + y = e^x
+$$</div>
+<p>Since the homogeneous equation has characteristic \((r-1)^2 = 0\), the homogeneous solution already contains \(e^x\) and \(xe^x\). A correct trial is</p>
+<div class="math-block">$$
+y_p = Ax^2 e^x
+$$</div>
+<p>because the repeated root forces two powers of \(x\).</p>
+<h2 id="variation-of-parameters">Variation of parameters</h2>
+<p>Use this when undetermined coefficients is not convenient.</p>
+<p>If \(y_1\) and \(y_2\) are independent solutions of the homogeneous equation</p>
+<div class="math-block">$$
+y&#39;&#39; + p(x)y&#39; + q(x)y = r(x),
+$$</div>
+<p>then a particular solution can be built as</p>
+<div class="math-block">$$
+y_p = u_1(x)y_1(x) + u_2(x)y_2(x)
+$$</div>
+<p>where \(u_1\) and \(u_2\) are determined from a system involving the Wronskian.</p>
+<hr />
+<h1 id="variable-coefficient-special-cases">Variable-coefficient special cases</h1>
+<h2 id="euler-cauchy-equations">Euler-Cauchy equations</h2>
+<p>The Euler-Cauchy, or equidimensional, form is</p>
+<div class="math-block">$$
+x^2 y&#39;&#39; + a x y&#39; + b y = 0
+$$</div>
+<p>Try \(y = x^m\). Then:</p>
+<div class="math-block">$$
+y&#39; = mx^{m-1},\qquad y&#39;&#39; = m(m-1)x^{m-2}
+$$</div>
+<p>Substitution gives the auxiliary equation</p>
+<div class="math-block">$$
+m(m-1) + am + b = 0
+$$</div>
+<p>So the same root patterns appear as in constant-coefficient problems.</p>
+<h2 id="reduction-by-substitution">Reduction by substitution</h2>
+<p>Sometimes a change of variables converts a variable-coefficient equation into a constant-coefficient one. For Euler-Cauchy equations, the substitution</p>
+<div class="math-block">$$
+x = e^t
+$$</div>
+<p>is a common route.</p>
+<hr />
+<h1 id="reduction-of-order-and-variation-of-parameters">Reduction of order and variation of parameters</h1>
+<h2 id="reduction-of-order">Reduction of order</h2>
+<p>If one nonzero solution \(y_1\) of the homogeneous equation is known, try</p>
+<div class="math-block">$$
+y = v(x)y_1(x)
+$$</div>
+<p>to reduce the order by one. After substitution, the equation for \(v\) is lower order and can often be integrated.</p>
+<p>This is especially useful when:</p>
+<ul><li><p>one solution is obvious</p></li><li><p>the equation is linear but not constant-coefficient</p></li><li><p>you are given one solution and asked to find the general solution</p></li></ul>
+<h2 id="wronskian">Wronskian</h2>
+<p>The Wronskian of two functions \(y_1\) and \(y_2\) is</p>
+<div class="math-block">$$
+W(y_1,y_2) =
+\begin{vmatrix}
+y_1 &amp; y_2 \\
+y_1&#39; &amp; y_2&#39;
+\end{vmatrix}
+= y_1 y_2&#39; - y_1&#39; y_2
+$$</div>
+<p>If \(W \neq 0\) on an interval, the functions are linearly independent there.</p>
+<p>For</p>
+<div class="math-block">$$
+y&#39;&#39; + p(x)y&#39; + q(x)y = r(x),
+$$</div>
+<p>variation of parameters uses the Wronskian to build \(u_1\) and \(u_2\).</p>
+<hr />
+<h1 id="initial-and-boundary-value-problems">Initial and boundary value problems</h1>
+<h2 id="initial-value-problems">Initial value problems</h2>
+<p>An IVP specifies values at a single point:</p>
+<div class="math-block">$$
+y(x_0) = y_0,\qquad y&#39;(x_0) = v_0
+$$</div>
+<p>Steps:</p>
+<ol><li><p>Solve the differential equation.</p></li><li><p>Differentiate if needed.</p></li><li><p>Apply the initial conditions.</p></li><li><p>Solve for the constants.</p></li></ol>
+<h2 id="boundary-value-problems">Boundary value problems</h2>
+<p>A BVP specifies conditions at different points, for example:</p>
+<div class="math-block">$$
+y(0) = 0,\qquad y(L) = 0
+$$</div>
+<p>These occur frequently in:</p>
+<ul><li><p>beam bending</p></li><li><p>heat conduction</p></li><li><p>vibrating strings</p></li><li><p>Sturm-Liouville problems</p></li></ul>
+<p>Boundary conditions can sometimes produce:</p>
+<ul><li><p>a unique solution</p></li><li><p>no solution</p></li><li><p>infinitely many solutions</p></li></ul>
+<p>depending on the forcing and the eigenstructure of the operator.</p>
+<hr />
+<h1 id="mechanical-applications">Mechanical applications</h1>
+<p>Many second-order ODEs come from Newton’s second law:</p>
+<div class="math-block">$$
+m y&#39;&#39; = \sum F
+$$</div>
+<h2 id="mass-spring-system">Mass-spring system</h2>
+<p>With no damping and no external forcing:</p>
+<div class="math-block">$$
+m y&#39;&#39; + k y = 0
+$$</div>
+<p>The solution is harmonic:</p>
+<div class="math-block">$$
+y(x) = C_1 \cos(\omega x) + C_2 \sin(\omega x),
+\qquad \omega = \sqrt{\frac{k}{m}}
+$$</div>
+<h2 id="damped-vibration">Damped vibration</h2>
+<p>With viscous damping:</p>
+<div class="math-block">$$
+m y&#39;&#39; + c y&#39; + k y = 0
+$$</div>
+<p>Divide by \(m\):</p>
+<div class="math-block">$$
+y&#39;&#39; + 2\zeta \omega_n y&#39; + \omega_n^2 y = 0
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\omega_n = \sqrt{\frac{k}{m}},\qquad
+\zeta = \frac{c}{2\sqrt{mk}}
+$$</div>
+<h3 id="damping-regimes">Damping regimes</h3>
+<table><thead><tr><th>Regime</th><th>Condition</th><th>Behavior</th></tr></thead><tbody><tr><td>Underdamped</td><td>\(\zeta &lt; 1\)</td><td>Oscillatory with decaying amplitude</td></tr><tr><td>Critically damped</td><td>\(\zeta = 1\)</td><td>Fastest return without oscillation</td></tr><tr><td>Overdamped</td><td>\(\zeta &gt; 1\)</td><td>Non-oscillatory, slower return</td></tr></tbody></table>
+<h2 id="forced-vibration">Forced vibration</h2>
+<p>With external forcing \(F(t)\):</p>
+<div class="math-block">$$
+m y&#39;&#39; + c y&#39; + k y = F(t)
+$$</div>
+<p>The solution is usually split into:</p>
+<div class="math-block">$$
+y(t) = y_{\text{transient}}(t) + y_{\text{steady}}(t)
+$$</div>
+<p>If \(F(t)\) is periodic, resonance and near-resonance can produce large response amplitudes.</p>
+<hr />
+<h1 id="qualitative-behavior">Qualitative behavior</h1>
+<p>Even when an exact formula is available, it helps to understand the shape of the solution.</p>
+<h2 id="stability-of-equilibrium">Stability of equilibrium</h2>
+<p>For the autonomous equation</p>
+<div class="math-block">$$
+y&#39;&#39; + f(y, y&#39;) = 0
+$$</div>
+<p>equilibria correspond to constant solutions. Linearization near equilibrium often predicts local behavior.</p>
+<h2 id="phase-plane-viewpoint">Phase-plane viewpoint</h2>
+<p>Rewrite the second-order ODE as a first-order system:</p>
+<div class="math-block">$$
+u = y,\qquad v = y&#39;
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+u&#39; = v,\qquad v&#39; = \text{expression in }u,v,x
+$$</div>
+<p>This is useful for:</p>
+<ul><li><p>understanding oscillations</p></li><li><p>identifying spirals, nodes, and saddles</p></li><li><p>checking the effect of damping</p></li></ul>
+<h2 id="long-term-behavior">Long-term behavior</h2>
+<p>For linear constant-coefficient equations, the real parts of the characteristic roots control growth or decay.</p>
+<ul><li><p>Negative real part: decay</p></li><li><p>Zero real part: sustained oscillation or neutral behavior</p></li><li><p>Positive real part: growth and instability</p></li></ul>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<ol><li><p>Put the equation in standard form.</p></li><li><p>Determine whether it is linear or nonlinear.</p></li><li><p>Identify whether it is homogeneous.</p></li><li><p>Check if coefficients are constant, Euler-Cauchy, or variable.</p></li><li><p>Solve the homogeneous equation first.</p></li><li><p>Choose a method for a particular solution if forcing is present.</p></li><li><p>Apply initial or boundary conditions.</p></li><li><p>Sanity-check the result against the original equation and the expected behavior.</p></li></ol>
+<h2 id="fast-method-selection">Fast method selection</h2>
+<table><thead><tr><th>Equation type</th><th>Best first method</th></tr></thead><tbody><tr><td>Linear constant coefficients, homogeneous</td><td>Characteristic equation</td></tr><tr><td>Linear constant coefficients, polynomial/exponential/trig forcing</td><td>Undetermined coefficients</td></tr><tr><td>Linear variable coefficients with known solution</td><td>Reduction of order</td></tr><tr><td>General linear forcing</td><td>Variation of parameters</td></tr><tr><td>Euler-Cauchy</td><td>Power trial \(y=x^m\)</td></tr><tr><td>Physical mass-spring model</td><td>Characteristic equation with damping interpretation</td></tr></tbody></table>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Forgetting two integration constants for a second-order homogeneous solution</p></li><li><p>Using an undetermined-coefficients guess that duplicates the homogeneous solution</p></li><li><p>Dropping the \(x\)-factor needed for repeated roots</p></li><li><p>Mixing up \(y&#39;\) and \(y&#39;&#39;\) when applying initial conditions</p></li><li><p>Applying a method that assumes constant coefficients to a variable-coefficient equation</p></li><li><p>Treating a boundary value problem like an initial value problem</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="standard-linear-form">Standard linear form</h2>
+<div class="math-block">$$
+a_2(x)y&#39;&#39; + a_1(x)y&#39; + a_0(x)y = g(x)
+$$</div>
+<h2 id="normalized-form-2">Normalized form</h2>
+<div class="math-block">$$
+y&#39;&#39; + p(x)y&#39; + q(x)y = r(x)
+$$</div>
+<h2 id="constant-coefficient-homogeneous-equation">Constant-coefficient homogeneous equation</h2>
+<div class="math-block">$$
+ay&#39;&#39; + by&#39; + cy = 0
+$$</div>
+<p>Characteristic equation:</p>
+<div class="math-block">$$
+ar^2 + br + c = 0
+$$</div>
+<h2 id="solution-templates">Solution templates</h2>
+<p>Distinct real roots:</p>
+<div class="math-block">$$
+y = C_1 e^{r_1 x} + C_2 e^{r_2 x}
+$$</div>
+<p>Repeated root:</p>
+<div class="math-block">$$
+y = (C_1 + C_2 x)e^{rx}
+$$</div>
+<p>Complex roots:</p>
+<div class="math-block">$$
+y = e^{\alpha x}\bigl(C_1\cos(\beta x) + C_2\sin(\beta x)\bigr)
+$$</div>
+<h2 id="euler-cauchy-trial">Euler-Cauchy trial</h2>
+<div class="math-block">$$
+y = x^m
+$$</div>
+<p>leading to</p>
+<div class="math-block">$$
+m(m-1) + am + b = 0
+$$</div>
+<h2 id="general-linear-solution">General linear solution</h2>
+<div class="math-block">$$
+y = y_h + y_p
+$$</div>
+<h2 id="wronskian-2">Wronskian</h2>
+<div class="math-block">$$
+W = y_1 y_2&#39; - y_1&#39; y_2
+$$</div>
+<h2 id="mass-spring-frequency">Mass-spring frequency</h2>
+<div class="math-block">$$
+\omega_n = \sqrt{\frac{k}{m}}
+$$</div>
+<h2 id="damping-ratio">Damping ratio</h2>
+<div class="math-block">$$
+\zeta = \frac{c}{2\sqrt{mk}}
+$$</div>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="classification-and-standard-forms" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Classification and standard forms">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-vs-nonlinear" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classification-and-standard-forms">Linear vs nonlinear</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#homogeneous-vs-nonhomogeneous" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classification-and-standard-forms">Homogeneous vs nonhomogeneous</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-standard-forms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classification-and-standard-forms">Common standard forms</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="existence-uniqueness-and-ivps" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Existence, uniqueness, and IVPs">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-two-initial-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="existence-uniqueness-and-ivps">Why two initial conditions?</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="homogeneous-linear-equations-with-constant-coefficients" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Homogeneous linear equations with constant coefficients">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#case-1-two-distinct-real-roots" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="homogeneous-linear-equations-with-constant-coefficients">Case 1: two distinct real roots</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#case-2-repeated-real-root" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="homogeneous-linear-equations-with-constant-coefficients">Case 2: repeated real root</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#case-3-complex-conjugate-roots" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="homogeneous-linear-equations-with-constant-coefficients">Case 3: complex conjugate roots</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="homogeneous-linear-equations-with-constant-coefficients">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="forcing-and-particular-solutions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Forcing and particular solutions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#undetermined-coefficients" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forcing-and-particular-solutions">Undetermined coefficients</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variation-of-parameters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forcing-and-particular-solutions">Variation of parameters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="variable-coefficient-special-cases" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Variable-coefficient special cases">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#euler-cauchy-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="variable-coefficient-special-cases">Euler-Cauchy equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reduction-by-substitution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="variable-coefficient-special-cases">Reduction by substitution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="reduction-of-order-and-variation-of-parameters" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Reduction of order and variation of parameters">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reduction-of-order" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reduction-of-order-and-variation-of-parameters">Reduction of order</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#wronskian" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reduction-of-order-and-variation-of-parameters">Wronskian</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="initial-and-boundary-value-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Initial and boundary value problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#initial-value-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="initial-and-boundary-value-problems">Initial value problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-value-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="initial-and-boundary-value-problems">Boundary value problems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="mechanical-applications" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Mechanical applications">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mass-spring-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-applications">Mass-spring system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#damped-vibration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-applications">Damped vibration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#forced-vibration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-applications">Forced vibration</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="qualitative-behavior" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Qualitative behavior">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stability-of-equilibrium" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="qualitative-behavior">Stability of equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-plane-viewpoint" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="qualitative-behavior">Phase-plane viewpoint</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#long-term-behavior" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="qualitative-behavior">Long-term behavior</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fast-method-selection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Fast method selection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-linear-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Standard linear form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#normalized-form-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Normalized form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constant-coefficient-homogeneous-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Constant-coefficient homogeneous equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solution-templates" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Solution templates</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#euler-cauchy-trial" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Euler-Cauchy trial</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-linear-solution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">General linear solution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#wronskian-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Wronskian</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mass-spring-frequency" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Mass-spring frequency</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#damping-ratio" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Damping ratio</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

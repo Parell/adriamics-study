@@ -1,0 +1,2500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Systems of ODEs Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/systems-of-odes/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/systems-of-odes/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Systems of ODEs Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/systems-of-odes/systems-of-odes-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fsystems-of-odes%2Fsystems-of-odes-problems.md&amp;title=%5BContribute%5D%3A%20Systems%20of%20ODEs%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Systems of ODEs" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="systems-of-odes-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Matrix Form, Systems of ODEs" data-problem-difficulty="Direct" data-problem-answer="Write the state vector as
+
+$$
+\mathbf{x} =
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}.
+$$
+
+Then the system is
+
+$$
+\mathbf{x}&#39; =
+\begin{bmatrix}
+2 &amp; -1 \\
+4 &amp; 3
+\end{bmatrix}
+\mathbf{x}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Write a System in Matrix Form</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#matrix-form" data-notes-nav-item>Matrix Form</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#systems-of-odes" data-notes-nav-item>Systems of ODEs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Rewrite the system in matrix form:</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= 2x - y \\
+y&#39; &amp;= 4x + 3y
+\end{aligned}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-11">Your work for Write a System in Matrix Form</label>
+          <textarea
+            id="practice-study-systems-of-odes-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the state vector as</p>
+<div class="math-block">$$
+\mathbf{x} =
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}.
+$$</div>
+<p>Then the system is</p>
+<div class="math-block">$$
+\mathbf{x}&#39; =
+\begin{bmatrix}
+2 &amp; -1 \\
+4 &amp; 3
+\end{bmatrix}
+\mathbf{x}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Linear Systems, Homogeneous vs. Nonhomogeneous" data-problem-difficulty="Direct" data-problem-answer="The system is linear because it has the form
+
+$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t).
+$$
+
+It is **nonautonomous** because the forcing term depends on $t$.
+
+It is **nonhomogeneous** because $\mathbf{g}(t) \neq \mathbf{0}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify a Linear System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linear-systems" data-notes-nav-item>Linear Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#homogeneous-vs-nonhomogeneous" data-notes-nav-item>Homogeneous vs. Nonhomogeneous</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Classify the system as linear, autonomous, homogeneous, or nonhomogeneous:</p>
+<div class="math-block">$$
+\mathbf{x}&#39; =
+\begin{bmatrix}
+1 &amp; 0 \\
+2 &amp; -3
+\end{bmatrix}
+\mathbf{x}
+
+\begin{bmatrix}
+\sin t \\
+1
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-12">Your work for Classify a Linear System</label>
+          <textarea
+            id="practice-study-systems-of-odes-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The system is linear because it has the form</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t).
+$$</div>
+<p>It is <strong>nonautonomous</strong> because the forcing term depends on $t$.</p>
+<p>It is <strong>nonhomogeneous</strong> because $\mathbf{g}(t) \neq \mathbf{0}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Solution Space, Linear Systems" data-problem-difficulty="Direct" data-problem-answer="A first-order linear homogeneous system of size $n \times n$ has $n$ independent solution constants.
+
+Here $n = 4$, so the general solution depends on
+
+$$
+4
+$$
+
+arbitrary constants.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Count the Constants in a 4x4 System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#solution-space" data-notes-nav-item>Solution Space</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linear-systems" data-notes-nav-item>Linear Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A first-order linear homogeneous system has size $4 \times 4$.</p>
+<p>How many arbitrary constants appear in the general solution?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-13">Your work for Count the Constants in a 4x4 System</label>
+          <textarea
+            id="practice-study-systems-of-odes-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>A first-order linear homogeneous system of size $n \times n$ has $n$ independent solution constants.</p>
+<p>Here $n = 4$, so the general solution depends on</p>
+<div class="math-block">$$
+4
+$$</div>
+<p>arbitrary constants.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Equilibria, Nonlinear Systems" data-problem-difficulty="Direct" data-problem-answer="An equilibrium occurs when both derivatives are zero.
+
+From $x&#39; = x(3-x) = 0$, we get
+
+$$
+x = 0 \quad \text{or} \quad x = 3.
+$$
+
+From $y&#39; = y(y-2) = 0$, we get
+
+$$
+y = 0 \quad \text{or} \quad y = 2.
+$$
+
+Combine the choices to get the equilibria:
+
+$$
+(0,0),\ (0,2),\ (3,0),\ (3,2).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find All Equilibria of a Nonlinear System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#equilibria" data-notes-nav-item>Equilibria</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#nonlinear-systems" data-notes-nav-item>Nonlinear Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find all equilibria of the system</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= x(3-x) \\
+y&#39; &amp;= y(y-2)
+\end{aligned}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-14">Your work for Find All Equilibria of a Nonlinear System</label>
+          <textarea
+            id="practice-study-systems-of-odes-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>An equilibrium occurs when both derivatives are zero.</p>
+<p>From $x&#39; = x(3-x) = 0$, we get</p>
+<div class="math-block">$$
+x = 0 \quad \text{or} \quad x = 3.
+$$</div>
+<p>From $y&#39; = y(y-2) = 0$, we get</p>
+<div class="math-block">$$
+y = 0 \quad \text{or} \quad y = 2.
+$$</div>
+<p>Combine the choices to get the equilibria:</p>
+<div class="math-block">$$
+(0,0),\ (0,2),\ (3,0),\ (3,2).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Eigenvalues, Eigenvectors" data-problem-difficulty="Direct" data-problem-answer="An eigenpair $(\lambda,\mathbf{v})$ gives a solution of the form
+
+$$
+\mathbf{x}(t) = e^{\lambda t}\mathbf{v}.
+$$
+
+Here $\lambda = -2$, so the solution is
+
+$$
+\mathbf{x}(t) = e^{-2t}\mathbf{v}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Use an Eigenpair to Write a Solution</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvectors" data-notes-nav-item>Eigenvectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose $A\mathbf{v} = -2\mathbf{v}$.</p>
+<p>What solution of $\mathbf{x}&#39; = A\mathbf{x}$ does this eigenpair generate?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-15">Your work for Use an Eigenpair to Write a Solution</label>
+          <textarea
+            id="practice-study-systems-of-odes-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>An eigenpair $(\lambda,\mathbf{v})$ gives a solution of the form</p>
+<div class="math-block">$$
+\mathbf{x}(t) = e^{\lambda t}\mathbf{v}.
+$$</div>
+<p>Here $\lambda = -2$, so the solution is</p>
+<div class="math-block">$$
+\mathbf{x}(t) = e^{-2t}\mathbf{v}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Eigenvalues, Stability" data-problem-difficulty="Direct" data-problem-answer="The mode has the factor
+
+$$
+e^{-5t}.
+$$
+
+As $t$ increases, $e^{-5t} \to 0$, so that mode decays exponentially.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Interpret a Negative Eigenvalue</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A mode of a system has eigenvalue $\lambda = -5$.</p>
+<p>What does that tell you about the behavior of that mode?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-16">Your work for Interpret a Negative Eigenvalue</label>
+          <textarea
+            id="practice-study-systems-of-odes-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The mode has the factor</p>
+<div class="math-block">$$
+e^{-5t}.
+$$</div>
+<p>As $t$ increases, $e^{-5t} \to 0$, so that mode decays exponentially.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Complex Eigenvalues, Oscillation" data-problem-difficulty="Direct" data-problem-answer="Complex eigenvalues produce oscillation, and the real part controls growth or decay.
+
+Here the real part is $1$, so the oscillations are multiplied by $e^t$.
+
+That means the motion oscillates while growing in size, so trajectories spiral outward.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Interpret Complex Eigenvalues</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#complex-eigenvalues" data-notes-nav-item>Complex Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#oscillation" data-notes-nav-item>Oscillation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A system has eigenvalues</p>
+<div class="math-block">$$
+\lambda = 1 \pm 4i.
+$$</div>
+<p>What qualitative behavior should you expect?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-17">Your work for Interpret Complex Eigenvalues</label>
+          <textarea
+            id="practice-study-systems-of-odes-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Complex eigenvalues produce oscillation, and the real part controls growth or decay.</p>
+<p>Here the real part is $1$, so the oscillations are multiplied by $e^t$.</p>
+<p>That means the motion oscillates while growing in size, so trajectories spiral outward.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Trace-Determinant Test, 2x2 Systems" data-problem-difficulty="Direct" data-problem-answer="The trace is the sum of the diagonal entries:
+
+$$
+\operatorname{tr}(A) = 3 + (-1) = 2.
+$$
+
+The determinant is
+
+$$
+\det(A) = 3(-1) - (-2)(5) = -3 + 10 = 7.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute Trace and Determinant</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#trace-determinant-test" data-notes-nav-item>Trace-Determinant Test</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#2x2-systems" data-notes-nav-item>2x2 Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the matrix</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+3 &amp; -2 \\
+5 &amp; -1
+\end{bmatrix},
+$$</div>
+<p>find $\operatorname{tr}(A)$ and $\det(A)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-18">Your work for Compute Trace and Determinant</label>
+          <textarea
+            id="practice-study-systems-of-odes-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The trace is the sum of the diagonal entries:</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = 3 + (-1) = 2.
+$$</div>
+<p>The determinant is</p>
+<div class="math-block">$$
+\det(A) = 3(-1) - (-2)(5) = -3 + 10 = 7.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Stability, Eigenvalues" data-problem-difficulty="Direct" data-problem-answer="Both eigenvalues are real and negative, so all nearby solutions decay toward the origin.
+
+That makes the origin an **asymptotically stable node**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Classify Stability from Eigenvalues</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A linear $2 \times 2$ system has eigenvalues $-1$ and $-4$.</p>
+<p>What type of equilibrium does the origin have?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-19">Your work for Classify Stability from Eigenvalues</label>
+          <textarea
+            id="practice-study-systems-of-odes-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Both eigenvalues are real and negative, so all nearby solutions decay toward the origin.</p>
+<p>That makes the origin an <strong>asymptotically stable node</strong>.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Linearization, Jacobian" data-problem-difficulty="Direct" data-problem-answer="The linearization is
+
+$$
+\mathbf{x}&#39; \approx J(\mathbf{x}^*)(\mathbf{x} - \mathbf{x}^*),
+$$
+
+where $J(\mathbf{x}^*)$ is the Jacobian matrix evaluated at the equilibrium.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">State the Linearization Formula</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linearization" data-notes-nav-item>Linearization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#jacobian" data-notes-nav-item>Jacobian</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Near an equilibrium point $\mathbf{x}^*$, what first-order approximation do you use for a nonlinear system?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-110">Your work for State the Linearization Formula</label>
+          <textarea
+            id="practice-study-systems-of-odes-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The linearization is</p>
+<div class="math-block">$$
+\mathbf{x}&#39; \approx J(\mathbf{x}^*)(\mathbf{x} - \mathbf{x}^*),
+$$</div>
+<p>where $J(\mathbf{x}^*)$ is the Jacobian matrix evaluated at the equilibrium.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="systems-of-odes-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Characteristic Polynomial, Eigenvalues" data-problem-difficulty="Integrated" data-problem-answer="Compute
+
+$$
+\det(A - \lambda I)
+=
+\det\begin{bmatrix}
+1-\lambda &amp; 2 \\
+0 &amp; 4-\lambda
+\end{bmatrix}
+=(1-\lambda)(4-\lambda).
+$$
+
+So the characteristic polynomial is
+
+$$
+\lambda^2 - 5\lambda + 4.
+$$
+
+The eigenvalues are
+
+$$
+\lambda = 1,\ 4.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find a Characteristic Polynomial</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#characteristic-polynomial" data-notes-nav-item>Characteristic Polynomial</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+1 &amp; 2 \\
+0 &amp; 4
+\end{bmatrix},
+$$</div>
+<p>find the characteristic polynomial and the eigenvalues.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-21">Your work for Find a Characteristic Polynomial</label>
+          <textarea
+            id="practice-study-systems-of-odes-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Compute</p>
+<div class="math-block">$$
+\det(A - \lambda I)
+=
+\det\begin{bmatrix}
+1-\lambda &amp; 2 \\
+0 &amp; 4-\lambda
+\end{bmatrix}
+=(1-\lambda)(4-\lambda).
+$$</div>
+<p>So the characteristic polynomial is</p>
+<div class="math-block">$$
+\lambda^2 - 5\lambda + 4.
+$$</div>
+<p>The eigenvalues are</p>
+<div class="math-block">$$
+\lambda = 1,\ 4.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Matrix Exponential, Initial Value Problems" data-problem-difficulty="Integrated" data-problem-answer="Because the matrix is diagonal, each component solves its own scalar equation.
+
+The first component is
+
+$$
+x_1&#39; = -2x_1, \qquad x_1(0)=4,
+$$
+
+so
+
+$$
+x_1(t) = 4e^{-2t}.
+$$
+
+The second component is
+
+$$
+x_2&#39; = 3x_2, \qquad x_2(0)=-1,
+$$
+
+so
+
+$$
+x_2(t) = -e^{3t}.
+$$
+
+Thus
+
+$$
+\mathbf{x}(t) =
+\begin{bmatrix}
+4e^{-2t} \\
+-e^{3t}
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Solve a Diagonal System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#matrix-exponential" data-notes-nav-item>Matrix Exponential</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#initial-value-problems" data-notes-nav-item>Initial Value Problems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem</p>
+<div class="math-block">$$
+\mathbf{x}&#39; =
+\begin{bmatrix}
+-2 &amp; 0 \\
+0 &amp; 3
+\end{bmatrix}
+\mathbf{x},
+\qquad
+\mathbf{x}(0) =
+\begin{bmatrix}
+4 \\
+-1
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-22">Your work for Solve a Diagonal System</label>
+          <textarea
+            id="practice-study-systems-of-odes-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because the matrix is diagonal, each component solves its own scalar equation.</p>
+<p>The first component is</p>
+<div class="math-block">$$
+x_1&#39; = -2x_1, \qquad x_1(0)=4,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+x_1(t) = 4e^{-2t}.
+$$</div>
+<p>The second component is</p>
+<div class="math-block">$$
+x_2&#39; = 3x_2, \qquad x_2(0)=-1,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+x_2(t) = -e^{3t}.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+\mathbf{x}(t) =
+\begin{bmatrix}
+4e^{-2t} \\
+-e^{3t}
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Eigenvalues, Eigenvectors, General Solution" data-problem-difficulty="Integrated" data-problem-answer="Each eigenpair gives an eigenmode solution.
+
+So the general solution is
+
+$$
+\mathbf{x}(t)
+=
+c_1 e^{2t}
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+ + c_2 e^{-t}
+\begin{bmatrix}
+1 \\
+-1
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Build a General Solution from Eigenpairs</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvectors" data-notes-nav-item>Eigenvectors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#general-solution" data-notes-nav-item>General Solution</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose a matrix $A$ has eigenpairs</p>
+<div class="math-block">$$
+(2, \begin{bmatrix}1 \\ 1\end{bmatrix})
+ \quad \text{and} \quad
+(-1, \begin{bmatrix}1 \\ -1\end{bmatrix}).
+$$</div>
+<p>Write the general solution of $\mathbf{x}&#39; = A\mathbf{x}$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-23">Your work for Build a General Solution from Eigenpairs</label>
+          <textarea
+            id="practice-study-systems-of-odes-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Each eigenpair gives an eigenmode solution.</p>
+<p>So the general solution is</p>
+<div class="math-block">$$
+\mathbf{x}(t)
+=
+c_1 e^{2t}
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+ + c_2 e^{-t}
+\begin{bmatrix}
+1 \\
+-1
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Trace-Determinant Test, Stability" data-problem-difficulty="Integrated" data-problem-answer="The characteristic polynomial is
+
+$$
+\lambda^2 - (\operatorname{tr} A)\lambda + \det(A)
+=
+\lambda^2 + 2\lambda + 5.
+$$
+
+The discriminant is
+
+$$
+2^2 - 4(5) = -16,
+$$
+
+so the eigenvalues are complex.
+
+Solve the quadratic:
+
+$$
+\lambda = \frac{-2 \pm \sqrt{-16}}{2} = -1 \pm 2i.
+$$
+
+Because the real part is negative, the equilibrium is a **stable spiral**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Classify from Trace and Determinant</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#trace-determinant-test" data-notes-nav-item>Trace-Determinant Test</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2 \times 2$ matrix has trace $-2$ and determinant $5$.</p>
+<p>Determine whether the eigenvalues are real or complex, and classify the equilibrium.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-24">Your work for Classify from Trace and Determinant</label>
+          <textarea
+            id="practice-study-systems-of-odes-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic polynomial is</p>
+<div class="math-block">$$
+\lambda^2 - (\operatorname{tr} A)\lambda + \det(A)
+=
+\lambda^2 + 2\lambda + 5.
+$$</div>
+<p>The discriminant is</p>
+<div class="math-block">$$
+2^2 - 4(5) = -16,
+$$</div>
+<p>so the eigenvalues are complex.</p>
+<p>Solve the quadratic:</p>
+<div class="math-block">$$
+\lambda = \frac{-2 \pm \sqrt{-16}}{2} = -1 \pm 2i.
+$$</div>
+<p>Because the real part is negative, the equilibrium is a <strong>stable spiral</strong>.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Modeling Patterns, First-Order Systems" data-problem-difficulty="Integrated" data-problem-answer="Since $u=x$, we have
+
+$$
+u&#39; = x&#39; = v.
+$$
+
+Also,
+
+$$
+v&#39; = x&#39;&#39; = -2x&#39; - 9x = -2v - 9u.
+$$
+
+So the first-order system is
+
+$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -9u - 2v.
+\end{aligned}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Convert a Mass-Spring Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#modeling-patterns" data-notes-nav-item>Modeling Patterns</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#first-order-systems" data-notes-nav-item>First-Order Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A spring-mass system satisfies</p>
+<div class="math-block">$$
+x&#39;&#39; + 2x&#39; + 9x = 0.
+$$</div>
+<p>Let $u=x$ and $v=x&#39;$. Write the equivalent first-order system.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-25">Your work for Convert a Mass-Spring Equation</label>
+          <textarea
+            id="practice-study-systems-of-odes-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since $u=x$, we have</p>
+<div class="math-block">$$
+u&#39; = x&#39; = v.
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+v&#39; = x&#39;&#39; = -2x&#39; - 9x = -2v - 9u.
+$$</div>
+<p>So the first-order system is</p>
+<div class="math-block">$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -9u - 2v.
+\end{aligned}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Linearization, Jacobian" data-problem-difficulty="Integrated" data-problem-answer="Compute the partial derivatives:
+
+$$
+\frac{\partial f_1}{\partial x} = 2x, \qquad
+\frac{\partial f_1}{\partial y} = 1,
+$$
+
+$$
+\frac{\partial f_2}{\partial x} = y, \qquad
+\frac{\partial f_2}{\partial y} = x.
+$$
+
+So
+
+$$
+J(x,y) =
+\begin{bmatrix}
+2x &amp; 1 \\
+y &amp; x
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find the Jacobian Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linearization" data-notes-nav-item>Linearization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#jacobian" data-notes-nav-item>Jacobian</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the Jacobian matrix of</p>
+<div class="math-block">$$
+\mathbf{f}(x,y) =
+\begin{bmatrix}
+x^2 + y \\
+xy - 1
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-26">Your work for Find the Jacobian Matrix</label>
+          <textarea
+            id="practice-study-systems-of-odes-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Compute the partial derivatives:</p>
+<div class="math-block">$$
+\frac{\partial f_1}{\partial x} = 2x, \qquad
+\frac{\partial f_1}{\partial y} = 1,
+$$</div>
+<div class="math-block">$$
+\frac{\partial f_2}{\partial x} = y, \qquad
+\frac{\partial f_2}{\partial y} = x.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+J(x,y) =
+\begin{bmatrix}
+2x &amp; 1 \\
+y &amp; x
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Nonhomogeneous Systems, Variation of Parameters" data-problem-difficulty="Integrated" data-problem-answer="A particular solution can be written as
+
+$$
+\mathbf{x}_p(t) = \Phi(t)\int \Phi(t)^{-1}\mathbf{g}(t)\,dt.
+$$
+
+The full solution is then the sum of the homogeneous and particular parts.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Write the Variation-of-Parameters Formula</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#nonhomogeneous-systems" data-notes-nav-item>Nonhomogeneous Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#variation-of-parameters" data-notes-nav-item>Variation of Parameters</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the forced system</p>
+<div class="math-block">$$
+\mathbf{x}&#39; = A\mathbf{x} + \mathbf{g}(t),
+$$</div>
+<p>let $\Phi(t)$ be a fundamental matrix for $\mathbf{x}&#39; = A\mathbf{x}$.</p>
+<p>What formula gives a particular solution?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-27">Your work for Write the Variation-of-Parameters Formula</label>
+          <textarea
+            id="practice-study-systems-of-odes-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>A particular solution can be written as</p>
+<div class="math-block">$$
+\mathbf{x}_p(t) = \Phi(t)\int \Phi(t)^{-1}\mathbf{g}(t)\,dt.
+$$</div>
+<p>The full solution is then the sum of the homogeneous and particular parts.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Generalized Eigenvectors, Jordan Form" data-problem-difficulty="Integrated" data-problem-answer="In the defective case, a second solution often has the form
+
+$$
+e^{\lambda t}(\mathbf{v} + t\mathbf{w}),
+$$
+
+where $\mathbf{w}$ is a generalized eigenvector.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Handle a Repeated Eigenvalue</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#generalized-eigenvectors" data-notes-nav-item>Generalized Eigenvectors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#jordan-form" data-notes-nav-item>Jordan Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If a $2 \times 2$ system has a repeated eigenvalue $\lambda$ and only one eigenvector $\mathbf{v}$, what is a common form of a second independent solution?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-28">Your work for Handle a Repeated Eigenvalue</label>
+          <textarea
+            id="practice-study-systems-of-odes-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>In the defective case, a second solution often has the form</p>
+<div class="math-block">$$
+e^{\lambda t}(\mathbf{v} + t\mathbf{w}),
+$$</div>
+<p>where $\mathbf{w}$ is a generalized eigenvector.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="systems-of-odes-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Predator-Prey Models, Equilibria" data-problem-difficulty="Applied" data-problem-answer="Set both derivatives equal to zero.
+
+From $x&#39; = x(3-y)=0$, we get
+
+$$
+x=0 \quad \text{or} \quad y=3.
+$$
+
+From $y&#39; = y(x-2)=0$, we get
+
+$$
+y=0 \quad \text{or} \quad x=2.
+$$
+
+Check the intersections:
+
+$$
+(0,0), \quad (2,0), \quad (2,3).
+$$
+
+These are the equilibria.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find Equilibria in a Predator-Prey Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#predator-prey-models" data-notes-nav-item>Predator-Prey Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#equilibria" data-notes-nav-item>Equilibria</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A predator-prey model is</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= x(3-y) \\
+y&#39; &amp;= y(x-2)
+\end{aligned}
+$$</div>
+<p>where $x$ and $y$ are the population levels.</p>
+<p>Find all equilibria.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-31">Your work for Find Equilibria in a Predator-Prey Model</label>
+          <textarea
+            id="practice-study-systems-of-odes-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Set both derivatives equal to zero.</p>
+<p>From $x&#39; = x(3-y)=0$, we get</p>
+<div class="math-block">$$
+x=0 \quad \text{or} \quad y=3.
+$$</div>
+<p>From $y&#39; = y(x-2)=0$, we get</p>
+<div class="math-block">$$
+y=0 \quad \text{or} \quad x=2.
+$$</div>
+<p>Check the intersections:</p>
+<div class="math-block">$$
+(0,0), \quad (2,0), \quad (2,3).
+$$</div>
+<p>These are the equilibria.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Modeling Patterns, First-Order Systems" data-problem-difficulty="Applied" data-problem-answer="Since $u=x$,
+
+$$
+u&#39; = v.
+$$
+
+Also,
+
+$$
+2v&#39; + 6v + 8u = 0,
+$$
+
+so
+
+$$
+v&#39; = -3v - 4u.
+$$
+
+Thus the first-order system is
+
+$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -4u - 3v.
+\end{aligned}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Convert a Damped Oscillator</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#modeling-patterns" data-notes-nav-item>Modeling Patterns</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#first-order-systems" data-notes-nav-item>First-Order Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A mass-spring-damper system satisfies</p>
+<div class="math-block">$$
+2x&#39;&#39; + 6x&#39; + 8x = 0.
+$$</div>
+<p>Let $u=x$ and $v=x&#39;$.</p>
+<p>Write the equivalent first-order system.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-32">Your work for Convert a Damped Oscillator</label>
+          <textarea
+            id="practice-study-systems-of-odes-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since $u=x$,</p>
+<div class="math-block">$$
+u&#39; = v.
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+2v&#39; + 6v + 8u = 0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+v&#39; = -3v - 4u.
+$$</div>
+<p>Thus the first-order system is</p>
+<div class="math-block">$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -4u - 3v.
+\end{aligned}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Nonhomogeneous Systems, Equilibria" data-problem-difficulty="Applied" data-problem-answer="At equilibrium, set both derivatives equal to zero:
+
+$$
+-3x + y + 4 = 0,
+$$
+
+$$
+2x - 2y + 1 = 0.
+$$
+
+From the second equation,
+
+$$
+x - y = -\frac{1}{2},
+$$
+
+so
+
+$$
+y = x + \frac{1}{2}.
+$$
+
+Substitute into the first equation:
+
+$$
+-3x + \left(x + \frac{1}{2}\right) + 4 = 0.
+$$
+
+Combine terms:
+
+$$
+-2x + \frac{9}{2} = 0.
+$$
+
+So
+
+$$
+x = \frac{9}{4}.
+$$
+
+Then
+
+$$
+y = \frac{9}{4} + \frac{1}{2} = \frac{11}{4}.
+$$
+
+The equilibrium point is
+
+$$
+\left(\frac{9}{4}, \frac{11}{4}\right).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find the Steady State of a Forced System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#nonhomogeneous-systems" data-notes-nav-item>Nonhomogeneous Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#equilibria" data-notes-nav-item>Equilibria</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A model is given by</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= -3x + y + 4 \\
+y&#39; &amp;= 2x - 2y + 1
+\end{aligned}
+$$</div>
+<p>Find the equilibrium point.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-33">Your work for Find the Steady State of a Forced System</label>
+          <textarea
+            id="practice-study-systems-of-odes-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>At equilibrium, set both derivatives equal to zero:</p>
+<div class="math-block">$$
+-3x + y + 4 = 0,
+$$</div>
+<div class="math-block">$$
+2x - 2y + 1 = 0.
+$$</div>
+<p>From the second equation,</p>
+<div class="math-block">$$
+x - y = -\frac{1}{2},
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+y = x + \frac{1}{2}.
+$$</div>
+<p>Substitute into the first equation:</p>
+<div class="math-block">$$
+-3x + \left(x + \frac{1}{2}\right) + 4 = 0.
+$$</div>
+<p>Combine terms:</p>
+<div class="math-block">$$
+-2x + \frac{9}{2} = 0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+x = \frac{9}{4}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y = \frac{9}{4} + \frac{1}{2} = \frac{11}{4}.
+$$</div>
+<p>The equilibrium point is</p>
+<div class="math-block">$$
+\left(\frac{9}{4}, \frac{11}{4}\right).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Phase Portraits, Stability, 2x2 Systems" data-problem-difficulty="Applied" data-problem-answer="The coefficient matrix is
+
+$$
+A =
+\begin{bmatrix}
+-1 &amp; 2 \\
+-3 &amp; -4
+\end{bmatrix}.
+$$
+
+Its trace and determinant are
+
+$$
+\operatorname{tr}(A) = -5,
+$$
+
+$$
+\det(A) = (-1)(-4) - (2)(-3) = 10.
+$$
+
+The discriminant is
+
+$$
+(-5)^2 - 4(10) = 25 - 40 = -15,
+$$
+
+so the eigenvalues are complex.
+
+Because the trace is negative, the real part is negative, so the origin is a **stable spiral**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Classify a Circuit Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#phase-portraits" data-notes-nav-item>Phase Portraits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#2x2-systems" data-notes-nav-item>2x2 Systems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A circuit model is</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= -x + 2y \\
+y&#39; &amp;= -3x - 4y
+\end{aligned}
+$$</div>
+<p>Determine the type of equilibrium at the origin.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-34">Your work for Classify a Circuit Model</label>
+          <textarea
+            id="practice-study-systems-of-odes-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The coefficient matrix is</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+-1 &amp; 2 \\
+-3 &amp; -4
+\end{bmatrix}.
+$$</div>
+<p>Its trace and determinant are</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = -5,
+$$</div>
+<div class="math-block">$$
+\det(A) = (-1)(-4) - (2)(-3) = 10.
+$$</div>
+<p>The discriminant is</p>
+<div class="math-block">$$
+(-5)^2 - 4(10) = 25 - 40 = -15,
+$$</div>
+<p>so the eigenvalues are complex.</p>
+<p>Because the trace is negative, the real part is negative, so the origin is a <strong>stable spiral</strong>.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Linearization, Jacobian, Stability" data-problem-difficulty="Applied" data-problem-answer="First compute the Jacobian:
+
+$$
+J(x,y) =
+\begin{bmatrix}
+1-y &amp; -x \\
+-y &amp; 2-x
+\end{bmatrix}.
+$$
+
+At $(0,0)$,
+
+$$
+J(0,0) =
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 2
+\end{bmatrix}.
+$$
+
+The eigenvalues are $1$ and $2$, both positive.
+
+So the origin is an **unstable node** for the linearized system, and the nonlinear system is locally unstable there.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Linearize a Nonlinear System at the Origin</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linearization" data-notes-nav-item>Linearization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#jacobian" data-notes-nav-item>Jacobian</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider the nonlinear system</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= x(1-y) \\
+y&#39; &amp;= y(2-x)
+\end{aligned}
+$$</div>
+<p>Use the linearization at $(0,0)$ to determine the local behavior of the origin.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-35">Your work for Linearize a Nonlinear System at the Origin</label>
+          <textarea
+            id="practice-study-systems-of-odes-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the Jacobian:</p>
+<div class="math-block">$$
+J(x,y) =
+\begin{bmatrix}
+1-y &amp; -x \\
+-y &amp; 2-x
+\end{bmatrix}.
+$$</div>
+<p>At $(0,0)$,</p>
+<div class="math-block">$$
+J(0,0) =
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; 2
+\end{bmatrix}.
+$$</div>
+<p>The eigenvalues are $1$ and $2$, both positive.</p>
+<p>So the origin is an <strong>unstable node</strong> for the linearized system, and the nonlinear system is locally unstable there.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="systems-of-odes-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Generalized Eigenvectors, Jordan Form" data-problem-difficulty="Challenge" data-problem-answer="The matrix has repeated eigenvalue $3$ and only one eigenvector, so it is defective.
+
+The system can be written as
+
+$$
+A = 3I + N, \qquad
+N =
+\begin{bmatrix}
+0 &amp; 1 \\
+0 &amp; 0
+\end{bmatrix}.
+$$
+
+Then
+
+$$
+e^{At} = e^{3t}e^{Nt}
+=
+e^{3t}
+\begin{bmatrix}
+1 &amp; t \\
+0 &amp; 1
+\end{bmatrix}.
+$$
+
+So the general solution is
+
+$$
+\mathbf{x}(t)
+=
+c_1 e^{3t}
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+ + c_2 e^{3t}
+\begin{bmatrix}
+t \\
+1
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Solve a Defective Linear System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#generalized-eigenvectors" data-notes-nav-item>Generalized Eigenvectors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#jordan-form" data-notes-nav-item>Jordan Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the system</p>
+<div class="math-block">$$
+\mathbf{x}&#39; =
+\begin{bmatrix}
+3 &amp; 1 \\
+0 &amp; 3
+\end{bmatrix}
+\mathbf{x}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-41">Your work for Solve a Defective Linear System</label>
+          <textarea
+            id="practice-study-systems-of-odes-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The matrix has repeated eigenvalue $3$ and only one eigenvector, so it is defective.</p>
+<p>The system can be written as</p>
+<div class="math-block">$$
+A = 3I + N, \qquad
+N =
+\begin{bmatrix}
+0 &amp; 1 \\
+0 &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+e^{At} = e^{3t}e^{Nt}
+=
+e^{3t}
+\begin{bmatrix}
+1 &amp; t \\
+0 &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>So the general solution is</p>
+<div class="math-block">$$
+\mathbf{x}(t)
+=
+c_1 e^{3t}
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+ + c_2 e^{3t}
+\begin{bmatrix}
+t \\
+1
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Nonhomogeneous Systems, Stability, Eigenvalues" data-problem-difficulty="Challenge" data-problem-answer="First find the equilibrium by setting both derivatives equal to zero:
+
+$$
+2x - y + 1 = 0,
+$$
+
+$$
+x + 2y - 3 = 0.
+$$
+
+Solving gives
+
+$$
+\left(\frac{1}{5}, \frac{7}{5}\right).
+$$
+
+Now shift variables:
+
+$$
+u = x - \frac{1}{5}, \qquad v = y - \frac{7}{5}.
+$$
+
+Because the constant terms disappear after shifting, the new system is
+
+$$
+\begin{aligned}
+u&#39; &amp;= 2u - v \\
+v&#39; &amp;= u + 2v.
+\end{aligned}
+$$
+
+The coefficient matrix is
+
+$$
+\begin{bmatrix}
+2 &amp; -1 \\
+1 &amp; 2
+\end{bmatrix},
+$$
+
+whose eigenvalues are
+
+$$
+2 \pm i.
+$$
+
+The real part is positive, so the equilibrium is an **unstable spiral**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Shift a Forced System and Classify It</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#nonhomogeneous-systems" data-notes-nav-item>Nonhomogeneous Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider the forced system</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= 2x - y + 1 \\
+y&#39; &amp;= x + 2y - 3
+\end{aligned}
+$$</div>
+<p>Find the equilibrium point, shift variables to move the equilibrium to the origin, and classify the shifted linear system.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-42">Your work for Shift a Forced System and Classify It</label>
+          <textarea
+            id="practice-study-systems-of-odes-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the equilibrium by setting both derivatives equal to zero:</p>
+<div class="math-block">$$
+2x - y + 1 = 0,
+$$</div>
+<div class="math-block">$$
+x + 2y - 3 = 0.
+$$</div>
+<p>Solving gives</p>
+<div class="math-block">$$
+\left(\frac{1}{5}, \frac{7}{5}\right).
+$$</div>
+<p>Now shift variables:</p>
+<div class="math-block">$$
+u = x - \frac{1}{5}, \qquad v = y - \frac{7}{5}.
+$$</div>
+<p>Because the constant terms disappear after shifting, the new system is</p>
+<div class="math-block">$$
+\begin{aligned}
+u&#39; &amp;= 2u - v \\
+v&#39; &amp;= u + 2v.
+\end{aligned}
+$$</div>
+<p>The coefficient matrix is</p>
+<div class="math-block">$$
+\begin{bmatrix}
+2 &amp; -1 \\
+1 &amp; 2
+\end{bmatrix},
+$$</div>
+<p>whose eigenvalues are</p>
+<div class="math-block">$$
+2 \pm i.
+$$</div>
+<p>The real part is positive, so the equilibrium is an <strong>unstable spiral</strong>.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Nonlinear Systems, Equilibria, Linearization" data-problem-difficulty="Challenge" data-problem-answer="Set both derivatives equal to zero:
+
+$$
+x(1-y)=0, \qquad y(x-2)=0.
+$$
+
+This gives the equilibria
+
+$$
+(0,0), \quad (2,0), \quad (2,1).
+$$
+
+Now compute the Jacobian:
+
+$$
+J(x,y) =
+\begin{bmatrix}
+1-y &amp; -x \\
+y &amp; x-2
+\end{bmatrix}.
+$$
+
+At $(0,0)$,
+
+$$
+J(0,0) =
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; -2
+\end{bmatrix}.
+$$
+
+The eigenvalues are $1$ and $-2$, so $(0,0)$ is a saddle and is unstable.
+
+At $(2,0)$,
+
+$$
+J(2,0) =
+\begin{bmatrix}
+1 &amp; -2 \\
+0 &amp; 0
+\end{bmatrix}.
+$$
+
+One eigenvalue is $0$, so linearization is inconclusive there.
+
+At $(2,1)$,
+
+$$
+J(2,1) =
+\begin{bmatrix}
+0 &amp; -2 \\
+1 &amp; 0
+\end{bmatrix},
+$$
+
+whose eigenvalues are purely imaginary, so linearization is also inconclusive there.
+
+Only $(0,0)$ can be classified directly from the linearization.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Analyze a Nonlinear System with Linearization</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#nonlinear-systems" data-notes-nav-item>Nonlinear Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#equilibria" data-notes-nav-item>Equilibria</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#linearization" data-notes-nav-item>Linearization</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider</p>
+<div class="math-block">$$
+\begin{aligned}
+x&#39; &amp;= x(1-y) \\
+y&#39; &amp;= y(x-2)
+\end{aligned}
+$$</div>
+<p>Find the equilibria and use linearization to determine which ones you can classify directly.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-43">Your work for Analyze a Nonlinear System with Linearization</label>
+          <textarea
+            id="practice-study-systems-of-odes-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Set both derivatives equal to zero:</p>
+<div class="math-block">$$
+x(1-y)=0, \qquad y(x-2)=0.
+$$</div>
+<p>This gives the equilibria</p>
+<div class="math-block">$$
+(0,0), \quad (2,0), \quad (2,1).
+$$</div>
+<p>Now compute the Jacobian:</p>
+<div class="math-block">$$
+J(x,y) =
+\begin{bmatrix}
+1-y &amp; -x \\
+y &amp; x-2
+\end{bmatrix}.
+$$</div>
+<p>At $(0,0)$,</p>
+<div class="math-block">$$
+J(0,0) =
+\begin{bmatrix}
+1 &amp; 0 \\
+0 &amp; -2
+\end{bmatrix}.
+$$</div>
+<p>The eigenvalues are $1$ and $-2$, so $(0,0)$ is a saddle and is unstable.</p>
+<p>At $(2,0)$,</p>
+<div class="math-block">$$
+J(2,0) =
+\begin{bmatrix}
+1 &amp; -2 \\
+0 &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>One eigenvalue is $0$, so linearization is inconclusive there.</p>
+<p>At $(2,1)$,</p>
+<div class="math-block">$$
+J(2,1) =
+\begin{bmatrix}
+0 &amp; -2 \\
+1 &amp; 0
+\end{bmatrix},
+$$</div>
+<p>whose eigenvalues are purely imaginary, so linearization is also inconclusive there.</p>
+<p>Only $(0,0)$ can be classified directly from the linearization.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="systems-of-odes-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Modeling Patterns, Characteristic Polynomial, Stability" data-problem-difficulty="Challenge" data-problem-answer="With $u=x$ and $v=x&#39;$, we have
+
+$$
+u&#39; = v.
+$$
+
+Since
+
+$$
+x&#39;&#39; + 4x&#39; + 13x = 0,
+$$
+
+we get
+
+$$
+v&#39; = -4v - 13u.
+$$
+
+So the first-order system is
+
+$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -13u - 4v.
+\end{aligned}
+$$
+
+The coefficient matrix is
+
+$$
+A =
+\begin{bmatrix}
+0 &amp; 1 \\
+-13 &amp; -4
+\end{bmatrix}.
+$$
+
+Its characteristic polynomial is
+
+$$
+\det(A - \lambda I) = \lambda^2 + 4\lambda + 13.
+$$
+
+So the eigenvalues are
+
+$$
+\lambda = -2 \pm 3i.
+$$
+
+Because the real part is negative and the eigenvalues are complex, the motion is a **stable spiral**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Classify a Damped Oscillator from Its System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#modeling-patterns" data-notes-nav-item>Modeling Patterns</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#characteristic-polynomial" data-notes-nav-item>Characteristic Polynomial</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/systems-of-odes/#stability" data-notes-nav-item>Stability</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A damped oscillator satisfies</p>
+<div class="math-block">$$
+x&#39;&#39; + 4x&#39; + 13x = 0.
+$$</div>
+<p>Let $u=x$ and $v=x&#39;$. Convert the equation to a first-order system, find the eigenvalues of the coefficient matrix, and classify the motion.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-systems-of-odes-44">Your work for Classify a Damped Oscillator from Its System</label>
+          <textarea
+            id="practice-study-systems-of-odes-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>With $u=x$ and $v=x&#39;$, we have</p>
+<div class="math-block">$$
+u&#39; = v.
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+x&#39;&#39; + 4x&#39; + 13x = 0,
+$$</div>
+<p>we get</p>
+<div class="math-block">$$
+v&#39; = -4v - 13u.
+$$</div>
+<p>So the first-order system is</p>
+<div class="math-block">$$
+\begin{aligned}
+u&#39; &amp;= v \\
+v&#39; &amp;= -13u - 4v.
+\end{aligned}
+$$</div>
+<p>The coefficient matrix is</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+0 &amp; 1 \\
+-13 &amp; -4
+\end{bmatrix}.
+$$</div>
+<p>Its characteristic polynomial is</p>
+<div class="math-block">$$
+\det(A - \lambda I) = \lambda^2 + 4\lambda + 13.
+$$</div>
+<p>So the eigenvalues are</p>
+<div class="math-block">$$
+\lambda = -2 \pm 3i.
+$$</div>
+<p>Because the real part is negative and the eigenvalues are complex, the motion is a <strong>stable spiral</strong>.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

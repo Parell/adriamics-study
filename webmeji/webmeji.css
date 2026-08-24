@@ -1,0 +1,38 @@
+/* webmeji */
+.webmeji-container {
+  position: fixed;
+  bottom: 0;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  z-index: 20;
+  cursor: grab;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+.webmeji-container:active {
+  cursor: grabbing;
+}
+
+.webmeji-container--hidden {
+  display: none;
+}
+
+.webmeji-container img {
+  width: 100%;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  display: block;
+  transform-origin: center;
+}
+
+@media (max-width: 768px) {
+  .webmeji-container {
+    width: clamp(56px, 16vw, 78px);
+    height: clamp(56px, 16vw, 78px);
+  }
+}
+
+

@@ -1,0 +1,2301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Functions Practice | Adriamics Study</title>
+  <meta name="description" content="31 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/functions/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/functions/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Functions Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/functions/functions-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Ffunctions%2Ffunctions-problems.md&amp;title=%5BContribute%5D%3A%20Functions%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 31 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 31 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Functions" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Rate formulas</h2><div class="markdown-body"><div class="math-block">$$
+\text{Average rate of change} = \frac{f(b) - f(a)}{b - a}
+$$</div>
+<div class="math-block">$$
+\text{Even: } f(-x) = f(x)
+$$</div>
+<div class="math-block">$$
+\text{Odd: } f(-x) = -f(x)
+$$</div></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-functions-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Function Definition, Ordered Pairs" data-problem-difficulty="Direct" data-problem-answer="No. A function must assign each input exactly one output.
+
+Here the input $3$ is paired with two different outputs, $7$ and $9$, so the relation is not a function.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Decide Whether a Relation Is a Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#function-definition" data-notes-nav-item>Function Definition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#ordered-pairs" data-notes-nav-item>Ordered Pairs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Is the relation below a function?</p>
+<div class="math-block">$$
+\{(1,4), (2,7), (3,7), (3,9)\}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-11">Your work for Decide Whether a Relation Is a Function</label>
+          <textarea
+            id="practice-study-math-functions-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>No. A function must assign each input exactly one output.</p>
+<p>Here the input $3$ is paired with two different outputs, $7$ and $9$, so the relation is not a function.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Domain, Rational Functions" data-problem-difficulty="Direct" data-problem-answer="The denominator cannot be zero, so solve
+
+$$
+x - 3 = 0
+$$
+
+which gives
+
+$$
+x = 3.
+$$
+
+So the domain excludes $x = 3$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find a Domain Restriction</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#domain" data-notes-nav-item>Domain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#rational-functions" data-notes-nav-item>Rational Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+f(x) = \frac{1}{x - 3},
+$$</div>
+<p>what value of $x$ is excluded from the domain?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-12">Your work for Find a Domain Restriction</label>
+          <textarea
+            id="practice-study-math-functions-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The denominator cannot be zero, so solve</p>
+<div class="math-block">$$
+x - 3 = 0
+$$</div>
+<p>which gives</p>
+<div class="math-block">$$
+x = 3.
+$$</div>
+<p>So the domain excludes $x = 3$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Evaluating functions" data-problem-difficulty="Direct" data-problem-answer="Substitute $4$ for $x$:
+
+$$
+f(4) = 2(4)^2 - 3(4) + 1
+$$
+
+Evaluate:
+
+$$
+f(4) = 2(16) - 12 + 1 = 32 - 12 + 1 = 21
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Evaluate a Polynomial Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#evaluating-functions" data-notes-nav-item>Evaluating functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If</p>
+<div class="math-block">$$
+f(x) = 2x^2 - 3x + 1,
+$$</div>
+<p>what is $f(4)$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-13">Your work for Evaluate a Polynomial Function</label>
+          <textarea
+            id="practice-study-math-functions-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Substitute $4$ for $x$:</p>
+<div class="math-block">$$
+f(4) = 2(4)^2 - 3(4) + 1
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+f(4) = 2(16) - 12 + 1 = 32 - 12 + 1 = 21
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Evaluating functions, Tables" data-problem-difficulty="Direct" data-problem-answer="Look at the row where $x = 3$.
+
+The corresponding output is
+
+$$
+f(3) = -4.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Read a Function Value from a Table</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#evaluating-functions" data-notes-nav-item>Evaluating functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#tables" data-notes-nav-item>Tables</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use the table to find $f(3)$.</p>
+<div class="math-block">$$
+\begin{array}{c|cccc}
+x &amp; -2 &amp; 0 &amp; 3 &amp; 5 \\
+\hline
+f(x) &amp; 7 &amp; 1 &amp; -4 &amp; 2
+\end{array}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-14">Your work for Read a Function Value from a Table</label>
+          <textarea
+            id="practice-study-math-functions-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Look at the row where $x = 3$.</p>
+<p>The corresponding output is</p>
+<div class="math-block">$$
+f(3) = -4.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Domain, Radical Functions" data-problem-difficulty="Direct" data-problem-answer="The expression inside the square root must be nonnegative:
+
+$$
+8 - x \ge 0
+$$
+
+Solve for $x$:
+
+$$
+x \le 8
+$$
+
+So the domain is all real numbers less than or equal to $8$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Check an Even-Root Domain</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#domain" data-notes-nav-item>Domain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#radical-functions" data-notes-nav-item>Radical Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+g(x) = \sqrt{8 - x},
+$$</div>
+<p>what values of $x$ are allowed?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-15">Your work for Check an Even-Root Domain</label>
+          <textarea
+            id="practice-study-math-functions-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The expression inside the square root must be nonnegative:</p>
+<div class="math-block">$$
+8 - x \ge 0
+$$</div>
+<p>Solve for $x$:</p>
+<div class="math-block">$$
+x \le 8
+$$</div>
+<p>So the domain is all real numbers less than or equal to $8$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Exponential Functions" data-problem-difficulty="Direct" data-problem-answer="Substitute $0$ for $x$:
+
+$$
+h(0) = 5^0
+$$
+
+Any nonzero number raised to the $0$ power equals $1$, so
+
+$$
+h(0) = 1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Evaluate an Exponential at Zero</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#exponential-functions" data-notes-nav-item>Exponential Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If</p>
+<div class="math-block">$$
+h(x) = 5^x,
+$$</div>
+<p>what is $h(0)$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-16">Your work for Evaluate an Exponential at Zero</label>
+          <textarea
+            id="practice-study-math-functions-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Substitute $0$ for $x$:</p>
+<div class="math-block">$$
+h(0) = 5^0
+$$</div>
+<p>Any nonzero number raised to the $0$ power equals $1$, so</p>
+<div class="math-block">$$
+h(0) = 1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="One-to-one, Inverse functions" data-problem-difficulty="Direct" data-problem-answer="No. A function must be one-to-one to have an inverse on its full domain.
+
+Here two different inputs, $1$ and $2$, produce the same output, $4$, so the function is not one-to-one.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Check Whether a Function Has an Inverse</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#one-to-one" data-notes-nav-item>One-to-one</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#inverse-functions" data-notes-nav-item>Inverse functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose a function satisfies</p>
+<div class="math-block">$$
+f(1) = 4 \quad \text{and} \quad f(2) = 4.
+$$</div>
+<p>Can $f$ have an inverse on its full domain?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-17">Your work for Check Whether a Function Has an Inverse</label>
+          <textarea
+            id="practice-study-math-functions-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>No. A function must be one-to-one to have an inverse on its full domain.</p>
+<p>Here two different inputs, $1$ and $2$, produce the same output, $4$, so the function is not one-to-one.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Piecewise functions, Evaluating functions" data-problem-difficulty="Direct" data-problem-answer="Since $-3 &lt; 0$, use the first rule:
+
+$$
+p(-3) = -3 + 2 = -1
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Evaluate a Piecewise Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#piecewise-functions" data-notes-nav-item>Piecewise functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#evaluating-functions" data-notes-nav-item>Evaluating functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+p(x) =
+\begin{cases}
+x + 2, &amp; x &lt; 0 \\
+3x - 1, &amp; x \ge 0
+\end{cases}
+$$</div>
+<p>What is $p(-3)$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-18">Your work for Evaluate a Piecewise Function</label>
+          <textarea
+            id="practice-study-math-functions-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since $-3 &lt; 0$, use the first rule:</p>
+<div class="math-block">$$
+p(-3) = -3 + 2 = -1
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Range, Square Functions" data-problem-difficulty="Direct" data-problem-answer="Squares are never negative, so every output satisfies
+
+$$
+f(x) \ge 0.
+$$
+
+Also, every nonnegative number occurs as a square of some real number. Therefore the range is
+
+$$
+[0,\infty).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Find the Range of a Square Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#range" data-notes-nav-item>Range</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#square-functions" data-notes-nav-item>Square Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the function</p>
+<div class="math-block">$$
+f(x) = x^2
+$$</div>
+<p>with domain and codomain $\mathbb{R}$, what is the range?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-19">Your work for Find the Range of a Square Function</label>
+          <textarea
+            id="practice-study-math-functions-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Squares are never negative, so every output satisfies</p>
+<div class="math-block">$$
+f(x) \ge 0.
+$$</div>
+<p>Also, every nonnegative number occurs as a square of some real number. Therefore the range is</p>
+<div class="math-block">$$
+[0,\infty).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Logarithms, Domain" data-problem-difficulty="Direct" data-problem-answer="The argument of a logarithm must be positive:
+
+$$
+x - 5 &gt; 0
+$$
+
+So
+
+$$
+x &gt; 5.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find the Domain of a Logarithmic Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#logarithms" data-notes-nav-item>Logarithms</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#domain" data-notes-nav-item>Domain</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+\log_2(x - 5),
+$$</div>
+<p>what restriction must $x$ satisfy?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-110">Your work for Find the Domain of a Logarithmic Function</label>
+          <textarea
+            id="practice-study-math-functions-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The argument of a logarithm must be positive:</p>
+<div class="math-block">$$
+x - 5 &gt; 0
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+x &gt; 5.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-functions-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Composition, Evaluating functions" data-problem-difficulty="Integrated" data-problem-answer="By definition,
+
+$$
+(f \circ g)(x) = f(g(x)).
+$$
+
+Substitute $g(x) = 3x - 2$ into $f$:
+
+$$
+f(g(x)) = (3x - 2)^2 + 1
+$$
+
+Expand:
+
+$$
+(3x - 2)^2 + 1 = 9x^2 - 12x + 4 + 1 = 9x^2 - 12x + 5
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Compose Two Functions</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#composition" data-notes-nav-item>Composition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#evaluating-functions" data-notes-nav-item>Evaluating functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+f(x) = x^2 + 1
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+g(x) = 3x - 2.
+$$</div>
+<p>Find $(f \circ g)(x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-21">Your work for Compose Two Functions</label>
+          <textarea
+            id="practice-study-math-functions-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>By definition,</p>
+<div class="math-block">$$
+(f \circ g)(x) = f(g(x)).
+$$</div>
+<p>Substitute $g(x) = 3x - 2$ into $f$:</p>
+<div class="math-block">$$
+f(g(x)) = (3x - 2)^2 + 1
+$$</div>
+<p>Expand:</p>
+<div class="math-block">$$
+(3x - 2)^2 + 1 = 9x^2 - 12x + 4 + 1 = 9x^2 - 12x + 5
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Inverse functions, Linear Functions" data-problem-difficulty="Integrated" data-problem-answer="Write
+
+$$
+y = 4x - 9.
+$$
+
+Swap $x$ and $y$:
+
+$$
+x = 4y - 9.
+$$
+
+Solve for $y$:
+
+$$
+x + 9 = 4y
+$$
+
+$$
+y = \frac{x + 9}{4}
+$$
+
+So
+
+$$
+f^{-1}(x) = \frac{x + 9}{4}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Find the Inverse of a Linear Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#inverse-functions" data-notes-nav-item>Inverse functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#linear-functions" data-notes-nav-item>Linear Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If</p>
+<div class="math-block">$$
+f(x) = 4x - 9,
+$$</div>
+<p>find $f^{-1}(x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-22">Your work for Find the Inverse of a Linear Function</label>
+          <textarea
+            id="practice-study-math-functions-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write</p>
+<div class="math-block">$$
+y = 4x - 9.
+$$</div>
+<p>Swap $x$ and $y$:</p>
+<div class="math-block">$$
+x = 4y - 9.
+$$</div>
+<p>Solve for $y$:</p>
+<div class="math-block">$$
+x + 9 = 4y
+$$</div>
+<div class="math-block">$$
+y = \frac{x + 9}{4}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+f^{-1}(x) = \frac{x + 9}{4}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Range, Transformations" data-problem-difficulty="Integrated" data-problem-answer="The graph of $x^2$ has minimum value $0$.
+
+Shifting it down by $6$ moves the minimum to $-6$.
+
+So the range is
+
+$$
+[-6,\infty).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Find the Range of a Shifted Square</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#range" data-notes-nav-item>Range</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#transformations" data-notes-nav-item>Transformations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If</p>
+<div class="math-block">$$
+f(x) = x^2 - 6,
+$$</div>
+<p>what is the range of $f$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-23">Your work for Find the Range of a Shifted Square</label>
+          <textarea
+            id="practice-study-math-functions-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The graph of $x^2$ has minimum value $0$.</p>
+<p>Shifting it down by $6$ moves the minimum to $-6$.</p>
+<p>So the range is</p>
+<div class="math-block">$$
+[-6,\infty).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Rational Functions, Distributing and factoring" data-problem-difficulty="Integrated" data-problem-answer="Factor the numerator:
+
+$$
+x^2 - 16 = (x - 4)(x + 4)
+$$
+
+So for $x \ne 4$,
+
+$$
+\frac{x^2 - 16}{x - 4} = x + 4.
+$$
+
+Now substitute $x = 7$:
+
+$$
+7 + 4 = 11
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Simplify a Rational Function and Evaluate It</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#rational-functions" data-notes-nav-item>Rational Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#distributing-and-factoring" data-notes-nav-item>Distributing and factoring</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For $x \ne 4$, simplify</p>
+<div class="math-block">$$
+\frac{x^2 - 16}{x - 4}
+$$</div>
+<p>and then evaluate the simplified expression at $x = 7$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-24">Your work for Simplify a Rational Function and Evaluate It</label>
+          <textarea
+            id="practice-study-math-functions-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Factor the numerator:</p>
+<div class="math-block">$$
+x^2 - 16 = (x - 4)(x + 4)
+$$</div>
+<p>So for $x \ne 4$,</p>
+<div class="math-block">$$
+\frac{x^2 - 16}{x - 4} = x + 4.
+$$</div>
+<p>Now substitute $x = 7$:</p>
+<div class="math-block">$$
+7 + 4 = 11
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Average rate of change, Evaluating functions" data-problem-difficulty="Integrated" data-problem-answer="Use the average rate of change formula:
+
+$$
+\frac{f(4) - f(1)}{4 - 1}
+$$
+
+Compute the function values:
+
+$$
+f(4) = 16 \quad \text{and} \quad f(1) = 1
+$$
+
+Then
+
+$$
+\frac{16 - 1}{3} = \frac{15}{3} = 5
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find an Average Rate of Change</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#average-rate-of-change" data-notes-nav-item>Average rate of change</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#evaluating-functions" data-notes-nav-item>Evaluating functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+f(x) = x^2,
+$$</div>
+<p>find the average rate of change from $x = 1$ to $x = 4$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-25">Your work for Find an Average Rate of Change</label>
+          <textarea
+            id="practice-study-math-functions-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the average rate of change formula:</p>
+<div class="math-block">$$
+\frac{f(4) - f(1)}{4 - 1}
+$$</div>
+<p>Compute the function values:</p>
+<div class="math-block">$$
+f(4) = 16 \quad \text{and} \quad f(1) = 1
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\frac{16 - 1}{3} = \frac{15}{3} = 5
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Piecewise functions, Continuity" data-problem-difficulty="Integrated" data-problem-answer="For continuity at $x = 2$, the left and right values must match.
+
+The right-hand value at $x = 2$ is
+
+$$
+5(2) - 3 = 7.
+$$
+
+So the left-hand expression must also equal $7$ at $x = 2$:
+
+$$
+2a + 1 = 7
+$$
+
+$$
+2a = 6
+$$
+
+$$
+a = 3
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Make a Piecewise Function Continuous</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#piecewise-functions" data-notes-nav-item>Piecewise functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#continuity" data-notes-nav-item>Continuity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Choose $a$ so that the function is continuous at $x = 2$:</p>
+<div class="math-block">$$
+f(x) =
+\begin{cases}
+ax + 1, &amp; x &lt; 2 \\
+5x - 3, &amp; x \ge 2
+\end{cases}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-26">Your work for Make a Piecewise Function Continuous</label>
+          <textarea
+            id="practice-study-math-functions-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For continuity at $x = 2$, the left and right values must match.</p>
+<p>The right-hand value at $x = 2$ is</p>
+<div class="math-block">$$
+5(2) - 3 = 7.
+$$</div>
+<p>So the left-hand expression must also equal $7$ at $x = 2$:</p>
+<div class="math-block">$$
+2a + 1 = 7
+$$</div>
+<div class="math-block">$$
+2a = 6
+$$</div>
+<div class="math-block">$$
+a = 3
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="End behavior, Polynomials" data-problem-difficulty="Integrated" data-problem-answer="The leading term is $-2x^5$, so it determines the end behavior.
+
+As $x \to \infty$,
+
+$$
+f(x) \to -\infty.
+$$
+
+As $x \to -\infty$,
+
+$$
+f(x) \to \infty.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Determine the End Behavior of a Polynomial</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#end-behavior" data-notes-nav-item>End behavior</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#polynomials" data-notes-nav-item>Polynomials</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Describe the end behavior of</p>
+<div class="math-block">$$
+f(x) = -2x^5 + x^3.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-27">Your work for Determine the End Behavior of a Polynomial</label>
+          <textarea
+            id="practice-study-math-functions-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The leading term is $-2x^5$, so it determines the end behavior.</p>
+<p>As $x \to \infty$,</p>
+<div class="math-block">$$
+f(x) \to -\infty.
+$$</div>
+<p>As $x \to -\infty$,</p>
+<div class="math-block">$$
+f(x) \to \infty.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Transformations, Symmetry" data-problem-difficulty="Integrated" data-problem-answer="Read the expression from the inside out.
+
+$$
+f(x + 3)
+$$
+
+moves the graph left $3$ units.
+
+The factor $-2$ reflects the graph across the $x$-axis and stretches it vertically by a factor of $2$.
+
+The $+1$ shifts the graph up $1$ unit.
+
+So the transformations are:
+
+- left $3$
+- vertical stretch by $2$
+- reflect across the $x$-axis
+- up $1$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Describe Multiple Transformations</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#transformations" data-notes-nav-item>Transformations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#symmetry" data-notes-nav-item>Symmetry</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+f(x) = x^2
+$$</div>
+<p>and define</p>
+<div class="math-block">$$
+g(x) = -2f(x + 3) + 1.
+$$</div>
+<p>Describe the transformations that take $f$ to $g$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-28">Your work for Describe Multiple Transformations</label>
+          <textarea
+            id="practice-study-math-functions-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Read the expression from the inside out.</p>
+<div class="math-block">$$
+f(x + 3)
+$$</div>
+<p>moves the graph left $3$ units.</p>
+<p>The factor $-2$ reflects the graph across the $x$-axis and stretches it vertically by a factor of $2$.</p>
+<p>The $+1$ shifts the graph up $1$ unit.</p>
+<p>So the transformations are:</p>
+<ul><li><p>left $3$</p></li><li><p>vertical stretch by $2$</p></li><li><p>reflect across the $x$-axis</p></li><li><p>up $1$</p></li></ul>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-functions-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Linear Models, Functions" data-problem-difficulty="Applied" data-problem-answer="Let $l$ be the number of lessons. Set up the equation:
+
+$$
+25 + 18l = 97
+$$
+
+Subtract $25$:
+
+$$
+18l = 72
+$$
+
+Divide by $18$:
+
+$$
+l = 4
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Model a Membership Fee</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#linear-models" data-notes-nav-item>Linear Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#functions" data-notes-nav-item>Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A music studio charges a $25 registration fee plus $18 per lesson.</p>
+<p>If the total bill is $97, how many lessons did the student take?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-31">Your work for Model a Membership Fee</label>
+          <textarea
+            id="practice-study-math-functions-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $l$ be the number of lessons. Set up the equation:</p>
+<div class="math-block">$$
+25 + 18l = 97
+$$</div>
+<p>Subtract $25$:</p>
+<div class="math-block">$$
+18l = 72
+$$</div>
+<p>Divide by $18$:</p>
+<div class="math-block">$$
+l = 4
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Average rate of change, Units" data-problem-difficulty="Applied" data-problem-answer="Use the average rate of change formula:
+
+$$
+\frac{h(4) - h(1)}{4 - 1}
+$$
+
+Compute the values:
+
+$$
+h(4) = 2(16) + 3 = 35
+$$
+
+$$
+h(1) = 2(1) + 3 = 5
+$$
+
+So
+
+$$
+\frac{35 - 5}{3} = \frac{30}{3} = 10
+$$
+
+The average rate of change is $10$ centimeters per week.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Interpret an Average Rate of Change</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#average-rate-of-change" data-notes-nav-item>Average rate of change</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#units" data-notes-nav-item>Units</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The height of a plant is modeled by</p>
+<div class="math-block">$$
+h(t) = 2t^2 + 3,
+$$</div>
+<p>where $h$ is measured in centimeters and $t$ is measured in weeks.</p>
+<p>Find the average rate of change from $t = 1$ to $t = 4$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-32">Your work for Interpret an Average Rate of Change</label>
+          <textarea
+            id="practice-study-math-functions-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the average rate of change formula:</p>
+<div class="math-block">$$
+\frac{h(4) - h(1)}{4 - 1}
+$$</div>
+<p>Compute the values:</p>
+<div class="math-block">$$
+h(4) = 2(16) + 3 = 35
+$$</div>
+<div class="math-block">$$
+h(1) = 2(1) + 3 = 5
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{35 - 5}{3} = \frac{30}{3} = 10
+$$</div>
+<p>The average rate of change is $10$ centimeters per week.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Exponential Functions, Modeling" data-problem-difficulty="Applied" data-problem-answer="Doubling every hour means the model is exponential:
+
+$$
+N(t) = 600 \cdot 2^t
+$$
+
+Now evaluate at $t = 5$:
+
+$$
+N(5) = 600 \cdot 2^5 = 600 \cdot 32 = 19200
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Write an Exponential Growth Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#exponential-functions" data-notes-nav-item>Exponential Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#modeling" data-notes-nav-item>Modeling</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A bacteria culture starts with $600$ cells and doubles every hour.</p>
+<p>Write a function for the number of cells after $t$ hours, and find the number after $5$ hours.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-33">Your work for Write an Exponential Growth Model</label>
+          <textarea
+            id="practice-study-math-functions-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Doubling every hour means the model is exponential:</p>
+<div class="math-block">$$
+N(t) = 600 \cdot 2^t
+$$</div>
+<p>Now evaluate at $t = 5$:</p>
+<div class="math-block">$$
+N(5) = 600 \cdot 2^5 = 600 \cdot 32 = 19200
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Piecewise functions, Modeling" data-problem-difficulty="Applied" data-problem-answer="After the first hour, there are $4$ additional hours.
+
+The total cost is
+
+$$
+6 + 4(2.50) = 6 + 10 = 16
+$$
+
+So the cost is $\$16$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Use a Piecewise Pricing Rule</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#piecewise-functions" data-notes-nav-item>Piecewise functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#modeling" data-notes-nav-item>Modeling</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A parking garage charges $6 for the first hour and $2.50 for each additional hour.</p>
+<p>How much does it cost to park for $5$ hours?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-34">Your work for Use a Piecewise Pricing Rule</label>
+          <textarea
+            id="practice-study-math-functions-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>After the first hour, there are $4$ additional hours.</p>
+<p>The total cost is</p>
+<div class="math-block">$$
+6 + 4(2.50) = 6 + 10 = 16
+$$</div>
+<p>So the cost is $\$16$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Inverse functions, Modeling" data-problem-difficulty="Applied" data-problem-answer="Set $C(F) = 20$:
+
+$$
+20 = \frac{5}{9}(F - 32)
+$$
+
+Multiply both sides by $\frac{9}{5}$:
+
+$$
+36 = F - 32
+$$
+
+Add $32$:
+
+$$
+F = 68
+$$
+
+So the temperature is $68^\circ\text{F}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Use a Conversion Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#inverse-functions" data-notes-nav-item>Inverse functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#modeling" data-notes-nav-item>Modeling</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The function</p>
+<div class="math-block">$$
+C(F) = \frac{5}{9}(F - 32)
+$$</div>
+<p>converts Fahrenheit to Celsius.</p>
+<p>What Fahrenheit temperature corresponds to $20^\circ\text{C}$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-35">Your work for Use a Conversion Function</label>
+          <textarea
+            id="practice-study-math-functions-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Set $C(F) = 20$:</p>
+<div class="math-block">$$
+20 = \frac{5}{9}(F - 32)
+$$</div>
+<p>Multiply both sides by $\frac{9}{5}$:</p>
+<div class="math-block">$$
+36 = F - 32
+$$</div>
+<p>Add $32$:</p>
+<div class="math-block">$$
+F = 68
+$$</div>
+<p>So the temperature is $68^\circ\text{F}$.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-functions-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Inverse functions, Quadratics" data-problem-difficulty="Challenge" data-problem-answer="Write
+
+$$
+y = (x - 2)^2.
+$$
+
+Swap $x$ and $y$:
+
+$$
+x = (y - 2)^2.
+$$
+
+Because the original domain is $y \ge 2$, choose the positive square root:
+
+$$
+y - 2 = \sqrt{x}
+$$
+
+So
+
+$$
+f^{-1}(x) = 2 + \sqrt{x}.
+$$
+
+The domain of the inverse is $x \ge 0$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Find the Inverse of a Restricted Quadratic</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#inverse-functions" data-notes-nav-item>Inverse functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#quadratics" data-notes-nav-item>Quadratics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+f(x) = (x - 2)^2
+$$</div>
+<p>with domain $x \ge 2$.</p>
+<p>Find $f^{-1}(x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-41">Your work for Find the Inverse of a Restricted Quadratic</label>
+          <textarea
+            id="practice-study-math-functions-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write</p>
+<div class="math-block">$$
+y = (x - 2)^2.
+$$</div>
+<p>Swap $x$ and $y$:</p>
+<div class="math-block">$$
+x = (y - 2)^2.
+$$</div>
+<p>Because the original domain is $y \ge 2$, choose the positive square root:</p>
+<div class="math-block">$$
+y - 2 = \sqrt{x}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+f^{-1}(x) = 2 + \sqrt{x}.
+$$</div>
+<p>The domain of the inverse is $x \ge 0$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Composition, Domain" data-problem-difficulty="Challenge" data-problem-answer="The composition is
+
+$$
+(g \circ f)(x) = \log_2\!\big(\sqrt{x - 1}\big).
+$$
+
+Two conditions must hold:
+
+1. $x - 1 \ge 0$ so that the square root is defined.
+2. $\sqrt{x - 1} &gt; 0$ because the input of a logarithm must be positive.
+
+The second condition means
+
+$$
+x - 1 &gt; 0,
+$$
+
+so the domain is
+
+$$
+x &gt; 1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Find the Domain of a Composite Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#composition" data-notes-nav-item>Composition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#domain" data-notes-nav-item>Domain</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+f(x) = \sqrt{x - 1}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+g(x) = \log_2(x).
+$$</div>
+<p>Find the domain of $(g \circ f)(x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-42">Your work for Find the Domain of a Composite Function</label>
+          <textarea
+            id="practice-study-math-functions-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The composition is</p>
+<div class="math-block">$$
+(g \circ f)(x) = \log_2\!\big(\sqrt{x - 1}\big).
+$$</div>
+<p>Two conditions must hold:</p>
+<ol><li><p>$x - 1 \ge 0$ so that the square root is defined.</p></li><li><p>$\sqrt{x - 1} &gt; 0$ because the input of a logarithm must be positive.</p></li></ol>
+<p>The second condition means</p>
+<div class="math-block">$$
+x - 1 &gt; 0,
+$$</div>
+<p>so the domain is</p>
+<div class="math-block">$$
+x &gt; 1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Rational Functions, Inverse functions" data-problem-difficulty="Challenge" data-problem-answer="Factor the numerator:
+
+$$
+x^2 - 9 = (x - 3)(x + 3)
+$$
+
+So for $x \ne 3$,
+
+$$
+f(x) = x + 3.
+$$
+
+This is one-to-one, so the function does have an inverse on its domain.
+
+To find it, write
+
+$$
+y = x + 3
+$$
+
+and swap variables:
+
+$$
+x = y + 3.
+$$
+
+Solve for $y$:
+
+$$
+y = x - 3.
+$$
+
+So
+
+$$
+f^{-1}(x) = x - 3.
+$$
+
+Since the original range excludes $6$, the domain of the inverse is $x \ne 6$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Find the Inverse of a Rational Function with a Hole</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#rational-functions" data-notes-nav-item>Rational Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#inverse-functions" data-notes-nav-item>Inverse functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider the function</p>
+<div class="math-block">$$
+f(x) = \frac{x^2 - 9}{x - 3},
+$$</div>
+<p>with domain $x \ne 3$.</p>
+<p>Does $f$ have an inverse on its domain? If so, find it and state its domain.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-43">Your work for Find the Inverse of a Rational Function with a Hole</label>
+          <textarea
+            id="practice-study-math-functions-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Factor the numerator:</p>
+<div class="math-block">$$
+x^2 - 9 = (x - 3)(x + 3)
+$$</div>
+<p>So for $x \ne 3$,</p>
+<div class="math-block">$$
+f(x) = x + 3.
+$$</div>
+<p>This is one-to-one, so the function does have an inverse on its domain.</p>
+<p>To find it, write</p>
+<div class="math-block">$$
+y = x + 3
+$$</div>
+<p>and swap variables:</p>
+<div class="math-block">$$
+x = y + 3.
+$$</div>
+<p>Solve for $y$:</p>
+<div class="math-block">$$
+y = x - 3.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+f^{-1}(x) = x - 3.
+$$</div>
+<p>Since the original range excludes $6$, the domain of the inverse is $x \ne 6$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Composition, Symmetry" data-problem-difficulty="Challenge" data-problem-answer="Use the definitions of even and odd functions.
+
+For $f \circ g$:
+
+$$
+(f \circ g)(-x) = f(g(-x)) = f(-g(x)) = f(g(x))
+$$
+
+because $g$ is odd and $f$ is even. So $f \circ g$ is even.
+
+For $g \circ f$:
+
+$$
+(g \circ f)(-x) = g(f(-x)) = g(f(x)) = (g \circ f)(x)
+$$
+
+because $f$ is even, so the input to $g$ does not change when $x$ is replaced by $-x$. Thus $g \circ f$ is also even.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Classify Compositions Using Symmetry</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#composition" data-notes-nav-item>Composition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#symmetry" data-notes-nav-item>Symmetry</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose $f$ is even and $g$ is odd.</p>
+<p>What can you say about $f \circ g$ and $g \circ f$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-44">Your work for Classify Compositions Using Symmetry</label>
+          <textarea
+            id="practice-study-math-functions-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the definitions of even and odd functions.</p>
+<p>For $f \circ g$:</p>
+<div class="math-block">$$
+(f \circ g)(-x) = f(g(-x)) = f(-g(x)) = f(g(x))
+$$</div>
+<p>because $g$ is odd and $f$ is even. So $f \circ g$ is even.</p>
+<p>For $g \circ f$:</p>
+<div class="math-block">$$
+(g \circ f)(-x) = g(f(-x)) = g(f(x)) = (g \circ f)(x)
+$$</div>
+<p>because $f$ is even, so the input to $g$ does not change when $x$ is replaced by $-x$. Thus $g \circ f$ is also even.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-5 panel" data-practice-level="5" aria-labelledby="practice-level-5">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-5">Practice problems</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">5</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-functions-51" data-practice-problem data-exam="final" data-problem-number="5.1" data-problem-skills="Modeling goals, Functions" data-problem-difficulty="Practice problems" data-problem-answer="Prediction: the model estimates future behavior from present information.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">5.1</span><span class="practice-problem__title-text">Choose a Modeling Goal</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 5.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#modeling-goals" data-notes-nav-item>Modeling goals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#functions" data-notes-nav-item>Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A model uses current sales data to estimate next month&#39;s demand. What is its main goal?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-51">Your work for Choose a Modeling Goal</label>
+          <textarea
+            id="practice-study-math-functions-51"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Prediction: the model estimates future behavior from present information.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-52" data-practice-problem data-exam="final" data-problem-number="5.2" data-problem-skills="Linear Models, Functions" data-problem-difficulty="Practice problems" data-problem-answer="Let $n$ be the number of lessons. The model is $C(n)=25+18n$, so $C(4)=25+72=97$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">5.2</span><span class="practice-problem__title-text">Build a Linear Cost Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 5.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#linear-models" data-notes-nav-item>Linear Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#functions" data-notes-nav-item>Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A service charges a $25 registration fee plus $18 per lesson. Write the cost function and find the cost of 4 lessons.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-52">Your work for Build a Linear Cost Model</label>
+          <textarea
+            id="practice-study-math-functions-52"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $n$ be the number of lessons. The model is $C(n)=25+18n$, so $C(4)=25+72=97$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-53" data-practice-problem data-exam="final" data-problem-number="5.3" data-problem-skills="Absolute error, Relative error" data-problem-difficulty="Practice problems" data-problem-answer="The absolute error is $|94-100|=6$. The relative error is $6/100=0.06$, or $6\%$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">5.3</span><span class="practice-problem__title-text">Compute Model Error</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 5.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#absolute-error" data-notes-nav-item>Absolute error</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#relative-error" data-notes-nav-item>Relative error</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A model predicts $94$ when the true value is $100$. Find the absolute and relative errors.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-53">Your work for Compute Model Error</label>
+          <textarea
+            id="practice-study-math-functions-53"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The absolute error is $|94-100|=6$. The relative error is $6/100=0.06$, or $6\%$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="math-functions-54" data-practice-problem data-exam="final" data-problem-number="5.4" data-problem-skills="Exponential Functions, Modeling" data-problem-difficulty="Practice problems" data-problem-answer="The model is $N(t)=600\cdot2^t$. Thus $N(5)=600\cdot32=19{,}200$ cells.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">5.4</span><span class="practice-problem__title-text">Write an Exponential Growth Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 5.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#exponential-functions" data-notes-nav-item>Exponential Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/functions/#modeling" data-notes-nav-item>Modeling</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A culture starts with $600$ cells and doubles every hour. Write a function for the number of cells after $t$ hours and find the number after 5 hours.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-functions-54">Your work for Write an Exponential Growth Model</label>
+          <textarea
+            id="practice-study-math-functions-54"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The model is $N(t)=600\cdot2^t$. Thus $N(5)=600\cdot32=19{,}200$ cells.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

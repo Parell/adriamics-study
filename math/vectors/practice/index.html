@@ -1,0 +1,2286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vectors Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/vectors/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/vectors/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Vectors Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/vectors/vectors-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fvectors%2Fvectors-problems.md&amp;title=%5BContribute%5D%3A%20Vectors%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Vectors" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Forgetting absolute value in distance formulas</h2><div class="markdown-body"><p>Distance is always nonnegative. Use absolute value when needed.</p></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="vectors-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Position Vectors" data-problem-difficulty="Direct" data-problem-answer="The position vector of a point is the vector from the origin to that point.
+
+So the position vector of $P$ is
+
+$$
+\langle 4, -1, 3 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Find a Position Vector</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#position-vectors" data-notes-nav-item>Position Vectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If $P = (4, -1, 3)$, what is the position vector of $P$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-11">Your work for Find a Position Vector</label>
+          <textarea
+            id="practice-study-vectors-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The position vector of a point is the vector from the origin to that point.</p>
+<p>So the position vector of $P$ is</p>
+<div class="math-block">$$
+\langle 4, -1, 3 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Notation, Component Form" data-problem-difficulty="Direct" data-problem-answer="Use the standard basis vectors:
+
+$$
+\mathbf{i} = \langle 1, 0, 0 \rangle,\quad
+\mathbf{j} = \langle 0, 1, 0 \rangle,\quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+$$
+
+So
+
+$$
+6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}
+= \langle 6, -2, 5 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Convert to Component Form</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#notation" data-notes-nav-item>Notation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#component-form" data-notes-nav-item>Component Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Write $6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}$ in component form.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-12">Your work for Convert to Component Form</label>
+          <textarea
+            id="practice-study-vectors-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the standard basis vectors:</p>
+<div class="math-block">$$
+\mathbf{i} = \langle 1, 0, 0 \rangle,\quad
+\mathbf{j} = \langle 0, 1, 0 \rangle,\quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}
+= \langle 6, -2, 5 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Two Points, Component Form" data-problem-difficulty="Direct" data-problem-answer="Subtract the coordinates in the order $B - A$:
+
+$$
+\overrightarrow{AB} = \langle 5 - (-1),\ -2 - 3 \rangle
+$$
+
+$$
+\overrightarrow{AB} = \langle 6, -5 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find a Vector from Two Points</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#two-points" data-notes-nav-item>Two Points</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#component-form" data-notes-nav-item>Component Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find $\overrightarrow{AB}$ where $A = (-1, 3)$ and $B = (5, -2)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-13">Your work for Find a Vector from Two Points</label>
+          <textarea
+            id="practice-study-vectors-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Subtract the coordinates in the order $B - A$:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 5 - (-1),\ -2 - 3 \rangle
+$$</div>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 6, -5 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Magnitude" data-problem-difficulty="Direct" data-problem-answer="Use the magnitude formula:
+
+$$
+\|\mathbf{v}\| = \sqrt{x^2 + y^2}
+$$
+
+So
+
+$$
+\|\langle 9, 12 \rangle\| = \sqrt{9^2 + 12^2}
+$$
+
+$$
+= \sqrt{81 + 144} = \sqrt{225} = 15
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find a Magnitude</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#magnitude" data-notes-nav-item>Magnitude</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the magnitude of $\langle 9, 12 \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-14">Your work for Find a Magnitude</label>
+          <textarea
+            id="practice-study-vectors-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the magnitude formula:</p>
+<div class="math-block">$$
+\|\mathbf{v}\| = \sqrt{x^2 + y^2}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\|\langle 9, 12 \rangle\| = \sqrt{9^2 + 12^2}
+$$</div>
+<div class="math-block">$$
+= \sqrt{81 + 144} = \sqrt{225} = 15
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Unit Vectors, Magnitude" data-problem-difficulty="Direct" data-problem-answer="First find the magnitude:
+
+$$
+\|\langle 5, 12 \rangle\| = \sqrt{5^2 + 12^2} = \sqrt{169} = 13
+$$
+
+Then divide the vector by its magnitude:
+
+$$
+\hat{\mathbf{v}} = \frac{\langle 5, 12 \rangle}{13}
+= \left\langle \frac{5}{13}, \frac{12}{13} \right\rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find a Unit Vector</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#unit-vectors" data-notes-nav-item>Unit Vectors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#magnitude" data-notes-nav-item>Magnitude</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the unit vector in the direction of $\langle 5, 12 \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-15">Your work for Find a Unit Vector</label>
+          <textarea
+            id="practice-study-vectors-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the magnitude:</p>
+<div class="math-block">$$
+\|\langle 5, 12 \rangle\| = \sqrt{5^2 + 12^2} = \sqrt{169} = 13
+$$</div>
+<p>Then divide the vector by its magnitude:</p>
+<div class="math-block">$$
+\hat{\mathbf{v}} = \frac{\langle 5, 12 \rangle}{13}
+= \left\langle \frac{5}{13}, \frac{12}{13} \right\rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Vector Addition" data-problem-difficulty="Direct" data-problem-answer="Add corresponding components:
+
+$$
+\langle 2 + (-5),\ -7 + 4 \rangle = \langle -3, -3 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Add Two Vectors</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#vector-addition" data-notes-nav-item>Vector Addition</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute the sum:</p>
+<div class="math-block">$$
+\langle 2, -7 \rangle + \langle -5, 4 \rangle
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-16">Your work for Add Two Vectors</label>
+          <textarea
+            id="practice-study-vectors-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Add corresponding components:</p>
+<div class="math-block">$$
+\langle 2 + (-5),\ -7 + 4 \rangle = \langle -3, -3 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Vector Subtraction" data-problem-difficulty="Direct" data-problem-answer="Subtract corresponding components:
+
+$$
+\langle 6 - 3,\ 1 - (-4),\ -2 - 5 \rangle
+= \langle 3, 5, -7 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Subtract Two Vectors</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#vector-subtraction" data-notes-nav-item>Vector Subtraction</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute the difference:</p>
+<div class="math-block">$$
+\langle 6, 1, -2 \rangle - \langle 3, -4, 5 \rangle
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-17">Your work for Subtract Two Vectors</label>
+          <textarea
+            id="practice-study-vectors-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Subtract corresponding components:</p>
+<div class="math-block">$$
+\langle 6 - 3,\ 1 - (-4),\ -2 - 5 \rangle
+= \langle 3, 5, -7 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Scalar Multiplication" data-problem-difficulty="Direct" data-problem-answer="Multiply each component by $-3$:
+
+$$
+-3 \langle 4, -2, 1 \rangle
+= \langle -12, 6, -3 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Multiply by a Scalar</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#scalar-multiplication" data-notes-nav-item>Scalar Multiplication</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute</p>
+<div class="math-block">$$
+-3 \langle 4, -2, 1 \rangle
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-18">Your work for Multiply by a Scalar</label>
+          <textarea
+            id="practice-study-vectors-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply each component by $-3$:</p>
+<div class="math-block">$$
+-3 \langle 4, -2, 1 \rangle
+= \langle -12, 6, -3 \rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Dot Product" data-problem-difficulty="Direct" data-problem-answer="Multiply matching components and add:
+
+$$
+2(4) + (-1)(5) + 3(-2)
+$$
+
+$$
+= 8 - 5 - 6 = -3
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compute a Dot Product</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#dot-product" data-notes-nav-item>Dot Product</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the dot product:</p>
+<div class="math-block">$$
+\langle 2, -1, 3 \rangle \cdot \langle 4, 5, -2 \rangle
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-19">Your work for Compute a Dot Product</label>
+          <textarea
+            id="practice-study-vectors-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply matching components and add:</p>
+<div class="math-block">$$
+2(4) + (-1)(5) + 3(-2)
+$$</div>
+<div class="math-block">$$
+= 8 - 5 - 6 = -3
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Cross Product" data-problem-difficulty="Direct" data-problem-answer="Use the component formula:
+
+$$
+\mathbf{u} \times \mathbf{v}
+= \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle
+$$
+
+So
+
+$$
+\langle 1, 2, 3 \rangle \times \langle 4, 0, -1 \rangle
+= \langle 2(-1) - 3(0),\ 3(4) - 1(-1),\ 1(0) - 2(4) \rangle
+$$
+
+$$
+= \langle -2, 13, -8 \rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute a Cross Product</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#cross-product" data-notes-nav-item>Cross Product</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find</p>
+<div class="math-block">$$
+\langle 1, 2, 3 \rangle \times \langle 4, 0, -1 \rangle
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-110">Your work for Compute a Cross Product</label>
+          <textarea
+            id="practice-study-vectors-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the component formula:</p>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v}
+= \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\langle 1, 2, 3 \rangle \times \langle 4, 0, -1 \rangle
+= \langle 2(-1) - 3(0),\ 3(4) - 1(-1),\ 1(0) - 2(4) \rangle
+$$</div>
+<div class="math-block">$$
+= \langle -2, 13, -8 \rangle
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="vectors-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Direction Angle, Trigonometry" data-problem-difficulty="Integrated" data-problem-answer="Use
+
+$$
+\tan \theta = \frac{y}{x}
+$$
+
+Here,
+
+$$
+\tan \theta = \frac{\sqrt{3}}{1} = \sqrt{3}
+$$
+
+Since the vector is in the first quadrant, the angle is
+
+$$
+\theta = 60^\circ
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find a Direction Angle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#direction-angle" data-notes-nav-item>Direction Angle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#trigonometry" data-notes-nav-item>Trigonometry</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the direction angle of $\langle 1, \sqrt{3} \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-21">Your work for Find a Direction Angle</label>
+          <textarea
+            id="practice-study-vectors-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+\tan \theta = \frac{y}{x}
+$$</div>
+<p>Here,</p>
+<div class="math-block">$$
+\tan \theta = \frac{\sqrt{3}}{1} = \sqrt{3}
+$$</div>
+<p>Since the vector is in the first quadrant, the angle is</p>
+<div class="math-block">$$
+\theta = 60^\circ
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Two Points, Magnitude" data-problem-difficulty="Integrated" data-problem-answer="Subtract the coordinates:
+
+$$
+\overrightarrow{AB} = \langle 7 - 2,\ 3 - (-1),\ 2 - 5 \rangle
+= \langle 5, 4, -3 \rangle
+$$
+
+Now find the magnitude:
+
+$$
+\|\overrightarrow{AB}\| = \sqrt{5^2 + 4^2 + (-3)^2}
+$$
+
+$$
+= \sqrt{25 + 16 + 9} = \sqrt{50} = 5\sqrt{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Find a Vector and Its Length</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#two-points" data-notes-nav-item>Two Points</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#magnitude" data-notes-nav-item>Magnitude</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A vector goes from $A = (2, -1, 5)$ to $B = (7, 3, 2)$.</p>
+<p>Find $\overrightarrow{AB}$ and its magnitude.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-22">Your work for Find a Vector and Its Length</label>
+          <textarea
+            id="practice-study-vectors-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Subtract the coordinates:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 7 - 2,\ 3 - (-1),\ 2 - 5 \rangle
+= \langle 5, 4, -3 \rangle
+$$</div>
+<p>Now find the magnitude:</p>
+<div class="math-block">$$
+\|\overrightarrow{AB}\| = \sqrt{5^2 + 4^2 + (-3)^2}
+$$</div>
+<div class="math-block">$$
+= \sqrt{25 + 16 + 9} = \sqrt{50} = 5\sqrt{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Dot Product, Angle Between Vectors" data-problem-difficulty="Integrated" data-problem-answer="Use the dot product formula:
+
+$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \, \|\mathbf{v}\| \cos \theta
+$$
+
+First compute the dot product:
+
+$$
+\mathbf{u} \cdot \mathbf{v} = 1(2) + 2(1) = 4
+$$
+
+Then the magnitudes:
+
+$$
+\|\mathbf{u}\| = \sqrt{1^2 + 2^2} = \sqrt{5},\qquad
+\|\mathbf{v}\| = \sqrt{2^2 + 1^2} = \sqrt{5}
+$$
+
+So
+
+$$
+\cos \theta = \frac{4}{\sqrt{5}\sqrt{5}} = \frac{4}{5}
+$$
+
+Therefore,
+
+$$
+\theta = \cos^{-1}\!\left(\frac{4}{5}\right)
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Find the Angle Between Two Vectors</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#dot-product" data-notes-nav-item>Dot Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#angle-between-vectors" data-notes-nav-item>Angle Between Vectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the angle between</p>
+<div class="math-block">$$
+\mathbf{u} = \langle 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 2, 1 \rangle.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-23">Your work for Find the Angle Between Two Vectors</label>
+          <textarea
+            id="practice-study-vectors-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the dot product formula:</p>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \, \|\mathbf{v}\| \cos \theta
+$$</div>
+<p>First compute the dot product:</p>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = 1(2) + 2(1) = 4
+$$</div>
+<p>Then the magnitudes:</p>
+<div class="math-block">$$
+\|\mathbf{u}\| = \sqrt{1^2 + 2^2} = \sqrt{5},\qquad
+\|\mathbf{v}\| = \sqrt{2^2 + 1^2} = \sqrt{5}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\cos \theta = \frac{4}{\sqrt{5}\sqrt{5}} = \frac{4}{5}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\theta = \cos^{-1}\!\left(\frac{4}{5}\right)
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Projection, Dot Product" data-problem-difficulty="Integrated" data-problem-answer="Use
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u}
+$$
+
+Compute the dot products:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(3) + 3(4) = 24
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 3^2 + 4^2 = 25
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{24}{25}\langle 3, 4 \rangle
+= \left\langle \frac{72}{25}, \frac{96}{25} \right\rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Project One Vector Onto Another</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#projection" data-notes-nav-item>Projection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#dot-product" data-notes-nav-item>Dot Product</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the vector projection of $\mathbf{v} = \langle 4, 3 \rangle$ onto $\mathbf{u} = \langle 3, 4 \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-24">Your work for Project One Vector Onto Another</label>
+          <textarea
+            id="practice-study-vectors-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u}
+$$</div>
+<p>Compute the dot products:</p>
+<div class="math-block">$$
+\mathbf{v} \cdot \mathbf{u} = 4(3) + 3(4) = 24
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{u} = 3^2 + 4^2 = 25
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{24}{25}\langle 3, 4 \rangle
+= \left\langle \frac{72}{25}, \frac{96}{25} \right\rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Projection, Orthogonal Decomposition" data-problem-difficulty="Integrated" data-problem-answer="First compute the projection:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(1) + 1(2) = 6
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 1^2 + 2^2 = 5
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{6}{5}\langle 1, 2 \rangle
+= \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+$$
+
+Now subtract to get the perpendicular part:
+
+$$
+\mathbf{v}_\perp
+= \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+$$
+
+$$
+= \left\langle 4, 1 \right\rangle
+- \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+= \left\langle \frac{14}{5}, -\frac{7}{5} \right\rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Split a Vector into Parallel and Perpendicular Parts</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#projection" data-notes-nav-item>Projection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#orthogonal-decomposition" data-notes-nav-item>Orthogonal Decomposition</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+\mathbf{u} = \langle 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 4, 1 \rangle.
+$$</div>
+<p>Find $\operatorname{proj}_{\mathbf{u}} \mathbf{v}$ and $\mathbf{v}_\perp$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-25">Your work for Split a Vector into Parallel and Perpendicular Parts</label>
+          <textarea
+            id="practice-study-vectors-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the projection:</p>
+<div class="math-block">$$
+\mathbf{v} \cdot \mathbf{u} = 4(1) + 1(2) = 6
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{u} = 1^2 + 2^2 = 5
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{6}{5}\langle 1, 2 \rangle
+= \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+$$</div>
+<p>Now subtract to get the perpendicular part:</p>
+<div class="math-block">$$
+\mathbf{v}_\perp
+= \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+$$</div>
+<div class="math-block">$$
+= \left\langle 4, 1 \right\rangle
+- \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+= \left\langle \frac{14}{5}, -\frac{7}{5} \right\rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Cross Product, Area" data-problem-difficulty="Integrated" data-problem-answer="The area of the parallelogram is
+
+$$
+\|\mathbf{u} \times \mathbf{v}\|
+$$
+
+Compute the cross product:
+
+$$
+\mathbf{u} \times \mathbf{v}
+= \langle 1(2) - 1(3),\ 1(1) - 2(2),\ 2(3) - 1(1) \rangle
+$$
+
+$$
+= \langle -1, -3, 5 \rangle
+$$
+
+Now find its magnitude:
+
+$$
+\sqrt{(-1)^2 + (-3)^2 + 5^2}
+= \sqrt{1 + 9 + 25}
+= \sqrt{35}
+$$
+
+So the area is
+
+$$
+\sqrt{35}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find the Area of a Parallelogram</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#cross-product" data-notes-nav-item>Cross Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#area" data-notes-nav-item>Area</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the area of the parallelogram spanned by</p>
+<div class="math-block">$$
+\mathbf{u} = \langle 2, 1, 1 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 1, 3, 2 \rangle.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-26">Your work for Find the Area of a Parallelogram</label>
+          <textarea
+            id="practice-study-vectors-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The area of the parallelogram is</p>
+<div class="math-block">$$
+\|\mathbf{u} \times \mathbf{v}\|
+$$</div>
+<p>Compute the cross product:</p>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v}
+= \langle 1(2) - 1(3),\ 1(1) - 2(2),\ 2(3) - 1(1) \rangle
+$$</div>
+<div class="math-block">$$
+= \langle -1, -3, 5 \rangle
+$$</div>
+<p>Now find its magnitude:</p>
+<div class="math-block">$$
+\sqrt{(-1)^2 + (-3)^2 + 5^2}
+= \sqrt{1 + 9 + 25}
+= \sqrt{35}
+$$</div>
+<p>So the area is</p>
+<div class="math-block">$$
+\sqrt{35}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Planes, Normal Vector" data-problem-difficulty="Integrated" data-problem-answer="Use point-normal form:
+
+$$
+\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
+$$
+
+So
+
+$$
+2(x - 1) - (y - 4) + 3(z + 2) = 0
+$$
+
+Expand and simplify:
+
+$$
+2x - 2 - y + 4 + 3z + 6 = 0
+$$
+
+$$
+2x - y + 3z + 8 = 0
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Write an Equation of a Plane</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#planes" data-notes-nav-item>Planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#normal-vector" data-notes-nav-item>Normal Vector</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the equation of the plane through $(1, 4, -2)$ with normal vector $\langle 2, -1, 3 \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-27">Your work for Write an Equation of a Plane</label>
+          <textarea
+            id="practice-study-vectors-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use point-normal form:</p>
+<div class="math-block">$$
+\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+2(x - 1) - (y - 4) + 3(z + 2) = 0
+$$</div>
+<p>Expand and simplify:</p>
+<div class="math-block">$$
+2x - 2 - y + 4 + 3z + 6 = 0
+$$</div>
+<div class="math-block">$$
+2x - y + 3z + 8 = 0
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Planes, Distance Formula" data-problem-difficulty="Integrated" data-problem-answer="Use the distance formula:
+
+$$
+\frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$
+
+Here, $A = 1$, $B = 2$, $C = 2$, and $D = -9$.
+
+Substitute the point $(2, 1, 0)$:
+
+$$
+\frac{|1(2) + 2(1) + 2(0) - 9|}{\sqrt{1^2 + 2^2 + 2^2}}
+$$
+
+$$
+= \frac{|2 + 2 - 9|}{\sqrt{9}}
+= \frac{5}{3}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Find the Distance from a Point to a Plane</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#planes" data-notes-nav-item>Planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#distance-formula" data-notes-nav-item>Distance Formula</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the distance from the point $(2, 1, 0)$ to the plane</p>
+<div class="math-block">$$
+x + 2y + 2z - 9 = 0.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-28">Your work for Find the Distance from a Point to a Plane</label>
+          <textarea
+            id="practice-study-vectors-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the distance formula:</p>
+<div class="math-block">$$
+\frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$</div>
+<p>Here, $A = 1$, $B = 2$, $C = 2$, and $D = -9$.</p>
+<p>Substitute the point $(2, 1, 0)$:</p>
+<div class="math-block">$$
+\frac{|1(2) + 2(1) + 2(0) - 9|}{\sqrt{1^2 + 2^2 + 2^2}}
+$$</div>
+<div class="math-block">$$
+= \frac{|2 + 2 - 9|}{\sqrt{9}}
+= \frac{5}{3}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="vectors-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Displacement, Magnitude" data-problem-difficulty="Applied" data-problem-answer="The displacement vector is
+
+$$
+\langle 3, 4, 12 \rangle
+$$
+
+Now find its magnitude:
+
+$$
+\|\langle 3, 4, 12 \rangle\|
+= \sqrt{3^2 + 4^2 + 12^2}
+$$
+
+$$
+= \sqrt{9 + 16 + 144} = \sqrt{169} = 13
+$$
+
+So the drone is $13$ km from the starting point.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Model a Displacement</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#displacement" data-notes-nav-item>Displacement</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#magnitude" data-notes-nav-item>Magnitude</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A drone flies $3$ km east, $4$ km north, and $12$ km upward.</p>
+<p>What is its displacement vector, and how far is it from the starting point?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-31">Your work for Model a Displacement</label>
+          <textarea
+            id="practice-study-vectors-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The displacement vector is</p>
+<div class="math-block">$$
+\langle 3, 4, 12 \rangle
+$$</div>
+<p>Now find its magnitude:</p>
+<div class="math-block">$$
+\|\langle 3, 4, 12 \rangle\|
+= \sqrt{3^2 + 4^2 + 12^2}
+$$</div>
+<div class="math-block">$$
+= \sqrt{9 + 16 + 144} = \sqrt{169} = 13
+$$</div>
+<p>So the drone is $13$ km from the starting point.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Lines, Two Points" data-problem-difficulty="Applied" data-problem-answer="First find a direction vector:
+
+$$
+\overrightarrow{AB} = \langle 5 - 1,\ 0 - 2,\ 3 - (-1) \rangle
+= \langle 4, -2, 4 \rangle
+$$
+
+A simpler direction vector is $\langle 2, -1, 2 \rangle$.
+
+So a vector equation is
+
+$$
+\mathbf{r}(t) = \langle 1, 2, -1 \rangle + t\langle 2, -1, 2 \rangle
+$$
+
+In component form,
+
+$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = -1 + 2t
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Write a Line Through Two Points</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#lines" data-notes-nav-item>Lines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#two-points" data-notes-nav-item>Two Points</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Write a vector equation of the line through $A = (1, 2, -1)$ and $B = (5, 0, 3)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-32">Your work for Write a Line Through Two Points</label>
+          <textarea
+            id="practice-study-vectors-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find a direction vector:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 5 - 1,\ 0 - 2,\ 3 - (-1) \rangle
+= \langle 4, -2, 4 \rangle
+$$</div>
+<p>A simpler direction vector is $\langle 2, -1, 2 \rangle$.</p>
+<p>So a vector equation is</p>
+<div class="math-block">$$
+\mathbf{r}(t) = \langle 1, 2, -1 \rangle + t\langle 2, -1, 2 \rangle
+$$</div>
+<p>In component form,</p>
+<div class="math-block">$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = -1 + 2t
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Planes, Cross Product, Two Points" data-problem-difficulty="Applied" data-problem-answer="Form two direction vectors in the plane:
+
+$$
+\overrightarrow{AB} = \langle -1, 2, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle -1, 0, 3 \rangle
+$$
+
+Their cross product gives a normal vector:
+
+$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 6, 3, 2 \rangle
+$$
+
+Now use point-normal form with point $A = (1, 0, 0)$:
+
+$$
+6(x - 1) + 3(y - 0) + 2(z - 0) = 0
+$$
+
+$$
+6x + 3y + 2z - 6 = 0
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find a Plane Through Three Points</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#planes" data-notes-nav-item>Planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#cross-product" data-notes-nav-item>Cross Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#two-points" data-notes-nav-item>Two Points</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the equation of the plane through</p>
+<div class="math-block">$$
+A = (1, 0, 0),\quad B = (0, 2, 0),\quad C = (0, 0, 3).
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-33">Your work for Find a Plane Through Three Points</label>
+          <textarea
+            id="practice-study-vectors-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Form two direction vectors in the plane:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle -1, 2, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle -1, 0, 3 \rangle
+$$</div>
+<p>Their cross product gives a normal vector:</p>
+<div class="math-block">$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 6, 3, 2 \rangle
+$$</div>
+<p>Now use point-normal form with point $A = (1, 0, 0)$:</p>
+<div class="math-block">$$
+6(x - 1) + 3(y - 0) + 2(z - 0) = 0
+$$</div>
+<div class="math-block">$$
+6x + 3y + 2z - 6 = 0
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Cross Product, Area, Two Points" data-problem-difficulty="Applied" data-problem-answer="Use two side vectors from $A$:
+
+$$
+\overrightarrow{AB} = \langle 2, 1, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle 1, 3, 0 \rangle
+$$
+
+Compute the cross product:
+
+$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 0, 0, 5 \rangle
+$$
+
+The parallelogram area is
+
+$$
+\|\langle 0, 0, 5 \rangle\| = 5
+$$
+
+The triangle area is half of that:
+
+$$
+\frac{1}{2}\cdot 5 = \frac{5}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find the Area of a Triangle from Coordinates</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#cross-product" data-notes-nav-item>Cross Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#area" data-notes-nav-item>Area</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#two-points" data-notes-nav-item>Two Points</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the area of the triangle with vertices</p>
+<div class="math-block">$$
+A = (0, 0, 0),\quad B = (2, 1, 0),\quad C = (1, 3, 0).
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-34">Your work for Find the Area of a Triangle from Coordinates</label>
+          <textarea
+            id="practice-study-vectors-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use two side vectors from $A$:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 2, 1, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle 1, 3, 0 \rangle
+$$</div>
+<p>Compute the cross product:</p>
+<div class="math-block">$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 0, 0, 5 \rangle
+$$</div>
+<p>The parallelogram area is</p>
+<div class="math-block">$$
+\|\langle 0, 0, 5 \rangle\| = 5
+$$</div>
+<p>The triangle area is half of that:</p>
+<div class="math-block">$$
+\frac{1}{2}\cdot 5 = \frac{5}{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Lines, Planes, Dot Product" data-problem-difficulty="Applied" data-problem-answer="The direction vector of the line is
+
+$$
+\mathbf{d} = \langle 2, -1, 1 \rangle
+$$
+
+and the normal vector of the plane is
+
+$$
+\mathbf{n} = \langle 2, 1, -3 \rangle
+$$
+
+Check the dot product:
+
+$$
+\mathbf{d} \cdot \mathbf{n}
+= 2(2) + (-1)(1) + 1(-3)
+= 4 - 1 - 3 = 0
+$$
+
+Since the direction vector is orthogonal to the plane&#39;s normal vector, the line is parallel to the plane.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Decide the Relationship Between a Line and a Plane</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#lines" data-notes-nav-item>Lines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#planes" data-notes-nav-item>Planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#dot-product" data-notes-nav-item>Dot Product</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider the line</p>
+<div class="math-block">$$
+\mathbf{r}(t) = \langle 1, 0, 2 \rangle + t\langle 2, -1, 1 \rangle
+$$</div>
+<p>and the plane</p>
+<div class="math-block">$$
+2x + y - 3z = 7.
+$$</div>
+<p>Are the line and plane parallel, perpendicular, or neither?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-35">Your work for Decide the Relationship Between a Line and a Plane</label>
+          <textarea
+            id="practice-study-vectors-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The direction vector of the line is</p>
+<div class="math-block">$$
+\mathbf{d} = \langle 2, -1, 1 \rangle
+$$</div>
+<p>and the normal vector of the plane is</p>
+<div class="math-block">$$
+\mathbf{n} = \langle 2, 1, -3 \rangle
+$$</div>
+<p>Check the dot product:</p>
+<div class="math-block">$$
+\mathbf{d} \cdot \mathbf{n}
+= 2(2) + (-1)(1) + 1(-3)
+= 4 - 1 - 3 = 0
+$$</div>
+<p>Since the direction vector is orthogonal to the plane&#39;s normal vector, the line is parallel to the plane.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="vectors-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Lines, Planes, Substitution" data-problem-difficulty="Challenge" data-problem-answer="Write the line in component form:
+
+$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = 3 + t
+$$
+
+Substitute into the plane equation:
+
+$$
+(1 + 2t) + 2(2 - t) - (3 + t) = 4
+$$
+
+Simplify:
+
+$$
+1 + 2t + 4 - 2t - 3 - t = 4
+$$
+
+$$
+2 - t = 4
+$$
+
+$$
+t = -2
+$$
+
+Now substitute back into the line:
+
+$$
+x = 1 + 2(-2) = -3,\quad y = 2 - (-2) = 4,\quad z = 3 + (-2) = 1
+$$
+
+So the intersection point is
+
+$$
+(-3, 4, 1)
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Find the Intersection of a Line and a Plane</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#lines" data-notes-nav-item>Lines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#planes" data-notes-nav-item>Planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#substitution" data-notes-nav-item>Substitution</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the point where the line</p>
+<div class="math-block">$$
+\mathbf{r}(t) = \langle 1, 2, 3 \rangle + t\langle 2, -1, 1 \rangle
+$$</div>
+<p>intersects the plane</p>
+<div class="math-block">$$
+x + 2y - z = 4.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-41">Your work for Find the Intersection of a Line and a Plane</label>
+          <textarea
+            id="practice-study-vectors-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the line in component form:</p>
+<div class="math-block">$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = 3 + t
+$$</div>
+<p>Substitute into the plane equation:</p>
+<div class="math-block">$$
+(1 + 2t) + 2(2 - t) - (3 + t) = 4
+$$</div>
+<p>Simplify:</p>
+<div class="math-block">$$
+1 + 2t + 4 - 2t - 3 - t = 4
+$$</div>
+<div class="math-block">$$
+2 - t = 4
+$$</div>
+<div class="math-block">$$
+t = -2
+$$</div>
+<p>Now substitute back into the line:</p>
+<div class="math-block">$$
+x = 1 + 2(-2) = -3,\quad y = 2 - (-2) = 4,\quad z = 3 + (-2) = 1
+$$</div>
+<p>So the intersection point is</p>
+<div class="math-block">$$
+(-3, 4, 1)
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Projection, Lines, Orthogonal Decomposition" data-problem-difficulty="Challenge" data-problem-answer="Let $P_0 = (1, 0, 0)$ and $\mathbf{d} = \langle 2, 1, 0 \rangle$.
+
+The closest point occurs where the vector from the line to $Q$ is perpendicular to the direction vector, so we use projection.
+
+First compute
+
+$$
+Q - P_0 = \langle 3, 2, 0 \rangle
+$$
+
+The parameter is
+
+$$
+t = \frac{(Q - P_0)\cdot \mathbf{d}}{\mathbf{d}\cdot \mathbf{d}}
+= \frac{3(2) + 2(1)}{2^2 + 1^2}
+= \frac{8}{5}
+$$
+
+Now find the point:
+
+$$
+P = P_0 + t\mathbf{d}
+= \langle 1, 0, 0 \rangle + \frac{8}{5}\langle 2, 1, 0 \rangle
+$$
+
+$$
+= \left\langle \frac{21}{5}, \frac{8}{5}, 0 \right\rangle
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Find the Closest Point on a Line</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#projection" data-notes-nav-item>Projection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#lines" data-notes-nav-item>Lines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#orthogonal-decomposition" data-notes-nav-item>Orthogonal Decomposition</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let the line be</p>
+<div class="math-block">$$
+\mathbf{r}(t) = \langle 1, 0, 0 \rangle + t\langle 2, 1, 0 \rangle
+$$</div>
+<p>and let $Q = (4, 2, 0)$ be a point in the plane.</p>
+<p>Find the point on the line that is closest to $Q$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-42">Your work for Find the Closest Point on a Line</label>
+          <textarea
+            id="practice-study-vectors-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $P_0 = (1, 0, 0)$ and $\mathbf{d} = \langle 2, 1, 0 \rangle$.</p>
+<p>The closest point occurs where the vector from the line to $Q$ is perpendicular to the direction vector, so we use projection.</p>
+<p>First compute</p>
+<div class="math-block">$$
+Q - P_0 = \langle 3, 2, 0 \rangle
+$$</div>
+<p>The parameter is</p>
+<div class="math-block">$$
+t = \frac{(Q - P_0)\cdot \mathbf{d}}{\mathbf{d}\cdot \mathbf{d}}
+= \frac{3(2) + 2(1)}{2^2 + 1^2}
+= \frac{8}{5}
+$$</div>
+<p>Now find the point:</p>
+<div class="math-block">$$
+P = P_0 + t\mathbf{d}
+= \langle 1, 0, 0 \rangle + \frac{8}{5}\langle 2, 1, 0 \rangle
+$$</div>
+<div class="math-block">$$
+= \left\langle \frac{21}{5}, \frac{8}{5}, 0 \right\rangle
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Projection, Orthogonal Decomposition, Magnitude" data-problem-difficulty="Challenge" data-problem-answer="First compute the projection:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(2) + 1(1) + 0(2) = 9
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 2^2 + 1^2 + 2^2 = 9
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{9}{9}\mathbf{u}
+= \langle 2, 1, 2 \rangle
+$$
+
+Now find the perpendicular part:
+
+$$
+\mathbf{v}_\perp = \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \langle 4, 1, 0 \rangle - \langle 2, 1, 2 \rangle
+= \langle 2, 0, -2 \rangle
+$$
+
+Its magnitude is
+
+$$
+\|\mathbf{v}_\perp\| = \sqrt{2^2 + 0^2 + (-2)^2} = \sqrt{8} = 2\sqrt{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Decompose a Vector and Measure the Perpendicular Part</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#projection" data-notes-nav-item>Projection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#orthogonal-decomposition" data-notes-nav-item>Orthogonal Decomposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#magnitude" data-notes-nav-item>Magnitude</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+\mathbf{u} = \langle 2, 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 4, 1, 0 \rangle.
+$$</div>
+<p>Find the part of $\mathbf{v}$ parallel to $\mathbf{u}$ and the magnitude of the perpendicular part.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-43">Your work for Decompose a Vector and Measure the Perpendicular Part</label>
+          <textarea
+            id="practice-study-vectors-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the projection:</p>
+<div class="math-block">$$
+\mathbf{v} \cdot \mathbf{u} = 4(2) + 1(1) + 0(2) = 9
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{u} = 2^2 + 1^2 + 2^2 = 9
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{9}{9}\mathbf{u}
+= \langle 2, 1, 2 \rangle
+$$</div>
+<p>Now find the perpendicular part:</p>
+<div class="math-block">$$
+\mathbf{v}_\perp = \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \langle 4, 1, 0 \rangle - \langle 2, 1, 2 \rangle
+= \langle 2, 0, -2 \rangle
+$$</div>
+<p>Its magnitude is</p>
+<div class="math-block">$$
+\|\mathbf{v}_\perp\| = \sqrt{2^2 + 0^2 + (-2)^2} = \sqrt{8} = 2\sqrt{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="vectors-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Dot Product, Cross Product, Angle Between Vectors" data-problem-difficulty="Challenge" data-problem-answer="Use the dot product formula:
+
+$$
+\mathbf{u}\cdot \mathbf{v} = \|\mathbf{u}\|\,\|\mathbf{v}\|\cos\theta
+$$
+
+So
+
+$$
+30 = 5(12)\cos\theta
+$$
+
+$$
+\cos\theta = \frac{30}{60} = \frac{1}{2}
+$$
+
+Therefore,
+
+$$
+\theta = 60^\circ
+$$
+
+Now use the cross product magnitude formula:
+
+$$
+\|\mathbf{u}\times\mathbf{v}\| = \|\mathbf{u}\|\,\|\mathbf{v}\|\sin\theta
+$$
+
+Since $\sin 60^\circ = \frac{\sqrt{3}}{2}$,
+
+$$
+\|\mathbf{u}\times\mathbf{v}\|
+= 5(12)\cdot \frac{\sqrt{3}}{2}
+= 30\sqrt{3}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Use Dot and Cross Products Together</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#dot-product" data-notes-nav-item>Dot Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#cross-product" data-notes-nav-item>Cross Product</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/vectors/#angle-between-vectors" data-notes-nav-item>Angle Between Vectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two nonzero vectors satisfy</p>
+<div class="math-block">$$
+\|\mathbf{u}\| = 5,\qquad \|\mathbf{v}\| = 12,\qquad \mathbf{u}\cdot \mathbf{v} = 30.
+$$</div>
+<p>Find the angle between the vectors and the magnitude of $\mathbf{u} \times \mathbf{v}$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-vectors-44">Your work for Use Dot and Cross Products Together</label>
+          <textarea
+            id="practice-study-vectors-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the dot product formula:</p>
+<div class="math-block">$$
+\mathbf{u}\cdot \mathbf{v} = \|\mathbf{u}\|\,\|\mathbf{v}\|\cos\theta
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+30 = 5(12)\cos\theta
+$$</div>
+<div class="math-block">$$
+\cos\theta = \frac{30}{60} = \frac{1}{2}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\theta = 60^\circ
+$$</div>
+<p>Now use the cross product magnitude formula:</p>
+<div class="math-block">$$
+\|\mathbf{u}\times\mathbf{v}\| = \|\mathbf{u}\|\,\|\mathbf{v}\|\sin\theta
+$$</div>
+<p>Since $\sin 60^\circ = \frac{\sqrt{3}}{2}$,</p>
+<div class="math-block">$$
+\|\mathbf{u}\times\mathbf{v}\|
+= 5(12)\cdot \frac{\sqrt{3}}{2}
+= 30\sqrt{3}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

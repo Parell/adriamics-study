@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mechanisms Practice | Adriamics Study</title>
+  <meta name="description" content="8 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/mechanisms/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/engineering/mechanisms/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Mechanisms Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/mechanisms/mechanisms-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fmechanisms%2Fmechanisms-problems.md&amp;title=%5BContribute%5D%3A%20Mechanisms%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 8 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 8 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Mechanisms" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="mechanisms-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Power transmission, Torque" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+T=\frac{9550P}{N}=\frac{9550(4)}{1200}=31.8\ \mathrm{N\,m}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Convert Power and Speed to Torque</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#power-transmission" data-notes-nav-item>Power transmission</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#torque" data-notes-nav-item>Torque</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A shaft transmits (4\ \mathrm{kW}) at (1200\ \mathrm{rpm}). Find its torque.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-11">Your work for Convert Power and Speed to Torque</label>
+          <textarea
+            id="practice-study-mechanisms-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+T=\frac{9550P}{N}=\frac{9550(4)}{1200}=31.8\ \mathrm{N\,m}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Gears, Speed ratio" data-problem-difficulty="Direct" data-problem-answer="$$
+i=\frac{z_2}{z_1}=\frac{60}{20}=3,
+\qquad N_2=\frac{1500}{3}=500\ \mathrm{rpm}.
+$$
+
+The output turns one-third as fast, with ideal torque multiplied by three.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find a Gear Ratio</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#speed-ratio" data-notes-nav-item>Speed ratio</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A 20-tooth pinion drives a 60-tooth gear. What are the speed ratio and output speed if the input is (1500\ \mathrm{rpm})?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-12">Your work for Find a Gear Ratio</label>
+          <textarea
+            id="practice-study-mechanisms-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <div class="math-block">$$
+i=\frac{z_2}{z_1}=\frac{60}{20}=3,
+\qquad N_2=\frac{1500}{3}=500\ \mathrm{rpm}.
+$$</div>
+<p>The output turns one-third as fast, with ideal torque multiplied by three.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Gears, Interface loads" data-problem-difficulty="Direct" data-problem-answer="$$
+F_t=\frac{2T}{d}=\frac{2(45)}{0.090}=1000\ \mathrm N.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Compute Gear Tooth Force</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#interface-loads" data-notes-nav-item>Interface loads</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A gear has (T=45\ \mathrm{N\,m}) and pitch diameter (d=90\ \mathrm{mm}). Find its tangential tooth force.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-13">Your work for Compute Gear Tooth Force</label>
+          <textarea
+            id="practice-study-mechanisms-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <div class="math-block">$$
+F_t=\frac{2T}{d}=\frac{2(45)}{0.090}=1000\ \mathrm N.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Bearings, Rating life" data-problem-difficulty="Direct" data-problem-answer="For a ball bearing, (p=3):
+
+$$
+L_{10}=\left(\frac{C}{P}\right)^3=\left(\frac{12}{3}\right)^3=64
+$$
+
+million revolutions.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Estimate Bearing Life</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#bearings" data-notes-nav-item>Bearings</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#rating-life" data-notes-nav-item>Rating life</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A ball bearing has (C=12\ \mathrm{kN}) and equivalent load (P=3\ \mathrm{kN}). Estimate (L_{10}) in million revolutions.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-14">Your work for Estimate Bearing Life</label>
+          <textarea
+            id="practice-study-mechanisms-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a ball bearing, (p=3):</p>
+<div class="math-block">$$
+L_{10}=\left(\frac{C}{P}\right)^3=\left(\frac{12}{3}\right)^3=64
+$$</div>
+<p>million revolutions.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Springs, Stiffness" data-problem-difficulty="Direct" data-problem-answer="$$
+k_{eq}=k_1+k_2=1000\ \mathrm{N/m},
+\qquad F=k_{eq}x=1000(0.05)=50\ \mathrm N.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Combine Springs in Parallel</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#springs" data-notes-nav-item>Springs</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#stiffness" data-notes-nav-item>Stiffness</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two linear springs with stiffnesses (k_1=400\ \mathrm{N/m}) and (k_2=600\ \mathrm{N/m}) are installed in parallel. Find the equivalent stiffness and force at (x=0.05\ \mathrm m).</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-15">Your work for Combine Springs in Parallel</label>
+          <textarea
+            id="practice-study-mechanisms-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <div class="math-block">$$
+k_{eq}=k_1+k_2=1000\ \mathrm{N/m},
+\qquad F=k_{eq}x=1000(0.05)=50\ \mathrm N.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Fatigue, Stress components" data-problem-difficulty="Direct" data-problem-answer="$$
+\sigma_a=\frac{120-20}{2}=50\ \mathrm{MPa},
+\qquad
+\sigma_m=\frac{120+20}{2}=70\ \mathrm{MPa}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Separate Mean and Alternating Stress</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#fatigue" data-notes-nav-item>Fatigue</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#stress-components" data-notes-nav-item>Stress components</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A component experiences (sigma_{max}=120\ \mathrm{MPa}) and (sigma_{min}=20\ \mathrm{MPa}). Find (sigma_a) and (sigma_m).</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-16">Your work for Separate Mean and Alternating Stress</label>
+          <textarea
+            id="practice-study-mechanisms-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <div class="math-block">$$
+\sigma_a=\frac{120-20}{2}=50\ \mathrm{MPa},
+\qquad
+\sigma_m=\frac{120+20}{2}=70\ \mathrm{MPa}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Mobility, Kutzbach equation" data-problem-difficulty="Direct" data-problem-answer="$$
+M=3(n-1)-2j_1=3(4-1)-2(4)=1.
+$$
+
+It has one independent input, as expected for a conventional four-bar linkage.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Count Planar Mechanism Mobility</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#mobility" data-notes-nav-item>Mobility</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#kutzbach-equation" data-notes-nav-item>Kutzbach equation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A planar mechanism has (n=4) links and (j_1=4) one-degree-of-freedom joints, with no higher pairs. Find its mobility.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-17">Your work for Count Planar Mechanism Mobility</label>
+          <textarea
+            id="practice-study-mechanisms-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <div class="math-block">$$
+M=3(n-1)-2j_1=3(4-1)-2(4)=1.
+$$</div>
+<p>It has one independent input, as expected for a conventional four-bar linkage.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanisms-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Power screws, Lead" data-problem-difficulty="Direct" data-problem-answer="For a single-start screw, (l=p=4\ \mathrm{mm}). Thus
+
+$$
+\lambda=\tan^{-1}\left(\frac{4}{\pi(20)}\right)=3.64^\circ.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute Screw Lead Angle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#power-screws" data-notes-nav-item>Power screws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanisms/#lead" data-notes-nav-item>Lead</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A single-start screw has pitch (p=4\ \mathrm{mm}) and mean diameter (d_m=20\ \mathrm{mm}). Find its lead angle.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanisms-18">Your work for Compute Screw Lead Angle</label>
+          <textarea
+            id="practice-study-mechanisms-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a single-start screw, (l=p=4\ \mathrm{mm}). Thus</p>
+<div class="math-block">$$
+\lambda=\tan^{-1}\left(\frac{4}{\pi(20)}\right)=3.64^\circ.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electrical Circuit Analysis | Adriamics Study</title>
+  <meta name="description" content="Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/electrical-circuit-analysis/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/electrical-circuit-analysis/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#core-quantities-and-circuit-elements" data-notes-nav-item data-notes-toc-link>Core quantities and circuit elements</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reference-directions-and-sign-conventions" data-notes-nav-item data-notes-toc-link>Reference directions and sign conventions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ohms-law-and-kirchhoffs-laws" data-notes-nav-item data-notes-toc-link>Ohm&#39;s law and Kirchhoff&#39;s laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#series-parallel-and-equivalent-reduction" data-notes-nav-item data-notes-toc-link>Series, parallel, and equivalent reduction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#node-voltage-analysis" data-notes-nav-item data-notes-toc-link>Node-voltage analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mesh-current-analysis" data-notes-nav-item data-notes-toc-link>Mesh-current analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#source-transformations-and-superposition" data-notes-nav-item data-notes-toc-link>Source transformations and superposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thevenin-and-norton-equivalents" data-notes-nav-item data-notes-toc-link>Thevenin and Norton equivalents</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-energy-and-maximum-power-transfer" data-notes-nav-item data-notes-toc-link>Power, energy, and maximum power transfer</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#first-order-transients-rc-and-rl" data-notes-nav-item data-notes-toc-link>First-order transients: RC and RL</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sinusoidal-steady-state-and-phasors" data-notes-nav-item data-notes-toc-link>Sinusoidal steady state and phasors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#impedance-admittance-and-ac-power" data-notes-nav-item data-notes-toc-link>Impedance, admittance, and AC power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resonance-and-frequency-response" data-notes-nav-item data-notes-toc-link>Resonance and frequency response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#operational-amplifier-basics" data-notes-nav-item data-notes-toc-link>Operational amplifier basics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Electrical Circuit Analysis</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/electrical-circuit-analysis/electrical-circuit-analysis.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Felectrical-circuit-analysis%2Felectrical-circuit-analysis.md&amp;title=%5BContribute%5D%3A%20Electrical%20Circuit%20Analysis" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/electrical-circuit-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="core-quantities-and-circuit-elements">Core quantities and circuit elements</h1>
+<p>Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.</p>
+<h2 id="fundamental-quantities">Fundamental quantities</h2>
+<ul><li><p>Current, $i(t)$: rate of charge flow, $i = \dfrac{dq}{dt}$</p></li><li><p>Voltage, $v(t)$: electric potential difference</p></li><li><p>Charge, $q(t)$</p></li><li><p>Power, $p(t)$: instantaneous energy transfer, $p = vi$</p></li><li><p>Energy, $w(t)$: accumulated power, $w = \int p\,dt$</p></li></ul>
+<h2 id="ideal-circuit-elements">Ideal circuit elements</h2>
+<table><thead><tr><th>Element</th><th>Constitutive relation</th><th>Notes</th></tr></thead><tbody><tr><td>Resistor</td><td>$v = Ri$</td><td>Dissipates energy as heat</td></tr><tr><td>Capacitor</td><td>$i = C\dfrac{dv}{dt}$</td><td>Stores energy in an electric field</td></tr><tr><td>Inductor</td><td>$v = L\dfrac{di}{dt}$</td><td>Stores energy in a magnetic field</td></tr><tr><td>Independent source</td><td>Prescribed $v$ or $i$</td><td>Supplies or absorbs power</td></tr><tr><td>Dependent source</td><td>Controlled by another circuit variable</td><td>Models active behavior</td></tr></tbody></table>
+<h2 id="energy-storage">Energy storage</h2>
+<p>Stored energy in a capacitor:</p>
+<div class="math-block">$$
+w_C = \frac{1}{2}Cv^2
+$$</div>
+<p>Stored energy in an inductor:</p>
+<div class="math-block">$$
+w_L = \frac{1}{2}Li^2
+$$</div>
+<p>Resistors do not store energy. They dissipate it:</p>
+<div class="math-block">$$
+p_R = i^2R = \frac{v^2}{R}
+$$</div>
+<hr />
+<h1 id="reference-directions-and-sign-conventions">Reference directions and sign conventions</h1>
+<p>Circuit equations are only consistent when voltage and current references are chosen deliberately.</p>
+<h2 id="passive-sign-convention">Passive sign convention</h2>
+<p>If current enters the positive-labeled terminal of an element, then</p>
+<div class="math-block">$$
+p = vi
+$$</div>
+<p>is positive when the element absorbs power.</p>
+<p>If current enters the negative terminal, then the computed power is negative and the element delivers power.</p>
+<h2 id="practical-rule">Practical rule</h2>
+<ul><li><p>Assign a current direction before solving.</p></li><li><p>Assign voltage polarity independently or use the passive convention.</p></li><li><p>A negative result means the true direction or polarity is opposite to the assumption.</p></li></ul>
+<h2 id="common-mistake">Common mistake</h2>
+<p>Do not mix reference directions in the same equation set. Pick one sign convention and keep it everywhere.</p>
+<hr />
+<h1 id="ohms-law-and-kirchhoffs-laws">Ohm&#39;s law and Kirchhoff&#39;s laws</h1>
+<h2 id="ohms-law">Ohm&#39;s law</h2>
+<p>For a resistor:</p>
+<div class="math-block">$$
+v = Ri
+$$</div>
+<p>This relation is linear and valid only for ideal resistors or elements behaving approximately resistively.</p>
+<h2 id="kirchhoffs-current-law">Kirchhoff&#39;s Current Law</h2>
+<p>At any node, the algebraic sum of currents is zero:</p>
+<div class="math-block">$$
+\sum i_k = 0
+$$</div>
+<p>Interpretation: current entering a node equals current leaving it.</p>
+<h2 id="kirchhoffs-voltage-law">Kirchhoff&#39;s Voltage Law</h2>
+<p>Around any closed loop, the algebraic sum of voltages is zero:</p>
+<div class="math-block">$$
+\sum v_k = 0
+$$</div>
+<p>Interpretation: total voltage rise equals total voltage drop.</p>
+<h2 id="where-they-come-from">Where they come from</h2>
+<ul><li><p>KCL reflects conservation of charge.</p></li><li><p>KVL reflects conservation of energy in lumped-element circuits.</p></li></ul>
+<h2 id="applicability-limits">Applicability limits</h2>
+<p>KCL and KVL work cleanly in lumped circuits where physical dimensions are small compared with signal wavelengths and distributed effects can be neglected.</p>
+<hr />
+<h1 id="series-parallel-and-equivalent-reduction">Series, parallel, and equivalent reduction</h1>
+<h2 id="resistors-in-series">Resistors in series</h2>
+<p>Same current flows through each resistor:</p>
+<div class="math-block">$$
+R_{eq} = R_1 + R_2 + \cdots + R_n
+$$</div>
+<h2 id="resistors-in-parallel">Resistors in parallel</h2>
+<p>Same voltage appears across each branch:</p>
+<div class="math-block">$$
+\frac{1}{R_{eq}} = \sum_{k=1}^n \frac{1}{R_k}
+$$</div>
+<p>For two resistors:</p>
+<div class="math-block">$$
+R_{eq} = \frac{R_1R_2}{R_1 + R_2}
+$$</div>
+<h2 id="voltage-divider">Voltage divider</h2>
+<p>For series resistors with input voltage $V_{in}$:</p>
+<div class="math-block">$$
+V_{out} = V_{in}\frac{R_2}{R_1 + R_2}
+$$</div>
+<p>if $V_{out}$ is taken across $R_2$.</p>
+<h2 id="current-divider">Current divider</h2>
+<p>For two parallel resistors:</p>
+<div class="math-block">$$
+I_1 = I_{in}\frac{R_2}{R_1 + R_2}, \qquad
+I_2 = I_{in}\frac{R_1}{R_1 + R_2}
+$$</div>
+<p>The branch with smaller resistance carries more current.</p>
+<h2 id="reduction-workflow">Reduction workflow</h2>
+<ol><li><p>Look for obvious series or parallel groups.</p></li><li><p>Reduce from the innermost structure outward.</p></li><li><p>Restore the circuit if a requested variable is inside a reduced block.</p></li></ol>
+<hr />
+<h1 id="node-voltage-analysis">Node-voltage analysis</h1>
+<p>Node-voltage analysis is usually the most efficient method for circuits with many current sources or many branches tied to a few nodes.</p>
+<h2 id="method">Method</h2>
+<ol><li><p>Choose a reference node, usually ground.</p></li><li><p>Label unknown node voltages relative to reference.</p></li><li><p>Write KCL at each nonreference node.</p></li><li><p>Substitute element relations into the current expressions.</p></li><li><p>Solve the resulting linear system.</p></li></ol>
+<h2 id="resistor-current-form">Resistor current form</h2>
+<p>Current from node $a$ to node $b$ through resistor $R$:</p>
+<div class="math-block">$$
+i_{ab} = \frac{V_a - V_b}{R}
+$$</div>
+<h2 id="supernode">Supernode</h2>
+<p>If a voltage source lies between two nonreference nodes, treat the connected nodes as a <strong>supernode</strong>.</p>
+<p>Use:</p>
+<ul><li><p>One KCL equation for the supernode</p></li><li><p>One constraint equation from the voltage source</p></li></ul>
+<p>Example constraint:</p>
+<div class="math-block">$$
+V_a - V_b = V_s
+$$</div>
+<h2 id="advantages">Advantages</h2>
+<ul><li><p>Scales well for large circuits</p></li><li><p>Handles current sources naturally</p></li><li><p>Produces node voltages directly</p></li></ul>
+<h2 id="common-pitfall">Common pitfall</h2>
+<p>Do not write KCL separately for nodes connected by an ideal voltage source unless you also include the source constraint.</p>
+<hr />
+<h1 id="mesh-current-analysis">Mesh-current analysis</h1>
+<p>Mesh-current analysis is efficient for planar circuits with many voltage sources.</p>
+<h2 id="method-2">Method</h2>
+<ol><li><p>Identify the meshes of the planar circuit.</p></li><li><p>Assign mesh currents, usually clockwise.</p></li><li><p>Write KVL around each mesh.</p></li><li><p>Express shared-element voltages in terms of current differences.</p></li><li><p>Solve the linear system.</p></li></ol>
+<h2 id="shared-resistor">Shared resistor</h2>
+<p>If two meshes share resistor $R$, the voltage drop across that resistor is</p>
+<div class="math-block">$$
+R(i_1 - i_2)
+$$</div>
+<p>when traversed in the direction of mesh current $i_1$.</p>
+<h2 id="supermesh">Supermesh</h2>
+<p>If a current source lies between two meshes, form a <strong>supermesh</strong>:</p>
+<ul><li><p>Write one KVL equation around the outer perimeter</p></li><li><p>Add the current-source constraint equation</p></li></ul>
+<h2 id="advantages-2">Advantages</h2>
+<ul><li><p>Fewer equations than node analysis in some circuits</p></li><li><p>Very natural for voltage-source-dominated networks</p></li></ul>
+<h2 id="common-pitfall-2">Common pitfall</h2>
+<p>Mesh analysis only applies directly to planar circuits unless the circuit is re-drawn into a planar equivalent.</p>
+<hr />
+<h1 id="source-transformations-and-superposition">Source transformations and superposition</h1>
+<h2 id="source-transformation">Source transformation</h2>
+<p>A voltage source $V_s$ in series with resistance $R$ can be transformed into an equivalent current source:</p>
+<div class="math-block">$$
+I_s = \frac{V_s}{R}
+$$</div>
+<p>in parallel with the same resistance $R$.</p>
+<p>Likewise, a current source $I_s$ in parallel with $R$ can be transformed into a voltage source:</p>
+<div class="math-block">$$
+V_s = I_sR
+$$</div>
+<p>in series with $R$.</p>
+<h2 id="superposition-principle">Superposition principle</h2>
+<p>In a linear circuit, the total response is the sum of the responses from each independent source acting alone.</p>
+<p>To deactivate sources:</p>
+<ul><li><p>Replace independent voltage sources with short circuits</p></li><li><p>Replace independent current sources with open circuits</p></li></ul>
+<p>Dependent sources remain active.</p>
+<h2 id="when-to-use-it">When to use it</h2>
+<p>Superposition is useful when a circuit has multiple independent sources and a desired response is linear in the source excitations.</p>
+<h2 id="limitation">Limitation</h2>
+<p>You cannot superpose power directly, because power is not linear in voltage or current.</p>
+<hr />
+<h1 id="thevenin-and-norton-equivalents">Thevenin and Norton equivalents</h1>
+<p>Any linear two-terminal network can be replaced by an equivalent source-resistance pair.</p>
+<h2 id="thevenin-equivalent">Thevenin equivalent</h2>
+<p>Replace the network with:</p>
+<ul><li><p>A voltage source $V_{th}$</p></li><li><p>In series with resistance $R_{th}$</p></li></ul>
+<p>where $V_{th}$ is the open-circuit terminal voltage.</p>
+<h2 id="norton-equivalent">Norton equivalent</h2>
+<p>Replace the network with:</p>
+<ul><li><p>A current source $I_N$</p></li><li><p>In parallel with resistance $R_N$</p></li></ul>
+<p>where $I_N$ is the short-circuit terminal current.</p>
+<h2 id="conversion">Conversion</h2>
+<div class="math-block">$$
+R_{th} = R_N
+$$</div>
+<div class="math-block">$$
+V_{th} = I_NR_{th}
+$$</div>
+<div class="math-block">$$
+I_N = \frac{V_{th}}{R_{th}}
+$$</div>
+<h2 id="finding-r-th">Finding $R_{th}$</h2>
+<p>For circuits with only independent sources:</p>
+<ol><li><p>Deactivate all independent sources.</p></li><li><p>Compute the resistance seen from the terminals.</p></li></ol>
+<p>If dependent sources are present, keep them active and use a test source if needed.</p>
+<h2 id="test-source-method">Test-source method</h2>
+<p>Apply a test voltage or current at the terminals and compute:</p>
+<div class="math-block">$$
+R_{th} = \frac{V_{test}}{I_{test}}
+$$</div>
+<h2 id="why-these-equivalents-matter">Why these equivalents matter</h2>
+<p>They simplify repeated load calculations and make maximum power transfer analysis straightforward.</p>
+<hr />
+<h1 id="power-energy-and-maximum-power-transfer">Power, energy, and maximum power transfer</h1>
+<h2 id="instantaneous-power">Instantaneous power</h2>
+<div class="math-block">$$
+p(t) = v(t)i(t)
+$$</div>
+<p>If $p &gt; 0$, the element absorbs power. If $p &lt; 0$, it delivers power.</p>
+<h2 id="dc-resistor-power">DC resistor power</h2>
+<div class="math-block">$$
+p = i^2R = \frac{v^2}{R}
+$$</div>
+<h2 id="average-power">Average power</h2>
+<p>For periodic signals:</p>
+<div class="math-block">$$
+P_{avg} = \frac{1}{T}\int_0^T p(t)\,dt
+$$</div>
+<h2 id="maximum-power-transfer-for-resistive-circuits">Maximum power transfer for resistive circuits</h2>
+<p>If a Thevenin equivalent $V_{th}$ in series with $R_{th}$ drives a load $R_L$, the load receives maximum power when</p>
+<div class="math-block">$$
+R_L = R_{th}
+$$</div>
+<p>The maximum load power is</p>
+<div class="math-block">$$
+P_{max} = \frac{V_{th}^2}{4R_{th}}
+$$</div>
+<h2 id="efficiency-note">Efficiency note</h2>
+<p>Maximum power transfer does not mean maximum efficiency. At $R_L = R_{th}$, half the power is dissipated internally in the source resistance.</p>
+<hr />
+<h1 id="first-order-transients-rc-and-rl">First-order transients: RC and RL</h1>
+<p>First-order circuits contain one energy storage element and produce exponential responses.</p>
+<h2 id="capacitor-laws">Capacitor laws</h2>
+<p>Capacitor voltage cannot change instantaneously:</p>
+<div class="math-block">$$
+v_C(0^+) = v_C(0^-)
+$$</div>
+<p>Current through a capacitor is</p>
+<div class="math-block">$$
+i_C = C\frac{dv_C}{dt}
+$$</div>
+<h2 id="inductor-laws">Inductor laws</h2>
+<p>Inductor current cannot change instantaneously:</p>
+<div class="math-block">$$
+i_L(0^+) = i_L(0^-)
+$$</div>
+<p>Voltage across an inductor is</p>
+<div class="math-block">$$
+v_L = L\frac{di_L}{dt}
+$$</div>
+<h2 id="rc-step-response">RC step response</h2>
+<p>For a simple RC circuit with time constant</p>
+<div class="math-block">$$
+\tau = RC
+$$</div>
+<p>the capacitor voltage typically has the form</p>
+<div class="math-block">$$
+v_C(t) = v_C(\infty) + \bigl(v_C(0^+) - v_C(\infty)\bigr)e^{-t/\tau}
+$$</div>
+<h2 id="rl-step-response">RL step response</h2>
+<p>For a simple RL circuit with time constant</p>
+<div class="math-block">$$
+\tau = \frac{L}{R}
+$$</div>
+<p>the inductor current typically has the form</p>
+<div class="math-block">$$
+i_L(t) = i_L(\infty) + \bigl(i_L(0^+) - i_L(\infty)\bigr)e^{-t/\tau}
+$$</div>
+<h2 id="interpretation-of-the-time-constant">Interpretation of the time constant</h2>
+<p>At $t = \tau$, the response has moved about $63.2\%$ of the way from its initial value toward its final value.</p>
+<h2 id="initial-and-final-conditions">Initial and final conditions</h2>
+<ul><li><p>At $t = 0^+$, use continuity of capacitor voltage and inductor current.</p></li><li><p>At $t \to \infty$, replace the capacitor with an open circuit and the inductor with a short circuit for DC steady state.</p></li></ul>
+<hr />
+<h1 id="sinusoidal-steady-state-and-phasors">Sinusoidal steady state and phasors</h1>
+<p>Sinusoidal steady-state analysis converts differential equations into algebraic equations at a fixed angular frequency $\omega$.</p>
+<h2 id="sinusoidal-signals">Sinusoidal signals</h2>
+<div class="math-block">$$
+v(t) = V_m\cos(\omega t + \phi)
+$$</div>
+<p>where:</p>
+<ul><li><p>$V_m$ is the peak amplitude</p></li><li><p>$\omega$ is angular frequency in rad/s</p></li><li><p>$\phi$ is phase</p></li></ul>
+<h2 id="rms-value">RMS value</h2>
+<p>For a sinusoid:</p>
+<div class="math-block">$$
+V_{rms} = \frac{V_m}{\sqrt{2}}
+$$</div>
+<p>Similarly,</p>
+<div class="math-block">$$
+I_{rms} = \frac{I_m}{\sqrt{2}}
+$$</div>
+<h2 id="phasor-representation">Phasor representation</h2>
+<p>A sinusoid can be represented by a complex phasor:</p>
+<div class="math-block">$$
+v(t) = \Re\{ \tilde{V}e^{j\omega t}\}
+$$</div>
+<p>where $\tilde{V}$ contains magnitude and phase.</p>
+<h2 id="converting-elements-to-impedance">Converting elements to impedance</h2>
+<p>In phasor form:</p>
+<div class="math-block">$$
+Z_R = R
+$$</div>
+<div class="math-block">$$
+Z_C = \frac{1}{j\omega C}
+$$</div>
+<div class="math-block">$$
+Z_L = j\omega L
+$$</div>
+<p>This makes Ohm&#39;s law look like</p>
+<div class="math-block">$$
+\tilde{V} = \tilde{I}Z
+$$</div>
+<hr />
+<h1 id="impedance-admittance-and-ac-power">Impedance, admittance, and AC power</h1>
+<h2 id="admittance">Admittance</h2>
+<p>Admittance is the reciprocal of impedance:</p>
+<div class="math-block">$$
+Y = \frac{1}{Z}
+$$</div>
+<p>Its unit is siemens, S.</p>
+<p>For a resistor,</p>
+<div class="math-block">$$
+Y_R = \frac{1}{R}
+$$</div>
+<h2 id="series-and-parallel-in-ac">Series and parallel in AC</h2>
+<ul><li><p>Impedances in series add directly.</p></li><li><p>Admittances in parallel add directly.</p></li></ul>
+<h2 id="complex-power">Complex power</h2>
+<p>Using RMS phasors:</p>
+<div class="math-block">$$
+\tilde{S} = \tilde{V}\tilde{I}^*
+$$</div>
+<p>where $^*$ denotes complex conjugate.</p>
+<p>Complex power decomposes as</p>
+<div class="math-block">$$
+\tilde{S} = P + jQ
+$$</div>
+<p>where:</p>
+<ul><li><p>$P$ is real power, in watts</p></li><li><p>$Q$ is reactive power, in var</p></li></ul>
+<p>Apparent power magnitude:</p>
+<div class="math-block">$$
+|\tilde{S}| = VI
+$$</div>
+<h2 id="power-factor">Power factor</h2>
+<p>Power factor is</p>
+<div class="math-block">$$
+\text{pf} = \cos\theta = \frac{P}{|\tilde{S}|}
+$$</div>
+<p>where $\theta$ is the phase angle between voltage and current.</p>
+<h2 id="interpreting-reactive-elements">Interpreting reactive elements</h2>
+<ul><li><p>Inductive loads draw lagging current.</p></li><li><p>Capacitive loads draw leading current.</p></li></ul>
+<h2 id="ac-analysis-workflow">AC analysis workflow</h2>
+<ol><li><p>Convert the source to phasor form.</p></li><li><p>Replace elements with impedances.</p></li><li><p>Solve the resulting complex circuit with KCL, KVL, or network reduction.</p></li><li><p>Convert the answer back to the time domain if needed.</p></li></ol>
+<hr />
+<h1 id="resonance-and-frequency-response">Resonance and frequency response</h1>
+<h2 id="series-resonance">Series resonance</h2>
+<p>In a series RLC circuit, resonance occurs when</p>
+<div class="math-block">$$
+\omega L = \frac{1}{\omega C}
+$$</div>
+<p>so the reactive parts cancel.</p>
+<p>The resonant frequency is</p>
+<div class="math-block">$$
+\omega_0 = \frac{1}{\sqrt{LC}}
+$$</div>
+<p>or</p>
+<div class="math-block">$$
+f_0 = \frac{1}{2\pi\sqrt{LC}}
+$$</div>
+<h2 id="parallel-resonance">Parallel resonance</h2>
+<p>In a parallel RLC circuit, the total admittance is minimized at resonance, and the input impedance is maximized.</p>
+<h2 id="quality-factor">Quality factor</h2>
+<p>The quality factor $Q$ measures how sharp or selective a resonance is.</p>
+<p>For many simple resonant circuits, a larger $Q$ implies a narrower bandwidth.</p>
+<h2 id="filters">Filters</h2>
+<p>Common first-order behaviors:</p>
+<ul><li><p>Low-pass: passes low frequencies, attenuates high frequencies</p></li><li><p>High-pass: passes high frequencies, attenuates low frequencies</p></li></ul>
+<p>Common second-order behaviors:</p>
+<ul><li><p>Band-pass: passes a range around a center frequency</p></li><li><p>Band-stop / notch: attenuates a narrow frequency range</p></li></ul>
+<h2 id="bode-plot-basics">Bode plot basics</h2>
+<p>Use Bode plots to reason about gain and phase versus frequency.</p>
+<p>Typical asymptotic slopes:</p>
+<ul><li><p>One pole: $-20$ dB/decade</p></li><li><p>One zero: $+20$ dB/decade</p></li></ul>
+<hr />
+<h1 id="operational-amplifier-basics">Operational amplifier basics</h1>
+<p>Ideal op-amp analysis is a standard tool in circuit theory.</p>
+<h2 id="ideal-assumptions">Ideal assumptions</h2>
+<ul><li><p>Infinite open-loop gain</p></li><li><p>Infinite input resistance</p></li><li><p>Zero output resistance</p></li><li><p>Infinite bandwidth</p></li></ul>
+<h2 id="golden-rules-with-negative-feedback">Golden rules with negative feedback</h2>
+<ol><li><p>Input currents are approximately zero:</p></li></ol>
+<div class="math-block">$$
+i_+ \approx i_- \approx 0
+$$</div>
+<ol><li><p>Input voltages are approximately equal:</p></li></ol>
+<div class="math-block">$$
+v_+ \approx v_-
+$$</div>
+<h2 id="common-configurations">Common configurations</h2>
+<h3 id="inverting-amplifier">Inverting amplifier</h3>
+<div class="math-block">$$
+V_{out} = -\frac{R_f}{R_{in}}V_{in}
+$$</div>
+<h3 id="noninverting-amplifier">Noninverting amplifier</h3>
+<div class="math-block">$$
+V_{out} = \left(1 + \frac{R_f}{R_g}\right)V_{in}
+$$</div>
+<h3 id="summing-amplifier">Summing amplifier</h3>
+<p>Multiple inputs contribute linearly through weighted resistors.</p>
+<h3 id="voltage-follower">Voltage follower</h3>
+<p>Output is tied to the inverting input, so</p>
+<div class="math-block">$$
+V_{out} \approx V_{in}
+$$</div>
+<h2 id="caution">Caution</h2>
+<p>Ideal op-amp rules fail if the output saturates or if feedback is not negative.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<h2 id="recommended-workflow">Recommended workflow</h2>
+<ol><li><p>Read the problem statement carefully and identify the unknowns.</p></li><li><p>Mark the reference directions for all currents and voltages.</p></li><li><p>Decide whether the circuit is best solved by:</p>
+<ul><li><p>reduction</p></li><li><p>node-voltage analysis</p></li><li><p>mesh-current analysis</p></li><li><p>Thevenin/Norton reduction</p></li><li><p>phasors</p></li><li><p>transient methods</p></li></ul></li><li><p>Simplify the circuit only when the simplification preserves the quantity of interest.</p></li><li><p>Write the governing equations before plugging in numbers.</p></li><li><p>Solve symbolically when possible, then substitute values.</p></li><li><p>Check units, sign, and limiting cases.</p></li></ol>
+<h2 id="sanity-checks">Sanity checks</h2>
+<ul><li><p>Does the answer have the right units?</p></li><li><p>Do currents and voltages have reasonable magnitude?</p></li><li><p>Does the result reduce correctly when a component becomes very large or very small?</p></li><li><p>Is power conserved?</p></li></ul>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Mixing peak and RMS values</p></li><li><p>Using the wrong reference polarity</p></li><li><p>Deactivating dependent sources during Thevenin analysis</p></li><li><p>Forgetting capacitor voltage and inductor current continuity</p></li><li><p>Applying DC resistor rules directly in AC phasor circuits</p></li><li><p>Computing power from peak values without converting consistently</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="dc-relations">DC relations</h2>
+<div class="math-block">$$
+v = Ri
+$$</div>
+<div class="math-block">$$
+\sum i = 0
+$$</div>
+<div class="math-block">$$
+\sum v = 0
+$$</div>
+<h2 id="source-and-network-equivalents">Source and network equivalents</h2>
+<div class="math-block">$$
+I_N = \frac{V_{th}}{R_{th}}
+$$</div>
+<div class="math-block">$$
+V_{th} = I_NR_{th}
+$$</div>
+<h2 id="energy-storage-2">Energy storage</h2>
+<div class="math-block">$$
+w_C = \frac{1}{2}Cv^2
+$$</div>
+<div class="math-block">$$
+w_L = \frac{1}{2}Li^2
+$$</div>
+<h2 id="time-constants">Time constants</h2>
+<div class="math-block">$$
+\tau_{RC} = RC
+$$</div>
+<div class="math-block">$$
+\tau_{RL} = \frac{L}{R}
+$$</div>
+<h2 id="phasor-impedances">Phasor impedances</h2>
+<div class="math-block">$$
+Z_R = R
+$$</div>
+<div class="math-block">$$
+Z_C = \frac{1}{j\omega C}
+$$</div>
+<div class="math-block">$$
+Z_L = j\omega L
+$$</div>
+<h2 id="power">Power</h2>
+<div class="math-block">$$
+p = vi
+$$</div>
+<div class="math-block">$$
+\tilde{S} = \tilde{V}\tilde{I}^*
+$$</div>
+<div class="math-block">$$
+P_{max} = \frac{V_{th}^2}{4R_{th}}
+$$</div>
+<h2 id="resonance">Resonance</h2>
+<div class="math-block">$$
+\omega_0 = \frac{1}{\sqrt{LC}}
+$$</div>
+<div class="math-block">$$
+f_0 = \frac{1}{2\pi\sqrt{LC}}
+$$</div>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+<blockquote><p><strong>Suggested route:</strong> Sections 1–4 build the DC vocabulary and reduction skills. Continue to Sections 5–9 for systematic DC analysis and power. Read Section 10 only after reviewing first-order ODEs; read Sections 11–13 after you are comfortable with complex numbers and sinusoidal functions. Section 14 uses the same circuit laws with ideal op-amp assumptions.</p></blockquote>
+<p>The early sections are useful on their own. The later sections form branches: transients (Section 10) models time-domain storage, while phasors and frequency response (Sections 11–13) model sinusoidal steady state. Do not use a steady-state phasor result to answer a startup transient question.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="core-quantities-and-circuit-elements">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Core quantities and circuit elements">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#fundamental-quantities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-quantities-and-circuit-elements">Fundamental quantities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-circuit-elements" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-quantities-and-circuit-elements">Ideal circuit elements</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-storage" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-quantities-and-circuit-elements">Energy storage</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="reference-directions-and-sign-conventions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Reference directions and sign conventions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#passive-sign-convention" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reference-directions-and-sign-conventions">Passive sign convention</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reference-directions-and-sign-conventions">Practical rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistake" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reference-directions-and-sign-conventions">Common mistake</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="ohms-law-and-kirchhoffs-laws" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Ohm&#39;s law and Kirchhoff&#39;s laws">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ohms-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ohms-law-and-kirchhoffs-laws">Ohm&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kirchhoffs-current-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ohms-law-and-kirchhoffs-laws">Kirchhoff&#39;s Current Law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kirchhoffs-voltage-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ohms-law-and-kirchhoffs-laws">Kirchhoff&#39;s Voltage Law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#where-they-come-from" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ohms-law-and-kirchhoffs-laws">Where they come from</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#applicability-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ohms-law-and-kirchhoffs-laws">Applicability limits</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="series-parallel-and-equivalent-reduction" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Series, parallel, and equivalent reduction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resistors-in-series" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="series-parallel-and-equivalent-reduction">Resistors in series</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resistors-in-parallel" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="series-parallel-and-equivalent-reduction">Resistors in parallel</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#voltage-divider" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="series-parallel-and-equivalent-reduction">Voltage divider</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#current-divider" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="series-parallel-and-equivalent-reduction">Current divider</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reduction-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="series-parallel-and-equivalent-reduction">Reduction workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="node-voltage-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Node-voltage analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#method" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="node-voltage-analysis">Method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resistor-current-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="node-voltage-analysis">Resistor current form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#supernode" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="node-voltage-analysis">Supernode</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#advantages" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="node-voltage-analysis">Advantages</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfall" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="node-voltage-analysis">Common pitfall</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="mesh-current-analysis" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Mesh-current analysis">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#method-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mesh-current-analysis">Method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#shared-resistor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mesh-current-analysis">Shared resistor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#supermesh" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mesh-current-analysis">Supermesh</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#advantages-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mesh-current-analysis">Advantages</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfall-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mesh-current-analysis">Common pitfall</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="source-transformations-and-superposition" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Source transformations and superposition">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#source-transformation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="source-transformations-and-superposition">Source transformation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#superposition-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="source-transformations-and-superposition">Superposition principle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-to-use-it" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="source-transformations-and-superposition">When to use it</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limitation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="source-transformations-and-superposition">Limitation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="thevenin-and-norton-equivalents" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Thevenin and Norton equivalents">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thevenin-equivalent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Thevenin equivalent</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#norton-equivalent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Norton equivalent</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conversion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Conversion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#finding-r-th" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Finding $R_{th}$</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#test-source-method" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Test-source method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-these-equivalents-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thevenin-and-norton-equivalents">Why these equivalents matter</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="power-energy-and-maximum-power-transfer" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Power, energy, and maximum power transfer">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#instantaneous-power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-energy-and-maximum-power-transfer">Instantaneous power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dc-resistor-power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-energy-and-maximum-power-transfer">DC resistor power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#average-power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-energy-and-maximum-power-transfer">Average power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#maximum-power-transfer-for-resistive-circuits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-energy-and-maximum-power-transfer">Maximum power transfer for resistive circuits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#efficiency-note" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-energy-and-maximum-power-transfer">Efficiency note</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="first-order-transients-rc-and-rl" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for First-order transients: RC and RL">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#capacitor-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">Capacitor laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inductor-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">Inductor laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rc-step-response" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">RC step response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rl-step-response" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">RL step response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpretation-of-the-time-constant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">Interpretation of the time constant</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#initial-and-final-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-order-transients-rc-and-rl">Initial and final conditions</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="sinusoidal-steady-state-and-phasors" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Sinusoidal steady state and phasors">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sinusoidal-signals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sinusoidal-steady-state-and-phasors">Sinusoidal signals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rms-value" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sinusoidal-steady-state-and-phasors">RMS value</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phasor-representation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sinusoidal-steady-state-and-phasors">Phasor representation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#converting-elements-to-impedance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sinusoidal-steady-state-and-phasors">Converting elements to impedance</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="impedance-admittance-and-ac-power" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Impedance, admittance, and AC power">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#admittance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">Admittance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#series-and-parallel-in-ac" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">Series and parallel in AC</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#complex-power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">Complex power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-factor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">Power factor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpreting-reactive-elements" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">Interpreting reactive elements</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ac-analysis-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="impedance-admittance-and-ac-power">AC analysis workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="resonance-and-frequency-response" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Resonance and frequency response">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#series-resonance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="resonance-and-frequency-response">Series resonance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#parallel-resonance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="resonance-and-frequency-response">Parallel resonance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quality-factor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="resonance-and-frequency-response">Quality factor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#filters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="resonance-and-frequency-response">Filters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bode-plot-basics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="resonance-and-frequency-response">Bode plot basics</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="operational-amplifier-basics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Operational amplifier basics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-assumptions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operational-amplifier-basics">Ideal assumptions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#golden-rules-with-negative-feedback" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operational-amplifier-basics">Golden rules with negative feedback</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-configurations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operational-amplifier-basics">Common configurations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#caution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operational-amplifier-basics">Caution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recommended-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Recommended workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Sanity checks</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dc-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">DC relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#source-and-network-equivalents" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Source and network equivalents</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-storage-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Energy storage</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-constants" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Time constants</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phasor-impedances" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Phasor impedances</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resonance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Resonance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

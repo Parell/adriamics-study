@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Failure, Reliability, and Safety | Adriamics Study</title>
+  <meta name="description" content="Failure engineering asks three connected questions: How can a system fail? How likely is each failure? What can we do to prevent harm? A useful analysis sepa..." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/failure-reliability-and-safety/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#failure-is-a-loss-of-required-function" data-notes-nav-item data-notes-toc-link>Failure is a loss of required function</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fatigue-and-fracture" data-notes-nav-item data-notes-toc-link>Fatigue and fracture</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#overload-buckling-wear-and-corrosion" data-notes-nav-item data-notes-toc-link>Overload, buckling, wear, and corrosion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#a-defensible-failure-investigation" data-notes-nav-item data-notes-toc-link>A defensible failure investigation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reliability-and-probability-of-failure" data-notes-nav-item data-notes-toc-link>Reliability and probability of failure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#system-reliability" data-notes-nav-item data-notes-toc-link>System reliability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hazard-and-risk-controls" data-notes-nav-item data-notes-toc-link>Hazard and risk controls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-a-redundant-shutdown-function" data-notes-nav-item data-notes-toc-link>Worked example: a redundant shutdown function</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#progression" data-notes-nav-item data-notes-toc-link>Progression</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Failure, Reliability, and Safety</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/failure-reliability-and-safety/failure-reliability-and-safety.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Ffailure-reliability-and-safety%2Ffailure-reliability-and-safety.md&amp;title=%5BContribute%5D%3A%20Failure%2C%20Reliability%2C%20and%20Safety" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/engineering-design/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/failure-reliability-and-safety/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/metallurgy-and-manufacturing/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <p>Failure engineering asks three connected questions: <strong>How can a system fail? How likely is each failure? What can we do to prevent harm?</strong> A useful analysis separates the physical failure mechanism from the probability of occurrence and from the consequences of an event.</p>
+<p>This note is a systems-level companion to <a href="/study/engineering/mechanics-of-materials/">Mechanics of Materials</a>, <a href="/study/engineering/materials-science/">Materials Science</a>, <a href="/study/engineering/tribology/">Tribology</a>, and <a href="/study/engineering/engineering-design/">Engineering Design</a>. Those notes develop detailed stress, material, and contact models; this note organizes them into investigation, reliability, and safety decisions.</p>
+<h2 id="failure-is-a-loss-of-required-function">Failure is a loss of required function</h2>
+<p>A failure occurs when an item cannot perform a specified function within stated limits. It need not be a dramatic fracture: excessive deflection, leakage, inaccurate measurement, unsafe temperature, loss of containment, or unacceptable downtime can all be failures.</p>
+<p>State the system boundary, intended function, operating time, environment, and acceptance limits before analyzing failure. The same observation can have different meanings in different contexts: a small crack may be harmless in a cosmetic panel and unacceptable in a pressure boundary.</p>
+<h3 id="main-failure-mechanisms">Main failure mechanisms</h3>
+<table><thead><tr><th>Mechanism</th><th>Typical evidence</th><th>Main driver</th></tr></thead><tbody><tr><td>Ductile overload</td><td>Necking, large plastic deformation, shear lips</td><td>Demand exceeds plastic capacity</td></tr><tr><td>Brittle or cleavage fracture</td><td>Little plastic deformation, shiny facets, rapid separation</td><td>Low toughness, high constraint, or low temperature</td></tr><tr><td>Fatigue</td><td>Beach marks, striations, crack from a stress raiser</td><td>Repeated or fluctuating stress</td></tr><tr><td>Creep or stress rupture</td><td>Time-dependent strain, cavitation, rupture at high temperature</td><td>Sustained stress and temperature</td></tr><tr><td>Wear</td><td>Material loss, scoring, pitting, looseness</td><td>Sliding, rolling, impact, or particles</td></tr><tr><td>Corrosion</td><td>Section loss, pits, deposits, corrosion products</td><td>Electrochemical environment</td></tr><tr><td>Buckling</td><td>Sudden lateral deflection or wrinkling</td><td>Instability under compression or shear</td></tr></tbody></table>
+<p>Fracture mode is a conclusion supported by evidence, not a label chosen from the final appearance alone. Preserve the fracture surface, photograph the assembly before disassembly, record loads and environment, and compare failed and unfailed parts.</p>
+<h2 id="fatigue-and-fracture">Fatigue and fracture</h2>
+<p>Fatigue can initiate at a notch, surface defect, inclusion, thread root, weld toe, or corrosion pit even when the nominal stress is below yield strength. For a cycle with maximum and minimum stress,</p>
+<div class="math-block">$$
+\sigma_a=\frac{\sigma_{\max}-\sigma_{\min}}{2},\qquad
+\sigma_m=\frac{\sigma_{\max}+\sigma_{\min}}{2},
+$$</div>
+<p>where $\sigma_a$ is alternating stress and $\sigma_m$ is mean stress. An S–N method relates stress amplitude to cycles to failure and is useful for high-cycle, predominantly elastic loading. A strain-life method uses elastic and plastic strain amplitudes and is better for low-cycle fatigue. Crack-growth analysis instead models an existing crack, commonly using stress-intensity range $\Delta K$ and</p>
+<div class="math-block">$$
+\frac{da}{dN}=C(\Delta K)^m.
+$$</div>
+<p>Constants and validity ranges must come from appropriate material, geometry, environment, and load-ratio data. Do not treat an S–N curve as proof that a component containing a large crack is safe.</p>
+<p>Fracture assessment connects crack size, stress, and toughness. A simplified mode-I check compares</p>
+<div class="math-block">$$
+K_I=Y\sigma\sqrt{\pi a}
+$$</div>
+<p>with fracture toughness $K_{IC}$, where $a$ is crack size and $Y$ is a geometry factor. Real assessments must account for plasticity, constraint, residual stress, crack orientation, and the applicable standard.</p>
+<h2 id="overload-buckling-wear-and-corrosion">Overload, buckling, wear, and corrosion</h2>
+<p>Overload is a strength problem: demand exceeds yield, ultimate, shear, bearing, or fracture capacity. Buckling is an equilibrium-stability problem: a small lateral disturbance grows into a large displacement before material strength is necessarily exceeded. For an ideal pin-ended slender column,</p>
+<p>$$P_{cr}=\frac{\pi^2EI}{(KL)^2},$$</p>
+<p>where $E$ is elastic modulus, $I$ is the least second moment of area, $L$ is length, and $K$ represents end conditions. Imperfections, residual stress, eccentric loading, and inelastic behavior reduce usable capacity.</p>
+<p>Wear diagnosis begins with contact load, sliding speed, lubrication, hardness, roughness, contamination, and temperature. Adhesive wear produces transfer or galling; abrasive wear produces grooves; erosive wear is driven by moving particles or droplets; corrosive wear combines chemical attack with motion; fretting occurs during small-amplitude oscillation. Prevention may require a material change, harder surface, coating, lubricant, seal, alignment correction, or lower contact stress.</p>
+<p>Corrosion is an electrochemical process involving anodic metal dissolution and a cathodic reaction. Uniform attack, pitting, crevice corrosion, galvanic corrosion, stress-corrosion cracking, and corrosion fatigue require different controls. Design for drainage and inspection, select compatible materials, control chemistry, isolate galvanic couples, and verify coatings or cathodic protection.</p>
+<h2 id="a-defensible-failure-investigation">A defensible failure investigation</h2>
+<ol><li><p><strong>Define the failure:</strong> state the lost function, time, location, and severity.</p></li><li><p><strong>Preserve evidence:</strong> control access, label parts, photograph condition, and avoid cleaning or forcing components before documentation.</p></li><li><p><strong>Build the chronology:</strong> identify manufacture, assembly, commissioning, load changes, maintenance, alarms, environmental exposure, and the first abnormal observation.</p></li><li><p><strong>Compare populations:</strong> inspect failed, surviving, returned, and correctly manufactured items.</p></li><li><p><strong>Generate mechanisms:</strong> test overload, fatigue, corrosion, wear, buckling, manufacturing defects, misuse, and system interactions.</p></li><li><p><strong>Test hypotheses:</strong> use measurements, microscopy, material checks, calculations, nondestructive examination, and controlled reproduction.</p></li><li><p><strong>Find causes at multiple levels:</strong> distinguish immediate physical cause, contributing conditions, and latent design, process, maintenance, or organizational causes.</p></li><li><p><strong>Close the loop:</strong> assign corrective actions, verify effectiveness, update drawings and procedures, and share the lesson.</p></li></ol>
+<p>The “5 Whys” and fishbone diagrams organize questions; they do not replace evidence. Fault trees can model how causes combine, but should be built from a defined top event and checked against the actual chronology.</p>
+<h2 id="reliability-and-probability-of-failure">Reliability and probability of failure</h2>
+<p>Let $T$ be random time to failure. Reliability is</p>
+<p>$$R(t)=P(T&gt;t),$$</p>
+<p>and failure probability by time $t$ is $F(t)=1-R(t)$. If a continuous distribution has density $f(t)$, its hazard rate is</p>
+<p>$$\lambda(t)=\frac{f(t)}{R(t)}.$$</p>
+<p>Hazard is an instantaneous conditional failure rate, not generally the probability of failure in an interval. For an exponential model with constant rate $\lambda$,</p>
+<p>$$R(t)=e^{-\lambda t},\qquad \mathrm{MTBF}=\frac{1}{\lambda}.$$</p>
+<p>This model describes a stable random-failure period, not every product or maintenance process.</p>
+<h3 id="weibull-model">Weibull model</h3>
+<p>The two-parameter Weibull reliability model is</p>
+<p>$$R(t)=\exp\left[-\left(\frac{t}{\eta}\right)^\beta\right],$$</p>
+<p>where $\eta$ is characteristic life ($R(\eta)=e^{-1}$) and $\beta$ is shape. $\beta&lt;1$ suggests decreasing early-life hazard, $\beta\approx1$ constant hazard, and $\beta&gt;1$ wear-out. Estimate parameters from complete and right-censored observations using a justified method; do not discard units that have not failed. A Weibull probability plot checks plausibility but does not prove the model.</p>
+<h2 id="system-reliability">System reliability</h2>
+<p>For statistically independent components in series, every component must work:</p>
+<p>$$R_s=\prod_{i=1}^{n}R_i.$$</p>
+<p>For independent parallel components, at least one must work:</p>
+<p>$$R_p=1-\prod_{i=1}^{n}(1-R_i).$$</p>
+<p>Redundancy helps only when the backup is genuinely independent, available when needed, and not defeated by shared power, software, environment, wiring, or maintenance. Parallel blocks can also introduce switching and dormant-failure modes.</p>
+<p>Fault-tree analysis starts with a top event and decomposes it through AND and OR gates. An OR gate occurs when any input causes the output; an AND gate requires all inputs. Minimal cut sets are the smallest combinations of basic events that can produce the top event. Quantitative estimates require consistent event definitions, time bases, and independence assumptions.</p>
+<p>FMEA works from lower-level functions toward system effects. Record the local effect, next-level effect, end effect, cause, controls, and action for each failure mode. FMECA adds criticality analysis. Severity, occurrence, and detectability rankings prioritize work, but a risk-priority number is not a physical probability.</p>
+<p>Maintainability is the ability to restore function under stated conditions. Track diagnostic, access, repair, logistics, and test time. For a simple steady process,</p>
+<p>$$A=\frac{\mathrm{MTBF}}{\mathrm{MTBF}+\mathrm{MTTR}},$$</p>
+<p>where $A$ is inherent availability. Preventive maintenance is useful when it reduces total risk or downtime; replacing parts only because a calendar interval passed can create maintenance-induced failures.</p>
+<h2 id="hazard-and-risk-controls">Hazard and risk controls</h2>
+<p>A hazard is a condition with potential to cause harm. Identify initiating events, hazardous energy or material, exposed people or assets, consequences, safeguards, and recovery actions. Prefer: eliminate; substitute; engineer guards and controls; use procedures and training; then use personal protective equipment.</p>
+<p>A risk statement connects likelihood and consequence. Ordinal risk matrices support discussion and triage, but colored cells do not create quantitative truth: categories can be vague, scales nonlinear, and rare catastrophic events averaged away. Use evidence-based models, standards, and explicit uncertainty for consequential decisions.</p>
+<p>Layer-of-protection analysis evaluates an initiating-event frequency and the probability that independent protection layers fail. Layers must be effective, auditable, independent, and specific to the initiating event. A basic control and an alarm sharing the same sensor are not independent layers.</p>
+<p>Human factors includes workload, interfaces, alarms, procedures, training, fatigue, incentives, communication, and organizational conditions. Treat human error as a design input: make the safe action easy, provide feedback, constrain hazardous states, and avoid relying on memory or perfect attention.</p>
+<p>Safety factors and reliability targets are related but not interchangeable. A deterministic factor of safety compares selected capacity and demand:</p>
+<p>$$n=\frac{\text{capacity}}{\text{demand}},\qquad \text{margin}=\frac{\text{capacity}}{\text{demand}}-1.$$</p>
+<p>It does not automatically specify failure probability because loads, properties, defects, models, and consequences may be uncertain. Functional safety focuses on safety-related functions: define the hazardous event, required risk reduction, safe state, diagnostics, fault response, verification, and lifecycle responsibilities. Integrity levels are risk-reduction and performance claims, not labels that make an unsafe architecture safe.</p>
+<h2 id="worked-example-a-redundant-shutdown-function">Worked example: a redundant shutdown function</h2>
+<p>A machine has two independent shutdown channels. Channel A has reliability $R_A=0.98$ and channel B has $R_B=0.97$ over the mission. Either can stop the machine, so the shutdown function fails only if both fail:</p>
+<p>$$R_{shutdown}=1-(1-R_A)(1-R_B)=1-(0.02)(0.03)=0.9994.$$</p>
+<p>The failure probability is $0.0006$ over the stated mission. Shared power, a common sensor, common software, or maintenance error could make actual reliability lower; the independence assumption must be verified.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Calling every fracture fatigue without examining initiation and loading history.</p></li><li><p>Using nominal stress while ignoring notches, defects, residual stress, or environment.</p></li><li><p>Treating a factor of safety as a probability of survival.</p></li><li><p>Fitting Weibull parameters after deleting censored units.</p></li><li><p>Multiplying reliabilities without checking independence and time basis.</p></li><li><p>Counting dependent safeguards as independent protection layers.</p></li><li><p>Ranking FMEA items mechanically and overlooking high-consequence failures.</p></li><li><p>Stopping at operator error instead of correcting the design and conditions that made it likely.</p></li><li><p>Recommending an action without defining how effectiveness will be verified.</p></li></ul>
+<h2 id="practice-problems">Practice problems</h2>
+<ol><li><p>A component has $\sigma_{\max}=120\ \mathrm{MPa}$ and $\sigma_{\min}=-20\ \mathrm{MPa}$. Find $\sigma_a$ and $\sigma_m$.</p></li></ol>
+<p>:::solution $$\sigma_a=70\ \mathrm{MPa},\qquad \sigma_m=50\ \mathrm{MPa}.$$ :::</p>
+<ol><li><p>Three independent series components have reliabilities $0.99$, $0.98$, and $0.97$ over one year. Find system reliability.</p></li></ol>
+<p>:::solution $$R_s=(0.99)(0.98)(0.97)=0.9407,$$ so failure probability is $0.0593$. :::</p>
+<ol><li><p>A Weibull model has $\beta=2$ and $\eta=10{,}000\ \mathrm h$. Find reliability at $5{,}000\ \mathrm h$ and state whether hazard increases or decreases.</p></li></ol>
+<p>:::solution $$R(5000)=\exp[-(5000/10000)^2]=e^{-0.25}\approx0.7788.$$ Since $\beta&gt;1$, hazard increases. :::</p>
+<ol><li><p>An OR gate has independent basic-event probabilities $0.02$ and $0.03$. Find the top-event probability.</p></li></ol>
+<p>:::solution $$P=1-(1-0.02)(1-0.03)=0.0494.$$ :::</p>
+<h2 id="progression">Progression</h2>
+<p>Study mechanics and materials first, then classify physical failure evidence. Next learn probability distributions and system reliability, followed by FMEA, fault trees, and hazard analysis. Finish by applying the full workflow to a real or simulated failure chronology and defending both the causal evidence and the proposed risk controls.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="failure-is-a-loss-of-required-function">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Failure is a loss of required function">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#main-failure-mechanisms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="failure-is-a-loss-of-required-function">Main failure mechanisms</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="reliability-and-probability-of-failure" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Reliability and probability of failure">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#weibull-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reliability-and-probability-of-failure">Weibull model</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matrices | Adriamics Study</title>
+  <meta name="description" content="The size or dimension of a matrix is written as:" />
+  <link rel="canonical" href="https://adriamics.com/study/math/matrices/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/matrices/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#matrix-notation-and-dimensions" data-notes-nav-item data-notes-toc-link>Matrix notation and dimensions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#types-of-matrices" data-notes-nav-item data-notes-toc-link>Types of matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#matrix-operations" data-notes-nav-item data-notes-toc-link>Matrix operations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#matrix-multiplication" data-notes-nav-item data-notes-toc-link>Matrix multiplication</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#transpose-and-symmetry" data-notes-nav-item data-notes-toc-link>Transpose and symmetry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#row-reduction-and-echelon-form" data-notes-nav-item data-notes-toc-link>Row reduction and echelon form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinants" data-notes-nav-item data-notes-toc-link>Determinants</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inverse-matrices" data-notes-nav-item data-notes-toc-link>Inverse matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#systems-of-linear-equations" data-notes-nav-item data-notes-toc-link>Systems of linear equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rank-nullity-and-subspaces" data-notes-nav-item data-notes-toc-link>Rank, nullity, and subspaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#where-eigenvalues-fit" data-notes-nav-item data-notes-toc-link>Where eigenvalues fit</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-matrices-and-decompositions" data-notes-nav-item data-notes-toc-link>Special matrices and decompositions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Matrices</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/matrices/matrices.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fmatrices%2Fmatrices.md&amp;title=%5BContribute%5D%3A%20Matrices" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="4"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="matrix-notation-and-dimensions">Matrix notation and dimensions</h1>
+<p>The <strong>size</strong> or <strong>dimension</strong> of a matrix is written as:</p>
+<div class="math-block">$$
+m \times n
+$$</div>
+<p>where:</p>
+<ul><li><p>$m$ = number of rows</p></li><li><p>$n$ = number of columns</p></li></ul>
+<p>Examples:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 0 \\
+3 &amp; 5
+\end{bmatrix}
+\quad \text{is } 2 \times 2
+$$</div>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2 &amp; 3
+\end{bmatrix}
+\quad \text{is } 1 \times 3
+$$</div>
+<div class="math-block">$$
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}
+\quad \text{is } 3 \times 1
+$$</div>
+<h2 id="row-and-column-vectors">Row and column vectors</h2>
+<p>A <strong>row vector</strong> is a $1 \times n$ matrix.</p>
+<p>A <strong>column vector</strong> is an $m \times 1$ matrix.</p>
+<p>Vectors are special cases of matrices.</p>
+<h2 id="equality-of-matrices">Equality of matrices</h2>
+<p>Two matrices are equal if and only if:</p>
+<ul><li><p>They have the same dimensions</p></li><li><p>Every corresponding entry is equal</p></li></ul>
+<hr />
+<h1 id="types-of-matrices">Types of matrices</h1>
+<table><thead><tr><th>Type</th><th>Definition</th><th>Example</th></tr></thead><tbody><tr><td>Zero matrix</td><td>All entries are zero</td><td>$\begin{bmatrix}0 &amp; 0\\0 &amp; 0\end{bmatrix}$</td></tr><tr><td>Square matrix</td><td>Same number of rows and columns</td><td>$2 \times 2$, $3 \times 3$</td></tr><tr><td>Diagonal matrix</td><td>Nonzero entries only on the main diagonal</td><td>$\begin{bmatrix}2 &amp; 0\\0 &amp; -1\end{bmatrix}$</td></tr><tr><td>Scalar matrix</td><td>Diagonal matrix with equal diagonal entries</td><td>$cI$</td></tr><tr><td>Identity matrix</td><td>Ones on diagonal, zeros elsewhere</td><td>$I_3$</td></tr><tr><td>Upper triangular</td><td>Zeros below diagonal</td><td>$\begin{bmatrix}1 &amp; 2\\0 &amp; 3\end{bmatrix}$</td></tr><tr><td>Lower triangular</td><td>Zeros above diagonal</td><td>$\begin{bmatrix}1 &amp; 0\\4 &amp; 2\end{bmatrix}$</td></tr><tr><td>Symmetric</td><td>$A^T = A$</td><td>$\begin{bmatrix}1 &amp; 2\\2 &amp; 5\end{bmatrix}$</td></tr><tr><td>Skew-symmetric</td><td>$A^T = -A$</td><td>$\begin{bmatrix}0 &amp; 3\\-3 &amp; 0\end{bmatrix}$</td></tr><tr><td>Orthogonal</td><td>$A^T A = I$</td><td>Rotation matrices</td></tr><tr><td>Singular</td><td>Not invertible</td><td>Determinant $= 0$</td></tr><tr><td>Nonsingular</td><td>Invertible</td><td>Determinant $\ne 0$</td></tr></tbody></table>
+<h2 id="identity-matrix">Identity matrix</h2>
+<p>The identity matrix $I_n$ acts like the number 1 under matrix multiplication:</p>
+<div class="math-block">$$
+AI_n = I_mA = A
+$$</div>
+<p>when dimensions match.</p>
+<h2 id="trace">Trace</h2>
+<p>For a square matrix, the <strong>trace</strong> is the sum of diagonal entries:</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = \sum_{i=1}^{n} a_{ii}
+$$</div>
+<p>Trace is defined only for square matrices.</p>
+<hr />
+<h1 id="matrix-operations">Matrix operations</h1>
+<h2 id="addition-and-subtraction">Addition and subtraction</h2>
+<p>Matrix addition and subtraction require equal dimensions and are done entrywise.</p>
+<p>If $A = [a_{ij}]$ and $B = [b_{ij}]$, then:</p>
+<div class="math-block">$$
+(A+B)_{ij} = a_{ij} + b_{ij}
+$$</div>
+<div class="math-block">$$
+(A-B)_{ij} = a_{ij} - b_{ij}
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2\\
+3 &amp; 4
+\end{bmatrix}
++
+\begin{bmatrix}
+5 &amp; 6\\
+7 &amp; 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 &amp; 8\\
+10 &amp; 12
+\end{bmatrix}
+$$</div>
+<h2 id="scalar-multiplication">Scalar multiplication</h2>
+<p>For scalar $c$:</p>
+<div class="math-block">$$
+cA = [ca_{ij}]
+$$</div>
+<p>This multiplies every entry by $c$.</p>
+<h2 id="linear-combination">Linear combination</h2>
+<p>A linear combination of matrices has the form:</p>
+<div class="math-block">$$
+c_1A_1 + c_2A_2 + \cdots + c_kA_k
+$$</div>
+<p>This is useful in vector spaces of matrices.</p>
+<h2 id="properties-of-addition-and-scalar-multiplication">Properties of addition and scalar multiplication</h2>
+<p>For matrices of compatible size:</p>
+<div class="math-block">$$
+A+B = B+A
+$$</div>
+<div class="math-block">$$
+(A+B)+C = A+(B+C)
+$$</div>
+<div class="math-block">$$
+A+0 = A
+$$</div>
+<div class="math-block">$$
+A + (-A) = 0
+$$</div>
+<div class="math-block">$$
+c(A+B) = cA + cB
+$$</div>
+<div class="math-block">$$
+(c+d)A = cA + dA
+$$</div>
+<div class="math-block">$$
+(cd)A = c(dA)
+$$</div>
+<hr />
+<h1 id="matrix-multiplication">Matrix multiplication</h1>
+<p>Matrix multiplication is not entrywise. It is defined by row-by-column products.</p>
+<p>If $A$ is $m \times n$ and $B$ is $n \times p$, then $AB$ is defined and has size $m \times p$.</p>
+<h2 id="compatibility-rule">Compatibility rule</h2>
+<p>The number of columns of the left matrix must equal the number of rows of the right matrix.</p>
+<p>If dimensions do not match, the product is undefined.</p>
+<h2 id="product-formula">Product formula</h2>
+<p>The $(i,j)$ entry of $AB$ is:</p>
+<div class="math-block">$$
+(AB)_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2\\
+3 &amp; 4
+\end{bmatrix}
+\begin{bmatrix}
+5 &amp; 6\\
+7 &amp; 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+19 &amp; 22\\
+43 &amp; 50
+\end{bmatrix}
+$$</div>
+<p>because:</p>
+<div class="math-block">$$
+19 = 1\cdot 5 + 2\cdot 7
+$$</div>
+<div class="math-block">$$
+22 = 1\cdot 6 + 2\cdot 8
+$$</div>
+<h2 id="key-properties">Key properties</h2>
+<p>Matrix multiplication is:</p>
+<ul><li><p>Associative: $(AB)C = A(BC)$</p></li><li><p>Distributive: $A(B+C) = AB + AC$</p></li><li><p>Compatible with scalars: $(cA)B = c(AB) = A(cB)$</p></li></ul>
+<p>Matrix multiplication is generally <strong>not commutative</strong>:</p>
+<div class="math-block">$$
+AB \ne BA
+$$</div>
+<p>in most cases.</p>
+<h2 id="powers-of-a-matrix">Powers of a matrix</h2>
+<p>For a square matrix:</p>
+<div class="math-block">$$
+A^2 = AA,\quad A^3 = AAA
+$$</div>
+<p>and in general:</p>
+<div class="math-block">$$
+A^k = \underbrace{A\cdots A}_{k\text{ factors}}
+$$</div>
+<p>Matrix powers are only defined for square matrices.</p>
+<h2 id="useful-interpretation">Useful interpretation</h2>
+<p>If $A$ is a matrix and $x$ is a vector, then $Ax$ is a linear combination of the columns of $A$ weighted by the components of $x$.</p>
+<p>That viewpoint is often the fastest way to interpret $Ax=b$.</p>
+<hr />
+<h1 id="transpose-and-symmetry">Transpose and symmetry</h1>
+<p>The <strong>transpose</strong> of a matrix $A$ is denoted $A^T$ and is formed by swapping rows and columns.</p>
+<p>If $A = [a_{ij}]$, then:</p>
+<div class="math-block">$$
+(A^T)_{ij} = a_{ji}
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2 &amp; 3\\
+4 &amp; 5 &amp; 6
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 &amp; 4\\
+2 &amp; 5\\
+3 &amp; 6
+\end{bmatrix}
+$$</div>
+<h2 id="transpose-rules">Transpose rules</h2>
+<div class="math-block">$$
+(A^T)^T = A
+$$</div>
+<div class="math-block">$$
+(A+B)^T = A^T + B^T
+$$</div>
+<div class="math-block">$$
+(cA)^T = cA^T
+$$</div>
+<div class="math-block">$$
+(AB)^T = B^T A^T
+$$</div>
+<p>The last identity reverses the order.</p>
+<h2 id="symmetric-matrices">Symmetric matrices</h2>
+<p>A square matrix is symmetric if:</p>
+<div class="math-block">$$
+A^T = A
+$$</div>
+<p>Symmetric matrices have mirrored entries across the main diagonal.</p>
+<h2 id="skew-symmetric-matrices">Skew-symmetric matrices</h2>
+<p>A square matrix is skew-symmetric if:</p>
+<div class="math-block">$$
+A^T = -A
+$$</div>
+<p>Every diagonal entry of a skew-symmetric matrix is zero.</p>
+<hr />
+<h1 id="row-reduction-and-echelon-form">Row reduction and echelon form</h1>
+<p>Row operations are used to solve systems and simplify matrices.</p>
+<h2 id="elementary-row-operations">Elementary row operations</h2>
+<ol><li><p>Swap two rows</p></li><li><p>Multiply a row by a nonzero scalar</p></li><li><p>Replace a row by itself plus a multiple of another row</p></li></ol>
+<p>These operations preserve the solution set of a linear system.</p>
+<h2 id="row-echelon-form">Row echelon form</h2>
+<p>A matrix is in <strong>row echelon form</strong> if:</p>
+<ul><li><p>All zero rows are at the bottom</p></li><li><p>Each leading nonzero entry is to the right of the one above it</p></li><li><p>Entries below each leading entry are zero</p></li></ul>
+<h2 id="reduced-row-echelon-form">Reduced row echelon form</h2>
+<p>A matrix is in <strong>reduced row echelon form</strong> if, in addition:</p>
+<ul><li><p>Every leading entry is 1</p></li><li><p>Each leading 1 is the only nonzero entry in its column</p></li></ul>
+<p>The reduced row echelon form is unique.</p>
+<h2 id="pivots">Pivots</h2>
+<p>The first nonzero entry in a nonzero row is a <strong>pivot</strong>.</p>
+<p>Pivot columns identify which variables are basic in a linear system.</p>
+<h2 id="how-to-row-reduce-efficiently">How to row-reduce efficiently</h2>
+<ol><li><p>Work left to right, top to bottom.</p></li><li><p>Create a pivot in the current column.</p></li><li><p>Eliminate entries below the pivot.</p></li><li><p>Move to the next row and next column.</p></li><li><p>Back-substitute if you need reduced row echelon form.</p></li></ol>
+<hr />
+<h1 id="determinants">Determinants</h1>
+<p>The determinant is a scalar associated with a square matrix.</p>
+<p>It measures, among other things:</p>
+<ul><li><p>Scaling of area or volume under the linear transformation</p></li><li><p>Whether the matrix is invertible</p></li><li><p>Orientation change</p></li></ul>
+<h2 id="determinant-of-a-2-by-2-matrix">Determinant of a 2 by 2 matrix</h2>
+<p>For:</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+$$</div>
+<p>the determinant is:</p>
+<div class="math-block">$$
+\det(A) = ad - bc
+$$</div>
+<h2 id="determinant-of-a-3-by-3-matrix">Determinant of a 3 by 3 matrix</h2>
+<p>For:</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f \\
+g &amp; h &amp; i
+\end{bmatrix}
+$$</div>
+<p>one expansion is:</p>
+<div class="math-block">$$
+\det(A) = a(ei-fh) - b(di-fg) + c(dh-eg)
+$$</div>
+<h2 id="determinant-properties">Determinant properties</h2>
+<p>For square matrices:</p>
+<div class="math-block">$$
+\det(AB) = \det(A)\det(B)
+$$</div>
+<div class="math-block">$$
+\det(A^T) = \det(A)
+$$</div>
+<div class="math-block">$$
+\det(I) = 1
+$$</div>
+<p>If $A$ is triangular, then:</p>
+<div class="math-block">$$
+\det(A) = \prod_{i=1}^{n} a_{ii}
+$$</div>
+<h2 id="determinant-and-invertibility">Determinant and invertibility</h2>
+<p>A square matrix is invertible if and only if:</p>
+<div class="math-block">$$
+\det(A) \ne 0
+$$</div>
+<p>If:</p>
+<div class="math-block">$$
+\det(A) = 0
+$$</div>
+<p>then the matrix is singular.</p>
+<h2 id="cofactor-expansion">Cofactor expansion</h2>
+<p>For a square matrix, the determinant can be expanded along a row or column using minors and cofactors.</p>
+<p>This method is conceptually useful, but for large matrices row reduction is often faster.</p>
+<hr />
+<h1 id="inverse-matrices">Inverse matrices</h1>
+<p>If $A$ is square, its inverse $A^{-1}$ satisfies:</p>
+<div class="math-block">$$
+AA^{-1} = A^{-1}A = I
+$$</div>
+<p>An inverse exists exactly when $A$ is nonsingular.</p>
+<h2 id="why-inverses-matter">Why inverses matter</h2>
+<p>If $Ax=b$ and $A^{-1}$ exists, then:</p>
+<div class="math-block">$$
+x = A^{-1}b
+$$</div>
+<p>This solves the system in one step, though computing the inverse directly is often not the best numerical method.</p>
+<h2 id="inverse-of-a-2-by-2-matrix">Inverse of a 2 by 2 matrix</h2>
+<p>For:</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+$$</div>
+<p>if $ad-bc \ne 0$, then:</p>
+<div class="math-block">$$
+A^{-1} = \frac{1}{ad-bc}
+\begin{bmatrix}
+d &amp; -b \\
+-c &amp; a
+\end{bmatrix}
+$$</div>
+<h2 id="inverse-properties">Inverse properties</h2>
+<div class="math-block">$$
+(AB)^{-1} = B^{-1}A^{-1}
+$$</div>
+<div class="math-block">$$
+(A^T)^{-1} = (A^{-1})^T
+$$</div>
+<div class="math-block">$$
+(cA)^{-1} = \frac{1}{c}A^{-1}
+$$</div>
+<p>for nonzero scalar $c$.</p>
+<h2 id="practical-note">Practical note</h2>
+<p>To check whether your inverse is correct, multiply:</p>
+<div class="math-block">$$
+AA^{-1} = I
+$$</div>
+<p>on one side and, if needed, on both sides.</p>
+<hr />
+<h1 id="systems-of-linear-equations">Systems of linear equations</h1>
+<p>A linear system can be written as:</p>
+<div class="math-block">$$
+Ax = b
+$$</div>
+<p>where:</p>
+<ul><li><p>$A$ is the coefficient matrix</p></li><li><p>$x$ is the vector of unknowns</p></li><li><p>$b$ is the constant vector</p></li></ul>
+<h2 id="augmented-matrix">Augmented matrix</h2>
+<p>The system is often represented as:</p>
+<div class="math-block">$$
+[A \mid b]
+$$</div>
+<p>Row reduction is then used to determine whether the system has:</p>
+<ul><li><p>No solution</p></li><li><p>Exactly one solution</p></li><li><p>Infinitely many solutions</p></li></ul>
+<h2 id="interpret-the-row-reduced-form">Interpret the row-reduced form</h2>
+<p>If a row reduces to:</p>
+<div class="math-block">$$
+[0\ 0\ \cdots\ 0 \mid c]
+$$</div>
+<p>with $c \ne 0$, the system is inconsistent.</p>
+<p>If every variable column has a pivot, the solution is unique.</p>
+<p>If some variables are free, the system has infinitely many solutions.</p>
+<h2 id="homogeneous-systems">Homogeneous systems</h2>
+<p>A homogeneous system has the form:</p>
+<div class="math-block">$$
+Ax = 0
+$$</div>
+<p>It always has the trivial solution:</p>
+<div class="math-block">$$
+x = 0
+$$</div>
+<p>Nontrivial solutions exist exactly when the columns of $A$ are linearly dependent.</p>
+<h2 id="solution-structure">Solution structure</h2>
+<p>For a consistent system, the general solution is:</p>
+<div class="math-block">$$
+x = x_p + x_h
+$$</div>
+<p>where:</p>
+<ul><li><p>$x_p$ is one particular solution</p></li><li><p>$x_h$ is the general solution of the homogeneous system</p></li></ul>
+<hr />
+<h1 id="rank-nullity-and-subspaces">Rank, nullity, and subspaces</h1>
+<h2 id="rank">Rank</h2>
+<p>The <strong>rank</strong> of a matrix is the number of pivot columns, equivalently the dimension of the column space.</p>
+<p>It is also the dimension of the row space.</p>
+<h2 id="nullity">Nullity</h2>
+<p>The <strong>nullity</strong> of a matrix is the dimension of its null space:</p>
+<div class="math-block">$$
+\mathcal{N}(A) = \{x : Ax = 0\}
+$$</div>
+<h2 id="rank-nullity-theorem">Rank-nullity theorem</h2>
+<p>For an $m \times n$ matrix:</p>
+<div class="math-block">$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = n
+$$</div>
+<p>This is one of the most useful bookkeeping identities in linear algebra.</p>
+<h2 id="column-space">Column space</h2>
+<p>The <strong>column space</strong> is the span of the columns of $A$.</p>
+<p>It is the set of all vectors $b$ for which $Ax=b$ has at least one solution.</p>
+<h2 id="row-space">Row space</h2>
+<p>The <strong>row space</strong> is the span of the rows of $A$.</p>
+<p>Row operations preserve the row space up to equivalence of the row span.</p>
+<h2 id="null-space">Null space</h2>
+<p>The null space contains all vectors mapped to zero by $A$.</p>
+<p>If the null space contains only the zero vector, then $A$ has full column rank.</p>
+<hr />
+<h1 id="where-eigenvalues-fit">Where eigenvalues fit</h1>
+<p>Matrices are the foundation: dimensions, multiplication, row reduction, determinants, inverses, rank, null spaces, and subspaces provide the tools used by eigenvalue methods. The focused theory and computation belong in the <a href="/study/math/eigenvalues/">Eigenvalues note</a>.</p>
+<p>Use this compact recap only to connect the topics:</p>
+<table><thead><tr><th>Topic</th><th>Matrix-level statement</th><th>Full treatment</th></tr></thead><tbody><tr><td>Eigenpair</td><td>$Av=\lambda v$, with $v\ne0$</td><td><a href="/study/math/eigenvalues/">Eigenvalues</a></td></tr><tr><td>Candidate eigenvalues</td><td>$\det(A-\lambda I)=0$</td><td><a href="/study/math/eigenvalues/#2-characteristic-equation">Characteristic equations</a></td></tr><tr><td>Eigenspace</td><td>$\operatorname{Null}(A-\lambda I)$</td><td><a href="/study/math/eigenvalues/#3-eigenvectors-and-eigenspaces">Eigenspaces</a></td></tr><tr><td>Diagonalization</td><td>$A=PDP^{-1}$ when there are enough independent eigenvectors</td><td><a href="/study/math/eigenvalues/#6-diagonalization">Diagonalization</a></td></tr><tr><td>Symmetric case</td><td>$A=QDQ^T$ with $Q$ orthogonal</td><td><a href="/study/math/eigenvalues/#7-special-matrix-classes">Spectral theorem</a></td></tr></tbody></table>
+<hr />
+<h1 id="special-matrices-and-decompositions">Special matrices and decompositions</h1>
+<h2 id="orthogonal-matrices">Orthogonal matrices</h2>
+<p>A square matrix $Q$ is orthogonal if:</p>
+<div class="math-block">$$
+Q^TQ = I
+$$</div>
+<p>Equivalently:</p>
+<div class="math-block">$$
+Q^{-1} = Q^T
+$$</div>
+<p>Orthogonal matrices preserve lengths and angles.</p>
+<h2 id="projection-matrices">Projection matrices</h2>
+<p>A projection matrix satisfies:</p>
+<div class="math-block">$$
+P^2 = P
+$$</div>
+<p>It projects vectors onto a subspace.</p>
+<h2 id="idempotent-and-nilpotent-matrices">Idempotent and nilpotent matrices</h2>
+<p>An <strong>idempotent</strong> matrix satisfies:</p>
+<div class="math-block">$$
+A^2 = A
+$$</div>
+<p>A <strong>nilpotent</strong> matrix satisfies:</p>
+<div class="math-block">$$
+A^k = 0
+$$</div>
+<p>for some positive integer $k$.</p>
+<h2 id="lu-decomposition">LU decomposition</h2>
+<p>Many matrices can be factored as:</p>
+<div class="math-block">$$
+A = LU
+$$</div>
+<p>where:</p>
+<ul><li><p>$L$ is lower triangular</p></li><li><p>$U$ is upper triangular</p></li></ul>
+<p>This is useful for solving multiple systems with the same coefficient matrix.</p>
+<h2 id="qr-decomposition">QR decomposition</h2>
+<p>Another common factorization is:</p>
+<div class="math-block">$$
+A = QR
+$$</div>
+<p>where:</p>
+<ul><li><p>$Q$ has orthonormal columns</p></li><li><p>$R$ is upper triangular</p></li></ul>
+<p>QR decomposition is central in least-squares problems and numerical algorithms.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Use this sequence for most matrix problems.</p>
+<h2 id="step-1-identify-the-object">Step 1: Identify the object</h2>
+<p>Decide whether you are working with:</p>
+<ul><li><p>A raw matrix</p></li><li><p>A linear system</p></li><li><p>A transformation</p></li><li><p>An eigenvalue problem</p></li><li><p>A decomposition problem</p></li></ul>
+<h2 id="step-2-check-dimensions">Step 2: Check dimensions</h2>
+<p>Verify compatibility before computing:</p>
+<ul><li><p>Addition requires equal size</p></li><li><p>Multiplication requires matching inner dimensions</p></li><li><p>Inverses require square matrices</p></li><li><p>Eigenvalues require square matrices</p></li></ul>
+<h2 id="step-3-choose-the-right-tool">Step 3: Choose the right tool</h2>
+<p>Common choices:</p>
+<ul><li><p>Row reduction for systems and rank</p></li><li><p>Determinants for invertibility checks</p></li><li><p>Inverses for algebraic rearrangement</p></li><li><p>Eigenvalues for dynamics, stability, and diagonalization</p></li><li><p>Factorizations for efficient computation</p></li></ul>
+<h2 id="step-4-simplify-symbolically">Step 4: Simplify symbolically</h2>
+<p>Keep expressions symbolic until the structure is clear.</p>
+<p>Do not substitute numbers before the matrix form is organized.</p>
+<h2 id="step-5-verify-the-result">Step 5: Verify the result</h2>
+<p>Check:</p>
+<ul><li><p>Dimensions</p></li><li><p>Signs</p></li><li><p>Pivot structure</p></li><li><p>Invertibility conditions</p></li><li><p>Consistency of the system</p></li></ul>
+<p>For eigenvalue problems, verify with:</p>
+<div class="math-block">$$
+Av = \lambda v
+$$</div>
+<p>For inverses, verify with:</p>
+<div class="math-block">$$
+AA^{-1} = I
+$$</div>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="core-definitions">Core definitions</h2>
+<div class="math-block">$$
+A = [a_{ij}]
+$$</div>
+<div class="math-block">$$
+(A^T)_{ij} = a_{ji}
+$$</div>
+<div class="math-block">$$
+(AB)_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}
+$$</div>
+<h2 id="matrix-sizes">Matrix sizes</h2>
+<p>If $A$ is $m \times n$ and $B$ is $n \times p$, then:</p>
+<div class="math-block">$$
+AB \text{ is } m \times p
+$$</div>
+<h2 id="identity-and-inverse">Identity and inverse</h2>
+<div class="math-block">$$
+AI = IA = A
+$$</div>
+<div class="math-block">$$
+AA^{-1} = A^{-1}A = I
+$$</div>
+<h2 id="determinants-2">Determinants</h2>
+<p>For $2 \times 2$ matrices:</p>
+<div class="math-block">$$
+\det\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+= ad - bc
+$$</div>
+<p>For triangular matrices:</p>
+<div class="math-block">$$
+\det(A) = \prod_{i=1}^{n} a_{ii}
+$$</div>
+<p>Matrix is invertible if and only if:</p>
+<div class="math-block">$$
+\det(A) \ne 0
+$$</div>
+<h2 id="row-reduction">Row reduction</h2>
+<p>Elementary row operations:</p>
+<ul><li><p>Swap two rows</p></li><li><p>Multiply a row by a nonzero scalar</p></li><li><p>Add a multiple of one row to another</p></li></ul>
+<h2 id="rank-nullity">Rank-nullity</h2>
+<div class="math-block">$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = n
+$$</div>
+<h2 id="orthogonality">Orthogonality</h2>
+<div class="math-block">$$
+Q^TQ = I
+$$</div>
+<div class="math-block">$$
+Q^{-1} = Q^T
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Treating matrix multiplication as commutative.</p></li><li><p>Adding or multiplying matrices with incompatible dimensions.</p></li><li><p>Forgetting that only square matrices can have determinants and inverses.</p></li><li><p>Confusing row operations with column operations.</p></li><li><p>Dropping the order reversal in $(AB)^T = B^TA^T$.</p></li><li><p>Using $\det(A) \ne 0$ as a shortcut without confirming $A$ is square.</p></li><li><p>Forgetting that $Ax=b$ can have zero, one, or infinitely many solutions.</p></li><li><p>Misreading pivots and free variables after row reduction.</p></li><li><p>Treating a singular matrix as invertible.</p></li><li><p>Forgetting to verify solutions by substitution or matrix multiplication.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="matrix-notation-and-dimensions">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Matrix notation and dimensions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#row-and-column-vectors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-notation-and-dimensions">Row and column vectors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equality-of-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-notation-and-dimensions">Equality of matrices</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="types-of-matrices" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Types of matrices">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#identity-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="types-of-matrices">Identity matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trace" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="types-of-matrices">Trace</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="matrix-operations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Matrix operations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#addition-and-subtraction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-operations">Addition and subtraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#scalar-multiplication" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-operations">Scalar multiplication</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-combination" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-operations">Linear combination</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#properties-of-addition-and-scalar-multiplication" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-operations">Properties of addition and scalar multiplication</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="matrix-multiplication" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Matrix multiplication">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compatibility-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-multiplication">Compatibility rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#product-formula" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-multiplication">Product formula</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-multiplication">Key properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#powers-of-a-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-multiplication">Powers of a matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#useful-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matrix-multiplication">Useful interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="transpose-and-symmetry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Transpose and symmetry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#transpose-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="transpose-and-symmetry">Transpose rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#symmetric-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="transpose-and-symmetry">Symmetric matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#skew-symmetric-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="transpose-and-symmetry">Skew-symmetric matrices</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="row-reduction-and-echelon-form" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Row reduction and echelon form">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elementary-row-operations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="row-reduction-and-echelon-form">Elementary row operations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#row-echelon-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="row-reduction-and-echelon-form">Row echelon form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reduced-row-echelon-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="row-reduction-and-echelon-form">Reduced row echelon form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pivots" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="row-reduction-and-echelon-form">Pivots</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-row-reduce-efficiently" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="row-reduction-and-echelon-form">How to row-reduce efficiently</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="determinants" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Determinants">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-of-a-2-by-2-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinants">Determinant of a 2 by 2 matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-of-a-3-by-3-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinants">Determinant of a 3 by 3 matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinants">Determinant properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-and-invertibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinants">Determinant and invertibility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cofactor-expansion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinants">Cofactor expansion</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="inverse-matrices" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Inverse matrices">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-inverses-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-matrices">Why inverses matter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inverse-of-a-2-by-2-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-matrices">Inverse of a 2 by 2 matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inverse-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-matrices">Inverse properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-note" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-matrices">Practical note</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="systems-of-linear-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Systems of linear equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#augmented-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-linear-equations">Augmented matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpret-the-row-reduced-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-linear-equations">Interpret the row-reduced form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#homogeneous-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-linear-equations">Homogeneous systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solution-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="systems-of-linear-equations">Solution structure</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="rank-nullity-and-subspaces" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Rank, nullity, and subspaces">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rank" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Rank</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nullity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Nullity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rank-nullity-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Rank-nullity theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#column-space" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Column space</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#row-space" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Row space</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#null-space" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rank-nullity-and-subspaces">Null space</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="special-matrices-and-decompositions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Special matrices and decompositions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#orthogonal-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrices-and-decompositions">Orthogonal matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#projection-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrices-and-decompositions">Projection matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#idempotent-and-nilpotent-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrices-and-decompositions">Idempotent and nilpotent matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lu-decomposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrices-and-decompositions">LU decomposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#qr-decomposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrices-and-decompositions">QR decomposition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-identify-the-object" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Identify the object</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-check-dimensions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: Check dimensions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-choose-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-simplify-symbolically" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Simplify symbolically</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-verify-the-result" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Verify the result</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Core definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#matrix-sizes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Matrix sizes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#identity-and-inverse" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Identity and inverse</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinants-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Determinants</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#row-reduction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Row reduction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rank-nullity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Rank-nullity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#orthogonality" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Orthogonality</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-mistakes-to-avoid" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common mistakes to avoid">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-to-avoid">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

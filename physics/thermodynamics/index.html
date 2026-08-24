@@ -1,0 +1,1320 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thermodynamics | Adriamics Study</title>
+  <meta name="description" content="Thermodynamics studies energy, matter, and property changes at the macroscopic scale." />
+  <link rel="canonical" href="https://adriamics.com/study/physics/thermodynamics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/thermodynamics/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#thermodynamic-systems-and-properties" data-notes-nav-item data-notes-toc-link>Thermodynamic systems and properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#state-equilibrium-and-processes" data-notes-nav-item data-notes-toc-link>State, equilibrium, and processes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#units-dimensions-and-sign-conventions" data-notes-nav-item data-notes-toc-link>Units, dimensions, and sign conventions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pure-substances-and-property-data" data-notes-nav-item data-notes-toc-link>Pure substances and property data</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-gases-and-equations-of-state" data-notes-nav-item data-notes-toc-link>Ideal gases and equations of state</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-work-and-energy" data-notes-nav-item data-notes-toc-link>Heat, work, and energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#first-law-for-closed-systems" data-notes-nav-item data-notes-toc-link>First Law for closed systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#first-law-for-control-volumes" data-notes-nav-item data-notes-toc-link>First Law for control volumes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-steady-flow-devices" data-notes-nav-item data-notes-toc-link>Common steady-flow devices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#second-law-of-thermodynamics" data-notes-nav-item data-notes-toc-link>Second Law of Thermodynamics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#entropy" data-notes-nav-item data-notes-toc-link>Entropy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-and-refrigeration-cycles" data-notes-nav-item data-notes-toc-link>Power and refrigeration cycles</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Thermodynamics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/thermodynamics/thermodynamics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fthermodynamics%2Fthermodynamics.md&amp;title=%5BContribute%5D%3A%20Thermodynamics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/thermodynamics/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="thermodynamic-systems-and-properties">Thermodynamic systems and properties</h1>
+<p>Thermodynamics studies energy, matter, and property changes at the macroscopic scale.</p>
+<p>A <strong>system</strong> is the matter or region selected for analysis. Everything outside the system is the <strong>surroundings</strong>. The boundary may be real or imaginary, fixed or moving.</p>
+<h2 id="types-of-systems">Types of systems</h2>
+<table><thead><tr><th>System type</th><th>Mass crossing boundary?</th><th>Energy crossing boundary?</th><th>Example</th></tr></thead><tbody><tr><td>Closed system / control mass</td><td>No</td><td>Yes</td><td>Gas in a piston-cylinder</td></tr><tr><td>Open system / control volume</td><td>Yes</td><td>Yes</td><td>Turbine, compressor, nozzle</td></tr><tr><td>Isolated system</td><td>No</td><td>No</td><td>Ideal insulated sealed tank</td></tr></tbody></table>
+<p>Before solving any problem, identify the system type. This determines the correct balance equation.</p>
+<h2 id="properties">Properties</h2>
+<aside class="callout callout--definition"><div class="callout__heading"><span class="callout__label">Definition</span><span class="callout__title">Property</span></div><div class="callout__body"><p>A <strong>property</strong> describes the state of a system.</p>
+<p>Examples:</p>
+<ul><li><p>Pressure, $P$</p></li><li><p>Temperature, $T$</p></li><li><p>Volume, $V$</p></li><li><p>Specific volume, $v$</p></li><li><p>Density, $\rho$</p></li><li><p>Internal energy, $U$</p></li><li><p>Enthalpy, $H$</p></li><li><p>Entropy, $S$</p></li></ul></div></aside>
+<h2 id="extensive-and-intensive-properties">Extensive and intensive properties</h2>
+<p>An <strong>extensive property</strong> depends on system size.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+m,\quad V,\quad U,\quad H,\quad S
+$$</div>
+<p>An <strong>intensive property</strong> does not depend on system size.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+P,\quad T,\quad v,\quad u,\quad h,\quad s
+$$</div>
+<p>Specific properties are extensive properties per unit mass:</p>
+<div class="math-block">$$
+v = \frac{V}{m}
+$$</div>
+<div class="math-block">$$
+u = \frac{U}{m}
+$$</div>
+<div class="math-block">$$
+h = \frac{H}{m}
+$$</div>
+<div class="math-block">$$
+s = \frac{S}{m}
+$$</div>
+<hr />
+<h1 id="state-equilibrium-and-processes">State, equilibrium, and processes</h1>
+<h2 id="state">State</h2>
+<p>The <strong>state</strong> of a simple compressible system is fixed when enough independent intensive properties are known.</p>
+<p>For many simple systems, two independent intensive properties determine the state.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+P,\ T
+$$</div>
+<div class="math-block">$$
+P,\ v
+$$</div>
+<div class="math-block">$$
+T,\ x
+$$</div>
+<p>where $x$ is quality in a saturated mixture.</p>
+<h2 id="equilibrium">Equilibrium</h2>
+<p>A system is in thermodynamic equilibrium when it has:</p>
+<ul><li><p>Thermal equilibrium: no temperature gradients</p></li><li><p>Mechanical equilibrium: no unbalanced pressure forces</p></li><li><p>Phase equilibrium: no net phase change</p></li><li><p>Chemical equilibrium: no net chemical reaction</p></li></ul>
+<h2 id="process">Process</h2>
+<p>A <strong>process</strong> is a change from one equilibrium state to another.</p>
+<p>Common processes:</p>
+<table><thead><tr><th>Process</th><th>Meaning</th></tr></thead><tbody><tr><td>Isothermal</td><td>Constant temperature</td></tr><tr><td>Isobaric</td><td>Constant pressure</td></tr><tr><td>Isochoric / isometric</td><td>Constant volume</td></tr><tr><td>Adiabatic</td><td>No heat transfer</td></tr><tr><td>Isentropic</td><td>Constant entropy</td></tr><tr><td>Polytropic</td><td>$PV^n = \text{constant}$</td></tr></tbody></table>
+<h2 id="cycle">Cycle</h2>
+<p>A <strong>cycle</strong> is a series of processes that returns the system to its initial state.</p>
+<p>For any property over a cycle:</p>
+<div class="math-block">$$
+\Delta U = 0
+$$</div>
+<div class="math-block">$$
+\Delta H = 0
+$$</div>
+<div class="math-block">$$
+\Delta S = 0
+$$</div>
+<p>Path functions such as heat and work do not have to be zero over a cycle.</p>
+<hr />
+<h1 id="units-dimensions-and-sign-conventions">Units, dimensions, and sign conventions</h1>
+<h2 id="common-si-units">Common SI units</h2>
+<table><thead><tr><th>Quantity</th><th>Symbol</th><th>SI unit</th></tr></thead><tbody><tr><td>Mass</td><td>$m$</td><td>kg</td></tr><tr><td>Temperature</td><td>$T$</td><td>K</td></tr><tr><td>Pressure</td><td>$P$</td><td>Pa</td></tr><tr><td>Energy</td><td>$E$</td><td>J</td></tr><tr><td>Power</td><td>$\dot{W}$</td><td>W</td></tr><tr><td>Specific volume</td><td>$v$</td><td>m³/kg</td></tr><tr><td>Specific energy</td><td>$u, h$</td><td>J/kg</td></tr><tr><td>Entropy</td><td>$S$</td><td>J/K</td></tr><tr><td>Specific entropy</td><td>$s$</td><td>J/(kg·K)</td></tr></tbody></table>
+<h2 id="pressure">Pressure</h2>
+<p>Absolute pressure is measured relative to vacuum.</p>
+<p>Gauge pressure is measured relative to the atmosphere.</p>
+<div class="math-block">$$
+P_{abs} = P_{gage} + P_{atm}
+$$</div>
+<p>Vacuum pressure is below atmospheric pressure:</p>
+<div class="math-block">$$
+P_{abs} = P_{atm} - P_{vac}
+$$</div>
+<h2 id="temperature">Temperature</h2>
+<p>Thermodynamic temperature must use an absolute scale.</p>
+<div class="math-block">$$
+T(K) = T(^\circ C) + 273.15
+$$</div>
+<h2 id="sign-convention-used-in-these-notes">Sign convention used in these notes</h2>
+<p>These notes use the common engineering convention:</p>
+<ul><li><p>Heat transfer into the system is positive.</p></li><li><p>Work done by the system is positive.</p></li></ul>
+<p>Thus, for a closed system:</p>
+<div class="math-block">$$
+\Delta U = Q - W
+$$</div>
+<p>More generally:</p>
+<div class="math-block">$$
+\Delta E = Q - W
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+E = U + KE + PE
+$$</div>
+<hr />
+<h1 id="pure-substances-and-property-data">Pure substances and property data</h1>
+<p>A <strong>pure substance</strong> has a fixed chemical composition throughout.</p>
+<p>Examples:</p>
+<ul><li><p>Water</p></li><li><p>Nitrogen</p></li><li><p>Refrigerant-134a</p></li><li><p>Carbon dioxide</p></li></ul>
+<p>A pure substance can exist in multiple phases.</p>
+<h2 id="phase-regions">Phase regions</h2>
+<table><thead><tr><th>Region</th><th>Description</th></tr></thead><tbody><tr><td>Compressed liquid / subcooled liquid</td><td>Liquid not about to vaporize</td></tr><tr><td>Saturated liquid</td><td>Liquid about to vaporize</td></tr><tr><td>Saturated mixture</td><td>Liquid and vapor coexist</td></tr><tr><td>Saturated vapor</td><td>Vapor about to condense</td></tr><tr><td>Superheated vapor</td><td>Vapor not about to condense</td></tr></tbody></table>
+<h2 id="saturation-temperature-and-pressure">Saturation temperature and pressure</h2>
+<p>At a given saturation pressure, a pure substance changes phase at a fixed saturation temperature.</p>
+<div class="math-block">$$
+T = T_{sat}(P)
+$$</div>
+<p>At a given saturation temperature, the corresponding phase-change pressure is:</p>
+<div class="math-block">$$
+P = P_{sat}(T)
+$$</div>
+<h2 id="quality">Quality</h2>
+<p>Quality is the mass fraction of vapor in a saturated liquid-vapor mixture.</p>
+<div class="math-block">$$
+x = \frac{m_g}{m_f + m_g}
+$$</div>
+<p>where:</p>
+<ul><li><p>$m_f$ = mass of saturated liquid</p></li><li><p>$m_g$ = mass of saturated vapor</p></li></ul>
+<p>Quality only applies in the saturated mixture region.</p>
+<h2 id="saturated-mixture-property-relation">Saturated mixture property relation</h2>
+<p>For a saturated mixture:</p>
+<div class="math-block">$$
+y = y_f + x y_{fg}
+$$</div>
+<p>where $y$ may represent $v$, $u$, $h$, or $s$.</p>
+<p>Also:</p>
+<div class="math-block">$$
+y_{fg} = y_g - y_f
+$$</div>
+<p>Examples:</p>
+<div class="math-block">$$
+v = v_f + x v_{fg}
+$$</div>
+<div class="math-block">$$
+u = u_f + x u_{fg}
+$$</div>
+<div class="math-block">$$
+h = h_f + x h_{fg}
+$$</div>
+<div class="math-block">$$
+s = s_f + x s_{fg}
+$$</div>
+<h2 id="enthalpy">Enthalpy</h2>
+<p>Enthalpy is defined as:</p>
+<div class="math-block">$$
+H = U + PV
+$$</div>
+<p>Specific enthalpy is:</p>
+<div class="math-block">$$
+h = u + Pv
+$$</div>
+<p>Enthalpy is especially useful for control-volume problems because flow work is naturally included in $h$.</p>
+<h2 id="how-to-choose-property-data">How to choose property data</h2>
+<p>Use this sequence:</p>
+<ol><li><p>Identify the substance.</p></li><li><p>Identify known independent properties.</p></li><li><p>Determine the phase or region.</p></li><li><p>Use the correct table or equation of state.</p></li><li><p>Interpolate if needed.</p></li></ol>
+<h2 id="compressed-liquid-approximation">Compressed liquid approximation</h2>
+<p>For many liquids, if compressed liquid data are unavailable:</p>
+<div class="math-block">$$
+v \approx v_f(T)
+$$</div>
+<div class="math-block">$$
+u \approx u_f(T)
+$$</div>
+<div class="math-block">$$
+h \approx h_f(T) + v_f(T)\left[P - P_{sat}(T)\right]
+$$</div>
+<p>Often, for modest pressure changes:</p>
+<div class="math-block">$$
+h \approx h_f(T)
+$$</div>
+<hr />
+<h1 id="ideal-gases-and-equations-of-state">Ideal gases and equations of state</h1>
+<p>An <strong>equation of state</strong> relates pressure, temperature, and volume.</p>
+<h2 id="ideal-gas-equation">Ideal gas equation</h2>
+<p>For an ideal gas:</p>
+<div class="math-block">$$
+PV = mRT
+$$</div>
+<p>Specific form:</p>
+<div class="math-block">$$
+Pv = RT
+$$</div>
+<p>Molar form:</p>
+<div class="math-block">$$
+PV = n\bar{R}T
+$$</div>
+<p>where:</p>
+<ul><li><p>$R$ = gas constant for the specific gas</p></li><li><p>$\bar{R}$ = universal gas constant</p></li><li><p>$n$ = number of moles</p></li></ul>
+<p>Relationship between gas constants:</p>
+<div class="math-block">$$
+R = \frac{\bar{R}}{M}
+$$</div>
+<p>where $M$ is molar mass.</p>
+<h2 id="density-form">Density form</h2>
+<p>Since</p>
+<div class="math-block">$$
+v = \frac{1}{\rho}
+$$</div>
+<p>the ideal gas law can be written as:</p>
+<div class="math-block">$$
+P = \rho RT
+$$</div>
+<h2 id="compressibility-factor">Compressibility factor</h2>
+<p>Real-gas behavior can be estimated using:</p>
+<div class="math-block">$$
+Pv = ZRT
+$$</div>
+<p>where $Z$ is the compressibility factor.</p>
+<p>For ideal gases:</p>
+<div class="math-block">$$
+Z = 1
+$$</div>
+<p>If $Z$ is close to 1, the ideal gas model is reasonable.</p>
+<h2 id="constant-specific-heats">Constant specific heats</h2>
+<p>For ideal gases with constant specific heats:</p>
+<div class="math-block">$$
+\Delta u = c_v(T_2 - T_1)
+$$</div>
+<div class="math-block">$$
+\Delta h = c_p(T_2 - T_1)
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+c_p - c_v = R
+$$</div>
+<p>Specific heat ratio:</p>
+<div class="math-block">$$
+k = \frac{c_p}{c_v}
+$$</div>
+<h2 id="ideal-gas-entropy-changes">Ideal gas entropy changes</h2>
+<p>For constant specific heats:</p>
+<div class="math-block">$$
+s_2 - s_1 = c_p \ln\left(\frac{T_2}{T_1}\right) - R \ln\left(\frac{P_2}{P_1}\right)
+$$</div>
+<p>Equivalent form:</p>
+<div class="math-block">$$
+s_2 - s_1 = c_v \ln\left(\frac{T_2}{T_1}\right) + R \ln\left(\frac{v_2}{v_1}\right)
+$$</div>
+<h2 id="isentropic-ideal-gas-relations">Isentropic ideal gas relations</h2>
+<p>For an ideal gas with constant specific heats undergoing an isentropic process:</p>
+<div class="math-block">$$
+PV^k = constant
+$$</div>
+<div class="math-block">$$
+Tv^{k-1} = constant
+$$</div>
+<div class="math-block">$$
+\frac{T_2}{T_1} = \left(\frac{v_1}{v_2}\right)^{k-1}
+$$</div>
+<div class="math-block">$$
+\frac{T_2}{T_1} = \left(\frac{P_2}{P_1}\right)^{(k-1)/k}
+$$</div>
+<div class="math-block">$$
+\frac{P_2}{P_1} = \left(\frac{v_1}{v_2}\right)^k
+$$</div>
+<hr />
+<h1 id="heat-work-and-energy">Heat, work, and energy</h1>
+<h2 id="energy">Energy</h2>
+<p>Total energy is:</p>
+<div class="math-block">$$
+E = U + KE + PE
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+KE = \frac{1}{2}mV^2
+$$</div>
+<div class="math-block">$$
+PE = mgz
+$$</div>
+<p>Specific total energy:</p>
+<div class="math-block">$$
+e = u + \frac{V^2}{2} + gz
+$$</div>
+<h2 id="heat">Heat</h2>
+<p>Heat is energy transfer due to temperature difference.</p>
+<p>Heat transfer rate:</p>
+<div class="math-block">$$
+\dot{Q} = \frac{\delta Q}{dt}
+$$</div>
+<p>Adiabatic process:</p>
+<div class="math-block">$$
+Q = 0
+$$</div>
+<h2 id="work">Work</h2>
+<p>Work is energy transfer due to a generalized force acting through a generalized displacement.</p>
+<p>Power:</p>
+<div class="math-block">$$
+\dot{W} = \frac{\delta W}{dt}
+$$</div>
+<h2 id="boundary-work">Boundary work</h2>
+<p>For a quasi-equilibrium closed-system process:</p>
+<div class="math-block">$$
+W_b = \int_{1}^{2} P\,dV
+$$</div>
+<p>If pressure is constant:</p>
+<div class="math-block">$$
+W_b = P(V_2 - V_1)
+$$</div>
+<p>Specific boundary work:</p>
+<div class="math-block">$$
+w_b = \int_{1}^{2} P\,dv
+$$</div>
+<h2 id="polytropic-work">Polytropic work</h2>
+<p>For a polytropic process:</p>
+<div class="math-block">$$
+PV^n = C
+$$</div>
+<p>If $n \ne 1$:</p>
+<div class="math-block">$$
+W_b = \frac{P_2V_2 - P_1V_1}{1-n}
+$$</div>
+<p>For an ideal gas:</p>
+<div class="math-block">$$
+W_b = \frac{mR(T_2 - T_1)}{1-n}
+$$</div>
+<p>If $n = 1$:</p>
+<div class="math-block">$$
+W_b = P_1V_1 \ln\left(\frac{V_2}{V_1}\right)
+$$</div>
+<p>For an ideal gas when $n = 1$, the process is isothermal:</p>
+<div class="math-block">$$
+W_b = mRT \ln\left(\frac{V_2}{V_1}\right)
+$$</div>
+<h2 id="spring-work">Spring work</h2>
+<p>For a linear spring:</p>
+<div class="math-block">$$
+F = kx
+$$</div>
+<p>Spring work:</p>
+<div class="math-block">$$
+W = \int_{x_1}^{x_2} kx\,dx
+$$</div>
+<div class="math-block">$$
+W = \frac{1}{2}k(x_2^2 - x_1^2)
+$$</div>
+<h2 id="electrical-work">Electrical work</h2>
+<p>Electrical work:</p>
+<div class="math-block">$$
+W_e = \int V I\,dt
+$$</div>
+<p>For constant voltage and current:</p>
+<div class="math-block">$$
+W_e = VIt
+$$</div>
+<p>Electrical power:</p>
+<div class="math-block">$$
+\dot{W}_e = VI
+$$</div>
+<hr />
+<h1 id="first-law-for-closed-systems">First Law for closed systems</h1>
+<p>The First Law is conservation of energy.</p>
+<p>For a closed system:</p>
+<div class="math-block">$$
+\Delta E = Q - W
+$$</div>
+<p>Expanded:</p>
+<div class="math-block">$$
+\Delta U + \Delta KE + \Delta PE = Q - W
+$$</div>
+<p>If kinetic and potential energy changes are negligible:</p>
+<div class="math-block">$$
+\Delta U = Q - W
+$$</div>
+<p>On a mass basis:</p>
+<div class="math-block">$$
+\Delta e = q - w
+$$</div>
+<p>If kinetic and potential energy changes are negligible:</p>
+<div class="math-block">$$
+\Delta u = q - w
+$$</div>
+<h2 id="cyclic-closed-system">Cyclic closed system</h2>
+<p>For a cycle:</p>
+<div class="math-block">$$
+\Delta E_{cycle} = 0
+$$</div>
+<p>Therefore:</p>
+<div class="math-block">$$
+Q_{net} = W_{net}
+$$</div>
+<h2 id="constant-volume-closed-system">Constant-volume closed system</h2>
+<p>For constant volume boundary work:</p>
+<div class="math-block">$$
+W_b = \int P\,dV = 0
+$$</div>
+<p>If no other work modes occur:</p>
+<div class="math-block">$$
+Q = \Delta U
+$$</div>
+<h2 id="constant-pressure-closed-system">Constant-pressure closed system</h2>
+<p>For constant pressure:</p>
+<div class="math-block">$$
+W_b = P(V_2 - V_1)
+$$</div>
+<p>If only boundary work occurs and kinetic/potential energy changes are negligible:</p>
+<div class="math-block">$$
+Q = \Delta U + P\Delta V
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+H = U + PV
+$$</div>
+<p>for constant pressure:</p>
+<div class="math-block">$$
+Q = \Delta H
+$$</div>
+<h2 id="rigid-tank">Rigid tank</h2>
+<p>For a rigid tank:</p>
+<div class="math-block">$$
+V = constant
+$$</div>
+<div class="math-block">$$
+W_b = 0
+$$</div>
+<p>If the tank is also adiabatic and has no other work modes:</p>
+<div class="math-block">$$
+\Delta U = 0
+$$</div>
+<hr />
+<h1 id="first-law-for-control-volumes">First Law for control volumes</h1>
+<p>A control volume allows mass to cross the boundary.</p>
+<h2 id="conservation-of-mass">Conservation of mass</h2>
+<p>General mass balance:</p>
+<div class="math-block">$$
+\frac{dm_{CV}}{dt} = \sum \dot{m}_{in} - \sum \dot{m}_{out}
+$$</div>
+<p>At steady state:</p>
+<div class="math-block">$$
+\frac{dm_{CV}}{dt} = 0
+$$</div>
+<p>So:</p>
+<div class="math-block">$$
+\sum \dot{m}_{in} = \sum \dot{m}_{out}
+$$</div>
+<p>For one inlet and one outlet:</p>
+<div class="math-block">$$
+\dot{m}_1 = \dot{m}_2 = \dot{m}
+$$</div>
+<h2 id="mass-flow-rate">Mass flow rate</h2>
+<p>Mass flow rate:</p>
+<div class="math-block">$$
+\dot{m} = \rho A V
+$$</div>
+<p>Using specific volume:</p>
+<div class="math-block">$$
+\dot{m} = \frac{AV}{v}
+$$</div>
+<p>where $V$ is flow speed, not volume.</p>
+<h2 id="energy-balance-for-control-volumes">Energy balance for control volumes</h2>
+<p>General rate form:</p>
+<div class="math-block">$$
+\frac{dE_{CV}}{dt} = \dot{Q} - \dot{W} + \sum \dot{m}_{in}\left(h + \frac{V^2}{2} + gz\right) - \sum \dot{m}_{out}\left(h + \frac{V^2}{2} + gz\right)
+$$</div>
+<p>At steady state:</p>
+<div class="math-block">$$
+0 = \dot{Q} - \dot{W} + \sum \dot{m}_{in}\left(h + \frac{V^2}{2} + gz\right) - \sum \dot{m}_{out}\left(h + \frac{V^2}{2} + gz\right)
+$$</div>
+<p>For one inlet and one outlet:</p>
+<div class="math-block">$$
+\dot{Q} - \dot{W} = \dot{m}\left[(h_2-h_1) + \frac{V_2^2 - V_1^2}{2} + g(z_2-z_1)\right]
+$$</div>
+<p>Specific form:</p>
+<div class="math-block">$$
+q - w = (h_2-h_1) + \frac{V_2^2 - V_1^2}{2} + g(z_2-z_1)
+$$</div>
+<hr />
+<h1 id="common-steady-flow-devices">Common steady-flow devices</h1>
+<p>For most steady-flow devices, start with:</p>
+<div class="math-block">$$
+\dot{Q} - \dot{W} = \dot{m}\left[(h_2-h_1) + \frac{V_2^2 - V_1^2}{2} + g(z_2-z_1)\right]
+$$</div>
+<p>Then remove negligible terms.</p>
+<h2 id="turbine">Turbine</h2>
+<p>A turbine produces work output.</p>
+<p>Typical assumptions:</p>
+<ul><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>Negligible kinetic and potential energy changes</p></li></ul>
+<p>Energy balance:</p>
+<div class="math-block">$$
+\dot{W}_{out} = \dot{m}(h_1 - h_2)
+$$</div>
+<p>Specific work output:</p>
+<div class="math-block">$$
+w_{out} = h_1 - h_2
+$$</div>
+<h2 id="compressor">Compressor</h2>
+<p>A compressor requires work input and increases gas pressure.</p>
+<p>Typical assumptions:</p>
+<ul><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>Negligible kinetic and potential energy changes</p></li></ul>
+<p>Energy balance:</p>
+<div class="math-block">$$
+\dot{W}_{in} = \dot{m}(h_2 - h_1)
+$$</div>
+<p>Specific work input:</p>
+<div class="math-block">$$
+w_{in} = h_2 - h_1
+$$</div>
+<h2 id="pump">Pump</h2>
+<p>A pump increases liquid pressure.</p>
+<p>For an incompressible liquid:</p>
+<div class="math-block">$$
+w_{in} \approx v(P_2 - P_1)
+$$</div>
+<p>Pump power input:</p>
+<div class="math-block">$$
+\dot{W}_{in} \approx \dot{m}v(P_2 - P_1)
+$$</div>
+<h2 id="nozzle">Nozzle</h2>
+<p>A nozzle increases flow speed.</p>
+<p>Typical assumptions:</p>
+<ul><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>No shaft work</p></li><li><p>Negligible potential energy change</p></li></ul>
+<p>Energy balance:</p>
+<div class="math-block">$$
+h_1 + \frac{V_1^2}{2}
+=
+h_2 + \frac{V_2^2}{2}
+$$</div>
+<p>Velocity relation:</p>
+<div class="math-block">$$
+V_2 =
+\sqrt{V_1^2 + 2(h_1-h_2)}
+$$</div>
+<p>Use SI units carefully: if $h$ is in kJ/kg, multiply by 1000.</p>
+<h2 id="diffuser">Diffuser</h2>
+<p>A diffuser decreases flow speed and increases pressure.</p>
+<p>Typical assumptions are similar to a nozzle:</p>
+<div class="math-block">$$
+h_1 + \frac{V_1^2}{2}
+=
+h_2 + \frac{V_2^2}{2}
+$$</div>
+<h2 id="throttling-valve">Throttling valve</h2>
+<p>A throttling valve causes a pressure drop with no work output.</p>
+<p>Typical assumptions:</p>
+<ul><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>No shaft work</p></li><li><p>Negligible kinetic and potential energy changes</p></li></ul>
+<p>Energy balance:</p>
+<div class="math-block">$$
+h_1 = h_2
+$$</div>
+<p>Throttling is highly irreversible.</p>
+<h2 id="heat-exchanger">Heat exchanger</h2>
+<p>A heat exchanger transfers heat between streams.</p>
+<p>If the whole heat exchanger is the control volume and heat loss to surroundings is negligible:</p>
+<div class="math-block">$$
+\dot{Q}_{CV} \approx 0
+$$</div>
+<p>For two streams with no work and negligible kinetic/potential energy changes:</p>
+<div class="math-block">$$
+\dot{m}_h(h_{h,in}-h_{h,out})
+=
+\dot{m}_c(h_{c,out}-h_{c,in})
+$$</div>
+<h2 id="mixing-chamber">Mixing chamber</h2>
+<p>For an adiabatic mixing chamber with no work and negligible kinetic/potential energy changes:</p>
+<div class="math-block">$$
+\sum \dot{m}_{in}h_{in}
+=
+\sum \dot{m}_{out}h_{out}
+$$</div>
+<p>Mass balance:</p>
+<div class="math-block">$$
+\sum \dot{m}_{in}
+=
+\sum \dot{m}_{out}
+$$</div>
+<hr />
+<h1 id="second-law-of-thermodynamics">Second Law of Thermodynamics</h1>
+<p>The First Law gives energy conservation. The Second Law gives direction and limits.</p>
+<h2 id="thermal-reservoir">Thermal reservoir</h2>
+<p>A thermal reservoir can supply or absorb heat without changing temperature.</p>
+<p>Examples:</p>
+<ul><li><p>Atmosphere</p></li><li><p>Large lake</p></li><li><p>Furnace</p></li><li><p>Ocean</p></li></ul>
+<h2 id="heat-engine">Heat engine</h2>
+<p>A heat engine receives heat from a high-temperature reservoir, produces net work, and rejects heat to a low-temperature reservoir.</p>
+<p>Energy balance over a cycle:</p>
+<div class="math-block">$$
+W_{net,out} = Q_H - Q_L
+$$</div>
+<p>Thermal efficiency:</p>
+<div class="math-block">$$
+\eta_{th} = \frac{W_{net,out}}{Q_H}
+$$</div>
+<p>Equivalent form:</p>
+<div class="math-block">$$
+\eta_{th} = 1 - \frac{Q_L}{Q_H}
+$$</div>
+<h2 id="refrigerator">Refrigerator</h2>
+<p>A refrigerator uses work input to move heat from a low-temperature region to a high-temperature region.</p>
+<p>Coefficient of performance:</p>
+<div class="math-block">$$
+COP_R = \frac{Q_L}{W_{net,in}}
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+W_{net,in} = Q_H - Q_L
+$$</div>
+<p>then:</p>
+<div class="math-block">$$
+COP_R = \frac{Q_L}{Q_H - Q_L}
+$$</div>
+<h2 id="heat-pump">Heat pump</h2>
+<p>A heat pump uses work input to deliver heat to a high-temperature region.</p>
+<p>Coefficient of performance:</p>
+<div class="math-block">$$
+COP_{HP} = \frac{Q_H}{W_{net,in}}
+$$</div>
+<p>Thus:</p>
+<div class="math-block">$$
+COP_{HP} = \frac{Q_H}{Q_H - Q_L}
+$$</div>
+<p>Relationship:</p>
+<div class="math-block">$$
+COP_{HP} = COP_R + 1
+$$</div>
+<h2 id="kelvin-planck-statement">Kelvin-Planck statement</h2>
+<p>No heat engine can convert all the heat it receives from a single reservoir into net work while operating in a cycle.</p>
+<p>This means no real heat engine has:</p>
+<div class="math-block">$$
+\eta_{th} = 1
+$$</div>
+<h2 id="clausius-statement">Clausius statement</h2>
+<p>No refrigerator or heat pump can move heat from a colder body to a hotter body without work input.</p>
+<h2 id="reversible-and-irreversible-processes">Reversible and irreversible processes</h2>
+<p>A reversible process can be reversed without leaving any net change in the system or surroundings.</p>
+<p>Real processes are irreversible due to effects such as:</p>
+<ul><li><p>Friction</p></li><li><p>Unrestrained expansion</p></li><li><p>Mixing</p></li><li><p>Heat transfer through a finite temperature difference</p></li><li><p>Electrical resistance</p></li><li><p>Inelastic deformation</p></li></ul>
+<hr />
+<h1 id="entropy">Entropy</h1>
+<p>Entropy is a thermodynamic property that measures energy dispersal and irreversibility.</p>
+<p>For an internally reversible process:</p>
+<div class="math-block">$$
+dS = \frac{\delta Q_{rev}}{T}
+$$</div>
+<p>Specific form:</p>
+<div class="math-block">$$
+ds = \frac{\delta q_{rev}}{T}
+$$</div>
+<h2 id="entropy-change">Entropy change</h2>
+<p>Entropy change between two states is independent of path:</p>
+<div class="math-block">$$
+\Delta S = S_2 - S_1
+$$</div>
+<p>For a closed system:</p>
+<div class="math-block">$$
+\Delta S = \int_1^2 \frac{\delta Q_{rev}}{T}
+$$</div>
+<h2 id="entropy-principle">Entropy principle</h2>
+<p>For an isolated system:</p>
+<div class="math-block">$$
+\Delta S_{isolated} \ge 0
+$$</div>
+<p>For the universe:</p>
+<div class="math-block">$$
+\Delta S_{universe} \ge 0
+$$</div>
+<p>Equality applies to reversible processes:</p>
+<div class="math-block">$$
+\Delta S_{universe} = 0
+$$</div>
+<p>Irreversible processes generate entropy:</p>
+<div class="math-block">$$
+\Delta S_{universe} &gt; 0
+$$</div>
+<h2 id="entropy-balance-for-a-closed-system">Entropy balance for a closed system</h2>
+<p>General entropy balance:</p>
+<div class="math-block">$$
+\Delta S_{system} = \sum \frac{Q_k}{T_k} + S_{gen}
+$$</div>
+<p>where:</p>
+<ul><li><p>$Q_k$ is heat transfer at boundary temperature $T_k$</p></li><li><p>$S_{gen}$ is entropy generation</p></li></ul>
+<p>Entropy generation cannot be negative:</p>
+<div class="math-block">$$
+S_{gen} \ge 0
+$$</div>
+<h2 id="entropy-balance-for-a-control-volume">Entropy balance for a control volume</h2>
+<p>Rate form:</p>
+<div class="math-block">$$
+\frac{dS_{CV}}{dt} = \sum \frac{\dot{Q}_k}{T_k} + \sum \dot{m}_{in}s_{in} - \sum \dot{m}_{out}s_{out} + \dot{S}_{gen}
+$$</div>
+<p>At steady state:</p>
+<div class="math-block">$$
+0 = \sum \frac{\dot{Q}_k}{T_k} + \sum \dot{m}_{in}s_{in} - \sum \dot{m}_{out}s_{out} + \dot{S}_{gen}
+$$</div>
+<h2 id="isentropic-process">Isentropic process</h2>
+<p>An isentropic process has constant entropy:</p>
+<div class="math-block">$$
+s_2 = s_1
+$$</div>
+<p>For a process to be isentropic, it must be both:</p>
+<ul><li><p>Adiabatic</p></li><li><p>Reversible</p></li></ul>
+<p>Adiabatic alone does not guarantee isentropic behavior.</p>
+<h2 id="t-ds-relations">T-ds relations</h2>
+<p>First T-ds relation:</p>
+<div class="math-block">$$
+Tds = du + Pdv
+$$</div>
+<p>Second T-ds relation:</p>
+<div class="math-block">$$
+Tds = dh - vdP
+$$</div>
+<p>These apply to simple compressible substances.</p>
+<hr />
+<h1 id="power-and-refrigeration-cycles">Power and refrigeration cycles</h1>
+<p>A cycle returns the working fluid to its initial state, so property changes over the cycle are zero.</p>
+<h2 id="carnot-cycle">Carnot cycle</h2>
+<p>The Carnot cycle is a completely reversible cycle operating between two reservoirs.</p>
+<p>Carnot heat engine efficiency:</p>
+<div class="math-block">$$
+\eta_{Carnot} = 1 - \frac{T_L}{T_H}
+$$</div>
+<p>Temperatures must be absolute.</p>
+<p>Carnot refrigerator:</p>
+<div class="math-block">$$
+COP_{R,Carnot} = \frac{T_L}{T_H - T_L}
+$$</div>
+<p>Carnot heat pump:</p>
+<div class="math-block">$$
+COP_{HP,Carnot} = \frac{T_H}{T_H - T_L}
+$$</div>
+<p>No engine operating between the same two reservoirs can be more efficient than a Carnot engine.</p>
+<h2 id="otto-cycle">Otto cycle</h2>
+<p>The ideal Otto cycle models spark-ignition engines.</p>
+<p>Processes:</p>
+<ol><li><p>Isentropic compression</p></li><li><p>Constant-volume heat addition</p></li><li><p>Isentropic expansion</p></li><li><p>Constant-volume heat rejection</p></li></ol>
+<p>Compression ratio:</p>
+<div class="math-block">$$
+r = \frac{V_1}{V_2}
+$$</div>
+<p>Air-standard Otto efficiency:</p>
+<div class="math-block">$$
+\eta_{Otto} = 1 - \frac{1}{r^{k-1}}
+$$</div>
+<h2 id="diesel-cycle">Diesel cycle</h2>
+<p>The ideal Diesel cycle models compression-ignition engines.</p>
+<p>Processes:</p>
+<ol><li><p>Isentropic compression</p></li><li><p>Constant-pressure heat addition</p></li><li><p>Isentropic expansion</p></li><li><p>Constant-volume heat rejection</p></li></ol>
+<p>Cutoff ratio:</p>
+<div class="math-block">$$
+r_c = \frac{V_3}{V_2}
+$$</div>
+<p>Air-standard Diesel efficiency:</p>
+<div class="math-block">$$
+\eta_{Diesel}
+=
+1
+-
+\frac{1}{r^{k-1}}
+\left[
+\frac{r_c^k - 1}{k(r_c - 1)}
+\right]
+$$</div>
+<h2 id="brayton-cycle">Brayton cycle</h2>
+<p>The ideal Brayton cycle models gas turbine engines.</p>
+<p>Processes:</p>
+<ol><li><p>Isentropic compression</p></li><li><p>Constant-pressure heat addition</p></li><li><p>Isentropic expansion</p></li><li><p>Constant-pressure heat rejection</p></li></ol>
+<p>Pressure ratio:</p>
+<div class="math-block">$$
+r_p = \frac{P_2}{P_1}
+$$</div>
+<p>Air-standard Brayton efficiency:</p>
+<div class="math-block">$$
+\eta_{Brayton}
+=
+1
+-
+\frac{1}{r_p^{(k-1)/k}}
+$$</div>
+<h2 id="rankine-cycle">Rankine cycle</h2>
+<p>The ideal Rankine cycle models vapor power plants.</p>
+<p>Main components:</p>
+<ol><li><p>Pump</p></li><li><p>Boiler</p></li><li><p>Turbine</p></li><li><p>Condenser</p></li></ol>
+<p>Pump work input:</p>
+<div class="math-block">$$
+w_{pump,in} = h_2 - h_1
+$$</div>
+<p>Boiler heat input:</p>
+<div class="math-block">$$
+q_{in} = h_3 - h_2
+$$</div>
+<p>Turbine work output:</p>
+<div class="math-block">$$
+w_{turb,out} = h_3 - h_4
+$$</div>
+<p>Condenser heat rejection:</p>
+<div class="math-block">$$
+q_{out} = h_4 - h_1
+$$</div>
+<p>Net work output:</p>
+<div class="math-block">$$
+w_{net,out} = w_{turb,out} - w_{pump,in}
+$$</div>
+<p>Thermal efficiency:</p>
+<div class="math-block">$$
+\eta_{Rankine} = \frac{w_{net,out}}{q_{in}}
+$$</div>
+<h2 id="vapor-compression-refrigeration-cycle">Vapor-compression refrigeration cycle</h2>
+<p>Main components:</p>
+<ol><li><p>Compressor</p></li><li><p>Condenser</p></li><li><p>Expansion valve</p></li><li><p>Evaporator</p></li></ol>
+<p>Compressor work input:</p>
+<div class="math-block">$$
+w_{comp,in} = h_2 - h_1
+$$</div>
+<p>Condenser heat rejection:</p>
+<div class="math-block">$$
+q_H = h_2 - h_3
+$$</div>
+<p>Throttling valve:</p>
+<div class="math-block">$$
+h_3 = h_4
+$$</div>
+<p>Evaporator heat absorption:</p>
+<div class="math-block">$$
+q_L = h_1 - h_4
+$$</div>
+<p>Refrigerator COP:</p>
+<div class="math-block">$$
+COP_R = \frac{q_L}{w_{comp,in}}
+$$</div>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Use this checklist for most Thermodynamics problems.</p>
+<h2 id="step-1-define-the-system">Step 1: Define the system</h2>
+<p>Decide whether the system is:</p>
+<ul><li><p>Closed</p></li><li><p>Open</p></li><li><p>Isolated</p></li></ul>
+<p>Draw a boundary.</p>
+<h2 id="step-2-list-knowns-and-unknowns">Step 2: List knowns and unknowns</h2>
+<p>Write given values with units.</p>
+<p>Convert temperatures to absolute scale when needed.</p>
+<h2 id="step-3-identify-the-process-model">Step 3: Identify the process model</h2>
+<p>Examples:</p>
+<ul><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>Isothermal</p></li><li><p>Isentropic</p></li><li><p>Constant pressure</p></li><li><p>Constant volume</p></li><li><p>Rigid tank</p></li><li><p>Throttling</p></li><li><p>Polytropic</p></li></ul>
+<h2 id="step-4-determine-the-substance-model">Step 4: Determine the substance model</h2>
+<p>Use one of:</p>
+<ul><li><p>Property tables</p></li><li><p>Ideal gas model</p></li><li><p>Incompressible substance model</p></li><li><p>Saturated mixture relation</p></li><li><p>Real-gas compressibility factor</p></li></ul>
+<h2 id="step-5-choose-the-correct-balance">Step 5: Choose the correct balance</h2>
+<p>Closed-system energy balance:</p>
+<div class="math-block">$$
+\Delta E = Q - W
+$$</div>
+<p>Control-volume mass balance:</p>
+<div class="math-block">$$
+\frac{dm_{CV}}{dt} = \sum \dot{m}_{in} - \sum \dot{m}_{out}
+$$</div>
+<p>Control-volume energy balance:</p>
+<div class="math-block">$$
+\frac{dE_{CV}}{dt} = \dot{Q} - \dot{W} + \sum \dot{m}_{in}\left(h + \frac{V^2}{2} + gz\right) - \sum \dot{m}_{out}\left(h + \frac{V^2}{2} + gz\right)
+$$</div>
+<p>Entropy balance:</p>
+<div class="math-block">$$
+\Delta S
+=
+\sum \frac{Q_k}{T_k}
++
+S_{gen}
+$$</div>
+<h2 id="step-6-apply-assumptions">Step 6: Apply assumptions</h2>
+<p>Common assumptions:</p>
+<ul><li><p>Negligible kinetic energy change</p></li><li><p>Negligible potential energy change</p></li><li><p>Steady state</p></li><li><p>Adiabatic</p></li><li><p>No shaft work</p></li><li><p>Ideal gas</p></li><li><p>Constant specific heats</p></li></ul>
+<p>Only cancel terms after stating why.</p>
+<h2 id="step-7-solve-symbolically-first">Step 7: Solve symbolically first</h2>
+<p>Keep equations symbolic as long as possible. Substitute numbers after the equation is arranged.</p>
+<h2 id="step-8-check-physical-meaning">Step 8: Check physical meaning</h2>
+<p>Ask:</p>
+<ul><li><p>Does the sign make sense?</p></li><li><p>Are units consistent?</p></li><li><p>Is the magnitude reasonable?</p></li><li><p>Is entropy generation nonnegative?</p></li><li><p>Is efficiency less than the Carnot limit?</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="basic-property-relations">Basic property relations</h2>
+<div class="math-block">$$
+v = \frac{V}{m}
+$$</div>
+<div class="math-block">$$
+\rho = \frac{m}{V} = \frac{1}{v}
+$$</div>
+<div class="math-block">$$
+h = u + Pv
+$$</div>
+<div class="math-block">$$
+E = U + KE + PE
+$$</div>
+<div class="math-block">$$
+e = u + \frac{V^2}{2} + gz
+$$</div>
+<h2 id="ideal-gas">Ideal gas</h2>
+<div class="math-block">$$
+PV = mRT
+$$</div>
+<div class="math-block">$$
+Pv = RT
+$$</div>
+<div class="math-block">$$
+P = \rho RT
+$$</div>
+<div class="math-block">$$
+c_p - c_v = R
+$$</div>
+<div class="math-block">$$
+k = \frac{c_p}{c_v}
+$$</div>
+<h2 id="saturated-mixture">Saturated mixture</h2>
+<div class="math-block">$$
+x = \frac{m_g}{m_f + m_g}
+$$</div>
+<div class="math-block">$$
+y = y_f + xy_{fg}
+$$</div>
+<div class="math-block">$$
+y_{fg} = y_g - y_f
+$$</div>
+<h2 id="closed-system-first-law">Closed-system First Law</h2>
+<div class="math-block">$$
+\Delta E = Q - W
+$$</div>
+<div class="math-block">$$
+\Delta U + \Delta KE + \Delta PE = Q - W
+$$</div>
+<p>If kinetic and potential energy changes are negligible:</p>
+<div class="math-block">$$
+\Delta U = Q - W
+$$</div>
+<h2 id="boundary-work-2">Boundary work</h2>
+<div class="math-block">$$
+W_b = \int_1^2 P\,dV
+$$</div>
+<p>Constant pressure:</p>
+<div class="math-block">$$
+W_b = P(V_2 - V_1)
+$$</div>
+<p>Polytropic process, $n \ne 1$:</p>
+<div class="math-block">$$
+W_b = \frac{P_2V_2 - P_1V_1}{1-n}
+$$</div>
+<p>Polytropic process, $n = 1$:</p>
+<div class="math-block">$$
+W_b = P_1V_1\ln\left(\frac{V_2}{V_1}\right)
+$$</div>
+<h2 id="control-volume-balances">Control-volume balances</h2>
+<p>Mass balance:</p>
+<div class="math-block">$$
+\frac{dm_{CV}}{dt} = \sum \dot{m}_{in} - \sum \dot{m}_{out}
+$$</div>
+<p>Steady-flow energy balance:</p>
+<div class="math-block">$$
+\dot{Q} - \dot{W} = \dot{m}\left[(h_2-h_1) + \frac{V_2^2 - V_1^2}{2} + g(z_2-z_1)\right]
+$$</div>
+<p>Mass flow rate:</p>
+<div class="math-block">$$
+\dot{m} = \rho AV
+$$</div>
+<div class="math-block">$$
+\dot{m} = \frac{AV}{v}
+$$</div>
+<h2 id="common-devices">Common devices</h2>
+<p>Turbine:</p>
+<div class="math-block">$$
+\dot{W}_{out} = \dot{m}(h_1-h_2)
+$$</div>
+<p>Compressor:</p>
+<div class="math-block">$$
+\dot{W}_{in} = \dot{m}(h_2-h_1)
+$$</div>
+<p>Pump:</p>
+<div class="math-block">$$
+w_{in} \approx v(P_2-P_1)
+$$</div>
+<p>Nozzle or diffuser:</p>
+<div class="math-block">$$
+h_1 + \frac{V_1^2}{2}
+=
+h_2 + \frac{V_2^2}{2}
+$$</div>
+<p>Throttling valve:</p>
+<div class="math-block">$$
+h_1 = h_2
+$$</div>
+<h2 id="second-law-and-entropy">Second Law and entropy</h2>
+<p>Heat engine efficiency:</p>
+<div class="math-block">$$
+\eta_{th} = \frac{W_{net,out}}{Q_H}
+$$</div>
+<div class="math-block">$$
+\eta_{th} = 1 - \frac{Q_L}{Q_H}
+$$</div>
+<p>Refrigerator COP:</p>
+<div class="math-block">$$
+COP_R = \frac{Q_L}{W_{net,in}}
+$$</div>
+<p>Heat pump COP:</p>
+<div class="math-block">$$
+COP_{HP} = \frac{Q_H}{W_{net,in}}
+$$</div>
+<p>Carnot efficiency:</p>
+<div class="math-block">$$
+\eta_{Carnot} = 1 - \frac{T_L}{T_H}
+$$</div>
+<p>Entropy inequality:</p>
+<div class="math-block">$$
+\Delta S_{universe} \ge 0
+$$</div>
+<p>Entropy generation:</p>
+<div class="math-block">$$
+S_{gen} \ge 0
+$$</div>
+<p>Closed-system entropy balance:</p>
+<div class="math-block">$$
+\Delta S_{system}
+=
+\sum \frac{Q_k}{T_k}
++
+S_{gen}
+$$</div>
+<p>Steady control-volume entropy balance:</p>
+<div class="math-block">$$
+0
+=
+\sum \frac{\dot{Q}_k}{T_k}
++
+\sum \dot{m}_{in}s_{in}
+-
+\sum \dot{m}_{out}s_{out}
++
+\dot{S}_{gen}
+$$</div>
+<h2 id="ideal-gas-entropy-changes-2">Ideal gas entropy changes</h2>
+<div class="math-block">$$
+s_2 - s_1 = c_p \ln\left(\frac{T_2}{T_1}\right) - R \ln\left(\frac{P_2}{P_1}\right)
+$$</div>
+<div class="math-block">$$
+s_2 - s_1 = c_v \ln\left(\frac{T_2}{T_1}\right) + R \ln\left(\frac{v_2}{v_1}\right)
+$$</div>
+<h2 id="isentropic-ideal-gas-relations-2">Isentropic ideal gas relations</h2>
+<div class="math-block">$$
+PV^k = constant
+$$</div>
+<div class="math-block">$$
+Tv^{k-1} = constant
+$$</div>
+<div class="math-block">$$
+\frac{T_2}{T_1} = \left(\frac{P_2}{P_1}\right)^{(k-1)/k}
+$$</div>
+<div class="math-block">$$
+\frac{P_2}{P_1} = \left(\frac{v_1}{v_2}\right)^k
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Using Celsius instead of Kelvin in ideal gas or Carnot equations.</p></li><li><p>Mixing gauge pressure and absolute pressure.</p></li><li><p>Applying quality outside the saturated mixture region.</p></li><li><p>Calling an adiabatic process isentropic without checking reversibility.</p></li><li><p>Forgetting that $h$ includes flow work.</p></li><li><p>Using $\Delta U = Q - W$ for open systems without accounting for mass flow.</p></li><li><p>Forgetting to convert kJ/kg to J/kg when using velocity terms.</p></li><li><p>Assuming work is always positive. The sign depends on whether work is done by or on the system.</p></li><li><p>Ignoring entropy generation in irreversible processes.</p></li><li><p>Comparing efficiencies without checking reservoir temperatures or cycle assumptions.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p>Halliday, Resnick, and Walker, <em>Fundamentals of Physics</em></p></li><li><p>Serway and Jewett, <em>Physics for Scientists and Engineers</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Griffiths, <em>Introduction to Quantum Mechanics</em></p></li><li><p>Taylor, <em>Classical Mechanics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="thermodynamic-systems-and-properties">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Thermodynamic systems and properties">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#types-of-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermodynamic-systems-and-properties">Types of systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermodynamic-systems-and-properties">Properties</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#extensive-and-intensive-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermodynamic-systems-and-properties">Extensive and intensive properties</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="state-equilibrium-and-processes" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for State, equilibrium, and processes">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#state" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-equilibrium-and-processes">State</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-equilibrium-and-processes">Equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#process" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-equilibrium-and-processes">Process</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="state-equilibrium-and-processes">Cycle</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="units-dimensions-and-sign-conventions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Units, dimensions, and sign conventions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-si-units" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="units-dimensions-and-sign-conventions">Common SI units</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pressure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="units-dimensions-and-sign-conventions">Pressure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#temperature" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="units-dimensions-and-sign-conventions">Temperature</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sign-convention-used-in-these-notes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="units-dimensions-and-sign-conventions">Sign convention used in these notes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="pure-substances-and-property-data" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Pure substances and property data">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-regions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Phase regions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#saturation-temperature-and-pressure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Saturation temperature and pressure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quality" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Quality</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#saturated-mixture-property-relation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Saturated mixture property relation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#enthalpy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Enthalpy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-choose-property-data" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">How to choose property data</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compressed-liquid-approximation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="pure-substances-and-property-data">Compressed liquid approximation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="ideal-gases-and-equations-of-state" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Ideal gases and equations of state">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-gas-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Ideal gas equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#density-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Density form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compressibility-factor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Compressibility factor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constant-specific-heats" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Constant specific heats</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-gas-entropy-changes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Ideal gas entropy changes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#isentropic-ideal-gas-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ideal-gases-and-equations-of-state">Isentropic ideal gas relations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="heat-work-and-energy" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Heat, work, and energy">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Heat</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Boundary work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#polytropic-work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Polytropic work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spring-work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Spring work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrical-work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-work-and-energy">Electrical work</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="first-law-for-closed-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for First Law for closed systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cyclic-closed-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-closed-systems">Cyclic closed system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constant-volume-closed-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-closed-systems">Constant-volume closed system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constant-pressure-closed-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-closed-systems">Constant-pressure closed system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rigid-tank" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-closed-systems">Rigid tank</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="first-law-for-control-volumes" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for First Law for control volumes">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-of-mass" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-control-volumes">Conservation of mass</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mass-flow-rate" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-control-volumes">Mass flow rate</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-balance-for-control-volumes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="first-law-for-control-volumes">Energy balance for control volumes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-steady-flow-devices" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common steady-flow devices">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#turbine" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Turbine</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compressor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Compressor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pump" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Pump</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nozzle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Nozzle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diffuser" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Diffuser</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#throttling-valve" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Throttling valve</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-exchanger" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Heat exchanger</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mixing-chamber" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-steady-flow-devices">Mixing chamber</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="second-law-of-thermodynamics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Second Law of Thermodynamics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thermal-reservoir" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Thermal reservoir</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-engine" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Heat engine</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#refrigerator" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Refrigerator</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-pump" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Heat pump</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kelvin-planck-statement" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Kelvin-Planck statement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#clausius-statement" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Clausius statement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reversible-and-irreversible-processes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="second-law-of-thermodynamics">Reversible and irreversible processes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="entropy" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Entropy">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#entropy-change" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">Entropy change</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#entropy-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">Entropy principle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#entropy-balance-for-a-closed-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">Entropy balance for a closed system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#entropy-balance-for-a-control-volume" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">Entropy balance for a control volume</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#isentropic-process" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">Isentropic process</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#t-ds-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="entropy">T-ds relations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="power-and-refrigeration-cycles" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Power and refrigeration cycles">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#carnot-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Carnot cycle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#otto-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Otto cycle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diesel-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Diesel cycle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#brayton-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Brayton cycle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rankine-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Rankine cycle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#vapor-compression-refrigeration-cycle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="power-and-refrigeration-cycles">Vapor-compression refrigeration cycle</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-define-the-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Define the system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-list-knowns-and-unknowns" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: List knowns and unknowns</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-identify-the-process-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Identify the process model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-determine-the-substance-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Determine the substance model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-choose-the-correct-balance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Choose the correct balance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-6-apply-assumptions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 6: Apply assumptions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-7-solve-symbolically-first" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 7: Solve symbolically first</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-8-check-physical-meaning" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 8: Check physical meaning</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-property-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Basic property relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-gas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Ideal gas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#saturated-mixture" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Saturated mixture</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#closed-system-first-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Closed-system First Law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-work-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Boundary work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#control-volume-balances" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Control-volume balances</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-devices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Common devices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#second-law-and-entropy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Second Law and entropy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ideal-gas-entropy-changes-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Ideal gas entropy changes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#isentropic-ideal-gas-relations-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Isentropic ideal gas relations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-mistakes-to-avoid" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common mistakes to avoid">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-to-avoid">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physics II | Adriamics Study</title>
+  <meta name="description" content="Charge comes in two signs:" />
+  <link rel="canonical" href="https://adriamics.com/study/physics/physics-ii/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/physics-ii/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#electric-charge-and-coulombs-law" data-notes-nav-item data-notes-toc-link>Electric charge and Coulomb&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electric-field-and-flux" data-notes-nav-item data-notes-toc-link>Electric field and flux</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gausss-law" data-notes-nav-item data-notes-toc-link>Gauss&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electric-potential-and-potential-energy" data-notes-nav-item data-notes-toc-link>Electric potential and potential energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#capacitance-and-dielectrics" data-notes-nav-item data-notes-toc-link>Capacitance and dielectrics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#current-resistance-and-dc-circuits" data-notes-nav-item data-notes-toc-link>Current, resistance, and DC circuits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#magnetic-fields-and-magnetic-force" data-notes-nav-item data-notes-toc-link>Magnetic fields and magnetic force</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources-of-magnetic-fields" data-notes-nav-item data-notes-toc-link>Sources of magnetic fields</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electromagnetic-induction" data-notes-nav-item data-notes-toc-link>Electromagnetic induction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ac-circuits-and-resonance" data-notes-nav-item data-notes-toc-link>AC circuits and resonance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electromagnetic-waves" data-notes-nav-item data-notes-toc-link>Electromagnetic waves</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#optics-and-light" data-notes-nav-item data-notes-toc-link>Optics and light</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Physics II</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/physics-ii/physics-ii.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fphysics-ii%2Fphysics-ii.md&amp;title=%5BContribute%5D%3A%20Physics%20II" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="electric-charge-and-coulombs-law">Electric charge and Coulomb&#39;s law</h1>
+<h2 id="charge">Charge</h2>
+<p>Charge comes in two signs:</p>
+<ul><li><p>Positive</p></li><li><p>Negative</p></li></ul>
+<p>Important facts:</p>
+<ul><li><p>Like charges repel.</p></li><li><p>Opposite charges attract.</p></li><li><p>Total charge is conserved in isolated systems.</p></li><li><p>Charge is quantized in integer multiples of the elementary charge $e$.</p></li></ul>
+<div class="math-block">$$
+q = n e
+$$</div>
+<h2 id="coulombs-law">Coulomb&#39;s law</h2>
+<p>The electric force between two point charges is</p>
+<div class="math-block">$$
+F = k \frac{|q_1 q_2|}{r^2}
+$$</div>
+<p>in the direction along the line joining the charges.</p>
+<p>Vector form:</p>
+<div class="math-block">$$
+\mathbf{F}_{12} = k \frac{q_1 q_2}{r^2} \hat{\mathbf{r}}_{12}
+$$</div>
+<p>where $\hat{\mathbf{r}}_{12}$ points from charge 1 toward charge 2.</p>
+<h2 id="superposition">Superposition</h2>
+<p>For multiple charges, add forces vectorially:</p>
+<div class="math-block">$$
+\mathbf{F}_{net} = \sum_i \mathbf{F}_i
+$$</div>
+<p>For continuous charge distributions, replace the sum with an integral.</p>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Forgetting that force is a vector.</p></li><li><p>Using the magnitude of charge but losing the sign when finding direction.</p></li><li><p>Mixing meters and centimeters.</p></li><li><p>Treating distributed charge like a point charge when geometry matters.</p></li></ul>
+<hr />
+<h1 id="electric-field-and-flux">Electric field and flux</h1>
+<h2 id="electric-field">Electric field</h2>
+<p>The electric field is force per unit positive test charge:</p>
+<div class="math-block">$$
+\mathbf{E} = \frac{\mathbf{F}}{q_0}
+$$</div>
+<p>For a point charge:</p>
+<div class="math-block">$$
+\mathbf{E} = k \frac{q}{r^2}\hat{\mathbf{r}}
+$$</div>
+<p>The field points away from positive charge and toward negative charge.</p>
+<h2 id="field-from-multiple-charges">Field from multiple charges</h2>
+<p>Use superposition:</p>
+<div class="math-block">$$
+\mathbf{E}_{net} = \sum_i \mathbf{E}_i
+$$</div>
+<p>For continuous charge:</p>
+<div class="math-block">$$
+d\mathbf{E} = k \frac{dq}{r^2}\hat{\mathbf{r}}
+$$</div>
+<p>and integrate over the charge distribution.</p>
+<h2 id="electric-flux">Electric flux</h2>
+<p>Flux measures how much electric field passes through a surface:</p>
+<div class="math-block">$$
+\Phi_E = \int \mathbf{E}\cdot d\mathbf{A}
+$$</div>
+<p>For uniform $\mathbf{E}$ over a flat surface:</p>
+<div class="math-block">$$
+\Phi_E = EA\cos\theta
+$$</div>
+<p>where $\theta$ is the angle between $\mathbf{E}$ and the surface normal.</p>
+<h2 id="physical-interpretation">Physical interpretation</h2>
+<ul><li><p>Large flux can come from a strong field, a large area, or favorable orientation.</p></li><li><p>Flux can be positive or negative depending on the sign of $\mathbf{E}\cdot d\mathbf{A}$.</p></li></ul>
+<hr />
+<h1 id="gausss-law">Gauss&#39;s law</h1>
+<p>Gauss&#39;s law relates electric flux through a closed surface to enclosed charge:</p>
+<div class="math-block">$$
+\oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q_{enc}}{\epsilon_0}
+$$</div>
+<h2 id="when-gausss-law-is-useful">When Gauss&#39;s law is useful</h2>
+<p>Gauss&#39;s law is always true, but it is only easy to use when symmetry makes $E$ constant on the chosen Gaussian surface.</p>
+<p>Typical symmetries:</p>
+<ul><li><p>Spherical symmetry</p></li><li><p>Cylindrical symmetry</p></li><li><p>Planar symmetry</p></li></ul>
+<h2 id="common-results">Common results</h2>
+<p>For a point charge or spherically symmetric charge distribution:</p>
+<div class="math-block">$$
+E = k \frac{Q}{r^2}
+$$</div>
+<p>For an infinite line charge with linear density $\lambda$:</p>
+<div class="math-block">$$
+E = \frac{\lambda}{2\pi\epsilon_0 r}
+$$</div>
+<p>For an infinite charged sheet with surface density $\sigma$:</p>
+<div class="math-block">$$
+E = \frac{\sigma}{2\epsilon_0}
+$$</div>
+<p>For a conducting surface:</p>
+<ul><li><p>Electric field inside the conductor is zero in electrostatic equilibrium.</p></li><li><p>Excess charge resides on the surface.</p></li><li><p>Just outside a conductor,</p></li></ul>
+<div class="math-block">$$
+E_\perp = \frac{\sigma}{\epsilon_0}
+$$</div>
+<h2 id="problem-strategy">Problem strategy</h2>
+<ol><li><p>Identify the symmetry.</p></li><li><p>Choose a Gaussian surface that matches the symmetry.</p></li><li><p>Argue where $E$ is constant and where $\mathbf{E}\cdot d\mathbf{A}$ is zero.</p></li><li><p>Integrate flux.</p></li><li><p>Solve for $E$.</p></li></ol>
+<hr />
+<h1 id="electric-potential-and-potential-energy">Electric potential and potential energy</h1>
+<h2 id="potential-energy">Potential energy</h2>
+<p>Electric potential energy of a charge $q$ in a potential $V$ is</p>
+<div class="math-block">$$
+U = qV
+$$</div>
+<p>The change in potential energy is</p>
+<div class="math-block">$$
+\Delta U = q \Delta V
+$$</div>
+<h2 id="electric-potential">Electric potential</h2>
+<p>Potential is potential energy per unit charge:</p>
+<div class="math-block">$$
+V = \frac{U}{q}
+$$</div>
+<p>Potential difference is defined by the work done by the field:</p>
+<div class="math-block">$$
+\Delta V = -\int \mathbf{E}\cdot d\mathbf{l}
+$$</div>
+<h2 id="point-charge-potential">Point charge potential</h2>
+<p>For a point charge:</p>
+<div class="math-block">$$
+V = k\frac{q}{r}
+$$</div>
+<p>Potential is scalar, so use superposition:</p>
+<div class="math-block">$$
+V_{net} = \sum_i V_i
+$$</div>
+<h2 id="relationship-between-field-and-potential">Relationship between field and potential</h2>
+<p>In one dimension:</p>
+<div class="math-block">$$
+E_x = -\frac{dV}{dx}
+$$</div>
+<p>In vector form:</p>
+<div class="math-block">$$
+\mathbf{E} = -\nabla V
+$$</div>
+<p>This means:</p>
+<ul><li><p>The field points toward decreasing potential.</p></li><li><p>Equipotential surfaces are perpendicular to $\mathbf{E}$.</p></li></ul>
+<h2 id="useful-reasoning-pattern">Useful reasoning pattern</h2>
+<p>If a problem asks for energy change, the potential route is usually simpler:</p>
+<div class="math-block">$$
+\Delta K = -\Delta U = -q \Delta V
+$$</div>
+<p>for electrostatic motion with no nonconservative work.</p>
+<hr />
+<h1 id="capacitance-and-dielectrics">Capacitance and dielectrics</h1>
+<h2 id="capacitors">Capacitors</h2>
+<p>A capacitor stores separated charge and energy.</p>
+<p>Definition:</p>
+<div class="math-block">$$
+C = \frac{Q}{\Delta V}
+$$</div>
+<p>Parallel-plate capacitor:</p>
+<div class="math-block">$$
+C = \epsilon_0 \frac{A}{d}
+$$</div>
+<p>with dielectric:</p>
+<div class="math-block">$$
+C = \kappa \epsilon_0 \frac{A}{d}
+$$</div>
+<p>where $\kappa$ is the dielectric constant.</p>
+<h2 id="series-and-parallel">Series and parallel</h2>
+<p>Parallel:</p>
+<div class="math-block">$$
+C_{eq} = \sum_i C_i
+$$</div>
+<p>Series:</p>
+<div class="math-block">$$
+\frac{1}{C_{eq}} = \sum_i \frac{1}{C_i}
+$$</div>
+<h2 id="energy-stored">Energy stored</h2>
+<p>The energy stored in a capacitor is</p>
+<div class="math-block">$$
+U = \frac{1}{2}CV^2 = \frac{1}{2}QV = \frac{Q^2}{2C}
+$$</div>
+<p>Energy density in an electric field:</p>
+<div class="math-block">$$
+u_E = \frac{1}{2}\epsilon_0 E^2
+$$</div>
+<h2 id="dielectrics">Dielectrics</h2>
+<p>A dielectric reduces the effective field inside the capacitor and increases capacitance.</p>
+<p>Typical effects:</p>
+<ul><li><p>Capacitance increases by factor $\kappa$ if geometry is unchanged.</p></li><li><p>For an isolated charged capacitor, inserting a dielectric lowers the voltage.</p></li><li><p>For a capacitor held at fixed voltage, inserting a dielectric increases charge.</p></li></ul>
+<hr />
+<h1 id="current-resistance-and-dc-circuits">Current, resistance, and DC circuits</h1>
+<h2 id="current">Current</h2>
+<p>Electric current is rate of charge flow:</p>
+<div class="math-block">$$
+I = \frac{dq}{dt}
+$$</div>
+<p>Conventional current is defined in the direction positive charge would move.</p>
+<h2 id="ohms-law">Ohm&#39;s law</h2>
+<p>For an ohmic conductor:</p>
+<div class="math-block">$$
+V = IR
+$$</div>
+<p>Resistance depends on material and geometry:</p>
+<div class="math-block">$$
+R = \rho \frac{L}{A}
+$$</div>
+<p>where $\rho$ is resistivity.</p>
+<h2 id="microscopic-view">Microscopic view</h2>
+<p>Current density:</p>
+<div class="math-block">$$
+\mathbf{J} = \frac{I}{A}
+$$</div>
+<p>and for many materials:</p>
+<div class="math-block">$$
+\mathbf{J} = \sigma \mathbf{E}
+$$</div>
+<p>where $\sigma = 1/\rho$ is conductivity.</p>
+<h2 id="power">Power</h2>
+<p>Electrical power:</p>
+<div class="math-block">$$
+P = IV = I^2R = \frac{V^2}{R}
+$$</div>
+<h2 id="kirchhoffs-rules">Kirchhoff&#39;s rules</h2>
+<h3 id="junction-rule">Junction rule</h3>
+<p>At a node, charge is conserved:</p>
+<div class="math-block">$$
+\sum I_{in} = \sum I_{out}
+$$</div>
+<h3 id="loop-rule">Loop rule</h3>
+<p>Around any closed loop, total potential change is zero:</p>
+<div class="math-block">$$
+\sum \Delta V = 0
+$$</div>
+<h2 id="resistor-combinations">Resistor combinations</h2>
+<p>Series:</p>
+<div class="math-block">$$
+R_{eq} = \sum_i R_i
+$$</div>
+<p>Parallel:</p>
+<div class="math-block">$$
+\frac{1}{R_{eq}} = \sum_i \frac{1}{R_i}
+$$</div>
+<h2 id="rc-circuits">RC circuits</h2>
+<p>Capacitor charging:</p>
+<div class="math-block">$$
+Q(t) = C\mathcal{E}\left(1 - e^{-t/RC}\right)
+$$</div>
+<p>Capacitor discharging:</p>
+<div class="math-block">$$
+Q(t) = Q_0 e^{-t/RC}
+$$</div>
+<p>Time constant:</p>
+<div class="math-block">$$
+\tau = RC
+$$</div>
+<p>Interpretation:</p>
+<ul><li><p>After one time constant, charging reaches about 63% of its final value.</p></li><li><p>After one time constant, discharging falls to about 37% of its initial value.</p></li></ul>
+<h2 id="circuit-problem-checklist">Circuit problem checklist</h2>
+<ol><li><p>Redraw the circuit cleanly.</p></li><li><p>Label nodes and assumed current directions.</p></li><li><p>Reduce any obvious series and parallel groups.</p></li><li><p>Apply Kirchhoff equations.</p></li><li><p>Check the sign of any negative current or voltage result.</p></li></ol>
+<hr />
+<h1 id="magnetic-fields-and-magnetic-force">Magnetic fields and magnetic force</h1>
+<h2 id="magnetic-field">Magnetic field</h2>
+<p>Magnetic fields are produced by moving charges and currents.</p>
+<p>The magnetic force on a moving charge is</p>
+<div class="math-block">$$
+\mathbf{F} = q \mathbf{v}\times \mathbf{B}
+$$</div>
+<p>Magnitude:</p>
+<div class="math-block">$$
+F = |q|vB\sin\theta
+$$</div>
+<p>The magnetic force is always perpendicular to velocity, so it changes direction, not speed, in the ideal case.</p>
+<h2 id="force-on-a-current-carrying-wire">Force on a current-carrying wire</h2>
+<p>For a wire segment:</p>
+<div class="math-block">$$
+d\mathbf{F} = I\, d\mathbf{l}\times \mathbf{B}
+$$</div>
+<p>For a straight segment of length $L$ in a uniform field:</p>
+<div class="math-block">$$
+F = ILB\sin\theta
+$$</div>
+<h2 id="right-hand-rule">Right-hand rule</h2>
+<p>Use the right hand for cross products:</p>
+<ul><li><p>Fingers along $\mathbf{v}$ or current direction</p></li><li><p>Curl toward $\mathbf{B}$</p></li><li><p>Thumb gives force direction for a positive charge or current segment</p></li></ul>
+<h2 id="circular-motion-in-a-magnetic-field">Circular motion in a magnetic field</h2>
+<p>If a charged particle moves perpendicular to a uniform magnetic field, it undergoes circular motion:</p>
+<div class="math-block">$$
+r = \frac{mv}{|q|B}
+$$</div>
+<p>Cyclotron frequency:</p>
+<div class="math-block">$$
+\omega = \frac{|q|B}{m}
+$$</div>
+<hr />
+<h1 id="sources-of-magnetic-fields">Sources of magnetic fields</h1>
+<h2 id="biot-savart-law">Biot-Savart law</h2>
+<p>For a current element:</p>
+<div class="math-block">$$
+d\mathbf{B} = \frac{\mu_0}{4\pi}\frac{I\,d\mathbf{l}\times \hat{\mathbf{r}}}{r^2}
+$$</div>
+<p>This is the magnetic analogue of Coulomb&#39;s law for current elements.</p>
+<h2 id="amperes-law">Ampere&#39;s law</h2>
+<p>For a closed loop:</p>
+<div class="math-block">$$
+\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I_{enc}
+$$</div>
+<p>Use Ampere&#39;s law when symmetry makes $B$ constant on the chosen path.</p>
+<h2 id="common-results-2">Common results</h2>
+<p>Long straight wire:</p>
+<div class="math-block">$$
+B = \frac{\mu_0 I}{2\pi r}
+$$</div>
+<p>Long solenoid:</p>
+<div class="math-block">$$
+B = \mu_0 n I
+$$</div>
+<p>where $n$ is turns per unit length.</p>
+<p>Toroid:</p>
+<div class="math-block">$$
+B = \frac{\mu_0 N I}{2\pi r}
+$$</div>
+<p>inside the core region.</p>
+<h2 id="magnetic-materials">Magnetic materials</h2>
+<p>At the introductory level, magnetic materials are often treated through the idea that matter can enhance or weaken the effective field, but the core laws above remain the main tools for problem solving.</p>
+<hr />
+<h1 id="electromagnetic-induction">Electromagnetic induction</h1>
+<h2 id="magnetic-flux">Magnetic flux</h2>
+<p>Magnetic flux is</p>
+<div class="math-block">$$
+\Phi_B = \int \mathbf{B}\cdot d\mathbf{A}
+$$</div>
+<p>For a uniform field:</p>
+<div class="math-block">$$
+\Phi_B = BA\cos\theta
+$$</div>
+<h2 id="faradays-law">Faraday&#39;s law</h2>
+<p>Changing magnetic flux induces an emf:</p>
+<div class="math-block">$$
+\mathcal{E} = -\frac{d\Phi_B}{dt}
+$$</div>
+<p>The minus sign is Lenz&#39;s law: the induced effect opposes the flux change.</p>
+<h2 id="motional-emf">Motional emf</h2>
+<p>For a rod of length $L$ moving with speed $v$ perpendicular to $B$:</p>
+<div class="math-block">$$
+\mathcal{E} = BLv
+$$</div>
+<h2 id="induced-current">Induced current</h2>
+<p>If the circuit resistance is $R$:</p>
+<div class="math-block">$$
+I = \frac{\mathcal{E}}{R}
+$$</div>
+<h2 id="inductance">Inductance</h2>
+<p>An inductor resists changes in current.</p>
+<p>Definition:</p>
+<div class="math-block">$$
+\mathcal{E}_L = -L\frac{dI}{dt}
+$$</div>
+<p>Energy stored in an inductor:</p>
+<div class="math-block">$$
+U = \frac{1}{2}LI^2
+$$</div>
+<p>Magnetic energy density:</p>
+<div class="math-block">$$
+u_B = \frac{B^2}{2\mu_0}
+$$</div>
+<h2 id="rl-circuits">RL circuits</h2>
+<p>Current growth:</p>
+<div class="math-block">$$
+I(t) = I_{max}\left(1 - e^{-tR/L}\right)
+$$</div>
+<p>Current decay:</p>
+<div class="math-block">$$
+I(t) = I_0 e^{-tR/L}
+$$</div>
+<p>Time constant:</p>
+<div class="math-block">$$
+\tau = \frac{L}{R}
+$$</div>
+<hr />
+<h1 id="ac-circuits-and-resonance">AC circuits and resonance</h1>
+<h2 id="sinusoidal-voltage-and-current">Sinusoidal voltage and current</h2>
+<p>For an AC source:</p>
+<div class="math-block">$$
+V(t) = V_0 \sin(\omega t)
+$$</div>
+<p>RMS values:</p>
+<div class="math-block">$$
+V_{rms} = \frac{V_0}{\sqrt{2}}, \qquad I_{rms} = \frac{I_0}{\sqrt{2}}
+$$</div>
+<h2 id="reactance">Reactance</h2>
+<p>Inductive reactance:</p>
+<div class="math-block">$$
+X_L = \omega L
+$$</div>
+<p>Capacitive reactance:</p>
+<div class="math-block">$$
+X_C = \frac{1}{\omega C}
+$$</div>
+<h2 id="impedance-in-series-rlc">Impedance in series RLC</h2>
+<div class="math-block">$$
+Z = \sqrt{R^2 + (X_L - X_C)^2}
+$$</div>
+<p>Current amplitude:</p>
+<div class="math-block">$$
+I_0 = \frac{V_0}{Z}
+$$</div>
+<p>Phase angle:</p>
+<div class="math-block">$$
+\tan \phi = \frac{X_L - X_C}{R}
+$$</div>
+<h2 id="resonance">Resonance</h2>
+<p>Resonance occurs when:</p>
+<div class="math-block">$$
+X_L = X_C
+$$</div>
+<p>so the impedance is minimized in a series RLC circuit.</p>
+<p>Resonant angular frequency:</p>
+<div class="math-block">$$
+\omega_0 = \frac{1}{\sqrt{LC}}
+$$</div>
+<p>At resonance:</p>
+<ul><li><p>Current is maximum in a series RLC circuit.</p></li><li><p>Voltage and current are in phase.</p></li></ul>
+<hr />
+<h1 id="electromagnetic-waves">Electromagnetic waves</h1>
+<p>Changing electric and magnetic fields sustain each other and propagate as electromagnetic waves.</p>
+<h2 id="wave-speed">Wave speed</h2>
+<p>In vacuum:</p>
+<div class="math-block">$$
+c = \frac{1}{\sqrt{\mu_0 \epsilon_0}}
+$$</div>
+<h2 id="field-structure">Field structure</h2>
+<p>For a plane EM wave:</p>
+<ul><li><p>$\mathbf{E} \perp \mathbf{B}$</p></li><li><p>Both are perpendicular to the direction of propagation</p></li><li><p>The fields are in phase</p></li></ul>
+<h2 id="field-magnitudes">Field magnitudes</h2>
+<p>In vacuum:</p>
+<div class="math-block">$$
+E = cB
+$$</div>
+<h2 id="energy-transport">Energy transport</h2>
+<p>Intensity is power per area:</p>
+<div class="math-block">$$
+I = \frac{P}{A}
+$$</div>
+<p>The wave carries energy and momentum.</p>
+<h2 id="spectrum">Spectrum</h2>
+<p>The electromagnetic spectrum includes:</p>
+<ul><li><p>Radio</p></li><li><p>Microwave</p></li><li><p>Infrared</p></li><li><p>Visible</p></li><li><p>Ultraviolet</p></li><li><p>X-ray</p></li><li><p>Gamma ray</p></li></ul>
+<p>Frequency increases while wavelength decreases across that sequence.</p>
+<hr />
+<h1 id="optics-and-light">Optics and light</h1>
+<p>Many Physics II courses end with geometrical optics and basic wave optics.</p>
+<h2 id="reflection">Reflection</h2>
+<p>Law of reflection:</p>
+<div class="math-block">$$
+\theta_i = \theta_r
+$$</div>
+<h2 id="refraction">Refraction</h2>
+<p>Snell&#39;s law:</p>
+<div class="math-block">$$
+n_1\sin\theta_1 = n_2\sin\theta_2
+$$</div>
+<p>Index of refraction:</p>
+<div class="math-block">$$
+n = \frac{c}{v}
+$$</div>
+<h2 id="total-internal-reflection">Total internal reflection</h2>
+<p>Occurs when light goes from higher to lower refractive index and the incident angle exceeds the critical angle:</p>
+<div class="math-block">$$
+\sin\theta_c = \frac{n_2}{n_1}
+$$</div>
+<p>for $n_1 &gt; n_2$.</p>
+<h2 id="thin-lenses-and-mirrors">Thin lenses and mirrors</h2>
+<p>Mirror and lens equation:</p>
+<div class="math-block">$$
+\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}
+$$</div>
+<p>Magnification:</p>
+<div class="math-block">$$
+m = -\frac{d_i}{d_o} = \frac{h_i}{h_o}
+$$</div>
+<h2 id="interference-and-diffraction">Interference and diffraction</h2>
+<p>For two-source interference, constructive interference occurs when path difference is</p>
+<div class="math-block">$$
+\Delta r = m\lambda
+$$</div>
+<p>and destructive interference occurs when</p>
+<div class="math-block">$$
+\Delta r = \left(m+\frac{1}{2}\right)\lambda
+$$</div>
+<p>for integer $m$.</p>
+<h2 id="double-slit-pattern">Double-slit pattern</h2>
+<p>For slit separation $d$ and screen distance $L$:</p>
+<div class="math-block">$$
+y_m \approx \frac{m\lambda L}{d}
+$$</div>
+<p>for small angles.</p>
+<h2 id="single-slit-minima">Single-slit minima</h2>
+<p>Minima occur when</p>
+<div class="math-block">$$
+a\sin\theta = m\lambda
+$$</div>
+<p>for slit width $a$ and nonzero integer $m$.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<ol><li><p>Identify the topic family: electrostatics, circuits, magnetism, induction, AC, waves, or optics.</p></li><li><p>Draw the geometry and label all known quantities.</p></li><li><p>Choose the governing law:</p>
+<ul><li><p>Coulomb&#39;s law or superposition</p></li><li><p>Gauss&#39;s law</p></li><li><p>Potential relations</p></li><li><p>Kirchhoff&#39;s rules</p></li><li><p>Ampere&#39;s law</p></li><li><p>Faraday&#39;s law</p></li><li><p>Wave or optics equations</p></li></ul></li><li><p>Track signs and directions carefully.</p></li><li><p>Check units at the end.</p></li><li><p>Test limiting cases if possible.</p></li></ol>
+<h2 id="typical-mistakes">Typical mistakes</h2>
+<ul><li><p>Mixing up electric field and electric potential</p></li><li><p>Using the wrong sign in loop or flux equations</p></li><li><p>Forgetting that magnetic force is perpendicular to velocity</p></li><li><p>Applying Gauss&#39;s law when symmetry is not sufficient</p></li><li><p>Forgetting RMS values in AC problems</p></li><li><p>Using degrees and radians inconsistently in wave formulas</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="electrostatics">Electrostatics</h2>
+<div class="math-block">$$
+\mathbf{F} = k\frac{q_1q_2}{r^2}\hat{\mathbf{r}}
+$$</div>
+<div class="math-block">$$
+\mathbf{E} = \frac{\mathbf{F}}{q_0}
+$$</div>
+<div class="math-block">$$
+\oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q_{enc}}{\epsilon_0}
+$$</div>
+<div class="math-block">$$
+V = k\frac{q}{r}
+$$</div>
+<div class="math-block">$$
+\mathbf{E} = -\nabla V
+$$</div>
+<h2 id="capacitors-and-circuits">Capacitors and circuits</h2>
+<div class="math-block">$$
+C = \frac{Q}{\Delta V}
+$$</div>
+<div class="math-block">$$
+R = \rho \frac{L}{A}
+$$</div>
+<div class="math-block">$$
+V = IR
+$$</div>
+<div class="math-block">$$
+P = IV = I^2R = \frac{V^2}{R}
+$$</div>
+<div class="math-block">$$
+\tau_{RC} = RC
+$$</div>
+<h2 id="magnetism-and-induction">Magnetism and induction</h2>
+<div class="math-block">$$
+\mathbf{F} = q\mathbf{v}\times\mathbf{B}
+$$</div>
+<div class="math-block">$$
+\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I_{enc}
+$$</div>
+<div class="math-block">$$
+\mathcal{E} = -\frac{d\Phi_B}{dt}
+$$</div>
+<div class="math-block">$$
+\mathcal{E}_L = -L\frac{dI}{dt}
+$$</div>
+<div class="math-block">$$
+\tau_{RL} = \frac{L}{R}
+$$</div>
+<h2 id="ac-and-waves">AC and waves</h2>
+<div class="math-block">$$
+V_{rms} = \frac{V_0}{\sqrt{2}}
+$$</div>
+<div class="math-block">$$
+X_L = \omega L,\qquad X_C = \frac{1}{\omega C}
+$$</div>
+<div class="math-block">$$
+Z = \sqrt{R^2 + (X_L - X_C)^2}
+$$</div>
+<div class="math-block">$$
+f = \frac{1}{T},\qquad \omega = 2\pi f
+$$</div>
+<div class="math-block">$$
+c = \frac{1}{\sqrt{\mu_0\epsilon_0}}
+$$</div>
+<h2 id="optics">Optics</h2>
+<div class="math-block">$$
+n_1\sin\theta_1 = n_2\sin\theta_2
+$$</div>
+<div class="math-block">$$
+\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}
+$$</div>
+<div class="math-block">$$
+\Delta r = m\lambda
+$$</div>
+<div class="math-block">$$
+a\sin\theta = m\lambda
+$$</div>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p>Halliday, Resnick, and Walker, <em>Fundamentals of Physics</em></p></li><li><p>Serway and Jewett, <em>Physics for Scientists and Engineers</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Griffiths, <em>Introduction to Quantum Mechanics</em></p></li><li><p>Taylor, <em>Classical Mechanics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="electric-charge-and-coulombs-law">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electric charge and Coulomb&#39;s law">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#charge" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-charge-and-coulombs-law">Charge</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#coulombs-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-charge-and-coulombs-law">Coulomb&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#superposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-charge-and-coulombs-law">Superposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-charge-and-coulombs-law">Common pitfalls</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="electric-field-and-flux" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electric field and flux">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electric-field" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-field-and-flux">Electric field</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#field-from-multiple-charges" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-field-and-flux">Field from multiple charges</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electric-flux" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-field-and-flux">Electric flux</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#physical-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-field-and-flux">Physical interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="gausss-law" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Gauss&#39;s law">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-gausss-law-is-useful" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gausss-law">When Gauss&#39;s law is useful</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-results" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gausss-law">Common results</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-strategy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gausss-law">Problem strategy</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="electric-potential-and-potential-energy" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electric potential and potential energy">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#potential-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-potential-and-potential-energy">Potential energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electric-potential" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-potential-and-potential-energy">Electric potential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#point-charge-potential" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-potential-and-potential-energy">Point charge potential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relationship-between-field-and-potential" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-potential-and-potential-energy">Relationship between field and potential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#useful-reasoning-pattern" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electric-potential-and-potential-energy">Useful reasoning pattern</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="capacitance-and-dielectrics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Capacitance and dielectrics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#capacitors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="capacitance-and-dielectrics">Capacitors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#series-and-parallel" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="capacitance-and-dielectrics">Series and parallel</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-stored" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="capacitance-and-dielectrics">Energy stored</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dielectrics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="capacitance-and-dielectrics">Dielectrics</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="current-resistance-and-dc-circuits" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Current, resistance, and DC circuits">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#current" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Current</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ohms-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Ohm&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#microscopic-view" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Microscopic view</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kirchhoffs-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Kirchhoff&#39;s rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resistor-combinations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Resistor combinations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rc-circuits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">RC circuits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#circuit-problem-checklist" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="current-resistance-and-dc-circuits">Circuit problem checklist</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="magnetic-fields-and-magnetic-force" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Magnetic fields and magnetic force">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#magnetic-field" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="magnetic-fields-and-magnetic-force">Magnetic field</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#force-on-a-current-carrying-wire" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="magnetic-fields-and-magnetic-force">Force on a current-carrying wire</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#right-hand-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="magnetic-fields-and-magnetic-force">Right-hand rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#circular-motion-in-a-magnetic-field" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="magnetic-fields-and-magnetic-force">Circular motion in a magnetic field</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="sources-of-magnetic-fields" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Sources of magnetic fields">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#biot-savart-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sources-of-magnetic-fields">Biot-Savart law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#amperes-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sources-of-magnetic-fields">Ampere&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-results-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sources-of-magnetic-fields">Common results</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#magnetic-materials" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sources-of-magnetic-fields">Magnetic materials</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="electromagnetic-induction" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electromagnetic induction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#magnetic-flux" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">Magnetic flux</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#faradays-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">Faraday&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#motional-emf" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">Motional emf</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#induced-current" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">Induced current</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inductance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">Inductance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rl-circuits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-induction">RL circuits</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="ac-circuits-and-resonance" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for AC circuits and resonance">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sinusoidal-voltage-and-current" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ac-circuits-and-resonance">Sinusoidal voltage and current</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reactance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ac-circuits-and-resonance">Reactance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#impedance-in-series-rlc" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ac-circuits-and-resonance">Impedance in series RLC</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resonance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="ac-circuits-and-resonance">Resonance</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="electromagnetic-waves" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electromagnetic waves">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#wave-speed" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-waves">Wave speed</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#field-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-waves">Field structure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#field-magnitudes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-waves">Field magnitudes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-transport" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-waves">Energy transport</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spectrum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electromagnetic-waves">Spectrum</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="optics-and-light" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Optics and light">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reflection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Reflection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#refraction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Refraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#total-internal-reflection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Total internal reflection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thin-lenses-and-mirrors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Thin lenses and mirrors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interference-and-diffraction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Interference and diffraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#double-slit-pattern" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Double-slit pattern</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#single-slit-minima" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="optics-and-light">Single-slit minima</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#typical-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Typical mistakes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrostatics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Electrostatics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#capacitors-and-circuits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Capacitors and circuits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#magnetism-and-induction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Magnetism and induction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ac-and-waves" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">AC and waves</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#optics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Optics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

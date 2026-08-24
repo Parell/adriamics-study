@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organic Chemistry | Adriamics Study</title>
+  <meta name="description" content="Carbon is tetravalent and most commonly forms four bonds by using hybrid orbitals." />
+  <link rel="canonical" href="https://adriamics.com/study/physics/organic-chemistry/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/organic-chemistry/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#atomic-structure-and-bonding" data-notes-nav-item data-notes-toc-link>Atomic structure and bonding</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#functional-groups-and-naming" data-notes-nav-item data-notes-toc-link>Functional groups and naming</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#isomerism-and-stereochemistry" data-notes-nav-item data-notes-toc-link>Isomerism and stereochemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#acidity-basicity-and-electron-flow" data-notes-nav-item data-notes-toc-link>Acidity, basicity, and electron flow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reaction-mechanisms" data-notes-nav-item data-notes-toc-link>Reaction mechanisms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-reaction-families" data-notes-nav-item data-notes-toc-link>Core reaction families</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#carbonyl-chemistry" data-notes-nav-item data-notes-toc-link>Carbonyl chemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spectroscopy-and-structure-determination" data-notes-nav-item data-notes-toc-link>Spectroscopy and structure determination</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#organic-chemistry-in-biology" data-notes-nav-item data-notes-toc-link>Organic chemistry in biology</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Organic Chemistry</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/organic-chemistry/organic-chemistry.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Forganic-chemistry%2Forganic-chemistry.md&amp;title=%5BContribute%5D%3A%20Organic%20Chemistry" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/organic-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="atomic-structure-and-bonding">Atomic structure and bonding</h1>
+<h2 id="carbon-bonding">Carbon bonding</h2>
+<p>Carbon is tetravalent and most commonly forms four bonds by using hybrid orbitals.</p>
+<table><thead><tr><th>Geometry</th><th>Hybridization</th><th>Approx. bond angle</th><th>Typical example</th></tr></thead><tbody><tr><td>Tetrahedral</td><td>$sp^3$</td><td>109.5Ã‚°</td><td>Alkanes</td></tr><tr><td>Trigonal planar</td><td>$sp^2$</td><td>120Ã‚°</td><td>Alkenes, carbonyl carbons</td></tr><tr><td>Linear</td><td>$sp$</td><td>180Ã‚°</td><td>Alkynes, nitriles</td></tr></tbody></table>
+<p>Single bonds are sigma bonds. Double bonds contain one sigma and one pi bond. Triple bonds contain one sigma and two pi bonds.</p>
+<h2 id="sigma-and-pi-bonds">Sigma and pi bonds</h2>
+<p>Sigma bonds are formed by end-to-end orbital overlap and allow free rotation unless restricted by the molecular framework. Pi bonds are formed by side-by-side overlap and restrict rotation.</p>
+<p>This is why alkenes can have cis/trans or E/Z isomerism, while ordinary alkanes usually cannot.</p>
+<h2 id="resonance">Resonance</h2>
+<p>Resonance describes delocalization of electrons over multiple atoms. A resonance hybrid is more stable than any one contributing structure when electron density can be spread out.</p>
+<p>Useful indicators of resonance stabilization:</p>
+<ul><li><p>Lone pair adjacent to a pi bond</p></li><li><p>Positive charge adjacent to a pi bond</p></li><li><p>Negative charge adjacent to a pi bond</p></li><li><p>Aromatic ring conjugation</p></li></ul>
+<h2 id="inductive-effects">Inductive effects</h2>
+<p>Electron-withdrawing groups pull electron density through sigma bonds. Electron-donating groups push electron density through sigma bonds or resonance. These effects influence acidity, basicity, and reaction rate.</p>
+<p>Examples of strong electron-withdrawing groups:</p>
+<ul><li><p>Carbonyls</p></li><li><p>Halogens</p></li><li><p>Nitro groups</p></li><li><p>Trifluoromethyl groups</p></li></ul>
+<hr />
+<h1 id="functional-groups-and-naming">Functional groups and naming</h1>
+<p>Functional groups determine the identity and reactivity of a molecule. When solving problems, identify the highest-priority functional group first, then build the rest of the analysis around it.</p>
+<table><thead><tr><th>Functional group</th><th>General pattern</th><th>Key feature</th></tr></thead><tbody><tr><td>Alkane</td><td>C-C single bonds</td><td>Least reactive hydrocarbon framework</td></tr><tr><td>Alkene</td><td>C=C</td><td>Electrophilic addition chemistry</td></tr><tr><td>Alkyne</td><td>C#C</td><td>Linear, can undergo addition and deprotonation if terminal</td></tr><tr><td>Arene</td><td>Benzene ring</td><td>Aromatic stabilization</td></tr><tr><td>Alkyl halide</td><td>R-X</td><td>Good substrate for substitution and elimination</td></tr><tr><td>Alcohol</td><td>R-OH</td><td>Hydrogen bonding, oxidation precursor</td></tr><tr><td>Ether</td><td>R-O-R</td><td>Relatively inert, useful solvent/protecting pattern</td></tr><tr><td>Aldehyde</td><td>R-CHO</td><td>Highly electrophilic carbonyl</td></tr><tr><td>Ketone</td><td>R-CO-R</td><td>Carbonyl, less reactive than aldehyde</td></tr><tr><td>Carboxylic acid</td><td>R-CO2H</td><td>Acidic and strongly polarized</td></tr><tr><td>Ester</td><td>R-CO2R</td><td>Acyl derivative, common in lipids</td></tr><tr><td>Amine</td><td>R-NH2, R2NH, R3N</td><td>Basic and nucleophilic</td></tr><tr><td>Amide</td><td>R-CONH2</td><td>Resonance-stabilized, weakly basic</td></tr><tr><td>Nitrile</td><td>R-CN</td><td>Linear, strongly polarized</td></tr><tr><td>Thiol / thioether</td><td>R-SH / R-S-R</td><td>Sulfur analogs, often more polarizable</td></tr></tbody></table>
+<h2 id="naming-strategy">Naming strategy</h2>
+<p>Use this sequence:</p>
+<ol><li><p>Find the longest carbon chain or parent ring.</p></li><li><p>Identify the highest-priority functional group.</p></li><li><p>Number the parent to give the principal group the lowest possible locant.</p></li><li><p>Name substituents alphabetically.</p></li><li><p>Use prefixes for multiplicity such as di-, tri-, tetra-.</p></li></ol>
+<p>Common suffix priorities in introductory organic chemistry generally follow the pattern:</p>
+<p>carboxylic acid &gt; ester &gt; amide &gt; aldehyde &gt; ketone &gt; alcohol &gt; amine &gt; alkene &gt; alkyne &gt; alkane</p>
+<p>This priority determines the suffix, not whether the molecule contains lower-priority groups.</p>
+<h2 id="ring-and-aromatic-naming">Ring and aromatic naming</h2>
+<p>Benzene derivatives are common. If a benzene ring contains a principal functional group, that group defines the parent name. Otherwise, the ring can be named as a phenyl substituent or as a substituted benzene.</p>
+<hr />
+<h1 id="isomerism-and-stereochemistry">Isomerism and stereochemistry</h1>
+<h2 id="constitutional-isomers">Constitutional isomers</h2>
+<p>Constitutional isomers have the same molecular formula but different connectivity.</p>
+<p>Example:</p>
+<ul><li><p>Butane and isobutane both have formula $C_4H_{10}$, but the atoms are connected differently.</p></li></ul>
+<h2 id="stereoisomers">Stereoisomers</h2>
+<p>Stereoisomers have the same connectivity but differ in 3D arrangement.</p>
+<h3 id="enantiomers">Enantiomers</h3>
+<p>Enantiomers are non-superimposable mirror images. They usually have identical physical properties in achiral environments except for optical rotation and behavior in chiral systems.</p>
+<h3 id="diastereomers">Diastereomers</h3>
+<p>Diastereomers are stereoisomers that are not mirror images. They usually have different physical and chemical properties.</p>
+<h2 id="chirality">Chirality</h2>
+<p>A molecule is chiral if it is not superimposable on its mirror image.</p>
+<p>Common causes of chirality:</p>
+<ul><li><p>A tetrahedral carbon bonded to four different groups</p></li><li><p>Axial chirality in some biaryl systems</p></li><li><p>Helical chirality in some extended structures</p></li></ul>
+<h2 id="r-s-assignment">R/S assignment</h2>
+<p>Use the Cahn-Ingold-Prelog rules:</p>
+<ol><li><p>Rank substituents by atomic number.</p></li><li><p>Orient the lowest-priority group away from you.</p></li><li><p>Trace 1 -&gt; 2 -&gt; 3.</p></li><li><p>Clockwise is $R$, counterclockwise is $S$.</p></li></ol>
+<h2 id="e-z-alkenes">E/Z alkenes</h2>
+<p>Use E/Z when cis/trans is insufficient.</p>
+<ul><li><p>If the highest-priority groups on each alkene carbon are on the same side, the alkene is $Z$.</p></li><li><p>If they are on opposite sides, the alkene is $E$.</p></li></ul>
+<h2 id="conformations">Conformations</h2>
+<p>Conformations differ by rotation about single bonds.</p>
+<p>Important examples:</p>
+<ul><li><p>Staggered conformations are lower in energy than eclipsed conformations.</p></li><li><p>In cyclohexane, the chair conformation is more stable than the boat conformation.</p></li><li><p>Axial substituents can experience 1,3-diaxial strain.</p></li></ul>
+<hr />
+<h1 id="acidity-basicity-and-electron-flow">Acidity, basicity, and electron flow</h1>
+<p>Organic chemistry problems often begin with a proton transfer or end with one. Acidity and basicity control what species are present and therefore what can react.</p>
+<h2 id="definitions">Definitions</h2>
+<ul><li><p>An acid donates a proton.</p></li><li><p>A base accepts a proton.</p></li><li><p>A nucleophile donates an electron pair to form a bond.</p></li><li><p>An electrophile accepts an electron pair.</p></li></ul>
+<h2 id="pka-as-a-stability-measure">pKa as a stability measure</h2>
+<p>Lower pKa means stronger acid. Stronger acids have more stable conjugate bases.</p>
+<p>General stability trends for conjugate bases:</p>
+<ol><li><p>More electronegative atom bearing the charge</p></li><li><p>More resonance delocalization</p></li><li><p>More s-character at the charged atom</p></li><li><p>Greater inductive withdrawal nearby</p></li><li><p>Larger atom size for a given charge type</p></li></ol>
+<p>Examples:</p>
+<ul><li><p>Terminal alkynes are more acidic than alkenes and alkanes because $sp$ carbon has more s-character.</p></li><li><p>Carboxylic acids are much more acidic than alcohols because the carboxylate conjugate base is resonance-stabilized.</p></li></ul>
+<h2 id="curved-arrows">Curved arrows</h2>
+<p>Curved arrows track electron movement, not atom movement. A valid arrow starts at an electron pair or bond and ends at an atom or bond where electrons will go.</p>
+<p>Common mistakes:</p>
+<ul><li><p>Starting an arrow at an atom instead of electrons</p></li><li><p>Breaking octets without justification</p></li><li><p>Creating impossible valence states for second-row atoms</p></li></ul>
+<h2 id="hard-and-soft-intuition">Hard and soft intuition</h2>
+<p>In many cases, harder and smaller nucleophiles favor more polar, less polarizable centers, while softer and more polarizable nucleophiles are better matched to softer electrophiles. This idea becomes especially useful in advanced synthesis and carbonyl chemistry.</p>
+<hr />
+<h1 id="reaction-mechanisms">Reaction mechanisms</h1>
+<p>Mechanisms explain how a reaction happens step by step. A mechanism should conserve atoms, charge, and valence at every stage.</p>
+<h2 id="the-main-mechanistic-families">The main mechanistic families</h2>
+<table><thead><tr><th>Family</th><th>Core idea</th><th>Common setting</th></tr></thead><tbody><tr><td>Substitution</td><td>One group replaces another</td><td>Alkyl halides, sulfonates</td></tr><tr><td>Elimination</td><td>Small molecule leaves to form a pi bond</td><td>Alkyl halides, alcohol derivatives</td></tr><tr><td>Addition</td><td>Atoms add across a pi bond</td><td>Alkenes, alkynes, carbonyls</td></tr><tr><td>Rearrangement</td><td>Connectivity changes within the molecule</td><td>Carbocations, sigmatropic shifts</td></tr><tr><td>Acyl substitution</td><td>Nucleophile adds then leaving group departs</td><td>Carboxylic acid derivatives</td></tr><tr><td>Oxidation-reduction</td><td>Change in bonding to oxygen, hydrogen, or heteroatoms</td><td>Alcohols, carbonyls, biomolecules</td></tr></tbody></table>
+<h2 id="rate-and-selectivity">Rate and selectivity</h2>
+<p>Mechanistic outcomes depend on:</p>
+<ul><li><p>Substrate structure</p></li><li><p>Leaving group quality</p></li><li><p>Nucleophile/base strength</p></li><li><p>Solvent</p></li><li><p>Temperature</p></li><li><p>Steric hindrance</p></li><li><p>Carbocation or radical stability</p></li></ul>
+<h2 id="energy-profile-thinking">Energy profile thinking</h2>
+<p>Fast reactions usually have a lower activation energy. The major product is often the one formed by the lowest-energy pathway unless reversibility or equilibrium changes the picture.</p>
+<p>Useful distinction:</p>
+<ul><li><p>Kinetic control: product forms fastest</p></li><li><p>Thermodynamic control: product is most stable</p></li></ul>
+<hr />
+<h1 id="core-reaction-families">Core reaction families</h1>
+<h2 id="substitution-reactions">Substitution reactions</h2>
+<h3 id="sn2">SN2</h3>
+<p>SN2 is a one-step backside attack with inversion of configuration.</p>
+<p>Conditions that favor SN2:</p>
+<ul><li><p>Methyl or primary substrates</p></li><li><p>Strong nucleophile</p></li><li><p>Polar aprotic solvent</p></li><li><p>Minimal steric hindrance</p></li></ul>
+<h3 id="sn1">SN1</h3>
+<p>SN1 proceeds through a carbocation intermediate.</p>
+<p>Conditions that favor SN1:</p>
+<ul><li><p>Tertiary substrates</p></li><li><p>Good leaving group</p></li><li><p>Polar protic solvent</p></li><li><p>Weak to moderate nucleophile is often sufficient</p></li></ul>
+<p>The carbocation can rearrange by hydride or alkyl shift if a more stable cation is available.</p>
+<h2 id="elimination-reactions">Elimination reactions</h2>
+<h3 id="e2">E2</h3>
+<p>E2 is a one-step elimination that requires an anti-periplanar arrangement between the leaving group and the beta hydrogen.</p>
+<p>It is favored by:</p>
+<ul><li><p>Strong base</p></li><li><p>Heat</p></li><li><p>Secondary or tertiary substrates</p></li><li><p>Good leaving group</p></li></ul>
+<h3 id="e1">E1</h3>
+<p>E1 proceeds through a carbocation and often competes with SN1. Heat often shifts the balance toward elimination.</p>
+<h2 id="addition-to-alkenes">Addition to alkenes</h2>
+<p>Common alkene additions include:</p>
+<ul><li><p>Hydrogenation</p></li><li><p>Hydrohalogenation</p></li><li><p>Halogenation</p></li><li><p>Halohydrin formation</p></li><li><p>Hydroboration-oxidation</p></li><li><p>Oxymercuration-demercuration</p></li></ul>
+<p>Regiochemistry matters:</p>
+<ul><li><p>Markovnikov addition places the proton on the carbon that already has more hydrogens, leaving the positive or substituted center on the more substituted carbon in the intermediate or product logic.</p></li><li><p>Anti-Markovnikov additions occur in some radical or hydroboration pathways.</p></li></ul>
+<h2 id="radical-chemistry">Radical chemistry</h2>
+<p>Radical reactions involve single-electron steps.</p>
+<p>Key points:</p>
+<ul><li><p>Initiation creates radicals.</p></li><li><p>Propagation keeps the chain going.</p></li><li><p>Termination combines radicals.</p></li></ul>
+<p>Radical stability often follows:</p>
+<p>tertiary &gt; secondary &gt; primary &gt; methyl, with allylic and benzylic radicals additionally stabilized by resonance.</p>
+<hr />
+<h1 id="carbonyl-chemistry">Carbonyl chemistry</h1>
+<p>Carbonyl compounds are central because the C=O bond is polarized and the carbon is electrophilic.</p>
+<h2 id="why-carbonyls-react">Why carbonyls react</h2>
+<p>The carbonyl carbon is electron-poor because oxygen withdraws electron density and stabilizes the resulting oxyanion after nucleophilic attack.</p>
+<h2 id="nucleophilic-addition">Nucleophilic addition</h2>
+<p>Aldehydes and ketones usually undergo nucleophilic addition because they have no good leaving group on the carbonyl carbon.</p>
+<p>Common transformations:</p>
+<ul><li><p>Reduction to alcohols</p></li><li><p>Cyanohydrin formation</p></li><li><p>Grignard or organolithium addition</p></li><li><p>Hemiacetal and acetal formation</p></li><li><p>Imine and enamine formation</p></li></ul>
+<h2 id="carboxylic-acid-derivatives">Carboxylic acid derivatives</h2>
+<p>Acyl derivatives usually undergo nucleophilic acyl substitution.</p>
+<p>Relative reactivity often decreases in this order:</p>
+<p>acyl chloride &gt; anhydride &gt; ester &gt; amide &gt; carboxylate</p>
+<p>The trend follows leaving group ability and resonance stabilization.</p>
+<h2 id="alpha-chemistry">Alpha chemistry</h2>
+<p>Hydrogens alpha to carbonyls can be acidic because the resulting enolate is resonance-stabilized.</p>
+<p>Enols and enolates are important in:</p>
+<ul><li><p>Aldol reactions</p></li><li><p>Claisen condensations</p></li><li><p>Alkylation at alpha carbon</p></li><li><p>Racemization at stereogenic alpha centers</p></li></ul>
+<h2 id="aldol-logic">Aldol logic</h2>
+<p>An aldol reaction forms a new carbon-carbon bond by coupling an enolate with a carbonyl compound. The product often contains both an alcohol and a carbonyl group.</p>
+<p>The most important practical step is deciding whether the carbonyl partner can form an enolate and whether the reaction conditions favor self-condensation or crossed condensation.</p>
+<hr />
+<h1 id="spectroscopy-and-structure-determination">Spectroscopy and structure determination</h1>
+<p>Structure determination is usually a puzzle with several data sources.</p>
+<h2 id="ir-spectroscopy">IR spectroscopy</h2>
+<p>IR detects bond vibrations and is especially useful for identifying functional groups.</p>
+<table><thead><tr><th>Feature</th><th>Approx. range</th><th>Interpretation</th></tr></thead><tbody><tr><td>O-H stretch</td><td>3200-3600 cm^-1</td><td>Broad for alcohols, very broad for acids</td></tr><tr><td>N-H stretch</td><td>3300-3500 cm^-1</td><td>Often sharper than O-H</td></tr><tr><td>C-H sp3</td><td>2850-2960 cm^-1</td><td>Alkane-like C-H</td></tr><tr><td>C-H sp2</td><td>3000-3100 cm^-1</td><td>Alkene or aromatic C-H</td></tr><tr><td>C=O stretch</td><td>1650-1800 cm^-1</td><td>Carbonyl presence</td></tr><tr><td>C#N stretch</td><td>2210-2260 cm^-1</td><td>Nitrile</td></tr></tbody></table>
+<h2 id="nmr-spectroscopy">NMR spectroscopy</h2>
+<p>NMR is the most important structure tool in organic chemistry.</p>
+<h3 id="1h-nmr">1H NMR</h3>
+<p>Useful outputs:</p>
+<ul><li><p>Chemical shift gives electronic environment</p></li><li><p>Integration gives relative number of hydrogens</p></li><li><p>Splitting gives neighboring nonequivalent hydrogens</p></li></ul>
+<p>The $n+1$ rule is a first approximation: a proton with $n$ equivalent neighboring protons appears as an $(n+1)$-plet.</p>
+<h3 id="13c-nmr">13C NMR</h3>
+<p>13C NMR shows the number and type of carbon environments. Carbonyl carbons appear far downfield compared with alkyl carbons.</p>
+<h2 id="mass-spectrometry">Mass spectrometry</h2>
+<p>Mass spectrometry gives molecular mass and can reveal fragments that support a proposed structure.</p>
+<p>Clue examples:</p>
+<ul><li><p>A strong M+2 peak can suggest chlorine or bromine.</p></li><li><p>Even/odd mass patterns can suggest nitrogen content in some cases.</p></li></ul>
+<h2 id="degree-of-unsaturation">Degree of unsaturation</h2>
+<p>The degree of unsaturation, also called index of hydrogen deficiency, helps count rings and pi bonds.</p>
+<p>For a molecule with formula $C_cH_hN_nX_x$, where $X$ is a halogen:</p>
+<div class="math-block">$$
+\text{DBE} = \frac{2c + 2 + n - h - x}{2}
+$$</div>
+<p>Each ring or pi bond counts as one degree. A triple bond counts as two.</p>
+<hr />
+<h1 id="organic-chemistry-in-biology">Organic chemistry in biology</h1>
+<p>Organic chemistry is the language of biology at the molecular level.</p>
+<h2 id="amino-acids-and-proteins">Amino acids and proteins</h2>
+<p>Amino acids contain both an amine and a carboxylic acid. In water they often exist as zwitterions. Peptide bonds are amide linkages, which are relatively stable because of resonance.</p>
+<p>Important ideas:</p>
+<ul><li><p>Side chains control polarity and charge</p></li><li><p>Protein folding depends on hydrogen bonding, hydrophobic effects, ionic interactions, and disulfide bonds</p></li><li><p>Enzyme active sites use acid-base, covalent, and metal-ion catalysis</p></li></ul>
+<h2 id="carbohydrates">Carbohydrates</h2>
+<p>Carbohydrates are polyhydroxy aldehydes, ketones, or derivatives. They commonly exist as cyclic hemiacetals or hemiketals.</p>
+<p>Key ideas:</p>
+<ul><li><p>Anomers differ at the anomeric carbon</p></li><li><p>Mutarotation reflects ring opening and re-closing</p></li><li><p>Glycosidic bonds link monosaccharides</p></li></ul>
+<h2 id="lipids">Lipids</h2>
+<p>Lipids are often built from long hydrocarbon chains and ester or amide linkages.</p>
+<p>Examples:</p>
+<ul><li><p>Fatty acids</p></li><li><p>Triacylglycerols</p></li><li><p>Phospholipids</p></li><li><p>Steroids</p></li></ul>
+<p>The balance between polar head groups and nonpolar tails drives membrane structure and transport behavior.</p>
+<h2 id="nucleic-acids">Nucleic acids</h2>
+<p>DNA and RNA are polymers of nucleotides connected by phosphodiester bonds. Base pairing depends on hydrogen bonding and pi stacking. Mutations often change molecular recognition rather than simply adding or removing atoms.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>When a problem looks unfamiliar, use the same sequence every time.</p>
+<h2 id="step-1-identify-the-functional-group">Step 1: Identify the functional group</h2>
+<p>Name every functional group first. This narrows the reaction class dramatically.</p>
+<h2 id="step-2-count-electrons-and-charges">Step 2: Count electrons and charges</h2>
+<p>Check formal charge, lone pairs, and possible resonance forms.</p>
+<h2 id="step-3-look-for-the-reactive-site">Step 3: Look for the reactive site</h2>
+<p>Ask whether the key atom is:</p>
+<ul><li><p>Nucleophilic</p></li><li><p>Electrophilic</p></li><li><p>Acidic</p></li><li><p>Basic</p></li><li><p>Radical-prone</p></li></ul>
+<h2 id="step-4-check-stereochemistry">Step 4: Check stereochemistry</h2>
+<p>Decide whether the problem cares about:</p>
+<ul><li><p>Configuration ($R/S$)</p></li><li><p>Alkene geometry ($E/Z$)</p></li><li><p>Conformation</p></li><li><p>Stereoselectivity</p></li></ul>
+<h2 id="step-5-apply-conditions">Step 5: Apply conditions</h2>
+<p>Reagents matter as much as the substrate. The same starting material can give different products under acidic, basic, oxidative, reductive, or radical conditions.</p>
+<h2 id="step-6-verify-the-product">Step 6: Verify the product</h2>
+<p>Confirm that:</p>
+<ul><li><p>Atom count is conserved</p></li><li><p>Charge is conserved</p></li><li><p>Octets are reasonable</p></li><li><p>Stereochemistry matches the mechanism</p></li><li><p>Regiochemistry matches the pathway</p></li></ul>
+<h2 id="common-traps">Common traps</h2>
+<ul><li><p>Confusing SN1 with SN2</p></li><li><p>Forgetting carbocation rearrangements</p></li><li><p>Ignoring anti-periplanar geometry in E2</p></li><li><p>Misreading resonance as atom movement</p></li><li><p>Missing the role of acid or base in carbonyl chemistry</p></li><li><p>Treating a functional group as if it were isolated from the rest of the molecule</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="core-relations">Core relations</h2>
+<div class="math-block">$$
+\text{DBE} = \frac{2C + 2 + N - H - X}{2}
+$$</div>
+<div class="math-block">$$
+pK_a = -\log_{10} K_a
+$$</div>
+<div class="math-block">$$
+\Delta G = \Delta H - T \Delta S
+$$</div>
+<div class="math-block">$$
+\Delta G^\circ = -RT \ln K
+$$</div>
+<h2 id="quick-reactivity-summary">Quick reactivity summary</h2>
+<table><thead><tr><th>Topic</th><th>Quick rule</th></tr></thead><tbody><tr><td>SN2</td><td>Strong nucleophile, low steric hindrance, inversion</td></tr><tr><td>SN1</td><td>Carbocation, rearrangements possible</td></tr><tr><td>E2</td><td>Strong base, anti-periplanar, heat helps</td></tr><tr><td>E1</td><td>Carbocation elimination, often competes with SN1</td></tr><tr><td>Carbonyl addition</td><td>Aldehydes and ketones usually add nucleophiles</td></tr><tr><td>Acyl substitution</td><td>Carboxylic acid derivatives exchange leaving groups</td></tr><tr><td>Aromaticity</td><td>Cyclic, planar, fully conjugated, $4n+2$ pi electrons</td></tr></tbody></table>
+<h2 id="aromaticity-checklist">Aromaticity checklist</h2>
+<p>A ring is aromatic when it is:</p>
+<ul><li><p>Cyclic</p></li><li><p>Planar or nearly planar</p></li><li><p>Fully conjugated</p></li><li><p>Contains $4n+2$ pi electrons</p></li></ul>
+<p>If it is cyclic and conjugated but has $4n$ pi electrons, it is antiaromatic if planar and destabilized if forced toward planarity.</p>
+<h2 id="final-study-rule">Final study rule</h2>
+<p>When learning a new reaction, always ask:</p>
+<ol><li><p>What is the nucleophile?</p></li><li><p>What is the electrophile?</p></li><li><p>What is the leaving group?</p></li><li><p>What intermediate forms, if any?</p></li><li><p>What controls regioselectivity and stereoselectivity?</p></li></ol>
+<p>If you can answer those five questions, most organic chemistry problems become manageable.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p><a href="https://openstax.org/details/books/organic-chemistry">OpenStax Organic Chemistry</a></p></li><li><p><a href="https://chem.libretexts.org/Bookshelves/Organic_Chemistry">Chemistry LibreTexts</a></p></li><li><p>McMurry, <em>Organic Chemistry</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="atomic-structure-and-bonding">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Atomic structure and bonding">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#carbon-bonding" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Carbon bonding</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sigma-and-pi-bonds" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Sigma and pi bonds</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#resonance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Resonance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inductive-effects" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Inductive effects</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="functional-groups-and-naming" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Functional groups and naming">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#naming-strategy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="functional-groups-and-naming">Naming strategy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ring-and-aromatic-naming" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="functional-groups-and-naming">Ring and aromatic naming</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="isomerism-and-stereochemistry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Isomerism and stereochemistry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constitutional-isomers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">Constitutional isomers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stereoisomers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">Stereoisomers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#chirality" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">Chirality</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#r-s-assignment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">R/S assignment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#e-z-alkenes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">E/Z alkenes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conformations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="isomerism-and-stereochemistry">Conformations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="acidity-basicity-and-electron-flow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Acidity, basicity, and electron flow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acidity-basicity-and-electron-flow">Definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pka-as-a-stability-measure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acidity-basicity-and-electron-flow">pKa as a stability measure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#curved-arrows" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acidity-basicity-and-electron-flow">Curved arrows</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hard-and-soft-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acidity-basicity-and-electron-flow">Hard and soft intuition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="reaction-mechanisms" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Reaction mechanisms">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#the-main-mechanistic-families" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reaction-mechanisms">The main mechanistic families</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rate-and-selectivity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reaction-mechanisms">Rate and selectivity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-profile-thinking" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="reaction-mechanisms">Energy profile thinking</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="core-reaction-families" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Core reaction families">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#substitution-reactions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-reaction-families">Substitution reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elimination-reactions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-reaction-families">Elimination reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#addition-to-alkenes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-reaction-families">Addition to alkenes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#radical-chemistry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-reaction-families">Radical chemistry</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="carbonyl-chemistry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Carbonyl chemistry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-carbonyls-react" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="carbonyl-chemistry">Why carbonyls react</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nucleophilic-addition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="carbonyl-chemistry">Nucleophilic addition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#carboxylic-acid-derivatives" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="carbonyl-chemistry">Carboxylic acid derivatives</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#alpha-chemistry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="carbonyl-chemistry">Alpha chemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#aldol-logic" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="carbonyl-chemistry">Aldol logic</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="spectroscopy-and-structure-determination" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Spectroscopy and structure determination">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ir-spectroscopy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spectroscopy-and-structure-determination">IR spectroscopy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nmr-spectroscopy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spectroscopy-and-structure-determination">NMR spectroscopy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mass-spectrometry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spectroscopy-and-structure-determination">Mass spectrometry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#degree-of-unsaturation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spectroscopy-and-structure-determination">Degree of unsaturation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="organic-chemistry-in-biology" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Organic chemistry in biology">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#amino-acids-and-proteins" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="organic-chemistry-in-biology">Amino acids and proteins</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#carbohydrates" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="organic-chemistry-in-biology">Carbohydrates</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lipids" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="organic-chemistry-in-biology">Lipids</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nucleic-acids" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="organic-chemistry-in-biology">Nucleic acids</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-identify-the-functional-group" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Identify the functional group</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-count-electrons-and-charges" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: Count electrons and charges</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-look-for-the-reactive-site" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Look for the reactive site</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-check-stereochemistry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Check stereochemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-apply-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Apply conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-6-verify-the-product" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 6: Verify the product</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-traps" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common traps</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Core relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-reactivity-summary" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Quick reactivity summary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#aromaticity-checklist" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Aromaticity checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#final-study-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Final study rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

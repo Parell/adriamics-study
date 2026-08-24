@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solid Mechanics | Adriamics Study</title>
+  <meta name="description" content="The traction acting on a plane with unit normal \mathbf n is" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/solid-mechanics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/solid-mechanics/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#stress-and-traction" data-notes-nav-item data-notes-toc-link>Stress and traction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strain-and-displacement" data-notes-nav-item data-notes-toc-link>Strain and displacement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constitutive-behavior" data-notes-nav-item data-notes-toc-link>Constitutive behavior</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-energy-and-failure" data-notes-nav-item data-notes-toc-link>Equilibrium, energy, and failure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elasticity-and-plasticity" data-notes-nav-item data-notes-toc-link>Elasticity and plasticity</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Solid Mechanics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/solid-mechanics/solid-mechanics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fsolid-mechanics%2Fsolid-mechanics.md&amp;title=%5BContribute%5D%3A%20Solid%20Mechanics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/solid-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="stress-and-traction">Stress and traction</h1>
+<p>The traction acting on a plane with unit normal $\mathbf n$ is</p>
+<div class="math-block">$$
+\mathbf t^{(\mathbf n)} = \boldsymbol\sigma\mathbf n,
+$$</div>
+<p>where $\boldsymbol\sigma$ is the Cauchy stress tensor. In Cartesian coordinates,</p>
+<div class="math-block">$$
+\boldsymbol\sigma = \begin{bmatrix}
+\sigma_x &amp; \tau_{xy} &amp; \tau_{xz}\\
+\tau_{yx} &amp; \sigma_y &amp; \tau_{yz}\\
+\tau_{zx} &amp; \tau_{zy} &amp; \sigma_z
+\end{bmatrix}.
+$$</div>
+<p>For a classical continuum without couple stresses, angular momentum balance gives $\boldsymbol\sigma=\boldsymbol\sigma^T$.</p>
+<p>The principal stresses are the eigenvalues of $\boldsymbol\sigma$. They act on planes where the traction has no shear component and are useful for yield and fracture criteria.</p>
+<h2 id="principal-stresses-and-directions">Principal stresses and directions</h2>
+<p>The principal stresses $\sigma_i$ and their associated unit directions $\mathbf n_i$ satisfy the eigenvalue problem</p>
+<div class="math-block">$$
+\boldsymbol\sigma\mathbf n_i=\sigma_i\mathbf n_i.
+$$</div>
+<p>They can be found from the characteristic equation</p>
+<div class="math-block">$$
+\det(\boldsymbol\sigma-\sigma\mathbf I)=0.
+$$</div>
+<p>For a plane-stress state, the two in-plane principal stresses are</p>
+<div class="math-block">$$
+\sigma_{1,2}=\frac{\sigma_x+\sigma_y}{2}
+\pm\sqrt{\left(\frac{\sigma_x-\sigma_y}{2}\right)^2+\tau_{xy}^2},
+$$</div>
+<p>with $\sigma_1\geq\sigma_2$. The orientation $\theta_p$ of a principal plane measured from the $x$ axis obeys</p>
+<div class="math-block">$$
+\tan(2\theta_p)=\frac{2\tau_{xy}}{\sigma_x-\sigma_y}.
+$$</div>
+<p>The two principal planes are perpendicular. On a principal plane, the normal traction is a principal stress and the shear traction is zero. This is why principal stresses are often more useful than the original Cartesian components for failure checks.</p>
+<p>The maximum in-plane shear stress is</p>
+<div class="math-block">$$
+\tau_{\max}=\frac{\sigma_1-\sigma_2}{2},
+$$</div>
+<p>and it occurs on planes oriented $45^\circ$ from the principal planes. In three dimensions, order the principal stresses as $\sigma_1\geq\sigma_2\geq\sigma_3$; the absolute maximum shear stress is</p>
+<div class="math-block">$$
+\tau_{\max,\,3D}=\frac{\sigma_1-\sigma_3}{2}.
+$$</div>
+<p>The mean stress is $\sigma_m=(\sigma_1+\sigma_2+\sigma_3)/3$, while the differences between principal stresses control the deviatoric, distortion-producing part of the state.</p>
+<h2 id="stress-and-strain-tensors">Stress and strain tensors</h2>
+<p>Stress and strain are second-order tensors: their components depend on the chosen coordinate basis, but the physical state does not. In three dimensions,</p>
+<div class="math-block">$$
+\boldsymbol\sigma =
+\begin{bmatrix}
+\sigma_{xx} &amp; \tau_{xy} &amp; \tau_{xz}\\
+\tau_{xy} &amp; \sigma_{yy} &amp; \tau_{yz}\\
+\tau_{xz} &amp; \tau_{yz} &amp; \sigma_{zz}
+\end{bmatrix},
+\qquad
+\boldsymbol\varepsilon =
+\begin{bmatrix}
+\varepsilon_{xx} &amp; \varepsilon_{xy} &amp; \varepsilon_{xz}\\
+\varepsilon_{xy} &amp; \varepsilon_{yy} &amp; \varepsilon_{yz}\\
+\varepsilon_{xz} &amp; \varepsilon_{yz} &amp; \varepsilon_{zz}
+\end{bmatrix}.
+$$</div>
+<p>The diagonal terms are normal stresses or strains. The off-diagonal terms are shear components. Tensor shear strain is half the corresponding engineering shear strain:</p>
+<div class="math-block">$$
+\gamma_{xy}=2\varepsilon_{xy},\qquad \gamma_{xz}=2\varepsilon_{xz},\qquad \gamma_{yz}=2\varepsilon_{yz}.
+$$</div>
+<p>Under a rotation represented by the orthogonal matrix $\mathbf Q$, tensor components transform as</p>
+<div class="math-block">$$
+\boldsymbol\sigma&#39; = \mathbf Q\boldsymbol\sigma\mathbf Q^T,
+\qquad
+\boldsymbol\varepsilon&#39; = \mathbf Q\boldsymbol\varepsilon\mathbf Q^T.
+$$</div>
+<p>Useful coordinate-independent quantities include the trace, determinant, and stress invariants. The first stress invariant is</p>
+<div class="math-block">$$
+I_1=\operatorname{tr}(\boldsymbol\sigma)=\sigma_{xx}+\sigma_{yy}+\sigma_{zz}.
+$$</div>
+<p>The mean or hydrostatic stress is $p=I_1/3$. The deviatoric stress tensor, which represents the distortion-producing part of stress, is</p>
+<div class="math-block">$$
+\mathbf s=\boldsymbol\sigma-p\mathbf I.
+$$</div>
+<p>In plane stress, $\sigma_{zz}=\tau_{xz}=\tau_{yz}=0$. In plane strain, the out-of-plane strain components are constrained, but $\sigma_{zz}$ generally is not zero.</p>
+<h1 id="strain-and-displacement">Strain and displacement</h1>
+<p>For small deformation, the infinitesimal strain tensor is</p>
+<div class="math-block">$$
+\boldsymbol\varepsilon = \frac12\left(\nabla\mathbf u + (\nabla\mathbf u)^T\right),
+$$</div>
+<p>where $\mathbf u$ is the displacement field. Normal strain measures extension; engineering shear strain is $\gamma_{xy}=2\varepsilon_{xy}$.</p>
+<p>Rigid translation and rotation produce no strain. A compatible strain field must arise from a single-valued displacement field; this requirement is expressed by the compatibility equations.</p>
+<h1 id="constitutive-behavior">Constitutive behavior</h1>
+<p>For a homogeneous, isotropic, linear-elastic solid,</p>
+<div class="math-block">$$
+\boldsymbol\sigma = 2G\boldsymbol\varepsilon + \lambda\,\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I,
+$$</div>
+<p>where $G$ and $\lambda$ are LamÃ© constants. In terms of Young&#39;s modulus $E$ and Poisson&#39;s ratio $\nu$,</p>
+<div class="math-block">$$
+G=\frac{E}{2(1+\nu)},\qquad \lambda=\frac{E\nu}{(1+\nu)(1-2\nu)}.
+$$</div>
+<p>Linear elasticity is appropriate only while the material response is approximately reversible and proportional. Plasticity, viscoelasticity, damage, and fracture require additional constitutive models.</p>
+<h2 id="generalized-hookes-law">Generalized Hooke&#39;s law</h2>
+<p>For a homogeneous, isotropic, small-strain elastic solid, generalized Hooke&#39;s law relates every stress component to every normal strain component and the corresponding shear strain:</p>
+<div class="math-block">$$
+\begin{aligned}
+\varepsilon_x &amp;= \frac{1}{E}\left(\sigma_x-\nu(\sigma_y+\sigma_z)\right),\\
+\varepsilon_y &amp;= \frac{1}{E}\left(\sigma_y-\nu(\sigma_x+\sigma_z)\right),\\
+\varepsilon_z &amp;= \frac{1}{E}\left(\sigma_z-\nu(\sigma_x+\sigma_y)\right),\\
+\gamma_{xy} &amp;= \frac{\tau_{xy}}{G},\qquad
+\gamma_{yz}=\frac{\tau_{yz}}{G},\qquad
+\gamma_{zx}=\frac{\tau_{zx}}{G}.
+\end{aligned}
+$$</div>
+<p>The equivalent stiffness form is</p>
+<div class="math-block">$$
+\boldsymbol\sigma = 2G\boldsymbol\varepsilon+\lambda\,\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I,
+$$</div>
+<p>with</p>
+<div class="math-block">$$
+G=\frac{E}{2(1+\nu)},\qquad
+\lambda=\frac{E\nu}{(1+\nu)(1-2\nu)}.
+$$</div>
+<p>Thus, an isotropic linear-elastic material is fully specified by any two independent elastic constants, commonly $E$ and $\nu$. Other useful constants are the bulk modulus</p>
+<div class="math-block">$$
+K=\frac{E}{3(1-2\nu)}=\lambda+\frac{2G}{3}.
+$$</div>
+<p>For plane stress, $\sigma_z=\tau_{xz}=\tau_{yz}=0$, so</p>
+<div class="math-block">$$
+\begin{bmatrix}\varepsilon_x\\\varepsilon_y\\\gamma_{xy}\end{bmatrix}
+=\begin{bmatrix}
+1/E &amp; -\nu/E &amp; 0\\
+-\nu/E &amp; 1/E &amp; 0\\
+0 &amp; 0 &amp; 1/G
+\end{bmatrix}
+\begin{bmatrix}\sigma_x\\\sigma_y\\\tau_{xy}\end{bmatrix}.
+$$</div>
+<p>For plane strain, $\varepsilon_z=\gamma_{xz}=\gamma_{yz}=0$; the out-of-plane stress $\sigma_z$ must be found from the constitutive equations and is generally nonzero. Hooke&#39;s law applies only within the linear elastic range and does not describe permanent deformation after unloading.</p>
+<h2 id="plane-stress-and-plane-strain">Plane stress and plane strain</h2>
+<p>These are two-dimensional idealizations of a three-dimensional solid. The correct choice depends on geometry, loading, and which direction is effectively unconstrained.</p>
+<h3 id="plane-stress">Plane stress</h3>
+<p>Plane stress assumes that the faces normal to the $z$ direction are traction-free or carry negligible traction:</p>
+<div class="math-block">$$
+\sigma_z=\tau_{xz}=\tau_{yz}=0.
+$$</div>
+<p>The in-plane constitutive equations are</p>
+<div class="math-block">$$
+\begin{bmatrix}\sigma_x\\\sigma_y\\\tau_{xy}\end{bmatrix}
+=\begin{bmatrix}
+\dfrac{E}{1-\nu^2} &amp; \dfrac{\nu E}{1-\nu^2} &amp; 0\\
+\dfrac{\nu E}{1-\nu^2} &amp; \dfrac{E}{1-\nu^2} &amp; 0\\
+0 &amp; 0 &amp; G
+\end{bmatrix}
+\begin{bmatrix}\varepsilon_x\\\varepsilon_y\\\gamma_{xy}\end{bmatrix}.
+$$</div>
+<p>Although $\sigma_z=0$, the out-of-plane strain is generally nonzero:</p>
+<div class="math-block">$$
+\varepsilon_z=-\frac{\nu}{E}(\sigma_x+\sigma_y).
+$$</div>
+<p>Thin plates, thin sheets, and thin regions near free surfaces are commonly modeled with plane stress.</p>
+<h3 id="plane-strain">Plane strain</h3>
+<p>Plane strain assumes that deformation in the $z$ direction is prevented or negligible:</p>
+<div class="math-block">$$
+\varepsilon_z=\gamma_{xz}=\gamma_{yz}=0.
+$$</div>
+<p>For an isotropic material, the out-of-plane stress is</p>
+<div class="math-block">$$
+\sigma_z=\nu(\sigma_x+\sigma_y).
+$$</div>
+<p>The in-plane equations can be written as</p>
+<div class="math-block">$$
+\begin{bmatrix}\sigma_x\\\sigma_y\\\tau_{xy}\end{bmatrix}
+=\begin{bmatrix}
+\dfrac{E(1-\nu)}{(1+\nu)(1-2\nu)} &amp; \dfrac{E\nu}{(1+\nu)(1-2\nu)} &amp; 0\\
+\dfrac{E\nu}{(1+\nu)(1-2\nu)} &amp; \dfrac{E(1-\nu)}{(1+\nu)(1-2\nu)} &amp; 0\\
+0 &amp; 0 &amp; G
+\end{bmatrix}
+\begin{bmatrix}\varepsilon_x\\\varepsilon_y\\\gamma_{xy}\end{bmatrix}.
+$$</div>
+<p>Long tunnels, dams, retaining structures, and the interior of very long bodies are often approximated as plane strain. Plane stress and plane strain are not interchangeable: plane stress sets out-of-plane stresses to zero, while plane strain sets out-of-plane strains to zero.</p>
+<h1 id="equilibrium-energy-and-failure">Equilibrium, energy, and failure</h1>
+<p>In the absence of inertia, body force $\mathbf b$, and prescribed traction $\mathbf t$, equilibrium is</p>
+<div class="math-block">$$
+\nabla\cdot\boldsymbol\sigma + \mathbf b = \mathbf 0.
+$$</div>
+<p>The strain-energy density for linear elasticity is</p>
+<div class="math-block">$$
+W=\frac12\boldsymbol\sigma:\boldsymbol\varepsilon.
+$$</div>
+<h2 id="energy-methods">Energy methods</h2>
+<p>Energy methods determine displacements and rotations from work and strain energy rather than by integrating the full displacement field directly. For a linearly elastic body loaded gradually from zero to its final load, the total strain energy is</p>
+<div class="math-block">$$
+U=\int_V \frac12\boldsymbol\sigma:\boldsymbol\varepsilon\,dV.
+$$</div>
+<p>For common one-dimensional members, this becomes</p>
+<div class="math-block">$$
+U=\int \frac{N^2}{2EA}\,dx
+ +\int \frac{M^2}{2EI}\,dx
+ +\int \frac{V^2}{2\kappa GA}\,dx
+ +\int \frac{T^2}{2GJ}\,dx,
+$$</div>
+<p>where $N$, $M$, $V$, and $T$ are the internal axial force, bending moment, shear force, and torque. The shear term is often neglected for slender beams; $\kappa$ is the shear-correction factor.</p>
+<h3 id="castiglianos-theorem">Castigliano&#39;s theorem</h3>
+<p>If the strain energy $U$ is expressed in terms of an applied force or moment, the corresponding displacement or rotation is</p>
+<div class="math-block">$$
+\delta_i=\frac{\partial U}{\partial P_i},
+\qquad
+\theta_i=\frac{\partial U}{\partial M_i}.
+$$</div>
+<p>For example, if a constant axial force $P$ stretches a prismatic bar of length $L$ and area $A$,</p>
+<div class="math-block">$$
+U=\frac{P^2L}{2EA},
+\qquad
+\delta=\frac{\partial U}{\partial P}=\frac{PL}{EA}.
+$$</div>
+<h3 id="unit-load-method">Unit-load method</h3>
+<p>To find a displacement at a point, apply a virtual unit force or unit moment in the desired direction. For a beam with bending moment $M(x)$ from the real loads and $m(x)$ from the unit load,</p>
+<div class="math-block">$$
+\delta=\int_0^L\frac{M(x)m(x)}{EI}\,dx.
+$$</div>
+<p>More generally, axial, bending, shear, and torsional contributions are added:</p>
+<div class="math-block">$$
+\delta=\int\left(\frac{Nn}{EA}+\frac{Mm}{EI}+\frac{Vv}{\kappa GA}+\frac{Tt}{GJ}\right)dx.
+$$</div>
+<p>Energy methods require a compatible, linearly elastic model and correctly signed internal-force diagrams. They are especially useful for finding one or a few displacements in statically determinate or indeterminate structures.</p>
+<h2 id="yield-criteria">Yield criteria</h2>
+<p>Yield criteria predict the onset of plastic deformation in a ductile material from the stress state. Let the ordered principal stresses be $\sigma_1\geq\sigma_2\geq\sigma_3$, and let $\sigma_Y$ be the uniaxial yield strength.</p>
+<h3 id="tresca-criterion">Tresca criterion</h3>
+<p>The Tresca, or maximum-shear-stress, criterion predicts yielding when</p>
+<div class="math-block">$$
+\tau_{\max}=\frac{\sigma_1-\sigma_3}{2}=\frac{\sigma_Y}{2},
+$$</div>
+<p>or equivalently,</p>
+<div class="math-block">$$
+\sigma_1-\sigma_3=\sigma_Y.
+$$</div>
+<p>Tresca is simple and conservative for many ductile metals. It depends only on the largest difference between principal stresses, so hydrostatic stress does not cause yielding in this idealization.</p>
+<h3 id="von-mises-criterion">von Mises criterion</h3>
+<p>The von Mises, or distortion-energy, criterion uses the equivalent stress</p>
+<div class="math-block">$$
+\sigma_{\mathrm{vm}}=
+\sqrt{\frac{(\sigma_1-\sigma_2)^2+(\sigma_2-\sigma_3)^2+(\sigma_3-\sigma_1)^2}{2}}.
+$$</div>
+<p>Yielding begins when</p>
+<div class="math-block">$$
+\sigma_{\mathrm{vm}}=\sigma_Y.
+$$</div>
+<p>In Cartesian components,</p>
+<div class="math-block">$$
+\sigma_{\mathrm{vm}}=
+\sqrt{\sigma_x^2+\sigma_y^2+\sigma_z^2-
+\sigma_x\sigma_y-\sigma_y\sigma_z-\sigma_z\sigma_x+
+3(\tau_{xy}^2+\tau_{yz}^2+\tau_{zx}^2)}.
+$$</div>
+<p>For pure shear, von Mises gives $\tau_Y=\sigma_Y/\sqrt{3}$, while Tresca gives $\tau_Y=\sigma_Y/2$. The factor of safety against initial yield can therefore be written as $n=\sigma_Y/\sigma_{\mathrm{eq}}$, using the equivalent stress from the selected criterion.</p>
+<p>Engineering checks commonly include yielding, fracture, excessive deformation, buckling, fatigue, and contact failure. Always state the assumptions, sign convention, coordinate system, units, and failure criterion before calculating.</p>
+<h1 id="elasticity-and-plasticity">Elasticity and plasticity</h1>
+<h2 id="elasticity">Elasticity</h2>
+<p>Elastic deformation is recoverable: when the load is removed, the body returns to its original shape. In linear elasticity, stress is proportional to strain and the stiffness is constant:</p>
+<div class="math-block">$$
+\boldsymbol\sigma=\mathbf C:\boldsymbol\varepsilon.
+$$</div>
+<p>For an isotropic material, $E$ and $\nu$ determine the stiffness. Elasticity is generally valid only for small strains and stresses below yield. The elastic strain energy density is</p>
+<div class="math-block">$$
+W=\frac12\boldsymbol\sigma:\boldsymbol\varepsilon.
+$$</div>
+<h2 id="plasticity">Plasticity</h2>
+<p>Plastic deformation is permanent. After unloading, the total strain remains divided into elastic and plastic parts:</p>
+<div class="math-block">$$
+\boldsymbol\varepsilon=\boldsymbol\varepsilon^e+\boldsymbol\varepsilon^p.
+$$</div>
+<p>The elastic part is recovered during unloading; the plastic part remains. A simple uniaxial idealization is</p>
+<div class="math-block">$$
+\varepsilon=\frac{\sigma}{E}+\varepsilon^p.
+$$</div>
+<p>The yield surface separates elastic and plastic stress states. For von Mises plasticity,</p>
+<div class="math-block">$$
+f(\boldsymbol\sigma)=\sigma_{\mathrm{vm}}-\sigma_Y\leq0.
+$$</div>
+<p>The conditions are:</p>
+<ul><li><p>$f&lt;0$: elastic state</p></li><li><p>$f=0$: initial yielding or active plastic loading</p></li><li><p>$f&gt;0$: inadmissible stress state in the ideal model</p></li></ul>
+<p>During plastic loading, the yield strength may change. Isotropic hardening expands the yield surface, while kinematic hardening translates it and is useful for cyclic loading. An ideal perfectly plastic material keeps the same yield stress after yielding.</p>
+<h2 id="uniaxial-stress-strain-curve">Uniaxial stress--strain curve</h2>
+<p>Important regions of a ductile material&#39;s curve are:</p>
+<ol><li><p>Linear elastic region: slope $E$.</p></li><li><p>Yield point: permanent deformation begins.</p></li><li><p>Plastic region: strain grows with limited stress increase.</p></li><li><p>Strain hardening: additional plastic strain requires increasing stress.</p></li><li><p>Ultimate tensile strength and necking.</p></li><li><p>Fracture.</p></li></ol>
+<p>The area under the elastic portion represents recoverable energy; the area associated with plastic deformation represents energy dissipated as permanent work and heat.</p>
+<h2 id="elastic-versus-plastic-analysis">Elastic versus plastic analysis</h2>
+<p>Use an elastic model when stresses are below yield and unloading recovery matters. Use a plasticity model when permanent deformation, residual stress, collapse load, metal forming, or cyclic response matters. A common calculation sequence is:</p>
+<div class="math-block">$$
+\text{trial elastic stress}\rightarrow\text{yield check}\rightarrow\text{plastic correction}\rightarrow\text{update hardening}.
+$$</div>
+<h2 id="quick-study-summary">Quick study summary</h2>
+<table><thead><tr><th>Topic</th><th>Main idea</th><th>Key equation</th></tr></thead><tbody><tr><td>Stress tensor</td><td>Traction depends on plane orientation</td><td>$\mathbf t^{(\mathbf n)}=\boldsymbol\sigma\mathbf n$</td></tr><tr><td>Strain tensor</td><td>Small deformation from displacement gradients</td><td>$\boldsymbol\varepsilon=\tfrac12(\nabla\mathbf u+\nabla\mathbf u^T)$</td></tr><tr><td>Hooke&#39;s law</td><td>Linear elastic stress--strain relation</td><td>$\boldsymbol\sigma=2G\boldsymbol\varepsilon+\lambda\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I$</td></tr><tr><td>Principal stress</td><td>Eigenvalues of the stress tensor</td><td>$\boldsymbol\sigma\mathbf n=\sigma\mathbf n$</td></tr><tr><td>Plane stress</td><td>Out-of-plane stresses vanish</td><td>$\sigma_z=\tau_{xz}=\tau_{yz}=0$</td></tr><tr><td>Plane strain</td><td>Out-of-plane strains vanish</td><td>$\varepsilon_z=\gamma_{xz}=\gamma_{yz}=0$</td></tr><tr><td>Energy methods</td><td>Work and strain energy give displacement</td><td>$\delta=\partial U/\partial P$</td></tr><tr><td>Tresca</td><td>Yield controlled by maximum shear stress</td><td>$\sigma_1-\sigma_3=\sigma_Y$</td></tr><tr><td>von Mises</td><td>Yield controlled by distortion energy</td><td>$\sigma_{\mathrm{vm}}=\sigma_Y$</td></tr><tr><td>Plasticity</td><td>Permanent strain remains after unloading</td><td>$\boldsymbol\varepsilon=\boldsymbol\varepsilon^e+\boldsymbol\varepsilon^p$</td></tr></tbody></table>
+<h2 id="problem-solving-checklist">Problem-solving checklist</h2>
+<ol><li><p>Define the coordinate system and sign convention.</p></li><li><p>Write equilibrium equations.</p></li><li><p>Assemble the stress and strain tensors.</p></li><li><p>Apply the correct constitutive law.</p></li><li><p>Decide whether the state is plane stress, plane strain, or three-dimensional.</p></li><li><p>Calculate principal stresses or an equivalent stress if failure is relevant.</p></li><li><p>Check yield, deformation, and units.</p></li></ol>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Gere and Goodno, <em>Mechanics of Materials</em></p></li><li><p>Sadd, <em>Elasticity: Theory, Applications, and Numerics</em></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="stress-and-traction">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Stress and traction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#principal-stresses-and-directions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-and-traction">Principal stresses and directions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress-and-strain-tensors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stress-and-traction">Stress and strain tensors</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="constitutive-behavior" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Constitutive behavior">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#generalized-hookes-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="constitutive-behavior">Generalized Hooke&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#plane-stress-and-plane-strain" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="constitutive-behavior">Plane stress and plane strain</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="equilibrium-energy-and-failure" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Equilibrium, energy, and failure">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-methods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="equilibrium-energy-and-failure">Energy methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#yield-criteria" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="equilibrium-energy-and-failure">Yield criteria</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="elasticity-and-plasticity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Elasticity and plasticity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elasticity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Elasticity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#plasticity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Plasticity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#uniaxial-stress-strain-curve" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Uniaxial stress--strain curve</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elastic-versus-plastic-analysis" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Elastic versus plastic analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-study-summary" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Quick study summary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-checklist" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Problem-solving checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="elasticity-and-plasticity">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

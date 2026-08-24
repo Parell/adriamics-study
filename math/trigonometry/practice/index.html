@@ -1,0 +1,1985 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trigonometry Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/trigonometry/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/trigonometry/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Trigonometry Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/trigonometry/trigonometry-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Ftrigonometry%2Ftrigonometry-problems.md&amp;title=%5BContribute%5D%3A%20Trigonometry%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Trigonometry" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Triangle area formulas</h2><div class="markdown-body"><p>If two sides and the included angle are known:</p>
+<div class="math-block">$$
+\text{Area} = \frac{1}{2}ab\sin C
+$$</div>
+<p>This can be combined with the law of sines or cosines.</p></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="trigonometry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Angle Measure, Radians" data-problem-difficulty="Direct" data-problem-answer="Use the degree-to-radian conversion rule:
+
+$$
+150^\circ \cdot \frac{\pi}{180^\circ} = \frac{150\pi}{180} = \frac{5\pi}{6}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Convert 150 Degrees to Radians</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#angle-measure" data-notes-nav-item>Angle Measure</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#radians" data-notes-nav-item>Radians</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Convert $150^\circ$ to radians.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-11">Your work for Convert 150 Degrees to Radians</label>
+          <textarea
+            id="practice-study-trigonometry-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the degree-to-radian conversion rule:</p>
+<div class="math-block">$$
+150^\circ \cdot \frac{\pi}{180^\circ} = \frac{150\pi}{180} = \frac{5\pi}{6}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Angle Measure, Radians" data-problem-difficulty="Direct" data-problem-answer="Multiply by $\frac{180^\circ}{\pi}$:
+
+$$
+\frac{7\pi}{6} \cdot \frac{180^\circ}{\pi} = 7 \cdot 30^\circ = 210^\circ
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Convert 7 Pi Over 6 to Degrees</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#angle-measure" data-notes-nav-item>Angle Measure</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#radians" data-notes-nav-item>Radians</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Convert $\frac{7\pi}{6}$ to degrees.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-12">Your work for Convert 7 Pi Over 6 to Degrees</label>
+          <textarea
+            id="practice-study-trigonometry-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply by $\frac{180^\circ}{\pi}$:</p>
+<div class="math-block">$$
+\frac{7\pi}{6} \cdot \frac{180^\circ}{\pi} = 7 \cdot 30^\circ = 210^\circ
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Unit Circle, Coordinates" data-problem-difficulty="Direct" data-problem-answer="On the unit circle, a point at angle $\theta$ has coordinates
+
+$$
+(\cos \theta, \sin \theta)
+$$
+
+For $\theta = \frac{\pi}{3}$,
+
+$$
+\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}, \quad \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}
+$$
+
+So the point is
+
+$$
+\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Read a Unit Circle Coordinate</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#unit-circle" data-notes-nav-item>Unit Circle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#coordinates" data-notes-nav-item>Coordinates</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>On the unit circle, what point corresponds to the angle $\frac{\pi}{3}$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-13">Your work for Read a Unit Circle Coordinate</label>
+          <textarea
+            id="practice-study-trigonometry-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>On the unit circle, a point at angle $\theta$ has coordinates</p>
+<div class="math-block">$$
+(\cos \theta, \sin \theta)
+$$</div>
+<p>For $\theta = \frac{\pi}{3}$,</p>
+<div class="math-block">$$
+\cos\left(\frac{\pi}{3}\right) = \frac{1}{2}, \quad \sin\left(\frac{\pi}{3}\right) = \frac{\sqrt{3}}{2}
+$$</div>
+<p>So the point is</p>
+<div class="math-block">$$
+\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Reference Angles, Quadrants" data-problem-difficulty="Direct" data-problem-answer="The angle $\frac{5\pi}{4}$ is in Quadrant III, and its reference angle is $\frac{\pi}{4}$.
+
+Since sine is negative in Quadrant III,
+
+$$
+\sin\left(\frac{5\pi}{4}\right) = -\sin\left(\frac{\pi}{4}\right) = -\frac{\sqrt{2}}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Evaluate Sine Using a Reference Angle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#reference-angles" data-notes-nav-item>Reference Angles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#quadrants" data-notes-nav-item>Quadrants</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate $\sin\left(\frac{5\pi}{4}\right)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-14">Your work for Evaluate Sine Using a Reference Angle</label>
+          <textarea
+            id="practice-study-trigonometry-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The angle $\frac{5\pi}{4}$ is in Quadrant III, and its reference angle is $\frac{\pi}{4}$.</p>
+<p>Since sine is negative in Quadrant III,</p>
+<div class="math-block">$$
+\sin\left(\frac{5\pi}{4}\right) = -\sin\left(\frac{\pi}{4}\right) = -\frac{\sqrt{2}}{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Right Triangle Ratios" data-problem-difficulty="Direct" data-problem-answer="Use the definition of sine:
+
+$$
+\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{7}{25}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find a Trig Ratio from a Right Triangle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#right-triangle-ratios" data-notes-nav-item>Right Triangle Ratios</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A right triangle has opposite side $7$ and hypotenuse $25$ relative to angle $\theta$.</p>
+<p>Find $\sin \theta$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-15">Your work for Find a Trig Ratio from a Right Triangle</label>
+          <textarea
+            id="practice-study-trigonometry-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the definition of sine:</p>
+<div class="math-block">$$
+\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{7}{25}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Reciprocal Identities" data-problem-difficulty="Direct" data-problem-answer="Secant is the reciprocal of cosine:
+
+$$
+\sec \theta = \frac{1}{\cos \theta} = \frac{1}{1/2} = 2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Evaluate a Reciprocal Trig Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#reciprocal-identities" data-notes-nav-item>Reciprocal Identities</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If $\cos \theta = \frac{1}{2}$, what is $\sec \theta$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-16">Your work for Evaluate a Reciprocal Trig Function</label>
+          <textarea
+            id="practice-study-trigonometry-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Secant is the reciprocal of cosine:</p>
+<div class="math-block">$$
+\sec \theta = \frac{1}{\cos \theta} = \frac{1}{1/2} = 2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Special Angles" data-problem-difficulty="Direct" data-problem-answer="From the $30^\circ$-$60^\circ$-$90^\circ$ triangle,
+
+$$
+\tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Evaluate a Special Angle Tangent</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#special-angles" data-notes-nav-item>Special Angles</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate $\tan\left(\frac{\pi}{6}\right)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-17">Your work for Evaluate a Special Angle Tangent</label>
+          <textarea
+            id="practice-study-trigonometry-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>From the $30^\circ$-$60^\circ$-$90^\circ$ triangle,</p>
+<div class="math-block">$$
+\tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Periodicity" data-problem-difficulty="Direct" data-problem-answer="Sine has period $2\pi$, so adding $2\pi$ does not change its value:
+
+$$
+\sin(x + 2\pi) = \sin x
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Use Periodicity to Simplify an Expression</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#periodicity" data-notes-nav-item>Periodicity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Simplify $\sin(x + 2\pi)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-18">Your work for Use Periodicity to Simplify an Expression</label>
+          <textarea
+            id="practice-study-trigonometry-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Sine has period $2\pi$, so adding $2\pi$ does not change its value:</p>
+<div class="math-block">$$
+\sin(x + 2\pi) = \sin x
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Domain, Periodicity" data-problem-difficulty="Direct" data-problem-answer="Tangent is undefined when cosine is zero.
+
+That happens at
+
+$$
+x = \frac{\pi}{2} + k\pi
+$$
+
+for any integer $k$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Identify Where Tangent Is Undefined</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#domain" data-notes-nav-item>Domain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#periodicity" data-notes-nav-item>Periodicity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For which values of $x$ is $\tan x$ undefined?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-19">Your work for Identify Where Tangent Is Undefined</label>
+          <textarea
+            id="practice-study-trigonometry-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Tangent is undefined when cosine is zero.</p>
+<p>That happens at</p>
+<div class="math-block">$$
+x = \frac{\pi}{2} + k\pi
+$$</div>
+<p>for any integer $k$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Pythagorean Identity, Quadrants" data-problem-difficulty="Direct" data-problem-answer="Use the Pythagorean identity:
+
+$$
+\sin^2 x + \cos^2 x = 1
+$$
+
+Substitute $\sin x = \frac{3}{5}$:
+
+$$
+\left(\frac{3}{5}\right)^2 + \cos^2 x = 1
+$$
+
+$$
+\frac{9}{25} + \cos^2 x = 1
+$$
+
+$$
+\cos^2 x = \frac{16}{25}
+$$
+
+Since $x$ is in Quadrant I, cosine is positive:
+
+$$
+\cos x = \frac{4}{5}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Use the Pythagorean Identity to Find Cosine</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#pythagorean-identity" data-notes-nav-item>Pythagorean Identity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#quadrants" data-notes-nav-item>Quadrants</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If $\sin x = \frac{3}{5}$ and $x$ is in Quadrant I, find $\cos x$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-110">Your work for Use the Pythagorean Identity to Find Cosine</label>
+          <textarea
+            id="practice-study-trigonometry-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the Pythagorean identity:</p>
+<div class="math-block">$$
+\sin^2 x + \cos^2 x = 1
+$$</div>
+<p>Substitute $\sin x = \frac{3}{5}$:</p>
+<div class="math-block">$$
+\left(\frac{3}{5}\right)^2 + \cos^2 x = 1
+$$</div>
+<div class="math-block">$$
+\frac{9}{25} + \cos^2 x = 1
+$$</div>
+<div class="math-block">$$
+\cos^2 x = \frac{16}{25}
+$$</div>
+<p>Since $x$ is in Quadrant I, cosine is positive:</p>
+<div class="math-block">$$
+\cos x = \frac{4}{5}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="trigonometry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Reference Angles, Quadrants" data-problem-difficulty="Integrated" data-problem-answer="The angle $\frac{7\pi}{6}$ is in Quadrant III, with reference angle $\frac{\pi}{6}$.
+
+Cosine is negative in Quadrant III, so
+
+$$
+\cos\left(\frac{7\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Evaluate Cosine in Quadrant III</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#reference-angles" data-notes-nav-item>Reference Angles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#quadrants" data-notes-nav-item>Quadrants</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate $\cos\left(\frac{7\pi}{6}\right)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-21">Your work for Evaluate Cosine in Quadrant III</label>
+          <textarea
+            id="practice-study-trigonometry-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The angle $\frac{7\pi}{6}$ is in Quadrant III, with reference angle $\frac{\pi}{6}$.</p>
+<p>Cosine is negative in Quadrant III, so</p>
+<div class="math-block">$$
+\cos\left(\frac{7\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Right Triangle Ratios, Special Triangles" data-problem-difficulty="Integrated" data-problem-answer="First find the hypotenuse:
+
+$$
+7^2 + 24^2 = 49 + 576 = 625
+$$
+
+So the hypotenuse is
+
+$$
+\sqrt{625} = 25
+$$
+
+Now use cosine:
+
+$$
+\cos \theta = \frac{24}{25}
+$$
+
+Therefore,
+
+$$
+\sec \theta = \frac{25}{24}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Find a Trig Ratio After Using the Triangle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#right-triangle-ratios" data-notes-nav-item>Right Triangle Ratios</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#special-triangles" data-notes-nav-item>Special Triangles</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A right triangle has legs $7$ and $24$.</p>
+<p>If $\theta$ is opposite the $7$-unit leg, find $\sec \theta$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-22">Your work for Find a Trig Ratio After Using the Triangle</label>
+          <textarea
+            id="practice-study-trigonometry-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the hypotenuse:</p>
+<div class="math-block">$$
+7^2 + 24^2 = 49 + 576 = 625
+$$</div>
+<p>So the hypotenuse is</p>
+<div class="math-block">$$
+\sqrt{625} = 25
+$$</div>
+<p>Now use cosine:</p>
+<div class="math-block">$$
+\cos \theta = \frac{24}{25}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\sec \theta = \frac{25}{24}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Graph Transformations, Period" data-problem-difficulty="Integrated" data-problem-answer="For $y = A\sin(Bx - C) + D$:
+
+$$
+\text{Amplitude} = |A| = 3
+$$
+
+$$
+\text{Period} = \frac{2\pi}{|B|} = \frac{2\pi}{2} = \pi
+$$
+
+$$
+\text{Midline} = y = D = 4
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Identify Amplitude, Period, and Midline</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#graph-transformations" data-notes-nav-item>Graph Transformations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#period" data-notes-nav-item>Period</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+y = -3\sin(2x - \frac{\pi}{3}) + 4,
+$$</div>
+<p>find the amplitude, period, and midline.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-23">Your work for Identify Amplitude, Period, and Midline</label>
+          <textarea
+            id="practice-study-trigonometry-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For $y = A\sin(Bx - C) + D$:</p>
+<div class="math-block">$$
+\text{Amplitude} = |A| = 3
+$$</div>
+<div class="math-block">$$
+\text{Period} = \frac{2\pi}{|B|} = \frac{2\pi}{2} = \pi
+$$</div>
+<div class="math-block">$$
+\text{Midline} = y = D = 4
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Graph Transformations, Phase Shift" data-problem-difficulty="Integrated" data-problem-answer="Rewrite the angle expression:
+
+$$
+3x + \pi = 3\left(x + \frac{\pi}{3}\right)
+$$
+
+So the graph is shifted left by $\frac{\pi}{3}$.
+
+The phase shift is
+
+$$
+-\frac{\pi}{3}
+$$
+
+or, equivalently, $\frac{\pi}{3}$ to the left.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Find a Phase Shift from Standard Form</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#graph-transformations" data-notes-nav-item>Graph Transformations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#phase-shift" data-notes-nav-item>Phase Shift</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+y = 2\cos(3x + \pi) - 1,
+$$</div>
+<p>what is the phase shift?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-24">Your work for Find a Phase Shift from Standard Form</label>
+          <textarea
+            id="practice-study-trigonometry-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Rewrite the angle expression:</p>
+<div class="math-block">$$
+3x + \pi = 3\left(x + \frac{\pi}{3}\right)
+$$</div>
+<p>So the graph is shifted left by $\frac{\pi}{3}$.</p>
+<p>The phase shift is</p>
+<div class="math-block">$$
+-\frac{\pi}{3}
+$$</div>
+<p>or, equivalently, $\frac{\pi}{3}$ to the left.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Sum Identities, Special Angles" data-problem-difficulty="Integrated" data-problem-answer="Use the sum identity:
+
+$$
+\sin(a+b) = \sin a \cos b + \cos a \sin b
+$$
+
+So,
+
+$$
+\sin\left(\frac{\pi}{4} + \frac{\pi}{6}\right)
+= \sin\left(\frac{\pi}{4}\right)\cos\left(\frac{\pi}{6}\right)
++ \cos\left(\frac{\pi}{4}\right)\sin\left(\frac{\pi}{6}\right)
+$$
+
+Substitute the exact values:
+
+$$
+= \frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2}
++ \frac{\sqrt{2}}{2}\cdot\frac{1}{2}
+$$
+
+$$
+= \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4}
+= \frac{\sqrt{6}+\sqrt{2}}{4}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Evaluate an Exact Value with a Sum Identity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#sum-identities" data-notes-nav-item>Sum Identities</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#special-angles" data-notes-nav-item>Special Angles</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate</p>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{4} + \frac{\pi}{6}\right).
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-25">Your work for Evaluate an Exact Value with a Sum Identity</label>
+          <textarea
+            id="practice-study-trigonometry-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the sum identity:</p>
+<div class="math-block">$$
+\sin(a+b) = \sin a \cos b + \cos a \sin b
+$$</div>
+<p>So,</p>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{4} + \frac{\pi}{6}\right)
+= \sin\left(\frac{\pi}{4}\right)\cos\left(\frac{\pi}{6}\right)
++ \cos\left(\frac{\pi}{4}\right)\sin\left(\frac{\pi}{6}\right)
+$$</div>
+<p>Substitute the exact values:</p>
+<div class="math-block">$$
+= \frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2}
++ \frac{\sqrt{2}}{2}\cdot\frac{1}{2}
+$$</div>
+<div class="math-block">$$
+= \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4}
+= \frac{\sqrt{6}+\sqrt{2}}{4}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Inverse Trig, Principal Range" data-problem-difficulty="Integrated" data-problem-answer="The principal range of $\arcsin$ is
+
+$$
+\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]
+$$
+
+The angle in that interval whose sine is $\frac{\sqrt{3}}{2}$ is
+
+$$
+\frac{\pi}{3}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Interpret an Inverse Trig Expression</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#inverse-trig" data-notes-nav-item>Inverse Trig</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#principal-range" data-notes-nav-item>Principal Range</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate $\arcsin\left(\frac{\sqrt{3}}{2}\right)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-26">Your work for Interpret an Inverse Trig Expression</label>
+          <textarea
+            id="practice-study-trigonometry-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The principal range of $\arcsin$ is</p>
+<div class="math-block">$$
+\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]
+$$</div>
+<p>The angle in that interval whose sine is $\frac{\sqrt{3}}{2}$ is</p>
+<div class="math-block">$$
+\frac{\pi}{3}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Trig Equations, Periodicity" data-problem-difficulty="Integrated" data-problem-answer="First isolate sine:
+
+$$
+2\sin x = 1
+$$
+
+$$
+\sin x = \frac{1}{2}
+$$
+
+On $[0, 2\pi)$, sine equals $\frac{1}{2}$ at
+
+$$
+x = \frac{\pi}{6} \quad \text{and} \quad x = \frac{5\pi}{6}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Solve a Sine Equation on an Interval</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#trig-equations" data-notes-nav-item>Trig Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#periodicity" data-notes-nav-item>Periodicity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve for $x$ on $[0, 2\pi)$:</p>
+<div class="math-block">$$
+2\sin x - 1 = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-27">Your work for Solve a Sine Equation on an Interval</label>
+          <textarea
+            id="practice-study-trigonometry-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First isolate sine:</p>
+<div class="math-block">$$
+2\sin x = 1
+$$</div>
+<div class="math-block">$$
+\sin x = \frac{1}{2}
+$$</div>
+<p>On $[0, 2\pi)$, sine equals $\frac{1}{2}$ at</p>
+<div class="math-block">$$
+x = \frac{\pi}{6} \quad \text{and} \quad x = \frac{5\pi}{6}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Trig Equations, Periodicity" data-problem-difficulty="Integrated" data-problem-answer="One solution is
+
+$$
+x = -\frac{\pi}{4}
+$$
+
+Because tangent has period $\pi$, the full solution set is
+
+$$
+x = -\frac{\pi}{4} + k\pi
+$$
+
+for any integer $k$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Solve a Tangent Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#trig-equations" data-notes-nav-item>Trig Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#periodicity" data-notes-nav-item>Periodicity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve for all real $x$:</p>
+<div class="math-block">$$
+\tan x = -1
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-28">Your work for Solve a Tangent Equation</label>
+          <textarea
+            id="practice-study-trigonometry-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One solution is</p>
+<div class="math-block">$$
+x = -\frac{\pi}{4}
+$$</div>
+<p>Because tangent has period $\pi$, the full solution set is</p>
+<div class="math-block">$$
+x = -\frac{\pi}{4} + k\pi
+$$</div>
+<p>for any integer $k$.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="trigonometry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Angles of Elevation, Tangent" data-problem-difficulty="Applied" data-problem-answer="Use tangent:
+
+$$
+\tan 30^\circ = \frac{\text{height}}{20}
+$$
+
+So
+
+$$
+\text{height} = 20\tan 30^\circ
+$$
+
+Since $\tan 30^\circ = \frac{\sqrt{3}}{3}$,
+
+$$
+\text{height} = 20\cdot\frac{\sqrt{3}}{3} = \frac{20\sqrt{3}}{3}\text{ m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find a Height from an Angle of Elevation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#angles-of-elevation" data-notes-nav-item>Angles of Elevation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#tangent" data-notes-nav-item>Tangent</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A drone is $20$ m horizontally from an observer.</p>
+<p>The angle of elevation is $30^\circ$.</p>
+<p>How high is the drone?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-31">Your work for Find a Height from an Angle of Elevation</label>
+          <textarea
+            id="practice-study-trigonometry-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use tangent:</p>
+<div class="math-block">$$
+\tan 30^\circ = \frac{\text{height}}{20}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\text{height} = 20\tan 30^\circ
+$$</div>
+<p>Since $\tan 30^\circ = \frac{\sqrt{3}}{3}$,</p>
+<div class="math-block">$$
+\text{height} = 20\cdot\frac{\sqrt{3}}{3} = \frac{20\sqrt{3}}{3}\text{ m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Law of Sines" data-problem-difficulty="Applied" data-problem-answer="Use the law of sines:
+
+$$
+\frac{a}{\sin A} = \frac{b}{\sin B}
+$$
+
+Substitute the known values:
+
+$$
+\frac{10}{\sin 30^\circ} = \frac{b}{\sin 45^\circ}
+$$
+
+Solve for $b$:
+
+$$
+b = 10 \cdot \frac{\sin 45^\circ}{\sin 30^\circ}
+$$
+
+$$
+b = 10 \cdot \frac{\sqrt{2}/2}{1/2} = 10\sqrt{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Use the Law of Sines</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#law-of-sines" data-notes-nav-item>Law of Sines</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>In triangle $ABC$, $A = 30^\circ$, $B = 45^\circ$, and $a = 10$.</p>
+<p>Find $b$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-32">Your work for Use the Law of Sines</label>
+          <textarea
+            id="practice-study-trigonometry-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the law of sines:</p>
+<div class="math-block">$$
+\frac{a}{\sin A} = \frac{b}{\sin B}
+$$</div>
+<p>Substitute the known values:</p>
+<div class="math-block">$$
+\frac{10}{\sin 30^\circ} = \frac{b}{\sin 45^\circ}
+$$</div>
+<p>Solve for $b$:</p>
+<div class="math-block">$$
+b = 10 \cdot \frac{\sin 45^\circ}{\sin 30^\circ}
+$$</div>
+<div class="math-block">$$
+b = 10 \cdot \frac{\sqrt{2}/2}{1/2} = 10\sqrt{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Law of Cosines" data-problem-difficulty="Applied" data-problem-answer="Use the law of cosines:
+
+$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$
+
+Substitute the values:
+
+$$
+c^2 = 7^2 + 9^2 - 2(7)(9)\cos 60^\circ
+$$
+
+$$
+c^2 = 49 + 81 - 126\cdot\frac{1}{2}
+$$
+
+$$
+c^2 = 130 - 63 = 67
+$$
+
+So
+
+$$
+c = \sqrt{67}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Use the Law of Cosines</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#law-of-cosines" data-notes-nav-item>Law of Cosines</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>In triangle $ABC$, the sides are $a = 7$, $b = 9$, and the included angle $C = 60^\circ$.</p>
+<p>Find $c$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-33">Your work for Use the Law of Cosines</label>
+          <textarea
+            id="practice-study-trigonometry-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the law of cosines:</p>
+<div class="math-block">$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+c^2 = 7^2 + 9^2 - 2(7)(9)\cos 60^\circ
+$$</div>
+<div class="math-block">$$
+c^2 = 49 + 81 - 126\cdot\frac{1}{2}
+$$</div>
+<div class="math-block">$$
+c^2 = 130 - 63 = 67
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+c = \sqrt{67}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Sinusoidal Models, Graph Transformations" data-problem-difficulty="Applied" data-problem-answer="The amplitude is $3$, so the maximum height is
+
+$$
+8 + 3 = 11
+$$
+
+The period is
+
+$$
+\frac{2\pi}{\pi/6} = 12
+$$
+
+So the maximum height is $11$ and the period is $12$ hours.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Interpret a Sinusoidal Model</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#sinusoidal-models" data-notes-nav-item>Sinusoidal Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#graph-transformations" data-notes-nav-item>Graph Transformations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The height of a tide is modeled by</p>
+<div class="math-block">$$
+h(t) = 3\sin\left(\frac{\pi t}{6}\right) + 8,
+$$</div>
+<p>where $t$ is measured in hours.</p>
+<p>What are the maximum height and the period?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-34">Your work for Interpret a Sinusoidal Model</label>
+          <textarea
+            id="practice-study-trigonometry-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The amplitude is $3$, so the maximum height is</p>
+<div class="math-block">$$
+8 + 3 = 11
+$$</div>
+<p>The period is</p>
+<div class="math-block">$$
+\frac{2\pi}{\pi/6} = 12
+$$</div>
+<p>So the maximum height is $11$ and the period is $12$ hours.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Triangle Area, Trig Area Formula" data-problem-difficulty="Applied" data-problem-answer="Use the area formula for two sides and the included angle:
+
+$$
+\text{Area} = \frac{1}{2}ab\sin C
+$$
+
+Substitute the values:
+
+$$
+\text{Area} = \frac{1}{2}(8)(12)\sin 45^\circ
+$$
+
+$$
+\text{Area} = 48\cdot\frac{\sqrt{2}}{2} = 24\sqrt{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Find the Area of an Oblique Triangle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#triangle-area" data-notes-nav-item>Triangle Area</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#trig-area-formula" data-notes-nav-item>Trig Area Formula</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two sides of a triangle are $8$ and $12$ with included angle $45^\circ$.</p>
+<p>Find the area.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-35">Your work for Find the Area of an Oblique Triangle</label>
+          <textarea
+            id="practice-study-trigonometry-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the area formula for two sides and the included angle:</p>
+<div class="math-block">$$
+\text{Area} = \frac{1}{2}ab\sin C
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\text{Area} = \frac{1}{2}(8)(12)\sin 45^\circ
+$$</div>
+<div class="math-block">$$
+\text{Area} = 48\cdot\frac{\sqrt{2}}{2} = 24\sqrt{2}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="trigonometry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Double-Angle Identities, Pythagorean Identity" data-problem-difficulty="Challenge" data-problem-answer="First find $\cos x$ using the Pythagorean identity:
+
+$$
+\cos x = \frac{4}{5}
+$$
+
+Now use the double-angle identity:
+
+$$
+\cos(2x) = \cos^2 x - \sin^2 x
+$$
+
+Substitute:
+
+$$
+\cos(2x) = \left(\frac{4}{5}\right)^2 - \left(\frac{3}{5}\right)^2
+$$
+
+$$
+\cos(2x) = \frac{16}{25} - \frac{9}{25} = \frac{7}{25}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Use a Double-Angle Identity with a Given Sine Value</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#double-angle-identities" data-notes-nav-item>Double-Angle Identities</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#pythagorean-identity" data-notes-nav-item>Pythagorean Identity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If $\sin x = \frac{3}{5}$ and $x$ is in Quadrant I, find $\cos(2x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-41">Your work for Use a Double-Angle Identity with a Given Sine Value</label>
+          <textarea
+            id="practice-study-trigonometry-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find $\cos x$ using the Pythagorean identity:</p>
+<div class="math-block">$$
+\cos x = \frac{4}{5}
+$$</div>
+<p>Now use the double-angle identity:</p>
+<div class="math-block">$$
+\cos(2x) = \cos^2 x - \sin^2 x
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\cos(2x) = \left(\frac{4}{5}\right)^2 - \left(\frac{3}{5}\right)^2
+$$</div>
+<div class="math-block">$$
+\cos(2x) = \frac{16}{25} - \frac{9}{25} = \frac{7}{25}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Product-to-Sum" data-problem-difficulty="Challenge" data-problem-answer="Use the identity
+
+$$
+\sin a \cos b = \frac{1}{2}[\sin(a+b) + \sin(a-b)]
+$$
+
+with $a = 3x$ and $b = x$:
+
+$$
+\sin(3x)\cos(x) = \frac{1}{2}[\sin(4x) + \sin(2x)]
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Rewrite a Product as a Sum</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#product-to-sum" data-notes-nav-item>Product-to-Sum</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Rewrite $\sin(3x)\cos(x)$ using a product-to-sum identity.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-42">Your work for Rewrite a Product as a Sum</label>
+          <textarea
+            id="practice-study-trigonometry-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the identity</p>
+<div class="math-block">$$
+\sin a \cos b = \frac{1}{2}[\sin(a+b) + \sin(a-b)]
+$$</div>
+<p>with $a = 3x$ and $b = x$:</p>
+<div class="math-block">$$
+\sin(3x)\cos(x) = \frac{1}{2}[\sin(4x) + \sin(2x)]
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Law of Sines, SSA Ambiguity" data-problem-difficulty="Challenge" data-problem-answer="Use the SSA height test.
+
+The height is
+
+$$
+h = b\sin A = 14\sin 30^\circ = 14\cdot\frac{1}{2} = 7
+$$
+
+Since
+
+$$
+h &lt; a &lt; b
+$$
+
+that is,
+
+$$
+7 &lt; 10 &lt; 14,
+$$
+
+there are two possible triangles.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Determine the Number of Triangles in an SSA Case</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#law-of-sines" data-notes-nav-item>Law of Sines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#ssa-ambiguity" data-notes-nav-item>SSA Ambiguity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>In a triangle, $A = 30^\circ$, $a = 10$, and $b = 14$.</p>
+<p>How many triangles are possible?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-43">Your work for Determine the Number of Triangles in an SSA Case</label>
+          <textarea
+            id="practice-study-trigonometry-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the SSA height test.</p>
+<p>The height is</p>
+<div class="math-block">$$
+h = b\sin A = 14\sin 30^\circ = 14\cdot\frac{1}{2} = 7
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+h &lt; a &lt; b
+$$</div>
+<p>that is,</p>
+<div class="math-block">$$
+7 &lt; 10 &lt; 14,
+$$</div>
+<p>there are two possible triangles.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="trigonometry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Half-Angle Formulas, Special Angles" data-problem-difficulty="Challenge" data-problem-answer="Use the half-angle formula:
+
+$$
+\cos^2\left(\frac{x}{2}\right) = \frac{1+\cos x}{2}
+$$
+
+Let $x = \frac{\pi}{6}$. Then $\frac{x}{2} = \frac{\pi}{12}$, so
+
+$$
+\cos^2\left(\frac{\pi}{12}\right) = \frac{1+\cos\left(\frac{\pi}{6}\right)}{2}
+$$
+
+$$
+= \frac{1+\frac{\sqrt{3}}{2}}{2} = \frac{2+\sqrt{3}}{4}
+$$
+
+Since $\frac{\pi}{12}$ is in Quadrant I, cosine is positive:
+
+$$
+\cos\left(\frac{\pi}{12}\right) = \frac{\sqrt{2+\sqrt{3}}}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Evaluate a Half-Angle Exactly</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#half-angle-formulas" data-notes-nav-item>Half-Angle Formulas</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/trigonometry/#special-angles" data-notes-nav-item>Special Angles</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the exact value of $\cos\left(\frac{\pi}{12}\right)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-trigonometry-44">Your work for Evaluate a Half-Angle Exactly</label>
+          <textarea
+            id="practice-study-trigonometry-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the half-angle formula:</p>
+<div class="math-block">$$
+\cos^2\left(\frac{x}{2}\right) = \frac{1+\cos x}{2}
+$$</div>
+<p>Let $x = \frac{\pi}{6}$. Then $\frac{x}{2} = \frac{\pi}{12}$, so</p>
+<div class="math-block">$$
+\cos^2\left(\frac{\pi}{12}\right) = \frac{1+\cos\left(\frac{\pi}{6}\right)}{2}
+$$</div>
+<div class="math-block">$$
+= \frac{1+\frac{\sqrt{3}}{2}}{2} = \frac{2+\sqrt{3}}{4}
+$$</div>
+<p>Since $\frac{\pi}{12}$ is in Quadrant I, cosine is positive:</p>
+<div class="math-block">$$
+\cos\left(\frac{\pi}{12}\right) = \frac{\sqrt{2+\sqrt{3}}}{2}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

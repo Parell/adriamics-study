@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eigenvalues | Adriamics Study</title>
+  <meta name="description" content="An eigenvector of a square matrix A is a nonzero vector v whose direction is unchanged by the linear transformation defined by A ." />
+  <link rel="canonical" href="https://adriamics.com/study/math/eigenvalues/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/eigenvalues/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#core-idea" data-notes-nav-item data-notes-toc-link>Core idea</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#characteristic-equation" data-notes-nav-item data-notes-toc-link>Characteristic equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#eigenvectors-and-eigenspaces" data-notes-nav-item data-notes-toc-link>Eigenvectors and eigenspaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#multiplicity" data-notes-nav-item data-notes-toc-link>Multiplicity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-trace-and-invertibility" data-notes-nav-item data-notes-toc-link>Determinant, trace, and invertibility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diagonalization" data-notes-nav-item data-notes-toc-link>Diagonalization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-matrix-classes" data-notes-nav-item data-notes-toc-link>Special matrix classes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#complex-eigenvalues-and-real-matrices" data-notes-nav-item data-notes-toc-link>Complex eigenvalues and real matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-compute-eigenvalues-by-hand" data-notes-nav-item data-notes-toc-link>How to compute eigenvalues by hand</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#applications" data-notes-nav-item data-notes-toc-link>Applications</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Eigenvalues</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/eigenvalues/eigenvalues.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Feigenvalues%2Feigenvalues.md&amp;title=%5BContribute%5D%3A%20Eigenvalues" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="core-idea">Core idea</h1>
+<p>An <strong>eigenvector</strong> of a square matrix $A$ is a nonzero vector $v$ whose direction is unchanged by the linear transformation defined by $A$.</p>
+<p>It satisfies</p>
+<div class="math-block">$$
+Av = \lambda v
+$$</div>
+<p>where $\lambda$ is the corresponding <strong>eigenvalue</strong>.</p>
+<p>Interpretation:</p>
+<ul><li><p>$A$ acts on most vectors by changing both magnitude and direction.</p></li><li><p>On an eigenvector, $A$ only scales the vector by $\lambda$.</p></li><li><p>If $\lambda &lt; 0$, the vector is reversed as well as scaled.</p></li><li><p>If $\lambda = 0$, the eigenvector is sent to the zero vector.</p></li></ul>
+<p>Eigenvalues only make sense for <strong>square matrices</strong>.</p>
+<h2 id="geometric-meaning">Geometric meaning</h2>
+<p>For a $2 \times 2$ or $3 \times 3$ matrix, eigenvectors identify invariant directions or invariant lines. These are the directions that survive the transformation without rotating away.</p>
+<p>Examples:</p>
+<ul><li><p>A stretch in the $x$-direction has eigenvectors on the coordinate axes.</p></li><li><p>A projection matrix has eigenvalue $1$ on the subspace preserved by the projection and eigenvalue $0$ on the directions collapsed.</p></li><li><p>A pure rotation in $\mathbb{R}^2$ usually has no real eigenvectors unless the angle is $0$ or $\pi$.</p></li></ul>
+<hr />
+<h1 id="characteristic-equation">Characteristic equation</h1>
+<p>Starting from</p>
+<div class="math-block">$$
+Av = \lambda v
+$$</div>
+<p>move everything to one side:</p>
+<div class="math-block">$$
+(A - \lambda I)v = 0
+$$</div>
+<p>For a nonzero solution $v$ to exist, the matrix $A - \lambda I$ must be singular. Therefore</p>
+<div class="math-block">$$
+\det(A - \lambda I) = 0
+$$</div>
+<p>This is the <strong>characteristic equation</strong>. Its left-hand side is the <strong>characteristic polynomial</strong>.</p>
+<h2 id="why-the-determinant-condition-works">Why the determinant condition works</h2>
+<p>The homogeneous system</p>
+<div class="math-block">$$
+(A - \lambda I)v = 0
+$$</div>
+<p>has a nontrivial solution exactly when the coefficient matrix is not invertible. That is equivalent to determinant zero.</p>
+<h2 id="example">Example</h2>
+<p>Let</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+4 &amp; 1 \\
+2 &amp; 3
+\end{bmatrix}
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+A - \lambda I =
+\begin{bmatrix}
+4-\lambda &amp; 1 \\
+2 &amp; 3-\lambda
+\end{bmatrix}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\det(A - \lambda I)
+=
+(4-\lambda)(3-\lambda) - 2
+=
+\lambda^2 - 7\lambda + 10
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\lambda^2 - 7\lambda + 10 = 0
+$$</div>
+<p>which factors as</p>
+<div class="math-block">$$
+(\lambda - 5)(\lambda - 2) = 0
+$$</div>
+<p>Hence the eigenvalues are</p>
+<div class="math-block">$$
+\lambda = 5,\quad \lambda = 2
+$$</div>
+<hr />
+<h1 id="eigenvectors-and-eigenspaces">Eigenvectors and eigenspaces</h1>
+<p>Once an eigenvalue $\lambda$ is known, find its eigenvectors by solving</p>
+<div class="math-block">$$
+(A - \lambda I)v = 0
+$$</div>
+<p>The set of all eigenvectors for $\lambda$, together with the zero vector, forms the <strong>eigenspace</strong></p>
+<div class="math-block">$$
+E_\lambda = \operatorname{Null}(A - \lambda I)
+$$</div>
+<p>This is a subspace of the vector space.</p>
+<h2 id="example-continued">Example continued</h2>
+<p>For</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+4 &amp; 1 \\
+2 &amp; 3
+\end{bmatrix}
+$$</div>
+<p>and $\lambda = 5$,</p>
+<div class="math-block">$$
+A - 5I =
+\begin{bmatrix}
+-1 &amp; 1 \\
+2 &amp; -2
+\end{bmatrix}
+$$</div>
+<p>Solve</p>
+<div class="math-block">$$
+\begin{bmatrix}
+-1 &amp; 1 \\
+2 &amp; -2
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+$$</div>
+<p>This gives</p>
+<div class="math-block">$$
+y = x
+$$</div>
+<p>so one eigenvector is</p>
+<div class="math-block">$$
+v_1 =
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+$$</div>
+<p>For $\lambda = 2$,</p>
+<div class="math-block">$$
+A - 2I =
+\begin{bmatrix}
+2 &amp; 1 \\
+2 &amp; 1
+\end{bmatrix}
+$$</div>
+<p>which gives</p>
+<div class="math-block">$$
+2x + y = 0
+$$</div>
+<p>so one eigenvector is</p>
+<div class="math-block">$$
+v_2 =
+\begin{bmatrix}
+1 \\
+-2
+\end{bmatrix}
+$$</div>
+<p>Any nonzero scalar multiple of an eigenvector is still an eigenvector for the same eigenvalue.</p>
+<h2 id="important-restriction">Important restriction</h2>
+<p>The zero vector is never called an eigenvector. If it were allowed, every scalar would become an eigenvalue candidate, which would destroy the definition.</p>
+<hr />
+<h1 id="multiplicity">Multiplicity</h1>
+<p>Eigenvalues can repeat.</p>
+<h2 id="algebraic-multiplicity">Algebraic multiplicity</h2>
+<p>The <strong>algebraic multiplicity</strong> of $\lambda$ is its multiplicity as a root of the characteristic polynomial.</p>
+<h2 id="geometric-multiplicity">Geometric multiplicity</h2>
+<p>The <strong>geometric multiplicity</strong> of $\lambda$ is</p>
+<div class="math-block">$$
+\dim(E_\lambda)
+=
+\dim(\operatorname{Null}(A - \lambda I))
+$$</div>
+<h2 id="fundamental-inequality">Fundamental inequality</h2>
+<p>For each eigenvalue,</p>
+<div class="math-block">$$
+1 \le \text{geometric multiplicity} \le \text{algebraic multiplicity}
+$$</div>
+<h2 id="repeated-eigenvalue-example">Repeated eigenvalue example</h2>
+<p>Consider</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+3 &amp; 1 \\
+0 &amp; 3
+\end{bmatrix}
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\det(A - \lambda I) = (3-\lambda)^2
+$$</div>
+<p>So $\lambda = 3$ has algebraic multiplicity $2$.</p>
+<p>But</p>
+<div class="math-block">$$
+A - 3I =
+\begin{bmatrix}
+0 &amp; 1 \\
+0 &amp; 0
+\end{bmatrix}
+$$</div>
+<p>and solving</p>
+<div class="math-block">$$
+\begin{bmatrix}
+0 &amp; 1 \\
+0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+$$</div>
+<p>gives</p>
+<div class="math-block">$$
+y = 0
+$$</div>
+<p>So the eigenspace is</p>
+<div class="math-block">$$
+\operatorname{span}
+\left\{
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+\right\}
+$$</div>
+<p>which has geometric multiplicity $1$.</p>
+<p>This matrix has too few linearly independent eigenvectors to diagonalize.</p>
+<hr />
+<h1 id="determinant-trace-and-invertibility">Determinant, trace, and invertibility</h1>
+<p>Eigenvalues encode several global properties of a matrix.</p>
+<h2 id="determinant">Determinant</h2>
+<p>For an $n \times n$ matrix,</p>
+<div class="math-block">$$
+\det(A) = \lambda_1 \lambda_2 \cdots \lambda_n
+$$</div>
+<p>counting algebraic multiplicity and allowing complex eigenvalues when needed.</p>
+<h2 id="trace">Trace</h2>
+<p>The trace is the sum of diagonal entries:</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = a_{11} + a_{22} + \cdots + a_{nn}
+$$</div>
+<p>It also equals the sum of the eigenvalues:</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n
+$$</div>
+<h2 id="invertibility-test">Invertibility test</h2>
+<p>A matrix $A$ is invertible if and only if $0$ is <strong>not</strong> an eigenvalue.</p>
+<p>Reason:</p>
+<ul><li><p>$0$ is an eigenvalue exactly when $Av = 0$ for some nonzero $v$.</p></li><li><p>That means $\operatorname{Null}(A)$ is nontrivial.</p></li><li><p>So $A$ is singular.</p></li></ul>
+<h2 id="triangular-matrices">Triangular matrices</h2>
+<p>If $A$ is upper or lower triangular, its eigenvalues are the diagonal entries.</p>
+<p>This is one of the fastest ways to read off eigenvalues by inspection.</p>
+<hr />
+<h1 id="diagonalization">Diagonalization</h1>
+<p>A matrix $A$ is <strong>diagonalizable</strong> if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that</p>
+<div class="math-block">$$
+A = PDP^{-1}
+$$</div>
+<p>The columns of $P$ are eigenvectors of $A$, and the corresponding diagonal entries of $D$ are the eigenvalues.</p>
+<p>Equivalently,</p>
+<div class="math-block">$$
+P^{-1}AP = D
+$$</div>
+<h2 id="why-diagonalization-matters">Why diagonalization matters</h2>
+<p>Diagonal matrices are easy to work with:</p>
+<div class="math-block">$$
+D^k =
+\begin{bmatrix}
+\lambda_1^k &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; \lambda_2^k &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; \lambda_n^k
+\end{bmatrix}
+$$</div>
+<p>So if</p>
+<div class="math-block">$$
+A = PDP^{-1}
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+A^k = PD^kP^{-1}
+$$</div>
+<p>This is useful in differential equations, dynamical systems, and repeated matrix multiplication.</p>
+<h2 id="diagonalizability-criterion">Diagonalizability criterion</h2>
+<p>An $n \times n$ matrix is diagonalizable if it has $n$ linearly independent eigenvectors.</p>
+<p>Sufficient conditions:</p>
+<ul><li><p>$A$ has $n$ distinct eigenvalues.</p></li><li><p>$A$ is real symmetric.</p></li><li><p>For each eigenvalue, geometric multiplicity equals algebraic multiplicity, and the total number of independent eigenvectors is $n$.</p></li></ul>
+<h2 id="example-2">Example</h2>
+<p>Let</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+4 &amp; 1 \\
+2 &amp; 3
+\end{bmatrix}
+$$</div>
+<p>with eigenpairs</p>
+<div class="math-block">$$
+\lambda_1 = 5,\quad
+v_1 =
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\lambda_2 = 2,\quad
+v_2 =
+\begin{bmatrix}
+1 \\
+-2
+\end{bmatrix}
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+P =
+\begin{bmatrix}
+1 &amp; 1 \\
+1 &amp; -2
+\end{bmatrix},
+\qquad
+D =
+\begin{bmatrix}
+5 &amp; 0 \\
+0 &amp; 2
+\end{bmatrix}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+A = PDP^{-1}
+$$</div>
+<hr />
+<h1 id="special-matrix-classes">Special matrix classes</h1>
+<h2 id="symmetric-matrices">Symmetric matrices</h2>
+<p>If $A$ is real symmetric, then:</p>
+<ul><li><p>All eigenvalues are real.</p></li><li><p>Eigenvectors for distinct eigenvalues are orthogonal.</p></li><li><p>$A$ is diagonalizable by an orthogonal matrix.</p></li></ul>
+<p>This gives the spectral theorem:</p>
+<div class="math-block">$$
+A = QDQ^T
+$$</div>
+<p>where $Q$ is orthogonal and $D$ is diagonal.</p>
+<p>This is stronger and more stable than ordinary diagonalization.</p>
+<h2 id="projection-matrices">Projection matrices</h2>
+<p>If $P$ satisfies</p>
+<div class="math-block">$$
+P^2 = P
+$$</div>
+<p>then its eigenvalues can only be</p>
+<div class="math-block">$$
+0 \quad \text{or} \quad 1
+$$</div>
+<p>Reason:</p>
+<div class="math-block">$$
+Pv = \lambda v
+\quad \Rightarrow \quad
+P^2v = \lambda^2 v
+$$</div>
+<p>but also</p>
+<div class="math-block">$$
+P^2v = Pv = \lambda v
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\lambda^2 = \lambda
+$$</div>
+<p>and therefore</p>
+<div class="math-block">$$
+\lambda(\lambda - 1) = 0
+$$</div>
+<h2 id="nilpotent-matrices">Nilpotent matrices</h2>
+<p>If</p>
+<div class="math-block">$$
+A^k = 0
+$$</div>
+<p>for some positive integer $k$, then every eigenvalue of $A$ is $0$.</p>
+<p>Reason:</p>
+<div class="math-block">$$
+Av = \lambda v
+\quad \Rightarrow \quad
+A^k v = \lambda^k v
+$$</div>
+<p>Since $A^k v = 0$ and $v \ne 0$, we must have</p>
+<div class="math-block">$$
+\lambda^k = 0
+$$</div>
+<p>so $\lambda = 0$.</p>
+<h2 id="orthogonal-matrices">Orthogonal matrices</h2>
+<p>If $Q^TQ = I$, then over $\mathbb{C}$ every eigenvalue satisfies</p>
+<div class="math-block">$$
+|\lambda| = 1
+$$</div>
+<p>For real orthogonal matrices, eigenvalues may be real or complex. Real eigenvalues can only be</p>
+<div class="math-block">$$
+1 \quad \text{or} \quad -1
+$$</div>
+<hr />
+<h1 id="complex-eigenvalues-and-real-matrices">Complex eigenvalues and real matrices</h1>
+<p>Not every real matrix has real eigenvalues.</p>
+<p>Example:</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+0 &amp; -1 \\
+1 &amp; 0
+\end{bmatrix}
+$$</div>
+<p>This is rotation by $90^\circ$ in $\mathbb{R}^2$.</p>
+<p>Its characteristic equation is</p>
+<div class="math-block">$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+-\lambda &amp; -1 \\
+1 &amp; -\lambda
+\end{vmatrix}
+=
+\lambda^2 + 1 = 0
+$$</div>
+<p>So the eigenvalues are</p>
+<div class="math-block">$$
+\lambda = i,\quad \lambda = -i
+$$</div>
+<p>There are no real eigenvectors because no nonzero real vector stays on its own line under a $90^\circ$ rotation.</p>
+<h2 id="conjugate-pairs">Conjugate pairs</h2>
+<p>If a real matrix has a complex eigenvalue</p>
+<div class="math-block">$$
+\lambda = a + bi
+$$</div>
+<p>then its complex conjugate</p>
+<div class="math-block">$$
+\bar{\lambda} = a - bi
+$$</div>
+<p>is also an eigenvalue.</p>
+<p>This happens because the characteristic polynomial has real coefficients.</p>
+<hr />
+<h1 id="how-to-compute-eigenvalues-by-hand">How to compute eigenvalues by hand</h1>
+<h2 id="for-a-general-matrix">For a general matrix</h2>
+<ol><li><p>Form $A - \lambda I$.</p></li><li><p>Compute $\det(A - \lambda I)$.</p></li><li><p>Solve the characteristic equation.</p></li><li><p>For each eigenvalue, solve $(A - \lambda I)v = 0$.</p></li><li><p>Check how many independent eigenvectors you obtained.</p></li></ol>
+<h2 id="for-a-2-times-2-matrix">For a $2 \times 2$ matrix</h2>
+<p>If</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+\det(A - \lambda I)
+=
+\lambda^2 - (a+d)\lambda + (ad-bc)
+$$</div>
+<p>So the eigenvalues satisfy</p>
+<div class="math-block">$$
+\lambda^2 - \operatorname{tr}(A)\lambda + \det(A) = 0
+$$</div>
+<p>This is worth memorizing.</p>
+<h2 id="sanity-checks">Sanity checks</h2>
+<p>After solving, verify:</p>
+<ul><li><p>The sum of eigenvalues equals $\operatorname{tr}(A)$.</p></li><li><p>The product of eigenvalues equals $\det(A)$.</p></li><li><p>Repeated roots require an eigenspace check before claiming diagonalizability.</p></li></ul>
+<h2 id="common-computational-shortcut">Common computational shortcut</h2>
+<p>For triangular matrices, do not expand a full determinant. Read the eigenvalues directly from the diagonal.</p>
+<hr />
+<h1 id="applications">Applications</h1>
+<h2 id="dynamical-systems">Dynamical systems</h2>
+<p>For</p>
+<div class="math-block">$$
+x_{k+1} = Ax_k
+$$</div>
+<p>the eigenvalues of $A$ control long-term behavior.</p>
+<ul><li><p>If $|\lambda| &lt; 1$, the associated mode decays.</p></li><li><p>If $|\lambda| &gt; 1$, the associated mode grows.</p></li><li><p>If $|\lambda| = 1$, the mode is neutral in magnitude and may oscillate.</p></li></ul>
+<h2 id="differential-equations">Differential equations</h2>
+<p>For systems such as</p>
+<div class="math-block">$$
+x&#39;(t) = Ax(t)
+$$</div>
+<p>eigenvalues describe growth, decay, and oscillation. Diagonalization can reduce the system to decoupled scalar equations.</p>
+<h2 id="principal-directions">Principal directions</h2>
+<p>In quadratic forms and symmetric matrices, eigenvectors give principal directions and eigenvalues give the stretch or curvature in those directions.</p>
+<p>This underlies:</p>
+<ul><li><p>Principal component analysis</p></li><li><p>Normal modes in mechanics</p></li><li><p>Stress and strain analysis</p></li><li><p>Conic sections and quadric surfaces</p></li></ul>
+<h2 id="markov-chains">Markov chains</h2>
+<p>For a stochastic matrix, $\lambda = 1$ is especially important. The corresponding eigenvectors help describe steady states and long-run distributions.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Use this checklist for most eigenvalue problems.</p>
+<h2 id="step-1-confirm-the-matrix-is-square">Step 1: Confirm the matrix is square</h2>
+<p>If $A$ is not square, standard eigenvalues are not defined.</p>
+<h2 id="step-2-form-the-characteristic-polynomial">Step 2: Form the characteristic polynomial</h2>
+<p>Compute</p>
+<div class="math-block">$$
+\det(A - \lambda I)
+$$</div>
+<p>and solve for $\lambda$.</p>
+<h2 id="step-3-use-structure-before-brute-force">Step 3: Use structure before brute force</h2>
+<p>Check whether the matrix is:</p>
+<ul><li><p>Triangular</p></li><li><p>Diagonal</p></li><li><p>Symmetric</p></li><li><p>A projection</p></li><li><p>Nilpotent</p></li><li><p>Block structured</p></li></ul>
+<p>These often reveal eigenvalues immediately.</p>
+<h2 id="step-4-find-eigenspaces">Step 4: Find eigenspaces</h2>
+<p>For each eigenvalue, solve</p>
+<div class="math-block">$$
+(A - \lambda I)v = 0
+$$</div>
+<p>using row reduction.</p>
+<h2 id="step-5-compare-multiplicities">Step 5: Compare multiplicities</h2>
+<p>If an eigenvalue repeats, check whether its eigenspace has enough dimension.</p>
+<h2 id="step-6-decide-whether-diagonalization-is-possible">Step 6: Decide whether diagonalization is possible</h2>
+<p>Count the number of linearly independent eigenvectors.</p>
+<h2 id="step-7-verify-with-trace-and-determinant">Step 7: Verify with trace and determinant</h2>
+<p>Use</p>
+<div class="math-block">$$
+\sum \lambda_i = \operatorname{tr}(A),
+\qquad
+\prod \lambda_i = \det(A)
+$$</div>
+<p>to catch arithmetic mistakes.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="definitions">Definitions</h2>
+<div class="math-block">$$
+Av = \lambda v,\qquad v \ne 0
+$$</div>
+<div class="math-block">$$
+(A - \lambda I)v = 0
+$$</div>
+<div class="math-block">$$
+\det(A - \lambda I) = 0
+$$</div>
+<div class="math-block">$$
+E_\lambda = \operatorname{Null}(A - \lambda I)
+$$</div>
+<h2 id="multiplicity-2">Multiplicity</h2>
+<div class="math-block">$$
+1 \le \dim(E_\lambda) \le \text{algebraic multiplicity of } \lambda
+$$</div>
+<h2 id="determinant-and-trace">Determinant and trace</h2>
+<div class="math-block">$$
+\det(A) = \lambda_1 \lambda_2 \cdots \lambda_n
+$$</div>
+<div class="math-block">$$
+\operatorname{tr}(A) = \lambda_1 + \lambda_2 + \cdots + \lambda_n
+$$</div>
+<h2 id="invertibility">Invertibility</h2>
+<div class="math-block">$$
+A \text{ invertible } \iff 0 \text{ is not an eigenvalue}
+$$</div>
+<h2 id="diagonalization-2">Diagonalization</h2>
+<div class="math-block">$$
+A = PDP^{-1}
+$$</div>
+<div class="math-block">$$
+A \text{ diagonalizable } \iff A \text{ has } n \text{ linearly independent eigenvectors}
+$$</div>
+<div class="math-block">$$
+A^k = PD^kP^{-1}
+$$</div>
+<h2 id="real-symmetric-matrices">Real symmetric matrices</h2>
+<div class="math-block">$$
+A = QDQ^T
+$$</div>
+<p>with $Q$ orthogonal and $D$ diagonal.</p>
+<h2 id="special-cases">Special cases</h2>
+<p>For triangular $A$, eigenvalues are the diagonal entries.</p>
+<p>For</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+$$</div>
+<p>the characteristic polynomial is</p>
+<div class="math-block">$$
+\lambda^2 - (a+d)\lambda + (ad-bc)
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Forgetting that eigenvalues are defined for square matrices.</p></li><li><p>Solving $\det(A)=0$ instead of $\det(A-\lambda I)=0$.</p></li><li><p>Calling the zero vector an eigenvector.</p></li><li><p>Finding eigenvalues but not computing eigenvectors.</p></li><li><p>Assuming a repeated eigenvalue guarantees enough eigenvectors to diagonalize.</p></li><li><p>Forgetting that complex eigenvalues can occur for real matrices.</p></li><li><p>Mixing up algebraic multiplicity and geometric multiplicity.</p></li><li><p>Ignoring trace and determinant checks after solving the characteristic equation.</p></li><li><p>Claiming $A = PDP^{-1}$ without putting eigenvectors in the columns of $P$ in the same order as the eigenvalues in $D$.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+<p>This note assumes the matrix operations, determinants, row reduction, null spaces, and subspaces developed in the <a href="/study/math/matrices/">Matrices note</a>. It focuses on eigenvalue theory, classification, and computation.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="core-idea">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Core idea">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#geometric-meaning" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-idea">Geometric meaning</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="characteristic-equation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Characteristic equation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-the-determinant-condition-works" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characteristic-equation">Why the determinant condition works</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characteristic-equation">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="eigenvectors-and-eigenspaces" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Eigenvectors and eigenspaces">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-continued" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="eigenvectors-and-eigenspaces">Example continued</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#important-restriction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="eigenvectors-and-eigenspaces">Important restriction</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="multiplicity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Multiplicity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#algebraic-multiplicity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="multiplicity">Algebraic multiplicity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#geometric-multiplicity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="multiplicity">Geometric multiplicity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fundamental-inequality" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="multiplicity">Fundamental inequality</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#repeated-eigenvalue-example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="multiplicity">Repeated eigenvalue example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="determinant-trace-and-invertibility" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Determinant, trace, and invertibility">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinant-trace-and-invertibility">Determinant</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trace" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinant-trace-and-invertibility">Trace</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#invertibility-test" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinant-trace-and-invertibility">Invertibility test</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#triangular-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="determinant-trace-and-invertibility">Triangular matrices</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="diagonalization" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Diagonalization">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-diagonalization-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="diagonalization">Why diagonalization matters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diagonalizability-criterion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="diagonalization">Diagonalizability criterion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="diagonalization">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="special-matrix-classes" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Special matrix classes">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#symmetric-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrix-classes">Symmetric matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#projection-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrix-classes">Projection matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#nilpotent-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrix-classes">Nilpotent matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#orthogonal-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-matrix-classes">Orthogonal matrices</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="complex-eigenvalues-and-real-matrices" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Complex eigenvalues and real matrices">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conjugate-pairs" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="complex-eigenvalues-and-real-matrices">Conjugate pairs</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="how-to-compute-eigenvalues-by-hand" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for How to compute eigenvalues by hand">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#for-a-general-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="how-to-compute-eigenvalues-by-hand">For a general matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#for-a-2-times-2-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="how-to-compute-eigenvalues-by-hand">For a $2 \times 2$ matrix</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="how-to-compute-eigenvalues-by-hand">Sanity checks</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-computational-shortcut" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="how-to-compute-eigenvalues-by-hand">Common computational shortcut</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="applications" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Applications">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dynamical-systems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Dynamical systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#differential-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Differential equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#principal-directions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Principal directions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#markov-chains" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Markov chains</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-confirm-the-matrix-is-square" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Confirm the matrix is square</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-form-the-characteristic-polynomial" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: Form the characteristic polynomial</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-use-structure-before-brute-force" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Use structure before brute force</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-find-eigenspaces" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Find eigenspaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-compare-multiplicities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Compare multiplicities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-6-decide-whether-diagonalization-is-possible" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 6: Decide whether diagonalization is possible</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-7-verify-with-trace-and-determinant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 7: Verify with trace and determinant</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#multiplicity-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Multiplicity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#determinant-and-trace" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Determinant and trace</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#invertibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Invertibility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diagonalization-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Diagonalization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#real-symmetric-matrices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Real symmetric matrices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-cases" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Special cases</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-mistakes-to-avoid" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common mistakes to avoid">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-to-avoid">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

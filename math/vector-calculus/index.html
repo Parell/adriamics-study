@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vector Calculus | Adriamics Study</title>
+  <meta name="description" content="The gradient tells how a scalar field changes locally. Its components are the rates of change along the coordinate axes:" />
+  <link rel="canonical" href="https://adriamics.com/study/math/vector-calculus/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/vector-calculus/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#gradient-and-directional-change" data-notes-nav-item data-notes-toc-link>Gradient and directional change</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#divergence" data-notes-nav-item data-notes-toc-link>Divergence</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#curl" data-notes-nav-item data-notes-toc-link>Curl</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#laplacian-and-identities" data-notes-nav-item data-notes-toc-link>Laplacian and identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#line-integrals-and-conservative-fields" data-notes-nav-item data-notes-toc-link>Line integrals and conservative fields</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#surface-integrals-and-flux" data-notes-nav-item data-notes-toc-link>Surface integrals and flux</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#greens-stokes-and-divergence-theorems" data-notes-nav-item data-notes-toc-link>Green&#39;s, Stokes&#39;, and divergence theorems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservative-incompressible-and-harmonic-fields" data-notes-nav-item data-notes-toc-link>Conservative, incompressible, and harmonic fields</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#coordinate-systems-and-units" data-notes-nav-item data-notes-toc-link>Coordinate systems and units</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#engineering-experiments-and-computation" data-notes-nav-item data-notes-toc-link>Engineering, experiments, and computation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-and-problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Common mistakes and problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#summary" data-notes-nav-item data-notes-toc-link>Summary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#glossary" data-notes-nav-item data-notes-toc-link>Glossary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recommended-next-topics" data-notes-nav-item data-notes-toc-link>Recommended next topics</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Vector Calculus</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/vector-calculus/vector-calculus.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fvector-calculus%2Fvector-calculus.md&amp;title=%5BContribute%5D%3A%20Vector%20Calculus" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/vector-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <hr />
+<h1 id="gradient-and-directional-change">Gradient and directional change</h1>
+<p>The gradient tells how a scalar field changes locally. Its components are the rates of change along the coordinate axes:</p>
+<div class="math-block">$$
+\nabla f=\left\langle f_x,f_y,f_z\right\rangle
+=\left\langle\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right\rangle.
+$$</div>
+<p>For $f(x,y)$, omit the $z$ component. The units of $\nabla f$ are units of $f$ per unit length.</p>
+<h2 id="directional-derivative">Directional derivative</h2>
+<p>Let $\hat{\mathbf{a}}$ be a unit vector pointing in the direction of travel. The directional derivative is the rate of change of $f$ per unit distance in that direction:</p>
+<div class="math-block">$$
+D_{\hat{\mathbf{a}}}f=\nabla f\cdot\hat{\mathbf{a}}.
+$$</div>
+<h3 id="derivation">Derivation</h3>
+<p>Move a small distance $ds$ in direction $\hat{\mathbf{a}}$. The displacement is $d\mathbf{r}=\hat{\mathbf{a}}\,ds$. The total differential is</p>
+<div class="math-block">$$
+df=\nabla f\cdot d\mathbf{r}.
+$$</div>
+<p>Substitute $d\mathbf{r}=\hat{\mathbf{a}}ds$ and divide by $ds$:</p>
+<div class="math-block">$$
+\frac{df}{ds}=\nabla f\cdot\hat{\mathbf{a}}.
+$$</div>
+<p>The dot product shows that only the component of the gradient along the motion changes $f$.</p>
+<h2 id="maximum-increase-and-level-sets">Maximum increase and level sets</h2>
+<p>By the dot-product relation,</p>
+<div class="math-block">$$
+D_{\hat{\mathbf{a}}}f=\|\nabla f\|\cos\theta,
+$$</div>
+<p>where $\theta$ is the angle between $\nabla f$ and $\hat{\mathbf{a}}$. Therefore:</p>
+<ul><li><p>maximum increase is $\|\nabla f\|$, in the direction $\nabla f$;</p></li><li><p>maximum decrease is $-\|\nabla f\|$, in direction $-\nabla f$;</p></li><li><p>no first-order change occurs perpendicular to $\nabla f$.</p></li></ul>
+<p>For a level surface $f(x,y,z)=c$, a tangent displacement $d\mathbf{r}$ satisfies $df=0$. Hence</p>
+<div class="math-block">$$
+\nabla f\cdot d\mathbf{r}=0,
+$$</div>
+<p>so $\nabla f$ is normal to the level surface.</p>
+<h2 id="worked-example-temperature-gradient">Worked example: temperature gradient</h2>
+<p>Let</p>
+<div class="math-block">$$
+T(x,y,z)=20+0.8x-0.3y+0.1z^2
+$$</div>
+<p>with $T$ in $^\circ\mathrm{C}$ and coordinates in m. At $(2,1,3)$,</p>
+<div class="math-block">$$
+\nabla T=\langle0.8,-0.3,0.2z\rangle
+\quad\Rightarrow\quad
+\nabla T=\langle0.8,-0.3,0.6\rangle\ ^\circ\mathrm{C/m}.
+$$</div>
+<p>In direction $\mathbf{a}=\langle3,4,0\rangle$, first normalize:</p>
+<div class="math-block">$$
+\hat{\mathbf{a}}=\frac{1}{5}\langle3,4,0\rangle.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+D_{\hat{\mathbf{a}}}T
+=\langle0.8,-0.3,0.6\rangle\cdot\left\langle\frac35,\frac45,0\right\rangle
+=0.24\ ^\circ\mathrm{C/m}.
+$$</div>
+<p>Moving in that direction initially increases temperature by about $0.24^\circ\mathrm{C}$ per meter.</p>
+<hr />
+<h1 id="divergence">Divergence</h1>
+<p>Divergence applies to a vector field and measures its local net outflow per unit volume. Imagine a tiny balloon in a flow: positive divergence means the balloon&#39;s contents tend to spread outward; negative divergence means net inflow.</p>
+<p>For $\mathbf{F}=\langle F_x,F_y,F_z\rangle$,</p>
+<div class="math-block">$$
+\boxed{\nabla\cdot\mathbf{F}
+=\frac{\partial F_x}{\partial x}
++\frac{\partial F_y}{\partial y}
++\frac{\partial F_z}{\partial z}}
+$$</div>
+<p>The result is a scalar. If $\mathbf{F}$ is velocity, divergence has units of $\mathrm{s^{-1}}$.</p>
+<h2 id="local-flux-interpretation">Local flux interpretation</h2>
+<p>For a small rectangular box, the net flux through the two faces normal to $x$ is approximately</p>
+<div class="math-block">$$
+\left[F_x(x+\Delta x)-F_x(x)\right]\Delta y\Delta z
+\approx \frac{\partial F_x}{\partial x}\Delta x\Delta y\Delta z.
+$$</div>
+<p>Adding the corresponding $y$ and $z$ contributions and dividing by the box volume gives $\nabla\cdot\mathbf{F}$. Thus divergence is the limiting net outward flux density.</p>
+<h2 id="sources-sinks-and-incompressibility">Sources, sinks, and incompressibility</h2>
+<ul><li><p>$\nabla\cdot\mathbf{F}&gt;0$: local source or expansion.</p></li><li><p>$\nabla\cdot\mathbf{F}&lt;0$: local sink or compression.</p></li><li><p>$\nabla\cdot\mathbf{F}=0$: solenoidal field; there is no net local source.</p></li></ul>
+<p>For a constant-density fluid, mass conservation gives</p>
+<div class="math-block">$$
+\nabla\cdot\mathbf{u}=0.
+$$</div>
+<p>This does not mean every fluid particle moves in a straight line or that the velocity is constant. It means the local volume rate of expansion is zero.</p>
+<hr />
+<h1 id="curl">Curl</h1>
+<p>Curl measures the local tendency of a vector field to circulate around a point. Place a tiny paddle wheel in a fluid: nonzero curl means the wheel tends to rotate. Curl is a vector because its axis and sense matter.</p>
+<p>For $\mathbf{F}=\langle P,Q,R\rangle$,</p>
+<div class="math-block">$$
+\boxed{\nabla\times\mathbf{F}
+=\left\langle
+R_y-Q_z,\ P_z-R_x,\ Q_x-P_y
+\right\rangle}
+$$</div>
+<p>The determinant mnemonic is</p>
+<div class="math-block">$$
+\nabla\times\mathbf{F}
+=
+\begin{vmatrix}
+\mathbf{i}&amp;\mathbf{j}&amp;\mathbf{k}\\
+\partial_x&amp;\partial_y&amp;\partial_z\\
+P&amp;Q&amp;R
+\end{vmatrix}.
+$$</div>
+<h2 id="circulation-density">Circulation density</h2>
+<p>The component of curl normal to a small surface is the limiting circulation per unit area:</p>
+<div class="math-block">$$
+(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}}
+=\lim_{A\to0}\frac{1}{A}\oint_C\mathbf{F}\cdot d\mathbf{r}.
+$$</div>
+<p>The orientation of $C$ follows the right-hand rule from $\hat{\mathbf{n}}$.</p>
+<h2 id="example-rigid-rotation">Example: rigid rotation</h2>
+<p>For planar solid-body rotation with angular speed $\Omega$,</p>
+<div class="math-block">$$
+\mathbf{u}(x,y)=\langle-\Omega y,\Omega x,0\rangle.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\nabla\times\mathbf{u}=\langle0,0,2\Omega\rangle.
+$$</div>
+<p>The vorticity is twice the rigid body&#39;s angular velocity. A factor of two is often missed.</p>
+<hr />
+<h1 id="laplacian-and-identities">Laplacian and identities</h1>
+<p>The scalar Laplacian is the divergence of the gradient:</p>
+<div class="math-block">$$
+\boxed{\nabla^2 f=\nabla\cdot(\nabla f)=f_{xx}+f_{yy}+f_{zz}}.
+$$</div>
+<p>It compares the value at a point with nearby values. If $\nabla^2T&gt;0$, the point is locally lower than the surrounding average in the usual Cartesian interpretation; if $\nabla^2T&lt;0$, it is locally higher. Curvature and sign conventions should be interpreted from the governing equation and boundary conditions.</p>
+<p>For a vector field, the vector Laplacian is</p>
+<div class="math-block">$$
+\nabla^2\mathbf{F}=\langle\nabla^2F_x,\nabla^2F_y,\nabla^2F_z\rangle.
+$$</div>
+<p>If the field is sufficiently smooth,</p>
+<div class="math-block">$$
+\nabla\times(\nabla f)=\mathbf{0},
+\qquad
+\nabla\cdot(\nabla\times\mathbf{F})=0.
+$$</div>
+<p>The first follows because mixed partial derivatives cancel, e.g. $f_{zy}-f_{yz}=0$. The second follows by expanding and canceling mixed partials. If mixed derivatives are not continuous, these identities require more care.</p>
+<p>An important identity is</p>
+<div class="math-block">$$
+\nabla^2\mathbf{F}=\nabla(\nabla\cdot\mathbf{F})-\nabla\times(\nabla\times\mathbf{F}).
+$$</div>
+<hr />
+<h1 id="line-integrals-and-conservative-fields">Line integrals and conservative fields</h1>
+<p>A line integral accumulates a field along a curve. If $C$ is parameterized by $\mathbf{r}(t)$ for $a\le t\le b$, then</p>
+<div class="math-block">$$
+\int_C\mathbf{F}\cdot d\mathbf{r}
+=\int_a^b\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}&#39;(t)\,dt.
+$$</div>
+<p>The dot product selects the component tangent to the path. In mechanics, if $\mathbf{F}$ is force, this integral is work and has units of joules.</p>
+<p>For a scalar field $f$, the scalar line integral is</p>
+<div class="math-block">$$
+\int_C f\,ds=\int_a^b f(\mathbf{r}(t))\|\mathbf{r}&#39;(t)\|\,dt,
+$$</div>
+<p>which can represent mass of a wire with linear density $f$.</p>
+<h2 id="conservative-fields">Conservative fields</h2>
+<p>If there is a scalar potential $\phi$ with</p>
+<div class="math-block">$$
+\mathbf{F}=\nabla\phi,
+$$</div>
+<p>then $\mathbf{F}$ is conservative. Along a path,</p>
+<div class="math-block">$$
+\int_C\mathbf{F}\cdot d\mathbf{r}
+=\int_C\nabla\phi\cdot d\mathbf{r}
+=\int_a^b\frac{d}{dt}\phi(\mathbf{r}(t))\,dt
+=\phi(B)-\phi(A).
+$$</div>
+<p>The integral depends only on endpoints, not path. Consequently, every closed-loop integral is zero. On a simply connected region, a continuously differentiable field with $\nabla\times\mathbf{F}=\mathbf{0}$ is conservative. The domain condition matters: a field can have zero curl away from a hole and still have nonzero circulation around the hole.</p>
+<h3 id="finding-a-potential">Finding a potential</h3>
+<p>For $\mathbf{F}=\langle P,Q\rangle$, seek $\phi_x=P$ and $\phi_y=Q$.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\mathbf{F}=\langle2xy+3, x^2+4y\rangle.
+$$</div>
+<p>Integrate $\phi_x=2xy+3$ with respect to $x$:</p>
+<div class="math-block">$$
+\phi=x^2y+3x+g(y).
+$$</div>
+<p>Differentiate with respect to $y$ and match $Q$:</p>
+<div class="math-block">$$
+\phi_y=x^2+g&#39;(y)=x^2+4y
+\Rightarrow g(y)=2y^2+C.
+$$</div>
+<p>Thus $\phi=x^2y+3x+2y^2$ (the constant $C$ is irrelevant).</p>
+<hr />
+<h1 id="surface-integrals-and-flux">Surface integrals and flux</h1>
+<p>A surface integral adds contributions over a surface. For an oriented surface $S$ with unit normal $\hat{\mathbf{n}}$,</p>
+<div class="math-block">$$
+\iint_S\mathbf{F}\cdot\hat{\mathbf{n}}\,dS
+$$</div>
+<p>is the <strong>flux</strong> of $\mathbf{F}$ through $S$. For fluid velocity, it measures volumetric flow rate only when the density and geometric interpretation are appropriate; for mass flux, use $\rho\mathbf{u}$.</p>
+<p>If $S$ is parameterized by $\mathbf{r}(u,v)$,</p>
+<div class="math-block">$$
+\iint_S\mathbf{F}\cdot d\mathbf{S}
+=\iint_D\mathbf{F}(\mathbf{r}(u,v))\cdot(\mathbf{r}_u\times\mathbf{r}_v)\,du\,dv.
+$$</div>
+<p>The cross product supplies both area scaling and orientation.</p>
+<p>For the graph $z=g(x,y)$ with upward orientation,</p>
+<div class="math-block">$$
+d\mathbf{S}=\langle-g_x,-g_y,1\rangle\,dx\,dy.
+$$</div>
+<h2 id="worked-example-flux-through-a-disk">Worked example: flux through a disk</h2>
+<p>Let $\mathbf{F}=\langle x,y,z\rangle$ and let $S$ be the disk $x^2+y^2\le a^2$ in the plane $z=0$, oriented upward. Since $\hat{\mathbf{n}}=\mathbf{k}$,</p>
+<div class="math-block">$$
+\mathbf{F}\cdot\hat{\mathbf{n}}=z=0,
+$$</div>
+<p>so the flux is zero. The field lies tangent to that plane at $z=0$; a large field magnitude does not imply large flux through every surface.</p>
+<hr />
+<h1 id="greens-stokes-and-divergence-theorems">Green&#39;s, Stokes&#39;, and divergence theorems</h1>
+<p>These theorems connect measurements on a boundary with derivatives inside the region. They are not three unrelated tricks; they are dimension-specific forms of the same boundary-versus-interior principle.</p>
+<h2 id="greens-theorem-in-the-plane">Green&#39;s theorem in the plane</h2>
+<p>Let $D$ be a positively oriented planar region and $C=\partial D$ its counterclockwise boundary. For $\mathbf{F}=\langle P,Q\rangle$,</p>
+<div class="math-block">$$
+\boxed{\oint_C P\,dx+Q\,dy
+=\iint_D\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA}.
+$$</div>
+<p>The left side is circulation around the boundary; the right side sums the scalar curl density over the region.</p>
+<p>The flux form is</p>
+<div class="math-block">$$
+\boxed{\oint_C\mathbf{F}\cdot\hat{\mathbf{n}}\,ds
+=\iint_D\nabla\cdot\mathbf{F}\,dA}.
+$$</div>
+<h2 id="stokes-theorem">Stokes&#39; theorem</h2>
+<p>For an oriented surface $S$ with boundary $C$,</p>
+<div class="math-block">$$
+\boxed{\oint_C\mathbf{F}\cdot d\mathbf{r}
+=\iint_S(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}}\,dS}.
+$$</div>
+<p>The boundary orientation is chosen by the right-hand rule. Stokes says total boundary circulation equals total curl piercing the surface.</p>
+<h2 id="divergence-theorem">Divergence theorem</h2>
+<p>For a closed, outward-oriented surface $S=\partial V$ enclosing volume $V$,</p>
+<div class="math-block">$$
+\boxed{\oiint_S\mathbf{F}\cdot\hat{\mathbf{n}}\,dS
+=\iiint_V\nabla\cdot\mathbf{F}\,dV}.
+$$</div>
+<p>Net outward flux through the boundary equals total source strength inside.</p>
+<h3 id="choosing-a-theorem">Choosing a theorem</h3>
+<table><thead><tr><th>Given quantity</th><th>Boundary</th><th>Interior quantity</th><th>Useful theorem</th></tr></thead><tbody><tr><td>planar circulation</td><td>closed curve</td><td>scalar curl</td><td>Green</td></tr><tr><td>planar outward flux</td><td>closed curve</td><td>planar divergence</td><td>Green flux form</td></tr><tr><td>3D circulation</td><td>closed curve</td><td>curl through a surface</td><td>Stokes</td></tr><tr><td>3D outward flux</td><td>closed surface</td><td>divergence through a volume</td><td>Divergence</td></tr></tbody></table>
+<h3 id="example-divergence-theorem">Example: divergence theorem</h3>
+<p>For $\mathbf{F}=\langle x,y,z\rangle$ on a sphere of radius $a$,</p>
+<div class="math-block">$$
+\nabla\cdot\mathbf{F}=3.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+\oiint_S\mathbf{F}\cdot\hat{\mathbf{n}}\,dS
+=\iiint_V3\,dV
+=3\left(\frac43\pi a^3\right)=4\pi a^3.
+$$</div>
+<p>Directly, on the sphere $\mathbf{F}=a\hat{\mathbf{n}}$, giving flux $a(4\pi a^2)=4\pi a^3$, which checks the result.</p>
+<hr />
+<h1 id="conservative-incompressible-and-harmonic-fields">Conservative, incompressible, and harmonic fields</h1>
+<p>These labels describe different properties and should not be conflated.</p>
+<table><thead><tr><th>Property</th><th>Condition</th><th>Typical meaning</th></tr></thead><tbody><tr><td>conservative</td><td>$\mathbf{F}=\nabla\phi$</td><td>path-independent work</td></tr><tr><td>irrotational</td><td>$\nabla\times\mathbf{F}=0$</td><td>no local circulation</td></tr><tr><td>incompressible / solenoidal</td><td>$\nabla\cdot\mathbf{F}=0$</td><td>no local net source</td></tr><tr><td>harmonic scalar</td><td>$\nabla^2\phi=0$</td><td>source-free potential field</td></tr></tbody></table>
+<p>On a simply connected domain, conservative and irrotational are equivalent for smooth fields. Neither condition implies incompressibility. A field can be both conservative and incompressible; if $\mathbf{F}=\nabla\phi$, this requires $\nabla^2\phi=0$.</p>
+<h2 id="physical-models">Physical models</h2>
+<ul><li><p>Electrostatics: $\mathbf{E}=-\nabla V$; electrostatic fields are conservative.</p></li><li><p>Heat conduction: Fourier&#39;s law is $\mathbf{q}=-k\nabla T$; heat flows down the temperature gradient.</p></li><li><p>Incompressible flow: $\nabla\cdot\mathbf{u}=0$ for constant density.</p></li><li><p>Diffusion and heat: $\partial T/\partial t=\alpha\nabla^2T$ in a simple homogeneous model.</p></li><li><p>Potential flow: $\mathbf{u}=\nabla\phi$ or, under another sign convention, $\mathbf{u}=-\nabla\phi$; the convention must be stated.</p></li></ul>
+<hr />
+<h1 id="coordinate-systems-and-units">Coordinate systems and units</h1>
+<p>Cartesian formulas are simplest, but cylindrical and spherical coordinates match pipes, shafts, and spheres. The operator formulas change because basis directions and area/volume elements change.</p>
+<p>In cylindrical coordinates $(r,\theta,z)$,</p>
+<div class="math-block">$$
+\nabla f=\hat{\mathbf{e}}_r f_r+\hat{\mathbf{e}}_\theta\frac1r f_\theta+\hat{\mathbf{e}}_z f_z,
+$$</div>
+<div class="math-block">$$
+\nabla\cdot\mathbf{F}=\frac1r\frac{\partial(rF_r)}{\partial r}+\frac1r\frac{\partial F_\theta}{\partial\theta}+\frac{\partial F_z}{\partial z}.
+$$</div>
+<p>The factor $1/r$ is geometric, not optional. Coordinate singularities such as $r=0$ require limits or a different representation.</p>
+<p>Dimensional checks are essential:</p>
+<table><thead><tr><th>Quantity</th><th>If $f$ has units $[f]$</th></tr></thead><tbody><tr><td>$\nabla f$</td><td>$[f]/\mathrm{m}$</td></tr><tr><td>$\nabla\cdot\mathbf{F}$</td><td>$[\mathbf{F}]/\mathrm{m}$</td></tr><tr><td>$\nabla\times\mathbf{F}$</td><td>$[\mathbf{F}]/\mathrm{m}$</td></tr><tr><td>$\nabla^2f$</td><td>$[f]/\mathrm{m^2}$</td></tr><tr><td>$\int_C\mathbf{F}\cdot d\mathbf{r}$</td><td>$[\mathbf{F}]\,\mathrm{m}$</td></tr><tr><td>$\iint_S\mathbf{F}\cdot d\mathbf{S}$</td><td>$[\mathbf{F}]\,\mathrm{m^2}$</td></tr></tbody></table>
+<hr />
+<h1 id="engineering-experiments-and-computation">Engineering, experiments, and computation</h1>
+<p>Vector calculus appears wherever a quantity is distributed in space.</p>
+<ul><li><p><strong>Fluid mechanics:</strong> continuity uses divergence; vorticity is curl of velocity; Navier–Stokes includes gradients and Laplacians.</p></li><li><p><strong>Heat transfer:</strong> temperature gradients drive heat flux, and the Laplacian appears in conduction.</p></li><li><p><strong>Electromagnetism:</strong> Maxwell&#39;s laws are naturally written with divergence and curl.</p></li><li><p><strong>Mechanics and materials:</strong> stress divergence produces force density; displacement gradients produce strain.</p></li><li><p><strong>Control and robotics:</strong> gradients support optimization, while vector fields describe state-space flows.</p></li><li><p><strong>FEM and CFD:</strong> weak forms move derivatives onto test functions using integration by parts; finite-volume methods apply divergence theorem to each control volume.</p></li><li><p><strong>Numerical methods:</strong> discrete gradient, divergence, and curl should preserve identities and conservation as closely as possible.</p></li><li><p><strong>Machine learning:</strong> gradients of loss functions guide parameter updates; automatic differentiation computes derivatives, but it does not remove the need to check units, domains, and boundary conditions.</p></li></ul>
+<h2 id="a-simple-experiment">A simple experiment</h2>
+<p>A shallow tray of water with small floating particles can visualize a 2D velocity field. Track particle positions over equal time intervals, estimate $\mathbf{u}(x,y)$, and approximate</p>
+<div class="math-block">$$
+\nabla\cdot\mathbf{u}\approx\frac{u(x+\Delta x,y)-u(x-\Delta x,y)}{2\Delta x}
++\frac{v(x,y+\Delta y)-v(x,y-\Delta y)}{2\Delta y}.
+$$</div>
+<p>Noise, uneven particle spacing, finite camera resolution, and out-of-plane motion make the measured divergence imperfect. A numerical derivative amplifies noise, so smoothing and uncertainty estimates are part of a real experiment.</p>
+<h2 id="idealized-versus-real-behavior">Idealized versus real behavior</h2>
+<p>Theorems assume smooth fields and correctly oriented, sufficiently regular boundaries. Real fields may have shocks, material interfaces, point sources, discontinuities, turbulence, or measurement noise. In such cases use integral balances, weak formulations, distributions, or carefully chosen control volumes rather than blindly differentiating a discontinuous field.</p>
+<hr />
+<h1 id="common-mistakes-and-problem-solving-workflow">Common mistakes and problem-solving workflow</h1>
+<h2 id="typical-mistakes">Typical mistakes</h2>
+<ul><li><p>Forgetting to normalize the direction vector in a directional derivative.</p></li><li><p>Treating divergence as a vector or curl as a scalar.</p></li><li><p>Using $\nabla\cdot\mathbf{F}$ when the problem asks for circulation, or $\nabla\times\mathbf{F}$ when it asks for flux.</p></li><li><p>Reversing the surface normal or curve orientation.</p></li><li><p>Applying the divergence theorem to an open surface without adding the missing pieces.</p></li><li><p>Assuming zero curl implies conservative behavior on a domain with a hole.</p></li><li><p>Calling $\nabla\cdot\mathbf{u}=0$ “zero velocity.”</p></li><li><p>Using cylindrical or spherical formulas as if they were Cartesian.</p></li><li><p>Ignoring units: a gradient is not measured in the same units as the original field.</p></li></ul>
+<h2 id="reliable-workflow">Reliable workflow</h2>
+<ol><li><p>Identify the field, domain, boundary, and requested quantity.</p></li><li><p>Draw the orientation and decide whether the boundary is open or closed.</p></li><li><p>Write the relevant operator or integral symbolically.</p></li><li><p>Check smoothness and theorem conditions.</p></li><li><p>Parameterize the curve or surface if direct integration is needed.</p></li><li><p>Use a theorem when it replaces a difficult boundary integral with an easier interior integral.</p></li><li><p>Check units, sign, orientation, and limiting behavior.</p></li></ol>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>The gradient describes scalar-field change and is normal to level sets. Divergence measures net local outflow, curl measures local circulation, and the Laplacian combines second derivatives to describe local curvature or diffusion. Line integrals accumulate tangential work or circulation; surface integrals accumulate flux. Green&#39;s, Stokes&#39;, and the divergence theorems relate local differential behavior to measurements on boundaries. Domain, orientation, smoothness, and units are part of the mathematics, not afterthoughts.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<div class="math-block">$$
+\nabla=\left\langle\partial_x,\partial_y,\partial_z\right\rangle
+$$</div>
+<div class="math-block">$$
+\nabla f=\langle f_x,f_y,f_z\rangle,
+\qquad D_{\hat{\mathbf{a}}}f=\nabla f\cdot\hat{\mathbf{a}}
+$$</div>
+<div class="math-block">$$
+\nabla\cdot\mathbf{F}=F_{x,x}+F_{y,y}+F_{z,z}
+$$</div>
+<div class="math-block">$$
+\nabla\times\mathbf{F}=\langle R_y-Q_z,P_z-R_x,Q_x-P_y\rangle
+$$</div>
+<div class="math-block">$$
+\nabla^2f=f_{xx}+f_{yy}+f_{zz}=\nabla\cdot\nabla f
+$$</div>
+<div class="math-block">$$
+\int_C\mathbf{F}\cdot d\mathbf{r}=\int_a^b\mathbf{F}(\mathbf{r}(t))\cdot\mathbf{r}&#39;(t)dt
+$$</div>
+<div class="math-block">$$
+\iint_S\mathbf{F}\cdot d\mathbf{S}=\iint_D\mathbf{F}(\mathbf{r})\cdot(\mathbf{r}_u\times\mathbf{r}_v)dudv
+$$</div>
+<div class="math-block">$$
+\oint_C\mathbf{F}\cdot d\mathbf{r}=\iint_S(\nabla\times\mathbf{F})\cdot\hat{\mathbf{n}}dS
+$$</div>
+<div class="math-block">$$
+\oiint_{\partial V}\mathbf{F}\cdot\hat{\mathbf{n}}dS=\iiint_V\nabla\cdot\mathbf{F}dV
+$$</div>
+<div class="math-block">$$
+\nabla\times\nabla f=\mathbf{0},\qquad\nabla\cdot(\nabla\times\mathbf{F})=0
+$$</div>
+<hr />
+<h1 id="glossary">Glossary</h1>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>scalar field</td><td>A number assigned to each point</td></tr><tr><td>vector field</td><td>A vector assigned to each point</td></tr><tr><td>gradient</td><td>Vector of scalar-field partial derivatives</td></tr><tr><td>directional derivative</td><td>Rate of scalar change in a chosen unit direction</td></tr><tr><td>divergence</td><td>Net outward flux per unit volume in the local limit</td></tr><tr><td>curl</td><td>Local circulation density and rotation axis</td></tr><tr><td>Laplacian</td><td>Divergence of the gradient; sum of second spatial derivatives</td></tr><tr><td>conservative field</td><td>A field equal to a gradient of a potential, with path-independent line integral</td></tr><tr><td>flux</td><td>Field passing through an oriented surface</td></tr><tr><td>circulation</td><td>Tangential line integral around a closed curve</td></tr><tr><td>solenoidal</td><td>Having zero divergence</td></tr><tr><td>irrotational</td><td>Having zero curl</td></tr><tr><td>simply connected</td><td>A domain with no holes that obstruct continuous loop contraction</td></tr></tbody></table>
+<hr />
+<h1 id="practice-problems">Practice problems</h1>
+<ol><li><p><strong>Easy:</strong> Find $\nabla f$ for $f(x,y,z)=x^2y+3z$ at $(1,2,0)$.</p></li><li><p><strong>Easy:</strong> Find the divergence of $\mathbf{F}=\langle x^2,xy,4z\rangle$.</p></li><li><p><strong>Moderate:</strong> Find the curl of $\mathbf{F}=\langle-y,x,0\rangle$ and interpret it.</p></li><li><p><strong>Moderate:</strong> Compute $D_{\hat{\mathbf{a}}}f$ for $f=x^2+y^2$ at $(1,2)$ in the direction from $(1,2)$ to $(4,6)$.</p></li><li><p><strong>Moderate:</strong> Determine whether $\mathbf{F}=\langle2xy+1,x^2+2y\rangle$ is conservative and find a potential.</p></li><li><p><strong>Advanced:</strong> Use the divergence theorem to find the outward flux of $\mathbf{F}=\langle x^3,y^3,z^3\rangle$ through the cube $0\le x,y,z\le1$.</p></li><li><p><strong>Advanced:</strong> Explain why $\mathbf{F}=\langle-y/(x^2+y^2),x/(x^2+y^2)\rangle$ has zero curl away from the origin but is not conservative on $\mathbb{R}^2\setminus\{(0,0)\}$.</p></li></ol>
+<h2 id="short-answers-and-solution-outlines">Short answers and solution outlines</h2>
+<ol><li><p>$\nabla f=\langle2xy,x^2,3\rangle$, so at the point it is $\langle4,1,3\rangle$.</p></li><li><p>$\nabla\cdot\mathbf{F}=2x+x+4=3x+4$.</p></li><li><p>$\nabla\times\mathbf{F}=\langle0,0,2\rangle$; uniform positive $z$-axis circulation.</p></li><li><p>Direction is $\langle3,4\rangle/5$. Since $\nabla f=\langle2,4\rangle$, the derivative is $(6+16)/5=22/5$.</p></li><li><p>Cross partials agree: $P_y=2x=Q_x$. A potential is $\phi=x^2y+x+y^2$.</p></li><li><p>Divergence is $3x^2+3y^2+3z^2$; integrate over the unit cube to obtain $3$.</p></li><li><p>The origin is a hole. A unit-circle line integral is $2\pi$, so path independence fails despite local zero curl.</p></li></ol>
+<hr />
+<h1 id="recommended-next-topics">Recommended next topics</h1>
+<ul><li><p>Partial differential equations: Laplace, heat, and wave equations</p></li><li><p>Fluid mechanics and Navier–Stokes equations</p></li><li><p>Electromagnetism and Maxwell&#39;s equations</p></li><li><p>Tensor calculus and continuum mechanics</p></li><li><p>Numerical methods, finite volume, finite difference, and finite element methods</p></li><li><p>Differential forms and the generalized Stokes theorem</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Calculus</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Marsden and Tromba, <em>Vector Calculus</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Batchelor, <em>An Introduction to Fluid Dynamics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+<p>Vector calculus is the calculus of quantities distributed through space. It studies scalar fields such as temperature and pressure, vector fields such as velocity and force, and the rates at which those fields change, spread, rotate, and pass through surfaces.</p>
+<p>It matters because the conservation laws of fluid mechanics, heat transfer, electromagnetism, elasticity, and continuum mechanics are naturally written with vector-calculus operators. The central ideas are:</p>
+<ol><li><p>The <strong>gradient</strong> converts a scalar field into its direction of greatest increase.</p></li><li><p><strong>Divergence</strong> measures local net outflow; <strong>curl</strong> measures local circulation; the <strong>Laplacian</strong> measures a field&#39;s local imbalance relative to its neighbors.</p></li><li><p><strong>Line, surface, and volume integrals</strong> accumulate fields along curves, across surfaces, and throughout regions.</p></li><li><p><strong>Green&#39;s, Stokes&#39;, and the divergence theorems</strong> convert local derivatives into global boundary measurements.</p></li></ol>
+<p>Unless stated otherwise, coordinates are Cartesian, fields are sufficiently smooth for the derivatives used, and SI units are assumed. A field may be idealized as continuous even though real matter is molecular and measurements are discrete.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="gradient-and-directional-change">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Gradient and directional change">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#directional-derivative" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gradient-and-directional-change">Directional derivative</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#maximum-increase-and-level-sets" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gradient-and-directional-change">Maximum increase and level sets</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-temperature-gradient" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gradient-and-directional-change">Worked example: temperature gradient</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="divergence" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Divergence">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#local-flux-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="divergence">Local flux interpretation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources-sinks-and-incompressibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="divergence">Sources, sinks, and incompressibility</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="curl" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Curl">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#circulation-density" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="curl">Circulation density</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-rigid-rotation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="curl">Example: rigid rotation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="line-integrals-and-conservative-fields" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Line integrals and conservative fields">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservative-fields" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="line-integrals-and-conservative-fields">Conservative fields</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="surface-integrals-and-flux" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Surface integrals and flux">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-flux-through-a-disk" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="surface-integrals-and-flux">Worked example: flux through a disk</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="greens-stokes-and-divergence-theorems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Green&#39;s, Stokes&#39;, and divergence theorems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#greens-theorem-in-the-plane" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="greens-stokes-and-divergence-theorems">Green&#39;s theorem in the plane</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stokes-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="greens-stokes-and-divergence-theorems">Stokes&#39; theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#divergence-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="greens-stokes-and-divergence-theorems">Divergence theorem</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="conservative-incompressible-and-harmonic-fields" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Conservative, incompressible, and harmonic fields">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#physical-models" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conservative-incompressible-and-harmonic-fields">Physical models</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="engineering-experiments-and-computation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Engineering, experiments, and computation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#a-simple-experiment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="engineering-experiments-and-computation">A simple experiment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#idealized-versus-real-behavior" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="engineering-experiments-and-computation">Idealized versus real behavior</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-mistakes-and-problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common mistakes and problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#typical-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-and-problem-solving-workflow">Typical mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reliable-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-and-problem-solving-workflow">Reliable workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="practice-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Practice problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#short-answers-and-solution-outlines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Short answers and solution outlines</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="recommended-next-topics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Recommended next topics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="recommended-next-topics">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

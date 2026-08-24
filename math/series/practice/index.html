@@ -1,0 +1,2638 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Series Practice | Adriamics Study</title>
+  <meta name="description" content="35 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/series/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/series/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Series Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/series/series-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fseries%2Fseries-problems.md&amp;title=%5BContribute%5D%3A%20Series%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 35 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 35 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Series" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="series-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Necessary condition for convergence" data-problem-difficulty="Direct" data-problem-answer="If a series converges, its terms must go to $0$.
+
+So
+
+$$
+\lim_{n\to\infty} a_n = 0.
+$$
+
+This condition is necessary, but not sufficient.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Necessary Condition for Convergence</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#necessary-condition-for-convergence" data-notes-nav-item>Necessary condition for convergence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If the series</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty} a_n
+$$</div>
+<p>converges, what must</p>
+<div class="math-block">$$
+\lim_{n\to\infty} a_n
+$$</div>
+<p>be?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-11">Your work for Necessary Condition for Convergence</label>
+          <textarea
+            id="practice-study-series-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>If a series converges, its terms must go to $0$.</p>
+<p>So</p>
+<div class="math-block">$$
+\lim_{n\to\infty} a_n = 0.
+$$</div>
+<p>This condition is necessary, but not sufficient.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Power series, Ratio test" data-problem-difficulty="Direct" data-problem-answer="The ratio test gives $|x-2|/3$, so convergence requires $|x-2|&lt;3$. The radius is $R=3$; test the endpoints separately.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Find a Radius of Convergence</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#ratio-test" data-notes-nav-item>Ratio test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the radius of convergence of</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty}\frac{(x-2)^n}{3^n(n+1)}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-11">Your work for Find a Radius of Convergence</label>
+          <textarea
+            id="practice-study-series-advanced-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The ratio test gives $|x-2|/3$, so convergence requires $|x-2|&lt;3$. The radius is $R=3$; test the endpoints separately.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Geometric series" data-problem-difficulty="Direct" data-problem-answer="This is a geometric series with first term $a=6$ and ratio $r=\frac14$.
+
+Since $|r|&lt;1$, it converges and
+
+$$
+\sum_{n=0}^{\infty} 6\left(\frac{1}{4}\right)^n
+= \frac{6}{1-\frac14}
+= \frac{6}{\frac34}
+= 8.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Sum a Geometric Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#geometric-series" data-notes-nav-item>Geometric series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the sum of</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty} 6\left(\frac{1}{4}\right)^n.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-12">Your work for Sum a Geometric Series</label>
+          <textarea
+            id="practice-study-series-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is a geometric series with first term $a=6$ and ratio $r=\frac14$.</p>
+<p>Since $|r|&lt;1$, it converges and</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty} 6\left(\frac{1}{4}\right)^n
+= \frac{6}{1-\frac14}
+= \frac{6}{\frac34}
+= 8.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Endpoint testing, Alternating series" data-problem-difficulty="Direct" data-problem-answer="At $x=5$, the terms become $1/(n+1)$ and diverge. At $x=-1$, they become $(-1)^n/(n+1)$ and converge by the alternating series test. The interval is $[-1,5)$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Test Power-Series Endpoints</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#endpoint-testing" data-notes-nav-item>Endpoint testing</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#alternating-series" data-notes-nav-item>Alternating series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the previous series, test the endpoints.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-12">Your work for Test Power-Series Endpoints</label>
+          <textarea
+            id="practice-study-series-advanced-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>At $x=5$, the terms become $1/(n+1)$ and diverge. At $x=-1$, they become $(-1)^n/(n+1)$ and converge by the alternating series test. The interval is $[-1,5)$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Finite geometric sum" data-problem-difficulty="Direct" data-problem-answer="Use the finite geometric sum formula:
+
+$$
+\sum_{n=0}^{N-1} ar^n = a\frac{1-r^N}{1-r}.
+$$
+
+Here $a=2$, $r=\frac12$, and $N=4$:
+
+$$
+\sum_{n=0}^{3} 2\left(\frac12\right)^n
+= 2\cdot \frac{1-(\frac12)^4}{1-\frac12}
+= 2\cdot \frac{1-\frac1{16}}{\frac12}
+= \frac{15}{4}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Compute a Finite Geometric Sum</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#finite-geometric-sum" data-notes-nav-item>Finite geometric sum</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute</p>
+<div class="math-block">$$
+\sum_{n=0}^{3} 2\left(\frac12\right)^n.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-13">Your work for Compute a Finite Geometric Sum</label>
+          <textarea
+            id="practice-study-series-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the finite geometric sum formula:</p>
+<div class="math-block">$$
+\sum_{n=0}^{N-1} ar^n = a\frac{1-r^N}{1-r}.
+$$</div>
+<p>Here $a=2$, $r=\frac12$, and $N=4$:</p>
+<div class="math-block">$$
+\sum_{n=0}^{3} 2\left(\frac12\right)^n
+= 2\cdot \frac{1-(\frac12)^4}{1-\frac12}
+= 2\cdot \frac{1-\frac1{16}}{\frac12}
+= \frac{15}{4}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Taylor polynomial, Derivatives" data-problem-difficulty="Direct" data-problem-answer="Since $f(1)=0$, $f&#39;(1)=1$, and $f&#39;&#39;(1)=-1$,
+
+$$
+P_2(x)=(x-1)-\frac12(x-1)^2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Write a Taylor Polynomial</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#taylor-polynomial" data-notes-nav-item>Taylor polynomial</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#derivatives" data-notes-nav-item>Derivatives</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the degree-two Taylor polynomial for $f(x)=\ln x$ centered at $a=1$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-13">Your work for Write a Taylor Polynomial</label>
+          <textarea
+            id="practice-study-series-advanced-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since $f(1)=0$, $f&#39;(1)=1$, and $f&#39;&#39;(1)=-1$,</p>
+<div class="math-block">$$
+P_2(x)=(x-1)-\frac12(x-1)^2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Telescoping series" data-problem-difficulty="Direct" data-problem-answer="Write out the partial sums:
+
+$$
+s_N = \left(1-\frac13\right) + \left(\frac12-\frac14\right) + \cdots + \left(\frac1N-\frac1{N+2}\right).
+$$
+
+Most terms cancel, leaving
+
+$$
+s_N = 1+\frac12-\frac{1}{N+1}-\frac{1}{N+2}.
+$$
+
+Now let $N\to\infty$:
+
+$$
+\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+2}\right)
+= 1+\frac12
+= \frac32.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Evaluate a Telescoping Sum</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#telescoping-series" data-notes-nav-item>Telescoping series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+2}\right).
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-14">Your work for Evaluate a Telescoping Sum</label>
+          <textarea
+            id="practice-study-series-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write out the partial sums:</p>
+<div class="math-block">$$
+s_N = \left(1-\frac13\right) + \left(\frac12-\frac14\right) + \cdots + \left(\frac1N-\frac1{N+2}\right).
+$$</div>
+<p>Most terms cancel, leaving</p>
+<div class="math-block">$$
+s_N = 1+\frac12-\frac{1}{N+1}-\frac{1}{N+2}.
+$$</div>
+<p>Now let $N\to\infty$:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+2}\right)
+= 1+\frac12
+= \frac32.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Taylor approximation, Error reasoning" data-problem-difficulty="Direct" data-problem-answer="The approximation is $1+0.2+0.2^2/2=1.22$. The next term is $0.2^3/6\approx0.00133$, which is a rough local error scale, not an unconditional bound.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Use a Taylor Approximation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#taylor-approximation" data-notes-nav-item>Taylor approximation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#error-reasoning" data-notes-nav-item>Error reasoning</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use $1+x+x^2/2$ to approximate $e^{0.2}$ and state the next-term estimate.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-14">Your work for Use a Taylor Approximation</label>
+          <textarea
+            id="practice-study-series-advanced-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The approximation is $1+0.2+0.2^2/2=1.22$. The next term is $0.2^3/6\approx0.00133$, which is a rough local error scale, not an unconditional bound.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="p-series" data-problem-difficulty="Direct" data-problem-answer="This is a $p$-series with
+
+$$
+p=\frac32.
+$$
+
+Since $p&gt;1$, the series converges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Decide a p-Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#p-series" data-notes-nav-item>p-series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Does</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^{3/2}}
+$$</div>
+<p>converge or diverge?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-15">Your work for Decide a p-Series</label>
+          <textarea
+            id="practice-study-series-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is a $p$-series with</p>
+<div class="math-block">$$
+p=\frac32.
+$$</div>
+<p>Since $p&gt;1$, the series converges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Termwise integration, Geometric series" data-problem-difficulty="Direct" data-problem-answer="Replace $x$ by $-x$ and integrate term by term:
+
+$$
+\ln(1+x)=\sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n},\quad |x|&lt;1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Derive a Logarithm Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#termwise-integration" data-notes-nav-item>Termwise integration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#geometric-series" data-notes-nav-item>Geometric series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Starting with $1/(1-x)=\sum_{n=0}^{\infty}x^n$, derive a series for $\ln(1+x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-15">Your work for Derive a Logarithm Series</label>
+          <textarea
+            id="practice-study-series-advanced-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Replace $x$ by $-x$ and integrate term by term:</p>
+<div class="math-block">$$
+\ln(1+x)=\sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n},\quad |x|&lt;1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Alternating series test, Absolute convergence check" data-problem-difficulty="Direct" data-problem-answer="First check absolute convergence:
+
+$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{1}{\sqrt{n}}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^{1/2}}.
+$$
+
+This is a $p$-series with $p=\frac12$, so it diverges.
+
+Now apply the alternating series test to
+
+$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{\sqrt{n}}.
+$$
+
+The terms decrease to $0$, so the series converges.
+
+Therefore, the series is conditionally convergent.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Classify an Alternating p-Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#alternating-series-test" data-notes-nav-item>Alternating series test</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#absolute-convergence-check" data-notes-nav-item>Absolute convergence check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Classify the series</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{\sqrt{n}}
+$$</div>
+<p>as absolutely convergent, conditionally convergent, or divergent.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-16">Your work for Classify an Alternating p-Series</label>
+          <textarea
+            id="practice-study-series-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First check absolute convergence:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{1}{\sqrt{n}}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^{1/2}}.
+$$</div>
+<p>This is a $p$-series with $p=\frac12$, so it diverges.</p>
+<p>Now apply the alternating series test to</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{\sqrt{n}}.
+$$</div>
+<p>The terms decrease to $0$, so the series converges.</p>
+<p>Therefore, the series is conditionally convergent.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Coefficient matching, Power series" data-problem-difficulty="Direct" data-problem-answer="Comparing with $e^x=1+x+x^2/2!+\cdots$ gives $a_0=1$, $a_1=1$, and $a_2=1/2$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Match Power-Series Coefficients</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#coefficient-matching" data-notes-nav-item>Coefficient matching</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If $\sum_{n=0}^{\infty}a_nx^n=e^x$, find $a_0$, $a_1$, and $a_2$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-16">Your work for Match Power-Series Coefficients</label>
+          <textarea
+            id="practice-study-series-advanced-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Comparing with $e^x=1+x+x^2/2!+\cdots$ gives $a_0=1$, $a_1=1$, and $a_2=1/2$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Divergence test" data-problem-difficulty="Direct" data-problem-answer="Use the divergence test by checking the term limit:
+
+$$
+\lim_{n\to\infty}\frac{2n+1}{n+2} = 2.
+$$
+
+Since the terms do not go to $0$, the series diverges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Spot Divergence from the Terms</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#divergence-test" data-notes-nav-item>Divergence test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Does</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{2n+1}{n+2}
+$$</div>
+<p>converge or diverge?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-17">Your work for Spot Divergence from the Terms</label>
+          <textarea
+            id="practice-study-series-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the divergence test by checking the term limit:</p>
+<div class="math-block">$$
+\lim_{n\to\infty}\frac{2n+1}{n+2} = 2.
+$$</div>
+<p>Since the terms do not go to $0$, the series diverges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Absolute convergence, Conditional convergence" data-problem-difficulty="Direct" data-problem-answer="It converges by the alternating series test, but its absolute series is harmonic and diverges. The convergence is conditional.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Identify Conditional Convergence</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#absolute-convergence" data-notes-nav-item>Absolute convergence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#conditional-convergence" data-notes-nav-item>Conditional convergence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Classify $\sum_{n=1}^{\infty}(-1)^{n+1}/n$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-17">Your work for Identify Conditional Convergence</label>
+          <textarea
+            id="practice-study-series-advanced-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>It converges by the alternating series test, but its absolute series is harmonic and diverges. The convergence is conditional.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Comparison test" data-problem-difficulty="Direct" data-problem-answer="For $n\ge 1$,
+
+$$
+0&lt;\frac{1}{n^2+1}\le \frac{1}{n^2}.
+$$
+
+Since
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+$$
+converges, the comparison test shows that
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+$$
+
+also converges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compare to a Known Convergent Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#comparison-test" data-notes-nav-item>Comparison test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Does</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+$$</div>
+<p>converge or diverge?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-18">Your work for Compare to a Known Convergent Series</label>
+          <textarea
+            id="practice-study-series-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For $n\ge 1$,</p>
+<div class="math-block">$$
+0&lt;\frac{1}{n^2+1}\le \frac{1}{n^2}.
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+$$</div>
+<p>converges, the comparison test shows that</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+$$</div>
+<p>also converges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-advanced-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Fourier series, Modeling assumptions" data-problem-difficulty="Direct" data-problem-answer="It measures the contribution of the cosine mode with frequency $n$ to the periodic signal. It is an amplitude determined by the function and interval, not itself a frequency or probability.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Interpret a Fourier Preview</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#fourier-series" data-notes-nav-item>Fourier series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#modeling-assumptions" data-notes-nav-item>Modeling assumptions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What does the coefficient multiplying $\cos(nx)$ represent qualitatively?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-advanced-18">Your work for Interpret a Fourier Preview</label>
+          <textarea
+            id="practice-study-series-advanced-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>It measures the contribution of the cosine mode with frequency $n$ to the periodic signal. It is an amplitude determined by the function and interval, not itself a frequency or probability.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Geometric series" data-problem-difficulty="Direct" data-problem-answer="This is geometric with first term $a=5$ and ratio $r=-\frac34$.
+
+Since $|r|&lt;1$, it converges and
+
+$$
+\sum_{n=0}^{\infty} 5\left(-\frac34\right)^n
+= \frac{5}{1-(-\frac34)}
+= \frac{5}{\frac74}
+= \frac{20}{7}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Geometric Series with a Negative Ratio</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#geometric-series" data-notes-nav-item>Geometric series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the sum of</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty} 5\left(-\frac34\right)^n.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-19">Your work for Geometric Series with a Negative Ratio</label>
+          <textarea
+            id="practice-study-series-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is geometric with first term $a=5$ and ratio $r=-\frac34$.</p>
+<p>Since $|r|&lt;1$, it converges and</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty} 5\left(-\frac34\right)^n
+= \frac{5}{1-(-\frac34)}
+= \frac{5}{\frac74}
+= \frac{20}{7}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Absolute convergence check" data-problem-difficulty="Direct" data-problem-answer="Check the absolute series:
+
+$$
+\sum_{n=1}^{\infty}\left|(-1)^n\frac{1}{n^2}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^2}.
+$$
+
+This is a $p$-series with $p=2$, so it converges.
+
+Therefore, the original series converges absolutely.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Check Absolute Convergence</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#absolute-convergence-check" data-notes-nav-item>Absolute convergence check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}(-1)^n\frac{1}{n^2}
+$$</div>
+<p>is absolutely convergent, conditionally convergent, or divergent.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-110">Your work for Check Absolute Convergence</label>
+          <textarea
+            id="practice-study-series-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Check the absolute series:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left|(-1)^n\frac{1}{n^2}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^2}.
+$$</div>
+<p>This is a $p$-series with $p=2$, so it converges.</p>
+<p>Therefore, the original series converges absolutely.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="series-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Comparison test" data-problem-difficulty="Integrated" data-problem-answer="For $n\ge 1$,
+
+$$
+0&lt;\frac{1}{n^2+3n}\le \frac{1}{n^2}.
+$$
+
+Since $\sum \frac{1}{n^2}$ converges, the comparison test gives convergence of the given series.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Use Direct Comparison</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#comparison-test" data-notes-nav-item>Comparison test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+3n}
+$$</div>
+<p>converges or diverges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-21">Your work for Use Direct Comparison</label>
+          <textarea
+            id="practice-study-series-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For $n\ge 1$,</p>
+<div class="math-block">$$
+0&lt;\frac{1}{n^2+3n}\le \frac{1}{n^2}.
+$$</div>
+<p>Since $\sum \frac{1}{n^2}$ converges, the comparison test gives convergence of the given series.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Limit comparison test" data-problem-difficulty="Integrated" data-problem-answer="Compare with
+
+$$
+b_n=\frac1n.
+$$
+
+Then
+
+$$
+\lim_{n\to\infty}\frac{\frac{4n+1}{n^2+n}}{\frac1n}
+= \lim_{n\to\infty}\frac{4n^2+n}{n^2+n}
+= 4.
+$$
+
+Because the limit is a positive finite number, the two series behave the same way.
+
+Since
+
+$$
+\sum_{n=1}^{\infty}\frac1n
+$$
+
+diverges, the given series also diverges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Use Limit Comparison</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#limit-comparison-test" data-notes-nav-item>Limit comparison test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{4n+1}{n^2+n}
+$$</div>
+<p>converges or diverges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-22">Your work for Use Limit Comparison</label>
+          <textarea
+            id="practice-study-series-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Compare with</p>
+<div class="math-block">$$
+b_n=\frac1n.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\lim_{n\to\infty}\frac{\frac{4n+1}{n^2+n}}{\frac1n}
+= \lim_{n\to\infty}\frac{4n^2+n}{n^2+n}
+= 4.
+$$</div>
+<p>Because the limit is a positive finite number, the two series behave the same way.</p>
+<p>Since</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac1n
+$$</div>
+<p>diverges, the given series also diverges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Advanced convergence test: integral test" data-problem-difficulty="Integrated" data-problem-answer="Let
+
+$$
+f(x)=\frac{1}{x^2+4}.
+$$
+
+For $x\ge 1$, this function is positive, continuous, and decreasing, so the integral test applies.
+
+Compute the improper integral:
+
+$$
+\int_1^{\infty}\frac{1}{x^2+4}\,dx
+= \frac12\int_1^{\infty}\frac{1}{(x/2)^2+1}\,dx
+= \frac12\left[\arctan\!\left(\frac{x}{2}\right)\right]_1^{\infty}.
+$$
+
+This is finite, so the series converges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Apply the Integral Test</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#advanced-convergence-test-integral-test" data-notes-nav-item>Advanced convergence test: integral test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+4}
+$$</div>
+<p>converges or diverges using the integral test.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-23">Your work for Apply the Integral Test</label>
+          <textarea
+            id="practice-study-series-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let</p>
+<div class="math-block">$$
+f(x)=\frac{1}{x^2+4}.
+$$</div>
+<p>For $x\ge 1$, this function is positive, continuous, and decreasing, so the integral test applies.</p>
+<p>Compute the improper integral:</p>
+<div class="math-block">$$
+\int_1^{\infty}\frac{1}{x^2+4}\,dx
+= \frac12\int_1^{\infty}\frac{1}{(x/2)^2+1}\,dx
+= \frac12\left[\arctan\!\left(\frac{x}{2}\right)\right]_1^{\infty}.
+$$</div>
+<p>This is finite, so the series converges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Ratio test" data-problem-difficulty="Integrated" data-problem-answer="Let
+
+$$
+a_n=\frac{n!}{3^n}.
+$$
+
+Then
+
+$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \frac{(n+1)!}{3^{n+1}}\cdot \frac{3^n}{n!}
+= \frac{n+1}{3}.
+$$
+
+As $n\to\infty$,
+
+$$
+\frac{n+1}{3}\to\infty.
+$$
+
+So the ratio test gives divergence.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Apply the Ratio Test</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#ratio-test" data-notes-nav-item>Ratio test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty}\frac{n!}{3^n}
+$$</div>
+<p>converges or diverges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-24">Your work for Apply the Ratio Test</label>
+          <textarea
+            id="practice-study-series-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let</p>
+<div class="math-block">$$
+a_n=\frac{n!}{3^n}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \frac{(n+1)!}{3^{n+1}}\cdot \frac{3^n}{n!}
+= \frac{n+1}{3}.
+$$</div>
+<p>As $n\to\infty$,</p>
+<div class="math-block">$$
+\frac{n+1}{3}\to\infty.
+$$</div>
+<p>So the ratio test gives divergence.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Root test" data-problem-difficulty="Integrated" data-problem-answer="Use the root test:
+
+$$
+L=\lim_{n\to\infty}\sqrt[n]{\left|\left(\frac{2n}{3n+1}\right)^n\right|}
+= \lim_{n\to\infty}\frac{2n}{3n+1}
+= \frac23.
+$$
+
+Since $L&lt;1$, the series converges absolutely.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Apply the Root Test</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#root-test" data-notes-nav-item>Root test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left(\frac{2n}{3n+1}\right)^n
+$$</div>
+<p>converges or diverges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-25">Your work for Apply the Root Test</label>
+          <textarea
+            id="practice-study-series-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the root test:</p>
+<div class="math-block">$$
+L=\lim_{n\to\infty}\sqrt[n]{\left|\left(\frac{2n}{3n+1}\right)^n\right|}
+= \lim_{n\to\infty}\frac{2n}{3n+1}
+= \frac23.
+$$</div>
+<p>Since $L&lt;1$, the series converges absolutely.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Power series, Radius and interval of convergence" data-problem-difficulty="Integrated" data-problem-answer="Apply the ratio test to the general term
+
+$$
+a_n=\frac{(x-2)^n}{n4^n}.
+$$
+
+Then
+
+$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \left|\frac{x-2}{4}\right|\cdot \frac{n}{n+1}.
+$$
+
+The limit is
+
+$$
+\left|\frac{x-2}{4}\right|.
+$$
+
+So the series converges when
+
+$$
+\left|\frac{x-2}{4}\right|&lt;1,
+$$
+
+which gives
+
+$$
+-2&lt;x&lt;6.
+$$
+
+Check the endpoints:
+
+At $x=6$,
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n}
+$$
+
+diverges.
+
+At $x=-2$,
+
+$$
+\sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+$$
+
+converges conditionally by the alternating series test.
+
+Therefore the interval of convergence is
+
+$$
+[-2,6).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find an Interval of Convergence</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#radius-and-interval-of-convergence" data-notes-nav-item>Radius and interval of convergence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the interval of convergence of</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{(x-2)^n}{n4^n}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-26">Your work for Find an Interval of Convergence</label>
+          <textarea
+            id="practice-study-series-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Apply the ratio test to the general term</p>
+<div class="math-block">$$
+a_n=\frac{(x-2)^n}{n4^n}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \left|\frac{x-2}{4}\right|\cdot \frac{n}{n+1}.
+$$</div>
+<p>The limit is</p>
+<div class="math-block">$$
+\left|\frac{x-2}{4}\right|.
+$$</div>
+<p>So the series converges when</p>
+<div class="math-block">$$
+\left|\frac{x-2}{4}\right|&lt;1,
+$$</div>
+<p>which gives</p>
+<div class="math-block">$$
+-2&lt;x&lt;6.
+$$</div>
+<p>Check the endpoints:</p>
+<p>At $x=6$,</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n}
+$$</div>
+<p>diverges.</p>
+<p>At $x=-2$,</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+$$</div>
+<p>converges conditionally by the alternating series test.</p>
+<p>Therefore the interval of convergence is</p>
+<div class="math-block">$$
+[-2,6).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Termwise differentiation, Advanced: termwise integration, Power series" data-problem-difficulty="Integrated" data-problem-answer="Start with the geometric series:
+
+$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|&lt;1.
+$$
+
+Differentiate term by term:
+
+$$
+\frac{1}{(1-x)^2}=\sum_{n=1}^{\infty} n x^{n-1}.
+$$
+
+Multiply both sides by $x$:
+
+$$
+\frac{x}{(1-x)^2}=\sum_{n=1}^{\infty} n x^n,\quad |x|&lt;1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Differentiate a Power Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#termwise-differentiation" data-notes-nav-item>Termwise differentiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#advanced-termwise-integration" data-notes-nav-item>Advanced: termwise integration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For $|x|&lt;1$, find a power series for</p>
+<div class="math-block">$$
+\frac{x}{(1-x)^2}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-27">Your work for Differentiate a Power Series</label>
+          <textarea
+            id="practice-study-series-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Start with the geometric series:</p>
+<div class="math-block">$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|&lt;1.
+$$</div>
+<p>Differentiate term by term:</p>
+<div class="math-block">$$
+\frac{1}{(1-x)^2}=\sum_{n=1}^{\infty} n x^{n-1}.
+$$</div>
+<p>Multiply both sides by $x$:</p>
+<div class="math-block">$$
+\frac{x}{(1-x)^2}=\sum_{n=1}^{\infty} n x^n,\quad |x|&lt;1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Geometric series, Power series" data-problem-difficulty="Integrated" data-problem-answer="Start with the geometric series
+
+$$
+\frac{1}{1-u}=\sum_{n=0}^{\infty}u^n,\quad |u|&lt;1.
+$$
+
+Substitute $u=x^2$:
+
+$$
+\frac{1}{1-x^2}=\sum_{n=0}^{\infty}x^{2n}.
+$$
+
+This is valid when
+
+$$
+|x^2|&lt;1,
+$$
+
+so the interval of convergence is
+
+$$
+|x|&lt;1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Expand a Rational Function by Substitution</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#geometric-series" data-notes-nav-item>Geometric series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For $|x|&lt;1$, write</p>
+<div class="math-block">$$
+\frac{1}{1-x^2}
+$$</div>
+<p>as a power series.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-28">Your work for Expand a Rational Function by Substitution</label>
+          <textarea
+            id="practice-study-series-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Start with the geometric series</p>
+<div class="math-block">$$
+\frac{1}{1-u}=\sum_{n=0}^{\infty}u^n,\quad |u|&lt;1.
+$$</div>
+<p>Substitute $u=x^2$:</p>
+<div class="math-block">$$
+\frac{1}{1-x^2}=\sum_{n=0}^{\infty}x^{2n}.
+$$</div>
+<p>This is valid when</p>
+<div class="math-block">$$
+|x^2|&lt;1,
+$$</div>
+<p>so the interval of convergence is</p>
+<div class="math-block">$$
+|x|&lt;1.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="series-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Index shifting" data-problem-difficulty="Applied" data-problem-answer="Let $k=n-1$. Then when $n=2$, $k=1$, and the series becomes
+
+$$
+\sum_{k=1}^{\infty}\frac{1}{k^2}.
+$$
+
+This is a $p$-series with $p=2$, so it converges.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Reindex a Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#index-shifting" data-notes-nav-item>Index shifting</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Rewrite</p>
+<div class="math-block">$$
+\sum_{n=2}^{\infty}\frac{1}{(n-1)^2}
+$$</div>
+<p>in standard form, and decide whether it converges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-31">Your work for Reindex a Series</label>
+          <textarea
+            id="practice-study-series-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $k=n-1$. Then when $n=2$, $k=1$, and the series becomes</p>
+<div class="math-block">$$
+\sum_{k=1}^{\infty}\frac{1}{k^2}.
+$$</div>
+<p>This is a $p$-series with $p=2$, so it converges.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Limit comparison test" data-problem-difficulty="Applied" data-problem-answer="Compare with
+
+$$
+b_n=\frac1n.
+$$
+
+Compute
+
+$$
+\lim_{n\to\infty}\frac{\frac{n^2}{n^3+5}}{\frac1n}
+= \lim_{n\to\infty}\frac{n^3}{n^3+5}
+= 1.
+$$
+
+So the series behaves like $\sum \frac1n$.
+
+Because the harmonic series diverges, the given series diverges as well.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Choose the Right Comparison</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#limit-comparison-test" data-notes-nav-item>Limit comparison test</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{n^2}{n^3+5}
+$$</div>
+<p>converges or diverges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-32">Your work for Choose the Right Comparison</label>
+          <textarea
+            id="practice-study-series-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Compare with</p>
+<div class="math-block">$$
+b_n=\frac1n.
+$$</div>
+<p>Compute</p>
+<div class="math-block">$$
+\lim_{n\to\infty}\frac{\frac{n^2}{n^3+5}}{\frac1n}
+= \lim_{n\to\infty}\frac{n^3}{n^3+5}
+= 1.
+$$</div>
+<p>So the series behaves like $\sum \frac1n$.</p>
+<p>Because the harmonic series diverges, the given series diverges as well.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Telescoping series" data-problem-difficulty="Applied" data-problem-answer="Use partial fractions:
+
+$$
+\frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}.
+$$
+
+So the partial sums telescope:
+
+$$
+s_N=\left(1-\frac12\right)+\left(\frac12-\frac13\right)+\cdots+\left(\frac1N-\frac{1}{N+1}\right).
+$$
+
+Everything cancels except the first and last pieces:
+
+$$
+s_N=1-\frac{1}{N+1}.
+$$
+
+Taking the limit gives
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Evaluate a Telescoping Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#telescoping-series" data-notes-nav-item>Telescoping series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n(n+1)}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-33">Your work for Evaluate a Telescoping Series</label>
+          <textarea
+            id="practice-study-series-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use partial fractions:</p>
+<div class="math-block">$$
+\frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}.
+$$</div>
+<p>So the partial sums telescope:</p>
+<div class="math-block">$$
+s_N=\left(1-\frac12\right)+\left(\frac12-\frac13\right)+\cdots+\left(\frac1N-\frac{1}{N+1}\right).
+$$</div>
+<p>Everything cancels except the first and last pieces:</p>
+<div class="math-block">$$
+s_N=1-\frac{1}{N+1}.
+$$</div>
+<p>Taking the limit gives</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Geometric series, Integration" data-problem-difficulty="Applied" data-problem-answer="Start with
+
+$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|&lt;1.
+$$
+
+Integrate both sides term by term:
+
+$$
+\int \frac{1}{1-x}\,dx = \int \sum_{n=0}^{\infty}x^n\,dx.
+$$
+
+This gives
+
+$$
+-\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n},\quad |x|&lt;1.
+$$
+
+The first four nonzero terms are
+
+$$
+x+\frac{x^2}{2}+\frac{x^3}{3}+\frac{x^4}{4}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Build a Logarithm Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#geometric-series" data-notes-nav-item>Geometric series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#integration" data-notes-nav-item>Integration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use the geometric series to write the Maclaurin series for</p>
+<div class="math-block">$$
+-\ln(1-x).
+$$</div>
+<p>State the interval where the series converges.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-34">Your work for Build a Logarithm Series</label>
+          <textarea
+            id="practice-study-series-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Start with</p>
+<div class="math-block">$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|&lt;1.
+$$</div>
+<p>Integrate both sides term by term:</p>
+<div class="math-block">$$
+\int \frac{1}{1-x}\,dx = \int \sum_{n=0}^{\infty}x^n\,dx.
+$$</div>
+<p>This gives</p>
+<div class="math-block">$$
+-\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n},\quad |x|&lt;1.
+$$</div>
+<p>The first four nonzero terms are</p>
+<div class="math-block">$$
+x+\frac{x^2}{2}+\frac{x^3}{3}+\frac{x^4}{4}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Termwise differentiation, Advanced: termwise integration, Power series" data-problem-difficulty="Applied" data-problem-answer="Differentiate the geometric series:
+
+$$
+\sum_{n=0}^{\infty}x^n=\frac{1}{1-x},\quad |x|&lt;1
+$$
+
+so
+
+$$
+\sum_{n=1}^{\infty}n x^{n-1}=\frac{1}{(1-x)^2}.
+$$
+
+Now set $x=\frac12$:
+
+$$
+\sum_{n=1}^{\infty}n\left(\frac12\right)^{n-1}
+= \frac{1}{(1-\frac12)^2}
+= 4.
+$$
+
+Multiply both sides by $\frac12$:
+
+$$
+\sum_{n=1}^{\infty}\frac{n}{2^n}=2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Use a Power Series to Sum a Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#termwise-differentiation" data-notes-nav-item>Termwise differentiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#advanced-termwise-integration" data-notes-nav-item>Advanced: termwise integration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#power-series" data-notes-nav-item>Power series</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{n}{2^n}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-35">Your work for Use a Power Series to Sum a Series</label>
+          <textarea
+            id="practice-study-series-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Differentiate the geometric series:</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty}x^n=\frac{1}{1-x},\quad |x|&lt;1
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}n x^{n-1}=\frac{1}{(1-x)^2}.
+$$</div>
+<p>Now set $x=\frac12$:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}n\left(\frac12\right)^{n-1}
+= \frac{1}{(1-\frac12)^2}
+= 4.
+$$</div>
+<p>Multiply both sides by $\frac12$:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\frac{n}{2^n}=2.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="series-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Taylor and Maclaurin series, Error thinking" data-problem-difficulty="Challenge" data-problem-answer="The Maclaurin series for sine is
+
+$$
+\sin x = x - \frac{x^3}{3!} + \cdots
+$$
+
+Use the first two nonzero terms:
+
+$$
+\sin(0.2)\approx 0.2-\frac{(0.2)^3}{6}.
+$$
+
+Since
+
+$$
+0.2^3=0.008,
+$$
+
+we get
+
+$$
+\sin(0.2)\approx 0.2-\frac{0.008}{6}
+= 0.198666\ldots
+= \frac{149}{750}.
+$$
+
+The next omitted term is very small, so this is a good local approximation.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Approximate with a Taylor Polynomial</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#taylor-and-maclaurin-series" data-notes-nav-item>Taylor and Maclaurin series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#error-thinking" data-notes-nav-item>Error thinking</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use the Maclaurin series for $\sin x$ to approximate $\sin(0.2)$ with the first two nonzero terms.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-41">Your work for Approximate with a Taylor Polynomial</label>
+          <textarea
+            id="practice-study-series-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The Maclaurin series for sine is</p>
+<div class="math-block">$$
+\sin x = x - \frac{x^3}{3!} + \cdots
+$$</div>
+<p>Use the first two nonzero terms:</p>
+<div class="math-block">$$
+\sin(0.2)\approx 0.2-\frac{(0.2)^3}{6}.
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+0.2^3=0.008,
+$$</div>
+<p>we get</p>
+<div class="math-block">$$
+\sin(0.2)\approx 0.2-\frac{0.008}{6}
+= 0.198666\ldots
+= \frac{149}{750}.
+$$</div>
+<p>The next omitted term is very small, so this is a good local approximation.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Binomial-type expansion" data-problem-difficulty="Challenge" data-problem-answer="Use the binomial-type expansion:
+
+$$
+(1+x)^\alpha = \sum_{n=0}^{\infty}\binom{\alpha}{n}x^n.
+$$
+
+For $\alpha=\frac12$, the coefficient of $x^3$ is
+
+$$
+\binom{1/2}{3}
+= \frac{\left(\frac12\right)\left(-\frac12\right)\left(-\frac32\right)}{3!}
+= \frac{1}{16}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Find a Binomial Coefficient</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#binomial-type-expansion" data-notes-nav-item>Binomial-type expansion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>In the expansion of</p>
+<div class="math-block">$$
+(1+x)^{1/2},
+$$</div>
+<p>what is the coefficient of $x^3$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-42">Your work for Find a Binomial Coefficient</label>
+          <textarea
+            id="practice-study-series-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the binomial-type expansion:</p>
+<div class="math-block">$$
+(1+x)^\alpha = \sum_{n=0}^{\infty}\binom{\alpha}{n}x^n.
+$$</div>
+<p>For $\alpha=\frac12$, the coefficient of $x^3$ is</p>
+<div class="math-block">$$
+\binom{1/2}{3}
+= \frac{\left(\frac12\right)\left(-\frac12\right)\left(-\frac32\right)}{3!}
+= \frac{1}{16}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Matching coefficients" data-problem-difficulty="Challenge" data-problem-answer="Expand the left-hand side:
+
+$$
+(1-x)\sum_{n=0}^{\infty}a_n x^n
+= \sum_{n=0}^{\infty}a_n x^n - \sum_{n=0}^{\infty}a_n x^{n+1}.
+$$
+
+Reindex the second sum:
+
+$$
+\sum_{n=0}^{\infty}a_n x^n - \sum_{n=1}^{\infty}a_{n-1}x^n.
+$$
+
+So
+
+$$
+(1-x)f(x)=a_0+\sum_{n=1}^{\infty}(a_n-a_{n-1})x^n.
+$$
+
+Match coefficients with
+
+$$
+1+x.
+$$
+
+This gives
+
+$$
+a_0=1,
+$$
+
+$$
+a_1-a_0=1,
+$$
+
+and for $n\ge 2$,
+
+$$
+a_n-a_{n-1}=0.
+$$
+
+So
+
+$$
+a_1=2
+$$
+
+and
+
+$$
+a_n=2 \quad \text{for all } n\ge 1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Match Coefficients</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#matching-coefficients" data-notes-nav-item>Matching coefficients</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose</p>
+<div class="math-block">$$
+f(x)=\sum_{n=0}^{\infty}a_n x^n
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+(1-x)f(x)=1+x.
+$$</div>
+<p>Find the coefficients $a_n$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-43">Your work for Match Coefficients</label>
+          <textarea
+            id="practice-study-series-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Expand the left-hand side:</p>
+<div class="math-block">$$
+(1-x)\sum_{n=0}^{\infty}a_n x^n
+= \sum_{n=0}^{\infty}a_n x^n - \sum_{n=0}^{\infty}a_n x^{n+1}.
+$$</div>
+<p>Reindex the second sum:</p>
+<div class="math-block">$$
+\sum_{n=0}^{\infty}a_n x^n - \sum_{n=1}^{\infty}a_{n-1}x^n.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+(1-x)f(x)=a_0+\sum_{n=1}^{\infty}(a_n-a_{n-1})x^n.
+$$</div>
+<p>Match coefficients with</p>
+<div class="math-block">$$
+1+x.
+$$</div>
+<p>This gives</p>
+<div class="math-block">$$
+a_0=1,
+$$</div>
+<div class="math-block">$$
+a_1-a_0=1,
+$$</div>
+<p>and for $n\ge 2$,</p>
+<div class="math-block">$$
+a_n-a_{n-1}=0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+a_1=2
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+a_n=2 \quad \text{for all } n\ge 1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="series-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Alternating series test, Absolute convergence check" data-problem-difficulty="Challenge" data-problem-answer="First check absolute convergence:
+
+$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{n}{n^2+1}\right|
+= \sum_{n=1}^{\infty}\frac{n}{n^2+1}.
+$$
+
+Since
+
+$$
+\frac{n}{n^2+1}\sim \frac1n,
+$$
+
+this absolute series diverges.
+
+Now check the alternating series test. Let
+
+$$
+b_n=\frac{n}{n^2+1}.
+$$
+
+Then $b_n\to 0$, and $b_n$ is decreasing for $n\ge 1$ because the function
+
+$$
+f(x)=\frac{x}{x^2+1}
+$$
+
+has derivative
+
+$$
+f&#39;(x)=\frac{1-x^2}{(x^2+1)^2}\le 0
+$$
+
+for $x\ge 1$.
+
+So the alternating series converges, but not absolutely.
+
+Therefore, it is conditionally convergent.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Classify a Mixed-Sign Series</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#alternating-series-test" data-notes-nav-item>Alternating series test</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/series/#absolute-convergence-check" data-notes-nav-item>Absolute convergence check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Classify</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{n}{n^2+1}
+$$</div>
+<p>as absolutely convergent, conditionally convergent, or divergent.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-series-44">Your work for Classify a Mixed-Sign Series</label>
+          <textarea
+            id="practice-study-series-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First check absolute convergence:</p>
+<div class="math-block">$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{n}{n^2+1}\right|
+= \sum_{n=1}^{\infty}\frac{n}{n^2+1}.
+$$</div>
+<p>Since</p>
+<div class="math-block">$$
+\frac{n}{n^2+1}\sim \frac1n,
+$$</div>
+<p>this absolute series diverges.</p>
+<p>Now check the alternating series test. Let</p>
+<div class="math-block">$$
+b_n=\frac{n}{n^2+1}.
+$$</div>
+<p>Then $b_n\to 0$, and $b_n$ is decreasing for $n\ge 1$ because the function</p>
+<div class="math-block">$$
+f(x)=\frac{x}{x^2+1}
+$$</div>
+<p>has derivative</p>
+<div class="math-block">$$
+f&#39;(x)=\frac{1-x^2}{(x^2+1)^2}\le 0
+$$</div>
+<p>for $x\ge 1$.</p>
+<p>So the alternating series converges, but not absolutely.</p>
+<p>Therefore, it is conditionally convergent.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

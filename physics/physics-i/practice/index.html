@@ -1,0 +1,2271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physics I Practice | Adriamics Study</title>
+  <meta name="description" content="29 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/physics/physics-i/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/physics/physics-i/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Physics I Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/physics-i/physics-i-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fphysics-i%2Fphysics-i-problems.md&amp;title=%5BContribute%5D%3A%20Physics%20I%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 29 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 29 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Physics I" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="physics-i-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Units" data-problem-difficulty="Direct" data-problem-answer="Torque is force times distance, so its SI unit is
+
+$$
+\text{N} \cdot \text{m}
+$$
+
+This is equivalent to newton-meter.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify the SI Unit of Torque</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#units" data-notes-nav-item>Units</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the SI unit of torque?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-11">Your work for Identify the SI Unit of Torque</label>
+          <textarea
+            id="practice-study-physics-i-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Torque is force times distance, so its SI unit is</p>
+<div class="math-block">$$
+\text{N} \cdot \text{m}
+$$</div>
+<p>This is equivalent to newton-meter.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Scalars and vectors" data-problem-difficulty="Direct" data-problem-answer="Acceleration is a vector because it has both magnitude and direction.
+
+So the correct classification is **vector**.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify Acceleration as a Scalar or Vector</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#scalars-and-vectors" data-notes-nav-item>Scalars and vectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Is acceleration a scalar or a vector?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-12">Your work for Classify Acceleration as a Scalar or Vector</label>
+          <textarea
+            id="practice-study-physics-i-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Acceleration is a vector because it has both magnitude and direction.</p>
+<p>So the correct classification is <strong>vector</strong>.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Kinematics" data-problem-difficulty="Direct" data-problem-answer="Use average velocity:
+
+$$
+\bar v = \frac{\Delta x}{\Delta t}
+$$
+
+The displacement is
+
+$$
+\Delta x = 87 - 15 = 72 \text{ m}
+$$
+
+So
+
+$$
+\bar v = \frac{72}{12} = 6 \text{ m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Compute Average Velocity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#kinematics" data-notes-nav-item>Kinematics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A cyclist moves from $x = 15$ m to $x = 87$ m in $12$ s. What is the average velocity?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-13">Your work for Compute Average Velocity</label>
+          <textarea
+            id="practice-study-physics-i-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use average velocity:</p>
+<div class="math-block">$$
+\bar v = \frac{\Delta x}{\Delta t}
+$$</div>
+<p>The displacement is</p>
+<div class="math-block">$$
+\Delta x = 87 - 15 = 72 \text{ m}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\bar v = \frac{72}{12} = 6 \text{ m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Kinematics" data-problem-difficulty="Direct" data-problem-answer="Use the constant-acceleration equation:
+
+$$
+v = v_0 + at
+$$
+
+Substitute the values:
+
+$$
+v = 2 + 3(4) = 14 \text{ m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find Final Velocity with Constant Acceleration</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#kinematics" data-notes-nav-item>Kinematics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>An object starts with velocity $2$ m/s and accelerates at $3$ m/s$^2$ for $4$ s. What is its final velocity?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-14">Your work for Find Final Velocity with Constant Acceleration</label>
+          <textarea
+            id="practice-study-physics-i-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the constant-acceleration equation:</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+v = 2 + 3(4) = 14 \text{ m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Kinematics" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$
+
+Substitute the values:
+
+$$
+x = -3 + 5(3) + \frac{1}{2}(-2)(3^2)
+$$
+
+$$
+x = -3 + 15 - 9 = 3 \text{ m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find Position Under Constant Acceleration</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#kinematics" data-notes-nav-item>Kinematics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>An object starts at $x_0 = -3$ m with velocity $5$ m/s and acceleration $-2$ m/s$^2$. Where is it after $3$ s?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-15">Your work for Find Position Under Constant Acceleration</label>
+          <textarea
+            id="practice-study-physics-i-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+x = -3 + 5(3) + \frac{1}{2}(-2)(3^2)
+$$</div>
+<div class="math-block">$$
+x = -3 + 15 - 9 = 3 \text{ m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Vectors, Two-dimensional motion" data-problem-difficulty="Direct" data-problem-answer="Use component formulas:
+
+$$
+F_x = F\cos\theta, \qquad F_y = F\sin\theta
+$$
+
+So
+
+$$
+F_x = 20\cos 60^\circ = 10 \text{ N}
+$$
+
+and
+
+$$
+F_y = 20\sin 60^\circ \approx 17.3 \text{ N}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Resolve a Vector into Components</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#vectors" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#two-dimensional-motion" data-notes-nav-item>Two-dimensional motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A force of $20$ N acts at an angle of $60^\circ$ above the positive $x$-axis. Find its $x$- and $y$-components.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-16">Your work for Resolve a Vector into Components</label>
+          <textarea
+            id="practice-study-physics-i-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use component formulas:</p>
+<div class="math-block">$$
+F_x = F\cos\theta, \qquad F_y = F\sin\theta
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+F_x = 20\cos 60^\circ = 10 \text{ N}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+F_y = 20\sin 60^\circ \approx 17.3 \text{ N}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Free fall" data-problem-difficulty="Direct" data-problem-answer="Near Earth&#39;s surface, free-fall acceleration is approximately constant:
+
+$$
+a = -g \approx -9.8 \text{ m/s}^2
+$$
+
+The negative sign appears because the acceleration points downward.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">State the Acceleration of Free Fall</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#free-fall" data-notes-nav-item>Free fall</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If upward is positive, what is the acceleration of a dropped object near Earth?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-17">Your work for State the Acceleration of Free Fall</label>
+          <textarea
+            id="practice-study-physics-i-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Near Earth&#39;s surface, free-fall acceleration is approximately constant:</p>
+<div class="math-block">$$
+a = -g \approx -9.8 \text{ m/s}^2
+$$</div>
+<p>The negative sign appears because the acceleration points downward.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Newton&#39;s laws" data-problem-difficulty="Direct" data-problem-answer="Apply Newton&#39;s second law:
+
+$$
+\sum F = ma
+$$
+
+So
+
+$$
+a = \frac{F}{m} = \frac{18}{6} = 3 \text{ m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Use Newton&#39;s Second Law</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#newtons-laws" data-notes-nav-item>Newton&#39;s laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $6$ kg cart has a net horizontal force of $18$ N acting on it. What is its acceleration?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-18">Your work for Use Newton&#39;s Second Law</label>
+          <textarea
+            id="practice-study-physics-i-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Apply Newton&#39;s second law:</p>
+<div class="math-block">$$
+\sum F = ma
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+a = \frac{F}{m} = \frac{18}{6} = 3 \text{ m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Weight, Common forces" data-problem-difficulty="Direct" data-problem-answer="Weight is
+
+$$
+W = mg
+$$
+
+So
+
+$$
+W = 12(9.8) = 117.6 \text{ N}
+$$
+
+The force points downward.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Find the Weight of an Object</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#weight" data-notes-nav-item>Weight</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#common-forces" data-notes-nav-item>Common forces</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the weight of a $12$ kg object near Earth&#39;s surface?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-19">Your work for Find the Weight of an Object</label>
+          <textarea
+            id="practice-study-physics-i-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Weight is</p>
+<div class="math-block">$$
+W = mg
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+W = 12(9.8) = 117.6 \text{ N}
+$$</div>
+<p>The force points downward.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Power, Work and energy" data-problem-difficulty="Direct" data-problem-answer="Use average power:
+
+$$
+\bar P = \frac{W}{\Delta t}
+$$
+
+So
+
+$$
+\bar P = \frac{450}{15} = 30 \text{ W}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute Average Power</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#power" data-notes-nav-item>Power</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#work-and-energy" data-notes-nav-item>Work and energy</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A machine does $450$ J of work in $15$ s. What is its average power?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-110">Your work for Compute Average Power</label>
+          <textarea
+            id="practice-study-physics-i-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use average power:</p>
+<div class="math-block">$$
+\bar P = \frac{W}{\Delta t}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\bar P = \frac{450}{15} = 30 \text{ W}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-111" data-practice-problem data-exam="exam-ii" data-problem-number="1.11" data-problem-skills="Static friction, Inclined planes, Newton&#39;s laws" data-problem-difficulty="Direct" data-problem-answer="The component of gravity parallel to the surface points down the incline. Without friction, that component would produce impending motion down the incline.
+
+Static friction opposes that impending relative motion, so it **acts up the incline**.
+
+For equilibrium, its required magnitude is $mg\sin 30^\circ$ as long as that value does not exceed the maximum available static friction. Static friction is not automatically equal to $\mu_sN$; $\mu_sN$ is only its maximum possible magnitude.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.11</span><span class="practice-problem__title-text">Determine the Direction of Static Friction on an Incline</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 1.11</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#static-friction" data-notes-nav-item>Static friction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#inclined-planes" data-notes-nav-item>Inclined planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#newtons-laws" data-notes-nav-item>Newton&#39;s laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>An otherwise unforced block is stationary on a $30^\circ$ incline. Which direction does the static friction force on the block point?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-111">Your work for Determine the Direction of Static Friction on an Incline</label>
+          <textarea
+            id="practice-study-physics-i-111"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The component of gravity parallel to the surface points down the incline. Without friction, that component would produce impending motion down the incline.</p>
+<p>Static friction opposes that impending relative motion, so it <strong>acts up the incline</strong>.</p>
+<p>For equilibrium, its required magnitude is $mg\sin 30^\circ$ as long as that value does not exceed the maximum available static friction. Static friction is not automatically equal to $\mu_sN$; $\mu_sN$ is only its maximum possible magnitude.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="physics-i-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Projectile motion, Kinematics" data-problem-difficulty="Integrated" data-problem-answer="The vertical component of the launch velocity is
+
+$$
+v_{0y} = 20\sin 30^\circ = 10 \text{ m/s}
+$$
+
+For a projectile that lands at the same height,
+
+$$
+T = \frac{2v_{0y}}{g}
+$$
+
+So
+
+$$
+T = \frac{2(10)}{9.8} \approx 2.04 \text{ s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find the Time of Flight for a Projectile</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#projectile-motion" data-notes-nav-item>Projectile motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#kinematics" data-notes-nav-item>Kinematics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A ball is launched at $20$ m/s at an angle of $30^\circ$ above the horizontal and lands at the same height. How long is it in the air?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-21">Your work for Find the Time of Flight for a Projectile</label>
+          <textarea
+            id="practice-study-physics-i-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The vertical component of the launch velocity is</p>
+<div class="math-block">$$
+v_{0y} = 20\sin 30^\circ = 10 \text{ m/s}
+$$</div>
+<p>For a projectile that lands at the same height,</p>
+<div class="math-block">$$
+T = \frac{2v_{0y}}{g}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+T = \frac{2(10)}{9.8} \approx 2.04 \text{ s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Friction, Newton&#39;s laws" data-problem-difficulty="Integrated" data-problem-answer="Because the pull is horizontal, the normal force is
+
+$$
+N = mg = 5(9.8) = 49 \text{ N}
+$$
+
+Kinetic friction is
+
+$$
+f_k = \mu_k N = 0.20(49) = 9.8 \text{ N}
+$$
+
+The net horizontal force is
+
+$$
+F_{net} = 18 - 9.8 = 8.2 \text{ N}
+$$
+
+So the acceleration is
+
+$$
+a = \frac{F_{net}}{m} = \frac{8.2}{5} = 1.64 \text{ m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Find Acceleration with Kinetic Friction</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#friction" data-notes-nav-item>Friction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#newtons-laws" data-notes-nav-item>Newton&#39;s laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $5$ kg block slides on a horizontal floor. It is pulled horizontally by an $18$ N force, and the coefficient of kinetic friction is $0.20$. What is the block&#39;s acceleration?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-22">Your work for Find Acceleration with Kinetic Friction</label>
+          <textarea
+            id="practice-study-physics-i-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because the pull is horizontal, the normal force is</p>
+<div class="math-block">$$
+N = mg = 5(9.8) = 49 \text{ N}
+$$</div>
+<p>Kinetic friction is</p>
+<div class="math-block">$$
+f_k = \mu_k N = 0.20(49) = 9.8 \text{ N}
+$$</div>
+<p>The net horizontal force is</p>
+<div class="math-block">$$
+F_{net} = 18 - 9.8 = 8.2 \text{ N}
+$$</div>
+<p>So the acceleration is</p>
+<div class="math-block">$$
+a = \frac{F_{net}}{m} = \frac{8.2}{5} = 1.64 \text{ m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Work and energy, Springs" data-problem-difficulty="Integrated" data-problem-answer="Use conservation of mechanical energy:
+
+$$
+\frac{1}{2}kx^2 = \frac{1}{2}mv^2
+$$
+
+Substitute the values:
+
+$$
+\frac{1}{2}(200)(0.10)^2 = \frac{1}{2}(0.50)v^2
+$$
+
+The left side is $1.0$ J, so
+
+$$
+1.0 = 0.25v^2
+$$
+
+$$
+v^2 = 4
+$$
+
+$$
+v = 2.0 \text{ m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use Energy to Find a Spring Speed</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#work-and-energy" data-notes-nav-item>Work and energy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#springs" data-notes-nav-item>Springs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $0.50$ kg block is attached to a spring with $k = 200$ N/m. The spring is compressed $0.10$ m and the surface is frictionless. What is the block&#39;s speed when the spring returns to equilibrium?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-23">Your work for Use Energy to Find a Spring Speed</label>
+          <textarea
+            id="practice-study-physics-i-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use conservation of mechanical energy:</p>
+<div class="math-block">$$
+\frac{1}{2}kx^2 = \frac{1}{2}mv^2
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\frac{1}{2}(200)(0.10)^2 = \frac{1}{2}(0.50)v^2
+$$</div>
+<p>The left side is $1.0$ J, so</p>
+<div class="math-block">$$
+1.0 = 0.25v^2
+$$</div>
+<div class="math-block">$$
+v^2 = 4
+$$</div>
+<div class="math-block">$$
+v = 2.0 \text{ m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Momentum, Collisions" data-problem-difficulty="Integrated" data-problem-answer="Use conservation of momentum:
+
+$$
+m_1v_{1i} + m_2v_{2i} = (m_1+m_2)v_f
+$$
+
+Substitute:
+
+$$
+(2)(3) + (4)(0) = 6v_f
+$$
+
+$$
+6 = 6v_f
+$$
+
+$$
+v_f = 1 \text{ m/s}
+$$
+
+The direction is east.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Find the Final Speed in a Perfectly Inelastic Collision</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#momentum" data-notes-nav-item>Momentum</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#collisions" data-notes-nav-item>Collisions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2$ kg cart moving $3$ m/s east sticks to a $4$ kg cart at rest. What is the final velocity of the combined carts?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-24">Your work for Find the Final Speed in a Perfectly Inelastic Collision</label>
+          <textarea
+            id="practice-study-physics-i-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use conservation of momentum:</p>
+<div class="math-block">$$
+m_1v_{1i} + m_2v_{2i} = (m_1+m_2)v_f
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+(2)(3) + (4)(0) = 6v_f
+$$</div>
+<div class="math-block">$$
+6 = 6v_f
+$$</div>
+<div class="math-block">$$
+v_f = 1 \text{ m/s}
+$$</div>
+<p>The direction is east.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Torque, Rotational dynamics" data-problem-difficulty="Integrated" data-problem-answer="First find the torque:
+
+$$
+\tau = rF = 0.40(12) = 4.8 \text{ N m}
+$$
+
+Then use rotational dynamics:
+
+$$
+\sum \tau = I\alpha
+$$
+
+So
+
+$$
+\alpha = \frac{\tau}{I} = \frac{4.8}{0.80} = 6 \text{ rad/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find Angular Acceleration from Torque</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#torque" data-notes-nav-item>Torque</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#rotational-dynamics" data-notes-nav-item>Rotational dynamics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A force of $12$ N is applied perpendicular to a wrench that is $0.40$ m long. If the moment of inertia about the rotation axis is $0.80$ kg m$^2$, what is the angular acceleration?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-25">Your work for Find Angular Acceleration from Torque</label>
+          <textarea
+            id="practice-study-physics-i-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the torque:</p>
+<div class="math-block">$$
+\tau = rF = 0.40(12) = 4.8 \text{ N m}
+$$</div>
+<p>Then use rotational dynamics:</p>
+<div class="math-block">$$
+\sum \tau = I\alpha
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\alpha = \frac{\tau}{I} = \frac{4.8}{0.80} = 6 \text{ rad/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Circular motion, Centripetal force" data-problem-difficulty="Integrated" data-problem-answer="Use the centripetal-force formula:
+
+$$
+F_c = \frac{mv^2}{r}
+$$
+
+Substitute:
+
+$$
+F_c = \frac{(0.50)(6.0^2)}{2.0}
+$$
+
+$$
+F_c = \frac{(0.50)(36)}{2.0} = 9 \text{ N}
+$$
+
+The force must point inward, toward the center of the circle.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find the Centripetal Force</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#circular-motion" data-notes-nav-item>Circular motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#centripetal-force" data-notes-nav-item>Centripetal force</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $0.50$ kg stone tied to a string of radius $2.0$ m moves in a circle at $6.0$ m/s. What inward force is required?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-26">Your work for Find the Centripetal Force</label>
+          <textarea
+            id="practice-study-physics-i-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the centripetal-force formula:</p>
+<div class="math-block">$$
+F_c = \frac{mv^2}{r}
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+F_c = \frac{(0.50)(6.0^2)}{2.0}
+$$</div>
+<div class="math-block">$$
+F_c = \frac{(0.50)(36)}{2.0} = 9 \text{ N}
+$$</div>
+<p>The force must point inward, toward the center of the circle.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Simple harmonic motion, Springs" data-problem-difficulty="Integrated" data-problem-answer="For a mass-spring system,
+
+$$
+T = 2\pi\sqrt{\frac{m}{k}}
+$$
+
+Substitute the values:
+
+$$
+T = 2\pi\sqrt{\frac{0.80}{50}}
+$$
+
+$$
+T \approx 2\pi(0.126) \approx 0.79 \text{ s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find the Period of a Mass-Spring System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#simple-harmonic-motion" data-notes-nav-item>Simple harmonic motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#springs" data-notes-nav-item>Springs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $0.80$ kg mass is attached to a spring with $k = 50$ N/m. What is the period of the oscillation?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-27">Your work for Find the Period of a Mass-Spring System</label>
+          <textarea
+            id="practice-study-physics-i-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a mass-spring system,</p>
+<div class="math-block">$$
+T = 2\pi\sqrt{\frac{m}{k}}
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+T = 2\pi\sqrt{\frac{0.80}{50}}
+$$</div>
+<div class="math-block">$$
+T \approx 2\pi(0.126) \approx 0.79 \text{ s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Center of mass, Statics" data-problem-difficulty="Integrated" data-problem-answer="Use the one-dimensional center-of-mass formula:
+
+$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}
+$$
+
+So
+
+$$
+x_{cm} = \frac{(2)(0) + (6)(4)}{2+6}
+$$
+
+$$
+x_{cm} = \frac{24}{8} = 3 \text{ m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Find the Center of Mass on a Line</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#center-of-mass" data-notes-nav-item>Center of mass</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#statics" data-notes-nav-item>Statics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two masses lie on the $x$-axis: a $2$ kg mass at $x = 0$ m and a $6$ kg mass at $x = 4$ m. Where is the center of mass?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-28">Your work for Find the Center of Mass on a Line</label>
+          <textarea
+            id="practice-study-physics-i-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the one-dimensional center-of-mass formula:</p>
+<div class="math-block">$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+x_{cm} = \frac{(2)(0) + (6)(4)}{2+6}
+$$</div>
+<div class="math-block">$$
+x_{cm} = \frac{24}{8} = 3 \text{ m}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="physics-i-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Projectile motion, Kinematics" data-problem-difficulty="Applied" data-problem-answer="First find the time to fall $20$ m vertically:
+
+$$
+20 = \frac{1}{2}gt^2
+$$
+
+So
+
+$$
+t = \sqrt{\frac{40}{9.8}} \approx 2.02 \text{ s}
+$$
+
+Horizontal speed stays constant, so
+
+$$
+x = v_xt = 14(2.02) \approx 28.3 \text{ m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find How Far a Horizontal Projectile Travels</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#projectile-motion" data-notes-nav-item>Projectile motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#kinematics" data-notes-nav-item>Kinematics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A ball is launched horizontally at $14$ m/s from a cliff that is $20$ m high. How far from the base of the cliff does it land?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-31">Your work for Find How Far a Horizontal Projectile Travels</label>
+          <textarea
+            id="practice-study-physics-i-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the time to fall $20$ m vertically:</p>
+<div class="math-block">$$
+20 = \frac{1}{2}gt^2
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+t = \sqrt{\frac{40}{9.8}} \approx 2.02 \text{ s}
+$$</div>
+<p>Horizontal speed stays constant, so</p>
+<div class="math-block">$$
+x = v_xt = 14(2.02) \approx 28.3 \text{ m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Free-body diagrams, Friction, Newton&#39;s laws" data-problem-difficulty="Applied" data-problem-answer="Resolve the pulling force into components:
+
+$$
+F_x = 40\cos 25^\circ \approx 36.3 \text{ N}
+$$
+
+$$
+F_y = 40\sin 25^\circ \approx 16.9 \text{ N}
+$$
+
+The upward component reduces the normal force:
+
+$$
+N = mg - F_y = 10(9.8) - 16.9 = 81.1 \text{ N}
+$$
+
+So the kinetic friction is
+
+$$
+f_k = \mu_k N = 0.30(81.1) \approx 24.3 \text{ N}
+$$
+
+The net horizontal force is
+
+$$
+F_{net} = 36.3 - 24.3 = 12.0 \text{ N}
+$$
+
+Therefore,
+
+$$
+a = \frac{12.0}{10} = 1.20 \text{ m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Find Acceleration for a Pulled Block on a Rough Surface</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#free-body-diagrams" data-notes-nav-item>Free-body diagrams</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#friction" data-notes-nav-item>Friction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#newtons-laws" data-notes-nav-item>Newton&#39;s laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $10$ kg crate is pulled by a $40$ N force at an angle of $25^\circ$ above the horizontal. The coefficient of kinetic friction is $0.30$. What is the crate&#39;s acceleration?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-32">Your work for Find Acceleration for a Pulled Block on a Rough Surface</label>
+          <textarea
+            id="practice-study-physics-i-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Resolve the pulling force into components:</p>
+<div class="math-block">$$
+F_x = 40\cos 25^\circ \approx 36.3 \text{ N}
+$$</div>
+<div class="math-block">$$
+F_y = 40\sin 25^\circ \approx 16.9 \text{ N}
+$$</div>
+<p>The upward component reduces the normal force:</p>
+<div class="math-block">$$
+N = mg - F_y = 10(9.8) - 16.9 = 81.1 \text{ N}
+$$</div>
+<p>So the kinetic friction is</p>
+<div class="math-block">$$
+f_k = \mu_k N = 0.30(81.1) \approx 24.3 \text{ N}
+$$</div>
+<p>The net horizontal force is</p>
+<div class="math-block">$$
+F_{net} = 36.3 - 24.3 = 12.0 \text{ N}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+a = \frac{12.0}{10} = 1.20 \text{ m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Momentum, Collisions" data-problem-difficulty="Applied" data-problem-answer="Choose east as positive. Then the initial momentum is
+
+$$
+p_i = (1.5)(4) + (0.5)(-1) = 6 - 0.5 = 5.5 \text{ kg m/s}
+$$
+
+The total mass after the collision is
+
+$$
+1.5 + 0.5 = 2.0 \text{ kg}
+$$
+
+So
+
+$$
+v_f = \frac{p_i}{m_{total}} = \frac{5.5}{2.0} = 2.75 \text{ m/s}
+$$
+
+The direction is east.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find the Final Velocity After a Collision</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#momentum" data-notes-nav-item>Momentum</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#collisions" data-notes-nav-item>Collisions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $1.5$ kg cart moves east at $4$ m/s and hits a $0.5$ kg cart moving west at $1$ m/s. The carts stick together. What is their final velocity?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-33">Your work for Find the Final Velocity After a Collision</label>
+          <textarea
+            id="practice-study-physics-i-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Choose east as positive. Then the initial momentum is</p>
+<div class="math-block">$$
+p_i = (1.5)(4) + (0.5)(-1) = 6 - 0.5 = 5.5 \text{ kg m/s}
+$$</div>
+<p>The total mass after the collision is</p>
+<div class="math-block">$$
+1.5 + 0.5 = 2.0 \text{ kg}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+v_f = \frac{p_i}{m_{total}} = \frac{5.5}{2.0} = 2.75 \text{ m/s}
+$$</div>
+<p>The direction is east.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Statics, Torque" data-problem-difficulty="Applied" data-problem-answer="Let the left support force be $F_L$ and the right support force be $F_R$.
+
+First use torque equilibrium about the left end:
+
+$$
+F_R(4.0) - 200(2.0) - 100(1.0) = 0
+$$
+
+So
+
+$$
+4F_R = 500
+$$
+
+$$
+F_R = 125 \text{ N}
+$$
+
+Now use vertical force balance:
+
+$$
+F_L + F_R = 200 + 100 = 300
+$$
+
+Thus
+
+$$
+F_L = 300 - 125 = 175 \text{ N}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find the Support Force on a Beam</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#statics" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#torque" data-notes-nav-item>Torque</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A uniform $4.0$ m beam weighs $200$ N. It is supported at both ends, and a $100$ N sign hangs $1.0$ m from the left end. What is the force on the left support?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-34">Your work for Find the Support Force on a Beam</label>
+          <textarea
+            id="practice-study-physics-i-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let the left support force be $F_L$ and the right support force be $F_R$.</p>
+<p>First use torque equilibrium about the left end:</p>
+<div class="math-block">$$
+F_R(4.0) - 200(2.0) - 100(1.0) = 0
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+4F_R = 500
+$$</div>
+<div class="math-block">$$
+F_R = 125 \text{ N}
+$$</div>
+<p>Now use vertical force balance:</p>
+<div class="math-block">$$
+F_L + F_R = 200 + 100 = 300
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+F_L = 300 - 125 = 175 \text{ N}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Rolling motion, Rotation" data-problem-difficulty="Applied" data-problem-answer="For rolling without slipping,
+
+$$
+v = r\omega
+$$
+
+So
+
+$$
+\omega = \frac{v}{r} = \frac{4.5}{0.30} = 15 \text{ rad/s}
+$$
+
+Angular displacement is
+
+$$
+\theta = \omega t = 15(6.0) = 90 \text{ rad}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Use Rolling Without Slipping</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#rolling-motion" data-notes-nav-item>Rolling motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#rotation" data-notes-nav-item>Rotation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A wheel of radius $0.30$ m rolls without slipping at $4.5$ m/s for $6.0$ s. How many radians does it rotate?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-35">Your work for Use Rolling Without Slipping</label>
+          <textarea
+            id="practice-study-physics-i-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For rolling without slipping,</p>
+<div class="math-block">$$
+v = r\omega
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\omega = \frac{v}{r} = \frac{4.5}{0.30} = 15 \text{ rad/s}
+$$</div>
+<p>Angular displacement is</p>
+<div class="math-block">$$
+\theta = \omega t = 15(6.0) = 90 \text{ rad}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="physics-i-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Energy, Gravity, Springs" data-problem-difficulty="Challenge" data-problem-answer="Use conservation of mechanical energy. The spring&#39;s initial energy becomes gravitational potential energy at the top:
+
+$$
+\frac{1}{2}kx^2 = mgh
+$$
+
+Substitute the values:
+
+$$
+\frac{1}{2}(300)x^2 = (2.0)(9.8)(1.5)
+$$
+
+$$
+150x^2 = 29.4
+$$
+
+$$
+x^2 = 0.196
+$$
+
+$$
+x \approx 0.44 \text{ m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Relate Spring Energy to Gravitational Height</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#energy" data-notes-nav-item>Energy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#gravity" data-notes-nav-item>Gravity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#springs" data-notes-nav-item>Springs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2.0$ kg block starts at rest on a frictionless track. A spring with $k = 300$ N/m launches it so that it rises $1.5$ m before stopping. How much was the spring compressed?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-41">Your work for Relate Spring Energy to Gravitational Height</label>
+          <textarea
+            id="practice-study-physics-i-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use conservation of mechanical energy. The spring&#39;s initial energy becomes gravitational potential energy at the top:</p>
+<div class="math-block">$$
+\frac{1}{2}kx^2 = mgh
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\frac{1}{2}(300)x^2 = (2.0)(9.8)(1.5)
+$$</div>
+<div class="math-block">$$
+150x^2 = 29.4
+$$</div>
+<div class="math-block">$$
+x^2 = 0.196
+$$</div>
+<div class="math-block">$$
+x \approx 0.44 \text{ m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Statics, Torque, Friction" data-problem-difficulty="Challenge" data-problem-answer="Because the wall is frictionless, the wall exerts only a horizontal force on the top of the ladder. Let that force be $F_W$.
+
+Take torques about the bottom of the ladder so the floor forces do not appear.
+
+The wall force acts at the top with lever arm
+
+$$
+5.0\sin 60^\circ
+$$
+
+The weight acts at the center of the ladder, with horizontal lever arm
+
+$$
+2.5\cos 60^\circ
+$$
+
+Torque balance gives
+
+$$
+F_W(5.0\sin 60^\circ) = 200(2.5\cos 60^\circ)
+$$
+
+So
+
+$$
+F_W = \frac{200(2.5)(0.5)}{5.0(0.866)} \approx 57.7 \text{ N}
+$$
+
+Horizontal force balance means the floor friction must match this force in magnitude:
+
+$$
+f_s \approx 57.7 \text{ N}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Find the Friction Force on a Leaning Ladder</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#statics" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#torque" data-notes-nav-item>Torque</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#friction" data-notes-nav-item>Friction</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A uniform $5.0$ m ladder weighs $200$ N and leans against a frictionless wall at an angle of $60^\circ$ above the floor. What friction force must the floor provide to keep the ladder at rest?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-42">Your work for Find the Friction Force on a Leaning Ladder</label>
+          <textarea
+            id="practice-study-physics-i-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because the wall is frictionless, the wall exerts only a horizontal force on the top of the ladder. Let that force be $F_W$.</p>
+<p>Take torques about the bottom of the ladder so the floor forces do not appear.</p>
+<p>The wall force acts at the top with lever arm</p>
+<div class="math-block">$$
+5.0\sin 60^\circ
+$$</div>
+<p>The weight acts at the center of the ladder, with horizontal lever arm</p>
+<div class="math-block">$$
+2.5\cos 60^\circ
+$$</div>
+<p>Torque balance gives</p>
+<div class="math-block">$$
+F_W(5.0\sin 60^\circ) = 200(2.5\cos 60^\circ)
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+F_W = \frac{200(2.5)(0.5)}{5.0(0.866)} \approx 57.7 \text{ N}
+$$</div>
+<p>Horizontal force balance means the floor friction must match this force in magnitude:</p>
+<div class="math-block">$$
+f_s \approx 57.7 \text{ N}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Gravity, Circular motion" data-problem-difficulty="Challenge" data-problem-answer="For a circular orbit, gravity supplies the centripetal force:
+
+$$
+\frac{GMm}{r^2} = m\frac{v^2}{r}
+$$
+
+The satellite mass $m$ appears on both sides, so it cancels:
+
+$$
+\frac{GM}{r^2} = \frac{v^2}{r}
+$$
+
+Multiply by $r$:
+
+$$
+\frac{GM}{r} = v^2
+$$
+
+Therefore,
+
+$$
+v = \sqrt{\frac{GM}{r}}
+$$
+
+The orbital speed does not depend on the satellite mass.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Show That Orbital Speed Does Not Depend on Satellite Mass</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#gravity" data-notes-nav-item>Gravity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#circular-motion" data-notes-nav-item>Circular motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A satellite moves in a circular orbit of radius $r$ around a planet of mass $M$. Use the formulas in the note to show that the satellite&#39;s mass cancels, and give the orbital speed.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-43">Your work for Show That Orbital Speed Does Not Depend on Satellite Mass</label>
+          <textarea
+            id="practice-study-physics-i-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a circular orbit, gravity supplies the centripetal force:</p>
+<div class="math-block">$$
+\frac{GMm}{r^2} = m\frac{v^2}{r}
+$$</div>
+<p>The satellite mass $m$ appears on both sides, so it cancels:</p>
+<div class="math-block">$$
+\frac{GM}{r^2} = \frac{v^2}{r}
+$$</div>
+<p>Multiply by $r$:</p>
+<div class="math-block">$$
+\frac{GM}{r} = v^2
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+v = \sqrt{\frac{GM}{r}}
+$$</div>
+<p>The orbital speed does not depend on the satellite mass.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Simple harmonic motion, Energy" data-problem-difficulty="Challenge" data-problem-answer="The total energy in ideal SHM is
+
+$$
+E = \frac{1}{2}kA^2
+$$
+
+So
+
+$$
+E = \frac{1}{2}(200)(0.10)^2 = 1.0 \text{ J}
+$$
+
+At equilibrium, all of that energy is kinetic:
+
+$$
+\frac{1}{2}mv^2 = 1.0
+$$
+
+Substitute $m = 0.50$ kg:
+
+$$
+\frac{1}{2}(0.50)v^2 = 1.0
+$$
+
+$$
+0.25v^2 = 1.0
+$$
+
+$$
+v^2 = 4
+$$
+
+$$
+v = 2.0 \text{ m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Find the Speed at Equilibrium in Simple Harmonic Motion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#simple-harmonic-motion" data-notes-nav-item>Simple harmonic motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#energy" data-notes-nav-item>Energy</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $0.50$ kg mass on a spring with $k = 200$ N/m is released from rest at an amplitude of $0.10$ m. What is its speed when it passes through equilibrium?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-44">Your work for Find the Speed at Equilibrium in Simple Harmonic Motion</label>
+          <textarea
+            id="practice-study-physics-i-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The total energy in ideal SHM is</p>
+<div class="math-block">$$
+E = \frac{1}{2}kA^2
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+E = \frac{1}{2}(200)(0.10)^2 = 1.0 \text{ J}
+$$</div>
+<p>At equilibrium, all of that energy is kinetic:</p>
+<div class="math-block">$$
+\frac{1}{2}mv^2 = 1.0
+$$</div>
+<p>Substitute $m = 0.50$ kg:</p>
+<div class="math-block">$$
+\frac{1}{2}(0.50)v^2 = 1.0
+$$</div>
+<div class="math-block">$$
+0.25v^2 = 1.0
+$$</div>
+<div class="math-block">$$
+v^2 = 4
+$$</div>
+<div class="math-block">$$
+v = 2.0 \text{ m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="physics-i-45" data-practice-problem data-exam="final" data-problem-number="4.5" data-problem-skills="Static friction, Inclined planes, Newton&#39;s laws" data-problem-difficulty="Challenge" data-problem-answer="Choose axes parallel and perpendicular to the incline. The force trying to
+make the block slide down the incline is
+
+$$
+f_{s,\mathrm{required}} = mg\sin 30^\circ
+  = (10)(9.8)(0.5) = 49\ \text{N}.
+$$
+
+The normal force is
+
+$$
+N = mg\cos 30^\circ \approx 84.9\ \text{N},
+$$
+
+so the largest possible static friction is
+
+$$
+f_{s,\max} = \mu_sN = (0.40)(84.9) \approx 34.0\ \text{N}.
+$$
+
+Because $49\ \text{N} &gt; 34.0\ \text{N}$, static friction is not sufficient.
+The block cannot remain at rest and begins to slide down the incline. Notice
+that $f_s$ is not set equal to $\mu_sN$ unless the surfaces are at the
+threshold of slipping.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.5</span><span class="practice-problem__title-text">Test Whether Static Friction Is Sufficient</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#static-friction" data-notes-nav-item>Static friction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#inclined-planes" data-notes-nav-item>Inclined planes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/physics-i/#newtons-laws" data-notes-nav-item>Newton&#39;s laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $10$ kg block rests on a $30^\circ$ incline. The coefficient of static friction is $0.40$. Can static friction keep the block at rest? If not, explain why not. Use $g = 9.8\ \text{m/s}^2$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-i-45">Your work for Test Whether Static Friction Is Sufficient</label>
+          <textarea
+            id="practice-study-physics-i-45"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Choose axes parallel and perpendicular to the incline. The force trying to make the block slide down the incline is</p>
+<div class="math-block">$$
+f_{s,\mathrm{required}} = mg\sin 30^\circ
+  = (10)(9.8)(0.5) = 49\ \text{N}.
+$$</div>
+<p>The normal force is</p>
+<div class="math-block">$$
+N = mg\cos 30^\circ \approx 84.9\ \text{N},
+$$</div>
+<p>so the largest possible static friction is</p>
+<div class="math-block">$$
+f_{s,\max} = \mu_sN = (0.40)(84.9) \approx 34.0\ \text{N}.
+$$</div>
+<p>Because $49\ \text{N} &gt; 34.0\ \text{N}$, static friction is not sufficient. The block cannot remain at rest and begins to slide down the incline. Notice that $f_s$ is not set equal to $\mu_sN$ unless the surfaces are at the threshold of slipping.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

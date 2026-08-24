@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "id": "concept-dag",
+  "description": "Concept dependency graph",
+  "nodes": {
+    "math.arithmetic": {
+      "title": "Arithmetic",
+      "requires": {
+        "hard": [],
+        "soft": []
+      }
+    },
+    "math.logic": {
+      "title": "Logic",
+      "requires": {
+        "hard": [],
+        "soft": []
+      }
+    },
+    "math.geometry": {
+      "title": "Geometry",
+      "requires": {
+        "hard": [
+          "math.arithmetic"
+        ],
+        "soft": []
+      }
+    },
+    "math.algebra": {
+      "title": "Algebra",
+      "requires": {
+        "hard": [
+          "math.arithmetic"
+        ],
+        "soft": [
+          "math.logic"
+        ]
+      }
+    },
+    "math.functions": {
+      "title": "Functions",
+      "requires": {
+        "hard": [
+          "math.algebra"
+        ],
+        "soft": [
+          "math.logic"
+        ]
+      }
+    },
+    "math.trigonometry": {
+      "title": "Trigonometry",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.geometry"
+        ],
+        "soft": [
+          "math.functions"
+        ]
+      }
+    },
+    "math.probability": {
+      "title": "Probability",
+      "requires": {
+        "hard": [
+          "math.arithmetic"
+        ],
+        "soft": [
+          "math.algebra"
+        ]
+      }
+    },
+    "math.statistics": {
+      "title": "Statistics",
+      "requires": {
+        "hard": [
+          "math.arithmetic",
+          "math.probability"
+        ],
+        "soft": [
+          "math.functions"
+        ]
+      }
+    },
+    "math.limits": {
+      "title": "Limits",
+      "requires": {
+        "hard": [
+          "math.functions",
+          "math.algebra"
+        ],
+        "soft": [
+          "math.trigonometry"
+        ]
+      }
+    },
+    "math.derivatives": {
+      "title": "Derivatives",
+      "requires": {
+        "hard": [
+          "math.limits"
+        ],
+        "soft": [
+          "math.trigonometry"
+        ]
+      }
+    },
+    "math.integrals": {
+      "title": "Integrals",
+      "requires": {
+        "hard": [
+          "math.derivatives",
+          "math.limits"
+        ],
+        "soft": [
+          "math.trigonometry"
+        ]
+      }
+    },
+    "math.series": {
+      "title": "Series",
+      "requires": {
+        "hard": [
+          "math.functions",
+          "math.limits"
+        ],
+        "soft": []
+      }
+    },
+    "math.vectors": {
+      "title": "Vectors",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.trigonometry"
+        ],
+        "soft": [
+          "math.geometry"
+        ]
+      }
+    },
+    "math.matrices": {
+      "title": "Matrices",
+      "requires": {
+        "hard": [
+          "math.algebra"
+        ],
+        "soft": [
+          "math.vectors"
+        ]
+      }
+    },
+    "math.multivariable-calculus": {
+      "title": "Multivariable Calculus",
+      "requires": {
+        "hard": [
+          "math.vectors",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.functions"
+        ]
+      }
+    },
+    "math.vector-calculus": {
+      "title": "Vector Calculus",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.functions"
+        ]
+      }
+    },
+    "math.multiple-integrals": {
+      "title": "Multiple Integrals",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus",
+          "math.integrals"
+        ],
+        "soft": []
+      }
+    },
+    "math.eigenvalues": {
+      "title": "Eigenvalues",
+      "requires": {
+        "hard": [
+          "math.matrices"
+        ],
+        "soft": [
+          "math.functions"
+        ]
+      }
+    },
+    "math.proof-writing": {
+      "title": "Proof Writing",
+      "requires": {
+        "hard": [
+          "math.logic"
+        ],
+        "soft": [
+          "math.discrete-math"
+        ]
+      }
+    },
+    "math.discrete-math": {
+      "title": "Discrete Math",
+      "requires": {
+        "hard": [
+          "math.logic"
+        ],
+        "soft": []
+      }
+    },
+    "math.numerical-methods": {
+      "title": "Numerical Methods",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.derivatives",
+          "math.integrals",
+          "math.matrices",
+          "math.first-order-odes"
+        ],
+        "soft": [
+          "math.functions",
+          "math.statistics",
+          "math.eigenvalues"
+        ]
+      }
+    },
+    "math.optimization": {
+      "title": "Optimization",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus",
+          "math.matrices"
+        ],
+        "soft": [
+          "math.eigenvalues",
+          "math.numerical-methods"
+        ]
+      }
+    },
+    "math.first-order-odes": {
+      "title": "First Order ODEs",
+      "requires": {
+        "hard": [
+          "math.derivatives",
+          "math.integrals",
+          "math.functions"
+        ],
+        "soft": [
+          "math.functions"
+        ]
+      }
+    },
+    "math.second-order-odes": {
+      "title": "Second Order ODEs",
+      "requires": {
+        "hard": [
+          "math.first-order-odes"
+        ],
+        "soft": [
+          "math.series"
+        ]
+      }
+    },
+    "math.systems-of-odes": {
+      "title": "Systems of ODEs",
+      "requires": {
+        "hard": [
+          "math.matrices",
+          "math.eigenvalues",
+          "math.first-order-odes"
+        ],
+        "soft": [
+          "math.second-order-odes"
+        ]
+      }
+    },
+    "math.partial-differential-equations": {
+      "title": "Partial Differential Equations",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.systems-of-odes",
+          "math.functions"
+        ]
+      }
+    },
+    "physics.physics-i": {
+      "title": "Physics I",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.trigonometry",
+          "math.vectors"
+        ],
+        "soft": [
+          "math.derivatives",
+          "math.integrals"
+        ]
+      }
+    },
+    "physics.physics-ii": {
+      "title": "Physics II",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.vectors"
+        ],
+        "soft": [
+          "math.derivatives",
+          "math.integrals"
+        ]
+      }
+    },
+    "physics.thermodynamics": {
+      "title": "Thermodynamics",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.functions"
+        ],
+        "soft": [
+          "physics.physics-i",
+          "math.integrals",
+          "physics.general-chemistry"
+        ]
+      }
+    },
+    "physics.general-chemistry": {
+      "title": "General Chemistry",
+      "requires": {
+        "hard": [
+          "math.arithmetic",
+          "math.algebra"
+        ],
+        "soft": [
+          "physics.physics-i"
+        ]
+      }
+    },
+    "physics.organic-chemistry": {
+      "title": "Organic Chemistry",
+      "requires": {
+        "hard": [
+          "physics.general-chemistry"
+        ],
+        "soft": []
+      }
+    },
+    "physics.classical-mechanics": {
+      "title": "Classical Mechanics",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.vectors",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.first-order-odes",
+          "math.second-order-odes"
+        ]
+      }
+    },
+    "physics.electricity-and-magnetism": {
+      "title": "Electricity and Magnetism",
+      "requires": {
+        "hard": [
+          "physics.physics-ii",
+          "math.vectors",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.derivatives",
+          "math.matrices"
+        ]
+      }
+    },
+    "physics.quantum-physics": {
+      "title": "Quantum Physics",
+      "requires": {
+        "hard": [
+          "math.derivatives",
+          "math.integrals",
+          "math.matrices",
+          "math.eigenvalues"
+        ],
+        "soft": [
+          "physics.physics-ii"
+        ]
+      }
+    },
+    "physics.relativity": {
+      "title": "Relativity",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.algebra",
+          "math.functions"
+        ],
+        "soft": [
+          "math.derivatives",
+          "math.vectors"
+        ]
+      }
+    },
+    "physics.optics": {
+      "title": "Optics",
+      "requires": {
+        "hard": [
+          "math.geometry",
+          "math.trigonometry"
+        ],
+        "soft": [
+          "physics.physics-ii"
+        ]
+      }
+    },
+    "physics.atomic-and-molecular": {
+      "title": "Atomic and Molecular Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics"],
+        "soft": ["physics.physics-ii", "physics.general-chemistry"]
+      }
+    },
+    "physics.condensed-matter": {
+      "title": "Condensed Matter Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics", "physics.thermodynamics"],
+        "soft": ["physics.electricity-and-magnetism"]
+      }
+    },
+    "physics.particle-and-nuclear": {
+      "title": "Particle and Nuclear Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics", "physics.relativity"],
+        "soft": ["physics.electricity-and-magnetism"]
+      }
+    },
+    "physics.fluid-and-plasma": {
+      "title": "Fluid and Plasma Physics",
+      "requires": {
+        "hard": ["physics.physics-ii", "physics.thermodynamics"],
+        "soft": ["physics.electricity-and-magnetism", "math.partial-differential-equations"]
+      }
+    },
+    "engineering.statics": {
+      "title": "Statics",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.vectors",
+          "math.trigonometry"
+        ],
+        "soft": []
+      }
+    },
+    "engineering.dynamics": {
+      "title": "Dynamics",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "engineering.statics",
+          "math.first-order-odes"
+        ]
+      }
+    },
+    "engineering.mechanics-of-materials": {
+      "title": "Mechanics of Materials",
+      "requires": {
+        "hard": [
+          "engineering.statics",
+          "math.algebra"
+        ],
+        "soft": [
+          "engineering.materials-science",
+          "math.integrals"
+        ]
+      }
+    },
+    "engineering.fluid-mechanics": {
+      "title": "Fluid Mechanics",
+      "requires": {
+        "hard": [
+          "physics.physics-i",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.first-order-odes"
+        ]
+      }
+    },
+    "engineering.heat-transfer": {
+      "title": "Heat Transfer",
+      "requires": {
+        "hard": [
+          "physics.thermodynamics",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "engineering.fluid-mechanics",
+          "math.second-order-odes"
+        ]
+      }
+    },
+    "engineering.materials-science": {
+      "title": "Materials Science",
+      "requires": {
+        "hard": [
+          "physics.general-chemistry"
+        ],
+        "soft": [
+          "physics.physics-i"
+        ]
+      }
+    },
+    "engineering.electrical-circuit-analysis": {
+      "title": "Electrical Circuit Analysis",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.first-order-odes"
+        ],
+        "soft": [
+          "physics.physics-ii"
+        ]
+      }
+    },
+    "engineering.linear-system-signal-analysis": {
+      "title": "Linear System Signal Analysis",
+      "requires": {
+        "hard": [
+          "math.functions",
+          "math.matrices",
+          "math.first-order-odes"
+        ],
+        "soft": [
+          "math.systems-of-odes",
+          "engineering.electrical-circuit-analysis"
+        ]
+      }
+    },
+    "engineering.engineering-design": {
+      "title": "Engineering Design",
+      "requires": {
+        "hard": [
+          "math.functions"
+        ],
+        "soft": [
+          "math.statistics",
+          "engineering.materials-science",
+          "engineering.statics"
+        ]
+      }
+    },
+    "engineering.beam-deflection": {
+      "title": "Beam Deflection",
+      "requires": {
+        "hard": [
+          "engineering.mechanics-of-materials",
+          "math.integrals"
+        ],
+        "soft": [
+          "engineering.materials-science"
+        ]
+      }
+    },
+    "engineering.structural-analysis": {
+      "title": "Structural Analysis",
+      "requires": {
+        "hard": [
+          "engineering.statics",
+          "engineering.mechanics-of-materials"
+        ],
+        "soft": [
+          "engineering.beam-deflection",
+          "math.matrices"
+        ]
+      }
+    },
+    "engineering.solid-mechanics": {
+      "title": "Solid Mechanics",
+      "requires": {
+        "hard": [
+          "engineering.mechanics-of-materials",
+          "math.matrices"
+        ],
+        "soft": [
+          "engineering.materials-science",
+          "math.multivariable-calculus"
+        ]
+      }
+    },
+    "engineering.vibrations": {
+      "title": "Vibrations",
+      "requires": {
+        "hard": [
+          "engineering.dynamics",
+          "math.second-order-odes"
+        ],
+        "soft": [
+          "engineering.linear-system-signal-analysis",
+          "engineering.mechanics-of-materials"
+        ]
+      }
+    },
+    "engineering.metallurgy-and-manufacturing": {
+      "title": "Metallurgy and Manufacturing",
+      "requires": {
+        "hard": [
+          "engineering.materials-science"
+        ],
+        "soft": [
+          "engineering.engineering-design",
+          "engineering.mechanics-of-materials"
+        ]
+      }
+    },
+    "engineering.tribology": {
+      "title": "Tribology",
+      "requires": {
+        "hard": [
+          "engineering.materials-science",
+          "engineering.dynamics"
+        ],
+        "soft": [
+          "engineering.fluid-mechanics",
+          "engineering.mechanics-of-materials"
+        ]
+      }
+    },
+    "engineering.mechanisms": {
+      "title": "Mechanisms",
+      "requires": {
+        "hard": [
+          "engineering.statics",
+          "engineering.dynamics",
+          "engineering.mechanics-of-materials"
+        ],
+        "soft": [
+          "engineering.engineering-design",
+          "engineering.tribology"
+        ]
+      }
+    },
+    "engineering.electronics": {
+      "title": "Electronics",
+      "requires": {
+        "hard": [
+          "engineering.electrical-circuit-analysis"
+        ],
+        "soft": [
+          "physics.physics-ii",
+          "engineering.heat-transfer"
+        ]
+      }
+    },
+    "engineering.digital-control-and-robotics": {
+      "title": "Digital Control and Robotics",
+      "requires": {
+        "hard": [
+          "engineering.linear-system-signal-analysis",
+          "engineering.dynamics"
+        ],
+        "soft": [
+          "engineering.electronics",
+          "engineering.embedded-systems"
+        ]
+      }
+    },
+    "engineering.embedded-systems": {
+      "title": "Embedded Systems",
+      "requires": {
+        "hard": [
+          "engineering.electrical-circuit-analysis",
+          "math.algebra"
+        ],
+        "soft": [
+          "engineering.electronics",
+          "engineering.linear-system-signal-analysis"
+        ]
+      }
+    },
+    "engineering.failure-reliability-and-safety": {
+      "title": "Failure, Reliability, and Safety",
+      "requires": {
+        "hard": [
+          "engineering.materials-science",
+          "engineering.mechanics-of-materials",
+          "math.statistics"
+        ],
+        "soft": [
+          "engineering.engineering-design",
+          "engineering.metallurgy-and-manufacturing"
+        ]
+      }
+    }
+  }
+}

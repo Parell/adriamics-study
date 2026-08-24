@@ -1,0 +1,2318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamics Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/dynamics/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/engineering/dynamics/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Dynamics Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/dynamics/dynamics-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fdynamics%2Fdynamics-problems.md&amp;title=%5BContribute%5D%3A%20Dynamics%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Dynamics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Translation of reference frames</h2><div class="markdown-body"><p>For particles \(A\) and \(B\):</p>
+<div class="math-block">$$
+\mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A}
+$$</div>
+<p>Differentiating:</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \mathbf{v}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \mathbf{a}_{B/A}
+$$</div></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="dynamics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Kinematics, Kinetics" data-problem-difficulty="Direct" data-problem-answer="That is **kinematics**.
+
+Kinematics describes motion itself, while kinetics connects motion to the forces and moments that produce it.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Classify the Study of Motion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#kinematics" data-notes-nav-item>Kinematics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#kinetics" data-notes-nav-item>Kinetics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Which branch of dynamics describes motion without considering the forces that cause it?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-11">Your work for Classify the Study of Motion</label>
+          <textarea
+            id="practice-study-dynamics-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>That is <strong>kinematics</strong>.</p>
+<p>Kinematics describes motion itself, while kinetics connects motion to the forces and moments that produce it.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Position, Velocity, Acceleration" data-problem-difficulty="Direct" data-problem-answer="Differentiate position to get velocity:
+
+$$
+v(t) = \frac{dx}{dt} = 6t - 2
+$$
+
+Differentiate again to get acceleration:
+
+$$
+a(t) = \frac{dv}{dt} = 6
+$$
+
+Evaluate at $t=2$:
+
+$$
+v(2) = 6(2) - 2 = 10
+$$
+
+$$
+a(2) = 6
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Differentiate a Position Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#position" data-notes-nav-item>Position</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#velocity" data-notes-nav-item>Velocity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#acceleration" data-notes-nav-item>Acceleration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Given</p>
+<div class="math-block">$$
+x(t) = 3t^2 - 2t + 1,
+$$</div>
+<p>find $v(2)$ and $a(2)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-12">Your work for Differentiate a Position Function</label>
+          <textarea
+            id="practice-study-dynamics-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Differentiate position to get velocity:</p>
+<div class="math-block">$$
+v(t) = \frac{dx}{dt} = 6t - 2
+$$</div>
+<p>Differentiate again to get acceleration:</p>
+<div class="math-block">$$
+a(t) = \frac{dv}{dt} = 6
+$$</div>
+<p>Evaluate at $t=2$:</p>
+<div class="math-block">$$
+v(2) = 6(2) - 2 = 10
+$$</div>
+<div class="math-block">$$
+a(2) = 6
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Rectilinear Motion, Constant Acceleration" data-problem-difficulty="Direct" data-problem-answer="Use the constant-acceleration relation:
+
+$$
+v = v_0 + at
+$$
+
+Since the cart starts from rest, $v_0 = 0$:
+
+$$
+v = 0 + 4(3) = 12 \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use Constant Acceleration to Find Speed</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rectilinear-motion" data-notes-nav-item>Rectilinear Motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#constant-acceleration" data-notes-nav-item>Constant Acceleration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A cart starts from rest and accelerates at $4 \, \text{m/s}^2$ for $3$ s. Find its speed.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-13">Your work for Use Constant Acceleration to Find Speed</label>
+          <textarea
+            id="practice-study-dynamics-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the constant-acceleration relation:</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<p>Since the cart starts from rest, $v_0 = 0$:</p>
+<div class="math-block">$$
+v = 0 + 4(3) = 12 \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Rectilinear Motion, Constant Acceleration" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$
+
+Substitute the values:
+
+$$
+x = 5 + 2(4) + \frac{1}{2}(1)(4^2)
+$$
+
+$$
+x = 5 + 8 + 8 = 21 \, \text{m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find Displacement Under Constant Acceleration</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rectilinear-motion" data-notes-nav-item>Rectilinear Motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#constant-acceleration" data-notes-nav-item>Constant Acceleration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle starts at $x_0 = 5$ m with $v_0 = 2 \, \text{m/s}$ and constant acceleration $a = 1 \, \text{m/s}^2$. Find $x$ after $4$ s.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-14">Your work for Find Displacement Under Constant Acceleration</label>
+          <textarea
+            id="practice-study-dynamics-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+x = 5 + 2(4) + \frac{1}{2}(1)(4^2)
+$$</div>
+<div class="math-block">$$
+x = 5 + 8 + 8 = 21 \, \text{m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Cartesian Components, Curvilinear Motion" data-problem-difficulty="Direct" data-problem-answer="Differentiate the position vector:
+
+$$
+\mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \mathbf{i} + 2t\,\mathbf{j}
+$$
+
+Differentiate again:
+
+$$
+\mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = 2\,\mathbf{j}
+$$
+
+At $t=3$:
+
+$$
+\mathbf{v}(3) = \mathbf{i} + 6\,\mathbf{j}
+$$
+
+$$
+\mathbf{a}(3) = 2\,\mathbf{j}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Read Velocity and Acceleration from Cartesian Components</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#cartesian-components" data-notes-nav-item>Cartesian Components</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#curvilinear-motion" data-notes-nav-item>Curvilinear Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the position vector</p>
+<div class="math-block">$$
+\mathbf{r}(t) = t\,\mathbf{i} + t^2\,\mathbf{j},
+$$</div>
+<p>find $\mathbf{v}$ and $\mathbf{a}$ at $t=3$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-15">Your work for Read Velocity and Acceleration from Cartesian Components</label>
+          <textarea
+            id="practice-study-dynamics-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Differentiate the position vector:</p>
+<div class="math-block">$$
+\mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \mathbf{i} + 2t\,\mathbf{j}
+$$</div>
+<p>Differentiate again:</p>
+<div class="math-block">$$
+\mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = 2\,\mathbf{j}
+$$</div>
+<p>At $t=3$:</p>
+<div class="math-block">$$
+\mathbf{v}(3) = \mathbf{i} + 6\,\mathbf{j}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}(3) = 2\,\mathbf{j}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Normal-Tangential Motion, Curvilinear Motion" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+a_n = \frac{v^2}{\rho}
+$$
+
+So
+
+$$
+a_n = \frac{15^2}{25} = \frac{225}{25} = 9 \, \text{m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute Normal Acceleration</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#normal-tangential-motion" data-notes-nav-item>Normal-Tangential Motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#curvilinear-motion" data-notes-nav-item>Curvilinear Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle moves along a curved path at a speed of $15 \, \text{m/s}$ on a path with radius of curvature $25$ m. Find its normal acceleration.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-16">Your work for Compute Normal Acceleration</label>
+          <textarea
+            id="practice-study-dynamics-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+a_n = \frac{v^2}{\rho}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+a_n = \frac{15^2}{25} = \frac{225}{25} = 9 \, \text{m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Relative Motion" data-problem-difficulty="Direct" data-problem-answer="For motion in the same direction, the velocities add:
+
+$$
+v = 1.5 + 0.8 = 2.3 \, \text{m/s}
+$$
+
+So the person&#39;s ground speed is $2.3 \, \text{m/s}$ east.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Add Velocities in Relative Motion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#relative-motion" data-notes-nav-item>Relative Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A walkway moves east at $1.5 \, \text{m/s}$. A person walks east relative to the walkway at $0.8 \, \text{m/s}$. What is the person&#39;s speed relative to the ground?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-17">Your work for Add Velocities in Relative Motion</label>
+          <textarea
+            id="practice-study-dynamics-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For motion in the same direction, the velocities add:</p>
+<div class="math-block">$$
+v = 1.5 + 0.8 = 2.3 \, \text{m/s}
+$$</div>
+<p>So the person&#39;s ground speed is $2.3 \, \text{m/s}$ east.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Particle Kinetics, Newton&#39;s Second Law" data-problem-difficulty="Direct" data-problem-answer="Use Newton&#39;s second law:
+
+$$
+\sum F = ma
+$$
+
+So
+
+$$
+a = \frac{20}{5} = 4 \, \text{m/s}^2
+$$
+
+The acceleration is $4 \, \text{m/s}^2$ to the right.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Apply Newton&#39;s Second Law</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#particle-kinetics" data-notes-nav-item>Particle Kinetics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#newtons-second-law" data-notes-nav-item>Newton&#39;s Second Law</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $5$ kg particle has a net force of $20$ N to the right. Find its acceleration.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-18">Your work for Apply Newton&#39;s Second Law</label>
+          <textarea
+            id="practice-study-dynamics-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use Newton&#39;s second law:</p>
+<div class="math-block">$$
+\sum F = ma
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+a = \frac{20}{5} = 4 \, \text{m/s}^2
+$$</div>
+<p>The acceleration is $4 \, \text{m/s}^2$ to the right.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Particle Kinetics, Friction" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+f_k = \mu_k N
+$$
+
+So
+
+$$
+f_k = 0.25(40) = 10 \, \text{N}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Use Friction at a Contact Surface</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#particle-kinetics" data-notes-nav-item>Particle Kinetics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#friction" data-notes-nav-item>Friction</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A surface has normal force $N = 40$ N and kinetic friction coefficient $\mu_k = 0.25$. Find the kinetic friction force.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-19">Your work for Use Friction at a Contact Surface</label>
+          <textarea
+            id="practice-study-dynamics-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+f_k = 0.25(40) = 10 \, \text{N}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Rigid-Body Kinematics, Pure Rotation" data-problem-difficulty="Direct" data-problem-answer="For pure rotation,
+
+$$
+v = \omega r
+$$
+
+So
+
+$$
+v = 6(0.4) = 2.4 \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find Tangential Speed in Pure Rotation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinematics" data-notes-nav-item>Rigid-Body Kinematics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#pure-rotation" data-notes-nav-item>Pure Rotation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A point lies $0.4$ m from a fixed axis on a rigid body rotating at $\omega = 6 \, \text{rad/s}$. Find the point&#39;s speed.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-110">Your work for Find Tangential Speed in Pure Rotation</label>
+          <textarea
+            id="practice-study-dynamics-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For pure rotation,</p>
+<div class="math-block">$$
+v = \omega r
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+v = 6(0.4) = 2.4 \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="dynamics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Work-Energy Methods, Kinetic Energy" data-problem-difficulty="Integrated" data-problem-answer="Initial kinetic energy:
+
+$$
+T_1 = \frac{1}{2}mv_1^2 = \frac{1}{2}(2)(3^2) = 9 \, \text{J}
+$$
+
+Work done by the force:
+
+$$
+W = Fs = 10(4) = 40 \, \text{J}
+$$
+
+So
+
+$$
+T_2 = T_1 + W = 9 + 40 = 49 \, \text{J}
+$$
+
+Then
+
+$$
+\frac{1}{2}(2)v_2^2 = 49
+$$
+
+$$
+v_2^2 = 49
+$$
+
+$$
+v_2 = 7 \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Use Work-Energy with a Constant Force</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#work-energy-methods" data-notes-nav-item>Work-Energy Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#kinetic-energy" data-notes-nav-item>Kinetic Energy</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2$ kg cart moves at $3 \, \text{m/s}$. A constant force of $10$ N acts in the direction of motion over $4$ m on a level track. Find the final speed.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-21">Your work for Use Work-Energy with a Constant Force</label>
+          <textarea
+            id="practice-study-dynamics-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Initial kinetic energy:</p>
+<div class="math-block">$$
+T_1 = \frac{1}{2}mv_1^2 = \frac{1}{2}(2)(3^2) = 9 \, \text{J}
+$$</div>
+<p>Work done by the force:</p>
+<div class="math-block">$$
+W = Fs = 10(4) = 40 \, \text{J}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+T_2 = T_1 + W = 9 + 40 = 49 \, \text{J}
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\frac{1}{2}(2)v_2^2 = 49
+$$</div>
+<div class="math-block">$$
+v_2^2 = 49
+$$</div>
+<div class="math-block">$$
+v_2 = 7 \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Work-Energy Methods, Springs" data-problem-difficulty="Integrated" data-problem-answer="The spring potential energy is
+
+$$
+V_s = \frac{1}{2}kx^2 = \frac{1}{2}(100)(0.20^2) = 2 \, \text{J}
+$$
+
+At the natural length, all of that energy becomes kinetic energy:
+
+$$
+\frac{1}{2}mv^2 = 2
+$$
+
+With $m=1$ kg:
+
+$$
+v^2 = 4
+$$
+
+$$
+v = 2 \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Track Energy with a Spring</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#work-energy-methods" data-notes-nav-item>Work-Energy Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#springs" data-notes-nav-item>Springs</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $1$ kg block is released from rest by a spring with $k = 100 \, \text{N/m}$ compressed $0.20$ m on a frictionless track. Find the speed when the spring returns to its natural length.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-22">Your work for Track Energy with a Spring</label>
+          <textarea
+            id="practice-study-dynamics-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The spring potential energy is</p>
+<div class="math-block">$$
+V_s = \frac{1}{2}kx^2 = \frac{1}{2}(100)(0.20^2) = 2 \, \text{J}
+$$</div>
+<p>At the natural length, all of that energy becomes kinetic energy:</p>
+<div class="math-block">$$
+\frac{1}{2}mv^2 = 2
+$$</div>
+<p>With $m=1$ kg:</p>
+<div class="math-block">$$
+v^2 = 4
+$$</div>
+<div class="math-block">$$
+v = 2 \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Impulse-Momentum Methods, Linear Momentum" data-problem-difficulty="Integrated" data-problem-answer="The impulse is
+
+$$
+J = Ft = 30(0.2) = 6 \, \text{N}\cdot\text{s}
+$$
+
+Impulse-momentum gives
+
+$$
+J = m(v_2 - v_1)
+$$
+
+Since $v_1 = 0$,
+
+$$
+6 = 3v_2
+$$
+
+$$
+v_2 = 2 \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use Impulse to Find Final Velocity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#impulse-momentum-methods" data-notes-nav-item>Impulse-Momentum Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#linear-momentum" data-notes-nav-item>Linear Momentum</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $3$ kg particle starts from rest and is acted on by a $30$ N force for $0.2$ s. Find its final speed.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-23">Your work for Use Impulse to Find Final Velocity</label>
+          <textarea
+            id="practice-study-dynamics-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The impulse is</p>
+<div class="math-block">$$
+J = Ft = 30(0.2) = 6 \, \text{N}\cdot\text{s}
+$$</div>
+<p>Impulse-momentum gives</p>
+<div class="math-block">$$
+J = m(v_2 - v_1)
+$$</div>
+<p>Since $v_1 = 0$,</p>
+<div class="math-block">$$
+6 = 3v_2
+$$</div>
+<div class="math-block">$$
+v_2 = 2 \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Particle Kinetics, Friction, Newton&#39;s Second Law" data-problem-difficulty="Integrated" data-problem-answer="The normal force is
+
+$$
+N = mg = 10(10) = 100 \, \text{N}
+$$
+
+So the kinetic friction force is
+
+$$
+f_k = \mu_k N = 0.2(100) = 20 \, \text{N}
+$$
+
+The net horizontal force is
+
+$$
+50 - 20 = 30 \, \text{N}
+$$
+
+Therefore,
+
+$$
+a = \frac{30}{10} = 3 \, \text{m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Solve a Friction Problem with Force Balance</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#particle-kinetics" data-notes-nav-item>Particle Kinetics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#friction" data-notes-nav-item>Friction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#newtons-second-law" data-notes-nav-item>Newton&#39;s Second Law</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $10$ kg block slides on a horizontal surface. A $50$ N horizontal force pulls it to the right, and $\mu_k = 0.2$. Take $g = 10 \, \text{m/s}^2$. Find the acceleration.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-24">Your work for Solve a Friction Problem with Force Balance</label>
+          <textarea
+            id="practice-study-dynamics-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The normal force is</p>
+<div class="math-block">$$
+N = mg = 10(10) = 100 \, \text{N}
+$$</div>
+<p>So the kinetic friction force is</p>
+<div class="math-block">$$
+f_k = \mu_k N = 0.2(100) = 20 \, \text{N}
+$$</div>
+<p>The net horizontal force is</p>
+<div class="math-block">$$
+50 - 20 = 30 \, \text{N}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+a = \frac{30}{10} = 3 \, \text{m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Rigid-Body Kinematics, Relative Motion" data-problem-difficulty="Integrated" data-problem-answer="Use
+
+$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$
+
+Take $\mathbf{v}_A = 1.5\,\mathbf{i}$, $\boldsymbol{\omega} = 3\,\mathbf{k}$, and $\mathbf{r}_{B/A} = 0.6\,\mathbf{j}$.
+
+Then
+
+$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 3\mathbf{k} \times 0.6\mathbf{j}
+= -1.8\,\mathbf{i}
+$$
+
+So
+
+$$
+\mathbf{v}_B = 1.5\,\mathbf{i} - 1.8\,\mathbf{i} = -0.3\,\mathbf{i}
+$$
+
+Point $B$ moves left at $0.3 \, \text{m/s}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Combine Translation and Rotation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinematics" data-notes-nav-item>Rigid-Body Kinematics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#relative-motion" data-notes-nav-item>Relative Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Point $A$ on a rigid bar moves to the right at $1.5 \, \text{m/s}$. The bar rotates counterclockwise at $3 \, \text{rad/s}$, and point $B$ is $0.6$ m above $A$. Find $\mathbf{v}_B$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-25">Your work for Combine Translation and Rotation</label>
+          <textarea
+            id="practice-study-dynamics-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$</div>
+<p>Take $\mathbf{v}_A = 1.5\,\mathbf{i}$, $\boldsymbol{\omega} = 3\,\mathbf{k}$, and $\mathbf{r}_{B/A} = 0.6\,\mathbf{j}$.</p>
+<p>Then</p>
+<div class="math-block">$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 3\mathbf{k} \times 0.6\mathbf{j}
+= -1.8\,\mathbf{i}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\mathbf{v}_B = 1.5\,\mathbf{i} - 1.8\,\mathbf{i} = -0.3\,\mathbf{i}
+$$</div>
+<p>Point $B$ moves left at $0.3 \, \text{m/s}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Rigid-Body Kinetics, Parallel-Axis Theorem" data-problem-difficulty="Integrated" data-problem-answer="First find the mass moment of inertia about the end using the parallel-axis theorem:
+
+$$
+I_G = \frac{1}{12}mL^2 = \frac{1}{12}(4)(1.5^2) = 0.75 \, \text{kg}\cdot\text{m}^2
+$$
+
+The center of mass is $d = 0.75$ m from the end, so
+
+$$
+I_O = I_G + md^2 = 0.75 + 4(0.75^2) = 3.0 \, \text{kg}\cdot\text{m}^2
+$$
+
+Now use
+
+$$
+\sum M_O = I_O \alpha
+$$
+
+So
+
+$$
+\alpha = \frac{6}{3.0} = 2 \, \text{rad/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find Angular Acceleration from a Moment</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinetics" data-notes-nav-item>Rigid-Body Kinetics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#parallel-axis-theorem" data-notes-nav-item>Parallel-Axis Theorem</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A thin rod has mass $4$ kg and length $1.5$ m. It rotates about one end. If the net moment about the end is $6$ N$\cdot$m, find its angular acceleration.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-26">Your work for Find Angular Acceleration from a Moment</label>
+          <textarea
+            id="practice-study-dynamics-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First find the mass moment of inertia about the end using the parallel-axis theorem:</p>
+<div class="math-block">$$
+I_G = \frac{1}{12}mL^2 = \frac{1}{12}(4)(1.5^2) = 0.75 \, \text{kg}\cdot\text{m}^2
+$$</div>
+<p>The center of mass is $d = 0.75$ m from the end, so</p>
+<div class="math-block">$$
+I_O = I_G + md^2 = 0.75 + 4(0.75^2) = 3.0 \, \text{kg}\cdot\text{m}^2
+$$</div>
+<p>Now use</p>
+<div class="math-block">$$
+\sum M_O = I_O \alpha
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\alpha = \frac{6}{3.0} = 2 \, \text{rad/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Choosing the Right Method" data-problem-difficulty="Integrated" data-problem-answer="The best choice is usually **work-energy**.
+
+The distance is known, so it is often faster to write the work done by gravity, friction, or other forces and relate it to the change in kinetic energy instead of solving for time first.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Choose the Best Method</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#choosing-the-right-method" data-notes-nav-item>Choosing the Right Method</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A problem asks for the speed of a block after it slides a known distance on a rough surface. Which method is usually best?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-27">Your work for Choose the Best Method</label>
+          <textarea
+            id="practice-study-dynamics-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The best choice is usually <strong>work-energy</strong>.</p>
+<p>The distance is known, so it is often faster to write the work done by gravity, friction, or other forces and relate it to the change in kinetic energy instead of solving for time first.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Common Pitfalls, Rectilinear Motion" data-problem-difficulty="Integrated" data-problem-answer="No. The formula
+
+$$
+v = v_0 + at
+$$
+
+is valid only when acceleration is constant.
+
+Here $a(t)$ changes with time, so you must integrate
+
+$$
+a(t) = \frac{dv}{dt}
+$$
+
+to find velocity.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Spot a Common Pitfall</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#common-pitfalls" data-notes-nav-item>Common Pitfalls</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rectilinear-motion" data-notes-nav-item>Rectilinear Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle has acceleration $a(t) = 3t$. Can you use $v = v_0 + at$ with $a$ taken at the final time? Why or why not?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-28">Your work for Spot a Common Pitfall</label>
+          <textarea
+            id="practice-study-dynamics-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>No. The formula</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<p>is valid only when acceleration is constant.</p>
+<p>Here $a(t)$ changes with time, so you must integrate</p>
+<div class="math-block">$$
+a(t) = \frac{dv}{dt}
+$$</div>
+<p>to find velocity.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="dynamics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Rectilinear Motion, Variable Acceleration" data-problem-difficulty="Applied" data-problem-answer="Use the position form of the acceleration relation:
+
+$$
+a = v\frac{dv}{dx}
+$$
+
+So
+
+$$
+v\,dv = 4x\,dx
+$$
+
+Integrate from $(x,v) = (0,2)$ to $(3,v)$:
+
+$$
+\int_2^v v\,dv = \int_0^3 4x\,dx
+$$
+
+$$
+\frac{1}{2}(v^2 - 4) = 18
+$$
+
+$$
+v^2 = 40
+$$
+
+$$
+v = 2\sqrt{10} \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Recognize Variable Acceleration by Position</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rectilinear-motion" data-notes-nav-item>Rectilinear Motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#variable-acceleration" data-notes-nav-item>Variable Acceleration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle moves in a straight line with acceleration</p>
+<div class="math-block">$$
+a(x) = 4x \, \text{m/s}^2.
+$$</div>
+<p>If $v = 2 \, \text{m/s}$ at $x = 0$, find the speed when $x = 3$ m.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-31">Your work for Recognize Variable Acceleration by Position</label>
+          <textarea
+            id="practice-study-dynamics-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the position form of the acceleration relation:</p>
+<div class="math-block">$$
+a = v\frac{dv}{dx}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+v\,dv = 4x\,dx
+$$</div>
+<p>Integrate from $(x,v) = (0,2)$ to $(3,v)$:</p>
+<div class="math-block">$$
+\int_2^v v\,dv = \int_0^3 4x\,dx
+$$</div>
+<div class="math-block">$$
+\frac{1}{2}(v^2 - 4) = 18
+$$</div>
+<div class="math-block">$$
+v^2 = 40
+$$</div>
+<div class="math-block">$$
+v = 2\sqrt{10} \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Work-Energy Methods, Gravity" data-problem-difficulty="Applied" data-problem-answer="The work done by gravity is
+
+$$
+W_g = mgs\sin 30^\circ
+$$
+
+So
+
+$$
+W_g = 2(10)(5)\left(\frac{1}{2}\right) = 50 \, \text{J}
+$$
+
+Since the crate starts from rest,
+
+$$
+\frac{1}{2}mv^2 = 50
+$$
+
+With $m = 2$ kg:
+
+$$
+v^2 = 50
+$$
+
+$$
+v = 5\sqrt{2} \, \text{m/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Use Work-Energy on an Incline</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#work-energy-methods" data-notes-nav-item>Work-Energy Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#gravity" data-notes-nav-item>Gravity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2$ kg crate starts from rest and slides $5$ m down a frictionless $30^\circ$ incline. Take $g = 10 \, \text{m/s}^2$. Find the speed at the bottom.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-32">Your work for Use Work-Energy on an Incline</label>
+          <textarea
+            id="practice-study-dynamics-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The work done by gravity is</p>
+<div class="math-block">$$
+W_g = mgs\sin 30^\circ
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+W_g = 2(10)(5)\left(\frac{1}{2}\right) = 50 \, \text{J}
+$$</div>
+<p>Since the crate starts from rest,</p>
+<div class="math-block">$$
+\frac{1}{2}mv^2 = 50
+$$</div>
+<p>With $m = 2$ kg:</p>
+<div class="math-block">$$
+v^2 = 50
+$$</div>
+<div class="math-block">$$
+v = 5\sqrt{2} \, \text{m/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Impulse-Momentum Methods, Linear Momentum" data-problem-difficulty="Applied" data-problem-answer="Take east as positive.
+
+The impulse is
+
+$$
+J = Ft = (-12)(0.5) = -6 \, \text{N}\cdot\text{s}
+$$
+
+Initial momentum:
+
+$$
+p_1 = mv_1 = 0.5(8) = 4 \, \text{kg}\cdot\text{m/s}
+$$
+
+Impulse-momentum gives
+
+$$
+p_2 = p_1 + J = 4 - 6 = -2
+$$
+
+So
+
+$$
+v_2 = \frac{p_2}{m} = \frac{-2}{0.5} = -4 \, \text{m/s}
+$$
+
+The puck ends with speed $4 \, \text{m/s}$ to the west.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Use Impulse-Momentum in an Impact</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#impulse-momentum-methods" data-notes-nav-item>Impulse-Momentum Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#linear-momentum" data-notes-nav-item>Linear Momentum</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $0.5$ kg puck moving east at $8 \, \text{m/s}$ is struck by an average $12$ N force to the west for $0.5$ s. Find its final velocity.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-33">Your work for Use Impulse-Momentum in an Impact</label>
+          <textarea
+            id="practice-study-dynamics-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Take east as positive.</p>
+<p>The impulse is</p>
+<div class="math-block">$$
+J = Ft = (-12)(0.5) = -6 \, \text{N}\cdot\text{s}
+$$</div>
+<p>Initial momentum:</p>
+<div class="math-block">$$
+p_1 = mv_1 = 0.5(8) = 4 \, \text{kg}\cdot\text{m/s}
+$$</div>
+<p>Impulse-momentum gives</p>
+<div class="math-block">$$
+p_2 = p_1 + J = 4 - 6 = -2
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+v_2 = \frac{p_2}{m} = \frac{-2}{0.5} = -4 \, \text{m/s}
+$$</div>
+<p>The puck ends with speed $4 \, \text{m/s}$ to the west.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Rigid-Body Kinematics, Rigid-Body Kinetics" data-problem-difficulty="Applied" data-problem-answer="Use the rigid-body relations:
+
+$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$
+
+$$
+\mathbf{a}_B = \mathbf{a}_A + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$
+
+Take
+
+$$
+\mathbf{v}_A = 2\,\mathbf{i}, \quad \mathbf{a}_A = 1\,\mathbf{i}, \quad \boldsymbol{\omega} = 4\,\mathbf{k}, \quad \boldsymbol{\alpha} = 2\,\mathbf{k}, \quad \mathbf{r}_{B/A} = 0.5\,\mathbf{j}
+$$
+
+Then
+
+$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 4\mathbf{k} \times 0.5\mathbf{j}
+= -2\,\mathbf{i}
+$$
+
+so
+
+$$
+\mathbf{v}_B = 2\,\mathbf{i} - 2\,\mathbf{i} = \mathbf{0}
+$$
+
+For acceleration,
+
+$$
+\boldsymbol{\alpha} \times \mathbf{r}_{B/A}
+= 2\mathbf{k} \times 0.5\mathbf{j}
+= -1\,\mathbf{i}
+$$
+
+and
+
+$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+= 4\mathbf{k} \times (-2\,\mathbf{i})
+= -8\,\mathbf{j}
+$$
+
+Therefore,
+
+$$
+\mathbf{a}_B = 1\,\mathbf{i} - 1\,\mathbf{i} - 8\,\mathbf{j} = -8\,\mathbf{j}
+$$
+
+So point $B$ is instantaneously at rest, and its acceleration is $8 \, \text{m/s}^2$ downward.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find a Point&#39;s Velocity and Acceleration on a Rotating Bar</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinematics" data-notes-nav-item>Rigid-Body Kinematics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinetics" data-notes-nav-item>Rigid-Body Kinetics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A rigid bar has point $A$ moving to the right at $2 \, \text{m/s}$ with acceleration $1 \, \text{m/s}^2$ to the right. The bar rotates counterclockwise with $\omega = 4 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$. Point $B$ is $0.5$ m above $A$. Find $\mathbf{v}_B$ and $\mathbf{a}_B$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-34">Your work for Find a Point&#39;s Velocity and Acceleration on a Rotating Bar</label>
+          <textarea
+            id="practice-study-dynamics-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the rigid-body relations:</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$</div>
+<p>Take</p>
+<div class="math-block">$$
+\mathbf{v}_A = 2\,\mathbf{i}, \quad \mathbf{a}_A = 1\,\mathbf{i}, \quad \boldsymbol{\omega} = 4\,\mathbf{k}, \quad \boldsymbol{\alpha} = 2\,\mathbf{k}, \quad \mathbf{r}_{B/A} = 0.5\,\mathbf{j}
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 4\mathbf{k} \times 0.5\mathbf{j}
+= -2\,\mathbf{i}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\mathbf{v}_B = 2\,\mathbf{i} - 2\,\mathbf{i} = \mathbf{0}
+$$</div>
+<p>For acceleration,</p>
+<div class="math-block">$$
+\boldsymbol{\alpha} \times \mathbf{r}_{B/A}
+= 2\mathbf{k} \times 0.5\mathbf{j}
+= -1\,\mathbf{i}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+= 4\mathbf{k} \times (-2\,\mathbf{i})
+= -8\,\mathbf{j}
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\mathbf{a}_B = 1\,\mathbf{i} - 1\,\mathbf{i} - 8\,\mathbf{j} = -8\,\mathbf{j}
+$$</div>
+<p>So point $B$ is instantaneously at rest, and its acceleration is $8 \, \text{m/s}^2$ downward.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Choosing the Right Method, Impulse-Momentum Methods" data-problem-difficulty="Applied" data-problem-answer="Use **impulse-momentum** because the force acts over a short time and the velocity change is given.
+
+Take the positive direction as the initial direction of motion:
+
+$$
+\Delta p = m(v_2 - v_1) = 2(2 - 6) = -8 \, \text{kg}\cdot\text{m/s}
+$$
+
+Average force:
+
+$$
+F_{\text{avg}} = \frac{\Delta p}{\Delta t} = \frac{-8}{0.1} = -80 \, \text{N}
+$$
+
+So the average impact force is $80$ N opposite the cart&#39;s motion.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Choose the Right Impact Method</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#choosing-the-right-method" data-notes-nav-item>Choosing the Right Method</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#impulse-momentum-methods" data-notes-nav-item>Impulse-Momentum Methods</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $2$ kg cart slows from $6 \, \text{m/s}$ to $2 \, \text{m/s}$ in $0.1$ s during a collision. What method should you use to find the average impact force, and what is that force?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-35">Your work for Choose the Right Impact Method</label>
+          <textarea
+            id="practice-study-dynamics-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use <strong>impulse-momentum</strong> because the force acts over a short time and the velocity change is given.</p>
+<p>Take the positive direction as the initial direction of motion:</p>
+<div class="math-block">$$
+\Delta p = m(v_2 - v_1) = 2(2 - 6) = -8 \, \text{kg}\cdot\text{m/s}
+$$</div>
+<p>Average force:</p>
+<div class="math-block">$$
+F_{\text{avg}} = \frac{\Delta p}{\Delta t} = \frac{-8}{0.1} = -80 \, \text{N}
+$$</div>
+<p>So the average impact force is $80$ N opposite the cart&#39;s motion.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="dynamics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Cartesian Components, Curvilinear Motion" data-problem-difficulty="Challenge" data-problem-answer="Write the velocity vector:
+
+$$
+\mathbf{v}(t) = \dot{x}\,\mathbf{i} + \dot{y}\,\mathbf{j}
+$$
+
+so
+
+$$
+\mathbf{v}(t) = 2t\,\mathbf{i} + (4t - 4)\,\mathbf{j}
+$$
+
+At $t=2$:
+
+$$
+\mathbf{v}(2) = 4\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+Differentiate again:
+
+$$
+\mathbf{a}(t) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+so
+
+$$
+\mathbf{a}(2) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+The speed is
+
+$$
+|\mathbf{v}(2)| = \sqrt{4^2 + 4^2} = 4\sqrt{2}
+$$
+
+Since the acceleration points generally in the same direction as the velocity, the particle is speeding up at $t=2$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Analyze Planar Motion from Position Functions</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#cartesian-components" data-notes-nav-item>Cartesian Components</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#curvilinear-motion" data-notes-nav-item>Curvilinear Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle has position</p>
+<div class="math-block">$$
+x(t) = t^2, \qquad y(t) = 2t^2 - 4t.
+$$</div>
+<p>Find $\mathbf{v}$ and $\mathbf{a}$ at $t=2$, and determine whether the particle is speeding up or slowing down at that instant.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-41">Your work for Analyze Planar Motion from Position Functions</label>
+          <textarea
+            id="practice-study-dynamics-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the velocity vector:</p>
+<div class="math-block">$$
+\mathbf{v}(t) = \dot{x}\,\mathbf{i} + \dot{y}\,\mathbf{j}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\mathbf{v}(t) = 2t\,\mathbf{i} + (4t - 4)\,\mathbf{j}
+$$</div>
+<p>At $t=2$:</p>
+<div class="math-block">$$
+\mathbf{v}(2) = 4\,\mathbf{i} + 4\,\mathbf{j}
+$$</div>
+<p>Differentiate again:</p>
+<div class="math-block">$$
+\mathbf{a}(t) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\mathbf{a}(2) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$</div>
+<p>The speed is</p>
+<div class="math-block">$$
+|\mathbf{v}(2)| = \sqrt{4^2 + 4^2} = 4\sqrt{2}
+$$</div>
+<p>Since the acceleration points generally in the same direction as the velocity, the particle is speeding up at $t=2$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Rigid-Body Kinematics, Normal-Tangential Motion" data-problem-difficulty="Challenge" data-problem-answer="Use the fixed-axis rotation formulas:
+
+$$
+v = \omega r, \qquad a_t = \alpha r, \qquad a_n = \omega^2 r
+$$
+
+So
+
+$$
+v = 2(0.5) = 1 \, \text{m/s}
+$$
+
+$$
+a_t = 2(0.5) = 1 \, \text{m/s}^2
+$$
+
+$$
+a_n = 2^2(0.5) = 2 \, \text{m/s}^2
+$$
+
+The total acceleration magnitude is
+
+$$
+a = \sqrt{a_t^2 + a_n^2}
+= \sqrt{1^2 + 2^2}
+= \sqrt{5} \, \text{m/s}^2
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Velocity and Acceleration of a Rotating Point</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinematics" data-notes-nav-item>Rigid-Body Kinematics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#normal-tangential-motion" data-notes-nav-item>Normal-Tangential Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A wheel of radius $0.5$ m has $\omega = 2 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$ at an instant. For a point on the rim, find the speed, tangential acceleration, normal acceleration, and total acceleration magnitude.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-42">Your work for Velocity and Acceleration of a Rotating Point</label>
+          <textarea
+            id="practice-study-dynamics-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the fixed-axis rotation formulas:</p>
+<div class="math-block">$$
+v = \omega r, \qquad a_t = \alpha r, \qquad a_n = \omega^2 r
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+v = 2(0.5) = 1 \, \text{m/s}
+$$</div>
+<div class="math-block">$$
+a_t = 2(0.5) = 1 \, \text{m/s}^2
+$$</div>
+<div class="math-block">$$
+a_n = 2^2(0.5) = 2 \, \text{m/s}^2
+$$</div>
+<p>The total acceleration magnitude is</p>
+<div class="math-block">$$
+a = \sqrt{a_t^2 + a_n^2}
+= \sqrt{1^2 + 2^2}
+= \sqrt{5} \, \text{m/s}^2
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Work-Energy Methods, Rigid-Body Kinetics" data-problem-difficulty="Challenge" data-problem-answer="Use work-energy for rotation:
+
+$$
+W = \Delta T
+$$
+
+The work done by the moment is
+
+$$
+W = M\theta = 6\left(\frac{\pi}{2}\right) = 3\pi \, \text{J}
+$$
+
+The rod&#39;s moment of inertia about one end is
+
+$$
+I_O = \frac{1}{3}mL^2 = \frac{1}{3}(2)(1^2) = \frac{2}{3} \, \text{kg}\cdot\text{m}^2
+$$
+
+Since it starts from rest,
+
+$$
+\frac{1}{2}I_O\omega^2 = 3\pi
+$$
+
+Substitute $I_O = \frac{2}{3}$:
+
+$$
+\frac{1}{2}\left(\frac{2}{3}\right)\omega^2 = 3\pi
+$$
+
+$$
+\frac{1}{3}\omega^2 = 3\pi
+$$
+
+$$
+\omega^2 = 9\pi
+$$
+
+$$
+\omega = 3\sqrt{\pi} \, \text{rad/s}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Use Rotational Work-Energy</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#work-energy-methods" data-notes-nav-item>Work-Energy Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rigid-body-kinetics" data-notes-nav-item>Rigid-Body Kinetics</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A uniform rod has mass $2$ kg and length $1$ m and rotates about one end. A constant moment of $6$ N$\cdot$m acts on it as it turns through $90^\circ$ from rest. Find its angular speed at the end of the turn.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-43">Your work for Use Rotational Work-Energy</label>
+          <textarea
+            id="practice-study-dynamics-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use work-energy for rotation:</p>
+<div class="math-block">$$
+W = \Delta T
+$$</div>
+<p>The work done by the moment is</p>
+<div class="math-block">$$
+W = M\theta = 6\left(\frac{\pi}{2}\right) = 3\pi \, \text{J}
+$$</div>
+<p>The rod&#39;s moment of inertia about one end is</p>
+<div class="math-block">$$
+I_O = \frac{1}{3}mL^2 = \frac{1}{3}(2)(1^2) = \frac{2}{3} \, \text{kg}\cdot\text{m}^2
+$$</div>
+<p>Since it starts from rest,</p>
+<div class="math-block">$$
+\frac{1}{2}I_O\omega^2 = 3\pi
+$$</div>
+<p>Substitute $I_O = \frac{2}{3}$:</p>
+<div class="math-block">$$
+\frac{1}{2}\left(\frac{2}{3}\right)\omega^2 = 3\pi
+$$</div>
+<div class="math-block">$$
+\frac{1}{3}\omega^2 = 3\pi
+$$</div>
+<div class="math-block">$$
+\omega^2 = 9\pi
+$$</div>
+<div class="math-block">$$
+\omega = 3\sqrt{\pi} \, \text{rad/s}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="dynamics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Relative Motion, Rotating Frames" data-problem-difficulty="Challenge" data-problem-answer="For a rotating frame, the Coriolis term is
+
+$$
+2\boldsymbol{\omega} \times \mathbf{v}_{rel}
+$$
+
+Its magnitude is
+
+$$
+2\omega v_{rel} = 2(4)(2) = 16 \, \text{m/s}^2
+$$
+
+Since $\dot{r}$ is constant, $\mathbf{a}_{rel} = 0$ and $\boldsymbol{\alpha} = 0$.
+
+The centripetal term is
+
+$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}) = -\omega^2 r\,\mathbf{e}_r
+$$
+
+so
+
+$$
+a_r = -(4^2)(0.5) = -8 \, \text{m/s}^2
+$$
+
+and the Coriolis term points in the tangential direction:
+
+$$
+a_\theta = 16 \, \text{m/s}^2
+$$
+
+Therefore,
+
+$$
+\mathbf{a} = -8\,\mathbf{e}_r + 16\,\mathbf{e}_\theta
+$$
+
+The Coriolis acceleration magnitude is $16 \, \text{m/s}^2$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Handle a Rotating Frame with Coriolis Acceleration</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#relative-motion" data-notes-nav-item>Relative Motion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/dynamics/#rotating-frames" data-notes-nav-item>Rotating Frames</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A collar slides outward in a radial slot on a disk rotating counterclockwise with constant angular velocity $\omega = 4 \, \text{rad/s}$. At the instant shown, the collar is $0.5$ m from the center and has outward relative speed $\dot{r} = 2 \, \text{m/s}$. The disk has no angular acceleration and the radial speed is constant, so $\ddot{r} = 0$. Find the Coriolis acceleration magnitude and the total acceleration vector.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-dynamics-44">Your work for Handle a Rotating Frame with Coriolis Acceleration</label>
+          <textarea
+            id="practice-study-dynamics-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a rotating frame, the Coriolis term is</p>
+<div class="math-block">$$
+2\boldsymbol{\omega} \times \mathbf{v}_{rel}
+$$</div>
+<p>Its magnitude is</p>
+<div class="math-block">$$
+2\omega v_{rel} = 2(4)(2) = 16 \, \text{m/s}^2
+$$</div>
+<p>Since $\dot{r}$ is constant, $\mathbf{a}_{rel} = 0$ and $\boldsymbol{\alpha} = 0$.</p>
+<p>The centripetal term is</p>
+<div class="math-block">$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}) = -\omega^2 r\,\mathbf{e}_r
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+a_r = -(4^2)(0.5) = -8 \, \text{m/s}^2
+$$</div>
+<p>and the Coriolis term points in the tangential direction:</p>
+<div class="math-block">$$
+a_\theta = 16 \, \text{m/s}^2
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\mathbf{a} = -8\,\mathbf{e}_r + 16\,\mathbf{e}_\theta
+$$</div>
+<p>The Coriolis acceleration magnitude is $16 \, \text{m/s}^2$.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

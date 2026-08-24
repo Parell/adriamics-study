@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trigonometry | Adriamics Study</title>
+  <meta name="description" content="An angle can be measured in degrees or radians." />
+  <link rel="canonical" href="https://adriamics.com/study/math/trigonometry/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/trigonometry/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#angles-and-the-unit-circle" data-notes-nav-item data-notes-toc-link>Angles and the unit circle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#right-triangle-ratios" data-notes-nav-item data-notes-toc-link>Right-triangle ratios</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-trigonometric-functions" data-notes-nav-item data-notes-toc-link>Core trigonometric functions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graphs-and-transformations" data-notes-nav-item data-notes-toc-link>Graphs and transformations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-identities" data-notes-nav-item data-notes-toc-link>Key identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solving-trigonometric-equations" data-notes-nav-item data-notes-toc-link>Solving trigonometric equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inverse-trigonometric-functions" data-notes-nav-item data-notes-toc-link>Inverse trigonometric functions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#laws-for-non-right-triangles" data-notes-nav-item data-notes-toc-link>Laws for non-right triangles</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#applications" data-notes-nav-item data-notes-toc-link>Applications</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Trigonometry</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/trigonometry/trigonometry.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Ftrigonometry%2Ftrigonometry.md&amp;title=%5BContribute%5D%3A%20Trigonometry" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="2"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="angles-and-the-unit-circle">Angles and the unit circle</h1>
+<h2 id="angle-measure">Angle measure</h2>
+<p>An angle can be measured in degrees or radians.</p>
+<p>The conversion between them is:</p>
+<div class="math-block">$$
+180^\circ = \pi \text{ radians}
+$$</div>
+<p>So:</p>
+<div class="math-block">$$
+\theta_{\text{rad}} = \theta_{\text{deg}} \cdot \frac{\pi}{180}
+$$</div>
+<div class="math-block">$$
+\theta_{\text{deg}} = \theta_{\text{rad}} \cdot \frac{180}{\pi}
+$$</div>
+<h2 id="radians">Radians</h2>
+<p>Radians are the natural unit for trig and calculus. For a circle of radius $r$, an angle $\theta$ in radians satisfies:</p>
+<div class="math-block">$$
+\theta = \frac{s}{r}
+$$</div>
+<p>where $s$ is arc length.</p>
+<p>For the unit circle, $r = 1$, so the angle equals the arc length.</p>
+<h2 id="unit-circle-definition">Unit circle definition</h2>
+<p>The unit circle is the circle centered at the origin with radius 1:</p>
+<div class="math-block">$$
+x^2 + y^2 = 1
+$$</div>
+<p>For an angle $\theta$ measured from the positive $x$-axis, the point on the unit circle is:</p>
+<div class="math-block">$$
+(\cos \theta, \sin \theta)
+$$</div>
+<p>This gives the fundamental definitions:</p>
+<div class="math-block">$$
+\cos \theta = x,\quad \sin \theta = y,\quad \tan \theta = \frac{y}{x}
+$$</div>
+<p>provided $x \neq 0$.</p>
+<h2 id="quadrants-and-signs">Quadrants and signs</h2>
+<p>The signs of trig functions depend on the quadrant:</p>
+<table><thead><tr><th>Quadrant</th><th>$x$</th><th>$y$</th><th>$\sin \theta$</th><th>$\cos \theta$</th><th>$\tan \theta$</th></tr></thead><tbody><tr><td>I</td><td>+</td><td>+</td><td>+</td><td>+</td><td>+</td></tr><tr><td>II</td><td>-</td><td>+</td><td>+</td><td>-</td><td>-</td></tr><tr><td>III</td><td>-</td><td>-</td><td>-</td><td>-</td><td>+</td></tr><tr><td>IV</td><td>+</td><td>-</td><td>-</td><td>+</td><td>-</td></tr></tbody></table>
+<p>A common mnemonic is:</p>
+<ul><li><p>All are positive in Quadrant I</p></li><li><p>Sine is positive in Quadrants I and II</p></li><li><p>Tangent is positive in Quadrants I and III</p></li><li><p>Cosine is positive in Quadrants I and IV</p></li></ul>
+<h2 id="reference-angles">Reference angles</h2>
+<p>A <strong>reference angle</strong> is the acute angle between the terminal side of an angle and the $x$-axis.</p>
+<p>Reference angles let you determine trig values quickly:</p>
+<ol><li><p>Find the reference angle.</p></li><li><p>Compute the trig value using the acute angle.</p></li><li><p>Apply the sign from the quadrant.</p></li></ol>
+<p>Example:</p>
+<div class="math-block">$$
+\sin\left(\frac{5\pi}{6}\right) = \sin\left(\pi - \frac{\pi}{6}\right) = \frac{1}{2}
+$$</div>
+<p>because the reference angle is $\pi/6$ and sine is positive in Quadrant II.</p>
+<hr />
+<h1 id="right-triangle-ratios">Right-triangle ratios</h1>
+<p>Using the right-triangle facts recalled from Geometry, trig functions can be defined as ratios of side lengths relative to a chosen acute angle $\theta$. The ratios belong here because Trigonometry owns angle functions and triangle solving; the geometric properties of the triangle do not need to be repeated.</p>
+<p>Let:</p>
+<ul><li><p>Opposite side = side across from $\theta$</p></li><li><p>Adjacent side = side next to $\theta$</p></li><li><p>Hypotenuse = longest side</p></li></ul>
+<p>Then:</p>
+<div class="math-block">$$
+\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}}
+$$</div>
+<div class="math-block">$$
+\cos \theta = \frac{\text{adjacent}}{\text{hypotenuse}}
+$$</div>
+<div class="math-block">$$
+\tan \theta = \frac{\text{opposite}}{\text{adjacent}}
+$$</div>
+<p>The reciprocal functions are:</p>
+<div class="math-block">$$
+\csc \theta = \frac{1}{\sin \theta}
+$$</div>
+<div class="math-block">$$
+\sec \theta = \frac{1}{\cos \theta}
+$$</div>
+<div class="math-block">$$
+\cot \theta = \frac{1}{\tan \theta}
+$$</div>
+<h2 id="soh-cah-toa">SOH-CAH-TOA</h2>
+<p>A compact memory aid:</p>
+<ul><li><p>SOH: sine = opposite / hypotenuse</p></li><li><p>CAH: cosine = adjacent / hypotenuse</p></li><li><p>TOA: tangent = opposite / adjacent</p></li></ul>
+<h2 id="common-exact-values">Common exact values</h2>
+<p>The most common exact trig values come from special right triangles.</p>
+<h3 id="45-45-90-triangle">45-45-90 triangle</h3>
+<p>Sides are in the ratio:</p>
+<div class="math-block">$$
+1 : 1 : \sqrt{2}
+$$</div>
+<p>So for a $45^\circ$ angle:</p>
+<div class="math-block">$$
+\sin 45^\circ = \cos 45^\circ = \frac{\sqrt{2}}{2}
+$$</div>
+<div class="math-block">$$
+\tan 45^\circ = 1
+$$</div>
+<h3 id="30-60-90-triangle">30-60-90 triangle</h3>
+<p>Sides are in the ratio:</p>
+<div class="math-block">$$
+1 : \sqrt{3} : 2
+$$</div>
+<p>So:</p>
+<div class="math-block">$$
+\sin 30^\circ = \frac{1}{2},\quad \cos 30^\circ = \frac{\sqrt{3}}{2}
+$$</div>
+<div class="math-block">$$
+\sin 60^\circ = \frac{\sqrt{3}}{2},\quad \cos 60^\circ = \frac{1}{2}
+$$</div>
+<p>and:</p>
+<div class="math-block">$$
+\tan 30^\circ = \frac{1}{\sqrt{3}} = \frac{\sqrt{3}}{3},\quad \tan 60^\circ = \sqrt{3}
+$$</div>
+<hr />
+<h1 id="core-trigonometric-functions">Core trigonometric functions</h1>
+<h2 id="definitions">Definitions</h2>
+<p>The primary trig functions are:</p>
+<div class="math-block">$$
+\sin x,\quad \cos x,\quad \tan x,\quad \csc x,\quad \sec x,\quad \cot x
+$$</div>
+<p>They are periodic functions, which means they repeat values after a fixed interval.</p>
+<h2 id="periods">Periods</h2>
+<p>The basic periods are:</p>
+<div class="math-block">$$
+\sin(x + 2\pi) = \sin x
+$$</div>
+<div class="math-block">$$
+\cos(x + 2\pi) = \cos x
+$$</div>
+<div class="math-block">$$
+\tan(x + \pi) = \tan x
+$$</div>
+<h2 id="domain-and-range">Domain and range</h2>
+<table><thead><tr><th>Function</th><th>Domain</th><th>Range</th></tr></thead><tbody><tr><td>$\sin x$</td><td>all real $x$</td><td>$[-1, 1]$</td></tr><tr><td>$\cos x$</td><td>all real $x$</td><td>$[-1, 1]$</td></tr><tr><td>$\tan x$</td><td>$x \neq \frac{\pi}{2} + k\pi$</td><td>all real numbers</td></tr><tr><td>$\csc x$</td><td>$\sin x \neq 0$</td><td>$(-\infty,-1] \cup [1,\infty)$</td></tr><tr><td>$\sec x$</td><td>$\cos x \neq 0$</td><td>$(-\infty,-1] \cup [1,\infty)$</td></tr><tr><td>$\cot x$</td><td>$x \neq k\pi$</td><td>all real numbers</td></tr></tbody></table>
+<p>for any integer $k$.</p>
+<h2 id="even-and-odd-functions">Even and odd functions</h2>
+<p>Trigonometric symmetry is important:</p>
+<div class="math-block">$$
+\sin(-x) = -\sin x
+$$</div>
+<div class="math-block">$$
+\cos(-x) = \cos x
+$$</div>
+<div class="math-block">$$
+\tan(-x) = -\tan x
+$$</div>
+<p>So sine and tangent are odd, while cosine is even.</p>
+<h2 id="pythagorean-identity">Pythagorean identity</h2>
+<p>The central identity is:</p>
+<div class="math-block">$$
+\sin^2 x + \cos^2 x = 1
+$$</div>
+<p>Dividing by $\cos^2 x$ gives:</p>
+<div class="math-block">$$
+\tan^2 x + 1 = \sec^2 x
+$$</div>
+<p>Dividing by $\sin^2 x$ gives:</p>
+<div class="math-block">$$
+1 + \cot^2 x = \csc^2 x
+$$</div>
+<p>These identities are used constantly for simplification and proof.</p>
+<hr />
+<h1 id="graphs-and-transformations">Graphs and transformations</h1>
+<h2 id="standard-graphs">Standard graphs</h2>
+<p>The graphs of $y = \sin x$ and $y = \cos x$ oscillate between $-1$ and $1$ with period $2\pi$.</p>
+<p>Key points:</p>
+<div class="math-block">$$
+\sin 0 = 0,\quad \sin\left(\frac{\pi}{2}\right)=1,\quad \sin(\pi)=0
+$$</div>
+<div class="math-block">$$
+\cos 0 = 1,\quad \cos\left(\frac{\pi}{2}\right)=0,\quad \cos(\pi)=-1
+$$</div>
+<p>The graph of $y = \tan x$ has vertical asymptotes at:</p>
+<div class="math-block">$$
+x = \frac{\pi}{2} + k\pi
+$$</div>
+<h2 id="general-forms">General forms</h2>
+<p>The common transformed forms are:</p>
+<div class="math-block">$$
+y = A\sin(Bx - C) + D
+$$</div>
+<div class="math-block">$$
+y = A\cos(Bx - C) + D
+$$</div>
+<div class="math-block">$$
+y = A\tan(Bx - C) + D
+$$</div>
+<p>where:</p>
+<ul><li><p>$|A|$ is the amplitude for sine and cosine</p></li><li><p>Period for sine and cosine is $\frac{2\pi}{|B|}$</p></li><li><p>Period for tangent is $\frac{\pi}{|B|}$</p></li><li><p>Horizontal shift is $\frac{C}{B}$</p></li><li><p>Vertical shift is $D$</p></li></ul>
+<h2 id="amplitude-period-and-phase-shift">Amplitude, period, and phase shift</h2>
+<p>For $y = A\sin(Bx - C) + D$:</p>
+<div class="math-block">$$
+\text{Amplitude} = |A|
+$$</div>
+<div class="math-block">$$
+\text{Period} = \frac{2\pi}{|B|}
+$$</div>
+<div class="math-block">$$
+\text{Phase shift} = \frac{C}{B}
+$$</div>
+<div class="math-block">$$
+\text{Midline} = y = D
+$$</div>
+<p>For cosine, the same formulas apply.</p>
+<h2 id="graphing-workflow">Graphing workflow</h2>
+<p>To graph a transformed trig function:</p>
+<ol><li><p>Identify $A$, $B$, $C$, and $D$.</p></li><li><p>Compute amplitude, period, and midline.</p></li><li><p>Plot key points over one period.</p></li><li><p>Apply reflections or shifts.</p></li><li><p>Check asymptotes for tangent, secant, cotangent, and cosecant when relevant.</p></li></ol>
+<p>Example:</p>
+<div class="math-block">$$
+y = 2\sin\left(3x - \frac{\pi}{2}\right) - 1
+$$</div>
+<p>has:</p>
+<ul><li><p>Amplitude $2$</p></li><li><p>Period $\frac{2\pi}{3}$</p></li><li><p>Phase shift $\frac{\pi/2}{3} = \frac{\pi}{6}$ to the right</p></li><li><p>Midline $y = -1$</p></li></ul>
+<hr />
+<h1 id="key-identities">Key identities</h1>
+<h2 id="cofunction-identities">Cofunction identities</h2>
+<p>These connect complementary angles:</p>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{2} - x\right) = \cos x
+$$</div>
+<div class="math-block">$$
+\cos\left(\frac{\pi}{2} - x\right) = \sin x
+$$</div>
+<div class="math-block">$$
+\tan\left(\frac{\pi}{2} - x\right) = \cot x
+$$</div>
+<h2 id="sum-and-difference-identities">Sum and difference identities</h2>
+<p>For sine:</p>
+<div class="math-block">$$
+\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b
+$$</div>
+<p>For cosine:</p>
+<div class="math-block">$$
+\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b
+$$</div>
+<p>For tangent:</p>
+<div class="math-block">$$
+\tan(a \pm b) = \frac{\tan a \pm \tan b}{1 \mp \tan a \tan b}
+$$</div>
+<h2 id="double-angle-identities">Double-angle identities</h2>
+<div class="math-block">$$
+\sin(2x) = 2\sin x \cos x
+$$</div>
+<div class="math-block">$$
+\cos(2x) = \cos^2 x - \sin^2 x
+$$</div>
+<p>Equivalent forms of cosine double angle:</p>
+<div class="math-block">$$
+\cos(2x) = 1 - 2\sin^2 x
+$$</div>
+<div class="math-block">$$
+\cos(2x) = 2\cos^2 x - 1
+$$</div>
+<h2 id="half-angle-formulas">Half-angle formulas</h2>
+<p>From the double-angle identity:</p>
+<div class="math-block">$$
+\sin^2\left(\frac{x}{2}\right) = \frac{1 - \cos x}{2}
+$$</div>
+<div class="math-block">$$
+\cos^2\left(\frac{x}{2}\right) = \frac{1 + \cos x}{2}
+$$</div>
+<p>These are especially useful when reducing powers or evaluating exact values.</p>
+<h2 id="product-to-sum-and-sum-to-product">Product-to-sum and sum-to-product</h2>
+<p>These appear in more advanced algebra and signal analysis.</p>
+<p>Example product-to-sum identity:</p>
+<div class="math-block">$$
+\sin a \cos b = \frac{1}{2}[\sin(a+b) + \sin(a-b)]
+$$</div>
+<p>These identities are helpful for simplifying expressions with multiple angles.</p>
+<h2 id="verifying-identities">Verifying identities</h2>
+<p>When proving an identity:</p>
+<ul><li><p>Start with one side only</p></li><li><p>Rewrite everything in sine and cosine if needed</p></li><li><p>Use standard identities, algebra, and factoring</p></li><li><p>Do not manipulate both sides simultaneously unless the steps are reversible</p></li></ul>
+<p>Common mistakes:</p>
+<ul><li><p>Canceling terms across addition</p></li><li><p>Using an identity in the wrong direction</p></li><li><p>Forgetting domain restrictions</p></li></ul>
+<hr />
+<h1 id="solving-trigonometric-equations">Solving trigonometric equations</h1>
+<p>Trig equations usually have infinitely many solutions because trig functions are periodic.</p>
+<h2 id="basic-strategy">Basic strategy</h2>
+<ol><li><p>Isolate a trig function if possible.</p></li><li><p>Solve the corresponding reference-angle equation.</p></li><li><p>Use periodicity to write all solutions.</p></li><li><p>Check for excluded values if the equation came from a rational expression.</p></li></ol>
+<h2 id="example-sine-equation">Example: sine equation</h2>
+<p>Solve:</p>
+<div class="math-block">$$
+\sin x = \frac{1}{2}
+$$</div>
+<p>On $[0, 2\pi)$, the solutions are:</p>
+<div class="math-block">$$
+x = \frac{\pi}{6},\ \frac{5\pi}{6}
+$$</div>
+<p>The full solution set is:</p>
+<div class="math-block">$$
+x = \frac{\pi}{6} + 2k\pi \quad \text{or} \quad x = \frac{5\pi}{6} + 2k\pi
+$$</div>
+<p>for any integer $k$.</p>
+<h2 id="example-tangent-equation">Example: tangent equation</h2>
+<p>Solve:</p>
+<div class="math-block">$$
+\tan x = -1
+$$</div>
+<p>One solution is:</p>
+<div class="math-block">$$
+x = -\frac{\pi}{4}
+$$</div>
+<p>Since tangent has period $\pi$:</p>
+<div class="math-block">$$
+x = -\frac{\pi}{4} + k\pi
+$$</div>
+<h2 id="factoring-approach">Factoring approach</h2>
+<p>Many trig equations reduce to algebraic factorizations.</p>
+<p>Example:</p>
+<div class="math-block">$$
+2\sin x \cos x - \sin x = 0
+$$</div>
+<p>Factor:</p>
+<div class="math-block">$$
+\sin x(2\cos x - 1) = 0
+$$</div>
+<p>So either:</p>
+<div class="math-block">$$
+\sin x = 0
+$$</div>
+<p>or</p>
+<div class="math-block">$$
+\cos x = \frac{1}{2}
+$$</div>
+<p>This gives the full solution set.</p>
+<h2 id="square-root-and-inverse-issues">Square-root and inverse issues</h2>
+<p>When squaring both sides or using inverse functions, extraneous solutions can appear.</p>
+<p>Always check solutions in the original equation.</p>
+<hr />
+<h1 id="inverse-trigonometric-functions">Inverse trigonometric functions</h1>
+<p>Inverse trig functions recover angles from trig values.</p>
+<p>The principal inverses are:</p>
+<div class="math-block">$$
+\arcsin x,\quad \arccos x,\quad \arctan x
+$$</div>
+<h2 id="principal-ranges">Principal ranges</h2>
+<p>To make inverses functions, each is restricted to a principal range.</p>
+<table><thead><tr><th>Function</th><th>Domain</th><th>Range</th></tr></thead><tbody><tr><td>$\arcsin x$</td><td>$[-1,1]$</td><td>$\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]$</td></tr><tr><td>$\arccos x$</td><td>$[-1,1]$</td><td>$[0,\pi]$</td></tr><tr><td>$\arctan x$</td><td>all real numbers</td><td>$\left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$</td></tr></tbody></table>
+<h2 id="important-distinction">Important distinction</h2>
+<p>Inverse trig notation does not mean reciprocal.</p>
+<p>For example:</p>
+<div class="math-block">$$
+\sin^{-1} x = \arcsin x
+$$</div>
+<p>not</p>
+<div class="math-block">$$
+\frac{1}{\sin x}
+$$</div>
+<p>The reciprocal of sine is $\csc x$.</p>
+<h2 id="composition-rules">Composition rules</h2>
+<p>On their principal domains:</p>
+<div class="math-block">$$
+\sin(\arcsin x) = x
+$$</div>
+<div class="math-block">$$
+\arcsin(\sin x) = x \quad \text{only on the principal range}
+$$</div>
+<p>The same caution applies to arccos and arctan.</p>
+<h2 id="example">Example</h2>
+<p>If:</p>
+<div class="math-block">$$
+\theta = \arctan\left(\frac{\sqrt{3}}{3}\right)
+$$</div>
+<p>then:</p>
+<div class="math-block">$$
+\theta = \frac{\pi}{6}
+$$</div>
+<p>because $\tan(\pi/6) = \sqrt{3}/3$ and $\pi/6$ lies in the arctan principal range.</p>
+<hr />
+<h1 id="laws-for-non-right-triangles">Laws for non-right triangles</h1>
+<p>Trigonometry also solves oblique triangles, which do not contain a right angle.</p>
+<h2 id="law-of-sines">Law of sines</h2>
+<p>For a triangle with sides $a, b, c$ opposite angles $A, B, C$:</p>
+<div class="math-block">$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+$$</div>
+<p>This is useful when you know:</p>
+<ul><li><p>Two angles and a side, or</p></li><li><p>Two sides and a non-included angle</p></li></ul>
+<h2 id="law-of-cosines">Law of cosines</h2>
+<div class="math-block">$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$</div>
+<p>and cyclic variants:</p>
+<div class="math-block">$$
+a^2 = b^2 + c^2 - 2bc\cos A
+$$</div>
+<div class="math-block">$$
+b^2 = a^2 + c^2 - 2ac\cos B
+$$</div>
+<p>This is useful when you know:</p>
+<ul><li><p>Two sides and the included angle, or</p></li><li><p>All three sides</p></li></ul>
+<h2 id="triangle-area-formulas">Triangle area formulas</h2>
+<p>If two sides and the included angle are known:</p>
+<div class="math-block">$$
+\text{Area} = \frac{1}{2}ab\sin C
+$$</div>
+<p>This can be combined with the law of sines or cosines.</p>
+<h2 id="ambiguous-case">Ambiguous case</h2>
+<p>With the law of sines, the SSA case may produce:</p>
+<ul><li><p>No triangle</p></li><li><p>One triangle</p></li><li><p>Two triangles</p></li></ul>
+<p>This is a real geometric ambiguity, not a calculator mistake.</p>
+<p>Always check whether the given data actually forms a valid triangle.</p>
+<hr />
+<h1 id="applications">Applications</h1>
+<h2 id="navigation-and-surveying">Navigation and surveying</h2>
+<p>Trig is used to determine:</p>
+<ul><li><p>Heights from angles of elevation</p></li><li><p>Distances across inaccessible regions</p></li><li><p>Bearing and direction</p></li></ul>
+<p>Example setup:</p>
+<ul><li><p>Measure an angle of elevation $\theta$</p></li><li><p>Measure a horizontal distance $d$</p></li><li><p>Compute height using:</p></li></ul>
+<div class="math-block">$$
+h = d\tan \theta
+$$</div>
+<p>if the observer and target are level horizontally.</p>
+<h2 id="physics">Physics</h2>
+<p>Trigonometry decomposes vectors into components:</p>
+<div class="math-block">$$
+F_x = F\cos \theta,\quad F_y = F\sin \theta
+$$</div>
+<p>It also models oscillations and waves:</p>
+<div class="math-block">$$
+y(t) = A\sin(\omega t + \phi)
+$$</div>
+<p>where:</p>
+<ul><li><p>$A$ is amplitude</p></li><li><p>$\omega$ is angular frequency</p></li><li><p>$\phi$ is phase shift</p></li></ul>
+<h2 id="engineering-and-signal-processing">Engineering and signal processing</h2>
+<p>Periodic signals are often represented as sums of sines and cosines.</p>
+<p>This leads to:</p>
+<ul><li><p>Fourier series</p></li><li><p>Harmonic analysis</p></li><li><p>AC circuit analysis</p></li></ul>
+<h2 id="coordinate-geometry">Coordinate geometry</h2>
+<p>The geometric coordinate formulas themselves belong to the <a href="/study/math/geometry/">Geometry note</a>. Trigonometry recalls only the angle-based parametrization used for circles and rotations:</p>
+<div class="math-block">$$
+x = r\cos \theta,\quad y = r\sin \theta
+$$</div>
+<p>and in 3D, rotations and projections rely on the same ideas.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<h2 id="choosing-the-right-tool">Choosing the right tool</h2>
+<p>Use the following decision process:</p>
+<ol><li><p>If the triangle is right, start with SOH-CAH-TOA.</p></li><li><p>If the triangle is not right, use the law of sines or law of cosines.</p></li><li><p>If the problem involves a graph, identify amplitude, period, shift, and midline.</p></li><li><p>If the problem asks for an exact value, look for special angles or identities.</p></li><li><p>If the problem is an equation, isolate one trig function and use periodicity.</p></li></ol>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Mixing degrees and radians</p></li><li><p>Forgetting that inverse trig functions have restricted ranges</p></li><li><p>Using the wrong reference angle sign</p></li><li><p>Assuming SSA gives one triangle</p></li><li><p>Forgetting excluded values when dividing by trig expressions</p></li><li><p>Confusing $\sin^{-1}x$ with $1/\sin x$</p></li></ul>
+<h2 id="checking-answers">Checking answers</h2>
+<p>Good checks include:</p>
+<ul><li><p>Substitute the result back into the original equation</p></li><li><p>Confirm quadrant and sign</p></li><li><p>Confirm units are consistent</p></li><li><p>Verify the angle lies in the requested interval</p></li><li><p>For triangle problems, check that the side lengths satisfy triangle inequalities</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="definitions-2">Definitions</h2>
+<div class="math-block">$$
+\sin \theta = \frac{y}{r},\quad \cos \theta = \frac{x}{r},\quad \tan \theta = \frac{y}{x}
+$$</div>
+<div class="math-block">$$
+\csc \theta = \frac{1}{\sin \theta},\quad \sec \theta = \frac{1}{\cos \theta},\quad \cot \theta = \frac{1}{\tan \theta}
+$$</div>
+<h2 id="identities">Identities</h2>
+<div class="math-block">$$
+\sin^2 x + \cos^2 x = 1
+$$</div>
+<div class="math-block">$$
+1 + \tan^2 x = \sec^2 x
+$$</div>
+<div class="math-block">$$
+1 + \cot^2 x = \csc^2 x
+$$</div>
+<div class="math-block">$$
+\sin(a \pm b) = \sin a \cos b \pm \cos a \sin b
+$$</div>
+<div class="math-block">$$
+\cos(a \pm b) = \cos a \cos b \mp \sin a \sin b
+$$</div>
+<div class="math-block">$$
+\tan(a \pm b) = \frac{\tan a \pm \tan b}{1 \mp \tan a \tan b}
+$$</div>
+<div class="math-block">$$
+\sin(2x) = 2\sin x \cos x
+$$</div>
+<div class="math-block">$$
+\cos(2x) = 1 - 2\sin^2 x = 2\cos^2 x - 1
+$$</div>
+<h2 id="triangle-laws">Triangle laws</h2>
+<div class="math-block">$$
+\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}
+$$</div>
+<div class="math-block">$$
+c^2 = a^2 + b^2 - 2ab\cos C
+$$</div>
+<div class="math-block">$$
+\text{Area} = \frac{1}{2}ab\sin C
+$$</div>
+<h2 id="exact-values">Exact values</h2>
+<div class="math-block">$$
+\sin 0 = 0,\ \cos 0 = 1,\ \tan 0 = 0
+$$</div>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{6}\right)=\frac{1}{2},\quad \cos\left(\frac{\pi}{6}\right)=\frac{\sqrt{3}}{2}
+$$</div>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{4}\right)=\cos\left(\frac{\pi}{4}\right)=\frac{\sqrt{2}}{2}
+$$</div>
+<div class="math-block">$$
+\sin\left(\frac{\pi}{3}\right)=\frac{\sqrt{3}}{2},\quad \cos\left(\frac{\pi}{3}\right)=\frac{1}{2}
+$$</div>
+<h3 id="end-of-note">End of note</h3>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="angles-and-the-unit-circle">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Angles and the unit circle">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#angle-measure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angles-and-the-unit-circle">Angle measure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#radians" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angles-and-the-unit-circle">Radians</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#unit-circle-definition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angles-and-the-unit-circle">Unit circle definition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quadrants-and-signs" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angles-and-the-unit-circle">Quadrants and signs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reference-angles" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angles-and-the-unit-circle">Reference angles</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="right-triangle-ratios" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Right-triangle ratios">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#soh-cah-toa" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="right-triangle-ratios">SOH-CAH-TOA</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-exact-values" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="right-triangle-ratios">Common exact values</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="core-trigonometric-functions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Core trigonometric functions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-trigonometric-functions">Definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#periods" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-trigonometric-functions">Periods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#domain-and-range" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-trigonometric-functions">Domain and range</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#even-and-odd-functions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-trigonometric-functions">Even and odd functions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pythagorean-identity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-trigonometric-functions">Pythagorean identity</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="graphs-and-transformations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Graphs and transformations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-graphs" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-transformations">Standard graphs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-forms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-transformations">General forms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#amplitude-period-and-phase-shift" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-transformations">Amplitude, period, and phase shift</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graphing-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-transformations">Graphing workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="key-identities" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Key identities">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cofunction-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Cofunction identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sum-and-difference-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Sum and difference identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#double-angle-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Double-angle identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#half-angle-formulas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Half-angle formulas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#product-to-sum-and-sum-to-product" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Product-to-sum and sum-to-product</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#verifying-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="key-identities">Verifying identities</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="solving-trigonometric-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Solving trigonometric equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-strategy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solving-trigonometric-equations">Basic strategy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-sine-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solving-trigonometric-equations">Example: sine equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-tangent-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solving-trigonometric-equations">Example: tangent equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#factoring-approach" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solving-trigonometric-equations">Factoring approach</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#square-root-and-inverse-issues" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solving-trigonometric-equations">Square-root and inverse issues</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="inverse-trigonometric-functions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Inverse trigonometric functions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#principal-ranges" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-trigonometric-functions">Principal ranges</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#important-distinction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-trigonometric-functions">Important distinction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#composition-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-trigonometric-functions">Composition rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="inverse-trigonometric-functions">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="laws-for-non-right-triangles" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Laws for non-right triangles">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#law-of-sines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laws-for-non-right-triangles">Law of sines</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#law-of-cosines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laws-for-non-right-triangles">Law of cosines</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#triangle-area-formulas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laws-for-non-right-triangles">Triangle area formulas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ambiguous-case" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laws-for-non-right-triangles">Ambiguous case</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="applications" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Applications">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#navigation-and-surveying" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Navigation and surveying</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#physics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Physics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#engineering-and-signal-processing" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Engineering and signal processing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#coordinate-geometry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="applications">Coordinate geometry</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#choosing-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Choosing the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#checking-answers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Checking answers</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definitions-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#triangle-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Triangle laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exact-values" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Exact values</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

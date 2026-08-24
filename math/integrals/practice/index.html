@@ -1,0 +1,2523 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Integrals Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/integrals/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/integrals/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Integrals Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/integrals/integrals-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fintegrals%2Fintegrals-problems.md&amp;title=%5BContribute%5D%3A%20Integrals%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Integrals" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Quick reference</h2><div class="markdown-body"><p>If an integral looks:</p>
+<ul><li><p>like a composite function times its derivative, try substitution</p></li><li><p>like a product of unlike functions, try integration by parts</p></li><li><p>like a rational function, try partial fractions</p></li><li><p>like a trig expression with powers, use identities</p></li><li><p>like a radical of a quadratic, consider trig substitution</p></li><li><p>like a limit problem or infinite interval, treat it as improper</p></li></ul>
+<p>Integration becomes much easier once you classify the form correctly before doing any algebra.</p></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="integrals-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Power Rule, Linearity" data-problem-difficulty="Direct" data-problem-answer="Integrate term by term:
+
+$$
+\int 4x^3\,dx = x^4
+$$
+
+$$
+\int (-6x)\,dx = -3x^2
+$$
+
+$$
+\int 2\,dx = 2x
+$$
+
+So,
+
+$$
+\int \left(4x^3 - 6x + 2\right)\,dx = x^4 - 3x^2 + 2x + C.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Use the Power Rule and Linearity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#power-rule" data-notes-nav-item>Power Rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#linearity" data-notes-nav-item>Linearity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate the indefinite integral:</p>
+<div class="math-block">$$
+\int \left(4x^3 - 6x + 2\right)\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-11">Your work for Use the Power Rule and Linearity</label>
+          <textarea
+            id="practice-study-integrals-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Integrate term by term:</p>
+<div class="math-block">$$
+\int 4x^3\,dx = x^4
+$$</div>
+<div class="math-block">$$
+\int (-6x)\,dx = -3x^2
+$$</div>
+<div class="math-block">$$
+\int 2\,dx = 2x
+$$</div>
+<p>So,</p>
+<div class="math-block">$$
+\int \left(4x^3 - 6x + 2\right)\,dx = x^4 - 3x^2 + 2x + C.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Fundamental Theorem of Calculus, Accumulation Functions" data-problem-difficulty="Direct" data-problem-answer="By Part 1 of the Fundamental Theorem of Calculus,
+
+$$
+F&#39;(x) = x^2 + 3x.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Differentiate an Accumulation Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#fundamental-theorem-of-calculus" data-notes-nav-item>Fundamental Theorem of Calculus</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#accumulation-functions" data-notes-nav-item>Accumulation Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+F(x) = \int_0^x (t^2 + 3t)\,dt.
+$$</div>
+<p>Find $F&#39;(x)$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-12">Your work for Differentiate an Accumulation Function</label>
+          <textarea
+            id="practice-study-integrals-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>By Part 1 of the Fundamental Theorem of Calculus,</p>
+<div class="math-block">$$
+F&#39;(x) = x^2 + 3x.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Fundamental Theorem of Calculus, Definite Integrals" data-problem-difficulty="Direct" data-problem-answer="An antiderivative is
+
+$$
+x^3 - 2x^2 + x.
+$$
+
+Now apply Part 2 of the Fundamental Theorem of Calculus:
+
+$$
+\int_0^2 \left(3x^2 - 4x + 1\right)\,dx
+= \left[x^3 - 2x^2 + x\right]_0^2
+$$
+
+$$
+= (8 - 8 + 2) - 0 = 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Evaluate a Definite Integral with the FTC</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#fundamental-theorem-of-calculus" data-notes-nav-item>Fundamental Theorem of Calculus</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute:</p>
+<div class="math-block">$$
+\int_0^2 \left(3x^2 - 4x + 1\right)\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-13">Your work for Evaluate a Definite Integral with the FTC</label>
+          <textarea
+            id="practice-study-integrals-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>An antiderivative is</p>
+<div class="math-block">$$
+x^3 - 2x^2 + x.
+$$</div>
+<p>Now apply Part 2 of the Fundamental Theorem of Calculus:</p>
+<div class="math-block">$$
+\int_0^2 \left(3x^2 - 4x + 1\right)\,dx
+= \left[x^3 - 2x^2 + x\right]_0^2
+$$</div>
+<div class="math-block">$$
+= (8 - 8 + 2) - 0 = 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Average Value, Definite Integrals" data-problem-difficulty="Direct" data-problem-answer="Use the average value formula:
+
+$$
+f_{\text{avg}} = \frac{1}{3-0}\int_0^3 x^2\,dx.
+$$
+
+Compute the integral:
+
+$$
+\int_0^3 x^2\,dx = \left[\frac{x^3}{3}\right]_0^3 = 9.
+$$
+
+So the average value is
+
+$$
+\frac{1}{3}\cdot 9 = 3.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find an Average Value</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#average-value" data-notes-nav-item>Average Value</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the average value of</p>
+<div class="math-block">$$
+f(x) = x^2
+$$</div>
+<p>on the interval $[0,3]$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-14">Your work for Find an Average Value</label>
+          <textarea
+            id="practice-study-integrals-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the average value formula:</p>
+<div class="math-block">$$
+f_{\text{avg}} = \frac{1}{3-0}\int_0^3 x^2\,dx.
+$$</div>
+<p>Compute the integral:</p>
+<div class="math-block">$$
+\int_0^3 x^2\,dx = \left[\frac{x^3}{3}\right]_0^3 = 9.
+$$</div>
+<p>So the average value is</p>
+<div class="math-block">$$
+\frac{1}{3}\cdot 9 = 3.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Substitution, Antiderivatives" data-problem-difficulty="Direct" data-problem-answer="Let
+
+$$
+u = x^2, \qquad du = 2x\,dx.
+$$
+
+Then the integral becomes
+
+$$
+\int \cos u\,du = \sin u + C.
+$$
+
+Substitute back:
+
+$$
+\int 2x\cos(x^2)\,dx = \sin(x^2) + C.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Use Substitution on a Composite Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#substitution" data-notes-nav-item>Substitution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#antiderivatives" data-notes-nav-item>Antiderivatives</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int 2x\cos(x^2)\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-15">Your work for Use Substitution on a Composite Function</label>
+          <textarea
+            id="practice-study-integrals-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let</p>
+<div class="math-block">$$
+u = x^2, \qquad du = 2x\,dx.
+$$</div>
+<p>Then the integral becomes</p>
+<div class="math-block">$$
+\int \cos u\,du = \sin u + C.
+$$</div>
+<p>Substitute back:</p>
+<div class="math-block">$$
+\int 2x\cos(x^2)\,dx = \sin(x^2) + C.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Integration by Parts, Exponential Functions" data-problem-difficulty="Direct" data-problem-answer="Use integration by parts with
+
+$$
+u = x, \qquad dv = e^x\,dx.
+$$
+
+Then
+
+$$
+du = dx, \qquad v = e^x.
+$$
+
+So
+
+$$
+\int x e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Use Integration by Parts on a Product</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#integration-by-parts" data-notes-nav-item>Integration by Parts</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#exponential-functions" data-notes-nav-item>Exponential Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int x e^x\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-16">Your work for Use Integration by Parts on a Product</label>
+          <textarea
+            id="practice-study-integrals-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use integration by parts with</p>
+<div class="math-block">$$
+u = x, \qquad dv = e^x\,dx.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+du = dx, \qquad v = e^x.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\int x e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Partial Fractions, Rational Functions" data-problem-difficulty="Direct" data-problem-answer="Write the integrand as partial fractions:
+
+$$
+\frac{1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
+$$
+
+Multiply by $x(x+2)$:
+
+$$
+1 = A(x+2) + Bx.
+$$
+
+Set $x=0$ to get $1=2A$, so $A=\frac12$.  
+Set $x=-2$ to get $1=-2B$, so $B=-\frac12$.
+
+Thus
+
+$$
+\frac{1}{x(x+2)} = \frac{1}{2x} - \frac{1}{2(x+2)}.
+$$
+
+Integrate:
+
+$$
+\int \frac{1}{x(x+2)}\,dx
+= \frac12 \ln|x| - \frac12 \ln|x+2| + C.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Decompose a Simple Rational Integral</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#partial-fractions" data-notes-nav-item>Partial Fractions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#rational-functions" data-notes-nav-item>Rational Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int \frac{1}{x(x+2)}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-17">Your work for Decompose a Simple Rational Integral</label>
+          <textarea
+            id="practice-study-integrals-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the integrand as partial fractions:</p>
+<div class="math-block">$$
+\frac{1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
+$$</div>
+<p>Multiply by $x(x+2)$:</p>
+<div class="math-block">$$
+1 = A(x+2) + Bx.
+$$</div>
+<p>Set $x=0$ to get $1=2A$, so $A=\frac12$.   Set $x=-2$ to get $1=-2B$, so $B=-\frac12$.</p>
+<p>Thus</p>
+<div class="math-block">$$
+\frac{1}{x(x+2)} = \frac{1}{2x} - \frac{1}{2(x+2)}.
+$$</div>
+<p>Integrate:</p>
+<div class="math-block">$$
+\int \frac{1}{x(x+2)}\,dx
+= \frac12 \ln|x| - \frac12 \ln|x+2| + C.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Trig Identities, Definite Integrals" data-problem-difficulty="Direct" data-problem-answer="Use the identity
+
+$$
+\sin^2 x = \frac{1-\cos(2x)}{2}.
+$$
+
+Then
+
+$$
+\int_0^{\pi/2} \sin^2 x\,dx
+= \frac12 \int_0^{\pi/2} \left(1-\cos(2x)\right)\,dx.
+$$
+
+Evaluate:
+
+$$
+\frac12\left[x - \frac{\sin(2x)}{2}\right]_0^{\pi/2}
+= \frac12\left(\frac{\pi}{2}\right)
+= \frac{\pi}{4}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Use a Trig Identity Before Integrating</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#trig-identities" data-notes-nav-item>Trig Identities</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute:</p>
+<div class="math-block">$$
+\int_0^{\pi/2} \sin^2 x\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-18">Your work for Use a Trig Identity Before Integrating</label>
+          <textarea
+            id="practice-study-integrals-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the identity</p>
+<div class="math-block">$$
+\sin^2 x = \frac{1-\cos(2x)}{2}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\int_0^{\pi/2} \sin^2 x\,dx
+= \frac12 \int_0^{\pi/2} \left(1-\cos(2x)\right)\,dx.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+\frac12\left[x - \frac{\sin(2x)}{2}\right]_0^{\pi/2}
+= \frac12\left(\frac{\pi}{2}\right)
+= \frac{\pi}{4}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Improper Integrals, Convergence" data-problem-difficulty="Direct" data-problem-answer="Write it as a limit:
+
+$$
+\int_1^\infty \frac{1}{x^3}\,dx
+= \lim_{b\to\infty}\int_1^b x^{-3}\,dx.
+$$
+
+An antiderivative is
+
+$$
+\int x^{-3}\,dx = -\frac{1}{2x^2}.
+$$
+
+So
+
+$$
+\lim_{b\to\infty}\left[-\frac{1}{2x^2}\right]_1^b
+= \lim_{b\to\infty}\left(-\frac{1}{2b^2}+\frac12\right)
+= \frac12.
+$$
+
+The integral converges to $\frac12$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Test an Improper Integral</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#improper-integrals" data-notes-nav-item>Improper Integrals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#convergence" data-notes-nav-item>Convergence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate the improper integral:</p>
+<div class="math-block">$$
+\int_1^\infty \frac{1}{x^3}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-19">Your work for Test an Improper Integral</label>
+          <textarea
+            id="practice-study-integrals-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write it as a limit:</p>
+<div class="math-block">$$
+\int_1^\infty \frac{1}{x^3}\,dx
+= \lim_{b\to\infty}\int_1^b x^{-3}\,dx.
+$$</div>
+<p>An antiderivative is</p>
+<div class="math-block">$$
+\int x^{-3}\,dx = -\frac{1}{2x^2}.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\lim_{b\to\infty}\left[-\frac{1}{2x^2}\right]_1^b
+= \lim_{b\to\infty}\left(-\frac{1}{2b^2}+\frac12\right)
+= \frac12.
+$$</div>
+<p>The integral converges to $\frac12$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Trapezoidal Rule, Numerical Integration" data-problem-difficulty="Direct" data-problem-answer="With $n=2$,
+
+$$
+\Delta x = \frac{2-0}{2} = 1.
+$$
+
+The sample points are $x_0=0$, $x_1=1$, and $x_2=2$.
+
+Evaluate the function:
+
+$$
+f(0)=1,\qquad f(1)=2,\qquad f(2)=5.
+$$
+
+Apply the trapezoidal rule:
+
+$$
+\int_0^2 (x^2+1)\,dx \approx \frac{\Delta x}{2}\left[f(0)+2f(1)+f(2)\right].
+$$
+
+So
+
+$$
+\frac{1}{2}(1+2\cdot 2+5)=\frac{10}{2}=5.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Estimate an Integral with the Trapezoidal Rule</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#trapezoidal-rule" data-notes-nav-item>Trapezoidal Rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#numerical-integration" data-notes-nav-item>Numerical Integration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use the trapezoidal rule with $n=2$ to approximate</p>
+<div class="math-block">$$
+\int_0^2 (x^2+1)\,dx.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-110">Your work for Estimate an Integral with the Trapezoidal Rule</label>
+          <textarea
+            id="practice-study-integrals-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>With $n=2$,</p>
+<div class="math-block">$$
+\Delta x = \frac{2-0}{2} = 1.
+$$</div>
+<p>The sample points are $x_0=0$, $x_1=1$, and $x_2=2$.</p>
+<p>Evaluate the function:</p>
+<div class="math-block">$$
+f(0)=1,\qquad f(1)=2,\qquad f(2)=5.
+$$</div>
+<p>Apply the trapezoidal rule:</p>
+<div class="math-block">$$
+\int_0^2 (x^2+1)\,dx \approx \frac{\Delta x}{2}\left[f(0)+2f(1)+f(2)\right].
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{1}{2}(1+2\cdot 2+5)=\frac{10}{2}=5.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="integrals-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Substitution, Definite Integrals" data-problem-difficulty="Integrated" data-problem-answer="Let
+
+$$
+u = 1+x^2, \qquad du = 2x\,dx.
+$$
+
+Change the bounds:
+
+$$
+x=0 \Rightarrow u=1, \qquad x=1 \Rightarrow u=2.
+$$
+
+Then
+
+$$
+\int_0^1 \frac{2x}{1+x^2}\,dx
+= \int_1^2 \frac{1}{u}\,du
+= \left[\ln|u|\right]_1^2
+= \ln 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Substitute and Change the Bounds</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#substitution" data-notes-nav-item>Substitution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int_0^1 \frac{2x}{1+x^2}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-21">Your work for Substitute and Change the Bounds</label>
+          <textarea
+            id="practice-study-integrals-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let</p>
+<div class="math-block">$$
+u = 1+x^2, \qquad du = 2x\,dx.
+$$</div>
+<p>Change the bounds:</p>
+<div class="math-block">$$
+x=0 \Rightarrow u=1, \qquad x=1 \Rightarrow u=2.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\int_0^1 \frac{2x}{1+x^2}\,dx
+= \int_1^2 \frac{1}{u}\,du
+= \left[\ln|u|\right]_1^2
+= \ln 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Integration by Parts, Logarithms" data-problem-difficulty="Integrated" data-problem-answer="Use integration by parts with
+
+$$
+u=\ln x,\qquad dv=x\,dx.
+$$
+
+Then
+
+$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$
+
+So
+
+$$
+\int_1^e x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_1^e - \frac12\int_1^e x\,dx.
+$$
+
+Now evaluate each part:
+
+$$
+\left[\frac{x^2}{2}\ln x\right]_1^e = \frac{e^2}{2}
+$$
+
+and
+
+$$
+\frac12\int_1^e x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_1^e
+= \frac{e^2-1}{4}.
+$$
+
+Therefore
+
+$$
+\int_1^e x\ln x\,dx
+= \frac{e^2}{2}-\frac{e^2-1}{4}
+= \frac{e^2+1}{4}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Integrate a Logarithm by Parts</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#integration-by-parts" data-notes-nav-item>Integration by Parts</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#logarithms" data-notes-nav-item>Logarithms</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int_1^e x\ln x\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-22">Your work for Integrate a Logarithm by Parts</label>
+          <textarea
+            id="practice-study-integrals-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use integration by parts with</p>
+<div class="math-block">$$
+u=\ln x,\qquad dv=x\,dx.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\int_1^e x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_1^e - \frac12\int_1^e x\,dx.
+$$</div>
+<p>Now evaluate each part:</p>
+<div class="math-block">$$
+\left[\frac{x^2}{2}\ln x\right]_1^e = \frac{e^2}{2}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\frac12\int_1^e x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_1^e
+= \frac{e^2-1}{4}.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+\int_1^e x\ln x\,dx
+= \frac{e^2}{2}-\frac{e^2-1}{4}
+= \frac{e^2+1}{4}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Partial Fractions, Repeated Factors" data-problem-difficulty="Integrated" data-problem-answer="Write
+
+$$
+\frac{1}{x(x+1)^2} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^2}.
+$$
+
+Multiply by $x(x+1)^2$:
+
+$$
+1 = A(x+1)^2 + Bx(x+1) + Cx.
+$$
+
+Expanding gives
+
+$$
+1 = (A+B)x^2 + (2A+B+C)x + A.
+$$
+
+Match coefficients:
+
+$$
+A=1,\qquad A+B=0,\qquad 2A+B+C=0.
+$$
+
+So
+
+$$
+A=1,\qquad B=-1,\qquad C=-1.
+$$
+
+Therefore
+
+$$
+\frac{1}{x(x+1)^2} = \frac{1}{x} - \frac{1}{x+1} - \frac{1}{(x+1)^2}.
+$$
+
+Integrate term by term:
+
+$$
+\int \frac{1}{x(x+1)^2}\,dx
+= \ln|x| - \ln|x+1| + \frac{1}{x+1} + C.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Decompose a Rational Function with a Repeated Factor</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#partial-fractions" data-notes-nav-item>Partial Fractions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#repeated-factors" data-notes-nav-item>Repeated Factors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int \frac{1}{x(x+1)^2}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-23">Your work for Decompose a Rational Function with a Repeated Factor</label>
+          <textarea
+            id="practice-study-integrals-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write</p>
+<div class="math-block">$$
+\frac{1}{x(x+1)^2} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^2}.
+$$</div>
+<p>Multiply by $x(x+1)^2$:</p>
+<div class="math-block">$$
+1 = A(x+1)^2 + Bx(x+1) + Cx.
+$$</div>
+<p>Expanding gives</p>
+<div class="math-block">$$
+1 = (A+B)x^2 + (2A+B+C)x + A.
+$$</div>
+<p>Match coefficients:</p>
+<div class="math-block">$$
+A=1,\qquad A+B=0,\qquad 2A+B+C=0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+A=1,\qquad B=-1,\qquad C=-1.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+\frac{1}{x(x+1)^2} = \frac{1}{x} - \frac{1}{x+1} - \frac{1}{(x+1)^2}.
+$$</div>
+<p>Integrate term by term:</p>
+<div class="math-block">$$
+\int \frac{1}{x(x+1)^2}\,dx
+= \ln|x| - \ln|x+1| + \frac{1}{x+1} + C.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Trig Substitution, Definite Integrals" data-problem-difficulty="Integrated" data-problem-answer="Use the substitution
+
+$$
+x = 3\sin\theta, \qquad dx = 3\cos\theta\,d\theta.
+$$
+
+The bounds change as follows:
+
+$$
+x=0 \Rightarrow \theta=0, \qquad x=\frac32 \Rightarrow \sin\theta=\frac12 \Rightarrow \theta=\frac{\pi}{6}.
+$$
+
+Also,
+
+$$
+\sqrt{9-x^2} = \sqrt{9-9\sin^2\theta} = 3\cos\theta.
+$$
+
+So the integral becomes
+
+$$
+\int_0^{\pi/6} \frac{3\cos\theta}{3\cos\theta}\,d\theta
+= \int_0^{\pi/6} d\theta
+= \frac{\pi}{6}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use Trig Substitution on a Radical</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#trig-substitution" data-notes-nav-item>Trig Substitution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute:</p>
+<div class="math-block">$$
+\int_0^{3/2} \frac{dx}{\sqrt{9-x^2}}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-24">Your work for Use Trig Substitution on a Radical</label>
+          <textarea
+            id="practice-study-integrals-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the substitution</p>
+<div class="math-block">$$
+x = 3\sin\theta, \qquad dx = 3\cos\theta\,d\theta.
+$$</div>
+<p>The bounds change as follows:</p>
+<div class="math-block">$$
+x=0 \Rightarrow \theta=0, \qquad x=\frac32 \Rightarrow \sin\theta=\frac12 \Rightarrow \theta=\frac{\pi}{6}.
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+\sqrt{9-x^2} = \sqrt{9-9\sin^2\theta} = 3\cos\theta.
+$$</div>
+<p>So the integral becomes</p>
+<div class="math-block">$$
+\int_0^{\pi/6} \frac{3\cos\theta}{3\cos\theta}\,d\theta
+= \int_0^{\pi/6} d\theta
+= \frac{\pi}{6}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Area Between Curves, Definite Integrals" data-problem-difficulty="Integrated" data-problem-answer="On $[0,2]$, the line $y=2x$ lies above $y=x^2$.
+
+So the area is
+
+$$
+\int_0^2 (2x-x^2)\,dx.
+$$
+
+Compute:
+
+$$
+\int_0^2 (2x-x^2)\,dx
+= \left[x^2 - \frac{x^3}{3}\right]_0^2
+= 4-\frac{8}{3}
+= \frac{4}{3}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find the Area Between Two Curves</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#area-between-curves" data-notes-nav-item>Area Between Curves</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the area between</p>
+<div class="math-block">$$
+y = 2x
+\quad \text{and} \quad
+y = x^2
+$$</div>
+<p>on the interval $[0,2]$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-25">Your work for Find the Area Between Two Curves</label>
+          <textarea
+            id="practice-study-integrals-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>On $[0,2]$, the line $y=2x$ lies above $y=x^2$.</p>
+<p>So the area is</p>
+<div class="math-block">$$
+\int_0^2 (2x-x^2)\,dx.
+$$</div>
+<p>Compute:</p>
+<div class="math-block">$$
+\int_0^2 (2x-x^2)\,dx
+= \left[x^2 - \frac{x^3}{3}\right]_0^2
+= 4-\frac{8}{3}
+= \frac{4}{3}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Washer Method, Volumes of Revolution" data-problem-difficulty="Integrated" data-problem-answer="Using washers, the outer radius is $R(x)=2$ and the inner radius is $r(x)=x$.
+
+So
+
+$$
+V=\pi\int_0^2 \left(R(x)^2-r(x)^2\right)\,dx
+=\pi\int_0^2 (4-x^2)\,dx.
+$$
+
+Evaluate:
+
+$$
+V=\pi\left[4x-\frac{x^3}{3}\right]_0^2
+=\pi\left(8-\frac{8}{3}\right)
+=\frac{16\pi}{3}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find Volume with the Washer Method</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#washer-method" data-notes-nav-item>Washer Method</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#volumes-of-revolution" data-notes-nav-item>Volumes of Revolution</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The region between $y=2$ and $y=x$ for $0 \le x \le 2$ is rotated about the $x$-axis. Find the volume.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-26">Your work for Find Volume with the Washer Method</label>
+          <textarea
+            id="practice-study-integrals-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Using washers, the outer radius is $R(x)=2$ and the inner radius is $r(x)=x$.</p>
+<p>So</p>
+<div class="math-block">$$
+V=\pi\int_0^2 \left(R(x)^2-r(x)^2\right)\,dx
+=\pi\int_0^2 (4-x^2)\,dx.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+V=\pi\left[4x-\frac{x^3}{3}\right]_0^2
+=\pi\left(8-\frac{8}{3}\right)
+=\frac{16\pi}{3}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Mass, Density" data-problem-difficulty="Integrated" data-problem-answer="Mass is the integral of density:
+
+$$
+m=\int_0^6 (1+2x)\,dx.
+$$
+
+Compute:
+
+$$
+m=\left[x+x^2\right]_0^6 = 6+36=42.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find Mass from a Density Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#mass" data-notes-nav-item>Mass</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#density" data-notes-nav-item>Density</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A thin rod has density</p>
+<div class="math-block">$$
+\rho(x)=1+2x
+$$</div>
+<p>for $0 \le x \le 6$.</p>
+<p>Find the mass of the rod.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-27">Your work for Find Mass from a Density Function</label>
+          <textarea
+            id="practice-study-integrals-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Mass is the integral of density:</p>
+<div class="math-block">$$
+m=\int_0^6 (1+2x)\,dx.
+$$</div>
+<p>Compute:</p>
+<div class="math-block">$$
+m=\left[x+x^2\right]_0^6 = 6+36=42.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Simpson&#39;s Rule, Numerical Integration" data-problem-difficulty="Integrated" data-problem-answer="With $n=2$,
+
+$$
+\Delta x = \frac{2-0}{2}=1.
+$$
+
+The sample points are $0$, $1$, and $2$.
+
+Evaluate the function:
+
+$$
+f(0)=0,\qquad f(1)=1,\qquad f(2)=16.
+$$
+
+Apply Simpson&#39;s rule:
+
+$$
+\int_0^2 x^4\,dx \approx \frac{\Delta x}{3}\left[f(0)+4f(1)+f(2)\right].
+$$
+
+So
+
+$$
+\frac{1}{3}(0+4\cdot 1+16)=\frac{20}{3}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Estimate an Integral with Simpson&#39;s Rule</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#simpsons-rule-numerical-integration" data-notes-nav-item>Simpson&#39;s Rule, Numerical Integration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Use Simpson&#39;s rule with $n=2$ to approximate</p>
+<div class="math-block">$$
+\int_0^2 x^4\,dx.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-28">Your work for Estimate an Integral with Simpson&#39;s Rule</label>
+          <textarea
+            id="practice-study-integrals-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>With $n=2$,</p>
+<div class="math-block">$$
+\Delta x = \frac{2-0}{2}=1.
+$$</div>
+<p>The sample points are $0$, $1$, and $2$.</p>
+<p>Evaluate the function:</p>
+<div class="math-block">$$
+f(0)=0,\qquad f(1)=1,\qquad f(2)=16.
+$$</div>
+<p>Apply Simpson&#39;s rule:</p>
+<div class="math-block">$$
+\int_0^2 x^4\,dx \approx \frac{\Delta x}{3}\left[f(0)+4f(1)+f(2)\right].
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{1}{3}(0+4\cdot 1+16)=\frac{20}{3}.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="integrals-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Applications, Velocity" data-problem-difficulty="Applied" data-problem-answer="Displacement is the integral of velocity:
+
+$$
+\int_0^2 (3t^2-2t)\,dt.
+$$
+
+An antiderivative is
+
+$$
+t^3-t^2.
+$$
+
+Evaluate:
+
+$$
+\left[t^3-t^2\right]_0^2 = (8-4)-0 = 4.
+$$
+
+So the displacement is $4$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find Displacement from a Velocity Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#applications" data-notes-nav-item>Applications</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#velocity" data-notes-nav-item>Velocity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle has velocity</p>
+<div class="math-block">$$
+v(t)=3t^2-2t
+$$</div>
+<p>for $0 \le t \le 2$.</p>
+<p>Find the displacement over that time interval.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-31">Your work for Find Displacement from a Velocity Function</label>
+          <textarea
+            id="practice-study-integrals-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Displacement is the integral of velocity:</p>
+<div class="math-block">$$
+\int_0^2 (3t^2-2t)\,dt.
+$$</div>
+<p>An antiderivative is</p>
+<div class="math-block">$$
+t^3-t^2.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+\left[t^3-t^2\right]_0^2 = (8-4)-0 = 4.
+$$</div>
+<p>So the displacement is $4$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Shell Method, Volumes of Revolution" data-problem-difficulty="Applied" data-problem-answer="Using shells, the radius is $x$ and the height is $\sqrt{x}$.
+
+So
+
+$$
+V = 2\pi \int_0^4 x\sqrt{x}\,dx
+= 2\pi \int_0^4 x^{3/2}\,dx.
+$$
+
+Compute:
+
+$$
+\int x^{3/2}\,dx = \frac{2}{5}x^{5/2}.
+$$
+
+Therefore
+
+$$
+V = 2\pi \left[\frac{2}{5}x^{5/2}\right]_0^4
+= \frac{4\pi}{5}\cdot 4^{5/2}
+= \frac{4\pi}{5}\cdot 32
+= \frac{128\pi}{5}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Find Volume with the Shell Method</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#shell-method" data-notes-nav-item>Shell Method</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#volumes-of-revolution" data-notes-nav-item>Volumes of Revolution</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The region under</p>
+<div class="math-block">$$
+y=\sqrt{x}
+$$</div>
+<p>from $x=0$ to $x=4$ is rotated about the $y$-axis. Find the volume.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-32">Your work for Find Volume with the Shell Method</label>
+          <textarea
+            id="practice-study-integrals-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Using shells, the radius is $x$ and the height is $\sqrt{x}$.</p>
+<p>So</p>
+<div class="math-block">$$
+V = 2\pi \int_0^4 x\sqrt{x}\,dx
+= 2\pi \int_0^4 x^{3/2}\,dx.
+$$</div>
+<p>Compute:</p>
+<div class="math-block">$$
+\int x^{3/2}\,dx = \frac{2}{5}x^{5/2}.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+V = 2\pi \left[\frac{2}{5}x^{5/2}\right]_0^4
+= \frac{4\pi}{5}\cdot 4^{5/2}
+= \frac{4\pi}{5}\cdot 32
+= \frac{128\pi}{5}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Probability Density Functions, Definite Integrals" data-problem-difficulty="Applied" data-problem-answer="Probability is the area under the density:
+
+$$
+P\left(\frac12 \le X \le 1\right)
+= \int_{1/2}^1 2x\,dx.
+$$
+
+Compute:
+
+$$
+\int_{1/2}^1 2x\,dx = \left[x^2\right]_{1/2}^1 = 1-\frac14 = \frac34.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find a Probability from a Density Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#probability-density-functions" data-notes-nav-item>Probability Density Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#definite-integrals" data-notes-nav-item>Definite Integrals</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose a random variable has density</p>
+<div class="math-block">$$
+f(x)=2x
+$$</div>
+<p>for $0 \le x \le 1$.</p>
+<p>Find</p>
+<div class="math-block">$$
+P\left(\frac12 \le X \le 1\right).
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-33">Your work for Find a Probability from a Density Function</label>
+          <textarea
+            id="practice-study-integrals-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Probability is the area under the density:</p>
+<div class="math-block">$$
+P\left(\frac12 \le X \le 1\right)
+= \int_{1/2}^1 2x\,dx.
+$$</div>
+<p>Compute:</p>
+<div class="math-block">$$
+\int_{1/2}^1 2x\,dx = \left[x^2\right]_{1/2}^1 = 1-\frac14 = \frac34.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Improper Integrals, Convergence" data-problem-difficulty="Applied" data-problem-answer="This is improper at $x=0$, so write it as a limit:
+
+$$
+\int_0^1 \frac{1}{\sqrt{x}}\,dx
+= \lim_{a\to 0^+}\int_a^1 x^{-1/2}\,dx.
+$$
+
+An antiderivative is
+
+$$
+2x^{1/2}.
+$$
+
+So
+
+$$
+\lim_{a\to 0^+}\left[2\sqrt{x}\right]_a^1
+= \lim_{a\to 0^+} (2-2\sqrt{a})
+= 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Evaluate an Improper Integral with a Vertical Asymptote</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#improper-integrals" data-notes-nav-item>Improper Integrals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#convergence" data-notes-nav-item>Convergence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int_0^1 \frac{1}{\sqrt{x}}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-34">Your work for Evaluate an Improper Integral with a Vertical Asymptote</label>
+          <textarea
+            id="practice-study-integrals-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is improper at $x=0$, so write it as a limit:</p>
+<div class="math-block">$$
+\int_0^1 \frac{1}{\sqrt{x}}\,dx
+= \lim_{a\to 0^+}\int_a^1 x^{-1/2}\,dx.
+$$</div>
+<p>An antiderivative is</p>
+<div class="math-block">$$
+2x^{1/2}.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\lim_{a\to 0^+}\left[2\sqrt{x}\right]_a^1
+= \lim_{a\to 0^+} (2-2\sqrt{a})
+= 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Geometric Area, Sign Changes" data-problem-difficulty="Applied" data-problem-answer="First factor:
+
+$$
+x^2-4x+3=(x-1)(x-3).
+$$
+
+So the graph crosses the $x$-axis at $x=1$ and $x=3$.
+
+On $[0,1]$ and $[3,4]$, the function is positive. On $[1,3]$, it is negative.
+
+Thus the geometric area is
+
+$$
+\int_0^1 f(x)\,dx - \int_1^3 f(x)\,dx + \int_3^4 f(x)\,dx.
+$$
+
+An antiderivative is
+
+$$
+\frac{x^3}{3} - 2x^2 + 3x.
+$$
+
+Evaluate:
+
+$$
+\int_0^1 f(x)\,dx = \frac{4}{3},
+$$
+
+$$
+\int_1^3 f(x)\,dx = -\frac{4}{3},
+$$
+
+$$
+\int_3^4 f(x)\,dx = \frac{4}{3}.
+$$
+
+So the total area is
+
+$$
+\frac{4}{3}+\frac{4}{3}+\frac{4}{3}=4.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Find Geometric Area When the Sign Changes</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#geometric-area" data-notes-nav-item>Geometric Area</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#sign-changes" data-notes-nav-item>Sign Changes</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the geometric area between</p>
+<div class="math-block">$$
+f(x)=x^2-4x+3
+$$</div>
+<p>and the $x$-axis on $[0,4]$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-35">Your work for Find Geometric Area When the Sign Changes</label>
+          <textarea
+            id="practice-study-integrals-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First factor:</p>
+<div class="math-block">$$
+x^2-4x+3=(x-1)(x-3).
+$$</div>
+<p>So the graph crosses the $x$-axis at $x=1$ and $x=3$.</p>
+<p>On $[0,1]$ and $[3,4]$, the function is positive. On $[1,3]$, it is negative.</p>
+<p>Thus the geometric area is</p>
+<div class="math-block">$$
+\int_0^1 f(x)\,dx - \int_1^3 f(x)\,dx + \int_3^4 f(x)\,dx.
+$$</div>
+<p>An antiderivative is</p>
+<div class="math-block">$$
+\frac{x^3}{3} - 2x^2 + 3x.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+\int_0^1 f(x)\,dx = \frac{4}{3},
+$$</div>
+<div class="math-block">$$
+\int_1^3 f(x)\,dx = -\frac{4}{3},
+$$</div>
+<div class="math-block">$$
+\int_3^4 f(x)\,dx = \frac{4}{3}.
+$$</div>
+<p>So the total area is</p>
+<div class="math-block">$$
+\frac{4}{3}+\frac{4}{3}+\frac{4}{3}=4.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="integrals-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Improper Integrals, Integration by Parts" data-problem-difficulty="Challenge" data-problem-answer="This is improper at $x=0$, so treat it as a limit:
+
+$$
+\int_0^1 x\ln x\,dx
+= \lim_{a\to 0^+}\int_a^1 x\ln x\,dx.
+$$
+
+Use integration by parts with
+
+$$
+u=\ln x,\qquad dv=x\,dx.
+$$
+
+Then
+
+$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$
+
+So
+
+$$
+\int_a^1 x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_a^1 - \frac12\int_a^1 x\,dx.
+$$
+
+The boundary term at $x=1$ is $0$, and $a^2\ln a \to 0$ as $a\to 0^+$.
+
+Also,
+
+$$
+\frac12\int_a^1 x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_a^1
+= \frac{1-a^2}{4}.
+$$
+
+Therefore
+
+$$
+\int_0^1 x\ln x\,dx = -\frac14.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Handle an Endpoint Singularity with Parts</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#improper-integrals" data-notes-nav-item>Improper Integrals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#integration-by-parts" data-notes-nav-item>Integration by Parts</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int_0^1 x\ln x\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-41">Your work for Handle an Endpoint Singularity with Parts</label>
+          <textarea
+            id="practice-study-integrals-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is improper at $x=0$, so treat it as a limit:</p>
+<div class="math-block">$$
+\int_0^1 x\ln x\,dx
+= \lim_{a\to 0^+}\int_a^1 x\ln x\,dx.
+$$</div>
+<p>Use integration by parts with</p>
+<div class="math-block">$$
+u=\ln x,\qquad dv=x\,dx.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\int_a^1 x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_a^1 - \frac12\int_a^1 x\,dx.
+$$</div>
+<p>The boundary term at $x=1$ is $0$, and $a^2\ln a \to 0$ as $a\to 0^+$.</p>
+<p>Also,</p>
+<div class="math-block">$$
+\frac12\int_a^1 x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_a^1
+= \frac{1-a^2}{4}.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+\int_0^1 x\ln x\,dx = -\frac14.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Improper Integrals, Substitution" data-problem-difficulty="Challenge" data-problem-answer="Write the integral as a limit:
+
+$$
+\int_0^\infty \frac{x}{(1+x^2)^2}\,dx
+= \lim_{b\to\infty}\int_0^b \frac{x}{(1+x^2)^2}\,dx.
+$$
+
+Use the substitution
+
+$$
+u = 1+x^2,\qquad du = 2x\,dx.
+$$
+
+Then
+
+$$
+\int_0^b \frac{x}{(1+x^2)^2}\,dx
+= \frac12\int_1^{1+b^2} u^{-2}\,du.
+$$
+
+Compute:
+
+$$
+\frac12\left[-u^{-1}\right]_1^{1+b^2}
+= \frac12\left(1-\frac{1}{1+b^2}\right).
+$$
+
+Now let $b\to\infty$:
+
+$$
+\frac12\left(1-\frac{1}{1+b^2}\right)\to \frac12.
+$$
+
+So the integral converges to $\frac12$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Evaluate an Improper Integral After Substitution</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#improper-integrals" data-notes-nav-item>Improper Integrals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#substitution" data-notes-nav-item>Substitution</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Evaluate:</p>
+<div class="math-block">$$
+\int_0^\infty \frac{x}{(1+x^2)^2}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-42">Your work for Evaluate an Improper Integral After Substitution</label>
+          <textarea
+            id="practice-study-integrals-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the integral as a limit:</p>
+<div class="math-block">$$
+\int_0^\infty \frac{x}{(1+x^2)^2}\,dx
+= \lim_{b\to\infty}\int_0^b \frac{x}{(1+x^2)^2}\,dx.
+$$</div>
+<p>Use the substitution</p>
+<div class="math-block">$$
+u = 1+x^2,\qquad du = 2x\,dx.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\int_0^b \frac{x}{(1+x^2)^2}\,dx
+= \frac12\int_1^{1+b^2} u^{-2}\,du.
+$$</div>
+<p>Compute:</p>
+<div class="math-block">$$
+\frac12\left[-u^{-1}\right]_1^{1+b^2}
+= \frac12\left(1-\frac{1}{1+b^2}\right).
+$$</div>
+<p>Now let $b\to\infty$:</p>
+<div class="math-block">$$
+\frac12\left(1-\frac{1}{1+b^2}\right)\to \frac12.
+$$</div>
+<p>So the integral converges to $\frac12$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Shell Method, Area Between Curves" data-problem-difficulty="Challenge" data-problem-answer="The curves intersect where
+
+$$
+x=x^2,
+$$
+
+so $x=0$ and $x=1$.
+
+Using shells, the radius is $x$ and the height is
+
+$$
+x-x^2.
+$$
+
+Thus
+
+$$
+V = 2\pi\int_0^1 x(x-x^2)\,dx
+= 2\pi\int_0^1 (x^2-x^3)\,dx.
+$$
+
+Evaluate:
+
+$$
+V = 2\pi\left[\frac{x^3}{3}-\frac{x^4}{4}\right]_0^1
+= 2\pi\left(\frac13-\frac14\right)
+= 2\pi\cdot\frac{1}{12}
+= \frac{\pi}{6}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Use Shells on a Region Between Curves</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#shell-method" data-notes-nav-item>Shell Method</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#area-between-curves" data-notes-nav-item>Area Between Curves</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>The region enclosed by</p>
+<div class="math-block">$$
+y=x
+\quad \text{and} \quad
+y=x^2
+$$</div>
+<p>is rotated about the $y$-axis. Find the volume.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-43">Your work for Use Shells on a Region Between Curves</label>
+          <textarea
+            id="practice-study-integrals-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The curves intersect where</p>
+<div class="math-block">$$
+x=x^2,
+$$</div>
+<p>so $x=0$ and $x=1$.</p>
+<p>Using shells, the radius is $x$ and the height is</p>
+<div class="math-block">$$
+x-x^2.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+V = 2\pi\int_0^1 x(x-x^2)\,dx
+= 2\pi\int_0^1 (x^2-x^3)\,dx.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+V = 2\pi\left[\frac{x^3}{3}-\frac{x^4}{4}\right]_0^1
+= 2\pi\left(\frac13-\frac14\right)
+= 2\pi\cdot\frac{1}{12}
+= \frac{\pi}{6}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="integrals-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Trig Substitution, Trig Identities" data-problem-difficulty="Challenge" data-problem-answer="Use the trig substitution
+
+$$
+x=3\sin\theta,\qquad dx=3\cos\theta\,d\theta.
+$$
+
+The bounds become
+
+$$
+x=0 \Rightarrow \theta=0,
+\qquad
+x=\frac32 \Rightarrow \theta=\frac{\pi}{6}.
+$$
+
+Also,
+
+$$
+\sqrt{9-x^2}=3\cos\theta.
+$$
+
+So the integral becomes
+
+$$
+\int_0^{\pi/6} \frac{9\sin^2\theta}{3\cos\theta}\cdot 3\cos\theta\,d\theta
+= 9\int_0^{\pi/6}\sin^2\theta\,d\theta.
+$$
+
+Use
+
+$$
+\sin^2\theta=\frac{1-\cos(2\theta)}{2}.
+$$
+
+Then
+
+$$
+9\int_0^{\pi/6}\sin^2\theta\,d\theta
+= \frac{9}{2}\int_0^{\pi/6}\left(1-\cos(2\theta)\right)\,d\theta.
+$$
+
+Evaluate:
+
+$$
+\frac{9}{2}\left[\theta-\frac{\sin(2\theta)}{2}\right]_0^{\pi/6}
+= \frac{9}{2}\left(\frac{\pi}{6}-\frac{\sin(\pi/3)}{2}\right).
+$$
+
+Since $\sin(\pi/3)=\frac{\sqrt3}{2}$,
+
+$$
+\frac{9}{2}\left(\frac{\pi}{6}-\frac{\sqrt3}{4}\right)
+= \frac{3\pi}{4}-\frac{9\sqrt3}{8}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Combine Trig Substitution with a Trig Identity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#trig-substitution" data-notes-nav-item>Trig Substitution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/integrals/#trig-identities" data-notes-nav-item>Trig Identities</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute:</p>
+<div class="math-block">$$
+\int_0^{3/2} \frac{x^2}{\sqrt{9-x^2}}\,dx
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-integrals-44">Your work for Combine Trig Substitution with a Trig Identity</label>
+          <textarea
+            id="practice-study-integrals-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the trig substitution</p>
+<div class="math-block">$$
+x=3\sin\theta,\qquad dx=3\cos\theta\,d\theta.
+$$</div>
+<p>The bounds become</p>
+<div class="math-block">$$
+x=0 \Rightarrow \theta=0,
+\qquad
+x=\frac32 \Rightarrow \theta=\frac{\pi}{6}.
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+\sqrt{9-x^2}=3\cos\theta.
+$$</div>
+<p>So the integral becomes</p>
+<div class="math-block">$$
+\int_0^{\pi/6} \frac{9\sin^2\theta}{3\cos\theta}\cdot 3\cos\theta\,d\theta
+= 9\int_0^{\pi/6}\sin^2\theta\,d\theta.
+$$</div>
+<p>Use</p>
+<div class="math-block">$$
+\sin^2\theta=\frac{1-\cos(2\theta)}{2}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+9\int_0^{\pi/6}\sin^2\theta\,d\theta
+= \frac{9}{2}\int_0^{\pi/6}\left(1-\cos(2\theta)\right)\,d\theta.
+$$</div>
+<p>Evaluate:</p>
+<div class="math-block">$$
+\frac{9}{2}\left[\theta-\frac{\sin(2\theta)}{2}\right]_0^{\pi/6}
+= \frac{9}{2}\left(\frac{\pi}{6}-\frac{\sin(\pi/3)}{2}\right).
+$$</div>
+<p>Since $\sin(\pi/3)=\frac{\sqrt3}{2}$,</p>
+<div class="math-block">$$
+\frac{9}{2}\left(\frac{\pi}{6}-\frac{\sqrt3}{4}\right)
+= \frac{3\pi}{4}-\frac{9\sqrt3}{8}.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

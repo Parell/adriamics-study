@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discrete Math | Adriamics Study</title>
+  <meta name="description" content="Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and th..." />
+  <link rel="canonical" href="https://adriamics.com/study/math/discrete-math/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/discrete-math/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#discrete-mathematics" data-notes-nav-item data-notes-toc-link>Discrete Mathematics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#logic-and-propositions" data-notes-nav-item data-notes-toc-link>Logic and propositions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sets-functions-and-relations" data-notes-nav-item data-notes-toc-link>Sets, functions, and relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proof-techniques" data-notes-nav-item data-notes-toc-link>Proof techniques</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#induction-and-recursion" data-notes-nav-item data-notes-toc-link>Induction and recursion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#counting-and-combinatorics" data-notes-nav-item data-notes-toc-link>Counting and combinatorics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#discrete-probability" data-notes-nav-item data-notes-toc-link>Discrete probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#number-theory-and-modular-arithmetic" data-notes-nav-item data-notes-toc-link>Number theory and modular arithmetic</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graphs-and-trees" data-notes-nav-item data-notes-toc-link>Graphs and trees</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#algorithms-growth-and-recurrences" data-notes-nav-item data-notes-toc-link>Algorithms, growth, and recurrences</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Discrete Math</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/discrete-math/discrete-math.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fdiscrete-math%2Fdiscrete-math.md&amp;title=%5BContribute%5D%3A%20Discrete%20Math" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="1"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/discrete-math/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="discrete-mathematics">Discrete Mathematics</h1>
+<p>Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.</p>
+<blockquote><p><strong>Before you begin:</strong> Use <a href="/study/math/logic/">Logic</a> before this course. Discrete Math introduces the proof techniques used throughout the subject; for a focused, deeper treatment of constructing and presenting proofs, continue to <a href="/study/math/proof-writing/">Proof Writing</a> afterward.</p></blockquote>
+<h1 id="logic-and-propositions">Logic and propositions</h1>
+<p>A <strong>proposition</strong> is a statement that is either true or false.</p>
+<p>Examples:</p>
+<ul><li><p>&quot;7 is prime&quot; is a proposition.</p></li><li><p>&quot;$x &gt; 3$&quot; is not a proposition until $x$ is specified.</p></li></ul>
+<h2 id="logical-operators">Logical operators</h2>
+<table><thead><tr><th>Operator</th><th>Meaning</th><th>Symbol</th></tr></thead><tbody><tr><td>Negation</td><td>not $p$</td><td>$\neg p$</td></tr><tr><td>And</td><td>$p$ and $q$</td><td>$p \land q$</td></tr><tr><td>Or</td><td>$p$ or $q$</td><td>$p \lor q$</td></tr><tr><td>Imply</td><td>if $p$, then $q$</td><td>$p \to q$</td></tr><tr><td>Biconditional</td><td>$p$ iff $q$</td><td>$p \leftrightarrow q$</td></tr></tbody></table>
+<p>The implication $p \to q$ is false only when $p$ is true and $q$ is false.</p>
+<h2 id="common-equivalences">Common equivalences</h2>
+<p>These are used constantly in simplification and proof:</p>
+<div class="math-block">$$
+\neg (p \land q) \equiv \neg p \lor \neg q
+$$</div>
+<div class="math-block">$$
+\neg (p \lor q) \equiv \neg p \land \neg q
+$$</div>
+<div class="math-block">$$
+p \to q \equiv \neg p \lor q
+$$</div>
+<div class="math-block">$$
+p \leftrightarrow q \equiv (p \to q) \land (q \to p)
+$$</div>
+<div class="math-block">$$
+\neg (p \to q) \equiv p \land \neg q
+$$</div>
+<h2 id="quantifiers">Quantifiers</h2>
+<p>Quantifiers turn predicates into statements.</p>
+<ul><li><p>Universal: $\forall x\, P(x)$ means &quot;for all $x$, $P(x)$ holds&quot;</p></li><li><p>Existential: $\exists x\, P(x)$ means &quot;there exists an $x$ such that $P(x)$ holds&quot;</p></li></ul>
+<p>Negating quantified statements:</p>
+<div class="math-block">$$
+\neg (\forall x\, P(x)) \equiv \exists x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg (\exists x\, P(x)) \equiv \forall x\, \neg P(x)
+$$</div>
+<h2 id="converse-inverse-contrapositive">Converse, inverse, contrapositive</h2>
+<p>Given $p \to q$:</p>
+<ul><li><p>Converse: $q \to p$</p></li><li><p>Inverse: $\neg p \to \neg q$</p></li><li><p>Contrapositive: $\neg q \to \neg p$</p></li></ul>
+<p>Only the contrapositive is logically equivalent to the original implication.</p>
+<h2 id="example">Example</h2>
+<p>Statement:</p>
+<div class="math-block">$$
+\forall n \in \mathbb{Z},\ n \text{ even } \to n^2 \text{ even}
+$$</div>
+<p>This is true. A clean proof is:</p>
+<p>If $n$ is even, then $n = 2k$ for some integer $k$. Then</p>
+<div class="math-block">$$
+n^2 = (2k)^2 = 4k^2 = 2(2k^2)
+$$</div>
+<p>so $n^2$ is even.</p>
+<hr />
+<h1 id="sets-functions-and-relations">Sets, functions, and relations</h1>
+<h2 id="sets">Sets</h2>
+<p>A <strong>set</strong> is an unordered collection of distinct objects.</p>
+<p>Common notation:</p>
+<div class="math-block">$$
+a \in A,\quad a \notin A,\quad A \subseteq B
+$$</div>
+<p>Basic operations:</p>
+<div class="math-block">$$
+A \cup B,\quad A \cap B,\quad A \setminus B,\quad A^c
+$$</div>
+<p>Useful identities:</p>
+<div class="math-block">$$
+A \cup \varnothing = A,\quad A \cap U = A
+$$</div>
+<div class="math-block">$$
+A \cup A = A,\quad A \cap A = A
+$$</div>
+<div class="math-block">$$
+A \cup B = B \cup A,\quad A \cap B = B \cap A
+$$</div>
+<div class="math-block">$$
+(A \cup B)^c = A^c \cap B^c
+$$</div>
+<div class="math-block">$$
+(A \cap B)^c = A^c \cup B^c
+$$</div>
+<h2 id="power-sets">Power sets</h2>
+<p>The <strong>power set</strong> $\mathcal{P}(A)$ is the set of all subsets of $A$.</p>
+<p>If $|A| = n$, then:</p>
+<div class="math-block">$$
+|\mathcal{P}(A)| = 2^n
+$$</div>
+<h2 id="cartesian-products">Cartesian products</h2>
+<p>The Cartesian product is:</p>
+<div class="math-block">$$
+A \times B = \{(a,b) : a \in A,\ b \in B\}
+$$</div>
+<p>If $|A| = m$ and $|B| = n$, then:</p>
+<div class="math-block">$$
+|A \times B| = mn
+$$</div>
+<h2 id="functions">Functions</h2>
+<p>A <strong>function</strong> $f: A \to B$ assigns each element of $A$ exactly one element of $B$.</p>
+<p>Important properties:</p>
+<ul><li><p>Injective: different inputs give different outputs</p></li><li><p>Surjective: every element of the codomain is hit</p></li><li><p>Bijective: both injective and surjective</p></li></ul>
+<p>If $f$ is bijective, then it has an inverse $f^{-1}$.</p>
+<h2 id="relations">Relations</h2>
+<p>A <strong>relation</strong> on a set $A$ is a subset of $A \times A$.</p>
+<p>Important properties:</p>
+<ul><li><p>Reflexive: $(a,a) \in R$ for all $a$</p></li><li><p>Symmetric: if $(a,b) \in R$, then $(b,a) \in R$</p></li><li><p>Antisymmetric: if $(a,b)$ and $(b,a)$ are both in $R$, then $a=b$</p></li><li><p>Transitive: if $(a,b)$ and $(b,c)$ are in $R$, then $(a,c)$ is in $R$</p></li></ul>
+<h2 id="equivalence-relations-and-partitions">Equivalence relations and partitions</h2>
+<p>An <strong>equivalence relation</strong> is reflexive, symmetric, and transitive.</p>
+<p>It breaks a set into <strong>equivalence classes</strong>.</p>
+<p>Example: congruence modulo $n$</p>
+<div class="math-block">$$
+a \equiv b \pmod n \iff n \mid (a-b)
+$$</div>
+<h2 id="partial-orders">Partial orders</h2>
+<p>A <strong>partial order</strong> is reflexive, antisymmetric, and transitive.</p>
+<p>Examples:</p>
+<ul><li><p>$\subseteq$ on sets</p></li><li><p>$\le$ on integers</p></li><li><p>Divisibility on positive integers</p></li></ul>
+<p>Partially ordered sets are often visualized with <strong>Hasse diagrams</strong>.</p>
+<hr />
+<h1 id="proof-techniques">Proof techniques</h1>
+<p>Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.</p>
+<p>This is a first introduction to proof methods in context. After completing Discrete Math, use <a href="/study/math/proof-writing/">Proof Writing</a> for dedicated practice with proof structure, strategy, and presentation.</p>
+<h2 id="direct-proof">Direct proof</h2>
+<p>Use definitions and algebraic manipulation to move from assumptions to conclusion.</p>
+<p>Typical pattern:</p>
+<ol><li><p>Assume the hypothesis.</p></li><li><p>Expand the relevant definitions.</p></li><li><p>Derive the target statement.</p></li></ol>
+<h2 id="proof-by-contrapositive">Proof by contrapositive</h2>
+<p>To prove $p \to q$, prove the equivalent statement:</p>
+<div class="math-block">$$
+\neg q \to \neg p
+$$</div>
+<p>This is often easier when the conclusion is negative or divisibility-based.</p>
+<h2 id="proof-by-contradiction">Proof by contradiction</h2>
+<p>Assume the statement is false and derive an impossibility.</p>
+<p>Typical pattern:</p>
+<ol><li><p>Assume the claim fails.</p></li><li><p>Combine that assumption with known facts.</p></li><li><p>Reach a contradiction such as $0=1$ or &quot;an integer is both even and odd&quot;.</p></li></ol>
+<h2 id="proof-by-cases">Proof by cases</h2>
+<p>Split the domain into exhaustive cases and prove the claim in each one.</p>
+<p>Example: for integers, common cases are even/odd or positive/zero/negative.</p>
+<h2 id="existence-and-uniqueness">Existence and uniqueness</h2>
+<p>For &quot;there exists a unique $x$ such that $P(x)$&quot;:</p>
+<ol><li><p>Prove existence: show some $x$ satisfies $P(x)$.</p></li><li><p>Prove uniqueness: if $x$ and $y$ both satisfy $P$, then $x=y$.</p></li></ol>
+<h2 id="common-proof-pitfall">Common proof pitfall</h2>
+<p>Do not verify a general statement with a few examples. Examples can suggest a pattern, but they do not prove it.</p>
+<hr />
+<h1 id="induction-and-recursion">Induction and recursion</h1>
+<h2 id="mathematical-induction">Mathematical induction</h2>
+<p>Induction proves statements indexed by the positive integers.</p>
+<p>To prove $P(n)$ for all $n \ge n_0$:</p>
+<ol><li><p>Base case: prove $P(n_0)$.</p></li><li><p>Inductive step: assume $P(k)$ is true for an arbitrary $k \ge n_0$.</p></li><li><p>Use that assumption to prove $P(k+1)$.</p></li></ol>
+<p>This assumption is the <strong>inductive hypothesis</strong>.</p>
+<h2 id="example-2">Example</h2>
+<p>Prove:</p>
+<div class="math-block">$$
+1 + 2 + \cdots + n = \frac{n(n+1)}{2}
+$$</div>
+<p>Base case $n=1$:</p>
+<div class="math-block">$$
+1 = \frac{1 \cdot 2}{2}
+$$</div>
+<p>Inductive step: assume true for $n=k$. Then</p>
+<div class="math-block">$$
+1 + 2 + \cdots + k + (k+1)
+=
+\frac{k(k+1)}{2} + (k+1)
+=
+\frac{(k+1)(k+2)}{2}
+$$</div>
+<p>so it holds for $k+1$.</p>
+<h2 id="strong-induction">Strong induction</h2>
+<p>In <strong>strong induction</strong>, assume all earlier cases:</p>
+<div class="math-block">$$
+P(n_0), P(n_0+1), \dots, P(k)
+$$</div>
+<p>and use them to prove $P(k+1)$.</p>
+<p>This is useful when each case depends on several previous ones.</p>
+<h2 id="recursive-definitions">Recursive definitions</h2>
+<p>Many discrete objects are defined recursively.</p>
+<p>Example: Fibonacci numbers</p>
+<div class="math-block">$$
+F_0 = 0,\quad F_1 = 1,\quad F_n = F_{n-1} + F_{n-2}\ \text{for } n \ge 2
+$$</div>
+<p>To work with recursive definitions:</p>
+<ol><li><p>Identify base cases.</p></li><li><p>Identify the recurrence rule.</p></li><li><p>Check whether the rule determines each later value uniquely.</p></li></ol>
+<hr />
+<h1 id="counting-and-combinatorics">Counting and combinatorics</h1>
+<p>Counting arguments appear everywhere in probability, algorithms, graph theory, and proof.</p>
+<h2 id="sum-and-product-rules">Sum and product rules</h2>
+<ul><li><p>Sum rule: if tasks are mutually exclusive and can be done in $a$ or $b$ ways, total ways = $a+b$</p></li><li><p>Product rule: if a process has stages with $a$ then $b$ choices, total ways = $ab$</p></li></ul>
+<h2 id="factorials-and-permutations">Factorials and permutations</h2>
+<div class="math-block">$$
+n! = n(n-1)(n-2)\cdots 2 \cdot 1
+$$</div>
+<p>The number of ordered arrangements of $r$ objects chosen from $n$ is:</p>
+<div class="math-block">$$
+P(n,r) = \frac{n!}{(n-r)!}
+$$</div>
+<h2 id="combinations">Combinations</h2>
+<p>The number of unordered selections of $r$ objects from $n$ is:</p>
+<div class="math-block">$$
+\binom{n}{r} = \frac{n!}{r!(n-r)!}
+$$</div>
+<p>Useful identity:</p>
+<div class="math-block">$$
+\binom{n}{r} = \binom{n}{n-r}
+$$</div>
+<p>Pascal identity:</p>
+<div class="math-block">$$
+\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1}
+$$</div>
+<h2 id="binomial-theorem">Binomial theorem</h2>
+<div class="math-block">$$
+(x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^r
+$$</div>
+<h2 id="counting-with-repetition">Counting with repetition</h2>
+<p>If repetition is allowed and there are $n$ choices for each of $k$ positions, the count is:</p>
+<div class="math-block">$$
+n^k
+$$</div>
+<p>The number of multisets of size $r$ chosen from $n$ types is:</p>
+<div class="math-block">$$
+\binom{n+r-1}{r}
+$$</div>
+<h2 id="inclusion-exclusion">Inclusion-exclusion</h2>
+<p>For two sets:</p>
+<div class="math-block">$$
+|A \cup B| = |A| + |B| - |A \cap B|
+$$</div>
+<p>For three sets:</p>
+<div class="math-block">$$
+|A \cup B \cup C|
+=
+|A| + |B| + |C|
+- |A \cap B| - |A \cap C| - |B \cap C|
++ |A \cap B \cap C|
+$$</div>
+<h2 id="pigeonhole-principle">Pigeonhole principle</h2>
+<p>If more than $n$ objects are placed into $n$ boxes, at least one box contains at least two objects.</p>
+<p>General form:</p>
+<p>If $N$ objects are placed into $k$ boxes, some box has at least</p>
+<div class="math-block">$$
+\left\lceil \frac{N}{k} \right\rceil
+$$</div>
+<p>objects.</p>
+<hr />
+<h1 id="discrete-probability">Discrete probability</h1>
+<p>Probability in discrete math is usually built on counting.</p>
+<h2 id="sample-spaces-and-events">Sample spaces and events</h2>
+<ul><li><p>Sample space: $S$</p></li><li><p>Event: subset of $S$</p></li></ul>
+<p>If outcomes are equally likely:</p>
+<div class="math-block">$$
+P(E) = \frac{|E|}{|S|}
+$$</div>
+<h2 id="basic-rules">Basic rules</h2>
+<div class="math-block">$$
+0 \le P(E) \le 1,\quad P(S)=1,\quad P(E^c)=1-P(E)
+$$</div>
+<div class="math-block">$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$</div>
+<p>If $A$ and $B$ are disjoint:</p>
+<div class="math-block">$$
+P(A \cup B) = P(A) + P(B)
+$$</div>
+<h2 id="conditional-probability">Conditional probability</h2>
+<div class="math-block">$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$</div>
+<p>provided $P(B) &gt; 0$.</p>
+<h2 id="independence">Independence</h2>
+<p>Events $A$ and $B$ are independent if:</p>
+<div class="math-block">$$
+P(A \cap B) = P(A)P(B)
+$$</div>
+<p>Independence is not the same as disjointness.</p>
+<h2 id="expected-value">Expected value</h2>
+<p>For a discrete random variable $X$:</p>
+<div class="math-block">$$
+\mathbb{E}[X] = \sum_x x\, P(X=x)
+$$</div>
+<p>Linearity of expectation:</p>
+<div class="math-block">$$
+\mathbb{E}[X+Y] = \mathbb{E}[X] + \mathbb{E}[Y]
+$$</div>
+<p>This holds whether or not $X$ and $Y$ are independent.</p>
+<h2 id="variance">Variance</h2>
+<div class="math-block">$$
+\mathrm{Var}(X) = \mathbb{E}[(X-\mu)^2]
+$$</div>
+<p>where $\mu = \mathbb{E}[X]$.</p>
+<p>Equivalent formula:</p>
+<div class="math-block">$$
+\mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+$$</div>
+<hr />
+<h1 id="number-theory-and-modular-arithmetic">Number theory and modular arithmetic</h1>
+<h2 id="divisibility">Divisibility</h2>
+<p>For integers $a$ and $b$ with $a \ne 0$, we say $a$ divides $b$, written</p>
+<div class="math-block">$$
+a \mid b
+$$</div>
+<p>if there exists an integer $k$ such that $b = ak$.</p>
+<p>Useful facts:</p>
+<ul><li><p>If $a \mid b$ and $a \mid c$, then $a \mid (b+c)$</p></li><li><p>If $a \mid b$, then $a \mid bc$ for any integer $c$</p></li></ul>
+<h2 id="prime-numbers">Prime numbers</h2>
+<p>A prime number is an integer greater than $1$ with exactly two positive divisors: $1$ and itself.</p>
+<p>Fundamental theorem of arithmetic:</p>
+<p>Every integer $n &gt; 1$ can be written uniquely, up to order, as a product of primes.</p>
+<h2 id="greatest-common-divisor">Greatest common divisor</h2>
+<p>The greatest common divisor of $a$ and $b$ is written:</p>
+<div class="math-block">$$
+\gcd(a,b)
+$$</div>
+<p>Euclidean algorithm:</p>
+<div class="math-block">$$
+\gcd(a,b) = \gcd(b, a \bmod b)
+$$</div>
+<p>repeated until the remainder is $0$.</p>
+<h2 id="modular-arithmetic">Modular arithmetic</h2>
+<p>Congruence modulo $n$ means:</p>
+<div class="math-block">$$
+a \equiv b \pmod n \iff n \mid (a-b)
+$$</div>
+<p>You can add, subtract, and multiply congruences:</p>
+<div class="math-block">$$
+a \equiv b \pmod n,\ c \equiv d \pmod n
+\Rightarrow
+a+c \equiv b+d \pmod n
+$$</div>
+<div class="math-block">$$
+ac \equiv bd \pmod n
+$$</div>
+<p>Division is not automatically valid modulo $n$.</p>
+<h2 id="modular-inverses">Modular inverses</h2>
+<p>An integer $a$ has a multiplicative inverse modulo $n$ iff:</p>
+<div class="math-block">$$
+\gcd(a,n)=1
+$$</div>
+<p>Then there exists $a^{-1}$ such that:</p>
+<div class="math-block">$$
+aa^{-1} \equiv 1 \pmod n
+$$</div>
+<h2 id="example-3">Example</h2>
+<p>To solve</p>
+<div class="math-block">$$
+3x \equiv 1 \pmod 7
+$$</div>
+<p>note that $3^{-1} \equiv 5 \pmod 7$ because $3 \cdot 5 = 15 \equiv 1 \pmod 7$. Therefore</p>
+<div class="math-block">$$
+x \equiv 5 \pmod 7
+$$</div>
+<hr />
+<h1 id="graphs-and-trees">Graphs and trees</h1>
+<p>A <strong>graph</strong> consists of vertices and edges.</p>
+<p>Notation:</p>
+<div class="math-block">$$
+G = (V,E)
+$$</div>
+<h2 id="basic-terminology">Basic terminology</h2>
+<ul><li><p>Degree of a vertex: number of incident edges</p></li><li><p>Path: sequence of adjacent vertices</p></li><li><p>Cycle: closed path with no repeated edges</p></li><li><p>Connected graph: every pair of vertices is joined by a path</p></li></ul>
+<h2 id="handshaking-lemma">Handshaking lemma</h2>
+<p>For any finite undirected graph:</p>
+<div class="math-block">$$
+\sum_{v \in V} \deg(v) = 2|E|
+$$</div>
+<p>This implies the number of odd-degree vertices is even.</p>
+<h2 id="special-graph-classes">Special graph classes</h2>
+<ul><li><p>Complete graph: $K_n$</p></li><li><p>Bipartite graph: vertices split into two parts and edges go only across</p></li><li><p>Complete bipartite graph: $K_{m,n}$</p></li></ul>
+<p>For an undirected graph, the graph is bipartite if and only if it has no odd cycle. (The qualification matters: this statement is not the definition for directed graphs.)</p>
+<h2 id="trees">Trees</h2>
+<p>A <strong>tree</strong> is a connected graph with no cycles.</p>
+<p>Equivalent characterizations of a tree with $n$ vertices:</p>
+<ul><li><p>It is connected and has $n-1$ edges</p></li><li><p>It is acyclic and has $n-1$ edges</p></li><li><p>There is a unique simple path between any two vertices</p></li></ul>
+<h2 id="rooted-trees">Rooted trees</h2>
+<p>In a rooted tree:</p>
+<ul><li><p>One vertex is the root</p></li><li><p>Parent/child relations are defined</p></li><li><p>Depth measures distance from the root</p></li></ul>
+<p>Rooted trees are used heavily in recursion, parsing, and search algorithms.</p>
+<h2 id="traversals">Traversals</h2>
+<p>Common traversal orders:</p>
+<ul><li><p>Preorder</p></li><li><p>Inorder</p></li><li><p>Postorder</p></li><li><p>Breadth-first search</p></li></ul>
+<hr />
+<h1 id="algorithms-growth-and-recurrences">Algorithms, growth, and recurrences</h1>
+<p>Discrete math often studies whether a procedure is correct and how quickly it grows.</p>
+<h2 id="asymptotic-notation">Asymptotic notation</h2>
+<p>For functions $f$ and $g$:</p>
+<div class="math-block">$$
+f(n) = O(g(n))
+$$</div>
+<p>means $f$ grows no faster than a constant multiple of $g$ for sufficiently large $n$.</p>
+<div class="math-block">$$
+f(n) = \Omega(g(n))
+$$</div>
+<p>means $f$ grows at least as fast as a constant multiple of $g$.</p>
+<div class="math-block">$$
+f(n) = \Theta(g(n))
+$$</div>
+<p>means both are true.</p>
+<h2 id="growth-hierarchy">Growth hierarchy</h2>
+<p>From slower to faster, a common order is:</p>
+<div class="math-block">$$
+1,\ \log n,\ n,\ n \log n,\ n^2,\ n^3,\ 2^n,\ n!
+$$</div>
+<h2 id="recurrence-relations">Recurrence relations</h2>
+<p>A recurrence defines a sequence from earlier terms.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+a_n = a_{n-1} + 3
+$$</div>
+<div class="math-block">$$
+a_n = 2a_{n-1}
+$$</div>
+<div class="math-block">$$
+a_n = a_{n-1} + a_{n-2}
+$$</div>
+<h2 id="solving-simple-recurrences">Solving simple recurrences</h2>
+<p>Arithmetic-type recurrence:</p>
+<div class="math-block">$$
+a_n = a_{n-1} + d,\quad a_0 = c
+$$</div>
+<p>has solution:</p>
+<div class="math-block">$$
+a_n = c + nd
+$$</div>
+<p>Geometric-type recurrence:</p>
+<div class="math-block">$$
+a_n = r a_{n-1},\quad a_0 = c
+$$</div>
+<p>has solution:</p>
+<div class="math-block">$$
+a_n = cr^n
+$$</div>
+<h2 id="algorithm-correctness">Algorithm correctness</h2>
+<p>To show an algorithm is correct, prove:</p>
+<ol><li><p>It terminates.</p></li><li><p>If it terminates, the output satisfies the specification.</p></li></ol>
+<p>Loop invariants are a standard proof tool:</p>
+<ul><li><p>State a property true before the loop starts.</p></li><li><p>Show one iteration preserves it.</p></li><li><p>Use it at termination to prove correctness.</p></li></ul>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Use this checklist for most discrete mathematics problems.</p>
+<h2 id="step-1-identify-the-object-type">Step 1: Identify the object type</h2>
+<p>Ask what kind of structure you are working with:</p>
+<ul><li><p>Proposition</p></li><li><p>Set</p></li><li><p>Function</p></li><li><p>Relation</p></li><li><p>Integer</p></li><li><p>Graph</p></li><li><p>Sequence</p></li><li><p>Counting problem</p></li></ul>
+<p>The definitions depend on the object type.</p>
+<h2 id="step-2-translate-the-statement-into-formal-language">Step 2: Translate the statement into formal language</h2>
+<p>Rewrite informal language using symbols when possible:</p>
+<ul><li><p>Quantifiers</p></li><li><p>Set notation</p></li><li><p>Divisibility notation</p></li><li><p>Graph terminology</p></li></ul>
+<p>This usually exposes the proof strategy.</p>
+<h2 id="step-3-choose-the-right-tool">Step 3: Choose the right tool</h2>
+<p>Typical matches:</p>
+<ul><li><p>Implication: direct proof or contrapositive</p></li><li><p>Nonexistence: contradiction</p></li><li><p>Integer-indexed claim: induction</p></li><li><p>Finite arrangements: sum/product rule, permutations, combinations</p></li><li><p>Congruence problem: modular arithmetic</p></li><li><p>Structure with vertices and edges: graph methods</p></li></ul>
+<h2 id="step-4-write-from-definitions">Step 4: Write from definitions</h2>
+<p>Most proofs become manageable once the key definition is expanded.</p>
+<p>Examples:</p>
+<ul><li><p>Even means $n=2k$</p></li><li><p>Divisible means $b=ak$</p></li><li><p>Injective means $f(x)=f(y) \Rightarrow x=y$</p></li><li><p>Tree means connected and acyclic</p></li></ul>
+<h2 id="step-5-check-edge-cases">Step 5: Check edge cases</h2>
+<p>Small values, empty sets, parity changes, and boundary cases often break careless arguments.</p>
+<h2 id="step-6-validate-the-conclusion-type">Step 6: Validate the conclusion type</h2>
+<p>Make sure the proof ends with the right type of claim:</p>
+<ul><li><p>Equality proved algebraically</p></li><li><p>Existence proved by construction</p></li><li><p>Uniqueness proved by comparison</p></li><li><p>Counting answer justified by combinatorial model</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="logic">Logic</h2>
+<div class="math-block">$$
+p \to q \equiv \neg p \lor q
+$$</div>
+<div class="math-block">$$
+\neg (p \land q) \equiv \neg p \lor \neg q
+$$</div>
+<div class="math-block">$$
+\neg (p \lor q) \equiv \neg p \land \neg q
+$$</div>
+<h2 id="sets-2">Sets</h2>
+<div class="math-block">$$
+|A \cup B| = |A| + |B| - |A \cap B|
+$$</div>
+<div class="math-block">$$
+|\mathcal{P}(A)| = 2^{|A|}
+$$</div>
+<div class="math-block">$$
+|A \times B| = |A||B|
+$$</div>
+<h2 id="counting">Counting</h2>
+<div class="math-block">$$
+n!
+$$</div>
+<div class="math-block">$$
+P(n,r) = \frac{n!}{(n-r)!}
+$$</div>
+<div class="math-block">$$
+\binom{n}{r} = \frac{n!}{r!(n-r)!}
+$$</div>
+<div class="math-block">$$
+(x+y)^n = \sum_{r=0}^{n} \binom{n}{r} x^{n-r} y^r
+$$</div>
+<div class="math-block">$$
+\binom{n+r-1}{r}
+$$</div>
+<h2 id="probability">Probability</h2>
+<div class="math-block">$$
+P(E) = \frac{|E|}{|S|}
+$$</div>
+<div class="math-block">$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$</div>
+<div class="math-block">$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$</div>
+<div class="math-block">$$
+\mathbb{E}[X] = \sum_x x\, P(X=x)
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+$$</div>
+<h2 id="number-theory">Number theory</h2>
+<div class="math-block">$$
+a \equiv b \pmod n \iff n \mid (a-b)
+$$</div>
+<div class="math-block">$$
+\gcd(a,b) = \gcd(b, a \bmod b)
+$$</div>
+<h2 id="graphs">Graphs</h2>
+<div class="math-block">$$
+\sum_{v \in V} \deg(v) = 2|E|
+$$</div>
+<p>For a tree with $n$ vertices:</p>
+<div class="math-block">$$
+|E| = n-1
+$$</div>
+<h2 id="growth">Growth</h2>
+<div class="math-block">$$
+1,\ \log n,\ n,\ n \log n,\ n^2,\ n^3,\ 2^n,\ n!
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Confusing the converse of a statement with its contrapositive.</p></li><li><p>Negating quantified statements incorrectly.</p></li><li><p>Treating examples as proof.</p></li><li><p>Using permutations when order does not matter.</p></li><li><p>Using combinations when order does matter.</p></li><li><p>Cancelling terms in modular arithmetic without checking inverses exist.</p></li><li><p>Assuming disjoint events are independent.</p></li><li><p>Forgetting that a relation and a function are different objects.</p></li><li><p>Claiming a graph is a tree without checking both connectedness and acyclicity.</p></li><li><p>Using asymptotic notation as if it were an exact equality.</p></li></ul>
+<h1 id="sources">Sources</h1>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="logic-and-propositions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Logic and propositions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#logical-operators" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="logic-and-propositions">Logical operators</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-equivalences" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="logic-and-propositions">Common equivalences</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quantifiers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="logic-and-propositions">Quantifiers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#converse-inverse-contrapositive" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="logic-and-propositions">Converse, inverse, contrapositive</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="logic-and-propositions">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="sets-functions-and-relations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Sets, functions, and relations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sets" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Sets</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-sets" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Power sets</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cartesian-products" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Cartesian products</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#functions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Functions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equivalence-relations-and-partitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Equivalence relations and partitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#partial-orders" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="sets-functions-and-relations">Partial orders</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="proof-techniques" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Proof techniques">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#direct-proof" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Direct proof</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proof-by-contrapositive" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Proof by contrapositive</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proof-by-contradiction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Proof by contradiction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proof-by-cases" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Proof by cases</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#existence-and-uniqueness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Existence and uniqueness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-proof-pitfall" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="proof-techniques">Common proof pitfall</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="induction-and-recursion" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Induction and recursion">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mathematical-induction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="induction-and-recursion">Mathematical induction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="induction-and-recursion">Example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strong-induction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="induction-and-recursion">Strong induction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recursive-definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="induction-and-recursion">Recursive definitions</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="counting-and-combinatorics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Counting and combinatorics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sum-and-product-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Sum and product rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#factorials-and-permutations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Factorials and permutations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#combinations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Combinations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#binomial-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Binomial theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#counting-with-repetition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Counting with repetition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inclusion-exclusion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Inclusion-exclusion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pigeonhole-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-and-combinatorics">Pigeonhole principle</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="discrete-probability" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Discrete probability">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sample-spaces-and-events" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Sample spaces and events</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Basic rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditional-probability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Conditional probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#independence" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Independence</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#expected-value" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Expected value</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="discrete-probability">Variance</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="number-theory-and-modular-arithmetic" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Number theory and modular arithmetic">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#divisibility" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Divisibility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#prime-numbers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Prime numbers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#greatest-common-divisor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Greatest common divisor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#modular-arithmetic" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Modular arithmetic</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#modular-inverses" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Modular inverses</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-3" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="number-theory-and-modular-arithmetic">Example</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="graphs-and-trees" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Graphs and trees">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basic-terminology" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Basic terminology</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#handshaking-lemma" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Handshaking lemma</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-graph-classes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Special graph classes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trees" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Trees</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rooted-trees" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Rooted trees</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#traversals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="graphs-and-trees">Traversals</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="algorithms-growth-and-recurrences" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Algorithms, growth, and recurrences">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#asymptotic-notation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algorithms-growth-and-recurrences">Asymptotic notation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#growth-hierarchy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algorithms-growth-and-recurrences">Growth hierarchy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recurrence-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algorithms-growth-and-recurrences">Recurrence relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solving-simple-recurrences" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algorithms-growth-and-recurrences">Solving simple recurrences</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#algorithm-correctness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algorithms-growth-and-recurrences">Algorithm correctness</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-identify-the-object-type" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Identify the object type</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-translate-the-statement-into-formal-language" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: Translate the statement into formal language</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-choose-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-write-from-definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Write from definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-check-edge-cases" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Check edge cases</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-6-validate-the-conclusion-type" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 6: Validate the conclusion type</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#logic" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Logic</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sets-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sets</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#counting" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Counting</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#probability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#number-theory" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Number theory</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#graphs" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Graphs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#growth" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Growth</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

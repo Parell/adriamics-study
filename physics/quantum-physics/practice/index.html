@@ -1,0 +1,1958 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantum Physics Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/physics/quantum-physics/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/physics/quantum-physics/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Quantum Physics Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/quantum-physics/quantum-physics-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fquantum-physics%2Fquantum-physics-problems.md&amp;title=%5BContribute%5D%3A%20Quantum%20Physics%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Quantum Physics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="quantum-physics-i-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Probability Density, Integration" data-problem-difficulty="Direct" data-problem-answer="The probability is the integral of $|\psi(x)|^2$ over the interval:
+
+$$
+P(0 \le x \le 2) = \int_0^2 \left|\frac{1}{2}\right|^2 dx
+$$
+
+$$
+P(0 \le x \le 2) = \int_0^2 \frac{1}{4}\,dx = \frac{1}{2}
+$$
+
+So the probability is $\frac{1}{2}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Find Probability in a Subinterval</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#probability-density" data-notes-nav-item>Probability Density</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#integration" data-notes-nav-item>Integration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle has wave function</p>
+<div class="math-block">$$
+\psi(x) = \frac{1}{2}
+$$</div>
+<p>for $0 \le x \le 4$, and $\psi(x)=0$ elsewhere.</p>
+<p>What is the probability of finding the particle in the interval $[0,2]$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-11">Your work for Find Probability in a Subinterval</label>
+          <textarea
+            id="practice-study-quantum-physics-i-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The probability is the integral of $|\psi(x)|^2$ over the interval:</p>
+<div class="math-block">$$
+P(0 \le x \le 2) = \int_0^2 \left|\frac{1}{2}\right|^2 dx
+$$</div>
+<div class="math-block">$$
+P(0 \le x \le 2) = \int_0^2 \frac{1}{4}\,dx = \frac{1}{2}
+$$</div>
+<p>So the probability is $\frac{1}{2}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Normalization, Wave Functions" data-problem-difficulty="Direct" data-problem-answer="Use the normalization condition:
+
+$$
+\int_{-\infty}^{\infty} |\psi(x)|^2\,dx = 1
+$$
+
+Here that becomes
+
+$$
+\int_0^3 |A|^2\,dx = 1
+$$
+
+$$
+3|A|^2 = 1
+$$
+
+So a normalized choice is
+
+$$
+A = \frac{1}{\sqrt{3}}
+$$
+
+up to an overall phase.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Normalize a Uniform Wave Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#normalization" data-notes-nav-item>Normalization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#wave-functions" data-notes-nav-item>Wave Functions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+\psi(x) = A
+$$</div>
+<p>for $0 \le x \le 3$, and $\psi(x)=0$ elsewhere.</p>
+<p>Find a normalized value of $A$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-12">Your work for Normalize a Uniform Wave Function</label>
+          <textarea
+            id="practice-study-quantum-physics-i-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the normalization condition:</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty} |\psi(x)|^2\,dx = 1
+$$</div>
+<p>Here that becomes</p>
+<div class="math-block">$$
+\int_0^3 |A|^2\,dx = 1
+$$</div>
+<div class="math-block">$$
+3|A|^2 = 1
+$$</div>
+<p>So a normalized choice is</p>
+<div class="math-block">$$
+A = \frac{1}{\sqrt{3}}
+$$</div>
+<p>up to an overall phase.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Infinite Square Well, Quantized Energies" data-problem-difficulty="Direct" data-problem-answer="The note gives
+
+$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$
+
+Substitute $n=2$:
+
+$$
+E_2 = \frac{4\pi^2\hbar^2}{2mL^2}
+$$
+
+So
+
+$$
+E_2 = \frac{2\pi^2\hbar^2}{mL^2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Energy of the Second Level in an Infinite Well</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#infinite-square-well" data-notes-nav-item>Infinite Square Well</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#quantized-energies" data-notes-nav-item>Quantized Energies</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For a particle in an infinite square well of width $L$, what is the energy $E_2$ of the $n=2$ state?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-13">Your work for Energy of the Second Level in an Infinite Well</label>
+          <textarea
+            id="practice-study-quantum-physics-i-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The note gives</p>
+<div class="math-block">$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$</div>
+<p>Substitute $n=2$:</p>
+<div class="math-block">$$
+E_2 = \frac{4\pi^2\hbar^2}{2mL^2}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+E_2 = \frac{2\pi^2\hbar^2}{mL^2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Momentum Operator, Observables" data-problem-difficulty="Direct" data-problem-answer="The momentum operator in one dimension is
+
+$$
+\hat{p} = -i\hbar \frac{d}{dx}
+$$
+
+This is the operator used for momentum measurements in the position representation.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Identify the Momentum Operator</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#momentum-operator" data-notes-nav-item>Momentum Operator</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#observables" data-notes-nav-item>Observables</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the one-dimensional momentum operator $\hat{p}$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-14">Your work for Identify the Momentum Operator</label>
+          <textarea
+            id="practice-study-quantum-physics-i-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The momentum operator in one dimension is</p>
+<div class="math-block">$$
+\hat{p} = -i\hbar \frac{d}{dx}
+$$</div>
+<p>This is the operator used for momentum measurements in the position representation.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="de Broglie Wavelength, Momentum" data-problem-difficulty="Direct" data-problem-answer="Use the de Broglie relation
+
+$$
+\lambda = \frac{h}{p}
+$$
+
+Solve for $p$:
+
+$$
+p = \frac{h}{\lambda}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Use the de Broglie Relation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#de-broglie-wavelength" data-notes-nav-item>de Broglie Wavelength</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#momentum" data-notes-nav-item>Momentum</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle has de Broglie wavelength $\lambda$.</p>
+<p>What is its momentum $p$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-15">Your work for Use the de Broglie Relation</label>
+          <textarea
+            id="practice-study-quantum-physics-i-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the de Broglie relation</p>
+<div class="math-block">$$
+\lambda = \frac{h}{p}
+$$</div>
+<p>Solve for $p$:</p>
+<div class="math-block">$$
+p = \frac{h}{\lambda}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Photoelectric Effect, Energy Quanta" data-problem-difficulty="Direct" data-problem-answer="Use the photoelectric equation:
+
+$$
+K_{\max} = h\nu - \phi
+$$
+
+Substitute the values:
+
+$$
+K_{\max} = 6 - 4 = 2\ \text{eV}
+$$
+
+So the maximum kinetic energy is $2\ \text{eV}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Photoelectric Maximum Kinetic Energy</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#photoelectric-effect" data-notes-nav-item>Photoelectric Effect</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#energy-quanta" data-notes-nav-item>Energy Quanta</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A metal has work function $\phi = 4\ \text{eV}$.</p>
+<p>Light of energy $h\nu = 6\ \text{eV}$ shines on it.</p>
+<p>What is the maximum kinetic energy of the emitted electrons?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-16">Your work for Photoelectric Maximum Kinetic Energy</label>
+          <textarea
+            id="practice-study-quantum-physics-i-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the photoelectric equation:</p>
+<div class="math-block">$$
+K_{\max} = h\nu - \phi
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+K_{\max} = 6 - 4 = 2\ \text{eV}
+$$</div>
+<p>So the maximum kinetic energy is $2\ \text{eV}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Spin-1/2, Measurement" data-problem-difficulty="Direct" data-problem-answer="An electron has spin $1/2$, so the only allowed measurement outcomes are
+
+$$
+\pm \frac{\hbar}{2}
+$$
+
+along the chosen axis.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Spin-1/2 Outcomes</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#spin-1-2" data-notes-nav-item>Spin-1/2</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#measurement" data-notes-nav-item>Measurement</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For an electron, what are the possible measured values of spin projection along an axis?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-17">Your work for Spin-1/2 Outcomes</label>
+          <textarea
+            id="practice-study-quantum-physics-i-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>An electron has spin $1/2$, so the only allowed measurement outcomes are</p>
+<div class="math-block">$$
+\pm \frac{\hbar}{2}
+$$</div>
+<p>along the chosen axis.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Uncertainty Principle, Measurement" data-problem-difficulty="Direct" data-problem-answer="The Heisenberg uncertainty principle says
+
+$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$
+
+Solve for $\Delta p$:
+
+$$
+\Delta p \ge \frac{\hbar}{2\Delta x}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Write the Uncertainty Bound</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#uncertainty-principle" data-notes-nav-item>Uncertainty Principle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#measurement" data-notes-nav-item>Measurement</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If the position uncertainty is $\Delta x$, what is the smallest possible momentum uncertainty $\Delta p$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-18">Your work for Write the Uncertainty Bound</label>
+          <textarea
+            id="practice-study-quantum-physics-i-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The Heisenberg uncertainty principle says</p>
+<div class="math-block">$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$</div>
+<p>Solve for $\Delta p$:</p>
+<div class="math-block">$$
+\Delta p \ge \frac{\hbar}{2\Delta x}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Hamiltonian, Schrodinger Equation" data-problem-difficulty="Direct" data-problem-answer="The Hamiltonian is
+
+$$
+\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)
+$$
+
+This is the energy operator used in the one-dimensional Schrodinger equation.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Write the One-Dimensional Hamiltonian</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#hamiltonian" data-notes-nav-item>Hamiltonian</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#schrodinger-equation" data-notes-nav-item>Schrodinger Equation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For a particle of mass $m$ in a potential $V(x)$, write the one-dimensional Hamiltonian operator $\hat{H}$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-19">Your work for Write the One-Dimensional Hamiltonian</label>
+          <textarea
+            id="practice-study-quantum-physics-i-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The Hamiltonian is</p>
+<div class="math-block">$$
+\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)
+$$</div>
+<p>This is the energy operator used in the one-dimensional Schrodinger equation.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Bra-Ket Notation, Normalization" data-problem-difficulty="Direct" data-problem-answer="Check the sum of the squared magnitudes of the coefficients:
+
+$$
+\left|\frac{3}{5}\right|^2 + \left|\frac{4}{5}\right|^2
+=
+\frac{9}{25} + \frac{16}{25}
+= 1
+$$
+
+So the state is normalized.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Check a Two-Level State</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#bra-ket-notation" data-notes-nav-item>Bra-Ket Notation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#normalization" data-notes-nav-item>Normalization</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Is the state</p>
+<div class="math-block">$$
+|\psi\rangle = \frac{3}{5}|0\rangle + \frac{4}{5}|1\rangle
+$$</div>
+<p>normalized?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-110">Your work for Check a Two-Level State</label>
+          <textarea
+            id="practice-study-quantum-physics-i-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Check the sum of the squared magnitudes of the coefficients:</p>
+<div class="math-block">$$
+\left|\frac{3}{5}\right|^2 + \left|\frac{4}{5}\right|^2
+=
+\frac{9}{25} + \frac{16}{25}
+= 1
+$$</div>
+<p>So the state is normalized.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="quantum-physics-i-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Normalization, Probability Density" data-problem-difficulty="Integrated" data-problem-answer="First normalize:
+
+$$
+\int_0^1 |Ax|^2\,dx = 1
+$$
+
+$$
+A^2 \int_0^1 x^2\,dx = 1
+$$
+
+$$
+A^2 \cdot \frac{1}{3} = 1
+$$
+
+so
+
+$$
+A = \sqrt{3}
+$$
+
+Now compute the probability on $[0,\frac{1}{2}]$:
+
+$$
+P = \int_0^{1/2} |\sqrt{3}x|^2\,dx
+$$
+
+$$
+P = 3\int_0^{1/2} x^2\,dx
+= 3\left[\frac{x^3}{3}\right]_0^{1/2}
+= \frac{1}{8}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Normalize and Use the Density</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#normalization" data-notes-nav-item>Normalization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#probability-density" data-notes-nav-item>Probability Density</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+\psi(x) = Ax
+$$</div>
+<p>for $0 \le x \le 1$, and $\psi(x)=0$ elsewhere.</p>
+<p>Find $A$, then compute the probability of finding the particle in $0 \le x \le \frac{1}{2}$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-21">Your work for Normalize and Use the Density</label>
+          <textarea
+            id="practice-study-quantum-physics-i-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First normalize:</p>
+<div class="math-block">$$
+\int_0^1 |Ax|^2\,dx = 1
+$$</div>
+<div class="math-block">$$
+A^2 \int_0^1 x^2\,dx = 1
+$$</div>
+<div class="math-block">$$
+A^2 \cdot \frac{1}{3} = 1
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+A = \sqrt{3}
+$$</div>
+<p>Now compute the probability on $[0,\frac{1}{2}]$:</p>
+<div class="math-block">$$
+P = \int_0^{1/2} |\sqrt{3}x|^2\,dx
+$$</div>
+<div class="math-block">$$
+P = 3\int_0^{1/2} x^2\,dx
+= 3\left[\frac{x^3}{3}\right]_0^{1/2}
+= \frac{1}{8}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Expectation Values, Probability Density" data-problem-difficulty="Integrated" data-problem-answer="For a uniform distribution on $[0,L]$, the probability density is
+
+$$
+|\psi(x)|^2 = \frac{1}{L}
+$$
+
+So
+
+$$
+\langle x \rangle = \int_0^L x \cdot \frac{1}{L}\,dx
+$$
+
+$$
+\langle x \rangle = \frac{1}{L}\left[\frac{x^2}{2}\right]_0^L
+= \frac{L}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Expectation Value on a Finite Interval</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#expectation-values" data-notes-nav-item>Expectation Values</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#probability-density" data-notes-nav-item>Probability Density</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle is uniformly distributed on the interval $[0,L]$.</p>
+<p>What is the expectation value $\langle x \rangle$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-22">Your work for Expectation Value on a Finite Interval</label>
+          <textarea
+            id="practice-study-quantum-physics-i-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a uniform distribution on $[0,L]$, the probability density is</p>
+<div class="math-block">$$
+|\psi(x)|^2 = \frac{1}{L}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\langle x \rangle = \int_0^L x \cdot \frac{1}{L}\,dx
+$$</div>
+<div class="math-block">$$
+\langle x \rangle = \frac{1}{L}\left[\frac{x^2}{2}\right]_0^L
+= \frac{L}{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Infinite Square Well, Scaling Laws" data-problem-difficulty="Integrated" data-problem-answer="Since $E_n \propto \frac{1}{L^2}$, doubling $L$ multiplies the energy by
+
+$$
+\frac{1}{2^2} = \frac{1}{4}
+$$
+
+So each energy level becomes one-fourth as large.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Scale the Box Width</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#infinite-square-well" data-notes-nav-item>Infinite Square Well</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#scaling-laws" data-notes-nav-item>Scaling Laws</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For an infinite square well, the energy levels satisfy</p>
+<div class="math-block">$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}.
+$$</div>
+<p>If the width of the well doubles, by what factor does each energy level change?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-23">Your work for Scale the Box Width</label>
+          <textarea
+            id="practice-study-quantum-physics-i-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since $E_n \propto \frac{1}{L^2}$, doubling $L$ multiplies the energy by</p>
+<div class="math-block">$$
+\frac{1}{2^2} = \frac{1}{4}
+$$</div>
+<p>So each energy level becomes one-fourth as large.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Commutators, Uncertainty Principle" data-problem-difficulty="Integrated" data-problem-answer="No. The note gives the canonical commutation relation
+
+$$
+[\hat{x},\hat{p}] = i\hbar
+$$
+
+Because the operators do not commute, the observables cannot both be sharply defined at the same time. This is summarized by
+
+$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Why Position and Momentum Cannot Both Be Sharp</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#commutators" data-notes-nav-item>Commutators</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#uncertainty-principle" data-notes-nav-item>Uncertainty Principle</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Can position and momentum both be known exactly in the same state? Use the note&#39;s operator relation to justify your answer.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-24">Your work for Why Position and Momentum Cannot Both Be Sharp</label>
+          <textarea
+            id="practice-study-quantum-physics-i-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>No. The note gives the canonical commutation relation</p>
+<div class="math-block">$$
+[\hat{x},\hat{p}] = i\hbar
+$$</div>
+<p>Because the operators do not commute, the observables cannot both be sharply defined at the same time. This is summarized by</p>
+<div class="math-block">$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Tunneling, Exponential Decay" data-problem-difficulty="Integrated" data-problem-answer="Let $T_a$ be the transmission for width $a$ and $T_{3a}$ for width $3a$.
+
+Then
+
+$$
+T_a \propto e^{-2\kappa a}
+$$
+
+and
+
+$$
+T_{3a} \propto e^{-2\kappa(3a)} = e^{-6\kappa a}
+$$
+
+So the ratio is
+
+$$
+\frac{T_{3a}}{T_a} = e^{-4\kappa a}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Compare Barrier Widths</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#tunneling" data-notes-nav-item>Tunneling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#exponential-decay" data-notes-nav-item>Exponential Decay</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For a barrier of height $V_0$ and particle energy $E&lt;V_0$, the note says</p>
+<div class="math-block">$$
+T \propto e^{-2\kappa a}
+$$</div>
+<p>where $a$ is the barrier width.</p>
+<p>If one barrier has width $a$ and another has width $3a$, what is the ratio of their transmission coefficients?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-25">Your work for Compare Barrier Widths</label>
+          <textarea
+            id="practice-study-quantum-physics-i-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $T_a$ be the transmission for width $a$ and $T_{3a}$ for width $3a$.</p>
+<p>Then</p>
+<div class="math-block">$$
+T_a \propto e^{-2\kappa a}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+T_{3a} \propto e^{-2\kappa(3a)} = e^{-6\kappa a}
+$$</div>
+<p>So the ratio is</p>
+<div class="math-block">$$
+\frac{T_{3a}}{T_a} = e^{-4\kappa a}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Separation of Variables, Schrodinger Equation, Eigenvalue Equation" data-problem-difficulty="Integrated" data-problem-answer="For a time-independent potential, separation of variables leads to the time-independent Schrodinger equation:
+
+$$
+\hat{H}\phi = E\phi
+$$
+
+So the spatial part is an eigenfunction of the Hamiltonian, and $E$ is the corresponding allowed energy.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Separate Time and Space</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#separation-of-variables" data-notes-nav-item>Separation of Variables</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#schrodinger-equation" data-notes-nav-item>Schrodinger Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#eigenvalue-equation" data-notes-nav-item>Eigenvalue Equation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>When the potential does not depend on time, the note says we can try a separated solution of the form</p>
+<div class="math-block">$$
+\psi(x,t) = \phi(x)T(t).
+$$</div>
+<p>What equation does the spatial part satisfy?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-26">Your work for Separate Time and Space</label>
+          <textarea
+            id="practice-study-quantum-physics-i-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a time-independent potential, separation of variables leads to the time-independent Schrodinger equation:</p>
+<div class="math-block">$$
+\hat{H}\phi = E\phi
+$$</div>
+<p>So the spatial part is an eigenfunction of the Hamiltonian, and $E$ is the corresponding allowed energy.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Hydrogen Atom, Energy Levels" data-problem-difficulty="Integrated" data-problem-answer="Using the inverse-square scaling,
+
+$$
+E_4 = \frac{E_1}{4^2} = \frac{E_1}{16}
+$$
+
+Because the hydrogen energies are negative, $E_4$ is still negative but closer to zero than $E_1$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Hydrogen Energy Scaling</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#hydrogen-atom" data-notes-nav-item>Hydrogen Atom</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#energy-levels" data-notes-nav-item>Energy Levels</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Hydrogen bound-state energies scale like</p>
+<div class="math-block">$$
+E_n \propto -\frac{1}{n^2}.
+$$</div>
+<p>If the ground-state energy is $E_1$, what is $E_4$ in terms of $E_1$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-27">Your work for Hydrogen Energy Scaling</label>
+          <textarea
+            id="practice-study-quantum-physics-i-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Using the inverse-square scaling,</p>
+<div class="math-block">$$
+E_4 = \frac{E_1}{4^2} = \frac{E_1}{16}
+$$</div>
+<p>Because the hydrogen energies are negative, $E_4$ is still negative but closer to zero than $E_1$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Harmonic Oscillator, Quantized Energies" data-problem-difficulty="Integrated" data-problem-answer="Substitute $n=0$:
+
+$$
+E_0 = \frac{1}{2}\hbar\omega
+$$
+
+Substitute $n=1$:
+
+$$
+E_1 = \frac{3}{2}\hbar\omega
+$$
+
+The spacing is
+
+$$
+E_1 - E_0 = \hbar\omega
+$$
+
+So the ground state has nonzero energy, and the levels are evenly spaced.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Ground State and Level Spacing of the Harmonic Oscillator</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#harmonic-oscillator" data-notes-nav-item>Harmonic Oscillator</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#quantized-energies" data-notes-nav-item>Quantized Energies</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the harmonic oscillator,</p>
+<div class="math-block">$$
+E_n = \left(n+\frac{1}{2}\right)\hbar\omega.
+$$</div>
+<p>Find $E_0$, $E_1$, and the spacing between adjacent levels.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-28">Your work for Ground State and Level Spacing of the Harmonic Oscillator</label>
+          <textarea
+            id="practice-study-quantum-physics-i-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Substitute $n=0$:</p>
+<div class="math-block">$$
+E_0 = \frac{1}{2}\hbar\omega
+$$</div>
+<p>Substitute $n=1$:</p>
+<div class="math-block">$$
+E_1 = \frac{3}{2}\hbar\omega
+$$</div>
+<p>The spacing is</p>
+<div class="math-block">$$
+E_1 - E_0 = \hbar\omega
+$$</div>
+<p>So the ground state has nonzero energy, and the levels are evenly spaced.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="quantum-physics-i-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Photoelectric Effect, Energy Quanta" data-problem-difficulty="Applied" data-problem-answer="Since
+
+$$
+h\nu &gt; \phi
+$$
+
+electrons are emitted.
+
+Use
+
+$$
+K_{\max} = h\nu - \phi
+$$
+
+So
+
+$$
+K_{\max} = 3.6 - 2.1 = 1.5\ \text{eV}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Photoelectric Threshold</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#photoelectric-effect" data-notes-nav-item>Photoelectric Effect</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#energy-quanta" data-notes-nav-item>Energy Quanta</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A metal has work function $\phi = 2.1\ \text{eV}$.</p>
+<p>It is illuminated by photons with energy $h\nu = 3.6\ \text{eV}$.</p>
+<p>Will electrons be emitted? If so, what is $K_{\max}$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-31">Your work for Photoelectric Threshold</label>
+          <textarea
+            id="practice-study-quantum-physics-i-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since</p>
+<div class="math-block">$$
+h\nu &gt; \phi
+$$</div>
+<p>electrons are emitted.</p>
+<p>Use</p>
+<div class="math-block">$$
+K_{\max} = h\nu - \phi
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+K_{\max} = 3.6 - 2.1 = 1.5\ \text{eV}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Electron Diffraction, de Broglie Wavelength" data-problem-difficulty="Applied" data-problem-answer="The pattern shows that electrons have wave behavior, captured by the de Broglie relation
+
+$$
+\lambda = \frac{h}{p}
+$$
+
+The effect becomes noticeable when the wavelength is comparable to the size of the slit spacing, crystal spacing, or other relevant length scale. That is why pure classical trajectories are not enough.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Why Electron Diffraction Is Quantum</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#electron-diffraction" data-notes-nav-item>Electron Diffraction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#de-broglie-wavelength" data-notes-nav-item>de Broglie Wavelength</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>An experiment produces an interference pattern from a beam of electrons.</p>
+<p>What quantum idea from the note explains this, and when does the effect become noticeable?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-32">Your work for Why Electron Diffraction Is Quantum</label>
+          <textarea
+            id="practice-study-quantum-physics-i-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The pattern shows that electrons have wave behavior, captured by the de Broglie relation</p>
+<div class="math-block">$$
+\lambda = \frac{h}{p}
+$$</div>
+<p>The effect becomes noticeable when the wavelength is comparable to the size of the slit spacing, crystal spacing, or other relevant length scale. That is why pure classical trajectories are not enough.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="WKB, Approximation Methods" data-problem-difficulty="Applied" data-problem-answer="The appropriate idea is the WKB approximation.
+
+Its intuition is semiclassical: connect classical motion with quantum phase accumulation when the wavelength changes slowly, rather than solving the full problem exactly.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Choose the Right Semiclassical Approximation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#wkb" data-notes-nav-item>WKB</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#approximation-methods" data-notes-nav-item>Approximation Methods</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A particle moves through a region where its de Broglie wavelength changes slowly compared with the length scale of the potential.</p>
+<p>Which approximation idea from the note is appropriate, and what is its basic intuition?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-33">Your work for Choose the Right Semiclassical Approximation</label>
+          <textarea
+            id="practice-study-quantum-physics-i-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The appropriate idea is the WKB approximation.</p>
+<p>Its intuition is semiclassical: connect classical motion with quantum phase accumulation when the wavelength changes slowly, rather than solving the full problem exactly.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Spin, Noncommuting Observables" data-problem-difficulty="Applied" data-problem-answer="The result along $x$ is not predetermined by the first measurement along $z$.
+
+Measurements along different axes generally do not commute, so the first measurement does not fix the second one with certainty. The second outcome is probabilistic.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Stern-Gerlach Measurements on Different Axes</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#spin" data-notes-nav-item>Spin</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#noncommuting-observables" data-notes-nav-item>Noncommuting Observables</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>An electron is measured to be spin-up along the $z$-axis.</p>
+<p>It is then measured along the $x$-axis.</p>
+<p>What can you say about the second measurement?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-34">Your work for Stern-Gerlach Measurements on Different Axes</label>
+          <textarea
+            id="practice-study-quantum-physics-i-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The result along $x$ is not predetermined by the first measurement along $z$.</p>
+<p>Measurements along different axes generally do not commute, so the first measurement does not fix the second one with certainty. The second outcome is probabilistic.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Perturbation Theory, Approximation Methods" data-problem-difficulty="Applied" data-problem-answer="Use perturbation theory.
+
+The idea is to start from the known eigenstates and energies of $\hat{H}_0$ and compute small corrections from the additional term $\lambda \hat{V}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Recognize Perturbation Theory</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#perturbation-theory" data-notes-nav-item>Perturbation Theory</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#approximation-methods" data-notes-nav-item>Approximation Methods</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A Hamiltonian is written as</p>
+<div class="math-block">$$
+\hat{H} = \hat{H}_0 + \lambda \hat{V},
+$$</div>
+<p>where $\lambda$ is small and the solutions of $\hat{H}_0$ are already known.</p>
+<p>Which approximation method should you use?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-35">Your work for Recognize Perturbation Theory</label>
+          <textarea
+            id="practice-study-quantum-physics-i-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use perturbation theory.</p>
+<p>The idea is to start from the known eigenstates and energies of $\hat{H}_0$ and compute small corrections from the additional term $\lambda \hat{V}$.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="quantum-physics-i-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Superposition, Phase, Probability" data-problem-difficulty="Challenge" data-problem-answer="The probabilities of measuring $|0\rangle$ or $|1\rangle$ are the same because the coefficient magnitudes are the same.
+
+However, the relative phase is different. That phase matters when states interfere, so the two states can behave differently under other measurements or later evolution even though the basis probabilities match.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Same Probabilities, Different Phase</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#superposition" data-notes-nav-item>Superposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#phase" data-notes-nav-item>Phase</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#probability" data-notes-nav-item>Probability</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Consider the two states</p>
+<div class="math-block">$$
+|\psi_+\rangle = \frac{|0\rangle + |1\rangle}{\sqrt{2}}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+|\psi_-\rangle = \frac{|0\rangle - |1\rangle}{\sqrt{2}}.
+$$</div>
+<p>In the $|0\rangle,|1\rangle$ basis, they give the same measurement probabilities. Why are they still different states?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-41">Your work for Same Probabilities, Different Phase</label>
+          <textarea
+            id="practice-study-quantum-physics-i-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The probabilities of measuring $|0\rangle$ or $|1\rangle$ are the same because the coefficient magnitudes are the same.</p>
+<p>However, the relative phase is different. That phase matters when states interfere, so the two states can behave differently under other measurements or later evolution even though the basis probabilities match.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Normalization, Expectation Values" data-problem-difficulty="Challenge" data-problem-answer="Normalize the wave function:
+
+$$
+\int_{-\infty}^{\infty} |\psi(x)|^2\,dx = 1
+$$
+
+So
+
+$$
+A^2 \int_{-\infty}^{\infty} e^{-2|x|}\,dx = 1
+$$
+
+Use symmetry:
+
+$$
+\int_{-\infty}^{\infty} e^{-2|x|}\,dx
+= 2\int_0^\infty e^{-2x}\,dx
+= 2\cdot \frac{1}{2} = 1
+$$
+
+Thus
+
+$$
+A^2 = 1
+$$
+
+and we may take
+
+$$
+A = 1
+$$
+
+Now compute the expectation value:
+
+$$
+\langle x \rangle = \int_{-\infty}^{\infty} x|\psi(x)|^2\,dx
+$$
+
+Since $|\psi(x)|^2$ is even, the integrand $x|\psi(x)|^2$ is odd, so the integral is zero:
+
+$$
+\langle x \rangle = 0
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Normalize an Even Wave Function and Find Its Mean Position</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#normalization" data-notes-nav-item>Normalization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#expectation-values" data-notes-nav-item>Expectation Values</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+\psi(x) = Ae^{-|x|}
+$$</div>
+<p>for all real $x$.</p>
+<p>Find $A$, then compute $\langle x \rangle$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-42">Your work for Normalize an Even Wave Function and Find Its Mean Position</label>
+          <textarea
+            id="practice-study-quantum-physics-i-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Normalize the wave function:</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty} |\psi(x)|^2\,dx = 1
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+A^2 \int_{-\infty}^{\infty} e^{-2|x|}\,dx = 1
+$$</div>
+<p>Use symmetry:</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty} e^{-2|x|}\,dx
+= 2\int_0^\infty e^{-2x}\,dx
+= 2\cdot \frac{1}{2} = 1
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+A^2 = 1
+$$</div>
+<p>and we may take</p>
+<div class="math-block">$$
+A = 1
+$$</div>
+<p>Now compute the expectation value:</p>
+<div class="math-block">$$
+\langle x \rangle = \int_{-\infty}^{\infty} x|\psi(x)|^2\,dx
+$$</div>
+<p>Since $|\psi(x)|^2$ is even, the integrand $x|\psi(x)|^2$ is odd, so the integral is zero:</p>
+<div class="math-block">$$
+\langle x \rangle = 0
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Variational Method, Approximation Methods" data-problem-difficulty="Challenge" data-problem-answer="You vary $\alpha$ to minimize the expected energy.
+
+That is the variational method. The minimized value is an estimate of the ground-state energy, and the note says it gives an upper bound to that energy.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Use a Trial Wave Function</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#variational-method" data-notes-nav-item>Variational Method</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#approximation-methods" data-notes-nav-item>Approximation Methods</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>You choose a trial wave function with an adjustable parameter $\alpha$ and compute</p>
+<div class="math-block">$$
+E[\psi] = \frac{\langle \psi|\hat{H}|\psi\rangle}{\langle \psi|\psi\rangle}.
+$$</div>
+<p>What do you do with $\alpha$, and what does the result tell you about the ground-state energy?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-43">Your work for Use a Trial Wave Function</label>
+          <textarea
+            id="practice-study-quantum-physics-i-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>You vary $\alpha$ to minimize the expected energy.</p>
+<p>That is the variational method. The minimized value is an estimate of the ground-state energy, and the note says it gives an upper bound to that energy.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="quantum-physics-i-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Uncertainty Principle, Harmonic Oscillator, Zero-Point Energy" data-problem-difficulty="Challenge" data-problem-answer="The uncertainty principle prevents both position and momentum from being exactly known at the same time:
+
+$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$
+
+So the ground state cannot have both $x=0$ and $p=0$ with zero spread.
+
+The oscillator energies are
+
+$$
+E_n = \left(n+\frac{1}{2}\right)\hbar\omega
+$$
+
+so the ground-state energy is
+
+$$
+E_0 = \frac{1}{2}\hbar\omega
+$$
+
+which is nonzero.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Why the Harmonic Oscillator Cannot Have Zero Energy</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#uncertainty-principle" data-notes-nav-item>Uncertainty Principle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#harmonic-oscillator" data-notes-nav-item>Harmonic Oscillator</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/physics/quantum-physics/#zero-point-energy" data-notes-nav-item>Zero-Point Energy</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A student says the harmonic oscillator should have zero ground-state energy because the particle could sit at $x=0$ with $p=0$.</p>
+<p>Use the note to explain why this is wrong.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-quantum-physics-i-44">Your work for Why the Harmonic Oscillator Cannot Have Zero Energy</label>
+          <textarea
+            id="practice-study-quantum-physics-i-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The uncertainty principle prevents both position and momentum from being exactly known at the same time:</p>
+<div class="math-block">$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$</div>
+<p>So the ground state cannot have both $x=0$ and $p=0$ with zero spread.</p>
+<p>The oscillator energies are</p>
+<div class="math-block">$$
+E_n = \left(n+\frac{1}{2}\right)\hbar\omega
+$$</div>
+<p>so the ground-state energy is</p>
+<div class="math-block">$$
+E_0 = \frac{1}{2}\hbar\omega
+$$</div>
+<p>which is nonzero.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

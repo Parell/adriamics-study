@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Statics | Adriamics Study</title>
+  <meta name="description" content="Statics problems usually rely on idealizations. The answer is only as good as the model." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/statics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/statics/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#modeling-assumptions" data-notes-nav-item data-notes-toc-link>Modeling assumptions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#forces-moments-and-couples" data-notes-nav-item data-notes-toc-link>Forces, moments, and couples</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-equations" data-notes-nav-item data-notes-toc-link>Equilibrium equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#free-body-diagrams" data-notes-nav-item data-notes-toc-link>Free-body diagrams</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#support-reactions" data-notes-nav-item data-notes-toc-link>Support reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#distributed-loads-centroids-and-resultants" data-notes-nav-item data-notes-toc-link>Distributed loads, centroids, and resultants</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trusses" data-notes-nav-item data-notes-toc-link>Trusses</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#frames-and-machines" data-notes-nav-item data-notes-toc-link>Frames and machines</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#friction" data-notes-nav-item data-notes-toc-link>Friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#internal-loads-in-beams" data-notes-nav-item data-notes-toc-link>Internal loads in beams</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#centroids-and-centers-of-gravity" data-notes-nav-item data-notes-toc-link>Centroids and centers of gravity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Statics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/statics/statics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fstatics%2Fstatics.md&amp;title=%5BContribute%5D%3A%20Statics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="modeling-assumptions">Modeling assumptions</h1>
+<p>Statics problems usually rely on idealizations. The answer is only as good as the model.</p>
+<h2 id="rigid-body-idealization">Rigid body idealization</h2>
+<p>A rigid body does not deform under load. Distances between points remain fixed.</p>
+<p>This assumption is usually valid when deformation is small enough that it does not affect force balance.</p>
+<h2 id="particle-idealization">Particle idealization</h2>
+<p>A particle has mass but no size. It can translate, but it cannot rotate.</p>
+<p>Use particle equilibrium when only the net force matters and moments are irrelevant.</p>
+<h2 id="two-dimensional-versus-three-dimensional">Two-dimensional versus three-dimensional</h2>
+<p>Many problems are planar, so all forces and geometry lie in one plane.</p>
+<p>For 2D equilibrium:</p>
+<div class="math-block">$$
+\sum F_x = 0, \qquad \sum F_y = 0, \qquad \sum M_z = 0
+$$</div>
+<p>For 3D equilibrium:</p>
+<div class="math-block">$$
+\sum F_x = 0,\quad \sum F_y = 0,\quad \sum F_z = 0
+$$</div>
+<div class="math-block">$$
+\sum M_x = 0,\quad \sum M_y = 0,\quad \sum M_z = 0
+$$</div>
+<hr />
+<h1 id="forces-moments-and-couples">Forces, moments, and couples</h1>
+<h2 id="force-vectors">Force vectors</h2>
+<p>A force has magnitude, direction, and point of application.</p>
+<p>In Cartesian form:</p>
+<div class="math-block">$$
+\mathbf{F} = F_x \mathbf{i} + F_y \mathbf{j} + F_z \mathbf{k}
+$$</div>
+<p>The magnitude is</p>
+<div class="math-block">$$
+|\mathbf{F}| = \sqrt{F_x^2 + F_y^2 + F_z^2}
+$$</div>
+<h2 id="moment-of-a-force">Moment of a force</h2>
+<p>The moment of a force about point $O$ is</p>
+<div class="math-block">$$
+\mathbf{M}_O = \mathbf{r} \times \mathbf{F}
+$$</div>
+<p>where $\mathbf{r}$ is the position vector from $O$ to the point of application.</p>
+<p>In planar problems, the scalar moment magnitude is often</p>
+<div class="math-block">$$
+M_O = F d_\perp
+$$</div>
+<p>where $d_\perp$ is the perpendicular distance from the point to the force line of action.</p>
+<h2 id="couple-moment">Couple moment</h2>
+<p>A couple consists of two equal and opposite parallel forces separated by a distance.</p>
+<p>Its net force is zero, but it creates a pure moment:</p>
+<div class="math-block">$$
+M = F d
+$$</div>
+<p>Couple moments are free vectors in rigid-body analysis. They can be applied anywhere on the body without changing their effect.</p>
+<h2 id="varignons-theorem">Varignon&#39;s theorem</h2>
+<p>The moment of a resultant force about a point equals the sum of the moments of its components about that point.</p>
+<p>This is useful when breaking a force into components before taking moments.</p>
+<hr />
+<h1 id="equilibrium-equations">Equilibrium equations</h1>
+<p>Equilibrium requires both translational and rotational balance.</p>
+<h2 id="particle-equilibrium">Particle equilibrium</h2>
+<p>For a particle in 2D:</p>
+<div class="math-block">$$
+\sum F_x = 0, \qquad \sum F_y = 0
+$$</div>
+<p>For a particle in 3D:</p>
+<div class="math-block">$$
+\sum F_x = 0, \qquad \sum F_y = 0, \qquad \sum F_z = 0
+$$</div>
+<h2 id="rigid-body-equilibrium-in-2d">Rigid-body equilibrium in 2D</h2>
+<p>The three independent equations are:</p>
+<div class="math-block">$$
+\sum F_x = 0
+$$</div>
+<div class="math-block">$$
+\sum F_y = 0
+$$</div>
+<div class="math-block">$$
+\sum M_O = 0
+$$</div>
+<p>The moment may be taken about any convenient point $O$.</p>
+<h2 id="rigid-body-equilibrium-in-3d">Rigid-body equilibrium in 3D</h2>
+<p>The six equations are:</p>
+<div class="math-block">$$
+\sum F_x = 0,\ \sum F_y = 0,\ \sum F_z = 0
+$$</div>
+<div class="math-block">$$
+\sum M_x = 0,\ \sum M_y = 0,\ \sum M_z = 0
+$$</div>
+<p>These are the only independent equilibrium equations for a rigid body.</p>
+<hr />
+<h1 id="free-body-diagrams">Free-body diagrams</h1>
+<p>A free-body diagram, or FBD, is the most important tool in statics.</p>
+<h2 id="how-to-build-an-fbd">How to build an FBD</h2>
+<ol><li><p>Isolate the body of interest.</p></li><li><p>Remove the surroundings.</p></li><li><p>Replace every contact, support, and connection with the forces and moments it can exert.</p></li><li><p>Show all known external loads, including weight.</p></li><li><p>Choose axes and sign conventions.</p></li></ol>
+<h2 id="what-belongs-on-the-fbd">What belongs on the FBD</h2>
+<ul><li><p>Applied forces</p></li><li><p>Reaction forces at supports</p></li><li><p>Reaction moments at fixed supports</p></li><li><p>Weight acting at the center of gravity</p></li><li><p>Friction forces at contact surfaces</p></li><li><p>Distributed loads or their resultants</p></li></ul>
+<h2 id="what-does-not-belong-on-the-fbd">What does not belong on the FBD</h2>
+<ul><li><p>Internal forces within the body, unless you cut the body open</p></li><li><p>Action-reaction pairs acting on different bodies</p></li><li><p>Extra geometry that does not affect force balance</p></li></ul>
+<h2 id="good-practice">Good practice</h2>
+<p>Always label unknowns with symbols, not guessed directions.</p>
+<p>If the computed value is negative, the actual direction is opposite to the assumed direction.</p>
+<hr />
+<h1 id="support-reactions">Support reactions</h1>
+<p>Different supports impose different kinematic constraints and therefore produce different reaction components.</p>
+<h2 id="common-2d-supports">Common 2D supports</h2>
+<table><thead><tr><th>Support</th><th>Reaction components</th><th>Notes</th></tr></thead><tbody><tr><td>Roller</td><td>One force normal to the surface</td><td>Allows motion along the surface</td></tr><tr><td>Pin or hinge</td><td>Two force components, $x$ and $y$</td><td>Prevents translation, allows rotation</td></tr><tr><td>Fixed support</td><td>Two force components and one moment</td><td>Prevents translation and rotation</td></tr><tr><td>Cable</td><td>Tension only along cable direction</td><td>Cannot carry compression</td></tr><tr><td>Smooth contact</td><td>One normal reaction</td><td>No friction</td></tr></tbody></table>
+<h2 id="common-3d-supports">Common 3D supports</h2>
+<p>The reaction set depends on the allowed motions. For example, a ball-and-socket support prevents translation in all directions but does not resist moments.</p>
+<h2 id="statical-determinacy">Statical determinacy</h2>
+<p>In 2D, a single rigid body has three equilibrium equations.</p>
+<ul><li><p>If the number of independent unknown reactions equals three, the system is statically determinate.</p></li><li><p>If it exceeds three, the system is statically indeterminate unless additional compatibility relations are used.</p></li></ul>
+<p>Do not confuse &quot;more unknowns than equations&quot; with &quot;unsolvable.&quot; It only means equilibrium alone is not enough.</p>
+<hr />
+<h1 id="distributed-loads-centroids-and-resultants">Distributed loads, centroids, and resultants</h1>
+<p>A distributed load can often be replaced by an equivalent concentrated force.</p>
+<p>If the load intensity is $w(x)$, then the resultant force is</p>
+<div class="math-block">$$
+R = \int_a^b w(x)\,dx
+$$</div>
+<p>and its line of action is located at</p>
+<div class="math-block">$$
+\bar{x} = \frac{1}{R}\int_a^b x\,w(x)\,dx
+$$</div>
+<p>for a load distributed along the $x$-axis.</p>
+<h2 id="common-load-shapes">Common load shapes</h2>
+<p>Uniform load:</p>
+<div class="math-block">$$
+R = wL
+$$</div>
+<p>Triangular load increasing from zero:</p>
+<div class="math-block">$$
+R = \frac{1}{2}w_{max}L
+$$</div>
+<p>and the resultant acts one-third of the base length from the larger end.</p>
+<h2 id="use-in-beam-problems">Use in beam problems</h2>
+<p>Equivalent resultants simplify support-reaction calculations, but the equivalent force must produce the same net force and the same net moment as the original load.</p>
+<hr />
+<h1 id="trusses">Trusses</h1>
+<p>A truss is an assembly of slender members connected by pin joints and loaded only at the joints, ideally.</p>
+<h2 id="assumptions">Assumptions</h2>
+<ul><li><p>Members are two-force members</p></li><li><p>Loads and reactions act at joints</p></li><li><p>Member self-weight is neglected or lumped at joints</p></li><li><p>Joints are frictionless pins</p></li></ul>
+<h2 id="two-force-member">Two-force member</h2>
+<p>If a member is acted on by only two forces, those forces must be equal, opposite, collinear, and directed along the member axis.</p>
+<p>Therefore, a two-force member carries only axial force:</p>
+<ul><li><p>Tension if the member is being pulled</p></li><li><p>Compression if the member is being pushed</p></li></ul>
+<h2 id="method-of-joints">Method of joints</h2>
+<p>Use joint equilibrium to solve truss members.</p>
+<p>At each joint:</p>
+<div class="math-block">$$
+\sum F_x = 0, \qquad \sum F_y = 0
+$$</div>
+<p>Procedure:</p>
+<ol><li><p>Solve support reactions for the entire truss.</p></li><li><p>Choose a joint with at most two unknown member forces.</p></li><li><p>Assume unknown member forces are tensile.</p></li><li><p>Apply equilibrium at the joint.</p></li><li><p>Move to adjacent joints.</p></li></ol>
+<h2 id="method-of-sections">Method of sections</h2>
+<p>Cut through the truss and isolate one portion.</p>
+<p>In 2D, a cut body gives at most three independent equilibrium equations, so choose the cut to expose no more than three unknown member forces.</p>
+<p>Method of sections is faster when you need only a few specific member forces.</p>
+<h2 id="zero-force-members">Zero-force members</h2>
+<p>Some members carry no load for a given loading case.</p>
+<p>Rules for quick identification:</p>
+<ul><li><p>If only two non-collinear members meet at an unloaded joint, both are zero-force members.</p></li><li><p>If three members meet at an unloaded joint and two are collinear, the third is zero-force.</p></li></ul>
+<p>Use these as shortcuts, but verify them when the loading changes.</p>
+<hr />
+<h1 id="frames-and-machines">Frames and machines</h1>
+<p>Frames and machines are assemblies with multiple members that are not necessarily two-force members.</p>
+<h2 id="frames">Frames</h2>
+<p>A frame is designed to support loads while maintaining shape.</p>
+<p>Members often experience:</p>
+<ul><li><p>Axial force</p></li><li><p>Shear force</p></li><li><p>Bending moment</p></li></ul>
+<h2 id="machines">Machines</h2>
+<p>A machine transmits or modifies forces, often with moving parts.</p>
+<p>The analysis strategy is still the same:</p>
+<ol><li><p>Isolate each member.</p></li><li><p>Draw FBDs for each body.</p></li><li><p>Apply equilibrium to each body separately.</p></li><li><p>Use action-reaction pairs at pin joints.</p></li></ol>
+<h2 id="internal-joint-forces">Internal joint forces</h2>
+<p>At a pin connecting two members, the force on one member is equal in magnitude and opposite in direction to the force on the other member.</p>
+<p>This is a third-law pair, but it acts on different bodies, so do not cancel it within a single FBD.</p>
+<hr />
+<h1 id="friction">Friction</h1>
+<p>Friction resists relative motion between surfaces.</p>
+<h2 id="static-friction">Static friction</h2>
+<p>Static friction adjusts to prevent slipping, up to a maximum value:</p>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<p>At impending motion:</p>
+<div class="math-block">$$
+f_s = \mu_s N
+$$</div>
+<h2 id="kinetic-friction">Kinetic friction</h2>
+<p>When sliding occurs:</p>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<p>Usually $\mu_k &lt; \mu_s$.</p>
+<h2 id="direction-of-friction">Direction of friction</h2>
+<p>Friction acts opposite the direction of impending or actual relative motion.</p>
+<p>Do not assume friction always points opposite the applied force. It opposes the motion the contact surface would otherwise have.</p>
+<h2 id="angle-of-friction">Angle of friction</h2>
+<p>For impending motion,</p>
+<div class="math-block">$$
+\tan \phi = \mu_s
+$$</div>
+<p>where $\phi$ is the angle between the resultant contact reaction and the normal.</p>
+<h2 id="typical-friction-workflow">Typical friction workflow</h2>
+<ol><li><p>Determine the likely direction of impending motion.</p></li><li><p>Draw the normal force and friction force.</p></li><li><p>Use $f_s \le \mu_s N$ or $f_k = \mu_k N$ as appropriate.</p></li><li><p>Solve equilibrium.</p></li><li><p>Check whether the assumed direction is consistent.</p></li></ol>
+<hr />
+<h1 id="internal-loads-in-beams">Internal loads in beams</h1>
+<p>When a beam is cut at some location, internal resultants appear on the cut surface.</p>
+<p>In 2D beam theory, the internal resultants are:</p>
+<ul><li><p>Axial force $N$</p></li><li><p>Shear force $V$</p></li><li><p>Bending moment $M$</p></li></ul>
+<h2 id="sign-convention">Sign convention</h2>
+<p>Different textbooks use different conventions. The important thing is consistency.</p>
+<p>A common choice for the left segment is:</p>
+<ul><li><p>Positive $N$ in tension</p></li><li><p>Positive $V$ upward on the left face</p></li><li><p>Positive $M$ counterclockwise on the left face</p></li></ul>
+<h2 id="procedure-for-internal-forces">Procedure for internal forces</h2>
+<ol><li><p>Make a cut at the point of interest.</p></li><li><p>Isolate one side of the cut.</p></li><li><p>Replace the cut by $N$, $V$, and $M$.</p></li><li><p>Apply equilibrium.</p></li><li><p>Interpret signs according to the chosen convention.</p></li></ol>
+<h2 id="shear-and-bending-moment-relations">Shear and bending moment relations</h2>
+<p>For distributed load intensity $w(x)$, shear and moment satisfy:</p>
+<div class="math-block">$$
+\frac{dV}{dx} = -w(x)
+$$</div>
+<div class="math-block">$$
+\frac{dM}{dx} = V(x)
+$$</div>
+<p>These relations are the basis of shear-force and bending-moment diagrams.</p>
+<h2 id="useful-qualitative-facts">Useful qualitative facts</h2>
+<ul><li><p>Concentrated force causes a jump in the shear diagram.</p></li><li><p>Concentrated couple causes a jump in the moment diagram.</p></li><li><p>Where shear is zero, the moment diagram has a local extremum.</p></li></ul>
+<hr />
+<h1 id="centroids-and-centers-of-gravity">Centroids and centers of gravity</h1>
+<p>The centroid is a purely geometric property. The center of gravity is the point where the resultant weight acts.</p>
+<p>If density and gravity are uniform, centroid and center of gravity coincide.</p>
+<h2 id="composite-areas">Composite areas</h2>
+<p>For a plane area made of simple shapes:</p>
+<div class="math-block">$$
+\bar{x} = \frac{\sum A_i x_i}{\sum A_i}, \qquad \bar{y} = \frac{\sum A_i y_i}{\sum A_i}
+$$</div>
+<p>Use negative area for holes.</p>
+<h2 id="symmetry-shortcuts">Symmetry shortcuts</h2>
+<ul><li><p>If an area has one axis of symmetry, the centroid lies on that axis.</p></li><li><p>If an area has two axes of symmetry, the centroid lies at their intersection.</p></li></ul>
+<h2 id="center-of-gravity">Center of gravity</h2>
+<p>For discrete masses:</p>
+<div class="math-block">$$
+\bar{x} = \frac{\sum m_i x_i}{\sum m_i}, \qquad \bar{y} = \frac{\sum m_i y_i}{\sum m_i}
+$$</div>
+<p>For a continuous body, replace sums with integrals.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Statics becomes manageable when you follow a fixed process.</p>
+<h2 id="workflow">Workflow</h2>
+<ol><li><p>Read the problem and identify what is being asked.</p></li><li><p>Decide whether the object is a particle, rigid body, truss, frame, beam, or contact problem.</p></li><li><p>Draw a complete free-body diagram.</p></li><li><p>Choose axes that simplify the math.</p></li><li><p>Replace distributed loads with equivalent resultants if appropriate.</p></li><li><p>Write the equilibrium equations.</p></li><li><p>Solve algebraically before substituting numbers when possible.</p></li><li><p>Check units, signs, and physical reasonableness.</p></li></ol>
+<h2 id="best-habits">Best habits</h2>
+<ul><li><p>Solve for reactions first if they are needed later.</p></li><li><p>Take moments about points that eliminate unknowns.</p></li><li><p>Use symmetry when the geometry and loading justify it.</p></li><li><p>Keep one consistent sign convention for the whole problem.</p></li></ul>
+<hr />
+<h1 id="common-mistakes">Common mistakes</h1>
+<p>These errors account for most lost points in statics.</p>
+<ul><li><p>Forgetting a support reaction component</p></li><li><p>Drawing the wrong direction for friction</p></li><li><p>Using the wrong line of action for a moment</p></li><li><p>Treating a couple as a force</p></li><li><p>Mixing up action-reaction pairs on the same FBD</p></li><li><p>Neglecting the moment of a distributed load</p></li><li><p>Using too many unknowns in a truss section</p></li><li><p>Applying 2D equations to a 3D problem</p></li><li><p>Forgetting that weight acts at the center of gravity</p></li><li><p>Inconsistent sign conventions across diagrams and equations</p></li></ul>
+<p>When a computed answer is negative, first check whether the magnitude is reasonable before deciding the sign means the model is wrong.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="equilibrium">Equilibrium</h2>
+<div class="math-block">$$
+\sum F_x = 0,\qquad \sum F_y = 0,\qquad \sum M_O = 0
+$$</div>
+<h2 id="moment">Moment</h2>
+<div class="math-block">$$
+\mathbf{M}_O = \mathbf{r} \times \mathbf{F}
+$$</div>
+<div class="math-block">$$
+M = F d_\perp
+$$</div>
+<h2 id="distributed-load-resultant">Distributed load resultant</h2>
+<div class="math-block">$$
+R = \int_a^b w(x)\,dx
+$$</div>
+<div class="math-block">$$
+\bar{x} = \frac{1}{R}\int_a^b x\,w(x)\,dx
+$$</div>
+<h2 id="friction-2">Friction</h2>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<h2 id="centroid-of-composite-area">Centroid of composite area</h2>
+<div class="math-block">$$
+\bar{x} = \frac{\sum A_i x_i}{\sum A_i}, \qquad \bar{y} = \frac{\sum A_i y_i}{\sum A_i}
+$$</div>
+<h2 id="beam-relations">Beam relations</h2>
+<div class="math-block">$$
+\frac{dV}{dx} = -w(x), \qquad \frac{dM}{dx} = V(x)
+$$</div>
+<h2 id="two-force-member-2">Two-force member</h2>
+<p>If only two forces act on a member, they are equal, opposite, and collinear.</p>
+<hr />
+<h2 id="quick-reference">Quick reference</h2>
+<p>If you are stuck, ask these questions:</p>
+<ul><li><p>What body am I isolating?</p></li><li><p>What external forces act on it?</p></li><li><p>What reactions can the supports supply?</p></li><li><p>Is the problem planar or spatial?</p></li><li><p>Can I eliminate unknowns by taking moments about a good point?</p></li><li><p>Am I using the correct sign convention?</p></li></ul>
+<p>Statics is usually not hard algebraically. The main difficulty is building the right model.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="modeling-assumptions">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Modeling assumptions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#rigid-body-idealization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-assumptions">Rigid body idealization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#particle-idealization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-assumptions">Particle idealization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#two-dimensional-versus-three-dimensional" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="modeling-assumptions">Two-dimensional versus three-dimensional</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="forces-moments-and-couples" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Forces, moments, and couples">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#force-vectors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forces-moments-and-couples">Force vectors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#moment-of-a-force" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forces-moments-and-couples">Moment of a force</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#couple-moment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forces-moments-and-couples">Couple moment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#varignons-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="forces-moments-and-couples">Varignon&#39;s theorem</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="equilibrium-equations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Equilibrium equations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#particle-equilibrium" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="equilibrium-equations">Particle equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rigid-body-equilibrium-in-2d" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="equilibrium-equations">Rigid-body equilibrium in 2D</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rigid-body-equilibrium-in-3d" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="equilibrium-equations">Rigid-body equilibrium in 3D</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="free-body-diagrams" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Free-body diagrams">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-build-an-fbd" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="free-body-diagrams">How to build an FBD</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#what-belongs-on-the-fbd" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="free-body-diagrams">What belongs on the FBD</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#what-does-not-belong-on-the-fbd" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="free-body-diagrams">What does not belong on the FBD</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#good-practice" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="free-body-diagrams">Good practice</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="support-reactions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Support reactions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-2d-supports" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="support-reactions">Common 2D supports</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-3d-supports" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="support-reactions">Common 3D supports</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#statical-determinacy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="support-reactions">Statical determinacy</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="distributed-loads-centroids-and-resultants" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Distributed loads, centroids, and resultants">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-load-shapes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="distributed-loads-centroids-and-resultants">Common load shapes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#use-in-beam-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="distributed-loads-centroids-and-resultants">Use in beam problems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="trusses" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Trusses">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#assumptions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="trusses">Assumptions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#two-force-member" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="trusses">Two-force member</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#method-of-joints" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="trusses">Method of joints</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#method-of-sections" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="trusses">Method of sections</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#zero-force-members" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="trusses">Zero-force members</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="frames-and-machines" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Frames and machines">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#frames" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frames-and-machines">Frames</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#machines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frames-and-machines">Machines</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#internal-joint-forces" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="frames-and-machines">Internal joint forces</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="friction" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Friction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#static-friction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="friction">Static friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kinetic-friction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="friction">Kinetic friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#direction-of-friction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="friction">Direction of friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#angle-of-friction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="friction">Angle of friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#typical-friction-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="friction">Typical friction workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="internal-loads-in-beams" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Internal loads in beams">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sign-convention" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="internal-loads-in-beams">Sign convention</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#procedure-for-internal-forces" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="internal-loads-in-beams">Procedure for internal forces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#shear-and-bending-moment-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="internal-loads-in-beams">Shear and bending moment relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#useful-qualitative-facts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="internal-loads-in-beams">Useful qualitative facts</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="centroids-and-centers-of-gravity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Centroids and centers of gravity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#composite-areas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="centroids-and-centers-of-gravity">Composite areas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#symmetry-shortcuts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="centroids-and-centers-of-gravity">Symmetry shortcuts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#center-of-gravity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="centroids-and-centers-of-gravity">Center of gravity</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#best-habits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Best habits</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#moment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Moment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#distributed-load-resultant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Distributed load resultant</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#friction-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#centroid-of-composite-area" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Centroid of composite area</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#beam-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Beam relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#two-force-member-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Two-force member</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-reference" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Quick reference</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

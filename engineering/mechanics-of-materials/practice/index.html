@@ -1,0 +1,2805 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mechanics of Materials Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/mechanics-of-materials/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Mechanics of Materials Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/mechanics-of-materials/mechanics-of-materials-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fmechanics-of-materials%2Fmechanics-of-materials-problems.md&amp;title=%5BContribute%5D%3A%20Mechanics%20of%20Materials%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Mechanics of Materials" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>General shear formula</h2><div class="markdown-body"><p>For transverse shear in a beam:</p>
+<div class="math-block">$$
+\tau = \frac{VQ}{It}
+$$</div>
+<p>where:</p>
+<ul><li><p>$V$ is the internal shear force</p></li><li><p>$Q$ is the first moment of area of the portion above or below the point</p></li><li><p>$I$ is the second moment of area of the entire cross-section</p></li><li><p>$t$ is the local thickness where the stress is evaluated</p></li></ul></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="mechanics-of-materials-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Normal Stress, Axial Loading" data-problem-difficulty="Direct" data-problem-answer="Use the axial stress formula:
+
+$$
+\sigma = \frac{P}{A}
+$$
+
+Substitute the values:
+
+$$
+\sigma = \frac{24\,000}{600} = 40\ \text{N/mm}^2
+$$
+
+So the normal stress is
+
+$$
+40\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Compute the Normal Stress in a Tension Member</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#normal-stress" data-notes-nav-item>Normal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#axial-loading" data-notes-nav-item>Axial Loading</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A steel bar carries a tensile force of $24\ \text{kN}$ and has a cross-sectional area of $600\ \text{mm}^2$.</p>
+<p>What is the average normal stress in the bar?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-11">Your work for Compute the Normal Stress in a Tension Member</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the axial stress formula:</p>
+<div class="math-block">$$
+\sigma = \frac{P}{A}
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\sigma = \frac{24\,000}{600} = 40\ \text{N/mm}^2
+$$</div>
+<p>So the normal stress is</p>
+<div class="math-block">$$
+40\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Strain, Deformation" data-problem-difficulty="Direct" data-problem-answer="Use the strain definition:
+
+$$
+\varepsilon = \frac{\delta}{L}
+$$
+
+Substitute the values:
+
+$$
+\varepsilon = \frac{1.5}{750} = 0.002
+$$
+
+So the engineering strain is
+
+$$
+2.0 \times 10^{-3}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find Engineering Strain from Elongation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#strain" data-notes-nav-item>Strain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A bar with original length $750\ \text{mm}$ elongates by $1.5\ \text{mm}$.</p>
+<p>What is the engineering strain?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-12">Your work for Find Engineering Strain from Elongation</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the strain definition:</p>
+<div class="math-block">$$
+\varepsilon = \frac{\delta}{L}
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\varepsilon = \frac{1.5}{750} = 0.002
+$$</div>
+<p>So the engineering strain is</p>
+<div class="math-block">$$
+2.0 \times 10^{-3}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Hooke&#39;s Law, Stress-Strain" data-problem-difficulty="Direct" data-problem-answer="Use Hooke&#39;s law:
+
+$$
+\sigma = E\varepsilon
+$$
+
+Solve for strain:
+
+$$
+\varepsilon = \frac{\sigma}{E}
+$$
+
+Substitute:
+
+$$
+\varepsilon = \frac{105}{210\,000} = 0.0005
+$$
+
+So the axial strain is
+
+$$
+5.0 \times 10^{-4}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use Hooke&#39;s Law for a Linear Elastic Material</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#hookes-law-stress-strain" data-notes-nav-item>Hooke&#39;s Law, Stress-Strain</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A linearly elastic material has Young&#39;s modulus $E = 210\ \text{GPa}$. If it experiences a normal stress of $105\ \text{MPa}$, what is the axial strain?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-13">Your work for Use Hooke&#39;s Law for a Linear Elastic Material</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use Hooke&#39;s law:</p>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<p>Solve for strain:</p>
+<div class="math-block">$$
+\varepsilon = \frac{\sigma}{E}
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\varepsilon = \frac{105}{210\,000} = 0.0005
+$$</div>
+<p>So the axial strain is</p>
+<div class="math-block">$$
+5.0 \times 10^{-4}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Thermal Strain, Expansion" data-problem-difficulty="Direct" data-problem-answer="Use free thermal expansion:
+
+$$
+\delta_{th} = \alpha L \Delta T
+$$
+
+Substitute:
+
+$$
+\delta_{th} = (12 \times 10^{-6})(2.5)(20)
+$$
+
+$$
+\delta_{th} = 6.0 \times 10^{-4}\ \text{m}
+$$
+
+Convert to millimeters:
+
+$$
+\delta_{th} = 0.6\ \text{mm}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Compute Free Thermal Expansion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#thermal-strain" data-notes-nav-item>Thermal Strain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#expansion" data-notes-nav-item>Expansion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A steel rod has length $2.5\ \text{m}$ and coefficient of thermal expansion</p>
+<div class="math-block">$$
+\alpha = 12 \times 10^{-6}/^\circ\text{C}.
+$$</div>
+<p>If the temperature increases by $20^\circ\text{C}$ and the rod is free to expand, how much does its length change?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-14">Your work for Compute Free Thermal Expansion</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use free thermal expansion:</p>
+<div class="math-block">$$
+\delta_{th} = \alpha L \Delta T
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\delta_{th} = (12 \times 10^{-6})(2.5)(20)
+$$</div>
+<div class="math-block">$$
+\delta_{th} = 6.0 \times 10^{-4}\ \text{m}
+$$</div>
+<p>Convert to millimeters:</p>
+<div class="math-block">$$
+\delta_{th} = 0.6\ \text{mm}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Torsion, Shear Stress" data-problem-difficulty="Direct" data-problem-answer="Use the torsion formula at the outer surface:
+
+$$
+\tau_{max} = \frac{Tc}{J}
+$$
+
+For a solid circular shaft,
+
+$$
+J = \frac{\pi d^4}{32}, \quad c = \frac{d}{2}
+$$
+
+Substitute $T = 600\,000\ \text{N}\cdot\text{mm}$ and $d = 60\ \text{mm}$:
+
+$$
+\tau_{max} = \frac{600\,000(30)}{\pi(60^4)/32}
+$$
+
+$$
+\tau_{max} \approx 14.1\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find the Maximum Shear Stress in a Circular Shaft</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#shear-stress" data-notes-nav-item>Shear Stress</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A solid circular shaft with diameter $60\ \text{mm}$ carries a torque of $600\ \text{N}\cdot\text{m}$.</p>
+<p>What is the maximum shear stress in the shaft?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-15">Your work for Find the Maximum Shear Stress in a Circular Shaft</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the torsion formula at the outer surface:</p>
+<div class="math-block">$$
+\tau_{max} = \frac{Tc}{J}
+$$</div>
+<p>For a solid circular shaft,</p>
+<div class="math-block">$$
+J = \frac{\pi d^4}{32}, \quad c = \frac{d}{2}
+$$</div>
+<p>Substitute $T = 600\,000\ \text{N}\cdot\text{mm}$ and $d = 60\ \text{mm}$:</p>
+<div class="math-block">$$
+\tau_{max} = \frac{600\,000(30)}{\pi(60^4)/32}
+$$</div>
+<div class="math-block">$$
+\tau_{max} \approx 14.1\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Angle of Twist, Torsion" data-problem-difficulty="Direct" data-problem-answer="Use the torsion deformation formula:
+
+$$
+\phi = \frac{TL}{JG}
+$$
+
+For a solid circular shaft,
+
+$$
+J = \frac{\pi d^4}{32}
+$$
+
+Substitute in consistent units:
+
+$$
+T = 900\,000\ \text{N}\cdot\text{mm}, \quad L = 1500\ \text{mm}, \quad G = 80\,000\ \text{N/mm}^2
+$$
+
+Then
+
+$$
+\phi = \frac{900\,000(1500)}{\left[\pi(50^4)/32\right](80\,000)}
+$$
+
+$$
+\phi \approx 0.0275\ \text{rad}
+$$
+
+In degrees, this is about
+
+$$
+1.6^\circ
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute the Angle of Twist</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#angle-of-twist" data-notes-nav-item>Angle of Twist</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A solid circular shaft has length $1.5\ \text{m}$, diameter $50\ \text{mm}$, shear modulus $G = 80\ \text{GPa}$, and applied torque $900\ \text{N}\cdot\text{m}$.</p>
+<p>What is the angle of twist?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-16">Your work for Compute the Angle of Twist</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the torsion deformation formula:</p>
+<div class="math-block">$$
+\phi = \frac{TL}{JG}
+$$</div>
+<p>For a solid circular shaft,</p>
+<div class="math-block">$$
+J = \frac{\pi d^4}{32}
+$$</div>
+<p>Substitute in consistent units:</p>
+<div class="math-block">$$
+T = 900\,000\ \text{N}\cdot\text{mm}, \quad L = 1500\ \text{mm}, \quad G = 80\,000\ \text{N/mm}^2
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\phi = \frac{900\,000(1500)}{\left[\pi(50^4)/32\right](80\,000)}
+$$</div>
+<div class="math-block">$$
+\phi \approx 0.0275\ \text{rad}
+$$</div>
+<p>In degrees, this is about</p>
+<div class="math-block">$$
+1.6^\circ
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Bending Stress, Section Properties" data-problem-difficulty="Direct" data-problem-answer="Use the flexure formula:
+
+$$
+\sigma_{max} = \frac{Mc}{I}
+$$
+
+For a rectangle,
+
+$$
+I = \frac{bh^3}{12}
+$$
+
+Here,
+
+$$
+I = \frac{100(150^3)}{12} = 28\,125\,000\ \text{mm}^4
+$$
+
+and
+
+$$
+c = \frac{150}{2} = 75\ \text{mm}
+$$
+
+Convert the moment:
+
+$$
+M = 8\ \text{kN}\cdot\text{m} = 8\,000\,000\ \text{N}\cdot\text{mm}
+$$
+
+Now compute:
+
+$$
+\sigma_{max} = \frac{8\,000\,000(75)}{28\,125\,000} \approx 21.3\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Find the Maximum Bending Stress in a Rectangle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#section-properties" data-notes-nav-item>Section Properties</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A beam section is rectangular with width $100\ \text{mm}$ and height $150\ \text{mm}$. The internal bending moment at a section is $8\ \text{kN}\cdot\text{m}$.</p>
+<p>What is the maximum bending stress?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-17">Your work for Find the Maximum Bending Stress in a Rectangle</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the flexure formula:</p>
+<div class="math-block">$$
+\sigma_{max} = \frac{Mc}{I}
+$$</div>
+<p>For a rectangle,</p>
+<div class="math-block">$$
+I = \frac{bh^3}{12}
+$$</div>
+<p>Here,</p>
+<div class="math-block">$$
+I = \frac{100(150^3)}{12} = 28\,125\,000\ \text{mm}^4
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+c = \frac{150}{2} = 75\ \text{mm}
+$$</div>
+<p>Convert the moment:</p>
+<div class="math-block">$$
+M = 8\ \text{kN}\cdot\text{m} = 8\,000\,000\ \text{N}\cdot\text{mm}
+$$</div>
+<p>Now compute:</p>
+<div class="math-block">$$
+\sigma_{max} = \frac{8\,000\,000(75)}{28\,125\,000} \approx 21.3\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Beam Shear Stress, Shear Force" data-problem-difficulty="Direct" data-problem-answer="For a rectangular section, the maximum shear stress is
+
+$$
+\tau_{max} = \frac{3V}{2A}
+$$
+
+where
+
+$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$
+
+Substitute:
+
+$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$
+
+So the maximum shear stress is
+
+$$
+3.0\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute Maximum Beam Shear Stress in a Rectangle</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#shear-force" data-notes-nav-item>Shear Force</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$. The internal shear force is $15\ \text{kN}$.</p>
+<p>What is the maximum shear stress at the neutral axis?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-18">Your work for Compute Maximum Beam Shear Stress in a Rectangle</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a rectangular section, the maximum shear stress is</p>
+<div class="math-block">$$
+\tau_{max} = \frac{3V}{2A}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$</div>
+<p>So the maximum shear stress is</p>
+<div class="math-block">$$
+3.0\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Internal Force Resultants, Shear Diagrams" data-problem-difficulty="Direct" data-problem-answer="A downward concentrated load causes a downward jump in the shear diagram by the same magnitude.
+
+So the shear-force diagram drops by
+
+$$
+12\ \text{kN}
+$$
+
+at that point.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Interpret a Concentrated Load in a Shear Diagram</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#internal-force-resultants" data-notes-nav-item>Internal Force Resultants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#shear-diagrams" data-notes-nav-item>Shear Diagrams</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A beam&#39;s shear-force diagram is being drawn from left to right. At one point, the beam crosses a $12\ \text{kN}$ downward concentrated load.</p>
+<p>What happens to the shear-force diagram at that point?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-19">Your work for Interpret a Concentrated Load in a Shear Diagram</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>A downward concentrated load causes a downward jump in the shear diagram by the same magnitude.</p>
+<p>So the shear-force diagram drops by</p>
+<div class="math-block">$$
+12\ \text{kN}
+$$</div>
+<p>at that point.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Euler Buckling, Columns" data-problem-difficulty="Direct" data-problem-answer="Use Euler buckling with $K = 1$ for pinned-pinned ends:
+
+$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$
+
+Substitute in consistent units:
+
+$$
+E = 200\,000\ \text{N/mm}^2, \quad L = 3000\ \text{mm}
+$$
+
+So
+
+$$
+P_{cr} = \frac{\pi^2(200\,000)(1.0 \times 10^6)}{3000^2}
+$$
+
+$$
+P_{cr} \approx 219\ \text{kN}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find the Euler Buckling Load</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#columns" data-notes-nav-item>Columns</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A pinned-pinned column has</p>
+<div class="math-block">$$
+E = 200\ \text{GPa}, \quad I = 1.0 \times 10^6\ \text{mm}^4, \quad L = 3\ \text{m}.
+$$</div>
+<p>What is the critical buckling load?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-110">Your work for Find the Euler Buckling Load</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use Euler buckling with $K = 1$ for pinned-pinned ends:</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$</div>
+<p>Substitute in consistent units:</p>
+<div class="math-block">$$
+E = 200\,000\ \text{N/mm}^2, \quad L = 3000\ \text{mm}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2(200\,000)(1.0 \times 10^6)}{3000^2}
+$$</div>
+<div class="math-block">$$
+P_{cr} \approx 219\ \text{kN}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="mechanics-of-materials-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Axial Deformation, Piecewise Segments" data-problem-difficulty="Integrated" data-problem-answer="Use the deformation formula on each segment:
+
+$$
+\delta = \sum \frac{PL}{AE}
+$$
+
+For segment 1:
+
+$$
+\delta_1 = \frac{12\,000(400)}{200(200\,000)} = 0.12\ \text{mm}
+$$
+
+For segment 2:
+
+$$
+\delta_2 = \frac{12\,000(600)}{300(200\,000)} = 0.12\ \text{mm}
+$$
+
+So the total elongation is
+
+$$
+\delta_{tot} = 0.24\ \text{mm}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Sum the Elongation of a Two-Segment Bar</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#axial-deformation" data-notes-nav-item>Axial Deformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A steel bar has two segments in series. Segment 1 has length $400\ \text{mm}$ and area $200\ \text{mm}^2$. Segment 2 has length $600\ \text{mm}$ and area $300\ \text{mm}^2$. The bar carries a tensile force of $12\ \text{kN}$ throughout, and $E = 200\ \text{GPa}$.</p>
+<p>What is the total elongation?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-21">Your work for Sum the Elongation of a Two-Segment Bar</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the deformation formula on each segment:</p>
+<div class="math-block">$$
+\delta = \sum \frac{PL}{AE}
+$$</div>
+<p>For segment 1:</p>
+<div class="math-block">$$
+\delta_1 = \frac{12\,000(400)}{200(200\,000)} = 0.12\ \text{mm}
+$$</div>
+<p>For segment 2:</p>
+<div class="math-block">$$
+\delta_2 = \frac{12\,000(600)}{300(200\,000)} = 0.12\ \text{mm}
+$$</div>
+<p>So the total elongation is</p>
+<div class="math-block">$$
+\delta_{tot} = 0.24\ \text{mm}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Axial Stress, Piecewise Segments, Deformation" data-problem-difficulty="Integrated" data-problem-answer="The axial force is the same in every segment, so the stress in each segment is
+
+$$
+\sigma = \frac{P}{A}
+$$
+
+Segment 1:
+
+$$
+\sigma_1 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$
+
+Segment 2:
+
+$$
+\sigma_2 = \frac{18\,000}{500} = 36\ \text{MPa}
+$$
+
+Segment 3:
+
+$$
+\sigma_3 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$
+
+Now compute elongation segment by segment:
+
+$$
+\delta_{tot} = \sum \frac{PL}{AE}
+$$
+
+$$
+\delta_{tot} =
+\frac{18\,000(500)}{250(200\,000)}
++\frac{18\,000(300)}{500(200\,000)}
++\frac{18\,000(700)}{250(200\,000)}
+$$
+
+$$
+\delta_{tot} = 0.36 + 0.054 + 0.252 = 0.486\ \text{mm}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Analyze a Stepped Bar with Constant Axial Force</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A stepped steel bar is in tension with an axial force of $18\ \text{kN}$. Its segments are:</p>
+<div class="math-block">$$
+(500\ \text{mm}, 250\ \text{mm}^2),\quad (300\ \text{mm}, 500\ \text{mm}^2),\quad (700\ \text{mm}, 250\ \text{mm}^2)
+$$</div>
+<p>Take $E = 200\ \text{GPa}$.</p>
+<p>Find the stress in each segment and the total elongation.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-22">Your work for Analyze a Stepped Bar with Constant Axial Force</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The axial force is the same in every segment, so the stress in each segment is</p>
+<div class="math-block">$$
+\sigma = \frac{P}{A}
+$$</div>
+<p>Segment 1:</p>
+<div class="math-block">$$
+\sigma_1 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$</div>
+<p>Segment 2:</p>
+<div class="math-block">$$
+\sigma_2 = \frac{18\,000}{500} = 36\ \text{MPa}
+$$</div>
+<p>Segment 3:</p>
+<div class="math-block">$$
+\sigma_3 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$</div>
+<p>Now compute elongation segment by segment:</p>
+<div class="math-block">$$
+\delta_{tot} = \sum \frac{PL}{AE}
+$$</div>
+<div class="math-block">$$
+\delta_{tot} =
+\frac{18\,000(500)}{250(200\,000)}
++\frac{18\,000(300)}{500(200\,000)}
++\frac{18\,000(700)}{250(200\,000)}
+$$</div>
+<div class="math-block">$$
+\delta_{tot} = 0.36 + 0.054 + 0.252 = 0.486\ \text{mm}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Thermal Stress, Constrained Expansion" data-problem-difficulty="Integrated" data-problem-answer="For a fully restrained bar, the total strain is zero, so the thermal stress is
+
+$$
+\sigma = E\alpha\Delta T
+$$
+
+Substitute:
+
+$$
+\sigma = (200\,000)(12 \times 10^{-6})(35)
+$$
+
+$$
+\sigma = 84\ \text{MPa}
+$$
+
+Because the bar is prevented from expanding, the stress is compressive.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Find the Stress from a Fully Restrained Temperature Rise</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#constrained-expansion" data-notes-nav-item>Constrained Expansion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A steel bar with length $2\ \text{m}$ is fixed between rigid walls. Its coefficient of thermal expansion is</p>
+<div class="math-block">$$
+\alpha = 12 \times 10^{-6}/^\circ\text{C},
+$$</div>
+<p>and $E = 200\ \text{GPa}$. If the temperature rises by $35^\circ\text{C}$, what thermal stress develops?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-23">Your work for Find the Stress from a Fully Restrained Temperature Rise</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a fully restrained bar, the total strain is zero, so the thermal stress is</p>
+<div class="math-block">$$
+\sigma = E\alpha\Delta T
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\sigma = (200\,000)(12 \times 10^{-6})(35)
+$$</div>
+<div class="math-block">$$
+\sigma = 84\ \text{MPa}
+$$</div>
+<p>Because the bar is prevented from expanding, the stress is compressive.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Parallel Members, Compatibility, Stiffness" data-problem-difficulty="Integrated" data-problem-answer="Because the bars are in parallel between rigid plates, they have the same elongation.
+So the force in each bar is proportional to its stiffness:
+
+$$
+k = \frac{AE}{L}
+$$
+
+Since $A$ and $L$ are the same, the force ratio is
+
+$$
+F_s : F_a = E_s : E_a = 200 : 70 = 20 : 7
+$$
+
+The total load is $27\ \text{kN}$, so there are $27$ parts total.
+
+Steel bar:
+
+$$
+F_s = 27 \cdot \frac{20}{27} = 20\ \text{kN}
+$$
+
+Aluminum bar:
+
+$$
+F_a = 27 \cdot \frac{7}{27} = 7\ \text{kN}
+$$
+
+The common elongation is
+
+$$
+\delta = \frac{F_sL}{AE_s} = \frac{20\,000(800)}{400(200\,000)} = 0.2\ \text{mm}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Share Load Between Parallel Bars</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#stiffness" data-notes-nav-item>Stiffness</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$. One bar is steel with $E = 200\ \text{GPa}$, and the other is aluminum with $E = 70\ \text{GPa}$. The plates are pulled by a total tensile load of $27\ \text{kN}$.</p>
+<p>How much force does each bar carry?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-24">Your work for Share Load Between Parallel Bars</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because the bars are in parallel between rigid plates, they have the same elongation. So the force in each bar is proportional to its stiffness:</p>
+<div class="math-block">$$
+k = \frac{AE}{L}
+$$</div>
+<p>Since $A$ and $L$ are the same, the force ratio is</p>
+<div class="math-block">$$
+F_s : F_a = E_s : E_a = 200 : 70 = 20 : 7
+$$</div>
+<p>The total load is $27\ \text{kN}$, so there are $27$ parts total.</p>
+<p>Steel bar:</p>
+<div class="math-block">$$
+F_s = 27 \cdot \frac{20}{27} = 20\ \text{kN}
+$$</div>
+<p>Aluminum bar:</p>
+<div class="math-block">$$
+F_a = 27 \cdot \frac{7}{27} = 7\ \text{kN}
+$$</div>
+<p>The common elongation is</p>
+<div class="math-block">$$
+\delta = \frac{F_sL}{AE_s} = \frac{20\,000(800)}{400(200\,000)} = 0.2\ \text{mm}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Stress Transformation, Principal Stress, Mohr&#39;s Circle" data-problem-difficulty="Integrated" data-problem-answer="Use the plane stress transformation results:
+
+$$
+\sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
+\pm
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$
+
+Compute the average stress:
+
+$$
+\frac{84+36}{2} = 60\ \text{MPa}
+$$
+
+and the radius:
+
+$$
+\sqrt{24^2 + 18^2} = \sqrt{900} = 30\ \text{MPa}
+$$
+
+So the principal stresses are
+
+$$
+\sigma_1 = 90\ \text{MPa}, \quad \sigma_2 = 30\ \text{MPa}
+$$
+
+The maximum in-plane shear stress is
+
+$$
+\tau_{max} = 30\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find Principal Stresses from a Plane Stress State</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#principal-stress" data-notes-nav-item>Principal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#mohrs-circle" data-notes-nav-item>Mohr&#39;s Circle</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A point in a member is under the plane stress state</p>
+<div class="math-block">$$
+\sigma_x = 84\ \text{MPa}, \quad \sigma_y = 36\ \text{MPa}, \quad \tau_{xy} = 18\ \text{MPa}.
+$$</div>
+<p>Find the principal stresses and the maximum in-plane shear stress.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-25">Your work for Find Principal Stresses from a Plane Stress State</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the plane stress transformation results:</p>
+<div class="math-block">$$
+\sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
+\pm
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<p>Compute the average stress:</p>
+<div class="math-block">$$
+\frac{84+36}{2} = 60\ \text{MPa}
+$$</div>
+<p>and the radius:</p>
+<div class="math-block">$$
+\sqrt{24^2 + 18^2} = \sqrt{900} = 30\ \text{MPa}
+$$</div>
+<p>So the principal stresses are</p>
+<div class="math-block">$$
+\sigma_1 = 90\ \text{MPa}, \quad \sigma_2 = 30\ \text{MPa}
+$$</div>
+<p>The maximum in-plane shear stress is</p>
+<div class="math-block">$$
+\tau_{max} = 30\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Stress Transformation, Rotated Planes" data-problem-difficulty="Integrated" data-problem-answer="Use the stress transformation equations:
+
+$$
+\sigma_{x&#39;} = \frac{\sigma_x+\sigma_y}{2}
++ \frac{\sigma_x-\sigma_y}{2}\cos 2\theta
++ \tau_{xy}\sin 2\theta
+$$
+
+$$
+\tau_{x&#39;y&#39;} = -\frac{\sigma_x-\sigma_y}{2}\sin 2\theta
++ \tau_{xy}\cos 2\theta
+$$
+
+With $\theta = 45^\circ$, we have
+
+$$
+\cos 90^\circ = 0, \quad \sin 90^\circ = 1
+$$
+
+So
+
+$$
+\sigma_{x&#39;} = 60 + 18 = 78\ \text{MPa}
+$$
+
+and
+
+$$
+\tau_{x&#39;y&#39;} = -24\ \text{MPa}
+$$
+
+The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress is $-24\ \text{MPa}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Transform Stress to a Rotated Plane</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#rotated-planes" data-notes-nav-item>Rotated Planes</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Using the same plane stress state</p>
+<div class="math-block">$$
+\sigma_x = 84\ \text{MPa}, \quad \sigma_y = 36\ \text{MPa}, \quad \tau_{xy} = 18\ \text{MPa},
+$$</div>
+<p>find the normal stress and shear stress on a plane rotated $45^\circ$ counterclockwise.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-26">Your work for Transform Stress to a Rotated Plane</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the stress transformation equations:</p>
+<div class="math-block">$$
+\sigma_{x&#39;} = \frac{\sigma_x+\sigma_y}{2}
++ \frac{\sigma_x-\sigma_y}{2}\cos 2\theta
++ \tau_{xy}\sin 2\theta
+$$</div>
+<div class="math-block">$$
+\tau_{x&#39;y&#39;} = -\frac{\sigma_x-\sigma_y}{2}\sin 2\theta
++ \tau_{xy}\cos 2\theta
+$$</div>
+<p>With $\theta = 45^\circ$, we have</p>
+<div class="math-block">$$
+\cos 90^\circ = 0, \quad \sin 90^\circ = 1
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\sigma_{x&#39;} = 60 + 18 = 78\ \text{MPa}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\tau_{x&#39;y&#39;} = -24\ \text{MPa}
+$$</div>
+<p>The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress is $-24\ \text{MPa}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Beam Shear Stress, Shear Formula" data-problem-difficulty="Integrated" data-problem-answer="For a rectangular section, the maximum shear stress occurs at the neutral axis and can be found from
+
+$$
+\tau = \frac{VQ}{It}
+$$
+
+Here,
+
+$$
+I = \frac{bh^3}{12} = \frac{50(150^3)}{12}
+$$
+
+At the neutral axis, the area above the cut is
+
+$$
+A&#39; = b\left(\frac{h}{2}\right) = 50(75)
+$$
+
+and its centroid is $37.5\ \text{mm}$ from the neutral axis, so
+
+$$
+Q = A&#39;\bar{y} = 50(75)(37.5)
+$$
+
+Using $t = b = 50\ \text{mm}$, the result simplifies to
+
+$$
+\tau_{max} = \frac{3V}{2A}
+$$
+
+with
+
+$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$
+
+So
+
+$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Use the Beam Shear Formula on a Rectangular Section</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#shear-formula" data-notes-nav-item>Shear Formula</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$. The internal shear force is $15\ \text{kN}$.</p>
+<p>Find the maximum shear stress at the neutral axis using the beam shear formula.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-27">Your work for Use the Beam Shear Formula on a Rectangular Section</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a rectangular section, the maximum shear stress occurs at the neutral axis and can be found from</p>
+<div class="math-block">$$
+\tau = \frac{VQ}{It}
+$$</div>
+<p>Here,</p>
+<div class="math-block">$$
+I = \frac{bh^3}{12} = \frac{50(150^3)}{12}
+$$</div>
+<p>At the neutral axis, the area above the cut is</p>
+<div class="math-block">$$
+A&#39; = b\left(\frac{h}{2}\right) = 50(75)
+$$</div>
+<p>and its centroid is $37.5\ \text{mm}$ from the neutral axis, so</p>
+<div class="math-block">$$
+Q = A&#39;\bar{y} = 50(75)(37.5)
+$$</div>
+<p>Using $t = b = 50\ \text{mm}$, the result simplifies to</p>
+<div class="math-block">$$
+\tau_{max} = \frac{3V}{2A}
+$$</div>
+<p>with</p>
+<div class="math-block">$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="mechanics-of-materials-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Beam Deflection, Integration" data-problem-difficulty="Applied" data-problem-answer="Take $x$ from the fixed end. The bending moment is
+
+$$
+M(x) = -P(L-x)
+$$
+
+and the beam equation is
+
+$$
+EI\frac{d^2v}{dx^2} = M(x)
+$$
+
+So
+
+$$
+EI\frac{d^2v}{dx^2} = -P(L-x)
+$$
+
+Integrate once:
+
+$$
+EI\frac{dv}{dx} = -PLx + \frac{Px^2}{2} + C_1
+$$
+
+At the fixed end, the slope is zero, so $C_1 = 0$.
+
+Integrate again:
+
+$$
+EIv = -\frac{PLx^2}{2} + \frac{Px^3}{6} + C_2
+$$
+
+At the fixed end, the deflection is zero, so $C_2 = 0$.
+
+At $x = L$,
+
+$$
+v(L) = -\frac{PL^3}{3EI}
+$$
+
+Substitute $P = 4000\ \text{N}$, $L = 2000\ \text{mm}$, $E = 200\,000\ \text{N/mm}^2$, and $I = 8.0 \times 10^6\ \text{mm}^4$:
+
+$$
+|v(L)| = \frac{4000(2000^3)}{3(200\,000)(8.0 \times 10^6)} \approx 6.7\ \text{mm}
+$$
+
+So the tip deflection is about $6.7\ \text{mm}$ downward.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Integrate the Deflection of a Cantilever</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#beam-deflection" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#integration" data-notes-nav-item>Integration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A cantilever beam has length $2\ \text{m}$ and an end load of $4\ \text{kN}$. The beam has $E = 200\ \text{GPa}$ and $I = 8.0 \times 10^6\ \text{mm}^4$.</p>
+<p>Find the tip deflection using the moment-curvature relation.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-31">Your work for Integrate the Deflection of a Cantilever</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Take $x$ from the fixed end. The bending moment is</p>
+<div class="math-block">$$
+M(x) = -P(L-x)
+$$</div>
+<p>and the beam equation is</p>
+<div class="math-block">$$
+EI\frac{d^2v}{dx^2} = M(x)
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+EI\frac{d^2v}{dx^2} = -P(L-x)
+$$</div>
+<p>Integrate once:</p>
+<div class="math-block">$$
+EI\frac{dv}{dx} = -PLx + \frac{Px^2}{2} + C_1
+$$</div>
+<p>At the fixed end, the slope is zero, so $C_1 = 0$.</p>
+<p>Integrate again:</p>
+<div class="math-block">$$
+EIv = -\frac{PLx^2}{2} + \frac{Px^3}{6} + C_2
+$$</div>
+<p>At the fixed end, the deflection is zero, so $C_2 = 0$.</p>
+<p>At $x = L$,</p>
+<div class="math-block">$$
+v(L) = -\frac{PL^3}{3EI}
+$$</div>
+<p>Substitute $P = 4000\ \text{N}$, $L = 2000\ \text{mm}$, $E = 200\,000\ \text{N/mm}^2$, and $I = 8.0 \times 10^6\ \text{mm}^4$:</p>
+<div class="math-block">$$
+|v(L)| = \frac{4000(2000^3)}{3(200\,000)(8.0 \times 10^6)} \approx 6.7\ \text{mm}
+$$</div>
+<p>So the tip deflection is about $6.7\ \text{mm}$ downward.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Power Transmission, Torsion, Shaft Design" data-problem-difficulty="Applied" data-problem-answer="First convert power and speed to torque:
+
+$$
+P = T\omega
+$$
+
+The angular speed is
+
+$$
+\omega = 2\pi\left(\frac{900}{60}\right) = 30\pi\ \text{rad/s}
+$$
+
+So the torque is
+
+$$
+T = \frac{12\,000}{30\pi} \approx 127.3\ \text{N}\cdot\text{m}
+$$
+
+Now use the torsion stress formula for a solid shaft:
+
+$$
+\tau_{max} = \frac{16T}{\pi d^3}
+$$
+
+Solve for $d$:
+
+$$
+d = \left(\frac{16T}{\pi\tau_{allow}}\right)^{1/3}
+$$
+
+Substitute $T = 127\,300\ \text{N}\cdot\text{mm}$ and $\tau_{allow} = 40\ \text{N/mm}^2$:
+
+$$
+d \approx 25.4\ \text{mm}
+$$
+
+So the minimum practical diameter is
+
+$$
+26\ \text{mm}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Convert Power to Shaft Diameter</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#power-transmission" data-notes-nav-item>Power Transmission</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#shaft-design" data-notes-nav-item>Shaft Design</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A motor delivers $12\ \text{kW}$ at $900\ \text{rpm}$ to a solid circular shaft. If the allowable shear stress is $40\ \text{MPa}$, what minimum shaft diameter is required?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-32">Your work for Convert Power to Shaft Diameter</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First convert power and speed to torque:</p>
+<div class="math-block">$$
+P = T\omega
+$$</div>
+<p>The angular speed is</p>
+<div class="math-block">$$
+\omega = 2\pi\left(\frac{900}{60}\right) = 30\pi\ \text{rad/s}
+$$</div>
+<p>So the torque is</p>
+<div class="math-block">$$
+T = \frac{12\,000}{30\pi} \approx 127.3\ \text{N}\cdot\text{m}
+$$</div>
+<p>Now use the torsion stress formula for a solid shaft:</p>
+<div class="math-block">$$
+\tau_{max} = \frac{16T}{\pi d^3}
+$$</div>
+<p>Solve for $d$:</p>
+<div class="math-block">$$
+d = \left(\frac{16T}{\pi\tau_{allow}}\right)^{1/3}
+$$</div>
+<p>Substitute $T = 127\,300\ \text{N}\cdot\text{mm}$ and $\tau_{allow} = 40\ \text{N/mm}^2$:</p>
+<div class="math-block">$$
+d \approx 25.4\ \text{mm}
+$$</div>
+<p>So the minimum practical diameter is</p>
+<div class="math-block">$$
+26\ \text{mm}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Combined Loading, Axial Stress, Bending Stress" data-problem-difficulty="Applied" data-problem-answer="First compute the axial stress:
+
+$$
+\sigma_{ax} = \frac{P}{A} = \frac{30\,000}{80(160)} = 2.34\ \text{MPa}
+$$
+
+This is compressive.
+
+Next compute the bending stress:
+
+$$
+\sigma_b = \frac{Mc}{I}
+$$
+
+For a rectangle,
+
+$$
+I = \frac{bh^3}{12} = \frac{80(160^3)}{12} = 34\,133\,333\ \text{mm}^4
+$$
+
+and
+
+$$
+c = 80\ \text{mm}
+$$
+
+Convert the moment:
+
+$$
+M = 6\ \text{kN}\cdot\text{m} = 6\,000\,000\ \text{N}\cdot\text{mm}
+$$
+
+So
+
+$$
+\sigma_b = \frac{6\,000\,000(80)}{34\,133\,333} \approx 14.1\ \text{MPa}
+$$
+
+If the moment puts the top fiber in compression, then:
+
+$$
+\sigma_{top} = 2.34 + 14.1 = 16.4\ \text{MPa}
+$$
+
+$$
+\sigma_{bottom} = 14.1 - 2.34 = 11.8\ \text{MPa}
+$$
+
+So the top fiber is more highly compressed, and the bottom fiber is in tension.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Combine Axial Load and Bending</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A member carries a compressive axial load of $30\ \text{kN}$ and an internal bending moment of $6\ \text{kN}\cdot\text{m}$. Its cross-section is a rectangle with width $80\ \text{mm}$ and height $160\ \text{mm}$.</p>
+<p>Find the normal stress at the top fiber and at the bottom fiber.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-33">Your work for Combine Axial Load and Bending</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the axial stress:</p>
+<div class="math-block">$$
+\sigma_{ax} = \frac{P}{A} = \frac{30\,000}{80(160)} = 2.34\ \text{MPa}
+$$</div>
+<p>This is compressive.</p>
+<p>Next compute the bending stress:</p>
+<div class="math-block">$$
+\sigma_b = \frac{Mc}{I}
+$$</div>
+<p>For a rectangle,</p>
+<div class="math-block">$$
+I = \frac{bh^3}{12} = \frac{80(160^3)}{12} = 34\,133\,333\ \text{mm}^4
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+c = 80\ \text{mm}
+$$</div>
+<p>Convert the moment:</p>
+<div class="math-block">$$
+M = 6\ \text{kN}\cdot\text{m} = 6\,000\,000\ \text{N}\cdot\text{mm}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\sigma_b = \frac{6\,000\,000(80)}{34\,133\,333} \approx 14.1\ \text{MPa}
+$$</div>
+<p>If the moment puts the top fiber in compression, then:</p>
+<div class="math-block">$$
+\sigma_{top} = 2.34 + 14.1 = 16.4\ \text{MPa}
+$$</div>
+<div class="math-block">$$
+\sigma_{bottom} = 14.1 - 2.34 = 11.8\ \text{MPa}
+$$</div>
+<p>So the top fiber is more highly compressed, and the bottom fiber is in tension.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Euler Buckling, Yielding, Design Check" data-problem-difficulty="Applied" data-problem-answer="First compute the second moment of area for a solid circle:
+
+$$
+I = \frac{\pi d^4}{64}
+$$
+
+With $d = 40\ \text{mm}$,
+
+$$
+I = \frac{\pi(40^4)}{64} \approx 1.26 \times 10^5\ \text{mm}^4
+$$
+
+Euler buckling load:
+
+$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$
+
+Substitute:
+
+$$
+P_{cr} \approx \frac{\pi^2(200\,000)(1.26 \times 10^5)}{3000^2} \approx 27.6\ \text{kN}
+$$
+
+Now compute the yield load:
+
+$$
+A = \frac{\pi d^2}{4} \approx 1257\ \text{mm}^2
+$$
+
+$$
+P_y = \sigma_y A = 250(1257) \approx 314\ \text{kN}
+$$
+
+Since $27.6\ \text{kN} &lt; 314\ \text{kN}$, Euler buckling governs.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Decide Which Column Failure Mode Governs</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#yielding" data-notes-nav-item>Yielding</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A steel column has length $3\ \text{m}$, pinned-pinned ends, Young&#39;s modulus $E = 200\ \text{GPa}$, and a circular cross-section with diameter $40\ \text{mm}$. The yield strength is $250\ \text{MPa}$.</p>
+<p>Compute the Euler critical load and the yield load. Which one is smaller?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-34">Your work for Decide Which Column Failure Mode Governs</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the second moment of area for a solid circle:</p>
+<div class="math-block">$$
+I = \frac{\pi d^4}{64}
+$$</div>
+<p>With $d = 40\ \text{mm}$,</p>
+<div class="math-block">$$
+I = \frac{\pi(40^4)}{64} \approx 1.26 \times 10^5\ \text{mm}^4
+$$</div>
+<p>Euler buckling load:</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+P_{cr} \approx \frac{\pi^2(200\,000)(1.26 \times 10^5)}{3000^2} \approx 27.6\ \text{kN}
+$$</div>
+<p>Now compute the yield load:</p>
+<div class="math-block">$$
+A = \frac{\pi d^2}{4} \approx 1257\ \text{mm}^2
+$$</div>
+<div class="math-block">$$
+P_y = \sigma_y A = 250(1257) \approx 314\ \text{kN}
+$$</div>
+<p>Since $27.6\ \text{kN} &lt; 314\ \text{kN}$, Euler buckling governs.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="von Mises, Failure Criterion, Plane Stress" data-problem-difficulty="Applied" data-problem-answer="Use the plane-stress von Mises formula:
+
+$$
+\sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
+$$
+
+Substitute:
+
+$$
+\sigma_{vm} = \sqrt{70^2 - 70(10) + 10^2 + 3(20^2)}
+$$
+
+$$
+\sigma_{vm} = \sqrt{4900 - 700 + 100 + 1200}
+$$
+
+$$
+\sigma_{vm} = \sqrt{5500} \approx 74.2\ \text{MPa}
+$$
+
+Because $74.2\ \text{MPa} &lt; 75\ \text{MPa}$, yielding is not predicted.
+The part is just barely safe.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Check a Plane Stress State with von Mises</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#von-mises" data-notes-nav-item>von Mises</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#plane-stress" data-notes-nav-item>Plane Stress</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A ductile part has the plane stress state</p>
+<div class="math-block">$$
+\sigma_x = 70\ \text{MPa}, \quad \sigma_y = 10\ \text{MPa}, \quad \tau_{xy} = 20\ \text{MPa}.
+$$</div>
+<p>If the yield strength is $75\ \text{MPa}$, find the von Mises stress and decide whether yielding is predicted.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-35">Your work for Check a Plane Stress State with von Mises</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the plane-stress von Mises formula:</p>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{70^2 - 70(10) + 10^2 + 3(20^2)}
+$$</div>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{4900 - 700 + 100 + 1200}
+$$</div>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{5500} \approx 74.2\ \text{MPa}
+$$</div>
+<p>Because $74.2\ \text{MPa} &lt; 75\ \text{MPa}$, yielding is not predicted. The part is just barely safe.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="mechanics-of-materials-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Stress Concentration, Torsion, Design Check" data-problem-difficulty="Challenge" data-problem-answer="The local maximum shear stress is
+
+$$
+\tau_{max} = K_t \tau_{nom}
+$$
+
+So the nominal stress must satisfy
+
+$$
+\tau_{nom} \le \frac{50}{1.6} = 31.25\ \text{MPa}
+$$
+
+For a solid circular shaft,
+
+$$
+\tau_{nom} = \frac{16T}{\pi d^3}
+$$
+
+Solve for $T$:
+
+$$
+T = \frac{\tau_{nom}\pi d^3}{16}
+$$
+
+Substitute $d = 50\ \text{mm}$:
+
+$$
+T = \frac{31.25\pi(50^3)}{16} \approx 7.67 \times 10^5\ \text{N}\cdot\text{mm}
+$$
+
+So the largest torque is
+
+$$
+767\ \text{N}\cdot\text{m}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Include a Stress Concentration in a Torsion Design Check</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#stress-concentration" data-notes-nav-item>Stress Concentration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A solid circular shaft has diameter $50\ \text{mm}$ and a shoulder with stress concentration factor $K_t = 1.6$. If the allowable maximum shear stress is $50\ \text{MPa}$, what is the largest torque the shaft can carry?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-41">Your work for Include a Stress Concentration in a Torsion Design Check</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The local maximum shear stress is</p>
+<div class="math-block">$$
+\tau_{max} = K_t \tau_{nom}
+$$</div>
+<p>So the nominal stress must satisfy</p>
+<div class="math-block">$$
+\tau_{nom} \le \frac{50}{1.6} = 31.25\ \text{MPa}
+$$</div>
+<p>For a solid circular shaft,</p>
+<div class="math-block">$$
+\tau_{nom} = \frac{16T}{\pi d^3}
+$$</div>
+<p>Solve for $T$:</p>
+<div class="math-block">$$
+T = \frac{\tau_{nom}\pi d^3}{16}
+$$</div>
+<p>Substitute $d = 50\ \text{mm}$:</p>
+<div class="math-block">$$
+T = \frac{31.25\pi(50^3)}{16} \approx 7.67 \times 10^5\ \text{N}\cdot\text{mm}
+$$</div>
+<p>So the largest torque is</p>
+<div class="math-block">$$
+767\ \text{N}\cdot\text{m}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Thermal Stress, Parallel Members, Compatibility" data-problem-difficulty="Challenge" data-problem-answer="Because the plates are rigid, both bars have the same total elongation.
+Let $\delta$ be that common elongation.
+
+For each bar,
+
+$$
+F_i = k_i(\delta - \delta_{th,i}), \quad k_i = \frac{AE_i}{L}
+$$
+
+Compute the stiffnesses:
+
+$$
+k_s = \frac{400(200\,000)}{800} = 100\,000\ \text{N/mm}
+$$
+
+$$
+k_a = \frac{400(70\,000)}{800} = 35\,000\ \text{N/mm}
+$$
+
+Compute the free thermal expansions:
+
+$$
+\delta_{th,s} = (12 \times 10^{-6})(800)(10) = 0.12\ \text{mm}
+$$
+
+$$
+\delta_{th,a} = (23 \times 10^{-6})(800)(10) = 0.23\ \text{mm}
+$$
+
+Force equilibrium gives
+
+$$
+F_s + F_a = 18\,000
+$$
+
+and
+
+$$
+100\,000(\delta - 0.12) + 35\,000(\delta - 0.23) = 18\,000
+$$
+
+So
+
+$$
+135\,000\delta = 38\,050
+$$
+
+$$
+\delta \approx 0.282\ \text{mm}
+$$
+
+Now compute the forces:
+
+$$
+F_s = 100\,000(0.282 - 0.12) \approx 16.2\ \text{kN}
+$$
+
+$$
+F_a = 35\,000(0.282 - 0.23) \approx 1.8\ \text{kN}
+$$
+
+So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries about $1.8\ \text{kN}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Solve a Thermal-Indeterminate Parallel-Bar System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$. One bar is steel with $E = 200\ \text{GPa}$ and $\alpha = 12 \times 10^{-6}/^\circ\text{C}$. The other is aluminum with $E = 70\ \text{GPa}$ and $\alpha = 23 \times 10^{-6}/^\circ\text{C}$.</p>
+<p>The temperature rises by $10^\circ\text{C}$, and the plates are also pulled by a total tensile load of $18\ \text{kN}$.</p>
+<p>Find the force in each bar.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-42">Your work for Solve a Thermal-Indeterminate Parallel-Bar System</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because the plates are rigid, both bars have the same total elongation. Let $\delta$ be that common elongation.</p>
+<p>For each bar,</p>
+<div class="math-block">$$
+F_i = k_i(\delta - \delta_{th,i}), \quad k_i = \frac{AE_i}{L}
+$$</div>
+<p>Compute the stiffnesses:</p>
+<div class="math-block">$$
+k_s = \frac{400(200\,000)}{800} = 100\,000\ \text{N/mm}
+$$</div>
+<div class="math-block">$$
+k_a = \frac{400(70\,000)}{800} = 35\,000\ \text{N/mm}
+$$</div>
+<p>Compute the free thermal expansions:</p>
+<div class="math-block">$$
+\delta_{th,s} = (12 \times 10^{-6})(800)(10) = 0.12\ \text{mm}
+$$</div>
+<div class="math-block">$$
+\delta_{th,a} = (23 \times 10^{-6})(800)(10) = 0.23\ \text{mm}
+$$</div>
+<p>Force equilibrium gives</p>
+<div class="math-block">$$
+F_s + F_a = 18\,000
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+100\,000(\delta - 0.12) + 35\,000(\delta - 0.23) = 18\,000
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+135\,000\delta = 38\,050
+$$</div>
+<div class="math-block">$$
+\delta \approx 0.282\ \text{mm}
+$$</div>
+<p>Now compute the forces:</p>
+<div class="math-block">$$
+F_s = 100\,000(0.282 - 0.12) \approx 16.2\ \text{kN}
+$$</div>
+<div class="math-block">$$
+F_a = 35\,000(0.282 - 0.23) \approx 1.8\ \text{kN}
+$$</div>
+<p>So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries about $1.8\ \text{kN}$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Combined Loading, Torsion, Failure Criterion" data-problem-difficulty="Challenge" data-problem-answer="At the outer surface, the bending stress is
+
+$$
+\sigma = \frac{32M}{\pi d^3}
+$$
+
+and the torsional shear stress is
+
+$$
+\tau = \frac{16T}{\pi d^3}
+$$
+
+Substitute $d = 60\ \text{mm}$, $M = 300\,000\ \text{N}\cdot\text{mm}$, and $T = 500\,000\ \text{N}\cdot\text{mm}$:
+
+$$
+\sigma \approx 14.1\ \text{MPa}, \quad \tau \approx 11.8\ \text{MPa}
+$$
+
+Now treat this as a plane stress state with $\sigma_x = 14.1\ \text{MPa}$, $\sigma_y = 0$, and $\tau_{xy} = 11.8\ \text{MPa}$.
+
+The principal stresses are
+
+$$
+\sigma_{1,2} = \frac{\sigma_x}{2} \pm \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau_{xy}^2}
+$$
+
+So
+
+$$
+\sigma_1 \approx 20.8\ \text{MPa}, \quad \sigma_2 \approx -6.7\ \text{MPa}
+$$
+
+The von Mises stress is
+
+$$
+\sigma_{vm} = \sqrt{\sigma_x^2 + 3\tau_{xy}^2}
+$$
+
+$$
+\sigma_{vm} \approx \sqrt{14.1^2 + 3(11.8^2)} \approx 24.8\ \text{MPa}
+$$
+
+Since $24.8\ \text{MPa} &lt; 40\ \text{MPa}$, the shaft is safe by the von Mises criterion.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Check a Shaft in Combined Bending and Torsion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A solid circular shaft with diameter $60\ \text{mm}$ carries a bending moment of $300\ \text{N}\cdot\text{m}$ and a torque of $500\ \text{N}\cdot\text{m}$.</p>
+<p>Find the principal stresses at the outer surface and the von Mises stress. If the yield strength is $40\ \text{MPa}$, is the shaft safe?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-43">Your work for Check a Shaft in Combined Bending and Torsion</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>At the outer surface, the bending stress is</p>
+<div class="math-block">$$
+\sigma = \frac{32M}{\pi d^3}
+$$</div>
+<p>and the torsional shear stress is</p>
+<div class="math-block">$$
+\tau = \frac{16T}{\pi d^3}
+$$</div>
+<p>Substitute $d = 60\ \text{mm}$, $M = 300\,000\ \text{N}\cdot\text{mm}$, and $T = 500\,000\ \text{N}\cdot\text{mm}$:</p>
+<div class="math-block">$$
+\sigma \approx 14.1\ \text{MPa}, \quad \tau \approx 11.8\ \text{MPa}
+$$</div>
+<p>Now treat this as a plane stress state with $\sigma_x = 14.1\ \text{MPa}$, $\sigma_y = 0$, and $\tau_{xy} = 11.8\ \text{MPa}$.</p>
+<p>The principal stresses are</p>
+<div class="math-block">$$
+\sigma_{1,2} = \frac{\sigma_x}{2} \pm \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau_{xy}^2}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\sigma_1 \approx 20.8\ \text{MPa}, \quad \sigma_2 \approx -6.7\ \text{MPa}
+$$</div>
+<p>The von Mises stress is</p>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{\sigma_x^2 + 3\tau_{xy}^2}
+$$</div>
+<div class="math-block">$$
+\sigma_{vm} \approx \sqrt{14.1^2 + 3(11.8^2)} \approx 24.8\ \text{MPa}
+$$</div>
+<p>Since $24.8\ \text{MPa} &lt; 40\ \text{MPa}$, the shaft is safe by the von Mises criterion.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Fatigue, Goodman Diagram, Design Check" data-problem-difficulty="Challenge" data-problem-answer="Use the Goodman design relation:
+
+$$
+\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} \le \frac{1}{n}
+$$
+
+Substitute the values:
+
+$$
+\frac{40}{240} + \frac{100}{600} = \frac{1}{6} + \frac{1}{6} = \frac{1}{3}
+$$
+
+So
+
+$$
+\frac{1}{n} = \frac{1}{3}
+$$
+
+which gives
+
+$$
+n = 3
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Apply Goodman Fatigue Design</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#fatigue" data-notes-nav-item>Fatigue</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#goodman-diagram" data-notes-nav-item>Goodman Diagram</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A member has alternating stress and mean stress</p>
+<div class="math-block">$$
+\sigma_a = 40\ \text{MPa}, \quad \sigma_m = 100\ \text{MPa}.
+$$</div>
+<p>The endurance limit is $S_e = 240\ \text{MPa}$ and the ultimate tensile strength is $S_{ut} = 600\ \text{MPa}$.</p>
+<p>What factor of safety does the Goodman relation predict?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-44">Your work for Apply Goodman Fatigue Design</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the Goodman design relation:</p>
+<div class="math-block">$$
+\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} \le \frac{1}{n}
+$$</div>
+<p>Substitute the values:</p>
+<div class="math-block">$$
+\frac{40}{240} + \frac{100}{600} = \frac{1}{6} + \frac{1}{6} = \frac{1}{3}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{1}{n} = \frac{1}{3}
+$$</div>
+<p>which gives</p>
+<div class="math-block">$$
+n = 3
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="mechanics-of-materials-45" data-practice-problem data-exam="final" data-problem-number="4.5" data-problem-skills="Combined Loading, Euler Buckling, Design Check" data-problem-difficulty="Challenge" data-problem-answer="The eccentric load creates both axial stress and bending stress.
+
+Area:
+
+$$
+A = \frac{\pi d^2}{4} = \frac{\pi(30^2)}{4} \approx 706.9\ \text{mm}^2
+$$
+
+Axial stress:
+
+$$
+\sigma_{ax} = \frac{P}{A} = \frac{8000}{706.9} \approx 11.3\ \text{MPa}
+$$
+
+Bending moment from eccentricity:
+
+$$
+M = Pe = 8000(15) = 120\,000\ \text{N}\cdot\text{mm}
+$$
+
+For a solid circular section,
+
+$$
+I = \frac{\pi d^4}{64} \approx 39\,789\ \text{mm}^4
+$$
+
+and
+
+$$
+c = 15\ \text{mm}
+$$
+
+Bending stress:
+
+$$
+\sigma_b = \frac{Mc}{I} = \frac{120\,000(15)}{39\,789} \approx 45.3\ \text{MPa}
+$$
+
+So the maximum compressive stress is
+
+$$
+\sigma_{max} \approx 11.3 + 45.3 = 56.6\ \text{MPa}
+$$
+
+Now compute Euler buckling:
+
+$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$
+
+with $L = 3000\ \text{mm}$:
+
+$$
+P_{cr} \approx \frac{\pi^2(200\,000)(39\,789)}{3000^2} \approx 8.7\ \text{kN}
+$$
+
+Since the applied load is $8\ \text{kN}$, the column is below the Euler load but only by a small margin.
+
+The compressive stress check is also below the $70\ \text{MPa}$ allowable.
+The more restrictive check is buckling, because $8\ \text{kN}$ is close to $8.7\ \text{kN}$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.5</span><span class="practice-problem__title-text">Check an Eccentrically Loaded Column</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A solid steel column has diameter $30\ \text{mm}$, length $3\ \text{m}$, and modulus $E = 200\ \text{GPa}$. It carries a compressive load of $8\ \text{kN}$ applied with eccentricity $15\ \text{mm}$.</p>
+<p>Find the maximum compressive stress and the Euler buckling load. If the allowable compressive stress is $70\ \text{MPa}$, which check is more restrictive?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-mechanics-of-materials-45">Your work for Check an Eccentrically Loaded Column</label>
+          <textarea
+            id="practice-study-mechanics-of-materials-45"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The eccentric load creates both axial stress and bending stress.</p>
+<p>Area:</p>
+<div class="math-block">$$
+A = \frac{\pi d^2}{4} = \frac{\pi(30^2)}{4} \approx 706.9\ \text{mm}^2
+$$</div>
+<p>Axial stress:</p>
+<div class="math-block">$$
+\sigma_{ax} = \frac{P}{A} = \frac{8000}{706.9} \approx 11.3\ \text{MPa}
+$$</div>
+<p>Bending moment from eccentricity:</p>
+<div class="math-block">$$
+M = Pe = 8000(15) = 120\,000\ \text{N}\cdot\text{mm}
+$$</div>
+<p>For a solid circular section,</p>
+<div class="math-block">$$
+I = \frac{\pi d^4}{64} \approx 39\,789\ \text{mm}^4
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+c = 15\ \text{mm}
+$$</div>
+<p>Bending stress:</p>
+<div class="math-block">$$
+\sigma_b = \frac{Mc}{I} = \frac{120\,000(15)}{39\,789} \approx 45.3\ \text{MPa}
+$$</div>
+<p>So the maximum compressive stress is</p>
+<div class="math-block">$$
+\sigma_{max} \approx 11.3 + 45.3 = 56.6\ \text{MPa}
+$$</div>
+<p>Now compute Euler buckling:</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$</div>
+<p>with $L = 3000\ \text{mm}$:</p>
+<div class="math-block">$$
+P_{cr} \approx \frac{\pi^2(200\,000)(39\,789)}{3000^2} \approx 8.7\ \text{kN}
+$$</div>
+<p>Since the applied load is $8\ \text{kN}$, the column is below the Euler load but only by a small margin.</p>
+<p>The compressive stress check is also below the $70\ \text{MPa}$ allowable. The more restrictive check is buckling, because $8\ \text{kN}$ is close to $8.7\ \text{kN}$.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

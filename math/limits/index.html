@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Limits | Adriamics Study</title>
+  <meta name="description" content="A limit describes the value a function approaches as the input approaches some point." />
+  <link rel="canonical" href="https://adriamics.com/study/math/limits/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/limits/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#what-a-limit-means" data-notes-nav-item data-notes-toc-link>What a limit means</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formal-definition" data-notes-nav-item data-notes-toc-link>Formal definition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limit-laws" data-notes-nav-item data-notes-toc-link>Limit laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#one-sided-and-infinite-limits" data-notes-nav-item data-notes-toc-link>One-sided and infinite limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#algebraic-techniques" data-notes-nav-item data-notes-toc-link>Algebraic techniques</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-limits-to-know-cold" data-notes-nav-item data-notes-toc-link>Special limits to know cold</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuity-and-discontinuities" data-notes-nav-item data-notes-toc-link>Continuity and discontinuities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limits-at-infinity-and-asymptotes" data-notes-nav-item data-notes-toc-link>Limits at infinity and asymptotes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#indeterminate-forms-and-lh-pitals-rule" data-notes-nav-item data-notes-toc-link>Indeterminate forms and L&#39;HÃƒÂ´pital&#39;s rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Limits</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/limits/limits.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Flimits%2Flimits.md&amp;title=%5BContribute%5D%3A%20Limits" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="3"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="what-a-limit-means">What a limit means</h1>
+<blockquote></blockquote>
+<p>A <strong>limit</strong> describes the value a function approaches as the input approaches some point.</p>
+<p>The key idea is <strong>behavior near a point</strong>, not necessarily the function value at the point itself.</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L
+$$</div>
+<p>This reads as: &quot;as $x$ gets close to $a$, $f(x)$ gets close to $L$.&quot;</p>
+<p>Limits provide the language for approaching a value without requiring the function to be evaluated at that exact input.</p>
+<h2 id="intuition">Intuition</h2>
+<p>If values of $f(x)$ near $x=a$ can be made arbitrarily close to $L$, then $L$ is the limit.</p>
+<p>That means:</p>
+<ul><li><p>$f(a)$ may equal $L$</p></li><li><p>$f(a)$ may be different from $L$</p></li><li><p>$f(a)$ may not exist at all</p></li></ul>
+<p>Example:</p>
+<div class="math-block">$$
+f(x) = \frac{x^2-9}{x-3}
+$$</div>
+<p>For $x \ne 3$, this simplifies to:</p>
+<div class="math-block">$$
+f(x) = x+3
+$$</div>
+<p>So:</p>
+<div class="math-block">$$
+\lim_{x \to 3} \frac{x^2-9}{x-3} = 6
+$$</div>
+<p>even though the original formula is undefined at $x=3$.</p>
+<hr />
+<h1 id="formal-definition">Formal definition</h1>
+<p>The rigorous definition of a limit uses $\varepsilon$ and $\delta$.</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L
+$$</div>
+<p>means:</p>
+<p>for every $\varepsilon &gt; 0$, there exists a $\delta &gt; 0$ such that whenever</p>
+<div class="math-block">$$
+0 &lt; |x-a| &lt; \delta
+$$</div>
+<p>it follows that</p>
+<div class="math-block">$$
+|f(x)-L| &lt; \varepsilon
+$$</div>
+<h2 id="how-to-read-it">How to read it</h2>
+<ul><li><p>$\varepsilon$ is the allowed output error</p></li><li><p>$\delta$ is the required input closeness</p></li><li><p>The condition $0 &lt; |x-a|$ excludes the point itself</p></li></ul>
+<p>This definition says that you can force the output to stay inside any desired tolerance by keeping the input sufficiently close to $a$.</p>
+<h2 id="why-the-point-is-excluded">Why the point is excluded</h2>
+<p>The value at the point does not control the limit.</p>
+<p>For limits, only nearby values matter.</p>
+<h2 id="common-proof-pattern">Common proof pattern</h2>
+<p>To prove a limit with $\varepsilon$-$\delta$:</p>
+<ol><li><p>Start with $|f(x)-L|$</p></li><li><p>Rewrite it in terms of $|x-a|$</p></li><li><p>Bound any extra factors near $x=a$</p></li><li><p>Choose a $\delta$ that makes the inequality work</p></li></ol>
+<p>This is usually easier once the function has been algebraically simplified.</p>
+<hr />
+<h1 id="limit-laws">Limit laws</h1>
+<p>If the individual limits exist, you can combine them algebraically.</p>
+<p>Let</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L,\qquad \lim_{x \to a} g(x) = M
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+\lim_{x \to a} [f(x) \pm g(x)] = L \pm M
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a} [c\,f(x)] = cL
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a} [f(x)g(x)] = LM
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}
+$$</div>
+<p>provided $M \ne 0$.</p>
+<h2 id="other-useful-laws">Other useful laws</h2>
+<p>If $n$ is a positive integer:</p>
+<div class="math-block">$$
+\lim_{x \to a} [f(x)]^n = L^n
+$$</div>
+<p>If $n$ is a root and the expression stays defined:</p>
+<div class="math-block">$$
+\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{L}
+$$</div>
+<p>If $p$ is a polynomial, then:</p>
+<div class="math-block">$$
+\lim_{x \to a} p(x) = p(a)
+$$</div>
+<p>If $r(x) = \frac{p(x)}{q(x)}$ is a rational function and $q(a)\ne 0$:</p>
+<div class="math-block">$$
+\lim_{x \to a} r(x) = r(a)
+$$</div>
+<h2 id="direct-substitution">Direct substitution</h2>
+<p>For continuous expressions, the fastest method is usually substitution.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to 2} (x^3 - 5x + 1) = 8 - 10 + 1 = -1
+$$</div>
+<p>If direct substitution gives an undefined form such as $\frac{0}{0}$, use another technique.</p>
+<hr />
+<h1 id="one-sided-and-infinite-limits">One-sided and infinite limits</h1>
+<h2 id="one-sided-limits">One-sided limits</h2>
+<p>A <strong>left-hand limit</strong> approaches from values less than $a$:</p>
+<div class="math-block">$$
+\lim_{x \to a^-} f(x)
+$$</div>
+<p>A <strong>right-hand limit</strong> approaches from values greater than $a$:</p>
+<div class="math-block">$$
+\lim_{x \to a^+} f(x)
+$$</div>
+<p>The two-sided limit exists only if both one-sided limits exist and are equal.</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L
+\quad \text{iff} \quad
+\lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x) = L
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+f(x)=
+\begin{cases}
+1, &amp; x&lt;0 \\
+3, &amp; x \ge 0
+\end{cases}
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+\lim_{x \to 0^-} f(x)=1,\qquad \lim_{x \to 0^+} f(x)=3
+$$</div>
+<p>So $\lim_{x \to 0} f(x)$ does not exist.</p>
+<h2 id="infinite-limits">Infinite limits</h2>
+<p>If $f(x)$ grows without bound near $a$, we write:</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = \infty
+$$</div>
+<p>or</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = -\infty
+$$</div>
+<p>This does not mean the limit is a real number. It means the function becomes arbitrarily large in magnitude.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to 2^-} \frac{1}{x-2} = -\infty,\qquad
+\lim_{x \to 2^+} \frac{1}{x-2} = +\infty
+$$</div>
+<p>Because the one-sided behaviors differ, there is no finite two-sided limit at $x=2$.</p>
+<h2 id="when-a-limit-does-not-exist">When a limit does not exist</h2>
+<p>A limit fails to exist when:</p>
+<ul><li><p>Left-hand and right-hand limits differ</p></li><li><p>The function oscillates endlessly near the point</p></li><li><p>The function grows without bound and no finite limit is intended</p></li></ul>
+<p>Oscillation example:</p>
+<div class="math-block">$$
+\lim_{x \to 0} \sin\left(\frac{1}{x}\right)
+$$</div>
+<p>does not exist because the function keeps oscillating between $-1$ and $1$.</p>
+<hr />
+<h1 id="algebraic-techniques">Algebraic techniques</h1>
+<p>When direct substitution fails, simplify first.</p>
+<h2 id="factor-and-cancel">Factor and cancel</h2>
+<p>Use this for removable discontinuities and $\frac{0}{0}$ forms.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to 1} \frac{x^2-1}{x-1}
+$$</div>
+<p>Factor the numerator:</p>
+<div class="math-block">$$
+\frac{(x-1)(x+1)}{x-1} = x+1
+$$</div>
+<p>So the limit is:</p>
+<div class="math-block">$$
+2
+$$</div>
+<h2 id="rationalize">Rationalize</h2>
+<p>Useful when square roots create $\frac{0}{0}$.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to 4} \frac{\sqrt{x}-2}{x-4}
+$$</div>
+<p>Multiply by the conjugate:</p>
+<div class="math-block">$$
+\frac{\sqrt{x}-2}{x-4}\cdot\frac{\sqrt{x}+2}{\sqrt{x}+2}
+= \frac{1}{\sqrt{x}+2}
+$$</div>
+<p>Thus:</p>
+<div class="math-block">$$
+\lim_{x \to 4} \frac{\sqrt{x}-2}{x-4} = \frac{1}{4}
+$$</div>
+<h2 id="combine-fractions">Combine fractions</h2>
+<p>If a difference of rational expressions produces $\frac{0}{0}$, use a common denominator.</p>
+<h2 id="use-identities">Use identities</h2>
+<p>Trig identities often reduce expressions to a standard form.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+\sin^2 x + \cos^2 x = 1
+$$</div>
+<div class="math-block">$$
+1 - \cos x = 2\sin^2\left(\frac{x}{2}\right)
+$$</div>
+<h2 id="compare-dominant-terms">Compare dominant terms</h2>
+<p>For limits at infinity, divide by the highest power or identify the leading growth rate.</p>
+<h2 id="squeeze-theorem">Squeeze theorem</h2>
+<p>If</p>
+<div class="math-block">$$
+g(x) \le f(x) \le h(x)
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L
+$$</div>
+<p>This is especially useful for oscillating functions.</p>
+<p>Example:</p>
+<div class="math-block">$$
+-|x| \le x\sin\left(\frac{1}{x}\right) \le |x|
+$$</div>
+<p>Since both bounds go to $0$ as $x \to 0$,</p>
+<div class="math-block">$$
+\lim_{x \to 0} x\sin\left(\frac{1}{x}\right)=0
+$$</div>
+<hr />
+<h1 id="special-limits-to-know-cold">Special limits to know cold</h1>
+<p>These are standard results used constantly in calculus.</p>
+<h2 id="trigonometric-limits">Trigonometric limits</h2>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{\sin x}{x} = 1
+$$</div>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{1-\cos x}{x^2} = \frac{1}{2}
+$$</div>
+<p>More generally, for a constant $a$:</p>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{\sin(ax)}{x} = a
+$$</div>
+<h2 id="exponential-and-logarithmic-limits">Exponential and logarithmic limits</h2>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{e^x-1}{x} = 1
+$$</div>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{\ln(1+x)}{x} = 1
+$$</div>
+<h2 id="compound-interest-limit">Compound interest limit</h2>
+<div class="math-block">$$
+\lim_{x \to 0} (1+x)^{1/x} = e
+$$</div>
+<p>Equivalently:</p>
+<div class="math-block">$$
+\lim_{n \to \infty}\left(1+\frac{1}{n}\right)^n = e
+$$</div>
+<h2 id="why-these-matter">Why these matter</h2>
+<p>These special limits will support derivative formulas in the next calculus note; here they are treated only as limit evaluations.</p>
+<hr />
+<h1 id="continuity-and-discontinuities">Continuity and discontinuities</h1>
+<p>A function is <strong>continuous at $a$</strong> if all three conditions hold:</p>
+<ol><li><p>$f(a)$ is defined</p></li><li><p>$\lim_{x \to a} f(x)$ exists</p></li><li><p>$\lim_{x \to a} f(x) = f(a)$</p></li></ol>
+<p>In symbols:</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = f(a)
+$$</div>
+<h2 id="types-of-discontinuity">Types of discontinuity</h2>
+<table><thead><tr><th>Type</th><th>Description</th><th>Typical fix</th></tr></thead><tbody><tr><td>Removable</td><td>A hole; the limit exists but the function value is missing or wrong</td><td>Redefine the value</td></tr><tr><td>Jump</td><td>Left and right limits exist but are different</td><td>Usually none</td></tr><tr><td>Infinite</td><td>Function blows up near the point</td><td>Usually none</td></tr><tr><td>Oscillatory</td><td>Function oscillates indefinitely near the point</td><td>Usually none</td></tr></tbody></table>
+<h2 id="continuity-facts">Continuity facts</h2>
+<p>Polynomials are continuous everywhere.</p>
+<p>Rational functions are continuous wherever their denominator is nonzero.</p>
+<p>Combinations of continuous functions are continuous wherever they are defined.</p>
+<p>If $f$ is continuous and $g$ is continuous, then:</p>
+<ul><li><p>$f+g$ is continuous</p></li><li><p>$fg$ is continuous</p></li><li><p>$\frac{f}{g}$ is continuous where $g\ne 0$</p></li><li><p>$f\circ g$ is continuous where both compositions make sense</p></li></ul>
+<h2 id="why-continuity-helps">Why continuity helps</h2>
+<p>If a function is continuous at $a$, then the limit is immediate:</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x)=f(a)
+$$</div>
+<p>That is the fastest possible limit evaluation.</p>
+<hr />
+<h1 id="limits-at-infinity-and-asymptotes">Limits at infinity and asymptotes</h1>
+<p>Limits at infinity describe end behavior.</p>
+<h2 id="horizontal-asymptotes">Horizontal asymptotes</h2>
+<p>If</p>
+<div class="math-block">$$
+\lim_{x \to \infty} f(x) = L
+$$</div>
+<p>then $y=L$ is a horizontal asymptote.</p>
+<p>If the same happens as $x \to -\infty$, that also gives a horizontal asymptote.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to \infty}\frac{3x^2-1}{2x^2+5}=\frac{3}{2}
+$$</div>
+<p>So $y=\frac{3}{2}$ is a horizontal asymptote.</p>
+<h2 id="rational-functions-at-infinity">Rational functions at infinity</h2>
+<p>For</p>
+<div class="math-block">$$
+\frac{p(x)}{q(x)}
+$$</div>
+<p>compare degrees:</p>
+<ul><li><p>Degree of numerator &lt; degree of denominator: limit is $0$</p></li><li><p>Equal degrees: limit is ratio of leading coefficients</p></li><li><p>Numerator degree &gt; denominator degree: no finite horizontal asymptote</p></li></ul>
+<h2 id="vertical-asymptotes">Vertical asymptotes</h2>
+<p>If $f(x)$ grows without bound near $x=a$, then $x=a$ may be a vertical asymptote.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\lim_{x \to 2} \frac{1}{(x-2)^2} = +\infty
+$$</div>
+<p>So $x=2$ is a vertical asymptote.</p>
+<h2 id="oblique-asymptotes">Oblique asymptotes</h2>
+<p>If a rational function has numerator degree exactly one higher than the denominator, polynomial division may reveal a slant asymptote.</p>
+<p>&lt;!-- Advanced derivative-based limit material is deferred until Derivatives.</p>
+<hr />
+<h1 id="indeterminate-forms-and-lh-pitals-rule">Indeterminate forms and L&#39;HÃƒÂ´pital&#39;s rule</h1>
+<p>An <strong>indeterminate form</strong> is an expression that does not determine the limit by itself.</p>
+<p>Common forms:</p>
+<ul><li><p>$\frac{0}{0}$</p></li><li><p>$\frac{\infty}{\infty}$</p></li><li><p>$0\cdot\infty$</p></li><li><p>$\infty-\infty$</p></li><li><p>$0^0$</p></li><li><p>$1^\infty$</p></li><li><p>$\infty^0$</p></li></ul>
+<p>The form tells you that more work is needed; it does not tell you the answer.</p>
+<h2 id="lh-pitals-rule">L&#39;HÃƒÂ´pital&#39;s rule</h2>
+<p>If</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x)=0,\qquad \lim_{x \to a} g(x)=0
+$$</div>
+<p>or both functions approach $\pm\infty$, and the derivatives exist near $a$, then:</p>
+<div class="math-block">$$
+\lim_{x \to a} \frac{f(x)}{g(x)}
+=
+\lim_{x \to a} \frac{f&#39;(x)}{g&#39;(x)}
+$$</div>
+<p>when the right-hand limit exists and the rule&#39;s hypotheses are satisfied.</p>
+<h2 id="when-to-use-it">When to use it</h2>
+<p>Use L&#39;HÃƒÂ´pital&#39;s rule after:</p>
+<ul><li><p>Confirming an indeterminate form</p></li><li><p>Checking that derivatives exist where needed</p></li><li><p>Trying simpler algebra first when possible</p></li></ul>
+<h2 id="when-not-to-overuse-it">When not to overuse it</h2>
+<p>L&#39;HÃƒÂ´pital&#39;s rule is powerful, but algebra is often faster.</p>
+<p>For example, factorization or a standard trig limit is usually cleaner than repeated differentiation.</p>
+<h2 id="example">Example</h2>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{e^x-1}{x}
+$$</div>
+<p>This is $\frac{0}{0}$, so L&#39;HÃƒÂ´pital gives:</p>
+<div class="math-block">$$
+\lim_{x \to 0} \frac{e^x}{1} = 1
+$$</div>
+<hr />
+<p>--&gt;</p>
+<h2 id="derivative-based-methods-preview">Derivative-based methods (preview)</h2>
+<p>Some indeterminate forms can be handled by L&#39;Hôpital&#39;s rule, which uses derivatives. Learn and apply that rule with the derivative note; here, prefer algebra, standard limits, or the squeeze theorem.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>When you see a limit, use this sequence.</p>
+<ol><li><p>Try direct substitution.</p></li><li><p>If you get an ordinary number, you are done.</p></li><li><p>If you get $\frac{0}{0}$, simplify algebraically.</p></li><li><p>If radicals appear, rationalize.</p></li><li><p>If trig expressions appear, look for standard identities or special limits.</p></li><li><p>If $x \to \infty$ or $x \to -\infty$, compare leading terms.</p></li><li><p>If the function is piecewise, compute left and right limits separately.</p></li><li><p>If the expression is oscillatory or complicated, consider the squeeze theorem.</p></li></ol>
+<p>&lt;!--</p>
+<ol><li><p>Use L&#39;HÃƒÂ´pital&#39;s rule only when the hypotheses fit and a simpler approach is not better.</p></li></ol>
+<h2 id="common-mistakes">Common mistakes</h2>
+<p>--&gt;</p>
+<ol><li><p>Leave derivative-based methods for the Derivatives note and use them only after checking their hypotheses.</p></li></ol>
+<h2 id="common-mistakes-2">Common mistakes</h2>
+<ul><li><p>Treating the limit as the same thing as the function value</p></li><li><p>Cancelling terms before checking for zero denominators</p></li><li><p>Forgetting to check both one-sided limits</p></li><li><p>Using L&#39;HÃƒÂ´pital&#39;s rule on a non-indeterminate form</p></li><li><p>Replacing $x$ with $\infty$ as if it were a number</p></li><li><p>Ignoring domain restrictions</p></li></ul>
+<h2 id="fast-diagnostic-questions">Fast diagnostic questions</h2>
+<ul><li><p>Is the function continuous at the point?</p></li><li><p>Does substitution produce a valid value?</p></li><li><p>Is this a removable discontinuity?</p></li><li><p>Are you looking at behavior from one side only?</p></li><li><p>Is the variable heading toward infinity?</p></li></ul>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="core-notation">Core notation</h2>
+<div class="math-block">$$
+\lim_{x \to a} f(x) = L
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a^-} f(x),\qquad \lim_{x \to a^+} f(x)
+$$</div>
+<h2 id="limit-laws-2">Limit laws</h2>
+<div class="math-block">$$
+\lim_{x \to a}[f(x)\pm g(x)] = L \pm M
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a}[f(x)g(x)] = LM
+$$</div>
+<div class="math-block">$$
+\lim_{x \to a}\frac{f(x)}{g(x)} = \frac{L}{M}, \quad M\ne 0
+$$</div>
+<h2 id="standard-limits">Standard limits</h2>
+<div class="math-block">$$
+\lim_{x \to 0}\frac{\sin x}{x}=1
+$$</div>
+<div class="math-block">$$
+\lim_{x \to 0}\frac{1-\cos x}{x^2}=\frac12
+$$</div>
+<div class="math-block">$$
+\lim_{x \to 0}\frac{e^x-1}{x}=1
+$$</div>
+<div class="math-block">$$
+\lim_{x \to 0}\frac{\ln(1+x)}{x}=1
+$$</div>
+<div class="math-block">$$
+\lim_{n \to \infty}\left(1+\frac1n\right)^n=e
+$$</div>
+<h2 id="continuity-test">Continuity test</h2>
+<div class="math-block">$$
+f \text{ is continuous at } a \iff \lim_{x \to a} f(x)=f(a)
+$$</div>
+<h2 id="squeeze-theorem-2">Squeeze theorem</h2>
+<div class="math-block">$$
+g(x)\le f(x)\le h(x),\quad \lim_{x \to a} g(x)=\lim_{x \to a} h(x)=L
+$$</div>
+<p>implies</p>
+<div class="math-block">$$
+\lim_{x \to a} f(x)=L
+$$</div>
+<p>&lt;!-- L&#39;Hôpital&#39;s rule is deferred to Derivatives; this entry is retained only as a pointer.</p>
+<p>For $\frac{0}{0}$ or $\frac{\infty}{\infty}$ forms:</p>
+<div class="math-block">$$
+\lim_{x \to a}\frac{f(x)}{g(x)}=\lim_{x \to a}\frac{f&#39;(x)}{g&#39;(x)}
+$$</div>
+<p>when the rule applies. --&gt;</p>
+<h2 id="what-this-enables">What this enables</h2>
+<p>You can now evaluate limits, classify discontinuities, and test continuity. Continue to <strong>Derivatives</strong> to turn the limiting secant slope into an instantaneous rate of change; integration and series come after those derivative foundations.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="what-a-limit-means">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for What a limit means">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="what-a-limit-means">Intuition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formal-definition" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formal definition">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#how-to-read-it" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formal-definition">How to read it</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-the-point-is-excluded" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formal-definition">Why the point is excluded</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-proof-pattern" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formal-definition">Common proof pattern</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="limit-laws" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Limit laws">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#other-useful-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limit-laws">Other useful laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#direct-substitution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limit-laws">Direct substitution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="one-sided-and-infinite-limits" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for One-sided and infinite limits">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#one-sided-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="one-sided-and-infinite-limits">One-sided limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#infinite-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="one-sided-and-infinite-limits">Infinite limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-a-limit-does-not-exist" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="one-sided-and-infinite-limits">When a limit does not exist</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="algebraic-techniques" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Algebraic techniques">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#factor-and-cancel" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Factor and cancel</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rationalize" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Rationalize</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#combine-fractions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Combine fractions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#use-identities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Use identities</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compare-dominant-terms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Compare dominant terms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#squeeze-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="algebraic-techniques">Squeeze theorem</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="special-limits-to-know-cold" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Special limits to know cold">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#trigonometric-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-limits-to-know-cold">Trigonometric limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponential-and-logarithmic-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-limits-to-know-cold">Exponential and logarithmic limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compound-interest-limit" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-limits-to-know-cold">Compound interest limit</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-these-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-limits-to-know-cold">Why these matter</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="continuity-and-discontinuities" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Continuity and discontinuities">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#types-of-discontinuity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="continuity-and-discontinuities">Types of discontinuity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuity-facts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="continuity-and-discontinuities">Continuity facts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-continuity-helps" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="continuity-and-discontinuities">Why continuity helps</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="limits-at-infinity-and-asymptotes" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Limits at infinity and asymptotes">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#horizontal-asymptotes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limits-at-infinity-and-asymptotes">Horizontal asymptotes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rational-functions-at-infinity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limits-at-infinity-and-asymptotes">Rational functions at infinity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#vertical-asymptotes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limits-at-infinity-and-asymptotes">Vertical asymptotes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#oblique-asymptotes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="limits-at-infinity-and-asymptotes">Oblique asymptotes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="indeterminate-forms-and-lh-pitals-rule" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Indeterminate forms and L&#39;HÃƒÂ´pital&#39;s rule">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lh-pitals-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="indeterminate-forms-and-lh-pitals-rule">L&#39;HÃƒÂ´pital&#39;s rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-to-use-it" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="indeterminate-forms-and-lh-pitals-rule">When to use it</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-not-to-overuse-it" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="indeterminate-forms-and-lh-pitals-rule">When not to overuse it</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="indeterminate-forms-and-lh-pitals-rule">Example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#derivative-based-methods-preview" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="indeterminate-forms-and-lh-pitals-rule">Derivative-based methods (preview)</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fast-diagnostic-questions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Fast diagnostic questions</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-notation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Core notation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limit-laws-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Limit laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Standard limits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuity-test" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Continuity test</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#squeeze-theorem-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Squeeze theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#what-this-enables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">What this enables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

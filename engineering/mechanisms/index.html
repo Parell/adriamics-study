@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mechanisms | Adriamics Study</title>
+  <meta name="description" content="Start with the input, the output, and the load path:" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/mechanisms/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/mechanisms/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#a-common-mechanism-model" data-notes-nav-item data-notes-toc-link>A common mechanism model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#shafts-fasteners-keys-and-couplings" data-notes-nav-item data-notes-toc-link>Shafts, fasteners, keys, and couplings</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bearings" data-notes-nav-item data-notes-toc-link>Bearings</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gears" data-notes-nav-item data-notes-toc-link>Gears</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#belts-and-chains" data-notes-nav-item data-notes-toc-link>Belts and chains</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#springs" data-notes-nav-item data-notes-toc-link>Springs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fatigue-design-and-factor-of-safety" data-notes-nav-item data-notes-toc-link>Fatigue design and factor of safety</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#four-bar-linkages-and-mobility" data-notes-nav-item data-notes-toc-link>Four-bar linkages and mobility</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cams-ratchets-and-screws" data-notes-nav-item data-notes-toc-link>Cams, ratchets, and screws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#position-velocity-and-acceleration-analysis" data-notes-nav-item data-notes-toc-link>Position, velocity, and acceleration analysis</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-preliminary-shaft-and-gear-sizing" data-notes-nav-item data-notes-toc-link>Worked example: preliminary shaft and gear sizing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#design-checklist" data-notes-nav-item data-notes-toc-link>Design checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Mechanisms</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/mechanisms/mechanisms.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fmechanisms%2Fmechanisms.md&amp;title=%5BContribute%5D%3A%20Mechanisms" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/fluid-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/dynamics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/engineering-design/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/mechanisms/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/tribology/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h2 id="a-common-mechanism-model">A common mechanism model</h2>
+<p>Start with the input, the output, and the load path:</p>
+<div class="math-block">$$
+\text{power source} \rightarrow \text{input member} \rightarrow \text{transmission} \rightarrow \text{output member} \rightarrow \text{load}
+$$</div>
+<p>For rotational power,</p>
+<div class="math-block">$$
+P=T\omega=2\pi nT
+$$</div>
+<p>where $P$ is power, $T$ is torque, $\omega$ is angular speed in rad/s, and $n$ is rotational speed in revolutions per second. If speed is in rpm,</p>
+<div class="math-block">$$
+P\,[\mathrm{kW}]=\frac{T\,[\mathrm{N\,m}]\,N\,[\mathrm{rpm}]}{9550}.
+$$</div>
+<p>For a transmission with efficiency $\eta$,</p>
+<div class="math-block">$$
+P_{out}=\eta P_{in}.
+$$</div>
+<p>Do not assume that a mechanism can increase both torque and speed. Neglecting losses, power is conserved, so an increase in torque requires a decrease in angular speed.</p>
+<h3 id="design-workflow">Design workflow</h3>
+<ol><li><p>Define input speed, input power, output motion, duty cycle, life, environment, and allowable size.</p></li><li><p>Draw the free-body diagrams of each shaft, gear, link, or spring and identify every interface force.</p></li><li><p>Determine the motion ratio and the worst torque, radial force, axial force, and shock load.</p></li><li><p>Select a mechanism family and material using service, cost, lubrication, noise, and manufacturability constraints.</p></li><li><p>Check strength, stiffness, wear, fatigue, stability, and interfaces such as keys, bolts, and fits.</p></li><li><p>Check the result at startup, shutdown, reversal, overload, misalignment, and loss of lubrication.</p></li></ol>
+<p>Use a stated design factor $n_d$ rather than an unexplained margin. A simple allowable-stress check is</p>
+<div class="math-block">$$
+\sigma_{allow}=\frac{S}{n_d},\qquad \tau_{allow}=\frac{S_\tau}{n_d},
+$$</div>
+<p>where $S$ is the relevant strength. The correct factor depends on uncertainty, consequence, loading, fatigue, and applicable standards.</p>
+<h2 id="shafts-fasteners-keys-and-couplings">Shafts, fasteners, keys, and couplings</h2>
+<h3 id="shafts">Shafts</h3>
+<p>A shaft carries torque and often bending. For a solid circular shaft in elastic torsion,</p>
+<div class="math-block">$$
+\tau_{max}=\frac{16T}{\pi d^3},
+$$</div>
+<p>and the angle of twist over length (L) is</p>
+<div class="math-block">$$
+\phi=\frac{TL}{JG},\qquad J=\frac{\pi d^4}{32}.
+$$</div>
+<p>For combined bending moment (M) and torque (T), a useful preliminary equivalent-torque form is</p>
+<div class="math-block">$$
+T_e=\sqrt{(K_tM)^2+(K_{ts}T)^2},
+$$</div>
+<p>followed by the torsion equation using (T_e). (K_t) and (K_{ts}) represent stress concentration and fatigue effects; they are not automatically equal to the geometric concentration factors.</p>
+<p>For a hollow shaft,</p>
+<div class="math-block">$$
+J=\frac{\pi}{32}(d_o^4-d_i^4).
+$$</div>
+<p>Hollow shafts can reduce mass while retaining much of the torsional stiffness, but keyways, shoulders, bearings, and manufacturing cost may control the design.</p>
+<h3 id="fasteners">Fasteners</h3>
+<p>Bolts transfer clamp load, shear, and sometimes tension. The joint should be designed so the clamped members remain in contact under service load. A preloaded joint is not the same as a loose pin: friction from preload may carry transverse load until slip occurs.</p>
+<p>Check:</p>
+<ul><li><p>bolt tensile stress and proof strength;</p></li><li><p>shear, bearing, and tear-out in the joined parts;</p></li><li><p>thread stripping and adequate engagement;</p></li><li><p>preload scatter, relaxation, and embedment;</p></li><li><p>fatigue from repeated separation or fluctuating bolt stress.</p></li></ul>
+<p>For a bolt of tensile-stress area (A_t), a first tensile estimate is</p>
+<div class="math-block">$$
+\sigma_b=\frac{F_b}{A_t}.
+$$</div>
+<p>Use the fastener standard’s tensile-stress area rather than the nominal shank area for threaded tension.</p>
+<h3 id="keys-and-splines">Keys and splines</h3>
+<p>A key transfers shaft torque to a hub by bearing and shear. For a rectangular key of width (w), height (h), and engaged length (L), the tangential force is</p>
+<div class="math-block">$$
+F_t=\frac{2T}{d}.
+$$</div>
+<p>Approximate checks are</p>
+<div class="math-block">$$
+\tau_k=\frac{F_t}{wL},\qquad \sigma_{b,k}=\frac{F_t}{(h/2)L}.
+$$</div>
+<p>The exact bearing area depends on the key geometry and fit. A keyway weakens the shaft and creates a fatigue notch. Splines distribute torque among multiple teeth and can also allow axial sliding, but they require more precise manufacture and alignment.</p>
+<h3 id="couplings">Couplings</h3>
+<p>Rigid couplings require accurate alignment and transmit torque with little compliance. Flexible couplings accommodate some angular, parallel, or axial misalignment and may damp torsional shock. Select a coupling for rated torque, peak torque, speed, bore, misalignment, environment, service factor, and fail-safe behavior.</p>
+<h2 id="bearings">Bearings</h2>
+<p>Rolling bearings use balls or rollers between races. Sliding bearings support a journal on a lubricating film or boundary layer. Rolling bearings generally offer low starting friction and predictable catalog life; sliding bearings can be quiet, compact, tolerant of contamination, and effective at high loads when lubrication is appropriate.</p>
+<p>Separate bearing loads into radial (F_r), axial (F_a), and moment loads. The shaft and housing must also provide fits, shoulders, retention, and thermal expansion paths.</p>
+<p>For a basic rating life estimate in millions of revolutions,</p>
+<div class="math-block">$$
+L_{10}=\left(\frac{C}{P}\right)^p,
+$$</div>
+<p>where (C) is the dynamic load rating, (P) is equivalent dynamic load, and (p=3) for ball bearings and (p=10/3) for roller bearings. The (L_{10}) life is the life that 90% of an identical bearing population is expected to reach under the stated conditions; it is not a guarantee for one bearing.</p>
+<p>Convert life to hours with</p>
+<div class="math-block">$$
+L_{10h}=\frac{10^6L_{10}}{60N}.
+$$</div>
+<p>Static rating, contamination, lubrication, speed, clearance, misalignment, and temperature can control before catalog dynamic life does. Excessive preload raises heat; excessive clearance causes impact, noise, and poor shaft location.</p>
+<h2 id="gears">Gears</h2>
+<p>Gears provide positive, no-slip rotary transmission. For a simple external pair,</p>
+<div class="math-block">$$
+i=\frac{\omega_1}{\omega_2}=\frac{z_2}{z_1}=\frac{d_2}{d_1},
+$$</div>
+<p>where (z) is tooth count and (d) is pitch diameter. The pitch-line speed is (v=\omega r). The transmitted tangential tooth force is</p>
+<div class="math-block">$$
+F_t=\frac{T}{r}=\frac{2T}{d}.
+$$</div>
+<p>For pressure angle (phi), the radial separating force for a spur gear is approximately</p>
+<div class="math-block">$$
+F_r=F_t\tan\phi.
+$$</div>
+<p>Helical gears add an axial force, so they need thrust-load management. Gear checks include tooth bending, contact stress (pitting), scoring, wear, interference, backlash, lubrication, alignment, and noise. The smallest pinion often governs because it has fewer teeth and sees more cycles.</p>
+<h2 id="belts-and-chains">Belts and chains</h2>
+<p>Belts transmit power through friction or tooth engagement. For a friction belt,</p>
+<div class="math-block">$$
+T_1-T_2=\frac{P}{v},
+$$</div>
+<p>where (T_1) and (T_2) are tight- and slack-side tensions. The capstan relation for impending slip is</p>
+<div class="math-block">$$
+\frac{T_1}{T_2}=e^{\mu\theta},
+$$</div>
+<p>with (	heta) in radians. Belts are quiet and can absorb shock, but they need tensioning and may slip. Timing belts use teeth for positive timing but still require correct tooth engagement and tension.</p>
+<p>Chains engage sprocket teeth and therefore do not slip under ordinary operation. They tolerate higher loads than many belts but require lubrication, alignment, guarding, and attention to polygonal action and elongation. Choose belts or chains using power, speed, center distance, shock, noise, contamination, maintenance, and required timing.</p>
+<h2 id="springs">Springs</h2>
+<p>Springs store and return energy. For a linear spring,</p>
+<div class="math-block">$$
+F=kx,\qquad U=\frac{1}{2}kx^2.
+$$</div>
+<p>For helical compression or extension springs, the spring index is (C=D/d), where (D) is mean coil diameter and (d) is wire diameter. A preliminary torsional stress estimate is</p>
+<div class="math-block">$$
+\tau_{max}=K_w\frac{8FD}{\pi d^3},
+$$</div>
+<p>where (K_w) accounts for curvature and direct shear. The spring rate is approximately</p>
+<div class="math-block">$$
+k=\frac{Gd^4}{8D^3N_a},
+$$</div>
+<p>with (N_a) active coils.</p>
+<p>Springs must have adequate travel, avoid coil clash, and remain stable. A slender compression spring can buckle; guide it or check its critical length. Fatigue is often the controlling condition because springs are repeatedly cycled. In parallel, stiffnesses add:</p>
+<div class="math-block">$$
+k_{eq}=k_1+k_2+\cdots.
+$$</div>
+<p>In series,</p>
+<div class="math-block">$$
+\frac{1}{k_{eq}}=\frac{1}{k_1}+\frac{1}{k_2}+\cdots.
+$$</div>
+<h2 id="fatigue-design-and-factor-of-safety">Fatigue design and factor of safety</h2>
+<p>Separate a cyclic stress into alternating and mean components:</p>
+<div class="math-block">$$
+\sigma_a=\frac{\sigma_{max}-\sigma_{min}}{2},\qquad
+\sigma_m=\frac{\sigma_{max}+\sigma_{min}}{2}.
+$$</div>
+<p>One preliminary Goodman relation is</p>
+<div class="math-block">$$
+\frac{\sigma_a}{S_e}+\frac{\sigma_m}{S_{ut}}\leq\frac{1}{n_d},
+$$</div>
+<p>where (S_e) is the corrected endurance strength and (S_{ut}) is ultimate tensile strength. For ductile components under combined loading, use a consistent equivalent-stress model and account for notch sensitivity, surface finish, size, temperature, reliability, residual stress, and finite life.</p>
+<p>The factor of safety is a ratio between a capacity and a demand, but the capacity must match the failure mode. Check separately for yielding, ultimate fracture, fatigue, buckling, wear, contact stress, excessive deflection, and thermal limits. A large static factor does not prove adequate fatigue life or stability.</p>
+<h2 id="four-bar-linkages-and-mobility">Four-bar linkages and mobility</h2>
+<p>A planar four-bar has four links, four revolute joints, and one grounded link. The Gruebler–Kutzbach mobility equation for planar mechanisms is</p>
+<div class="math-block">$$
+M=3(n-1)-2j_1-j_2,
+$$</div>
+<p>where (n) is the number of links, (j_1) the number of one-degree-of-freedom joints, and (j_2) the number of two-degree-of-freedom joints. For a conventional four-bar, (M=1).</p>
+<p>For link lengths (a,b,c,d), the vector loop is</p>
+<div class="math-block">$$
+a e^{i\theta_2}+b e^{i\theta_3}=d+c e^{i\theta_4}.
+$$</div>
+<p>Differentiate once for velocity and twice for acceleration. The resulting linear equations solve for unknown angular velocities and accelerations after the input motion is known. Toggle positions occur when links become collinear; transmission angle becomes poor and mechanical advantage can become very large while motion authority becomes weak.</p>
+<p>The Grashof condition for at least one full rotation is</p>
+<div class="math-block">$$
+s+l\leq p+q,
+$$</div>
+<p>where (s) and (l) are the shortest and longest links. This is a motion classification, not a complete guarantee of useful output motion.</p>
+<h2 id="cams-ratchets-and-screws">Cams, ratchets, and screws</h2>
+<p>A cam prescribes follower displacement as a function of cam angle. Choose a displacement law—constant velocity, simple harmonic, cycloidal, polynomial, or another law—by balancing acceleration, jerk, pressure angle, speed, and manufacturing limits. The pressure angle measures the side thrust imposed on the follower. Excessive pressure angle causes high friction, wear, and possible follower wedging. Check curvature so the cam does not develop an undercut or a sharp cusp.</p>
+<p>A ratchet permits intermittent or one-way motion. Pawl geometry must provide positive engagement without jamming, and the tooth and pawl must withstand torque, impact, wear, and repeated indexing. A ratchet is not automatically a load-holding brake: vibration, pawl lift, tooth wear, and reverse shock must be considered.</p>
+<p>For a screw, pitch (p) is axial distance between adjacent threads and lead (l) is axial advance per revolution. For a single-start screw, (l=p); for a multi-start screw, (l) is the pitch multiplied by the number of starts. The lead angle is</p>
+<div class="math-block">$$
+\lambda=\tan^{-1}\left(\frac{l}{\pi d_m}\right).
+$$</div>
+<p>An approximate raising-torque relation for a power screw is</p>
+<div class="math-block">$$
+T_{raise}=\frac{Fd_m}{2}\frac{\tan\lambda+\mu}{1-\mu\tan\lambda},
+$$</div>
+<p>before adding collar friction. Efficiency is</p>
+<div class="math-block">$$
+\eta=\frac{Fl}{2\pi T}.
+$$</div>
+<p>For a simple friction model, a screw is self-locking when friction is sufficient that the load does not back-drive it, commonly approximated by (	an\lambda&lt;\mu). Verify this experimentally or with the applicable thread and collar model; vibration can defeat marginal self-locking.</p>
+<h2 id="position-velocity-and-acceleration-analysis">Position, velocity, and acceleration analysis</h2>
+<p>The general relative-velocity equation for two points on a rigid link is</p>
+<div class="math-block">$$
+\mathbf v_B=\mathbf v_A+\boldsymbol\omega\times\mathbf r_{B/A}.
+$$</div>
+<p>The acceleration equation is</p>
+<div class="math-block">$$
+\mathbf a_B=\mathbf a_A+\boldsymbol\alpha\times\mathbf r_{B/A}
+ +\boldsymbol\omega\times(\boldsymbol\omega\times\mathbf r_{B/A}).
+$$</div>
+<p>The second added term is centripetal acceleration. Vector-loop methods are transparent for small mechanisms; complex mechanisms can be solved numerically by differentiating constraint equations. At every configuration, verify closure, joint limits, singularity proximity, and continuity of position, velocity, and acceleration.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Treating torque as power, or mixing rpm with rad/s without conversion.</p></li><li><p>Checking only nominal stress while ignoring keyways, shoulders, threads, and holes.</p></li><li><p>Using bearing (L_{10}) life as a guarantee for one bearing.</p></li><li><p>Ignoring radial and axial gear forces when sizing shafts and bearings.</p></li><li><p>Assuming belts never slip or chains never need lubrication.</p></li><li><p>Designing a spring for static strength while ignoring fatigue, surge, and buckling.</p></li><li><p>Using a factor of safety without identifying the failure mode and uncertainty it covers.</p></li><li><p>Counting mechanism mobility without checking redundant constraints or singular configurations.</p></li><li><p>Confusing a screw’s pitch with its lead.</p></li><li><p>Solving linkage motion without checking the transmission angle and acceleration peaks.</p></li></ul>
+<h2 id="worked-example-preliminary-shaft-and-gear-sizing">Worked example: preliminary shaft and gear sizing</h2>
+<p>A motor supplies (5\ \mathrm{kW}) at (1500\ \mathrm{rpm}) to a gear pair. The pinion has 20 teeth and the gear has 60 teeth. Estimate the input torque, output speed, output torque at (\eta=0.94), and tangential tooth force if the pinion pitch diameter is (80\ \mathrm{mm}).</p>
+<p>Motor torque:</p>
+<div class="math-block">$$
+T_1=\frac{9550P}{N}=\frac{9550(5)}{1500}=31.8\ \mathrm{N\,m}.
+$$</div>
+<p>The speed ratio is</p>
+<div class="math-block">$$
+i=\frac{60}{20}=3,
+$$</div>
+<p>so (N_2=1500/3=500\ \mathrm{rpm}). With efficiency,</p>
+<div class="math-block">$$
+T_2=\frac{\eta T_1N_1}{N_2}=\frac{0.94(31.8)(1500)}{500}=89.8\ \mathrm{N\,m}.
+$$</div>
+<p>The pinion tangential force is</p>
+<div class="math-block">$$
+F_t=\frac{2T_1}{d_1}=\frac{2(31.8)}{0.080}=795\ \mathrm N.
+$$</div>
+<p>This is only a first pass. The final design must add service factors and check tooth bending, contact stress, shaft bending, bearing reactions, key strength, fatigue, lubrication, and guarding.</p>
+<h2 id="design-checklist">Design checklist</h2>
+<p>Before approving a mechanism concept, record:</p>
+<ul><li><p>required input and output motion;</p></li><li><p>power, torque, speed, duty cycle, and peak transients;</p></li><li><p>loads at every interface;</p></li><li><p>motion ratio, backlash, compliance, and efficiency;</p></li><li><p>material, lubrication, environment, and manufacturing process;</p></li><li><p>static strength, fatigue, wear, contact, stiffness, and stability checks;</p></li><li><p>alignment, retention, guarding, maintenance, and failure containment;</p></li><li><p>applicable standards, test evidence, and unresolved assumptions.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p>Shigley, Budynas, and Nisbett, <em>Mechanical Engineering Design</em></p></li><li><p>Norton, <em>Design of Machinery</em></p></li><li><p>Hibbeler, <em>Engineering Mechanics: Dynamics</em></p></li><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li></ul>
+<p>Mechanisms transmit power or guide motion by constraining the relative movement of solid parts. A mechanism may change speed, torque, direction, force, or the type of motion. A machine is a mechanism considered together with a power source, loads, controls, and useful output.</p>
+<p>This note is a first design pass. It gives the models needed to choose a mechanism and estimate its size; detailed standards, bearing catalogs, tooth geometry, fatigue data, and finite-element analysis are still required for a release design.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="a-common-mechanism-model">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for A common mechanism model">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#design-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="a-common-mechanism-model">Design workflow</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="shafts-fasteners-keys-and-couplings" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Shafts, fasteners, keys, and couplings">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#shafts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="shafts-fasteners-keys-and-couplings">Shafts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fasteners" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="shafts-fasteners-keys-and-couplings">Fasteners</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#keys-and-splines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="shafts-fasteners-keys-and-couplings">Keys and splines</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#couplings" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="shafts-fasteners-keys-and-couplings">Couplings</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

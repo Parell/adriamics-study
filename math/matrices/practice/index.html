@@ -1,0 +1,2364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matrices Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/matrices/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/matrices/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Matrices Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/matrices/matrices-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fmatrices%2Fmatrices-problems.md&amp;title=%5BContribute%5D%3A%20Matrices%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Matrices" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Product formula</h2><div class="markdown-body"><p>The $(i,j)$ entry of $AB$ is:</p>
+<div class="math-block">$$
+(AB)_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2\\
+3 &amp; 4
+\end{bmatrix}
+\begin{bmatrix}
+5 &amp; 6\\
+7 &amp; 8
+\end{bmatrix}
+=
+\begin{bmatrix}
+19 &amp; 22\\
+43 &amp; 50
+\end{bmatrix}
+$$</div>
+<p>because:</p>
+<div class="math-block">$$
+19 = 1\cdot 5 + 2\cdot 7
+$$</div>
+<div class="math-block">$$
+22 = 1\cdot 6 + 2\cdot 8
+$$</div></div></section></template>
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="matrices-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Matrix Entries" data-problem-difficulty="Direct" data-problem-answer="The entry $a_{23}$ means row $2$, column $3$.
+
+From the matrix, that entry is
+
+$$
+a_{23} = 7.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify a Matrix Entry</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-entries" data-notes-nav-item>Matrix Entries</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+2 &amp; -1 &amp; 4 \\
+0 &amp; 5 &amp; 7 \\
+3 &amp; 8 &amp; 6
+\end{bmatrix},
+$$</div>
+<p>what is $a_{23}$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-11">Your work for Identify a Matrix Entry</label>
+          <textarea
+            id="practice-study-matrices-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The entry $a_{23}$ means row $2$, column $3$.</p>
+<p>From the matrix, that entry is</p>
+<div class="math-block">$$
+a_{23} = 7.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Dimensions" data-problem-difficulty="Direct" data-problem-answer="The matrix has $2$ rows and $4$ columns, so its dimensions are
+
+$$
+2 \times 4.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Determine a Matrix&#39;s Dimensions</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#dimensions" data-notes-nav-item>Dimensions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the size of the matrix below?</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 2 &amp; -3 \\
+4 &amp; 5 &amp; -1 &amp; 6
+\end{bmatrix}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-12">Your work for Determine a Matrix&#39;s Dimensions</label>
+          <textarea
+            id="practice-study-matrices-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The matrix has $2$ rows and $4$ columns, so its dimensions are</p>
+<div class="math-block">$$
+2 \times 4.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Matrix Types" data-problem-difficulty="Direct" data-problem-answer="This matrix is:
+
+- square
+- diagonal
+- scalar
+- identity
+- upper triangular
+- lower triangular
+- symmetric
+- orthogonal
+- nonsingular
+
+Each off-diagonal entry is $0$, and each diagonal entry is $1$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Classify a Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-types" data-notes-nav-item>Matrix Types</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Name every matrix type from the note that applies to</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-13">Your work for Classify a Matrix</label>
+          <textarea
+            id="practice-study-matrices-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This matrix is:</p>
+<ul><li><p>square</p></li><li><p>diagonal</p></li><li><p>scalar</p></li><li><p>identity</p></li><li><p>upper triangular</p></li><li><p>lower triangular</p></li><li><p>symmetric</p></li><li><p>orthogonal</p></li><li><p>nonsingular</p></li></ul>
+<p>Each off-diagonal entry is $0$, and each diagonal entry is $1$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Matrix Addition" data-problem-difficulty="Direct" data-problem-answer="Add corresponding entries:
+
+$$
+\begin{bmatrix}
+1+5 &amp; 3+(-1) \\
+2+(-2) &amp; -4+7
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 &amp; 2 \\
+0 &amp; 3
+\end{bmatrix}
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Add Two Matrices</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-addition" data-notes-nav-item>Matrix Addition</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute the sum:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 3 \\
+2 &amp; -4
+\end{bmatrix}
++
+\begin{bmatrix}
+5 &amp; -1 \\
+-2 &amp; 7
+\end{bmatrix}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-14">Your work for Add Two Matrices</label>
+          <textarea
+            id="practice-study-matrices-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Add corresponding entries:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1+5 &amp; 3+(-1) \\
+2+(-2) &amp; -4+7
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 &amp; 2 \\
+0 &amp; 3
+\end{bmatrix}
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Scalar Multiplication" data-problem-difficulty="Direct" data-problem-answer="Multiply every entry by $-3$:
+
+$$
+-3A =
+\begin{bmatrix}
+-3 &amp; 6 \\
+-12 &amp; 0
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Scale a Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#scalar-multiplication" data-notes-nav-item>Scalar Multiplication</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute $-3A$ for</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+1 &amp; -2 \\
+4 &amp; 0
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-15">Your work for Scale a Matrix</label>
+          <textarea
+            id="practice-study-matrices-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply every entry by $-3$:</p>
+<div class="math-block">$$
+-3A =
+\begin{bmatrix}
+-3 &amp; 6 \\
+-12 &amp; 0
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Matrix Multiplication, Dimensions" data-problem-difficulty="Direct" data-problem-answer="Yes. The inner dimensions match because the number of columns of $A$ is $3$ and the number of rows of $B$ is $3$.
+
+So $AB$ is defined, and its size is
+
+$$
+2 \times 1.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Check Matrix Multiplication Compatibility</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-multiplication" data-notes-nav-item>Matrix Multiplication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#dimensions" data-notes-nav-item>Dimensions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose $A$ is a $2 \times 3$ matrix and $B$ is a $3 \times 1$ matrix. Is $AB$ defined, and what size is the product?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-16">Your work for Check Matrix Multiplication Compatibility</label>
+          <textarea
+            id="practice-study-matrices-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Yes. The inner dimensions match because the number of columns of $A$ is $3$ and the number of rows of $B$ is $3$.</p>
+<p>So $AB$ is defined, and its size is</p>
+<div class="math-block">$$
+2 \times 1.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Transpose" data-problem-difficulty="Direct" data-problem-answer="Swap rows and columns:
+
+$$
+\begin{bmatrix}
+1 &amp; 4 &amp; -2 \\
+3 &amp; 0 &amp; 5
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 &amp; 3 \\
+4 &amp; 0 \\
+-2 &amp; 5
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Transpose a Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#transpose" data-notes-nav-item>Transpose</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the transpose of</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 4 &amp; -2 \\
+3 &amp; 0 &amp; 5
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-17">Your work for Transpose a Matrix</label>
+          <textarea
+            id="practice-study-matrices-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Swap rows and columns:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 4 &amp; -2 \\
+3 &amp; 0 &amp; 5
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 &amp; 3 \\
+4 &amp; 0 \\
+-2 &amp; 5
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Determinants" data-problem-difficulty="Direct" data-problem-answer="For a $2 \times 2$ matrix,
+
+$$
+\det\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+= ad - bc.
+$$
+
+So
+
+$$
+\det\begin{bmatrix}
+7 &amp; 2 \\
+5 &amp; 3
+\end{bmatrix}
+= 7 \cdot 3 - 2 \cdot 5
+= 21 - 10
+= 11.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute a 2 by 2 Determinant</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#determinants" data-notes-nav-item>Determinants</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the determinant of</p>
+<div class="math-block">$$
+\begin{bmatrix}
+7 &amp; 2 \\
+5 &amp; 3
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-18">Your work for Compute a 2 by 2 Determinant</label>
+          <textarea
+            id="practice-study-matrices-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a $2 \times 2$ matrix,</p>
+<div class="math-block">$$
+\det\begin{bmatrix}
+a &amp; b \\
+c &amp; d
+\end{bmatrix}
+= ad - bc.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\det\begin{bmatrix}
+7 &amp; 2 \\
+5 &amp; 3
+\end{bmatrix}
+= 7 \cdot 3 - 2 \cdot 5
+= 21 - 10
+= 11.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Inverse Matrices, Determinants" data-problem-difficulty="Direct" data-problem-answer="First compute the determinant:
+
+$$
+\det(A) = 2 \cdot 3 - 1 \cdot 5 = 6 - 5 = 1.
+$$
+
+Since the determinant is nonzero, the inverse exists. Use the $2 \times 2$ inverse formula:
+
+$$
+A^{-1} = \frac{1}{1}
+\begin{bmatrix}
+3 &amp; -1 \\
+-5 &amp; 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 &amp; -1 \\
+-5 &amp; 2
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Find the Inverse of a 2 by 2 Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#inverse-matrices" data-notes-nav-item>Inverse Matrices</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#determinants" data-notes-nav-item>Determinants</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the inverse of</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+2 &amp; 1 \\
+5 &amp; 3
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-19">Your work for Find the Inverse of a 2 by 2 Matrix</label>
+          <textarea
+            id="practice-study-matrices-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>First compute the determinant:</p>
+<div class="math-block">$$
+\det(A) = 2 \cdot 3 - 1 \cdot 5 = 6 - 5 = 1.
+$$</div>
+<p>Since the determinant is nonzero, the inverse exists. Use the $2 \times 2$ inverse formula:</p>
+<div class="math-block">$$
+A^{-1} = \frac{1}{1}
+\begin{bmatrix}
+3 &amp; -1 \\
+-5 &amp; 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 &amp; -1 \\
+-5 &amp; 2
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Trace" data-problem-difficulty="Direct" data-problem-answer="The trace is the sum of the diagonal entries:
+
+$$
+\operatorname{tr}(A) = 4 + (-3) + 6 = 7.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute the Trace of a Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#trace" data-notes-nav-item>Trace</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the trace of</p>
+<div class="math-block">$$
+\begin{bmatrix}
+4 &amp; 1 &amp; 0 \\
+2 &amp; -3 &amp; 5 \\
+7 &amp; 8 &amp; 6
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-110">Your work for Compute the Trace of a Matrix</label>
+          <textarea
+            id="practice-study-matrices-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The trace is the sum of the diagonal entries:</p>
+<div class="math-block">$$
+\operatorname{tr}(A) = 4 + (-3) + 6 = 7.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="matrices-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Matrix Multiplication" data-problem-difficulty="Integrated" data-problem-answer="Multiply row by column:
+
+$$
+\begin{bmatrix}
+1 \cdot 4 + 2 \cdot (-2) &amp; 1 \cdot 1 + 2 \cdot 5 \\
+3 \cdot 4 + 0 \cdot (-2) &amp; 3 \cdot 1 + 0 \cdot 5
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 &amp; 11 \\
+12 &amp; 3
+\end{bmatrix}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Multiply Two Matrices</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-multiplication" data-notes-nav-item>Matrix Multiplication</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2 \\
+3 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+4 &amp; 1 \\
+-2 &amp; 5
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-21">Your work for Multiply Two Matrices</label>
+          <textarea
+            id="practice-study-matrices-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply row by column:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 \cdot 4 + 2 \cdot (-2) &amp; 1 \cdot 1 + 2 \cdot 5 \\
+3 \cdot 4 + 0 \cdot (-2) &amp; 3 \cdot 1 + 0 \cdot 5
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 &amp; 11 \\
+12 &amp; 3
+\end{bmatrix}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Matrix Multiplication, Columns" data-problem-difficulty="Integrated" data-problem-answer="Multiply row by column:
+
+$$
+Ax =
+\begin{bmatrix}
+2(5) + (-1)(2) + 0(-1) \\
+1(5) + 3(2) + 4(-1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+8 \\
+7
+\end{bmatrix}.
+$$
+
+You can also view this as a linear combination of the columns of $A$ weighted by the entries of $x$.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Use Matrix-Vector Multiplication</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-multiplication" data-notes-nav-item>Matrix Multiplication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#columns" data-notes-nav-item>Columns</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Let</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+2 &amp; -1 &amp; 0 \\
+1 &amp; 3 &amp; 4
+\end{bmatrix}
+\quad \text{and} \quad
+x =
+\begin{bmatrix}
+5 \\
+2 \\
+-1
+\end{bmatrix}.
+$$</div>
+<p>Compute $Ax$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-22">Your work for Use Matrix-Vector Multiplication</label>
+          <textarea
+            id="practice-study-matrices-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Multiply row by column:</p>
+<div class="math-block">$$
+Ax =
+\begin{bmatrix}
+2(5) + (-1)(2) + 0(-1) \\
+1(5) + 3(2) + 4(-1)
+\end{bmatrix}
+=
+\begin{bmatrix}
+8 \\
+7
+\end{bmatrix}.
+$$</div>
+<p>You can also view this as a linear combination of the columns of $A$ weighted by the entries of $x$.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Row Reduction, Systems of Equations" data-problem-difficulty="Integrated" data-problem-answer="Write the augmented matrix:
+
+$$
+\begin{bmatrix}
+1 &amp; 2 &amp; \mid &amp; 8 \\
+2 &amp; -1 &amp; \mid &amp; 1
+\end{bmatrix}.
+$$
+
+Eliminate the $2$ below the first pivot:
+
+$$
+R_2 \leftarrow R_2 - 2R_1
+$$
+
+gives
+
+$$
+\begin{bmatrix}
+1 &amp; 2 &amp; \mid &amp; 8 \\
+0 &amp; -5 &amp; \mid &amp; -15
+\end{bmatrix}.
+$$
+
+So
+
+$$
+y = 3.
+$$
+
+Substitute into the first equation:
+
+$$
+x + 2(3) = 8
+$$
+
+so
+
+$$
+x = 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Solve a System by Row Reduction</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#row-reduction" data-notes-nav-item>Row Reduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#systems-of-equations" data-notes-nav-item>Systems of Equations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the system:</p>
+<div class="math-block">$$
+\begin{aligned}
+x + 2y &amp;= 8 \\
+2x - y &amp;= 1
+\end{aligned}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-23">Your work for Solve a System by Row Reduction</label>
+          <textarea
+            id="practice-study-matrices-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the augmented matrix:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2 &amp; \mid &amp; 8 \\
+2 &amp; -1 &amp; \mid &amp; 1
+\end{bmatrix}.
+$$</div>
+<p>Eliminate the $2$ below the first pivot:</p>
+<div class="math-block">$$
+R_2 \leftarrow R_2 - 2R_1
+$$</div>
+<p>gives</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 2 &amp; \mid &amp; 8 \\
+0 &amp; -5 &amp; \mid &amp; -15
+\end{bmatrix}.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = 3.
+$$</div>
+<p>Substitute into the first equation:</p>
+<div class="math-block">$$
+x + 2(3) = 8
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+x = 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Rank, Nullity" data-problem-difficulty="Integrated" data-problem-answer="There are $2$ pivot columns, so the rank is
+
+$$
+\operatorname{rank}(A) = 2.
+$$
+
+The matrix has $4$ columns, so by rank-nullity:
+
+$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = 4.
+$$
+
+Thus
+
+$$
+2 + \operatorname{nullity}(A) = 4
+$$
+
+so
+
+$$
+\operatorname{nullity}(A) = 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Find Rank and Nullity from a Row-Reduced Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#rank" data-notes-nav-item>Rank</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#nullity" data-notes-nav-item>Nullity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $3 \times 4$ matrix row-reduces to</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 2 &amp; -1 \\
+0 &amp; 1 &amp; 3 &amp; 4 \\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>What are its rank and nullity?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-24">Your work for Find Rank and Nullity from a Row-Reduced Matrix</label>
+          <textarea
+            id="practice-study-matrices-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>There are $2$ pivot columns, so the rank is</p>
+<div class="math-block">$$
+\operatorname{rank}(A) = 2.
+$$</div>
+<p>The matrix has $4$ columns, so by rank-nullity:</p>
+<div class="math-block">$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = 4.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+2 + \operatorname{nullity}(A) = 4
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\operatorname{nullity}(A) = 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Eigenvalues, Characteristic Equation" data-problem-difficulty="Integrated" data-problem-answer="Use the characteristic equation:
+
+$$
+\det(A - \lambda I) = 0.
+$$
+
+Compute
+
+$$
+A - \lambda I =
+\begin{bmatrix}
+3 - \lambda &amp; 1 \\
+0 &amp; 2 - \lambda
+\end{bmatrix}.
+$$
+
+Then
+
+$$
+\det(A - \lambda I) = (3 - \lambda)(2 - \lambda).
+$$
+
+Set this equal to zero:
+
+$$
+(3 - \lambda)(2 - \lambda) = 0.
+$$
+
+So the eigenvalues are
+
+$$
+\lambda = 3 \quad \text{and} \quad \lambda = 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find the Eigenvalues of a Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#characteristic-equation" data-notes-nav-item>Characteristic Equation</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the eigenvalues of</p>
+<div class="math-block">$$
+A =
+\begin{bmatrix}
+3 &amp; 1 \\
+0 &amp; 2
+\end{bmatrix}.
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-25">Your work for Find the Eigenvalues of a Matrix</label>
+          <textarea
+            id="practice-study-matrices-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the characteristic equation:</p>
+<div class="math-block">$$
+\det(A - \lambda I) = 0.
+$$</div>
+<p>Compute</p>
+<div class="math-block">$$
+A - \lambda I =
+\begin{bmatrix}
+3 - \lambda &amp; 1 \\
+0 &amp; 2 - \lambda
+\end{bmatrix}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+\det(A - \lambda I) = (3 - \lambda)(2 - \lambda).
+$$</div>
+<p>Set this equal to zero:</p>
+<div class="math-block">$$
+(3 - \lambda)(2 - \lambda) = 0.
+$$</div>
+<p>So the eigenvalues are</p>
+<div class="math-block">$$
+\lambda = 3 \quad \text{and} \quad \lambda = 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Diagonalization, Matrix Powers" data-problem-difficulty="Integrated" data-problem-answer="Use the diagonalization formula:
+
+$$
+A^4 = P D^4 P^{-1},
+$$
+
+where
+
+$$
+D =
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 3
+\end{bmatrix}.
+$$
+
+Raise each diagonal entry to the fourth power:
+
+$$
+D^4 =
+\begin{bmatrix}
+16 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 81
+\end{bmatrix}.
+$$
+
+Therefore
+
+$$
+A^4 = P
+\begin{bmatrix}
+16 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 81
+\end{bmatrix}
+P^{-1}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Use Diagonalization to Compute a Power</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#diagonalization" data-notes-nav-item>Diagonalization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-powers" data-notes-nav-item>Matrix Powers</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose</p>
+<div class="math-block">$$
+A = P
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 3
+\end{bmatrix}
+P^{-1}.
+$$</div>
+<p>Find $A^4$.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-26">Your work for Use Diagonalization to Compute a Power</label>
+          <textarea
+            id="practice-study-matrices-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the diagonalization formula:</p>
+<div class="math-block">$$
+A^4 = P D^4 P^{-1},
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+D =
+\begin{bmatrix}
+2 &amp; 0 &amp; 0 \\
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 3
+\end{bmatrix}.
+$$</div>
+<p>Raise each diagonal entry to the fourth power:</p>
+<div class="math-block">$$
+D^4 =
+\begin{bmatrix}
+16 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 81
+\end{bmatrix}.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+A^4 = P
+\begin{bmatrix}
+16 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 81
+\end{bmatrix}
+P^{-1}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Transpose, Symmetric Matrices" data-problem-difficulty="Integrated" data-problem-answer="For a symmetric matrix, entries across the main diagonal must match.
+
+So the $(1,2)$ and $(2,1)$ entries must be equal:
+
+$$
+a = 4.
+$$
+
+Also the $(2,3)$ and $(3,2)$ entries must be equal:
+
+$$
+b = 7.
+$$
+
+So the matrix is symmetric when
+
+$$
+a = 4,\quad b = 7.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Complete a Symmetric Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#transpose" data-notes-nav-item>Transpose</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#symmetric-matrices" data-notes-nav-item>Symmetric Matrices</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find the values of $a$ and $b$ that make the matrix symmetric:</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 4 &amp; -2 \\
+a &amp; 0 &amp; 7 \\
+-2 &amp; b &amp; 5
+\end{bmatrix}
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-27">Your work for Complete a Symmetric Matrix</label>
+          <textarea
+            id="practice-study-matrices-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For a symmetric matrix, entries across the main diagonal must match.</p>
+<p>So the $(1,2)$ and $(2,1)$ entries must be equal:</p>
+<div class="math-block">$$
+a = 4.
+$$</div>
+<p>Also the $(2,3)$ and $(3,2)$ entries must be equal:</p>
+<div class="math-block">$$
+b = 7.
+$$</div>
+<p>So the matrix is symmetric when</p>
+<div class="math-block">$$
+a = 4,\quad b = 7.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Determinants, Transpose" data-problem-difficulty="Integrated" data-problem-answer="Use the determinant properties:
+
+$$
+\det(B^T A) = \det(B^T)\det(A).
+$$
+
+Also,
+
+$$
+\det(B^T) = \det(B) = 5.
+$$
+
+So
+
+$$
+\det(B^T A) = 5(-2) = -10.
+$$
+
+Because the determinant is nonzero, $B^T A$ is not singular.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Use Determinant Properties</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#determinants" data-notes-nav-item>Determinants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#transpose" data-notes-nav-item>Transpose</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose</p>
+<div class="math-block">$$
+\det(A) = -2
+\quad \text{and} \quad
+\det(B) = 5.
+$$</div>
+<p>Find $\det(B^T A)$ and determine whether $B^T A$ is singular.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-28">Your work for Use Determinant Properties</label>
+          <textarea
+            id="practice-study-matrices-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the determinant properties:</p>
+<div class="math-block">$$
+\det(B^T A) = \det(B^T)\det(A).
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+\det(B^T) = \det(B) = 5.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\det(B^T A) = 5(-2) = -10.
+$$</div>
+<p>Because the determinant is nonzero, $B^T A$ is not singular.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="matrices-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Systems of Equations, Matrix Equations" data-problem-difficulty="Applied" data-problem-answer="Let $n$ be the notebook price and $p$ be the pen price.
+
+The system is
+
+$$
+\begin{aligned}
+2n + 3p &amp;= 13 \\
+n + p &amp;= 5
+\end{aligned}
+$$
+
+Subtract the second equation from the first after doubling it:
+
+$$
+2n + 2p = 10
+$$
+
+Then
+
+$$
+p = 3.
+$$
+
+Substitute into $n + p = 5$:
+
+$$
+n + 3 = 5
+$$
+
+so
+
+$$
+n = 2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Model a Purchase with a System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#systems-of-equations" data-notes-nav-item>Systems of Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#matrix-equations" data-notes-nav-item>Matrix Equations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A store sells notebooks and pens.</p>
+<p>Two notebooks and three pens cost \$13. One notebook and one pen cost \$5.</p>
+<p>What is the price of one notebook?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-31">Your work for Model a Purchase with a System</label>
+          <textarea
+            id="practice-study-matrices-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Let $n$ be the notebook price and $p$ be the pen price.</p>
+<p>The system is</p>
+<div class="math-block">$$
+\begin{aligned}
+2n + 3p &amp;= 13 \\
+n + p &amp;= 5
+\end{aligned}
+$$</div>
+<p>Subtract the second equation from the first after doubling it:</p>
+<div class="math-block">$$
+2n + 2p = 10
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+p = 3.
+$$</div>
+<p>Substitute into $n + p = 5$:</p>
+<div class="math-block">$$
+n + 3 = 5
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+n = 2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Row Reduction, Systems of Equations" data-problem-difficulty="Applied" data-problem-answer="There are pivots in the first two variable columns, but the third variable column has no pivot, so one variable is free.
+
+Because there is no inconsistent row and at least one free variable, the system has infinitely many solutions.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Interpret a Row-Reduced System</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#row-reduction" data-notes-nav-item>Row Reduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#systems-of-equations" data-notes-nav-item>Systems of Equations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A system row-reduces to</p>
+<div class="math-block">$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 2 &amp; \mid &amp; 4 \\
+0 &amp; 1 &amp; -1 &amp; \mid &amp; 3 \\
+0 &amp; 0 &amp; 0 &amp; \mid &amp; 0
+\end{bmatrix}.
+$$</div>
+<p>How many solutions does the system have?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-32">Your work for Interpret a Row-Reduced System</label>
+          <textarea
+            id="practice-study-matrices-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>There are pivots in the first two variable columns, but the third variable column has no pivot, so one variable is free.</p>
+<p>Because there is no inconsistent row and at least one free variable, the system has infinitely many solutions.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Rank-Nullity, Nullity" data-problem-difficulty="Applied" data-problem-answer="Use rank-nullity:
+
+$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = 6.
+$$
+
+Since $\operatorname{rank}(A) = 4$,
+
+$$
+4 + \operatorname{nullity}(A) = 6.
+$$
+
+So
+
+$$
+\operatorname{nullity}(A) = 2.
+$$
+
+That means there are $2$ free variables.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Apply Rank-Nullity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#rank-nullity" data-notes-nav-item>Rank-Nullity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#nullity" data-notes-nav-item>Nullity</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A $4 \times 6$ matrix has rank $4$.</p>
+<p>How many free variables does the homogeneous system $Ax = 0$ have?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-33">Your work for Apply Rank-Nullity</label>
+          <textarea
+            id="practice-study-matrices-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use rank-nullity:</p>
+<div class="math-block">$$
+\operatorname{rank}(A) + \operatorname{nullity}(A) = 6.
+$$</div>
+<p>Since $\operatorname{rank}(A) = 4$,</p>
+<div class="math-block">$$
+4 + \operatorname{nullity}(A) = 6.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\operatorname{nullity}(A) = 2.
+$$</div>
+<p>That means there are $2$ free variables.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Eigenvalues, Eigenvectors" data-problem-difficulty="Applied" data-problem-answer="The equation has the form
+
+$$
+Av = \lambda v.
+$$
+
+So $v$ is an eigenvector of $A$, and the corresponding eigenvalue is
+
+$$
+\lambda = -3.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Recognize an Eigenvector</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#eigenvalues" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#eigenvectors" data-notes-nav-item>Eigenvectors</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A nonzero vector $v$ satisfies</p>
+<div class="math-block">$$
+Av = -3v.
+$$</div>
+<p>What does this tell you about $v$ and the scalar $-3$?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-34">Your work for Recognize an Eigenvector</label>
+          <textarea
+            id="practice-study-matrices-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The equation has the form</p>
+<div class="math-block">$$
+Av = \lambda v.
+$$</div>
+<p>So $v$ is an eigenvector of $A$, and the corresponding eigenvalue is</p>
+<div class="math-block">$$
+\lambda = -3.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="LU Decomposition, Determinants, Triangular Matrices" data-problem-difficulty="Applied" data-problem-answer="Use the product property:
+
+$$
+\det(A) = \det(L)\det(U).
+$$
+
+Because $L$ is lower triangular with diagonal entries all $1$,
+
+$$
+\det(L) = 1.
+$$
+
+Because $U$ is upper triangular,
+
+$$
+\det(U) = 2 \cdot 5 \cdot (-4) = -40.
+$$
+
+So
+
+$$
+\det(A) = 1 \cdot (-40) = -40.
+$$
+
+Since the determinant is nonzero, $A$ is invertible.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Use an LU Factorization</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#lu-decomposition" data-notes-nav-item>LU Decomposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#determinants" data-notes-nav-item>Determinants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#triangular-matrices" data-notes-nav-item>Triangular Matrices</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A matrix $A$ has the factorization $A = LU$, where</p>
+<div class="math-block">$$
+L =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 \\
+-2 &amp; 1 &amp; 0 \\
+3 &amp; 4 &amp; 1
+\end{bmatrix}
+\quad \text{and} \quad
+U =
+\begin{bmatrix}
+2 &amp; -1 &amp; 0 \\
+0 &amp; 5 &amp; 3 \\
+0 &amp; 0 &amp; -4
+\end{bmatrix}.
+$$</div>
+<p>Without multiplying $L$ and $U$, find $\det(A)$ and say whether $A$ is invertible.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-35">Your work for Use an LU Factorization</label>
+          <textarea
+            id="practice-study-matrices-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the product property:</p>
+<div class="math-block">$$
+\det(A) = \det(L)\det(U).
+$$</div>
+<p>Because $L$ is lower triangular with diagonal entries all $1$,</p>
+<div class="math-block">$$
+\det(L) = 1.
+$$</div>
+<p>Because $U$ is upper triangular,</p>
+<div class="math-block">$$
+\det(U) = 2 \cdot 5 \cdot (-4) = -40.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\det(A) = 1 \cdot (-40) = -40.
+$$</div>
+<p>Since the determinant is nonzero, $A$ is invertible.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="matrices-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Determinants, Transpose" data-problem-difficulty="Challenge" data-problem-answer="Use the determinant rules:
+
+$$
+\det(A^T A) = \det(A^T)\det(A).
+$$
+
+Also,
+
+$$
+\det(A^T) = \det(A) = 3.
+$$
+
+Therefore
+
+$$
+\det(A^T A) = 3 \cdot 3 = 9.
+$$
+
+Because the determinant is nonzero, $A^T A$ is invertible.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Use a Determinant Identity</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#determinants" data-notes-nav-item>Determinants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#transpose" data-notes-nav-item>Transpose</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose $A$ is a square matrix and</p>
+<div class="math-block">$$
+\det(A) = 3.
+$$</div>
+<p>Find $\det(A^T A)$ and decide whether $A^T A$ is invertible.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-41">Your work for Use a Determinant Identity</label>
+          <textarea
+            id="practice-study-matrices-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the determinant rules:</p>
+<div class="math-block">$$
+\det(A^T A) = \det(A^T)\det(A).
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+\det(A^T) = \det(A) = 3.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+\det(A^T A) = 3 \cdot 3 = 9.
+$$</div>
+<p>Because the determinant is nonzero, $A^T A$ is invertible.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Symmetric Matrices, Skew-Symmetric Matrices" data-problem-difficulty="Challenge" data-problem-answer="Since both equalities hold, we have
+
+$$
+A = -A.
+$$
+
+Add $A$ to both sides:
+
+$$
+2A = 0.
+$$
+
+Over the real numbers, this implies
+
+$$
+A = 0.
+$$
+
+So the matrix must be the zero matrix.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">A Matrix That Is Symmetric and Skew-Symmetric</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#symmetric-matrices" data-notes-nav-item>Symmetric Matrices</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#skew-symmetric-matrices" data-notes-nav-item>Skew-Symmetric Matrices</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>If a matrix satisfies both</p>
+<div class="math-block">$$
+A^T = A
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+A^T = -A,
+$$</div>
+<p>what must $A$ be?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-42">Your work for A Matrix That Is Symmetric and Skew-Symmetric</label>
+          <textarea
+            id="practice-study-matrices-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since both equalities hold, we have</p>
+<div class="math-block">$$
+A = -A.
+$$</div>
+<p>Add $A$ to both sides:</p>
+<div class="math-block">$$
+2A = 0.
+$$</div>
+<p>Over the real numbers, this implies</p>
+<div class="math-block">$$
+A = 0.
+$$</div>
+<p>So the matrix must be the zero matrix.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Projection Matrices, Inverse Matrices" data-problem-difficulty="Challenge" data-problem-answer="Because $P$ is invertible, multiply the equation $P^2 = P$ on the left by $P^{-1}$:
+
+$$
+P^{-1}P^2 = P^{-1}P.
+$$
+
+This simplifies to
+
+$$
+P = I.
+$$
+
+So an invertible projection matrix must be the identity matrix.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">An Invertible Projection Matrix</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#projection-matrices" data-notes-nav-item>Projection Matrices</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#inverse-matrices" data-notes-nav-item>Inverse Matrices</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Suppose a matrix $P$ satisfies</p>
+<div class="math-block">$$
+P^2 = P
+$$</div>
+<p>and also has an inverse. What must $P$ be?</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-43">Your work for An Invertible Projection Matrix</label>
+          <textarea
+            id="practice-study-matrices-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Because $P$ is invertible, multiply the equation $P^2 = P$ on the left by $P^{-1}$:</p>
+<div class="math-block">$$
+P^{-1}P^2 = P^{-1}P.
+$$</div>
+<p>This simplifies to</p>
+<div class="math-block">$$
+P = I.
+$$</div>
+<p>So an invertible projection matrix must be the identity matrix.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="matrices-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="QR Decomposition, Orthogonal Matrices, Triangular Matrices" data-problem-difficulty="Challenge" data-problem-answer="An orthogonal matrix is invertible because
+
+$$
+Q^{-1} = Q^T.
+$$
+
+The matrix $R$ is upper triangular, so its determinant is the product of its diagonal entries:
+
+$$
+\det(R) = 2 \cdot (-3) \cdot 5 = -30.
+$$
+
+Since $\det(R) \ne 0$, $R$ is invertible.
+
+Because both $Q$ and $R$ are invertible, their product
+
+$$
+A = QR
+$$
+
+is also invertible.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Reason About a QR Factorization</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#qr-decomposition" data-notes-nav-item>QR Decomposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#orthogonal-matrices" data-notes-nav-item>Orthogonal Matrices</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/matrices/#triangular-matrices" data-notes-nav-item>Triangular Matrices</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A matrix $A$ is written as</p>
+<div class="math-block">$$
+A = QR,
+$$</div>
+<p>where $Q$ is orthogonal and</p>
+<div class="math-block">$$
+R =
+\begin{bmatrix}
+2 &amp; 1 &amp; 0 \\
+0 &amp; -3 &amp; 4 \\
+0 &amp; 0 &amp; 5
+\end{bmatrix}.
+$$</div>
+<p>Explain why $A$ is invertible.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-matrices-44">Your work for Reason About a QR Factorization</label>
+          <textarea
+            id="practice-study-matrices-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>An orthogonal matrix is invertible because</p>
+<div class="math-block">$$
+Q^{-1} = Q^T.
+$$</div>
+<p>The matrix $R$ is upper triangular, so its determinant is the product of its diagonal entries:</p>
+<div class="math-block">$$
+\det(R) = 2 \cdot (-3) \cdot 5 = -30.
+$$</div>
+<p>Since $\det(R) \ne 0$, $R$ is invertible.</p>
+<p>Because both $Q$ and $R$ are invertible, their product</p>
+<div class="math-block">$$
+A = QR
+$$</div>
+<p>is also invertible.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

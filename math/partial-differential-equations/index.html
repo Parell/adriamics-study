@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PDEs | Adriamics Study</title>
+  <meta name="description" content="Partial differential equations (PDEs) describe how an unknown quantity changes with respect to several independent variables . A temperature field T(x,y,z,t)..." />
+  <link rel="canonical" href="https://adriamics.com/study/math/partial-differential-equations/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/partial-differential-equations/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#partial-differential-equations" data-notes-nav-item data-notes-toc-link>Partial Differential Equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#derivative-language-and-common-operators" data-notes-nav-item data-notes-toc-link>Derivative language and common operators</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#classification-of-second-order-pdes" data-notes-nav-item data-notes-toc-link>Classification of second-order PDEs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditions-needed-to-define-a-problem" data-notes-nav-item data-notes-toc-link>Conditions needed to define a problem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-laws-and-the-divergence-theorem" data-notes-nav-item data-notes-toc-link>Conservation laws and the divergence theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#separation-of-variables" data-notes-nav-item data-notes-toc-link>Separation of variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#the-heat-equation" data-notes-nav-item data-notes-toc-link>The heat equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#the-wave-equation" data-notes-nav-item data-notes-toc-link>The wave equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#laplaces-equation" data-notes-nav-item data-notes-toc-link>Laplace&#39;s equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#a-worked-separation-example" data-notes-nav-item data-notes-toc-link>A worked separation example</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#numerical-pdes-and-real-engineering-systems" data-notes-nav-item data-notes-toc-link>Numerical PDEs and real engineering systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-misconceptions-and-mistakes" data-notes-nav-item data-notes-toc-link>Common misconceptions and mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#summary" data-notes-nav-item data-notes-toc-link>Summary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#glossary" data-notes-nav-item data-notes-toc-link>Glossary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recommended-next-topics" data-notes-nav-item data-notes-toc-link>Recommended next topics</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>PDEs</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/partial-differential-equations/partial-differential-equations.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fpartial-differential-equations%2Fpartial-differential-equations.md&amp;title=%5BContribute%5D%3A%20PDEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/partial-differential-equations/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/partial-differential-equations/" data-notes-nav-item>Partial Differential Equations</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/systems-of-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="partial-differential-equations">Partial Differential Equations</h1>
+<p>Partial differential equations (PDEs) describe how an unknown quantity changes with respect to <strong>several independent variables</strong>. A temperature field $T(x,y,z,t)$, a pressure field $p(x,y,z,t)$, and a displacement field $u(x,t)$ are typical examples. PDEs matter because conservation of mass, momentum, energy, and charge almost always produces fields rather than single numbers.</p>
+<p>This note develops the core language of PDEs, the classification of second-order equations, initial and boundary conditions, separation of variables, the wave, heat, and Laplace equations, well-posedness, and conservation laws. The emphasis is on the one-dimensional and rectangular-domain cases that make the ideas transparent; real geometries usually require numerical methods.</p>
+<h1 id="derivative-language-and-common-operators">Derivative language and common operators</h1>
+<p>The <strong>gradient</strong> collects first spatial derivatives of a scalar field:</p>
+<div class="math-block">$$
+\nabla u = \begin{bmatrix}u_x\\u_y\\u_z\end{bmatrix}.
+$$</div>
+<p>It points in the direction of greatest local increase of $u$. The <strong>divergence</strong> of a vector field $\mathbf{q}=(q_x,q_y,q_z)$ measures net outward flow per unit volume:</p>
+<div class="math-block">$$
+\nabla\cdot\mathbf{q}=\frac{\partial q_x}{\partial x}+\frac{\partial q_y}{\partial y}+\frac{\partial q_z}{\partial z}.
+$$</div>
+<p>The <strong>Laplacian</strong> is the divergence of the gradient:</p>
+<div class="math-block">$$
+\nabla^2u=\nabla\cdot(\nabla u)=u_{xx}+u_{yy}+u_{zz}.
+$$</div>
+<p>It measures local curvature. A positive Laplacian means, in a coordinate-independent sense, that the field is locally below the average of its nearby values; the exact visual interpretation depends on the dimension and direction.</p>
+<h2 id="chain-rule-along-a-moving-path">Chain rule along a moving path</h2>
+<p>If a field $u(x,t)$ is observed by an object moving as $x=x(t)$, then</p>
+<div class="math-block">$$
+\frac{d}{dt}u(x(t),t)=u_t+\frac{dx}{dt}u_x.
+$$</div>
+<p>Writing $v=dx/dt$ gives $u_t+v u_x$, the one-dimensional <strong>material derivative</strong>. It distinguishes change at a fixed location from change carried by motion.</p>
+<hr />
+<h1 id="classification-of-second-order-pdes">Classification of second-order PDEs</h1>
+<p>Consider a two-variable linear second-order PDE whose highest-order part is</p>
+<div class="math-block">$$
+A u_{xx}+2B u_{xy}+C u_{yy}+\text{lower-order terms}=0.
+$$</div>
+<p>The discriminant</p>
+<div class="math-block">$$
+\Delta=B^2-AC
+$$</div>
+<p>classifies the equation locally:</p>
+<table><thead><tr><th>Type</th><th>Condition</th><th>Typical behavior</th><th>Canonical example</th></tr></thead><tbody><tr><td>Elliptic</td><td>$\Delta&lt;0$</td><td>spatial equilibrium; smoothing</td><td>$u_{xx}+u_{yy}=0$</td></tr><tr><td>Parabolic</td><td>$\Delta=0$</td><td>diffusion; one-way time evolution</td><td>$u_t-\alpha u_{xx}=0$</td></tr><tr><td>Hyperbolic</td><td>$\Delta&gt;0$</td><td>finite-speed propagation; waves</td><td>$u_{tt}-c^2u_{xx}=0$</td></tr></tbody></table>
+<p>The classification is about the principal, highest-derivative terms. Lower-order terms can change details without changing the local type.</p>
+<h2 id="why-the-types-behave-differently">Why the types behave differently</h2>
+<ul><li><p><strong>Elliptic:</strong> values are coupled throughout the domain. Boundary data determine an equilibrium field.</p></li><li><p><strong>Parabolic:</strong> the field smooths as time advances. Initial data and suitable boundary data determine the future.</p></li><li><p><strong>Hyperbolic:</strong> information travels along characteristic paths at finite speeds. Initial data are propagated, and boundaries must respect incoming information.</p></li></ul>
+<p>For a general equation $a u_{xx}+b u_{xy}+c u_{yy}=0$, the convention without the factor $2$ uses $\Delta=b^2-4ac$. Both conventions agree if used consistently.</p>
+<h2 id="characteristics-and-information-speed">Characteristics and information speed</h2>
+<p>Characteristics are curves along which the PDE behaves like an ODE or along which disturbances travel. For the wave equation, they are</p>
+<div class="math-block">$$
+x-ct=\text{constant},\qquad x+ct=\text{constant}.
+$$</div>
+<p>Thus a disturbance travels right or left at speed $c$; it does not instantly affect the entire domain.</p>
+<hr />
+<h1 id="conditions-needed-to-define-a-problem">Conditions needed to define a problem</h1>
+<p>Writing a PDE alone usually does not select one solution. A complete problem includes a domain, the PDE, and data on the boundary and/or at an initial time.</p>
+<h2 id="initial-conditions">Initial conditions</h2>
+<p>An <strong>initial condition</strong> specifies the field at a starting time, commonly</p>
+<div class="math-block">$$
+u(x,0)=f(x).
+$$</div>
+<p>For a second-order time equation, two initial conditions are usually needed:</p>
+<div class="math-block">$$
+u(x,0)=f(x),\qquad u_t(x,0)=g(x).
+$$</div>
+<p>The second condition is analogous to specifying initial velocity in mechanics.</p>
+<h2 id="boundary-conditions">Boundary conditions</h2>
+<p>For a domain $0&lt;x&lt;L$, common boundary conditions are:</p>
+<table><thead><tr><th>Name</th><th>Condition</th><th>Interpretation</th></tr></thead><tbody><tr><td>Dirichlet</td><td>$u(0,t)=a(t)$</td><td>prescribe the field value</td></tr><tr><td>Neumann</td><td>$u_x(0,t)=b(t)$ or $\partial u/\partial n=b$</td><td>prescribe slope or flux</td></tr><tr><td>Robin</td><td>$a u+b u_x=g(t)$</td><td>combine value and flux</td></tr><tr><td>Periodic</td><td>$u(0,t)=u(L,t)$ and $u_x(0,t)=u_x(L,t)$</td><td>join the ends smoothly</td></tr></tbody></table>
+<p>Here $n$ is the outward unit normal, and $\partial u/\partial n=\nabla u\cdot\mathbf{n}$.</p>
+<p>For heat conduction, Fourier&#39;s law is</p>
+<div class="math-block">$$
+\mathbf{q}=-k\nabla T,
+$$</div>
+<p>where $\mathbf{q}$ is heat flux in W/m$^2$, $k$ is thermal conductivity in W/(m K), and $T$ is temperature in K. Therefore a Neumann condition on heat flux is a condition on $-k\partial T/\partial n$, not merely on $T_x$.</p>
+<h2 id="compatibility-conditions">Compatibility conditions</h2>
+<p>Data must agree where initial and boundary surfaces meet. If $u(x,0)=f(x)$ and $u(0,t)=a(t)$, then a classical solution requires</p>
+<div class="math-block">$$
+f(0)=a(0).
+$$</div>
+<p>Higher smoothness may require compatibility of derivatives too. Violating compatibility can create corner singularities even when the PDE is otherwise well behaved.</p>
+<h2 id="well-posedness">Well-posedness</h2>
+<p>Hadamard&#39;s criteria say a problem is <strong>well-posed</strong> if:</p>
+<ol><li><p>a solution exists;</p></li><li><p>it is unique;</p></li><li><p>it depends continuously on the data.</p></li></ol>
+<p>The third condition means small measurement or rounding errors produce only small solution changes. A problem that fails one of these is ill-posed and needs extra constraints, regularization, or a different interpretation.</p>
+<hr />
+<h1 id="conservation-laws-and-the-divergence-theorem">Conservation laws and the divergence theorem</h1>
+<p>Many physical PDEs begin with a balance law. Let $u(\mathbf{x},t)$ be density per unit volume, $\mathbf{J}$ its flux, and $s$ a source per unit volume. Conservation over a fixed control volume $V$ says</p>
+<div class="math-block">$$
+\frac{d}{dt}\int_V u\,dV=-\int_{\partial V}\mathbf{J}\cdot\mathbf{n}\,dS+\int_V s\,dV.
+$$</div>
+<p>The negative sign means outward flux decreases what remains inside. Using the divergence theorem,</p>
+<div class="math-block">$$
+\int_{\partial V}\mathbf{J}\cdot\mathbf{n}\,dS=\int_V\nabla\cdot\mathbf{J}\,dV.
+$$</div>
+<p>If $V$ is arbitrary, the local conservation equation is</p>
+<div class="math-block">$$
+\boxed{u_t+\nabla\cdot\mathbf{J}=s.}
+$$</div>
+<p>This equation is the mathematical form of “rate of accumulation = sources âˆ’ net outflow.”</p>
+<h2 id="constitutive-laws-produce-pdes">Constitutive laws produce PDEs</h2>
+<p>Conservation alone does not determine the flux. A constitutive law closes the model:</p>
+<ul><li><p>diffusion: $\mathbf{J}=-D\nabla u$, where $D$ may depend on position or state</p></li><li><p>heat conduction: $\mathbf{q}=-k\nabla T$</p></li><li><p>electrical conduction: $\mathbf{J}_e=\sigma\mathbf{E}$</p></li></ul>
+<p>For diffusion, substituting $\mathbf{J}=-D\nabla u$ into the conservation law with source $s$ gives</p>
+<div class="math-block">$$
+u_t=\nabla\cdot(D\nabla u)+s.
+$$</div>
+<p>If $D$ is constant, this reduces to $u_t=D\nabla^2u+s$. The minus sign in Fick&#39;s law makes flux point down the concentration gradient, producing smoothing.</p>
+<hr />
+<h1 id="separation-of-variables">Separation of variables</h1>
+<p>Separation of variables assumes a product form, such as</p>
+<div class="math-block">$$
+u(x,t)=X(x)G(t).
+$$</div>
+<p>This does not describe every individual solution. It finds building-block solutions; linear combinations of many such modes can represent a general initial condition.</p>
+<h2 id="heat-equation-derivation">Heat equation derivation</h2>
+<p>Consider</p>
+<div class="math-block">$$
+u_t=\alpha u_{xx},\qquad 0&lt;x&lt;L,
+$$</div>
+<p>with fixed-end conditions $u(0,t)=u(L,t)=0$. The diffusivity $\alpha$ has units m$^2$/s.</p>
+<p>Set $u=XG$. Then</p>
+<div class="math-block">$$
+XG&#39;=\alpha X&#39;&#39;G.
+$$</div>
+<p>Divide by $\alpha XG$ where nonzero:</p>
+<div class="math-block">$$
+\frac{G&#39;}{\alpha G}=\frac{X&#39;&#39;}{X}.
+$$</div>
+<p>The left side depends only on $t$ and the right side only on $x$, so both must equal a constant. Choosing $-\lambda$ gives</p>
+<div class="math-block">$$
+G&#39;+\alpha\lambda G=0,
+\qquad X&#39;&#39;+\lambda X=0.
+$$</div>
+<p>The boundary conditions require $X(0)=X(L)=0$. Nontrivial solutions occur for</p>
+<div class="math-block">$$
+\lambda_n=\left(\frac{n\pi}{L}\right)^2,
+\qquad X_n(x)=\sin\left(\frac{n\pi x}{L}\right),
+$$</div>
+<p>where $n=1,2,3,\ldots$. The time factor is</p>
+<div class="math-block">$$
+G_n(t)=e^{-\alpha(n\pi/L)^2t}.
+$$</div>
+<p>Therefore the general Fourier-series solution is</p>
+<div class="math-block">$$
+u(x,t)=\sum_{n=1}^{\infty}b_n e^{-\alpha(n\pi/L)^2t}
+\sin\left(\frac{n\pi x}{L}\right),
+$$</div>
+<p>where the coefficients match $u(x,0)=f(x)$:</p>
+<div class="math-block">$$
+b_n=\frac{2}{L}\int_0^L f(x)\sin\left(\frac{n\pi x}{L}\right)\,dx.
+$$</div>
+<p>The physical meaning is important: each spatial mode decays exponentially, and higher-frequency modes decay faster because their curvature is larger.</p>
+<hr />
+<h1 id="the-heat-equation">The heat equation</h1>
+<p>The heat equation models temperature diffusion in a stationary material with constant properties and no internal heat generation:</p>
+<div class="math-block">$$
+\boxed{T_t=\alpha\nabla^2T},
+\qquad \alpha=\frac{k}{\rho c_p}.
+$$</div>
+<p>Here $k$ is conductivity [W/(m K)], $\rho$ is density [kg/m$^3$], $c_p$ is specific heat [J/(kg K)], and $\alpha$ is thermal diffusivity [m$^2$/s].</p>
+<p>The equation follows from energy conservation. In one dimension, internal energy changes as $\rho c_pT_t$, while conduction gives $kT_{xx}$, so</p>
+<div class="math-block">$$
+\rho c_pT_t=kT_{xx}\quad\Longrightarrow\quad T_t=\frac{k}{\rho c_p}T_{xx}.
+$$</div>
+<h2 id="example-first-mode-cooling">Example: first-mode cooling</h2>
+<p>For a steel slab, take $L=0.020$ m and $\alpha=1.2\times10^{-5}$ m$^2$/s. The first-mode decay time is</p>
+<div class="math-block">$$
+\tau_1=\frac{1}{\alpha(\pi/L)^2}
+\approx 10.8\text{ s}.
+$$</div>
+<p>After $t=30$ s, the first mode is multiplied by</p>
+<div class="math-block">$$
+e^{-30/10.8}\approx 0.062.
+$$</div>
+<p>The result is not “the slab reaches equilibrium in 30 s”; it says the first Fourier component has fallen to about $6.2\%$. Boundary conditions, geometry, and the initial shape still matter.</p>
+<h2 id="idealization-and-limitations">Idealization and limitations</h2>
+<p>The basic equation assumes a continuum, local thermal equilibrium, constant $k$, $\rho$, and $c_p$, and negligible radiation and convection unless represented in boundary conditions. At very small scales, during phase changes, or with strong temperature dependence, the model must be modified.</p>
+<hr />
+<h1 id="the-wave-equation">The wave equation</h1>
+<p>The one-dimensional wave equation is</p>
+<div class="math-block">$$
+\boxed{u_{tt}=c^2u_{xx}}.
+$$</div>
+<p>The field $u(x,t)$ may be string displacement, acoustic pressure in a simplified model, or another disturbance. The constant $c$ is wave speed [m/s]. For a stretched string,</p>
+<div class="math-block">$$
+c=\sqrt{\frac{\mathcal{T}}{\mu}},
+$$</div>
+<p>where $\mathcal{T}$ is tension [N] and $\mu$ is mass per length [kg/m].</p>
+<h2 id="derivation-for-a-string-element">Derivation for a string element</h2>
+<p>For a small element of length $\Delta x$, small-slope geometry gives the net vertical force approximately</p>
+<div class="math-block">$$
+\mathcal{T}\left(u_x(x+\Delta x,t)-u_x(x,t)\right)
+\approx \mathcal{T}u_{xx}\Delta x.
+$$</div>
+<p>Its mass is $\mu\Delta x$, and Newton&#39;s law gives</p>
+<div class="math-block">$$
+\mu\Delta x\,u_{tt}=\mathcal{T}u_{xx}\Delta x.
+$$</div>
+<p>Canceling $\Delta x$ yields $u_{tt}=(\mathcal{T}/\mu)u_{xx}$.</p>
+<h2 id="dalembert-solution">D&#39;Alembert solution</h2>
+<p>On an infinite string, the solution is</p>
+<div class="math-block">$$
+u(x,t)=F(x-ct)+G(x+ct),
+$$</div>
+<p>representing right- and left-traveling waves. A waveform is transported without the diffusive smoothing of the heat equation. Boundaries reflect waves and create standing-wave modes.</p>
+<p>For fixed ends, the separated modes are</p>
+<div class="math-block">$$
+u_n(x,t)=\left[A_n\cos\left(\frac{n\pi ct}{L}\right)+B_n\sin\left(\frac{n\pi ct}{L}\right)\right]
+\sin\left(\frac{n\pi x}{L}\right).
+$$</div>
+<p>The time factor oscillates rather than decays. In real systems damping, nonlinear stiffness, and energy loss add terms such as $2\beta u_t$.</p>
+<hr />
+<h1 id="laplaces-equation">Laplace&#39;s equation</h1>
+<p>Laplace&#39;s equation is</p>
+<div class="math-block">$$
+\boxed{\nabla^2u=0.}
+$$</div>
+<p>It is elliptic and commonly describes steady temperature without internal generation, electrostatic potential in charge-free regions, and incompressible potential flow.</p>
+<p>If a field is steady, $u_t=0$. Starting from the heat equation with no source gives $\nabla^2T=0$. Thus Laplace&#39;s equation is often the long-time equilibrium limit of diffusion.</p>
+<h2 id="mean-value-property-and-maximum-principle">Mean-value property and maximum principle</h2>
+<p>For harmonic functions, the value at an interior point equals the average over a surrounding circle or sphere, under suitable smoothness. A related maximum principle says a nonconstant solution cannot attain its maximum or minimum strictly inside a bounded domain; extrema occur on the boundary. This explains why boundary data control the interior and why interior oscillations are smoothed.</p>
+<h2 id="poisson-equation">Poisson equation</h2>
+<p>With a source, the corresponding elliptic equation is</p>
+<div class="math-block">$$
+\nabla^2u=f(\mathbf{x}),
+$$</div>
+<p>called Poisson&#39;s equation. For electrostatics, sign and constants depend on the convention for electric potential and charge density; the structural idea is that sources create curvature.</p>
+<hr />
+<h1 id="a-worked-separation-example">A worked separation example</h1>
+<p>Solve the heat equation on $0&lt;x&lt;1$ m with zero end temperatures and initial profile</p>
+<div class="math-block">$$
+u(x,0)=10\sin(\pi x)+4\sin(3\pi x),
+\qquad \alpha=0.01\ \text{m}^2/\text{s}.
+$$</div>
+<p>The initial profile already consists of two eigenmodes, so no integral is needed to find coefficients. The solution is</p>
+<div class="math-block">$$
+u(x,t)=10e^{-0.01\pi^2t}\sin(\pi x)+4e^{-0.09\pi^2t}\sin(3\pi x).
+$$</div>
+<p>At $t=2$ s,</p>
+<div class="math-block">$$
+e^{-0.01\pi^2(2)}\approx0.821,
+\qquad e^{-0.09\pi^2(2)}\approx0.170.
+$$</div>
+<p>The first mode has amplitude about $8.21$, while the third has amplitude about $0.68$. The higher spatial oscillation has nearly disappeared relative to the fundamental mode. This is the signature of diffusion.</p>
+<hr />
+<h1 id="numerical-pdes-and-real-engineering-systems">Numerical PDEs and real engineering systems</h1>
+<p>Closed-form solutions are special. Engineers commonly discretize space and solve a large algebraic system.</p>
+<h2 id="finite-differences">Finite differences</h2>
+<p>On a grid $x_i=i\Delta x$, $t^n=n\Delta t$, central curvature is approximated by</p>
+<div class="math-block">$$
+u_{xx}(x_i,t^n)\approx\frac{u_{i+1}^n-2u_i^n+u_{i-1}^n}{\Delta x^2}.
+$$</div>
+<p>Forward Euler time stepping for the heat equation gives</p>
+<div class="math-block">$$
+u_i^{n+1}=u_i^n+r\left(u_{i+1}^n-2u_i^n+u_{i-1}^n\right),
+\qquad r=\frac{\alpha\Delta t}{\Delta x^2}.
+$$</div>
+<p>For this explicit one-dimensional scheme, stability requires $r\le 1/2$ under the standard fixed-grid assumptions. This is a numerical restriction, not a physical law.</p>
+<h2 id="finite-elements-and-finite-volumes">Finite elements and finite volumes</h2>
+<ul><li><p><strong>FEM</strong> uses weighted residuals and basis functions. It handles irregular geometry, material interfaces, and structural mechanics particularly well.</p></li><li><p><strong>Finite volume</strong> integrates conservation laws over control volumes. Fluxes cancel between neighboring cells, making conservation explicit; it is common in CFD.</p></li><li><p><strong>CFD</strong> solves fluid PDEs such as mass, momentum, and energy conservation, often with turbulence models and nonlinear advection.</p></li></ul>
+<h2 id="model-hierarchy">Model hierarchy</h2>
+<p>An engineering model may ignore effects intentionally:</p>
+<table><thead><tr><th>Model</th><th>Often neglected</th></tr></thead><tbody><tr><td>1-D heat equation</td><td>lateral conduction and 3-D geometry</td></tr><tr><td>linear wave equation</td><td>damping, nonlinear material response</td></tr><tr><td>incompressible flow</td><td>density variations and acoustic waves</td></tr><tr><td>Laplace equation</td><td>transient behavior and internal sources</td></tr></tbody></table>
+<p>Validate assumptions with dimensionless groups, experiments, mesh refinement, and comparison to measured data. A converged numerical answer can still be wrong if the PDE or boundary conditions are wrong.</p>
+<h2 id="connections-to-related-subjects">Connections to related subjects</h2>
+<ul><li><p><strong>Mechanics:</strong> continuum momentum balance produces elastodynamics, beam, plate, and Navier–Stokes PDEs.</p></li><li><p><strong>Thermodynamics and heat transfer:</strong> energy balance plus Fourier&#39;s law produces diffusion.</p></li><li><p><strong>Electromagnetism:</strong> Maxwell&#39;s equations are coupled PDEs for electric and magnetic fields.</p></li><li><p><strong>Control:</strong> distributed-parameter systems, such as flexible beams and thermal plants, have PDE states; model reduction turns them into ODE approximations.</p></li><li><p><strong>Materials:</strong> conductivity, diffusivity, stiffness, and permeability may vary with position or temperature.</p></li><li><p><strong>Numerical methods:</strong> stability, consistency, and convergence connect discretization to reliable computation.</p></li><li><p><strong>FEM and CFD:</strong> weak forms, meshes, fluxes, stabilization, and iterative solvers are practical PDE tools.</p></li><li><p><strong>Machine learning:</strong> neural operators and physics-informed neural networks can approximate solution maps, but they do not remove the need for correct physics, boundary data, and validation.</p></li></ul>
+<hr />
+<h1 id="common-misconceptions-and-mistakes">Common misconceptions and mistakes</h1>
+<ul><li><p><strong>“The PDE is the solution.”</strong> The PDE is only the governing relation; domain and data are essential.</p></li><li><p><strong>“Parabolic means a parabola.”</strong> The classification describes information and smoothing behavior, not graph shape.</p></li><li><p><strong>“A Neumann condition gives the value.”</strong> It gives a normal derivative or flux.</p></li><li><p><strong>“Separation of variables always works.”</strong> It requires compatible geometry, boundary conditions, and linear structure; otherwise use another method.</p></li><li><p><strong>“Heat travels instantly, so the equation is physically exact.”</strong> The classical heat equation has mathematically infinite propagation speed. It is an excellent macroscopic approximation in many regimes, but not a universal microscopic theory.</p></li><li><p><strong>“More grid points guarantee accuracy.”</strong> Boundary conditions, discretization order, stiffness, stability, and model error also matter.</p></li><li><p><strong>“A stable simulation is correct.”</strong> Stability prevents numerical blow-up; it does not verify the model or convergence.</p></li><li><p><strong>“Units can be ignored.”</strong> For diffusion, $\alpha t/L^2$ must be dimensionless; missing a length scale often creates orders-of-magnitude errors.</p></li></ul>
+<hr />
+<h1 id="summary">Summary</h1>
+<p>A PDE relates partial derivatives of a field over space and time. Second-order equations are elliptic, parabolic, or hyperbolic, corresponding broadly to equilibrium, diffusion, and finite-speed propagation. Initial conditions select temporal evolution; boundary conditions control exchanges or constraints at the domain boundary. Conservation laws provide the balance equation, while constitutive laws close the model. Separation of variables converts selected PDEs into spatial eigenvalue problems and temporal ODEs. In engineering, numerical discretization is usually necessary, and verification plus validation are as important as solving the algebra.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<div class="math-block">$$
+\nabla u=(u_x,u_y,u_z),\qquad \nabla\cdot\mathbf{q}=q_{x,x}+q_{y,y}+q_{z,z}
+$$</div>
+<div class="math-block">$$
+\nabla^2u=u_{xx}+u_{yy}+u_{zz}
+$$</div>
+<div class="math-block">$$
+u_t+\nabla\cdot\mathbf{J}=s
+$$</div>
+<div class="math-block">$$
+\mathbf{J}=-D\nabla u,\qquad u_t=\nabla\cdot(D\nabla u)+s
+$$</div>
+<div class="math-block">$$
+T_t=\alpha\nabla^2T,\qquad \alpha=\frac{k}{\rho c_p}
+$$</div>
+<div class="math-block">$$
+u_{tt}=c^2u_{xx},\qquad c=\sqrt{\mathcal{T}/\mu}\text{ for a string}
+$$</div>
+<div class="math-block">$$
+\nabla^2u=0\quad\text{(Laplace)},\qquad \nabla^2u=f\quad\text{(Poisson)}
+$$</div>
+<div class="math-block">$$
+u_{\text{heat}}=\sum_{n=1}^{\infty}b_ne^{-\alpha(n\pi/L)^2t}\sin(n\pi x/L)
+$$</div>
+<div class="math-block">$$
+b_n=\frac{2}{L}\int_0^L f(x)\sin(n\pi x/L)\,dx
+$$</div>
+<div class="math-block">$$
+u_{xx}(x_i)\approx\frac{u_{i+1}-2u_i+u_{i-1}}{\Delta x^2},\qquad r=\frac{\alpha\Delta t}{\Delta x^2}
+$$</div>
+<hr />
+<h1 id="glossary">Glossary</h1>
+<table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>Boundary condition</td><td>Data prescribed on the edge or surface of a domain</td></tr><tr><td>Characteristic</td><td>Curve along which information propagates or the PDE simplifies</td></tr><tr><td>Constitutive law</td><td>Material or physical relation that closes a balance law</td></tr><tr><td>Diffusivity</td><td>Coefficient controlling the rate of smoothing, often m$^2$/s</td></tr><tr><td>Domain</td><td>Set of spatial and temporal points where the PDE is solved</td></tr><tr><td>Elliptic</td><td>PDE type associated with equilibrium and boundary-controlled fields</td></tr><tr><td>Flux</td><td>Amount crossing a unit area per unit time</td></tr><tr><td>Hyperbolic</td><td>PDE type associated with wave-like, finite-speed propagation</td></tr><tr><td>Initial condition</td><td>Field data specified at the starting time</td></tr><tr><td>Laplacian</td><td>Sum of second spatial derivatives</td></tr><tr><td>Parabolic</td><td>PDE type associated with diffusion and time-directed smoothing</td></tr><tr><td>Well-posed</td><td>Existence, uniqueness, and continuous dependence on data</td></tr></tbody></table>
+<hr />
+<h1 id="practice-problems">Practice problems</h1>
+<ol><li><p>Classify $u_{xx}+4u_{xy}+3u_{yy}=0$ using the $A u_{xx}+2B u_{xy}+C u_{yy}$ convention.</p></li><li><p>State whether $u(0,t)=0$ is Dirichlet, Neumann, or Robin data.</p></li><li><p>Check the units of $\alpha=k/(\rho c_p)$.</p></li><li><p>Derive the one-dimensional conservation law $u_t+J_x=s$ from a control-volume balance.</p></li><li><p>For $u_t=0.02u_{xx}$ on $0&lt;x&lt;2$ with zero end values and initial data $6\sin(\pi x/2)$, write the solution.</p></li><li><p>For a string with $\mathcal{T}=90$ N and $\mu=0.010$ kg/m, calculate the wave speed.</p></li><li><p>Explain why the third Fourier mode in a heat problem decays nine times faster than the first.</p></li><li><p>For $\alpha=10^{-5}$ m$^2$/s, $\Delta x=0.01$ m, find the largest explicit Euler time step allowed by $r\le1/2$.</p></li><li><p>Explain why prescribing both $u$ and $u_x$ arbitrarily on the entire boundary can overconstrain a second-order elliptic problem.</p></li><li><p>Compare the modeling assumptions and expected behavior of the heat and wave equations in a real sensor cable.</p></li></ol>
+<h2 id="short-answers-and-solution-outlines">Short answers and solution outlines</h2>
+<ol><li><p>$A=1$, $B=2$, $C=3$, so $\Delta=4-3=1&gt;0$: hyperbolic.</p></li><li><p>Dirichlet: the field value is prescribed.</p></li><li><p>$k/[\rho c_p]=(\mathrm{W/(mK)})/[\mathrm{kg/m^3}\cdot\mathrm{J/(kgK)}]=\mathrm{m^2/s}$.</p></li><li><p>Write $d(\int_a^b u\,dx)/dt=J(a)-J(b)+\int_a^b s\,dx$, rewrite the boundary flux using $J(b)-J(a)=\int_a^bJ_xdx$, then use arbitrary $a,b$.</p></li><li><p>$u=6e^{-0.02(\pi/2)^2t}\sin(\pi x/2)$.</p></li><li><p>$c=\sqrt{90/0.010}\approx94.9$ m/s.</p></li><li><p>The decay rate contains $(n\pi/L)^2$, so $n=3$ has $9$ times the rate.</p></li><li><p>$\Delta t\le\Delta x^2/(2\alpha)=0.0001/(2\times10^{-5})=5$ s.</p></li><li><p>Elliptic problems generally need one appropriate boundary condition per boundary point; arbitrary simultaneous value and normal slope data may be incompatible or nonunique.</p></li><li><p>Heat diffusion damps high-frequency signals and uses conductivity and heat capacity; waves propagate at finite speed and require inertia, stiffness, or tension. A cable may need both effects plus damping and frequency-dependent material behavior.</p></li></ol>
+<hr />
+<h1 id="recommended-next-topics">Recommended next topics</h1>
+<p>Study Fourier series and transforms, eigenvalues and Sturm–Liouville problems, weak formulations, FEM, numerical linear algebra, fluid mechanics, elasticity, and control of distributed systems. After those, continue to nonlinear PDEs, shocks, conservation-law entropy conditions, Green&#39;s functions, and functional analysis.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="derivative-language-and-common-operators" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Derivative language and common operators">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#chain-rule-along-a-moving-path" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="derivative-language-and-common-operators">Chain rule along a moving path</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="classification-of-second-order-pdes" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Classification of second-order PDEs">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-the-types-behave-differently" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classification-of-second-order-pdes">Why the types behave differently</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#characteristics-and-information-speed" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classification-of-second-order-pdes">Characteristics and information speed</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="conditions-needed-to-define-a-problem" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Conditions needed to define a problem">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#initial-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditions-needed-to-define-a-problem">Initial conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#boundary-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditions-needed-to-define-a-problem">Boundary conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compatibility-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditions-needed-to-define-a-problem">Compatibility conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#well-posedness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditions-needed-to-define-a-problem">Well-posedness</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="conservation-laws-and-the-divergence-theorem" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Conservation laws and the divergence theorem">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constitutive-laws-produce-pdes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conservation-laws-and-the-divergence-theorem">Constitutive laws produce PDEs</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="separation-of-variables" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Separation of variables">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-equation-derivation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="separation-of-variables">Heat equation derivation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="the-heat-equation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for The heat equation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-first-mode-cooling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-heat-equation">Example: first-mode cooling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#idealization-and-limitations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-heat-equation">Idealization and limitations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="the-wave-equation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for The wave equation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#derivation-for-a-string-element" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-wave-equation">Derivation for a string element</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dalembert-solution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="the-wave-equation">D&#39;Alembert solution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="laplaces-equation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Laplace&#39;s equation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mean-value-property-and-maximum-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplaces-equation">Mean-value property and maximum principle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#poisson-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="laplaces-equation">Poisson equation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="numerical-pdes-and-real-engineering-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Numerical PDEs and real engineering systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#finite-differences" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="numerical-pdes-and-real-engineering-systems">Finite differences</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#finite-elements-and-finite-volumes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="numerical-pdes-and-real-engineering-systems">Finite elements and finite volumes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#model-hierarchy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="numerical-pdes-and-real-engineering-systems">Model hierarchy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#connections-to-related-subjects" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="numerical-pdes-and-real-engineering-systems">Connections to related subjects</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="practice-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Practice problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#short-answers-and-solution-outlines" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Short answers and solution outlines</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

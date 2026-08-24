@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Electronics | Adriamics Study</title>
+  <meta name="description" content="Electronics uses components to control voltage, current, energy, and information. The basic relations are" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/electronics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#circuit-quantities-and-signal-paths" data-notes-nav-item data-notes-toc-link>Circuit quantities and signal paths</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diodes-and-transistors" data-notes-nav-item data-notes-toc-link>Diodes and transistors</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#operational-amplifiers" data-notes-nav-item data-notes-toc-link>Operational amplifiers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#filters-and-frequency-response" data-notes-nav-item data-notes-toc-link>Filters and frequency response</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power-electronics" data-notes-nav-item data-notes-toc-link>Power electronics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#noise-and-grounding" data-notes-nav-item data-notes-toc-link>Noise and grounding</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-non-inverting-amplifier-and-bandwidth" data-notes-nav-item data-notes-toc-link>Worked example: non-inverting amplifier and bandwidth</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practice-problems" data-notes-nav-item data-notes-toc-link>Practice problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#progression" data-notes-nav-item data-notes-toc-link>Progression</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Electronics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/electronics/electronics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Felectronics%2Felectronics.md&amp;title=%5BContribute%5D%3A%20Electronics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/fluid-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/thermodynamics/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/electrical-circuit-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/heat-transfer/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/electronics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electronics/" data-notes-nav-item>Electronics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h2 id="circuit-quantities-and-signal-paths">Circuit quantities and signal paths</h2>
+<p>Electronics uses components to control voltage, current, energy, and information. The basic relations are</p>
+<div class="math-block">$$
+v=Ri,\qquad p=vi,
+$$</div>
+<p>where $v$ is voltage, $i$ is current, and $p$ is instantaneous power. Kirchhoff&#39;s current law says currents entering a node sum to zero; Kirchhoff&#39;s voltage law says voltage changes around a closed loop sum to zero.</p>
+<p>Separate a circuit&#39;s operating point from its signal behavior. DC bias establishes the operating point. A small AC signal then produces an incremental response around that point. Always identify the reference node, source resistance, load, expected current, and worst-case power before choosing a component.</p>
+<h2 id="diodes-and-transistors">Diodes and transistors</h2>
+<p>A diode conducts strongly in forward bias and ideally blocks reverse bias. A silicon diode&#39;s forward voltage is often roughly 0.6--0.8 V at ordinary current, but the value depends on current, temperature, and device type. A more physical model is</p>
+<div class="math-block">$$
+i_D=I_S\left(e^{v_D/(nV_T)}-1\right),
+$$</div>
+<p>where $I_S$ is scale current, $n$ is an ideality factor, and $V_T=kT/q$ is about 25.9 mV at room temperature.</p>
+<p>Diodes are used for rectification, clamping, protection, detection, and regulation. A series resistor limits current. In a half-wave rectifier, the load receives only one polarity of an AC waveform; a bridge rectifier uses both half-cycles but loses approximately two diode drops in the conducting path.</p>
+<p>Bipolar junction transistors (BJTs) use emitter, base, and collector currents; in active operation $i_C\approx\beta i_B$. MOSFETs use a gate electric field to control a channel. A simplified enhancement MOSFET is off below threshold $V_{GS}&lt;V_{TH}$ and, in saturation, has approximately</p>
+<div class="math-block">$$
+i_D\approx\frac{1}{2}k(V_{GS}-V_{TH})^2,
+$$</div>
+<p>before channel-length modulation and other nonidealities. The word “saturation” differs between devices: a MOSFET&#39;s saturation region is commonly an amplification region, while a BJT saturated switch has both junctions forward biased.</p>
+<h3 id="biasing-and-switching">Biasing and switching</h3>
+<p>Biasing places a transistor in a known operating region. A switch should be driven far enough on to reduce conduction loss and far enough off to prevent unwanted current. An amplifier should be biased in a region that allows the expected signal swing without cutoff or clipping.</p>
+<p>For a resistive load, a first power estimate is $P=I^2R=V^2/R$. Check semiconductor voltage, current, power, safe-operating-area, and thermal limits together.</p>
+<h2 id="operational-amplifiers">Operational amplifiers</h2>
+<p>An ideal op-amp has infinite open-loop gain, infinite input resistance, zero output resistance, and unlimited bandwidth. With negative feedback and operation away from saturation, the useful rules are</p>
+<div class="math-block">$$
+i_+=i_-=0,\qquad v_+=v_-.
+$$</div>
+<p>The second rule is a consequence of feedback, not a property that applies when the output is saturated or the feedback is positive.</p>
+<p>For an inverting amplifier,</p>
+<div class="math-block">$$
+v_o=-\frac{R_f}{R_{in}}v_{in},
+$$</div>
+<p>and for a non-inverting amplifier,</p>
+<div class="math-block">$$
+v_o=\left(1+\frac{R_f}{R_g}\right)v_{in}.
+$$</div>
+<p>Real op-amps have input offset voltage, input bias currents, finite gain-bandwidth product, slew-rate limits, output-current limits, common-mode limits, noise, and input/output voltage ranges. Check these limits when the signal is fast, large, high impedance, or near a supply rail. A rail-to-rail label still has specified output-current and load conditions.</p>
+<h2 id="filters-and-frequency-response">Filters and frequency response</h2>
+<p>A filter passes selected frequency components and attenuates others. For a first-order RC low-pass with output across the capacitor,</p>
+<div class="math-block">$$
+H(j\omega)=\frac{1}{1+j\omega RC},\qquad f_c=\frac{1}{2\pi RC}.
+$$</div>
+<p>The high-pass version has</p>
+<div class="math-block">$$
+H(j\omega)=\frac{j\omega RC}{1+j\omega RC}.
+$$</div>
+<p>At the cutoff frequency, the magnitude of a first-order response is $1/\sqrt{2}$ of its passband value, or approximately $-3$ dB. Each first-order pole contributes an eventual slope of about 20 dB per decade. A band-pass passes a range between a lower and upper cutoff; a notch rejects a narrow range.</p>
+<p>Active filters use op-amps to add gain, buffering, and controlled pole placement. Filter order, component tolerances, source impedance, load impedance, noise, and op-amp bandwidth all affect the realized response. Draw the intended Bode magnitude and phase before selecting values.</p>
+<h2 id="power-electronics">Power electronics</h2>
+<p>Power electronics converts and controls electrical energy. Typical stages are:</p>
+<table><thead><tr><th>Function</th><th>Example</th></tr></thead><tbody><tr><td>AC to DC</td><td>Diode or controlled rectifier</td></tr><tr><td>DC to DC</td><td>Buck, boost, or buck-boost converter</td></tr><tr><td>DC to AC</td><td>Inverter using switched bridge legs</td></tr><tr><td>AC to AC</td><td>Phase controller or high-frequency converter</td></tr></tbody></table>
+<p>An ideal buck converter has, in continuous conduction, approximately</p>
+<div class="math-block">$$
+V_o\approx D V_{in},
+$$</div>
+<p>where $D$ is duty cycle. An ideal boost converter has $V_o\approx V_{in}/(1-D)$. Real converters lose power in switch resistance, diode drops, inductor resistance, capacitor ESR, gate drive, control circuitry, and switching transitions.</p>
+<p>PWM controls average output by changing duty cycle. Inductors limit current ripple and capacitors limit voltage ripple, but neither removes the need for feedback, current limiting, startup control, and fault protection. Thermal design requires a junction-to-ambient path and a loss estimate, not merely a heat sink chosen by appearance.</p>
+<p>Safety requirements include isolation where needed, fusing, creepage and clearance, controlled discharge of capacitors, current limiting, grounding, and protection against shoot-through in bridge circuits.</p>
+<h2 id="noise-and-grounding">Noise and grounding</h2>
+<p>Noise can be thermal, shot, flicker ($1/f$), electromagnetic interference, quantization, reference noise, or interference coupled through power and ground networks. A signal-to-noise ratio is</p>
+<div class="math-block">$$
+\mathrm{SNR}=10\log_{10}\left(\frac{P_s}{P_n}\right)\ \mathrm{dB},
+$$</div>
+<p>or $20\log_{10}(V_s/V_n)$ when the impedances and measurement bandwidth are comparable.</p>
+<p>Reduce noise at its source, along its coupling path, or at the receiver. Use short return paths, appropriate shielding, twisted pairs for differential signals, filtering, star or plane strategies where appropriate, and high-quality references. A shield is not automatically a signal return; connect it according to the frequency range and safety/isolation requirements.</p>
+<p>Ground loops occur when multiple conductive paths create an unwanted circulating current or magnetic pickup path. Diagnose them by changing one connection at a time and measuring with the intended bandwidth. Differential measurement rejects common-mode voltage only within its common-mode range and finite common-mode rejection ratio.</p>
+<h2 id="worked-example-non-inverting-amplifier-and-bandwidth">Worked example: non-inverting amplifier and bandwidth</h2>
+<p>Design an ideal non-inverting amplifier with gain 11. Choose $R_g=10\ \mathrm{k\Omega}$ from the inverting input to ground. Since</p>
+<div class="math-block">$$
+A_v=1+\frac{R_f}{R_g},
+$$</div>
+<p>choose $R_f=100\ \mathrm{k\Omega}$. A 0.20 V peak input produces 2.2 V peak output, so the supply rails must provide adequate headroom. If the op-amp has a 1 MHz gain-bandwidth product, the approximate closed-loop bandwidth is</p>
+<div class="math-block">$$
+f_{BW}\approx\frac{1\ \mathrm{MHz}}{11}\approx91\ \mathrm{kHz}.
+$$</div>
+<p>This estimate assumes a stable voltage-feedback op-amp and ignores loading, slew rate, noise, offset, and output swing. The resistor network also draws current from the output through $R_f+R_g$; a real design checks that load and resistor noise.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Treating a diode forward voltage as a universal constant.</p></li><li><p>Confusing transistor region names between BJTs and MOSFETs.</p></li><li><p>Applying the virtual-short op-amp rule when feedback is absent or the output is saturated.</p></li><li><p>Ignoring source and load impedance when cascading filters.</p></li><li><p>Using the $-3$ dB cutoff as though it were a brick-wall boundary.</p></li><li><p>Designing a converter from duty-cycle equations while ignoring discontinuous conduction and losses.</p></li><li><p>Checking average power but not transient, switching, or safe-operating-area limits.</p></li><li><p>Calling every ground connection a low-noise ground without tracing return current.</p></li><li><p>Assuming shielding fixes noise that is actually caused by poor power integrity or aliasing.</p></li></ul>
+<h2 id="practice-problems">Practice problems</h2>
+<h3 id="problem-1-diode-resistor">Problem 1: diode resistor</h3>
+<p>A 5 V source drives an LED with a 2 V forward drop at 10 mA. Find a series resistor.</p>
+<p><strong>Solution:</strong></p>
+<div class="math-block">$$
+R=\frac{5-2}{0.010}=300\ \Omega.
+$$</div>
+<p>Choose a standard value at least as large as 300 $\Omega$ after checking brightness, tolerance, supply range, and resistor power $P_R=I^2R=0.03$ W.</p>
+<h3 id="problem-2-rc-cutoff">Problem 2: RC cutoff</h3>
+<p>Find the cutoff frequency for $R=10\ \mathrm{k\Omega}$ and $C=10\ \mathrm{nF}$.</p>
+<p><strong>Solution:</strong></p>
+<div class="math-block">$$
+f_c=\frac{1}{2\pi(10^4)(10^{-8})}\approx1.59\ \mathrm{kHz}.
+$$</div>
+<h3 id="problem-3-buck-converter">Problem 3: buck converter</h3>
+<p>An ideal buck converter has $V_{in}=24$ V and duty cycle $D=0.25$. Find the average output voltage.</p>
+<p><strong>Solution:</strong> $V_o\approx DV_{in}=0.25(24)=6$ V. Real output is lower under load because of conduction and switching losses.</p>
+<h3 id="problem-4-noise-comparison">Problem 4: noise comparison</h3>
+<p>A signal is 2 V RMS and noise is 2 mV RMS over the same bandwidth. Find SNR in dB.</p>
+<p><strong>Solution:</strong></p>
+<div class="math-block">$$
+\mathrm{SNR}=20\log_{10}\left(\frac{2}{0.002}\right)=60\ \mathrm{dB}.
+$$</div>
+<h2 id="progression">Progression</h2>
+<p>Begin with voltage, current, power, and device operating regions. Then analyze op-amp feedback and frequency response. Add power conversion with thermal and safety checks, and finish by tracing noise currents and measurement bandwidth through a complete signal path. The central question is whether each component is operating in the region, frequency range, and thermal environment assumed by the model.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Horowitz and Hill, <em>The Art of Electronics</em></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="diodes-and-transistors" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Diodes and transistors">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#biasing-and-switching" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="diodes-and-transistors">Biasing and switching</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="practice-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Practice problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-1-diode-resistor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 1: diode resistor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-2-rc-cutoff" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 2: RC cutoff</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-3-buck-converter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 3: buck converter</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-4-noise-comparison" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="practice-problems">Problem 4: noise comparison</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

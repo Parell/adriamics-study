@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Materials Science | Adriamics Study</title>
+  <meta name="description" content="Materials science studies how structure , processing , properties , and performance are linked." />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/materials-science/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/materials-science/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#core-idea" data-notes-nav-item data-notes-toc-link>Core idea</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#atomic-structure-and-bonding" data-notes-nav-item data-notes-toc-link>Atomic structure and bonding</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#crystal-structures" data-notes-nav-item data-notes-toc-link>Crystal structures</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#defects-and-diffusion" data-notes-nav-item data-notes-toc-link>Defects and diffusion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-diagrams-and-phase-transformations" data-notes-nav-item data-notes-toc-link>Phase diagrams and phase transformations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mechanical-behavior" data-notes-nav-item data-notes-toc-link>Mechanical behavior</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-treatment-and-strengthening" data-notes-nav-item data-notes-toc-link>Heat treatment and strengthening</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#classes-of-engineering-materials" data-notes-nav-item data-notes-toc-link>Classes of engineering materials</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#characterization-and-testing" data-notes-nav-item data-notes-toc-link>Characterization and testing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#materials-selection" data-notes-nav-item data-notes-toc-link>Materials selection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-toc-link>Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Materials Science</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/materials-science/materials-science.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fmaterials-science%2Fmaterials-science.md&amp;title=%5BContribute%5D%3A%20Materials%20Science" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h2 id="core-idea">Core idea</h2>
+<p>Materials science studies how <strong>structure</strong>, <strong>processing</strong>, <strong>properties</strong>, and <strong>performance</strong> are linked.</p>
+<p>The central idea is:</p>
+<div class="math-block">$$
+\text{Processing} \rightarrow \text{Structure} \rightarrow \text{Properties} \rightarrow \text{Performance}
+$$</div>
+<p>If you change the processing route, you change the microstructure. Microstructure changes properties such as strength, ductility, conductivity, corrosion resistance, and toughness.</p>
+<h3 id="scales-of-structure">Scales of structure</h3>
+<ul><li><p>Atomic scale: bonding, lattice type, composition</p></li><li><p>Microstructural scale: grains, phases, precipitates, defects</p></li><li><p>Macroscopic scale: shape, texture, residual stress, component geometry</p></li></ul>
+<h3 id="why-it-matters">Why it matters</h3>
+<p>Engineering failures and design tradeoffs usually come from a mismatch among:</p>
+<ul><li><p>loading conditions</p></li><li><p>operating environment</p></li><li><p>processing history</p></li><li><p>required lifetime and reliability</p></li></ul>
+<hr />
+<a id="atomic-structure-and-bonding"></a>
+<h2 id="atomic-structure-and-bonding">Atomic structure and bonding</h2>
+<h3 id="bonding-types">Bonding types</h3>
+<table><thead><tr><th>Bond type</th><th>Main feature</th><th>Typical materials</th><th>Consequences</th></tr></thead><tbody><tr><td>Ionic</td><td>Electron transfer between atoms</td><td>Ceramics, salts</td><td>Hard, brittle, high melting point</td></tr><tr><td>Covalent</td><td>Shared electron pairs</td><td>Diamond, Si, polymers</td><td>Directional bonding, often strong</td></tr><tr><td>Metallic</td><td>Delocalized electrons</td><td>Metals and alloys</td><td>Electrical conductivity, ductility</td></tr><tr><td>Secondary</td><td>Van der Waals, hydrogen bonding</td><td>Polymers, molecular solids</td><td>Lower strength, lower melting point</td></tr></tbody></table>
+<p>Bond strength strongly affects melting temperature, modulus, thermal expansion, and diffusion rate.</p>
+<h3 id="interatomic-potential">Interatomic potential</h3>
+<p>Equilibrium spacing occurs where attractive and repulsive forces balance.</p>
+<p>Key trends:</p>
+<ul><li><p>deeper energy well means stronger bonding</p></li><li><p>steeper curvature near equilibrium means higher elastic modulus</p></li><li><p>weaker bonding usually means lower melting point and lower stiffness</p></li></ul>
+<h3 id="properties-influenced-by-bonding">Properties influenced by bonding</h3>
+<ul><li><p>Metals: good conductivity, ductility, opaque</p></li><li><p>Ceramics: stiff, hard, brittle, insulating</p></li><li><p>Polymers: low density, low stiffness, viscoelastic behavior</p></li></ul>
+<hr />
+<a id="crystal-structures"></a>
+<h2 id="crystal-structures">Crystal structures</h2>
+<h3 id="common-crystal-lattices">Common crystal lattices</h3>
+<table><thead><tr><th>Structure</th><th>Atoms per unit cell</th><th>Coordination number</th><th>Packing factor</th><th>Examples</th></tr></thead><tbody><tr><td>Simple cubic (SC)</td><td>1</td><td>6</td><td>0.52</td><td>Rare in engineering</td></tr><tr><td>Body-centered cubic (BCC)</td><td>2</td><td>8</td><td>0.68</td><td>$\alpha$-Fe, Cr, W</td></tr><tr><td>Face-centered cubic (FCC)</td><td>4</td><td>12</td><td>0.74</td><td>Al, Cu, Ni, Au</td></tr><tr><td>Hexagonal close-packed (HCP)</td><td>6</td><td>12</td><td>0.74</td><td>Mg, Ti, Zn</td></tr></tbody></table>
+<h3 id="useful-relations">Useful relations</h3>
+<p>For cubic structures:</p>
+<div class="math-block">$$
+a = 2r \quad \text{(SC)}
+$$</div>
+<div class="math-block">$$
+a = \frac{4r}{\sqrt{3}} \quad \text{(BCC)}
+$$</div>
+<div class="math-block">$$
+a = \frac{4r}{\sqrt{2}} = 2\sqrt{2}\,r \quad \text{(FCC)}
+$$</div>
+<p>where:</p>
+<ul><li><p>$a$ is the unit-cell edge length</p></li><li><p>$r$ is the atomic radius</p></li></ul>
+<h3 id="miller-indices">Miller indices</h3>
+<p>Miller indices describe crystallographic planes and directions.</p>
+<p>Use them to identify:</p>
+<ul><li><p>slip systems</p></li><li><p>cleavage planes</p></li><li><p>anisotropy</p></li><li><p>preferred growth or fracture paths</p></li></ul>
+<h3 id="polycrystals">Polycrystals</h3>
+<p>Most engineering metals are polycrystalline: many grains with different orientations.</p>
+<p>Important terms:</p>
+<ul><li><p>grain: one crystal region</p></li><li><p>grain boundary: interface between grains</p></li><li><p>texture: preferred orientation distribution</p></li></ul>
+<p>Grain boundaries strengthen materials by impeding dislocation motion, but they can also affect corrosion and diffusion.</p>
+<hr />
+<a id="defects-and-diffusion"></a>
+<h2 id="defects-and-diffusion">Defects and diffusion</h2>
+<h3 id="point-defects">Point defects</h3>
+<ul><li><p>Vacancy: missing atom</p></li><li><p>Interstitial: atom in an interstitial site</p></li><li><p>Substitutional impurity: foreign atom replaces a host atom</p></li></ul>
+<p>Defects are not always undesirable. They often enable:</p>
+<ul><li><p>diffusion</p></li><li><p>solid-solution strengthening</p></li><li><p>semiconductor doping</p></li><li><p>ionic conduction</p></li></ul>
+<h3 id="line-and-planar-defects">Line and planar defects</h3>
+<ul><li><p>Dislocations: line defects that enable plastic deformation</p></li><li><p>Grain boundaries: planar defects</p></li><li><p>Twin boundaries and stacking faults: important in FCC/HCP behavior</p></li></ul>
+<h3 id="dislocations">Dislocations</h3>
+<p>Two main types:</p>
+<ul><li><p>edge dislocation</p></li><li><p>screw dislocation</p></li></ul>
+<p>Dislocations reduce the stress needed for plastic flow compared with perfect crystals.</p>
+<p>The Burgers vector magnitude, $b$, measures lattice distortion and is a key scale factor in strengthening.</p>
+<h3 id="diffusion">Diffusion</h3>
+<p>Atoms migrate from high chemical potential to low chemical potential.</p>
+<p>Fick&#39;s first law:</p>
+<div class="math-block">$$
+J = -D \frac{dC}{dx}
+$$</div>
+<p>where:</p>
+<ul><li><p>$J$ is diffusion flux</p></li><li><p>$D$ is diffusivity</p></li><li><p>$C$ is concentration</p></li></ul>
+<p>Fick&#39;s second law:</p>
+<div class="math-block">$$
+\frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}
+$$</div>
+<p>Temperature dependence of diffusivity:</p>
+<div class="math-block">$$
+D = D_0 e^{-Q/RT}
+$$</div>
+<p>with:</p>
+<ul><li><p>$D_0$ pre-exponential factor</p></li><li><p>$Q$ activation energy</p></li><li><p>$R$ gas constant</p></li><li><p>$T$ absolute temperature</p></li></ul>
+<p>Higher temperature usually increases diffusion dramatically.</p>
+<h3 id="why-diffusion-matters">Why diffusion matters</h3>
+<p>Diffusion controls:</p>
+<ul><li><p>carburizing and nitriding</p></li><li><p>precipitation hardening</p></li><li><p>sintering</p></li><li><p>creep</p></li><li><p>oxidation</p></li></ul>
+<hr />
+<a id="phase-diagrams-and-phase-transformations"></a>
+<h2 id="phase-diagrams-and-phase-transformations">Phase diagrams and phase transformations</h2>
+<h3 id="phase-concept">Phase concept</h3>
+<p>A phase is a physically distinct region with uniform structure and composition.</p>
+<p>Common phase types:</p>
+<ul><li><p>solid solution</p></li><li><p>liquid</p></li><li><p>intermetallic compound</p></li><li><p>mixture of phases</p></li></ul>
+<h3 id="binary-phase-diagrams">Binary phase diagrams</h3>
+<p>Read phase diagrams by locating the alloy composition and temperature, then identifying the phase field.</p>
+<p>Useful steps:</p>
+<ol><li><p>Find the overall alloy composition.</p></li><li><p>Draw a horizontal tie line at the temperature of interest.</p></li><li><p>Read phase compositions from the ends of the tie line.</p></li><li><p>Use the lever rule for phase fractions.</p></li></ol>
+<h3 id="lever-rule">Lever rule</h3>
+<p>For a two-phase region with phases $\alpha$ and $\beta$:</p>
+<div class="math-block">$$
+W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
+$$</div>
+<div class="math-block">$$
+W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha}
+$$</div>
+<p>where:</p>
+<ul><li><p>$W_\alpha$, $W_\beta$ are mass fractions</p></li><li><p>$C_0$ is overall composition</p></li><li><p>$C_\alpha$, $C_\beta$ are phase compositions</p></li></ul>
+<h3 id="eutectic-eutectoid-and-peritectic-reactions">Eutectic, eutectoid, and peritectic reactions</h3>
+<ul><li><p>Eutectic: liquid transforms to two solids</p></li><li><p>Eutectoid: one solid transforms to two solids</p></li><li><p>Peritectic: liquid plus solid transforms to a different solid</p></li></ul>
+<p>These reactions are important because they create characteristic microstructures and mechanical properties.</p>
+<h3 id="iron-carbon-system">Iron-carbon system</h3>
+<p>The Fe-C system is central to steels and cast irons.</p>
+<p>Key phases:</p>
+<ul><li><p>ferrite ($\alpha$): BCC iron, soft and ductile</p></li><li><p>austenite ($\gamma$): FCC iron, higher carbon solubility</p></li><li><p>cementite ($\mathrm{Fe_3C}$): hard and brittle</p></li><li><p>pearlite: lamellar mixture of ferrite and cementite</p></li><li><p>bainite: fine microstructure formed by transformation at intermediate temperatures</p></li><li><p>martensite: supersaturated, very hard phase formed by rapid quenching</p></li></ul>
+<h3 id="time-temperature-transformation-ideas">Time-temperature-transformation ideas</h3>
+<p>Transformation products depend not only on composition and temperature but also on time.</p>
+<p>General rule:</p>
+<ul><li><p>slow cooling favors diffusion-controlled products</p></li><li><p>rapid quenching can suppress diffusion and form metastable phases</p></li></ul>
+<hr />
+<a id="mechanical-behavior"></a>
+<h2 id="mechanical-behavior">Mechanical behavior</h2>
+<h3 id="stress-and-strain">Stress and strain</h3>
+<p>Engineering stress:</p>
+<div class="math-block">$$
+\sigma = \frac{F}{A_0}
+$$</div>
+<p>Engineering strain:</p>
+<div class="math-block">$$
+\varepsilon = \frac{L - L_0}{L_0}
+$$</div>
+<p>True stress and true strain are more accurate at large deformation:</p>
+<div class="math-block">$$
+\sigma_t = \frac{F}{A}
+$$</div>
+<div class="math-block">$$
+\varepsilon_t = \ln\left(\frac{L}{L_0}\right)
+$$</div>
+<h3 id="elastic-deformation">Elastic deformation</h3>
+<p>In the linear elastic range:</p>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<p>where $E$ is Young&#39;s modulus.</p>
+<p>Related elastic constants:</p>
+<ul><li><p>shear modulus, $G$</p></li><li><p>bulk modulus, $K$</p></li><li><p>Poisson&#39;s ratio, $\nu$</p></li></ul>
+<p>For isotropic materials:</p>
+<div class="math-block">$$
+E = 2G(1+\nu)
+$$</div>
+<h3 id="plastic-deformation">Plastic deformation</h3>
+<p>Plasticity begins when dislocations move irreversibly.</p>
+<p>Typical features of a tensile test curve:</p>
+<ul><li><p>elastic region</p></li><li><p>yield point or yield strength</p></li><li><p>strain hardening</p></li><li><p>ultimate tensile strength</p></li><li><p>necking</p></li><li><p>fracture</p></li></ul>
+<h3 id="ductility-and-toughness">Ductility and toughness</h3>
+<ul><li><p>Ductility measures how much plastic strain occurs before fracture.</p></li><li><p>Toughness is energy absorbed before fracture, roughly the area under the stress-strain curve.</p></li></ul>
+<h3 id="hardness">Hardness</h3>
+<p>Hardness is resistance to localized plastic deformation.</p>
+<p>Common tests:</p>
+<ul><li><p>Brinell</p></li><li><p>Rockwell</p></li><li><p>Vickers</p></li></ul>
+<p>Hardness often correlates with strength, but the exact relation depends on material class and microstructure.</p>
+<h3 id="fracture">Fracture</h3>
+<p>Two broad fracture modes:</p>
+<ul><li><p>ductile fracture: large plastic deformation, microvoid coalescence</p></li><li><p>brittle fracture: little plastic deformation, rapid crack propagation</p></li></ul>
+<p>Fracture mechanics focuses on crack size, geometry, and stress intensity.</p>
+<p>Stress intensity:</p>
+<div class="math-block">$$
+K = Y \sigma \sqrt{\pi a}
+$$</div>
+<p>where:</p>
+<ul><li><p>$Y$ is a geometry factor</p></li><li><p>$a$ is crack size</p></li></ul>
+<p>If $K$ reaches the critical toughness $K_{IC}$, unstable crack growth may occur.</p>
+<h3 id="fatigue">Fatigue</h3>
+<p>Fatigue is failure under cyclic loading, often below yield strength.</p>
+<p>Important concepts:</p>
+<ul><li><p>stress amplitude</p></li><li><p>mean stress</p></li><li><p>number of cycles to failure, $N_f$</p></li><li><p>S-N curve</p></li><li><p>fatigue limit for some steels</p></li></ul>
+<h3 id="creep">Creep</h3>
+<p>Creep is time-dependent plastic deformation at elevated temperature.</p>
+<p>Stages:</p>
+<ul><li><p>primary creep: decreasing rate</p></li><li><p>secondary creep: nearly steady rate</p></li><li><p>tertiary creep: accelerating rate toward failure</p></li></ul>
+<hr />
+<a id="heat-treatment-and-strengthening"></a>
+<h2 id="heat-treatment-and-strengthening">Heat treatment and strengthening</h2>
+<h3 id="strengthening-mechanisms">Strengthening mechanisms</h3>
+<ul><li><p>Grain-size strengthening</p></li><li><p>Solid-solution strengthening</p></li><li><p>Strain hardening</p></li><li><p>Precipitation hardening</p></li><li><p>Transformation strengthening</p></li></ul>
+<h3 id="hall-petch-relation">Hall-Petch relation</h3>
+<p>Smaller grains generally increase yield strength:</p>
+<div class="math-block">$$
+\sigma_y = \sigma_0 + k_y d^{-1/2}
+$$</div>
+<p>where:</p>
+<ul><li><p>$d$ is grain diameter</p></li><li><p>$\sigma_0$ is friction stress</p></li><li><p>$k_y$ is a material constant</p></li></ul>
+<h3 id="strain-hardening">Strain hardening</h3>
+<p>Plastic deformation increases dislocation density, making further slip more difficult.</p>
+<p>Consequences:</p>
+<ul><li><p>higher yield strength</p></li><li><p>lower ductility</p></li><li><p>higher hardness</p></li></ul>
+<h3 id="precipitation-hardening">Precipitation hardening</h3>
+<p>This is a major strengthening route in many aluminum alloys, nickel alloys, and steels.</p>
+<p>Typical sequence:</p>
+<ol><li><p>Solution heat treat to dissolve solute.</p></li><li><p>Quench to retain a supersaturated solid solution.</p></li><li><p>Age to form fine precipitates.</p></li></ol>
+<p>Fine, coherent precipitates impede dislocation motion effectively. Overaging can reduce strength as precipitates coarsen.</p>
+<h3 id="steel-heat-treatment">Steel heat treatment</h3>
+<p>Common heat-treatment operations:</p>
+<ul><li><p>annealing: soften and relieve stress</p></li><li><p>normalizing: refine grain structure</p></li><li><p>quenching: increase hardness</p></li><li><p>tempering: reduce brittleness after quench</p></li></ul>
+<p>The balance between hardness and toughness is usually controlled by temperature, time, and cooling rate.</p>
+<hr />
+<a id="classes-of-engineering-materials"></a>
+<h2 id="classes-of-engineering-materials">Classes of engineering materials</h2>
+<h3 id="metals">Metals</h3>
+<p>Characteristics:</p>
+<ul><li><p>high electrical and thermal conductivity</p></li><li><p>ductile and formable</p></li><li><p>moderate to high strength</p></li><li><p>susceptible to corrosion unless protected</p></li></ul>
+<p>Alloys are mixtures designed to improve properties over pure metals.</p>
+<h3 id="ceramics">Ceramics</h3>
+<p>Characteristics:</p>
+<ul><li><p>high hardness and stiffness</p></li><li><p>high temperature resistance</p></li><li><p>low ductility</p></li><li><p>often brittle</p></li><li><p>generally poor electrical conductivity, though many exceptions exist</p></li></ul>
+<p>Examples:</p>
+<ul><li><p>alumina</p></li><li><p>silica</p></li><li><p>silicon carbide</p></li><li><p>zirconia</p></li></ul>
+<h3 id="polymers">Polymers</h3>
+<p>Characteristics:</p>
+<ul><li><p>low density</p></li><li><p>low modulus compared with metals and ceramics</p></li><li><p>easy processing</p></li><li><p>viscoelastic response</p></li><li><p>strong dependence on temperature and strain rate</p></li></ul>
+<p>Types:</p>
+<ul><li><p>thermoplastics</p></li><li><p>thermosets</p></li><li><p>elastomers</p></li></ul>
+<h3 id="composites">Composites</h3>
+<p>Composite materials combine multiple phases to achieve tailored properties.</p>
+<p>Examples:</p>
+<ul><li><p>fiber-reinforced polymers</p></li><li><p>metal matrix composites</p></li><li><p>ceramic matrix composites</p></li><li><p>concrete</p></li></ul>
+<p>Why use composites:</p>
+<ul><li><p>high specific strength</p></li><li><p>high specific stiffness</p></li><li><p>directional reinforcement</p></li><li><p>better fatigue or corrosion performance in selected designs</p></li></ul>
+<h3 id="semiconductors">Semiconductors</h3>
+<p>Semiconductors occupy the middle ground between conductors and insulators.</p>
+<p>Key ideas:</p>
+<ul><li><p>band gap</p></li><li><p>doping</p></li><li><p>carriers: electrons and holes</p></li><li><p>temperature-sensitive conductivity</p></li></ul>
+<p>Materials science and electronic behavior are closely linked in devices and power systems.</p>
+<hr />
+<a id="characterization-and-testing"></a>
+<h2 id="characterization-and-testing">Characterization and testing</h2>
+<h3 id="microstructure-characterization">Microstructure characterization</h3>
+<p>Common tools:</p>
+<ul><li><p>optical microscopy</p></li><li><p>scanning electron microscopy (SEM)</p></li><li><p>transmission electron microscopy (TEM)</p></li><li><p>X-ray diffraction (XRD)</p></li><li><p>electron backscatter diffraction (EBSD)</p></li><li><p>atomic force microscopy (AFM)</p></li></ul>
+<h3 id="what-each-method-is-good-for">What each method is good for</h3>
+<table><thead><tr><th>Method</th><th>Best for</th><th>Typical output</th></tr></thead><tbody><tr><td>Optical microscopy</td><td>Grain structure, phases at moderate scale</td><td>Grain size, phase distribution</td></tr><tr><td>SEM</td><td>Surface and fracture features</td><td>Morphology, composition contrast</td></tr><tr><td>TEM</td><td>Nanoscale defects and precipitates</td><td>Dislocations, interfaces</td></tr><tr><td>XRD</td><td>Crystal structure and phase identification</td><td>Lattice spacing, phase map</td></tr><tr><td>EBSD</td><td>Grain orientation and texture</td><td>Orientation map</td></tr></tbody></table>
+<h3 id="mechanical-tests">Mechanical tests</h3>
+<ul><li><p>tension</p></li><li><p>compression</p></li><li><p>torsion</p></li><li><p>hardness</p></li><li><p>impact</p></li><li><p>fatigue</p></li><li><p>creep</p></li></ul>
+<p>The test method must match the failure mode of interest.</p>
+<h3 id="chemical-and-environmental-tests">Chemical and environmental tests</h3>
+<ul><li><p>corrosion testing</p></li><li><p>oxidation testing</p></li><li><p>wear testing</p></li><li><p>thermal cycling</p></li></ul>
+<p>These tests matter because performance usually depends on service environment, not just static strength.</p>
+<hr />
+<a id="materials-selection"></a>
+<h2 id="materials-selection">Materials selection</h2>
+<p>Materials selection is a constrained optimization problem.</p>
+<p>You are usually balancing:</p>
+<ul><li><p>strength</p></li><li><p>stiffness</p></li><li><p>toughness</p></li><li><p>density</p></li><li><p>conductivity</p></li><li><p>corrosion resistance</p></li><li><p>cost</p></li><li><p>manufacturability</p></li><li><p>sustainability</p></li></ul>
+<h3 id="selection-workflow">Selection workflow</h3>
+<ol><li><p>Define the function of the part.</p></li><li><p>Identify loading, temperature, environment, and lifetime.</p></li><li><p>Set constraints that cannot be violated.</p></li><li><p>Rank objectives such as mass, cost, or performance.</p></li><li><p>Screen candidate materials.</p></li><li><p>Compare processing routes and joining options.</p></li><li><p>Validate with prototypes and testing.</p></li></ol>
+<h3 id="common-engineering-tradeoffs">Common engineering tradeoffs</h3>
+<ul><li><p>Higher strength often reduces ductility.</p></li><li><p>Lower density can reduce stiffness unless geometry is adjusted.</p></li><li><p>Better corrosion resistance may increase cost.</p></li><li><p>Higher temperature capability often comes with higher processing difficulty.</p></li></ul>
+<h3 id="process-selection">Process selection</h3>
+<p>The best material is not useful if it cannot be fabricated economically.</p>
+<p>Processing constraints include:</p>
+<ul><li><p>casting</p></li><li><p>forging</p></li><li><p>rolling</p></li><li><p>extrusion</p></li><li><p>additive manufacturing</p></li><li><p>machining</p></li><li><p>heat treatment</p></li><li><p>welding or bonding</p></li></ul>
+<hr />
+<a id="problem-solving-workflow"></a>
+<h2 id="problem-solving-workflow">Problem-solving workflow</h2>
+<p>For exam or design problems, use a disciplined sequence.</p>
+<h3 id="step-by-step-approach">Step-by-step approach</h3>
+<ol><li><p>Identify the material class and relevant microstructure.</p></li><li><p>Determine whether the problem is about structure, phase, mechanics, or diffusion.</p></li><li><p>Write down known variables and units.</p></li><li><p>Sketch the physical situation or phase diagram.</p></li><li><p>Choose the governing relation.</p></li><li><p>Check whether assumptions are valid.</p></li><li><p>Compute the result with consistent units.</p></li><li><p>Interpret whether the answer is physically plausible.</p></li></ol>
+<h3 id="common-equations-to-recognize-quickly">Common equations to recognize quickly</h3>
+<ul><li><p>stress and strain relations</p></li><li><p>Hooke&#39;s law</p></li><li><p>lever rule</p></li><li><p>Fick&#39;s laws</p></li><li><p>Hall-Petch relation</p></li><li><p>Arrhenius diffusivity</p></li><li><p>fracture toughness relation</p></li></ul>
+<h3 id="dimensional-checks">Dimensional checks</h3>
+<p>Always verify units:</p>
+<ul><li><p>stress: Pa</p></li><li><p>strain: dimensionless</p></li><li><p>diffusivity: $\mathrm{m^2/s}$</p></li><li><p>fracture toughness: $\mathrm{Pa}\sqrt{\mathrm{m}}$</p></li></ul>
+<p>If the units do not match, the setup is wrong even if the arithmetic is right.</p>
+<hr />
+<a id="formula-summary"></a>
+<h2 id="formula-summary">Formula summary</h2>
+<h3 id="mechanics">Mechanics</h3>
+<div class="math-block">$$
+\sigma = \frac{F}{A_0}
+$$</div>
+<div class="math-block">$$
+\varepsilon = \frac{L - L_0}{L_0}
+$$</div>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<div class="math-block">$$
+\sigma_y = \sigma_0 + k_y d^{-1/2}
+$$</div>
+<div class="math-block">$$
+K = Y\sigma \sqrt{\pi a}
+$$</div>
+<h3 id="diffusion-2">Diffusion</h3>
+<div class="math-block">$$
+J = -D \frac{dC}{dx}
+$$</div>
+<div class="math-block">$$
+\frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}
+$$</div>
+<div class="math-block">$$
+D = D_0 e^{-Q/RT}
+$$</div>
+<h3 id="phase-fractions">Phase fractions</h3>
+<div class="math-block">$$
+W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
+$$</div>
+<div class="math-block">$$
+W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha}
+$$</div>
+<h3 id="crystal-geometry">Crystal geometry</h3>
+<div class="math-block">$$
+a = \frac{4r}{\sqrt{3}} \quad \text{for BCC}
+$$</div>
+<div class="math-block">$$
+a = 2\sqrt{2}\,r \quad \text{for FCC}
+$$</div>
+<hr />
+<a id="common-pitfalls"></a>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Confusing phase composition with overall alloy composition.</p></li><li><p>Using engineering stress after severe necking without checking assumptions.</p></li><li><p>Forgetting that stronger materials are not always tougher.</p></li><li><p>Treating all strengthening mechanisms as equivalent.</p></li><li><p>Reading a phase diagram without drawing a tie line.</p></li><li><p>Ignoring time in diffusion and heat treatment problems.</p></li><li><p>Mixing up brittle fracture with fatigue fracture.</p></li><li><p>Using the wrong unit-cell relation for the crystal structure.</p></li><li><p>Assuming the same material behaves identically across temperature ranges.</p></li></ul>
+<h3 id="quick-sanity-checks">Quick sanity checks</h3>
+<ul><li><p>Does the trend match the mechanism?</p></li><li><p>Does the microstructure explain the property?</p></li><li><p>Are units consistent?</p></li><li><p>Is the process realistic for the alloy or component?</p></li><li><p>Did you account for temperature, time, and environment?</p></li></ul>
+<h3 id="final-takeaway">Final takeaway</h3>
+<p>Materials science is about selecting and designing materials by controlling structure at multiple scales. The best answers usually connect atomic bonding, defects, phase behavior, processing history, and the final service conditions of the part.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="core-idea">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Core idea">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#scales-of-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-idea">Scales of structure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-it-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="core-idea">Why it matters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="atomic-structure-and-bonding" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Atomic structure and bonding">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bonding-types" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Bonding types</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interatomic-potential" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Interatomic potential</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#properties-influenced-by-bonding" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="atomic-structure-and-bonding">Properties influenced by bonding</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="crystal-structures" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Crystal structures">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-crystal-lattices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="crystal-structures">Common crystal lattices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#useful-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="crystal-structures">Useful relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#miller-indices" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="crystal-structures">Miller indices</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#polycrystals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="crystal-structures">Polycrystals</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="defects-and-diffusion" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Defects and diffusion">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#point-defects" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="defects-and-diffusion">Point defects</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#line-and-planar-defects" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="defects-and-diffusion">Line and planar defects</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dislocations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="defects-and-diffusion">Dislocations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diffusion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="defects-and-diffusion">Diffusion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-diffusion-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="defects-and-diffusion">Why diffusion matters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="phase-diagrams-and-phase-transformations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Phase diagrams and phase transformations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-concept" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Phase concept</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#binary-phase-diagrams" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Binary phase diagrams</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lever-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Lever rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#eutectic-eutectoid-and-peritectic-reactions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Eutectic, eutectoid, and peritectic reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#iron-carbon-system" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Iron-carbon system</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-temperature-transformation-ideas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="phase-diagrams-and-phase-transformations">Time-temperature-transformation ideas</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="mechanical-behavior" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Mechanical behavior">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress-and-strain" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Stress and strain</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#elastic-deformation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Elastic deformation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#plastic-deformation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Plastic deformation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ductility-and-toughness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Ductility and toughness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hardness" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Hardness</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fracture" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Fracture</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fatigue" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Fatigue</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#creep" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="mechanical-behavior">Creep</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="heat-treatment-and-strengthening" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Heat treatment and strengthening">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strengthening-mechanisms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-treatment-and-strengthening">Strengthening mechanisms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hall-petch-relation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-treatment-and-strengthening">Hall-Petch relation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strain-hardening" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-treatment-and-strengthening">Strain hardening</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#precipitation-hardening" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-treatment-and-strengthening">Precipitation hardening</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#steel-heat-treatment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="heat-treatment-and-strengthening">Steel heat treatment</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="classes-of-engineering-materials" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Classes of engineering materials">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#metals" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classes-of-engineering-materials">Metals</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ceramics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classes-of-engineering-materials">Ceramics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#polymers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classes-of-engineering-materials">Polymers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#composites" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classes-of-engineering-materials">Composites</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#semiconductors" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classes-of-engineering-materials">Semiconductors</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="characterization-and-testing" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Characterization and testing">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#microstructure-characterization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characterization-and-testing">Microstructure characterization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#what-each-method-is-good-for" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characterization-and-testing">What each method is good for</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mechanical-tests" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characterization-and-testing">Mechanical tests</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#chemical-and-environmental-tests" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="characterization-and-testing">Chemical and environmental tests</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="materials-selection" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Materials selection">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#selection-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-selection">Selection workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-engineering-tradeoffs" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-selection">Common engineering tradeoffs</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#process-selection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="materials-selection">Process selection</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-by-step-approach" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step-by-step approach</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-equations-to-recognize-quickly" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common equations to recognize quickly</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dimensional-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Dimensional checks</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mechanics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Mechanics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diffusion-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Diffusion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phase-fractions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Phase fractions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#crystal-geometry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Crystal geometry</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-pitfalls" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common pitfalls">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-pitfalls">Quick sanity checks</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#final-takeaway" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-pitfalls">Final takeaway</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

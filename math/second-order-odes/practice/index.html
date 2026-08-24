@@ -1,0 +1,2724 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Order ODEs Practice | Adriamics Study</title>
+  <meta name="description" content="27 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/study/math/second-order-odes/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-practice-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  <script defer src="../../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--back" href="/study/math/second-order-odes/" data-notes-nav-item>← Back To Notes</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell practice-layout" aria-label="Practice problems">
+    
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Second Order ODEs Practice</h1>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/second-order-odes/second-order-odes-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fsecond-order-odes%2Fsecond-order-odes-problems.md&amp;title=%5BContribute%5D%3A%20Second%20Order%20ODEs%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+      </section>
+        
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 27 problems completed">
+        <div class="practice-progress__head">
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of 27 completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
+      </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Second Order ODEs" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
+      <div class="practice-problem-list">
+        <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-1">Direct</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">1</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="second-order-odes-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Classification, Standard Form" data-problem-difficulty="Direct" data-problem-answer="The highest derivative is \(y&#39;&#39;\), so it is a second-order ODE.
+
+The equation is linear because \(y\), \(y&#39;\), and \(y&#39;&#39;\) each appear to the first power and are not multiplied together.
+
+It is homogeneous because the right-hand side is \(0\).
+
+It has constant coefficients because \(1\), \(3\), and \(-4\) are constants.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Classify a Second-Order ODE</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#classification" data-notes-nav-item>Classification</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#standard-form" data-notes-nav-item>Standard Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Classify the differential equation below. State whether it is second-order, linear, homogeneous, and constant-coefficient.</p>
+<div class="math-block">$$
+y&#39;&#39; + 3y&#39; - 4y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-11">Your work for Classify a Second-Order ODE</label>
+          <textarea
+            id="practice-study-second-order-odes-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The highest derivative is \(y&#39;&#39;\), so it is a second-order ODE.</p>
+<p>The equation is linear because \(y\), \(y&#39;\), and \(y&#39;&#39;\) each appear to the first power and are not multiplied together.</p>
+<p>It is homogeneous because the right-hand side is \(0\).</p>
+<p>It has constant coefficients because \(1\), \(3\), and \(-4\) are constants.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Standard Form, Linear Equations" data-problem-difficulty="Direct" data-problem-answer="Divide every term by \(4\):
+
+$$
+y&#39;&#39; - \frac{1}{2}y&#39; + \frac{7}{4}y = \frac{5}{4}e^x
+$$
+
+So the normalized form is
+
+$$
+y&#39;&#39; - \frac{1}{2}y&#39; + \frac{7}{4}y = \frac{5}{4}e^x.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Write in Normalized Form</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#standard-form" data-notes-nav-item>Standard Form</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#linear-equations" data-notes-nav-item>Linear Equations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Rewrite the equation in normalized form \(y&#39;&#39; + p(x)y&#39; + q(x)y = r(x)\).</p>
+<div class="math-block">$$
+4y&#39;&#39; - 2y&#39; + 7y = 5e^x
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-12">Your work for Write in Normalized Form</label>
+          <textarea
+            id="practice-study-second-order-odes-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Divide every term by \(4\):</p>
+<div class="math-block">$$
+y&#39;&#39; - \frac{1}{2}y&#39; + \frac{7}{4}y = \frac{5}{4}e^x
+$$</div>
+<p>So the normalized form is</p>
+<div class="math-block">$$
+y&#39;&#39; - \frac{1}{2}y&#39; + \frac{7}{4}y = \frac{5}{4}e^x.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Existence and Uniqueness, Initial Conditions" data-problem-difficulty="Direct" data-problem-answer="Write the equation as
+
+$$
+y&#39;&#39; = f(x,y,y&#39;) = y - y&#39; + \frac{1}{1+x^2}.
+$$
+
+The function \(f\) is continuous everywhere, and its partial derivatives with respect to \(y\) and \(y&#39;\) are also continuous everywhere.
+
+Therefore the theorem guarantees a unique local solution near \(x=0\).">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Check Existence and Uniqueness</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#existence-and-uniqueness" data-notes-nav-item>Existence and Uniqueness</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#initial-conditions" data-notes-nav-item>Initial Conditions</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Does the existence and uniqueness theorem guarantee a unique local solution near \(x=0\) for the initial value problem below?</p>
+<div class="math-block">$$
+y&#39;&#39; = y - y&#39; + \frac{1}{1+x^2}, \qquad y(0)=1, \qquad y&#39;(0)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-13">Your work for Check Existence and Uniqueness</label>
+          <textarea
+            id="practice-study-second-order-odes-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Write the equation as</p>
+<div class="math-block">$$
+y&#39;&#39; = f(x,y,y&#39;) = y - y&#39; + \frac{1}{1+x^2}.
+$$</div>
+<p>The function \(f\) is continuous everywhere, and its partial derivatives with respect to \(y\) and \(y&#39;\) are also continuous everywhere.</p>
+<p>Therefore the theorem guarantees a unique local solution near \(x=0\).</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Characteristic Equation, Distinct Roots" data-problem-difficulty="Direct" data-problem-answer="Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 - 5r + 6 = 0
+$$
+
+Factor:
+
+$$
+(r-2)(r-3)=0
+$$
+
+So the roots are \(r=2\) and \(r=3\). The general solution is
+
+$$
+y = C_1 e^{2x} + C_2 e^{3x}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Solve a Distinct-Root Homogeneous Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#characteristic-equation" data-notes-nav-item>Characteristic Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#distinct-roots" data-notes-nav-item>Distinct Roots</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the homogeneous equation.</p>
+<div class="math-block">$$
+y&#39;&#39; - 5y&#39; + 6y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-14">Your work for Solve a Distinct-Root Homogeneous Equation</label>
+          <textarea
+            id="practice-study-second-order-odes-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Try \(y=e^{rx}\). The characteristic equation is</p>
+<div class="math-block">$$
+r^2 - 5r + 6 = 0
+$$</div>
+<p>Factor:</p>
+<div class="math-block">$$
+(r-2)(r-3)=0
+$$</div>
+<p>So the roots are \(r=2\) and \(r=3\). The general solution is</p>
+<div class="math-block">$$
+y = C_1 e^{2x} + C_2 e^{3x}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Characteristic Equation, Repeated Roots" data-problem-difficulty="Direct" data-problem-answer="Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 - 4r + 4 = 0 = (r-2)^2
+$$
+
+This is a repeated root \(r=2\), so
+
+$$
+y = (C_1 + C_2 x)e^{2x}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Solve a Repeated-Root Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#characteristic-equation" data-notes-nav-item>Characteristic Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#repeated-roots" data-notes-nav-item>Repeated Roots</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the homogeneous equation.</p>
+<div class="math-block">$$
+y&#39;&#39; - 4y&#39; + 4y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-15">Your work for Solve a Repeated-Root Equation</label>
+          <textarea
+            id="practice-study-second-order-odes-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Try \(y=e^{rx}\). The characteristic equation is</p>
+<div class="math-block">$$
+r^2 - 4r + 4 = 0 = (r-2)^2
+$$</div>
+<p>This is a repeated root \(r=2\), so</p>
+<div class="math-block">$$
+y = (C_1 + C_2 x)e^{2x}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Characteristic Equation, Complex Roots" data-problem-difficulty="Direct" data-problem-answer="Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 + 9 = 0
+$$
+
+so
+
+$$
+r = \pm 3i.
+$$
+
+The general real solution is
+
+$$
+y = C_1 \cos(3x) + C_2 \sin(3x).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Solve a Complex-Root Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#characteristic-equation" data-notes-nav-item>Characteristic Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#complex-roots" data-notes-nav-item>Complex Roots</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the homogeneous equation.</p>
+<div class="math-block">$$
+y&#39;&#39; + 9y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-16">Your work for Solve a Complex-Root Equation</label>
+          <textarea
+            id="practice-study-second-order-odes-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Try \(y=e^{rx}\). The characteristic equation is</p>
+<div class="math-block">$$
+r^2 + 9 = 0
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+r = \pm 3i.
+$$</div>
+<p>The general real solution is</p>
+<div class="math-block">$$
+y = C_1 \cos(3x) + C_2 \sin(3x).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Undetermined Coefficients, Resonance" data-problem-difficulty="Direct" data-problem-answer="The homogeneous characteristic equation is
+
+$$
+(r-1)^2 = 0,
+$$
+
+so \(e^x\) and \(xe^x\) already appear in the homogeneous solution.
+
+To avoid duplication, multiply by \(x\) again. A correct trial is
+
+$$
+y_p = Ax^2 e^x.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Choose a Resonant Trial</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#undetermined-coefficients" data-notes-nav-item>Undetermined Coefficients</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#resonance" data-notes-nav-item>Resonance</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the equation below, what trial form should you use for a particular solution in undetermined coefficients?</p>
+<div class="math-block">$$
+y&#39;&#39; - 2y&#39; + y = e^x
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-17">Your work for Choose a Resonant Trial</label>
+          <textarea
+            id="practice-study-second-order-odes-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The homogeneous characteristic equation is</p>
+<div class="math-block">$$
+(r-1)^2 = 0,
+$$</div>
+<p>so \(e^x\) and \(xe^x\) already appear in the homogeneous solution.</p>
+<p>To avoid duplication, multiply by \(x\) again. A correct trial is</p>
+<div class="math-block">$$
+y_p = Ax^2 e^x.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Euler-Cauchy Equations, Power Trial" data-problem-difficulty="Direct" data-problem-answer="Use the Euler-Cauchy trial \(y=x^m\). Then
+
+$$
+y&#39; = mx^{m-1}, \qquad y&#39;&#39; = m(m-1)x^{m-2}.
+$$
+
+Substitute:
+
+$$
+x^2 m(m-1)x^{m-2} + x(mx^{m-1}) - 4x^m = 0
+$$
+
+which simplifies to
+
+$$
+m(m-1) + m - 4 = 0.
+$$
+
+So
+
+$$
+m^2 - 4 = 0,
+$$
+
+and \(m=\pm 2\). Therefore
+
+$$
+y = C_1 x^2 + C_2 x^{-2}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Solve an Euler-Cauchy Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#euler-cauchy-equations" data-notes-nav-item>Euler-Cauchy Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#power-trial" data-notes-nav-item>Power Trial</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the equation for \(x&gt;0\).</p>
+<div class="math-block">$$
+x^2 y&#39;&#39; + xy&#39; - 4y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-18">Your work for Solve an Euler-Cauchy Equation</label>
+          <textarea
+            id="practice-study-second-order-odes-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the Euler-Cauchy trial \(y=x^m\). Then</p>
+<div class="math-block">$$
+y&#39; = mx^{m-1}, \qquad y&#39;&#39; = m(m-1)x^{m-2}.
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+x^2 m(m-1)x^{m-2} + x(mx^{m-1}) - 4x^m = 0
+$$</div>
+<p>which simplifies to</p>
+<div class="math-block">$$
+m(m-1) + m - 4 = 0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+m^2 - 4 = 0,
+$$</div>
+<p>and \(m=\pm 2\). Therefore</p>
+<div class="math-block">$$
+y = C_1 x^2 + C_2 x^{-2}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Wronskian, Linear Independence" data-problem-difficulty="Direct" data-problem-answer="Use
+
+$$
+W(y_1,y_2)=
+\begin{vmatrix}
+y_1 &amp; y_2 \\
+y_1&#39; &amp; y_2&#39;
+\end{vmatrix}
+= y_1y_2&#39; - y_1&#39;y_2.
+$$
+
+Here,
+
+$$
+y_1&#39;=1, \qquad y_2&#39;=2x.
+$$
+
+So
+
+$$
+W = x(2x) - 1\cdot x^2 = x^2.
+$$
+
+On any interval that does not include \(0\), the functions are linearly independent.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compute a Wronskian</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#wronskian" data-notes-nav-item>Wronskian</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#linear-independence" data-notes-nav-item>Linear Independence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Compute the Wronskian of the two functions below.</p>
+<div class="math-block">$$
+y_1=x, \qquad y_2=x^2
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-19">Your work for Compute a Wronskian</label>
+          <textarea
+            id="practice-study-second-order-odes-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use</p>
+<div class="math-block">$$
+W(y_1,y_2)=
+\begin{vmatrix}
+y_1 &amp; y_2 \\
+y_1&#39; &amp; y_2&#39;
+\end{vmatrix}
+= y_1y_2&#39; - y_1&#39;y_2.
+$$</div>
+<p>Here,</p>
+<div class="math-block">$$
+y_1&#39;=1, \qquad y_2&#39;=2x.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+W = x(2x) - 1\cdot x^2 = x^2.
+$$</div>
+<p>On any interval that does not include \(0\), the functions are linearly independent.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Mechanical Models, Damping Ratio" data-problem-difficulty="Direct" data-problem-answer="Compute the natural frequency:
+
+$$
+\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{4}{1}} = 2.
+$$
+
+Compute the damping ratio:
+
+$$
+\zeta = \frac{c}{2\sqrt{mk}} = \frac{4}{2\sqrt{1\cdot 4}} = \frac{4}{4} = 1.
+$$
+
+Since \(\zeta=1\), the system is critically damped.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find the Natural Frequency and Damping Ratio</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#mechanical-models" data-notes-nav-item>Mechanical Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#damping-ratio" data-notes-nav-item>Damping Ratio</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A mass-spring system has</p>
+<div class="math-block">$$
+m=1, \qquad c=4, \qquad k=4.
+$$</div>
+<p>Find the natural frequency \(\omega_n\), the damping ratio \(\zeta\), and the damping regime.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-110">Your work for Find the Natural Frequency and Damping Ratio</label>
+          <textarea
+            id="practice-study-second-order-odes-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Compute the natural frequency:</p>
+<div class="math-block">$$
+\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{4}{1}} = 2.
+$$</div>
+<p>Compute the damping ratio:</p>
+<div class="math-block">$$
+\zeta = \frac{c}{2\sqrt{mk}} = \frac{4}{2\sqrt{1\cdot 4}} = \frac{4}{4} = 1.
+$$</div>
+<p>Since \(\zeta=1\), the system is critically damped.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-2 panel" data-practice-level="2" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-2">Integrated</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">2</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="second-order-odes-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Characteristic Equation, Initial Value Problems" data-problem-difficulty="Integrated" data-problem-answer="The characteristic equation is
+
+$$
+r^2 - 3r + 2 = 0 = (r-1)(r-2).
+$$
+
+So
+
+$$
+y = C_1 e^x + C_2 e^{2x}.
+$$
+
+Use \(y(0)=1\):
+
+$$
+C_1 + C_2 = 1.
+$$
+
+Differentiate:
+
+$$
+y&#39; = C_1 e^x + 2C_2 e^{2x}.
+$$
+
+Use \(y&#39;(0)=4\):
+
+$$
+C_1 + 2C_2 = 4.
+$$
+
+Subtract the first equation from the second:
+
+$$
+C_2 = 3.
+$$
+
+Then \(C_1 = -2\). So
+
+$$
+y = -2e^x + 3e^{2x}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Solve an Initial Value Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#characteristic-equation" data-notes-nav-item>Characteristic Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#initial-value-problems" data-notes-nav-item>Initial Value Problems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; - 3y&#39; + 2y = 0, \qquad y(0)=1, \qquad y&#39;(0)=4
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-21">Your work for Solve an Initial Value Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 - 3r + 2 = 0 = (r-1)(r-2).
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = C_1 e^x + C_2 e^{2x}.
+$$</div>
+<p>Use \(y(0)=1\):</p>
+<div class="math-block">$$
+C_1 + C_2 = 1.
+$$</div>
+<p>Differentiate:</p>
+<div class="math-block">$$
+y&#39; = C_1 e^x + 2C_2 e^{2x}.
+$$</div>
+<p>Use \(y&#39;(0)=4\):</p>
+<div class="math-block">$$
+C_1 + 2C_2 = 4.
+$$</div>
+<p>Subtract the first equation from the second:</p>
+<div class="math-block">$$
+C_2 = 3.
+$$</div>
+<p>Then \(C_1 = -2\). So</p>
+<div class="math-block">$$
+y = -2e^x + 3e^{2x}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Undetermined Coefficients, Resonance" data-problem-difficulty="Integrated" data-problem-answer="The homogeneous equation has characteristic equation
+
+$$
+(r-1)^2=0,
+$$
+
+so
+
+$$
+y_h = (C_1 + C_2x)e^x.
+$$
+
+Because the forcing is \(e^x\), use a resonant trial
+
+$$
+y_p = Ax^2e^x.
+$$
+
+Substituting gives \(A=\tfrac12\), so
+
+$$
+y = (C_1 + C_2x)e^x + \frac12 x^2 e^x.
+$$
+
+Now apply the initial conditions. From \(y(0)=0\),
+
+$$
+C_1 = 0.
+$$
+
+Write
+
+$$
+y = e^x\left(C_1 + C_2x + \frac12 x^2\right).
+$$
+
+Then
+
+$$
+y&#39; = e^x\left(C_1 + C_2x + \frac12 x^2 + C_2 + x\right).
+$$
+
+Using \(y&#39;(0)=1\) and \(C_1=0\),
+
+$$
+C_2 = 1.
+$$
+
+So the solution is
+
+$$
+y = e^x\left(x + \frac12 x^2\right).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Solve a Resonant Forced Equation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#undetermined-coefficients" data-notes-nav-item>Undetermined Coefficients</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#resonance" data-notes-nav-item>Resonance</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; - 2y&#39; + y = e^x, \qquad y(0)=0, \qquad y&#39;(0)=1
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-22">Your work for Solve a Resonant Forced Equation</label>
+          <textarea
+            id="practice-study-second-order-odes-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The homogeneous equation has characteristic equation</p>
+<div class="math-block">$$
+(r-1)^2=0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+y_h = (C_1 + C_2x)e^x.
+$$</div>
+<p>Because the forcing is \(e^x\), use a resonant trial</p>
+<div class="math-block">$$
+y_p = Ax^2e^x.
+$$</div>
+<p>Substituting gives \(A=\tfrac12\), so</p>
+<div class="math-block">$$
+y = (C_1 + C_2x)e^x + \frac12 x^2 e^x.
+$$</div>
+<p>Now apply the initial conditions. From \(y(0)=0\),</p>
+<div class="math-block">$$
+C_1 = 0.
+$$</div>
+<p>Write</p>
+<div class="math-block">$$
+y = e^x\left(C_1 + C_2x + \frac12 x^2\right).
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y&#39; = e^x\left(C_1 + C_2x + \frac12 x^2 + C_2 + x\right).
+$$</div>
+<p>Using \(y&#39;(0)=1\) and \(C_1=0\),</p>
+<div class="math-block">$$
+C_2 = 1.
+$$</div>
+<p>So the solution is</p>
+<div class="math-block">$$
+y = e^x\left(x + \frac12 x^2\right).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Euler-Cauchy Equations, Initial Value Problems" data-problem-difficulty="Integrated" data-problem-answer="Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is
+
+$$
+m^2 - 4 = 0,
+$$
+
+so \(m=\pm 2\). Thus
+
+$$
+y = C_1x^2 + C_2x^{-2}.
+$$
+
+Apply \(y(1)=3\):
+
+$$
+C_1 + C_2 = 3.
+$$
+
+Differentiate:
+
+$$
+y&#39; = 2C_1x - 2C_2x^{-3}.
+$$
+
+Apply \(y&#39;(1)=-1\):
+
+$$
+2C_1 - 2C_2 = -1.
+$$
+
+Solve the system to get
+
+$$
+C_1 = \frac{5}{4}, \qquad C_2 = \frac{7}{4}.
+$$
+
+Therefore
+
+$$
+y = \frac{5}{4}x^2 + \frac{7}{4}x^{-2}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Solve an Euler-Cauchy Initial Value Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#euler-cauchy-equations" data-notes-nav-item>Euler-Cauchy Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#initial-value-problems" data-notes-nav-item>Initial Value Problems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem for \(x&gt;0\).</p>
+<div class="math-block">$$
+x^2y&#39;&#39; + xy&#39; - 4y = 0, \qquad y(1)=3, \qquad y&#39;(1)=-1
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-23">Your work for Solve an Euler-Cauchy Initial Value Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is</p>
+<div class="math-block">$$
+m^2 - 4 = 0,
+$$</div>
+<p>so \(m=\pm 2\). Thus</p>
+<div class="math-block">$$
+y = C_1x^2 + C_2x^{-2}.
+$$</div>
+<p>Apply \(y(1)=3\):</p>
+<div class="math-block">$$
+C_1 + C_2 = 3.
+$$</div>
+<p>Differentiate:</p>
+<div class="math-block">$$
+y&#39; = 2C_1x - 2C_2x^{-3}.
+$$</div>
+<p>Apply \(y&#39;(1)=-1\):</p>
+<div class="math-block">$$
+2C_1 - 2C_2 = -1.
+$$</div>
+<p>Solve the system to get</p>
+<div class="math-block">$$
+C_1 = \frac{5}{4}, \qquad C_2 = \frac{7}{4}.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+y = \frac{5}{4}x^2 + \frac{7}{4}x^{-2}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Reduction of Order, Euler-Cauchy Equations" data-problem-difficulty="Integrated" data-problem-answer="This is an Euler-Cauchy equation. Using the known solution \(y_1=x\), reduction of order gives a second independent solution \(y_2=x^2\).
+
+So the general solution is
+
+$$
+y = C_1x + C_2x^2.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use a Known Solution to Finish the General Solution</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#reduction-of-order" data-notes-nav-item>Reduction of Order</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#euler-cauchy-equations" data-notes-nav-item>Euler-Cauchy Equations</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Given that \(y_1=x\) is one nonzero solution of the equation below, find a second linearly independent solution and the general solution.</p>
+<div class="math-block">$$
+x^2y&#39;&#39; - 2xy&#39; + 2y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-24">Your work for Use a Known Solution to Finish the General Solution</label>
+          <textarea
+            id="practice-study-second-order-odes-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>This is an Euler-Cauchy equation. Using the known solution \(y_1=x\), reduction of order gives a second independent solution \(y_2=x^2\).</p>
+<p>So the general solution is</p>
+<div class="math-block">$$
+y = C_1x + C_2x^2.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Boundary Value Problems, Complex Roots" data-problem-difficulty="Integrated" data-problem-answer="The characteristic equation is
+
+$$
+r^2 + \pi^2 = 0,
+$$
+
+so the general solution is
+
+$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$
+
+Use \(y(0)=0\):
+
+$$
+C_1=0.
+$$
+
+Then
+
+$$
+y = C_2\sin(\pi x).
+$$
+
+Now use \(y(1)=0\):
+
+$$
+C_2\sin(\pi)=0,
+$$
+
+which is true for every \(C_2\).
+
+So the boundary value problem has infinitely many solutions:
+
+$$
+y = C\sin(\pi x).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Analyze a Boundary Value Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#boundary-value-problems" data-notes-nav-item>Boundary Value Problems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#complex-roots" data-notes-nav-item>Complex Roots</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Determine whether the boundary value problem has one solution, no solutions, or infinitely many solutions.</p>
+<div class="math-block">$$
+y&#39;&#39; + \pi^2 y = 0, \qquad y(0)=0, \qquad y(1)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-25">Your work for Analyze a Boundary Value Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 + \pi^2 = 0,
+$$</div>
+<p>so the general solution is</p>
+<div class="math-block">$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$</div>
+<p>Use \(y(0)=0\):</p>
+<div class="math-block">$$
+C_1=0.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y = C_2\sin(\pi x).
+$$</div>
+<p>Now use \(y(1)=0\):</p>
+<div class="math-block">$$
+C_2\sin(\pi)=0,
+$$</div>
+<p>which is true for every \(C_2\).</p>
+<p>So the boundary value problem has infinitely many solutions:</p>
+<div class="math-block">$$
+y = C\sin(\pi x).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Mechanical Models, Critical Damping" data-problem-difficulty="Integrated" data-problem-answer="The characteristic equation is
+
+$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$
+
+This is a repeated root, so
+
+$$
+y = (C_1 + C_2t)e^{-4t}.
+$$
+
+Use \(y(0)=2\):
+
+$$
+C_1 = 2.
+$$
+
+Differentiate:
+
+$$
+y&#39; = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$
+
+Use \(y&#39;(0)=0\):
+
+$$
+C_2 - 4(2)=0,
+$$
+
+so
+
+$$
+C_2 = 8.
+$$
+
+Thus
+
+$$
+y = (2 + 8t)e^{-4t}.
+$$
+
+Because the root is repeated, the motion is critically damped.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Solve a Critically Damped Motion Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#mechanical-models" data-notes-nav-item>Mechanical Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#critical-damping" data-notes-nav-item>Critical Damping</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A mass-spring system is modeled by</p>
+<div class="math-block">$$
+y&#39;&#39; + 8y&#39; + 16y = 0, \qquad y(0)=2, \qquad y&#39;(0)=0
+$$</div>
+<p>Solve for \(y(t)\) and classify the damping.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-26">Your work for Solve a Critically Damped Motion Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$</div>
+<p>This is a repeated root, so</p>
+<div class="math-block">$$
+y = (C_1 + C_2t)e^{-4t}.
+$$</div>
+<p>Use \(y(0)=2\):</p>
+<div class="math-block">$$
+C_1 = 2.
+$$</div>
+<p>Differentiate:</p>
+<div class="math-block">$$
+y&#39; = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$</div>
+<p>Use \(y&#39;(0)=0\):</p>
+<div class="math-block">$$
+C_2 - 4(2)=0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+C_2 = 8.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+y = (2 + 8t)e^{-4t}.
+$$</div>
+<p>Because the root is repeated, the motion is critically damped.</p>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Forced Vibration, Undetermined Coefficients" data-problem-difficulty="Integrated" data-problem-answer="Since the forcing is \(\sin(2t)\) and there is no resonance, try
+
+$$
+y_p = A\cos(2t) + B\sin(2t).
+$$
+
+Then
+
+$$
+y_p&#39;&#39; = -4A\cos(2t) - 4B\sin(2t).
+$$
+
+Substitute into the equation:
+
+$$
+y_p&#39;&#39; + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$
+
+Match coefficients with \(6\sin(2t)\):
+
+$$
+5A = 0, \qquad 5B = 6.
+$$
+
+So \(A=0\) and \(B=\frac{6}{5}\). A steady-state response is
+
+$$
+y_p = \frac{6}{5}\sin(2t).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find the Steady-State Response</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#forced-vibration" data-notes-nav-item>Forced Vibration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#undetermined-coefficients" data-notes-nav-item>Undetermined Coefficients</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find a particular solution for the forced vibration equation.</p>
+<div class="math-block">$$
+y&#39;&#39; + 9y = 6\sin(2t)
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-27">Your work for Find the Steady-State Response</label>
+          <textarea
+            id="practice-study-second-order-odes-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Since the forcing is \(\sin(2t)\) and there is no resonance, try</p>
+<div class="math-block">$$
+y_p = A\cos(2t) + B\sin(2t).
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y_p&#39;&#39; = -4A\cos(2t) - 4B\sin(2t).
+$$</div>
+<p>Substitute into the equation:</p>
+<div class="math-block">$$
+y_p&#39;&#39; + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$</div>
+<p>Match coefficients with \(6\sin(2t)\):</p>
+<div class="math-block">$$
+5A = 0, \qquad 5B = 6.
+$$</div>
+<p>So \(A=0\) and \(B=\frac{6}{5}\). A steady-state response is</p>
+<div class="math-block">$$
+y_p = \frac{6}{5}\sin(2t).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Existence and Uniqueness, Standard Form" data-problem-difficulty="Integrated" data-problem-answer="In normalized form, the coefficients are
+
+$$
+p(x)=\frac{1}{x-1}, \qquad q(x)=\ln x, \qquad r(x)=e^x.
+$$
+
+The function \(p(x)\) is undefined at \(x=1\), and \(q(x)=\ln x\) requires \(x&gt;0\).
+
+So the coefficients are continuous on
+
+$$
+(1,\infty).
+$$
+
+That is the largest open interval containing \(x=2\) on which a unique local solution is guaranteed.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Find the Interval of Guaranteed Uniqueness</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#existence-and-uniqueness" data-notes-nav-item>Existence and Uniqueness</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#standard-form" data-notes-nav-item>Standard Form</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the initial value problem below, on what largest open interval containing \(x=2\) is a unique local solution guaranteed?</p>
+<div class="math-block">$$
+y&#39;&#39; + \frac{1}{x-1}y&#39; + (\ln x)y = e^x, \qquad y(2)=0, \qquad y&#39;(2)=1
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-28">Your work for Find the Interval of Guaranteed Uniqueness</label>
+          <textarea
+            id="practice-study-second-order-odes-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>In normalized form, the coefficients are</p>
+<div class="math-block">$$
+p(x)=\frac{1}{x-1}, \qquad q(x)=\ln x, \qquad r(x)=e^x.
+$$</div>
+<p>The function \(p(x)\) is undefined at \(x=1\), and \(q(x)=\ln x\) requires \(x&gt;0\).</p>
+<p>So the coefficients are continuous on</p>
+<div class="math-block">$$
+(1,\infty).
+$$</div>
+<p>That is the largest open interval containing \(x=2\) on which a unique local solution is guaranteed.</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-3 panel" data-practice-level="3" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-3">Applied</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">3</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="second-order-odes-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Mechanical Models, Harmonic Motion" data-problem-difficulty="Applied" data-problem-answer="For an undamped spring, the equation is
+
+$$
+m y&#39;&#39; + ky = 0.
+$$
+
+Here,
+
+$$
+2y&#39;&#39; + 18y = 0,
+$$
+
+so
+
+$$
+y&#39;&#39; + 9y = 0.
+$$
+
+The general solution is
+
+$$
+y = C_1\cos(3t) + C_2\sin(3t).
+$$
+
+Use \(y(0)=1/2\):
+
+$$
+C_1 = \frac12.
+$$
+
+Released from rest means \(y&#39;(0)=0\). Since
+
+$$
+y&#39; = -3C_1\sin(3t) + 3C_2\cos(3t),
+$$
+
+we get \(C_2=0\).
+
+So
+
+$$
+y(t)=\frac12\cos(3t).
+$$
+
+The first return to equilibrium happens when \(y(t)=0\), so
+
+$$
+\cos(3t)=0 \quad \Rightarrow \quad 3t=\frac{\pi}{2}.
+$$
+
+Thus the first return time is
+
+$$
+t=\frac{\pi}{6}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Model a Simple Mass-Spring Motion</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#mechanical-models" data-notes-nav-item>Mechanical Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#harmonic-motion" data-notes-nav-item>Harmonic Motion</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>A \(2\)-kg mass is attached to a spring with spring constant \(18\) N/m. The mass is displaced \(1/2\) meter from equilibrium and released from rest.</p>
+<p>Find the equation of motion and the first time it returns to equilibrium.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-31">Your work for Model a Simple Mass-Spring Motion</label>
+          <textarea
+            id="practice-study-second-order-odes-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>For an undamped spring, the equation is</p>
+<div class="math-block">$$
+m y&#39;&#39; + ky = 0.
+$$</div>
+<p>Here,</p>
+<div class="math-block">$$
+2y&#39;&#39; + 18y = 0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+y&#39;&#39; + 9y = 0.
+$$</div>
+<p>The general solution is</p>
+<div class="math-block">$$
+y = C_1\cos(3t) + C_2\sin(3t).
+$$</div>
+<p>Use \(y(0)=1/2\):</p>
+<div class="math-block">$$
+C_1 = \frac12.
+$$</div>
+<p>Released from rest means \(y&#39;(0)=0\). Since</p>
+<div class="math-block">$$
+y&#39; = -3C_1\sin(3t) + 3C_2\cos(3t),
+$$</div>
+<p>we get \(C_2=0\).</p>
+<p>So</p>
+<div class="math-block">$$
+y(t)=\frac12\cos(3t).
+$$</div>
+<p>The first return to equilibrium happens when \(y(t)=0\), so</p>
+<div class="math-block">$$
+\cos(3t)=0 \quad \Rightarrow \quad 3t=\frac{\pi}{2}.
+$$</div>
+<p>Thus the first return time is</p>
+<div class="math-block">$$
+t=\frac{\pi}{6}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Mechanical Models, Critical Damping" data-problem-difficulty="Applied" data-problem-answer="The characteristic equation is
+
+$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$
+
+So
+
+$$
+y = (C_1 + C_2t)e^{-4t}.
+$$
+
+Apply the initial conditions:
+
+$$
+y(0)=2 \Rightarrow C_1=2.
+$$
+
+Differentiate:
+
+$$
+y&#39; = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$
+
+Then
+
+$$
+y&#39;(0)=0 \Rightarrow C_2 - 8 = 0,
+$$
+
+so \(C_2=8\).
+
+Therefore
+
+$$
+y = (2+8t)e^{-4t}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Solve a Critically Damped IVP</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#mechanical-models" data-notes-nav-item>Mechanical Models</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#critical-damping" data-notes-nav-item>Critical Damping</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; + 8y&#39; + 16y = 0, \qquad y(0)=2, \qquad y&#39;(0)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-32">Your work for Solve a Critically Damped IVP</label>
+          <textarea
+            id="practice-study-second-order-odes-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = (C_1 + C_2t)e^{-4t}.
+$$</div>
+<p>Apply the initial conditions:</p>
+<div class="math-block">$$
+y(0)=2 \Rightarrow C_1=2.
+$$</div>
+<p>Differentiate:</p>
+<div class="math-block">$$
+y&#39; = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y&#39;(0)=0 \Rightarrow C_2 - 8 = 0,
+$$</div>
+<p>so \(C_2=8\).</p>
+<p>Therefore</p>
+<div class="math-block">$$
+y = (2+8t)e^{-4t}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Forced Vibration, Undetermined Coefficients" data-problem-difficulty="Applied" data-problem-answer="Try
+
+$$
+y_p = A\cos(2t) + B\sin(2t).
+$$
+
+Then
+
+$$
+y_p&#39;&#39; + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$
+
+Match coefficients with \(6\sin(2t)\):
+
+$$
+A=0, \qquad B=\frac65.
+$$
+
+So a particular solution is
+
+$$
+y_p = \frac65\sin(2t).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find a Particular Solution for Forced Oscillation</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#forced-vibration" data-notes-nav-item>Forced Vibration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#undetermined-coefficients" data-notes-nav-item>Undetermined Coefficients</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Find a particular solution for the forced vibration equation below.</p>
+<div class="math-block">$$
+y&#39;&#39; + 9y = 6\sin(2t)
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-33">Your work for Find a Particular Solution for Forced Oscillation</label>
+          <textarea
+            id="practice-study-second-order-odes-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Try</p>
+<div class="math-block">$$
+y_p = A\cos(2t) + B\sin(2t).
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y_p&#39;&#39; + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$</div>
+<p>Match coefficients with \(6\sin(2t)\):</p>
+<div class="math-block">$$
+A=0, \qquad B=\frac65.
+$$</div>
+<p>So a particular solution is</p>
+<div class="math-block">$$
+y_p = \frac65\sin(2t).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Boundary Value Problems, Linear Independence" data-problem-difficulty="Applied" data-problem-answer="The general solution is
+
+$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$
+
+Use \(y(0)=0\):
+
+$$
+C_1=0.
+$$
+
+So
+
+$$
+y = C_2\sin(\pi x).
+$$
+
+Now apply \(y\left(\frac12\right)=0\):
+
+$$
+C_2\sin\left(\frac{\pi}{2}\right)=C_2=0.
+$$
+
+Thus the only solution is
+
+$$
+y=0.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">A Boundary Value Problem with a Unique Solution</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#boundary-value-problems" data-notes-nav-item>Boundary Value Problems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#linear-independence" data-notes-nav-item>Linear Independence</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the boundary value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; + \pi^2 y = 0, \qquad y(0)=0, \qquad y\left(\frac12\right)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-34">Your work for A Boundary Value Problem with a Unique Solution</label>
+          <textarea
+            id="practice-study-second-order-odes-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The general solution is</p>
+<div class="math-block">$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$</div>
+<p>Use \(y(0)=0\):</p>
+<div class="math-block">$$
+C_1=0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = C_2\sin(\pi x).
+$$</div>
+<p>Now apply \(y\left(\frac12\right)=0\):</p>
+<div class="math-block">$$
+C_2\sin\left(\frac{\pi}{2}\right)=C_2=0.
+$$</div>
+<p>Thus the only solution is</p>
+<div class="math-block">$$
+y=0.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Characteristic Roots, Long-Term Behavior" data-problem-difficulty="Applied" data-problem-answer="The characteristic equation is
+
+$$
+r^2 - r - 2 = 0 = (r-2)(r+1).
+$$
+
+So
+
+$$
+y = C_1e^{2x} + C_2e^{-x}.
+$$
+
+The \(e^{2x}\) term grows as \(x\to\infty\), while the \(e^{-x}\) term decays.
+
+So a generic solution grows without bound, and the equilibrium is unstable unless \(C_1=0\).">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Predict Long-Term Behavior from Roots</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#characteristic-roots" data-notes-nav-item>Characteristic Roots</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#long-term-behavior" data-notes-nav-item>Long-Term Behavior</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>For the equation below, describe the long-term behavior of the general solution as \(x\to\infty\).</p>
+<div class="math-block">$$
+y&#39;&#39; - y&#39; - 2y = 0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-35">Your work for Predict Long-Term Behavior from Roots</label>
+          <textarea
+            id="practice-study-second-order-odes-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 - r - 2 = 0 = (r-2)(r+1).
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = C_1e^{2x} + C_2e^{-x}.
+$$</div>
+<p>The \(e^{2x}\) term grows as \(x\to\infty\), while the \(e^{-x}\) term decays.</p>
+<p>So a generic solution grows without bound, and the equilibrium is unstable unless \(C_1=0\).</p>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level practice-level--level-4 panel" data-practice-level="4" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-4">Challenge</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">4</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="second-order-odes-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Undetermined Coefficients, Resonance" data-problem-difficulty="Challenge" data-problem-answer="The homogeneous equation has characteristic roots \(\pm 2i\), so
+
+$$
+y_h = C_1\cos(2x) + C_2\sin(2x).
+$$
+
+Because the forcing is \(\cos(2x)\), which resonates with the homogeneous solution, try
+
+$$
+y_p = x\bigl(A\sin(2x) + B\cos(2x)\bigr).
+$$
+
+For this choice,
+
+$$
+y_p&#39;&#39; + 4y_p = 4A\cos(2x) - 4B\sin(2x).
+$$
+
+Match coefficients with \(8\cos(2x)\):
+
+$$
+A=2, \qquad B=0.
+$$
+
+So
+
+$$
+y = C_1\cos(2x) + C_2\sin(2x) + 2x\sin(2x).
+$$
+
+Apply the initial conditions:
+
+$$
+y(0)=0 \Rightarrow C_1=0,
+$$
+
+and
+
+$$
+y&#39;(0)=0 \Rightarrow C_2=0.
+$$
+
+Therefore
+
+$$
+y = 2x\sin(2x).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Solve a Resonant Forced Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#undetermined-coefficients" data-notes-nav-item>Undetermined Coefficients</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#resonance" data-notes-nav-item>Resonance</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; + 4y = 8\cos(2x), \qquad y(0)=0, \qquad y&#39;(0)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-41">Your work for Solve a Resonant Forced Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The homogeneous equation has characteristic roots \(\pm 2i\), so</p>
+<div class="math-block">$$
+y_h = C_1\cos(2x) + C_2\sin(2x).
+$$</div>
+<p>Because the forcing is \(\cos(2x)\), which resonates with the homogeneous solution, try</p>
+<div class="math-block">$$
+y_p = x\bigl(A\sin(2x) + B\cos(2x)\bigr).
+$$</div>
+<p>For this choice,</p>
+<div class="math-block">$$
+y_p&#39;&#39; + 4y_p = 4A\cos(2x) - 4B\sin(2x).
+$$</div>
+<p>Match coefficients with \(8\cos(2x)\):</p>
+<div class="math-block">$$
+A=2, \qquad B=0.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = C_1\cos(2x) + C_2\sin(2x) + 2x\sin(2x).
+$$</div>
+<p>Apply the initial conditions:</p>
+<div class="math-block">$$
+y(0)=0 \Rightarrow C_1=0,
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+y&#39;(0)=0 \Rightarrow C_2=0.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+y = 2x\sin(2x).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Damped Vibration, Forced Vibration" data-problem-difficulty="Challenge" data-problem-answer="The characteristic equation is
+
+$$
+r^2 + 2r + 5 = 0,
+$$
+
+so
+
+$$
+r = -1 \pm 2i.
+$$
+
+Thus
+
+$$
+y_h = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr).
+$$
+
+For the forcing term \(10e^{-x}\), try
+
+$$
+y_p = Ae^{-x}.
+$$
+
+Substitute:
+
+$$
+y_p&#39;&#39; + 2y_p&#39; + 5y_p = (1 - 2 + 5)Ae^{-x} = 4Ae^{-x}.
+$$
+
+Set this equal to \(10e^{-x}\):
+
+$$
+A = \frac52.
+$$
+
+So
+
+$$
+y = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr) + \frac52 e^{-x}.
+$$
+
+Use \(y(0)=1\):
+
+$$
+C_1 + \frac52 = 1 \Rightarrow C_1 = -\frac32.
+$$
+
+Differentiate in the form \(y=e^{-x}u(x)\), where
+
+$$
+u(x)=C_1\cos(2x) + C_2\sin(2x) + \frac52.
+$$
+
+Then
+
+$$
+y&#39; = e^{-x}(u&#39; - u).
+$$
+
+At \(x=0\),
+
+$$
+u(0)=C_1+\frac52 = 1, \qquad u&#39;(0)=2C_2.
+$$
+
+Using \(y&#39;(0)=0\),
+
+$$
+2C_2 - 1 = 0,
+$$
+
+so
+
+$$
+C_2 = \frac12.
+$$
+
+Therefore
+
+$$
+y = e^{-x}\left(-\frac32\cos(2x) + \frac12\sin(2x) + \frac52\right).
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Solve a Damped Forced Oscillator</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#damped-vibration" data-notes-nav-item>Damped Vibration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#forced-vibration" data-notes-nav-item>Forced Vibration</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the initial value problem.</p>
+<div class="math-block">$$
+y&#39;&#39; + 2y&#39; + 5y = 10e^{-x}, \qquad y(0)=1, \qquad y&#39;(0)=0
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-42">Your work for Solve a Damped Forced Oscillator</label>
+          <textarea
+            id="practice-study-second-order-odes-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The characteristic equation is</p>
+<div class="math-block">$$
+r^2 + 2r + 5 = 0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+r = -1 \pm 2i.
+$$</div>
+<p>Thus</p>
+<div class="math-block">$$
+y_h = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr).
+$$</div>
+<p>For the forcing term \(10e^{-x}\), try</p>
+<div class="math-block">$$
+y_p = Ae^{-x}.
+$$</div>
+<p>Substitute:</p>
+<div class="math-block">$$
+y_p&#39;&#39; + 2y_p&#39; + 5y_p = (1 - 2 + 5)Ae^{-x} = 4Ae^{-x}.
+$$</div>
+<p>Set this equal to \(10e^{-x}\):</p>
+<div class="math-block">$$
+A = \frac52.
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+y = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr) + \frac52 e^{-x}.
+$$</div>
+<p>Use \(y(0)=1\):</p>
+<div class="math-block">$$
+C_1 + \frac52 = 1 \Rightarrow C_1 = -\frac32.
+$$</div>
+<p>Differentiate in the form \(y=e^{-x}u(x)\), where</p>
+<div class="math-block">$$
+u(x)=C_1\cos(2x) + C_2\sin(2x) + \frac52.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+y&#39; = e^{-x}(u&#39; - u).
+$$</div>
+<p>At \(x=0\),</p>
+<div class="math-block">$$
+u(0)=C_1+\frac52 = 1, \qquad u&#39;(0)=2C_2.
+$$</div>
+<p>Using \(y&#39;(0)=0\),</p>
+<div class="math-block">$$
+2C_2 - 1 = 0,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+C_2 = \frac12.
+$$</div>
+<p>Therefore</p>
+<div class="math-block">$$
+y = e^{-x}\left(-\frac32\cos(2x) + \frac12\sin(2x) + \frac52\right).
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Euler-Cauchy Equations, Boundary Value Problems" data-problem-difficulty="Challenge" data-problem-answer="Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is
+
+$$
+m(m-1) + m - 1 = 0,
+$$
+
+which simplifies to
+
+$$
+m^2 - 1 = 0.
+$$
+
+So \(m=\pm 1\), and
+
+$$
+y = C_1x + C_2x^{-1}.
+$$
+
+Apply \(y(1)=2\):
+
+$$
+C_1 + C_2 = 2.
+$$
+
+Apply \(y(2)=3\):
+
+$$
+2C_1 + \frac{C_2}{2} = 3.
+$$
+
+Solve the system:
+
+$$
+C_1 = \frac43, \qquad C_2 = \frac23.
+$$
+
+So the solution is
+
+$$
+y = \frac43x + \frac23x^{-1}.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Solve an Euler-Cauchy Boundary Value Problem</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#euler-cauchy-equations" data-notes-nav-item>Euler-Cauchy Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#boundary-value-problems" data-notes-nav-item>Boundary Value Problems</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the boundary value problem for \(x&gt;0\).</p>
+<div class="math-block">$$
+x^2y&#39;&#39; + xy&#39; - y = 0, \qquad y(1)=2, \qquad y(2)=3
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-43">Your work for Solve an Euler-Cauchy Boundary Value Problem</label>
+          <textarea
+            id="practice-study-second-order-odes-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is</p>
+<div class="math-block">$$
+m(m-1) + m - 1 = 0,
+$$</div>
+<p>which simplifies to</p>
+<div class="math-block">$$
+m^2 - 1 = 0.
+$$</div>
+<p>So \(m=\pm 1\), and</p>
+<div class="math-block">$$
+y = C_1x + C_2x^{-1}.
+$$</div>
+<p>Apply \(y(1)=2\):</p>
+<div class="math-block">$$
+C_1 + C_2 = 2.
+$$</div>
+<p>Apply \(y(2)=3\):</p>
+<div class="math-block">$$
+2C_1 + \frac{C_2}{2} = 3.
+$$</div>
+<p>Solve the system:</p>
+<div class="math-block">$$
+C_1 = \frac43, \qquad C_2 = \frac23.
+$$</div>
+<p>So the solution is</p>
+<div class="math-block">$$
+y = \frac43x + \frac23x^{-1}.
+$$</div>
+        </div>
+      </section>
+    </article><article class="practice-problem panel" id="second-order-odes-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Variation of Parameters, Wronskian" data-problem-difficulty="Challenge" data-problem-answer="The homogeneous equation \(y&#39;&#39;+y=0\) has fundamental solutions
+
+$$
+y_1=\cos x, \qquad y_2=\sin x.
+$$
+
+Their Wronskian is
+
+$$
+W = y_1y_2&#39; - y_1&#39;y_2 = \cos x(\cos x) - (-\sin x)(\sin x) = 1.
+$$
+
+For variation of parameters,
+
+$$
+u_1&#39; = -\frac{y_2\,\sec x}{W} = -\sin x\,\sec x = -\tan x,
+$$
+
+so
+
+$$
+u_1 = \ln|\cos x|.
+$$
+
+Also,
+
+$$
+u_2&#39; = \frac{y_1\,\sec x}{W} = \cos x\,\sec x = 1,
+$$
+
+so
+
+$$
+u_2 = x.
+$$
+
+Thus a particular solution is
+
+$$
+y_p = u_1y_1 + u_2y_2 = \cos x\ln|\cos x| + x\sin x.
+$$
+
+Therefore the general solution is
+
+$$
+y = C_1\cos x + C_2\sin x + \cos x\ln|\cos x| + x\sin x.
+$$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Use Variation of Parameters</span></h2>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#variation-of-parameters" data-notes-nav-item>Variation of Parameters</a></li><li><a class="notes-inline-link practice-problem__skill" href="/study/math/second-order-odes/#wronskian" data-notes-nav-item>Wronskian</a></li></ul></div>
+        </div>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Solve the differential equation on any interval where the forcing term is defined.</p>
+<div class="math-block">$$
+y&#39;&#39; + y = \sec x
+$$</div>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-second-order-odes-44">Your work for Use Variation of Parameters</label>
+          <textarea
+            id="practice-study-second-order-odes-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
+        </div>
+      </div>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>The homogeneous equation \(y&#39;&#39;+y=0\) has fundamental solutions</p>
+<div class="math-block">$$
+y_1=\cos x, \qquad y_2=\sin x.
+$$</div>
+<p>Their Wronskian is</p>
+<div class="math-block">$$
+W = y_1y_2&#39; - y_1&#39;y_2 = \cos x(\cos x) - (-\sin x)(\sin x) = 1.
+$$</div>
+<p>For variation of parameters,</p>
+<div class="math-block">$$
+u_1&#39; = -\frac{y_2\,\sec x}{W} = -\sin x\,\sec x = -\tan x,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+u_1 = \ln|\cos x|.
+$$</div>
+<p>Also,</p>
+<div class="math-block">$$
+u_2&#39; = \frac{y_1\,\sec x}{W} = \cos x\,\sec x = 1,
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+u_2 = x.
+$$</div>
+<p>Thus a particular solution is</p>
+<div class="math-block">$$
+y_p = u_1y_1 + u_2y_2 = \cos x\ln|\cos x| + x\sin x.
+$$</div>
+<p>Therefore the general solution is</p>
+<div class="math-block">$$
+y = C_1\cos x + C_2\sin x + \cos x\ln|\cos x| + x\sin x.
+$$</div>
+        </div>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quantum Physics | Adriamics Study</title>
+  <meta name="description" content="Classical physics works well when the action scale is large compared with Planck&#39;s constant:" />
+  <link rel="canonical" href="https://adriamics.com/study/physics/quantum-physics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/quantum-physics/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#classical-limits-and-why-quantum-theory-is-needed" data-notes-nav-item data-notes-toc-link>Classical limits and why quantum theory is needed</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#wave-functions-and-probability" data-notes-nav-item data-notes-toc-link>Wave functions and probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#schrodinger-equation" data-notes-nav-item data-notes-toc-link>Schrodinger equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#operators-observables-and-measurement" data-notes-nav-item data-notes-toc-link>Operators, observables, and measurement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#uncertainty-and-superposition" data-notes-nav-item data-notes-toc-link>Uncertainty and superposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-model-problems" data-notes-nav-item data-notes-toc-link>Standard model problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spin-and-two-level-systems" data-notes-nav-item data-notes-toc-link>Spin and two-level systems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#approximation-methods" data-notes-nav-item data-notes-toc-link>Approximation methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-toc-link>Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Quantum Physics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/quantum-physics/quantum-physics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fquantum-physics%2Fquantum-physics.md&amp;title=%5BContribute%5D%3A%20Quantum%20Physics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/quantum-physics/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="classical-limits-and-why-quantum-theory-is-needed">Classical limits and why quantum theory is needed</h1>
+<p>Classical physics works well when the action scale is large compared with Planck&#39;s constant:</p>
+<div class="math-block">$$
+\hbar = \frac{h}{2\pi}
+$$</div>
+<p>Quantum effects become important when:</p>
+<ul><li><p>The system size is comparable to the de Broglie wavelength.</p></li><li><p>Energy levels are discrete rather than continuous.</p></li><li><p>Measurement disturbs the system at a non-negligible scale.</p></li><li><p>Interference and tunneling are observable.</p></li></ul>
+<h2 id="empirical-clues">Empirical clues</h2>
+<h3 id="blackbody-radiation">Blackbody radiation</h3>
+<p>Classical theory predicted the ultraviolet catastrophe. Planck resolved this by assuming energy exchange occurs in quanta:</p>
+<div class="math-block">$$
+E = nh\nu
+$$</div>
+<h3 id="photoelectric-effect">Photoelectric effect</h3>
+<p>Light ejects electrons only above a threshold frequency. The maximum electron kinetic energy depends on frequency, not intensity:</p>
+<div class="math-block">$$
+K_{\max} = h\nu - \phi
+$$</div>
+<p>where $\phi$ is the work function.</p>
+<h3 id="atomic-spectra">Atomic spectra</h3>
+<p>Atoms emit and absorb only specific frequencies, indicating discrete energy differences.</p>
+<h3 id="electron-diffraction">Electron diffraction</h3>
+<p>Particles show interference, which cannot be explained by purely classical trajectories.</p>
+<hr />
+<h1 id="wave-functions-and-probability">Wave functions and probability</h1>
+<p>The state of a one-dimensional particle is often written as $\psi(x,t)$.</p>
+<p>The probability density is</p>
+<div class="math-block">$$
+P(x,t) = |\psi(x,t)|^2
+$$</div>
+<p>and the probability of finding the particle in an interval $[a,b]$ is</p>
+<div class="math-block">$$
+\int_a^b |\psi(x,t)|^2\,dx
+$$</div>
+<h2 id="normalization">Normalization</h2>
+<p>A physically acceptable wave function must satisfy</p>
+<div class="math-block">$$
+\int_{-\infty}^{\infty} |\psi(x,t)|^2\,dx = 1
+$$</div>
+<p>If a trial function is not normalized, multiply by a constant $A$ and solve for $A$ using the normalization condition.</p>
+<h2 id="acceptable-wave-functions">Acceptable wave functions</h2>
+<p>Typical requirements:</p>
+<ul><li><p>Single-valued</p></li><li><p>Finite</p></li><li><p>Continuous</p></li><li><p>Usually have a continuous first derivative unless the potential is singular or discontinuous</p></li></ul>
+<h2 id="expectation-values">Expectation values</h2>
+<p>The average value of position is</p>
+<div class="math-block">$$
+\langle x \rangle = \int_{-\infty}^{\infty} x |\psi(x,t)|^2\,dx
+$$</div>
+<p>More generally, for an operator $\hat{A}$,</p>
+<div class="math-block">$$
+\langle A \rangle = \int \psi^*(x,t)\,\hat{A}\,\psi(x,t)\,dx
+$$</div>
+<p>Expectation values are weighted averages over measurement outcomes.</p>
+<hr />
+<h1 id="schrodinger-equation">Schrodinger equation</h1>
+<p>The time-dependent Schrodinger equation governs state evolution:</p>
+<div class="math-block">$$
+i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi
+$$</div>
+<p>where $\hat{H}$ is the Hamiltonian operator, the total energy operator.</p>
+<p>For a nonrelativistic particle in a potential $V(x,t)$,</p>
+<div class="math-block">$$
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V
+$$</div>
+<p>In one dimension:</p>
+<div class="math-block">$$
+i\hbar \frac{\partial \psi}{\partial t}
+=
+\left(-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x,t)\right)\psi
+$$</div>
+<h2 id="time-independent-form">Time-independent form</h2>
+<p>If the potential does not depend on time, use separation of variables:</p>
+<div class="math-block">$$
+\psi(x,t) = \phi(x)T(t)
+$$</div>
+<p>This yields the time-independent Schrodinger equation:</p>
+<div class="math-block">$$
+\hat{H}\phi = E\phi
+$$</div>
+<p>The allowed energies are the eigenvalues $E$.</p>
+<h2 id="interpretation">Interpretation</h2>
+<p>The time-independent equation is an eigenvalue problem:</p>
+<ul><li><p>$\phi$ is an energy eigenstate.</p></li><li><p>$E$ is the corresponding allowed energy.</p></li><li><p>Boundary conditions quantize the allowed solutions in many systems.</p></li></ul>
+<p>This is the main source of quantization in introductory quantum mechanics.</p>
+<hr />
+<h1 id="operators-observables-and-measurement">Operators, observables, and measurement</h1>
+<p>An observable is represented by a linear operator. For common one-dimensional problems:</p>
+<div class="math-block">$$
+\hat{x} = x
+$$</div>
+<div class="math-block">$$
+\hat{p} = -i\hbar \frac{d}{dx}
+$$</div>
+<div class="math-block">$$
+\hat{E} = i\hbar \frac{\partial}{\partial t}
+$$</div>
+<div class="math-block">$$
+\hat{H} = \frac{\hat{p}^2}{2m} + V
+$$</div>
+<h2 id="eigenvalue-equation">Eigenvalue equation</h2>
+<p>If</p>
+<div class="math-block">$$
+\hat{A}\phi = a\phi
+$$</div>
+<p>then $\phi$ is an eigenstate of $\hat{A}$ and $a$ is a possible measured value.</p>
+<h2 id="hermitian-operators">Hermitian operators</h2>
+<p>Physical observables correspond to Hermitian operators because they have real eigenvalues and orthogonal eigenstates.</p>
+<h2 id="commutators">Commutators</h2>
+<p>The commutator is</p>
+<div class="math-block">$$
+[\hat{A},\hat{B}] = \hat{A}\hat{B} - \hat{B}\hat{A}
+$$</div>
+<p>If two observables commute, they can often be simultaneously measured with arbitrary precision.</p>
+<p>The canonical commutation relation is</p>
+<div class="math-block">$$
+[\hat{x},\hat{p}] = i\hbar
+$$</div>
+<p>This relation underlies the uncertainty principle.</p>
+<hr />
+<h1 id="uncertainty-and-superposition">Uncertainty and superposition</h1>
+<p>The Heisenberg uncertainty principle states</p>
+<div class="math-block">$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$</div>
+<p>More generally, non-commuting observables cannot both be sharply defined in the same state.</p>
+<h2 id="physical-meaning">Physical meaning</h2>
+<p>This is not caused by bad instruments. It is a statement about the structure of quantum states.</p>
+<h2 id="superposition">Superposition</h2>
+<p>If $\psi_1$ and $\psi_2$ are allowed states, then</p>
+<div class="math-block">$$
+\psi = c_1\psi_1 + c_2\psi_2
+$$</div>
+<p>is also an allowed state.</p>
+<p>Superposition leads to interference because amplitudes add before probabilities are computed.</p>
+<h2 id="relative-phase">Relative phase</h2>
+<p>Two states with the same probabilities can behave differently if their phases differ. Phase matters whenever states interfere.</p>
+<hr />
+<h1 id="standard-model-problems">Standard model problems</h1>
+<p>Introductory courses repeatedly use a small set of solvable systems. Mastering their boundary conditions and eigenstates is the fastest way to build skill.</p>
+<h2 id="infinite-square-well">Infinite square well</h2>
+<p>For $0 &lt; x &lt; L$ with $V(x)=0$ and infinite walls outside:</p>
+<div class="math-block">$$
+\psi_n(x) = \sqrt{\frac{2}{L}}\sin\left(\frac{n\pi x}{L}\right)
+$$</div>
+<div class="math-block">$$
+E_n = \frac{n^2\pi^2\hbar^2}{2mL^2}, \quad n=1,2,3,\dots
+$$</div>
+<p>Key lesson: boundary conditions create discrete energies.</p>
+<h2 id="finite-potential-step">Finite potential step</h2>
+<p>A particle approaching a step may be partly reflected even if its classical energy exceeds the barrier height. For $E&lt;V_0$, the wave decays exponentially inside the barrier.</p>
+<h2 id="potential-barrier-and-tunneling">Potential barrier and tunneling</h2>
+<p>For a barrier of height $V_0$ and width $a$, the transmitted wave can be nonzero even when $E&lt;V_0$.</p>
+<p>Approximate tunneling behavior:</p>
+<div class="math-block">$$
+T \propto e^{-2\kappa a}
+$$</div>
+<p>with</p>
+<div class="math-block">$$
+\kappa = \frac{\sqrt{2m(V_0-E)}}{\hbar}
+$$</div>
+<p>Tunneling is essential in alpha decay, scanning tunneling microscopy, and semiconductor devices.</p>
+<h2 id="harmonic-oscillator">Harmonic oscillator</h2>
+<p>The potential is</p>
+<div class="math-block">$$
+V(x)=\frac{1}{2}m\omega^2x^2
+$$</div>
+<p>Allowed energies are</p>
+<div class="math-block">$$
+E_n = \left(n+\frac{1}{2}\right)\hbar\omega, \quad n=0,1,2,\dots
+$$</div>
+<p>The ground state has nonzero energy:</p>
+<div class="math-block">$$
+E_0 = \frac{1}{2}\hbar\omega
+$$</div>
+<p>This is zero-point energy.</p>
+<h2 id="hydrogen-atom">Hydrogen atom</h2>
+<p>The Coulomb potential gives discrete bound states with principal quantum number $n$.</p>
+<p>Energy levels scale as</p>
+<div class="math-block">$$
+E_n \propto -\frac{1}{n^2}
+$$</div>
+<p>The hydrogen atom explains the origin of atomic spectra and quantum numbers.</p>
+<hr />
+<h1 id="spin-and-two-level-systems">Spin and two-level systems</h1>
+<p>Spin is an intrinsic quantum degree of freedom with no classical analog. For an electron, spin-$\tfrac{1}{2}$ means the measured spin projection along an axis takes only two values:</p>
+<div class="math-block">$$
+\pm \frac{\hbar}{2}
+$$</div>
+<h2 id="bra-ket-notation">Bra-ket notation</h2>
+<p>States are often written as kets, such as</p>
+<div class="math-block">$$
+|\psi\rangle
+$$</div>
+<p>An inner product is written</p>
+<div class="math-block">$$
+\langle \phi | \psi \rangle
+$$</div>
+<p>and probabilities are built from these amplitudes.</p>
+<h2 id="basis-states">Basis states</h2>
+<p>For a two-state system:</p>
+<div class="math-block">$$
+|\psi\rangle = a|0\rangle + b|1\rangle
+$$</div>
+<p>with</p>
+<div class="math-block">$$
+|a|^2 + |b|^2 = 1
+$$</div>
+<p>This framework applies to spin, polarization, and qubit models.</p>
+<h2 id="stern-gerlach-intuition">Stern-Gerlach intuition</h2>
+<p>Measurements along one axis project the state into one of the allowed eigenstates for that axis. Measurements along different axes generally do not commute.</p>
+<hr />
+<h1 id="approximation-methods">Approximation methods</h1>
+<p>Many realistic quantum systems do not have closed-form solutions. Introductory courses usually emphasize a few approximation ideas.</p>
+<h2 id="perturbation-theory">Perturbation theory</h2>
+<p>If</p>
+<div class="math-block">$$
+\hat{H} = \hat{H}_0 + \lambda \hat{V}
+$$</div>
+<p>and $\lambda$ is small, start from the known solutions of $\hat{H}_0$ and compute corrections.</p>
+<h2 id="variational-method">Variational method</h2>
+<p>Choose a trial wave function with adjustable parameters and minimize the expected energy:</p>
+<div class="math-block">$$
+E[\psi] = \frac{\langle \psi|\hat{H}|\psi\rangle}{\langle \psi|\psi\rangle}
+$$</div>
+<p>This gives an upper bound to the ground-state energy.</p>
+<h2 id="wkb-idea">WKB idea</h2>
+<p>When the de Broglie wavelength changes slowly, semiclassical approximations can estimate tunneling and quantization.</p>
+<p>The basic intuition is to connect classical motion with quantum phase accumulation.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<ol><li><p>Identify the physical system and the relevant potential.</p></li><li><p>Decide whether the problem is time-dependent or time-independent.</p></li><li><p>Write the Hamiltonian and the correct boundary conditions.</p></li><li><p>Solve the differential equation or eigenvalue problem.</p></li><li><p>Normalize the wave function.</p></li><li><p>Compute observables using expectation values or measurement rules.</p></li><li><p>Check units, limits, and physical interpretation.</p></li></ol>
+<h2 id="practical-checks">Practical checks</h2>
+<ul><li><p>If the answer should be discrete, verify the boundary conditions force quantization.</p></li><li><p>If the state is a superposition, compute probabilities from amplitudes before combining them.</p></li><li><p>If a result has exponential decay, check whether it is a barrier or evanescent-wave problem.</p></li><li><p>If the system is finite, verify normalization.</p></li></ul>
+<h2 id="example-workflow-infinite-well">Example workflow: infinite well</h2>
+<ol><li><p>Set $V=0$ inside the well and $V=\infty$ outside.</p></li><li><p>Impose $\psi(0)=\psi(L)=0$.</p></li><li><p>Solve the sinusoidal differential equation.</p></li><li><p>Keep only the allowed integer modes.</p></li><li><p>Normalize the eigenfunctions.</p></li><li><p>Use $E_n$ to answer questions about level spacing and transitions.</p></li></ol>
+<hr />
+<h1 id="common-pitfalls">Common pitfalls</h1>
+<ul><li><p>Confusing the wave function with a literal particle trajectory.</p></li><li><p>Treating $|\psi|^2$ as the wave function itself instead of the probability density.</p></li><li><p>Forgetting to normalize before computing probabilities or expectation values.</p></li><li><p>Using the wrong operator for momentum or energy.</p></li><li><p>Mixing up state evolution with measurement outcomes.</p></li><li><p>Ignoring boundary conditions, which often determine the allowed energies.</p></li><li><p>Assuming quantum systems must have zero energy in the ground state.</p></li><li><p>Applying classical intuition to tunneling or interference without checking the wavelength scale.</p></li></ul>
+<h2 id="units-to-check">Units to check</h2>
+<ul><li><p>$\hbar$ has units of JÃ‚·s.</p></li><li><p>Momentum operator introduces $1/\text{length}$.</p></li><li><p>Energy eigenvalues must have units of energy.</p></li><li><p>Probability is dimensionless.</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="fundamental-relations">Fundamental relations</h2>
+<div class="math-block">$$
+E = h\nu = \hbar\omega
+$$</div>
+<div class="math-block">$$
+\lambda = \frac{h}{p}
+$$</div>
+<div class="math-block">$$
+i\hbar \frac{\partial \psi}{\partial t} = \hat{H}\psi
+$$</div>
+<div class="math-block">$$
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2 + V
+$$</div>
+<div class="math-block">$$
+|\psi|^2 = \text{probability density}
+$$</div>
+<div class="math-block">$$
+\int |\psi|^2\,dx = 1
+$$</div>
+<div class="math-block">$$
+\langle A \rangle = \int \psi^* \hat{A}\psi\,dx
+$$</div>
+<div class="math-block">$$
+\Delta x\,\Delta p \ge \frac{\hbar}{2}
+$$</div>
+<h2 id="canonical-operators">Canonical operators</h2>
+<div class="math-block">$$
+\hat{x}=x,\qquad \hat{p}=-i\hbar\frac{d}{dx}
+$$</div>
+<h2 id="common-model-energies">Common model energies</h2>
+<div class="math-block">$$
+E_n^{\text{well}} = \frac{n^2\pi^2\hbar^2}{2mL^2}
+$$</div>
+<div class="math-block">$$
+E_n^{\text{osc}} = \left(n+\frac{1}{2}\right)\hbar\omega
+$$</div>
+<h2 id="barrier-scale">Barrier scale</h2>
+<div class="math-block">$$
+\kappa = \frac{\sqrt{2m(V_0-E)}}{\hbar}
+$$</div>
+<div class="math-block">$$
+T \propto e^{-2\kappa a}
+$$</div>
+<hr />
+<h2 id="mental-model">Mental model</h2>
+<p>When solving quantum problems, keep the following sequence in mind:</p>
+<p><strong>state -&gt; operator -&gt; boundary conditions -&gt; eigenvalues -&gt; probabilities -&gt; interpretation</strong></p>
+<p>That order prevents most beginner mistakes and matches how the theory is actually used in practice.</p>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p>Halliday, Resnick, and Walker, <em>Fundamentals of Physics</em></p></li><li><p>Serway and Jewett, <em>Physics for Scientists and Engineers</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Griffiths, <em>Introduction to Quantum Mechanics</em></p></li><li><p>Taylor, <em>Classical Mechanics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="classical-limits-and-why-quantum-theory-is-needed">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Classical limits and why quantum theory is needed">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#empirical-clues" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="classical-limits-and-why-quantum-theory-is-needed">Empirical clues</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="wave-functions-and-probability" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Wave functions and probability">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#normalization" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="wave-functions-and-probability">Normalization</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#acceptable-wave-functions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="wave-functions-and-probability">Acceptable wave functions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#expectation-values" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="wave-functions-and-probability">Expectation values</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="schrodinger-equation" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Schrodinger equation">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-independent-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="schrodinger-equation">Time-independent form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="schrodinger-equation">Interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="operators-observables-and-measurement" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Operators, observables, and measurement">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#eigenvalue-equation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operators-observables-and-measurement">Eigenvalue equation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hermitian-operators" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operators-observables-and-measurement">Hermitian operators</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#commutators" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="operators-observables-and-measurement">Commutators</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="uncertainty-and-superposition" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Uncertainty and superposition">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#physical-meaning" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="uncertainty-and-superposition">Physical meaning</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#superposition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="uncertainty-and-superposition">Superposition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relative-phase" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="uncertainty-and-superposition">Relative phase</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="standard-model-problems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Standard model problems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#infinite-square-well" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="standard-model-problems">Infinite square well</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#finite-potential-step" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="standard-model-problems">Finite potential step</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#potential-barrier-and-tunneling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="standard-model-problems">Potential barrier and tunneling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#harmonic-oscillator" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="standard-model-problems">Harmonic oscillator</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hydrogen-atom" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="standard-model-problems">Hydrogen atom</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="spin-and-two-level-systems" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Spin and two-level systems">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bra-ket-notation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spin-and-two-level-systems">Bra-ket notation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#basis-states" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spin-and-two-level-systems">Basis states</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stern-gerlach-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spin-and-two-level-systems">Stern-Gerlach intuition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="approximation-methods" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Approximation methods">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#perturbation-theory" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="approximation-methods">Perturbation theory</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variational-method" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="approximation-methods">Variational method</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#wkb-idea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="approximation-methods">WKB idea</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Practical checks</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#example-workflow-infinite-well" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Example workflow: infinite well</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-pitfalls" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common pitfalls">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#units-to-check" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-pitfalls">Units to check</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#fundamental-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Fundamental relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#canonical-operators" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Canonical operators</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-model-energies" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Common model energies</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#barrier-scale" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Barrier scale</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mental-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Mental model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

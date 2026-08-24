@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Relativity | Adriamics Study</title>
+  <meta name="description" content="Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed ..." />
+  <link rel="canonical" href="https://adriamics.com/study/physics/relativity/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/relativity/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#why-relativity-is-needed" data-notes-nav-item data-notes-toc-link>Why relativity is needed</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-relativity" data-notes-nav-item data-notes-toc-link>Special Relativity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#special-relativity-postulates-and-frames" data-notes-nav-item data-notes-toc-link>Special relativity: postulates and frames</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lorentz-transformations" data-notes-nav-item data-notes-toc-link>Lorentz transformations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spacetime-interval-and-causality" data-notes-nav-item data-notes-toc-link>Spacetime interval and causality</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-dilation-and-length-contraction" data-notes-nav-item data-notes-toc-link>Time dilation and length contraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relativity-of-simultaneity" data-notes-nav-item data-notes-toc-link>Relativity of simultaneity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#velocity-and-acceleration-in-relativity" data-notes-nav-item data-notes-toc-link>Velocity and acceleration in relativity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-and-momentum" data-notes-nav-item data-notes-toc-link>Energy and momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relativistic-dynamics-and-collisions" data-notes-nav-item data-notes-toc-link>Relativistic dynamics and collisions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-relativity" data-notes-nav-item data-notes-toc-link>General Relativity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-relativity-gravity-as-geometry" data-notes-nav-item data-notes-toc-link>General relativity: gravity as geometry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitational-time-dilation-and-light-bending" data-notes-nav-item data-notes-toc-link>Gravitational time dilation and light bending</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Common problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Relativity</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/relativity/relativity.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Frelativity%2Frelativity.md&amp;title=%5BContribute%5D%3A%20Relativity" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/relativity/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/relativity/" data-notes-nav-item>Relativity</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="why-relativity-is-needed">Why relativity is needed</h1>
+<p>Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:</p>
+<ul><li><p>Particles moving near light speed</p></li><li><p>Accurate timing in satellites and particle accelerators</p></li><li><p>Strong gravitational fields</p></li></ul>
+<p>Relativity replaces absolute time with spacetime and ensures that the speed of light in vacuum,</p>
+<div class="math-block">$$
+c \approx 3.00 \times 10^8\ \text{m/s}
+$$</div>
+<p>is the same for all inertial observers.</p>
+<h2 id="when-to-use-relativity">When to use relativity</h2>
+<p>Use relativity when:</p>
+<ul><li><p>A speed is a significant fraction of $c$</p></li><li><p>The problem involves light signals, clocks, or simultaneity</p></li><li><p>The problem asks for rest mass, rest energy, or invariant interval</p></li><li><p>Gravity must be treated as curved spacetime rather than a force in flat space</p></li></ul>
+<p>For everyday speeds, classical formulas are usually adequate because relativistic corrections are tiny.</p>
+<hr />
+<h1 id="special-relativity">Special Relativity</h1>
+<p>Path: <code>physics/special-relativity</code></p>
+<p>Special relativity describes physics in flat spacetime. The sections below cover the special-relativistic toolkit in the order it is normally used.</p>
+<h1 id="special-relativity-postulates-and-frames">Special relativity: postulates and frames</h1>
+<p>Special relativity applies to inertial frames, meaning frames moving at constant velocity relative to one another.</p>
+<h2 id="postulates">Postulates</h2>
+<ol><li><p>The laws of physics are the same in all inertial frames.</p></li><li><p>The speed of light in vacuum is the same for all inertial observers.</p></li></ol>
+<p>These postulates force space and time to transform together.</p>
+<h2 id="reference-frames">Reference frames</h2>
+<p>An inertial frame is one that is not accelerating.</p>
+<p>Common notation:</p>
+<ul><li><p>$S$ = unprimed frame</p></li><li><p>$S&#39;$ = frame moving at constant velocity $v$ relative to $S$</p></li></ul>
+<p>If the motion is along the $x$-axis, the standard analysis uses one-dimensional Lorentz transformations.</p>
+<h2 id="events">Events</h2>
+<p>An <strong>event</strong> is something that happens at a particular place and time.</p>
+<p>An event is represented by:</p>
+<div class="math-block">$$
+(t, x, y, z)
+$$</div>
+<p>or, often, by the spacetime coordinate pair $(ct, x)$ in one dimension.</p>
+<hr />
+<h1 id="lorentz-transformations">Lorentz transformations</h1>
+<p>The Lorentz transformations relate the coordinates of the same event between two inertial frames moving at relative speed $v$ along the $x$-axis.</p>
+<p>Define:</p>
+<div class="math-block">$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+x&#39; = \gamma(x-vt)
+$$</div>
+<div class="math-block">$$
+t&#39; = \gamma\left(t-\frac{vx}{c^2}\right)
+$$</div>
+<p>The inverse transformations are:</p>
+<div class="math-block">$$
+x = \gamma(x&#39;+vt&#39;)
+$$</div>
+<div class="math-block">$$
+t = \gamma\left(t&#39;+\frac{vx&#39;}{c^2}\right)
+$$</div>
+<h2 id="galilean-limit">Galilean limit</h2>
+<p>If $v \ll c$, then $\gamma \approx 1$ and the Lorentz transformations reduce to the classical relations:</p>
+<div class="math-block">$$
+x&#39; \approx x-vt
+$$</div>
+<div class="math-block">$$
+t&#39; \approx t
+$$</div>
+<h2 id="interpretation">Interpretation</h2>
+<p>The transformations mix space and time. That is the mathematical reason that:</p>
+<ul><li><p>Moving clocks run slow</p></li><li><p>Moving rods contract along the direction of motion</p></li><li><p>Simultaneity becomes frame-dependent</p></li></ul>
+<hr />
+<h1 id="spacetime-interval-and-causality">Spacetime interval and causality</h1>
+<p>The spacetime interval between two events is invariant under Lorentz transformations.</p>
+<p>In one spatial dimension:</p>
+<div class="math-block">$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2
+$$</div>
+<p>In three dimensions:</p>
+<div class="math-block">$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+$$</div>
+<p>The sign convention may vary by text, but the invariant content is the same.</p>
+<h2 id="interval-classification">Interval classification</h2>
+<table><thead><tr><th>Interval type</th><th>Condition</th><th>Interpretation</th></tr></thead><tbody><tr><td>Timelike</td><td>$c^2\Delta t^2 &gt; \Delta x^2+\Delta y^2+\Delta z^2$</td><td>A causal signal moving slower than light can connect the events</td></tr><tr><td>Lightlike / null</td><td>Equality</td><td>Connected by a light signal</td></tr><tr><td>Spacelike</td><td>$c^2\Delta t^2 &lt; \Delta x^2+\Delta y^2+\Delta z^2$</td><td>No causal influence at or below light speed can connect them</td></tr></tbody></table>
+<h2 id="proper-time">Proper time</h2>
+<p>Proper time $\Delta \tau$ is the time measured by a clock that travels with the events when the interval is timelike.</p>
+<p>For motion in one dimension:</p>
+<div class="math-block">$$
+\Delta \tau = \Delta t\sqrt{1-\frac{v^2}{c^2}}
+$$</div>
+<p>and therefore:</p>
+<div class="math-block">$$
+\Delta t = \gamma \Delta \tau
+$$</div>
+<p>Proper time is the shortest time elapsed between two timelike-separated events among inertial paths.</p>
+<hr />
+<h1 id="time-dilation-and-length-contraction">Time dilation and length contraction</h1>
+<h2 id="time-dilation">Time dilation</h2>
+<p>A moving clock is observed to run slow.</p>
+<p>If $\Delta \tau$ is the proper time measured in the clockÃ¢â‚¬â„¢s rest frame, then an observer who sees the clock moving measures:</p>
+<div class="math-block">$$
+\Delta t = \gamma \Delta \tau
+$$</div>
+<p>where $\Delta t$ is larger than the proper time.</p>
+<h3 id="example-pattern">Example pattern</h3>
+<p>If a muon has a proper lifetime of $\tau_0$ and moves at speed $v$, the observed lifetime is:</p>
+<div class="math-block">$$
+\tau = \gamma \tau_0
+$$</div>
+<h2 id="length-contraction">Length contraction</h2>
+<p>An object moving relative to an observer is shortened along the direction of motion.</p>
+<p>If $L_0$ is the proper length measured in the objectÃ¢â‚¬â„¢s rest frame, then the observed length is:</p>
+<div class="math-block">$$
+L = \frac{L_0}{\gamma}
+$$</div>
+<p>Only the dimension parallel to the motion contracts.</p>
+<h2 id="proper-quantities">Proper quantities</h2>
+<ul><li><p>Proper time: time measured in the object&#39;s rest frame</p></li><li><p>Proper length: length measured in the object&#39;s rest frame</p></li></ul>
+<p>These are the natural reference values in relativity problems.</p>
+<hr />
+<h1 id="relativity-of-simultaneity">Relativity of simultaneity</h1>
+<p>Events that are simultaneous in one frame need not be simultaneous in another.</p>
+<p>From the Lorentz transformation:</p>
+<div class="math-block">$$
+t&#39; = \gamma\left(t-\frac{vx}{c^2}\right)
+$$</div>
+<p>two events with $\Delta t = 0$ in one frame generally satisfy:</p>
+<div class="math-block">$$
+\Delta t&#39; = -\gamma \frac{v\Delta x}{c^2}
+$$</div>
+<p>if they are separated in space.</p>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>Relativity of simultaneity is not a minor correction. It is the key idea that makes time dilation and length contraction consistent.</p>
+<h2 id="common-interpretation-trap">Common interpretation trap</h2>
+<p>If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of Ã¢â‚¬Å“same timeÃ¢â‚¬Â is frame-dependent.</p>
+<hr />
+<h1 id="velocity-and-acceleration-in-relativity">Velocity and acceleration in relativity</h1>
+<p>Classical velocity addition fails at high speed.</p>
+<h2 id="velocity-addition">Velocity addition</h2>
+<p>For colinear velocities:</p>
+<div class="math-block">$$
+u&#39; = \frac{u-v}{1-\frac{uv}{c^2}}
+$$</div>
+<p>Equivalently, if an object moves at speed $u&#39;$ in $S&#39;$ and $S&#39;$ moves at speed $v$ relative to $S$, then the speed in $S$ is:</p>
+<div class="math-block">$$
+u = \frac{u&#39;+v}{1+\frac{u&#39;v}{c^2}}
+$$</div>
+<p>This formula guarantees that no result exceeds $c$ if the inputs are subluminal.</p>
+<h2 id="why-speeds-do-not-simply-add">Why speeds do not simply add</h2>
+<p>If $u&#39; = c$, then:</p>
+<div class="math-block">$$
+u = c
+$$</div>
+<p>for any inertial frame. Light speed is invariant.</p>
+<h2 id="relativistic-momentum-direction">Relativistic momentum direction</h2>
+<p>For force and acceleration problems, the acceleration need not point in the same direction as the applied force in a simple Newtonian way because momentum depends on $\gamma$.</p>
+<hr />
+<h1 id="energy-and-momentum">Energy and momentum</h1>
+<p>Relativity unifies energy and momentum into a single framework.</p>
+<h2 id="relativistic-momentum">Relativistic momentum</h2>
+<div class="math-block">$$
+\mathbf{p} = \gamma m\mathbf{v}
+$$</div>
+<p>where $m$ is the invariant rest mass.</p>
+<h2 id="total-energy">Total energy</h2>
+<div class="math-block">$$
+E = \gamma mc^2
+$$</div>
+<h2 id="rest-energy">Rest energy</h2>
+<p>For an object at rest:</p>
+<div class="math-block">$$
+E_0 = mc^2
+$$</div>
+<p>This is the most famous result in relativity.</p>
+<h2 id="kinetic-energy">Kinetic energy</h2>
+<p>Relativistic kinetic energy is:</p>
+<div class="math-block">$$
+K = E - E_0 = (\gamma - 1)mc^2
+$$</div>
+<p>For $v \ll c$, this approaches the classical form:</p>
+<div class="math-block">$$
+K \approx \frac{1}{2}mv^2
+$$</div>
+<h2 id="energy-momentum-relation">Energy-momentum relation</h2>
+<p>The invariant relation is:</p>
+<div class="math-block">$$
+E^2 = (pc)^2 + (mc^2)^2
+$$</div>
+<p>Special cases:</p>
+<ul><li><p>If $m=0$:</p></li></ul>
+<div class="math-block">$$
+E = pc
+$$</div>
+<ul><li><p>If the particle is at rest:</p></li></ul>
+<div class="math-block">$$
+E = mc^2
+$$</div>
+<h2 id="four-momentum">Four-momentum</h2>
+<p>The four-momentum combines energy and momentum:</p>
+<div class="math-block">$$
+P^\mu = \left(\frac{E}{c}, \mathbf{p}\right)
+$$</div>
+<p>Its invariant magnitude is tied to rest mass.</p>
+<hr />
+<h1 id="relativistic-dynamics-and-collisions">Relativistic dynamics and collisions</h1>
+<p>The relativistic conservation laws look familiar, but the conserved quantities are different from the classical approximations.</p>
+<h2 id="conservation-laws">Conservation laws</h2>
+<p>In an isolated system:</p>
+<ul><li><p>Total energy is conserved</p></li><li><p>Total momentum is conserved</p></li><li><p>Angular momentum is conserved</p></li></ul>
+<p>For collisions, use:</p>
+<div class="math-block">$$
+\sum E_{in} = \sum E_{out}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+\sum \mathbf{p}_{in} = \sum \mathbf{p}_{out}
+$$</div>
+<h2 id="inelastic-collisions">Inelastic collisions</h2>
+<p>In relativity, kinetic energy can be converted into rest mass and vice versa, as long as total energy is conserved.</p>
+<h2 id="threshold-and-reaction-problems">Threshold and reaction problems</h2>
+<p>For particle reactions, use the invariant quantity before and after the event. The center-of-momentum frame is often the cleanest choice because the total momentum is zero there.</p>
+<h2 id="practical-workflow">Practical workflow</h2>
+<ol><li><p>Identify the reference frame.</p></li><li><p>Write energy and momentum conservation.</p></li><li><p>Use the relativistic energy-momentum relation.</p></li><li><p>Keep $c$ explicit until the final step.</p></li><li><p>Check whether the result stays below $c$ for any material particle.</p></li></ol>
+<h2 id="four-vectors-in-special-relativity">Four-vectors in special relativity</h2>
+<p>A four-vector is an object whose components transform by the Lorentz transformation. With the $(+---)$ metric convention, the position four-vector is</p>
+<div class="math-block">$$
+X^\mu=(ct,x,y,z),\qquad X_\mu=\eta_{\mu\nu}X^\nu,
+$$</div>
+<p>where $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$. Its invariant norm is $X_\mu X^\mu=c^2t^2-\mathbf{x}^2$. Important examples are:</p>
+<ul><li><p>four-velocity: $U^\mu=dX^\mu/d\tau=\gamma(c,\mathbf v)$;</p></li><li><p>four-momentum: $P^\mu=mU^\mu=(E/c,\mathbf p)$;</p></li><li><p>four-current: $J^\mu=(c\rho,\mathbf J)$;</p></li><li><p>four-gradient: $\partial_\mu=(c^{-1}\partial_t,\nabla)$, with index placement set by the metric.</p></li></ul>
+<p>The four-momentum invariant gives</p>
+<div class="math-block">$$
+P_\mu P^\mu=\frac{E^2}{c^2}-p^2=m^2c^2,
+$$</div>
+<p>which is equivalent to $E^2=(pc)^2+(mc^2)^2$. Four-vector notation makes conservation laws frame-independent: $\sum P^\mu_{\rm in}=\sum P^\mu_{\rm out}$.</p>
+<h2 id="electromagnetism-in-covariant-form">Electromagnetism in covariant form</h2>
+<p>The scalar and vector potentials combine into the four-potential</p>
+<div class="math-block">$$
+A^\mu=\left(\frac{\phi}{c},\mathbf A\right),
+$$</div>
+<p>and the electromagnetic field is represented by the antisymmetric field tensor $F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$. Its components contain $\mathbf E$ and $\mathbf B$; therefore electric and magnetic fields are frame-dependent parts of one electromagnetic field.</p>
+<p>Maxwell&#39;s equations become</p>
+<div class="math-block">$$
+\partial_\mu F^{\mu\nu}=\mu_0J^\nu,\qquad
+\partial_{[\alpha}F_{\beta\gamma]}=0.
+$$</div>
+<p>The first equation contains Gauss&#39;s law and the AmpÃ¨re–Maxwell law; the second contains Gauss&#39;s law for magnetism and Faraday&#39;s law. A gauge transformation $A^\mu\mapsto A^\mu+\partial^\mu\Lambda$ leaves $F^{\mu\nu}$ unchanged. The Lorentz force law is $dp^\mu/d\tau=qF^{\mu\nu}U_\nu$, and charge conservation is $\partial_\mu J^\mu=0$.</p>
+<hr />
+<h1 id="general-relativity">General Relativity</h1>
+<p>Path: <code>physics/general-relativity</code></p>
+<p>General relativity describes gravity as geometry: matter determines spacetime curvature, and freely falling matter follows geodesics.</p>
+<h2 id="tensors-and-manifolds">Tensors and manifolds</h2>
+<p>A smooth four-dimensional manifold is a set of events that locally resembles $\mathbb R^4$. Coordinates $x^\mu$ are labels, not physical objects. A tensor is a geometric object whose components transform consistently under coordinate changes. The metric $g_{\mu\nu}$ defines lengths and inner products,</p>
+<div class="math-block">$$
+ds^2=g_{\mu\nu}dx^\mu dx^\nu,
+$$</div>
+<p>and raises or lowers indices: $V_\mu=g_{\mu\nu}V^\nu$. Tensor equations are useful because they have the same meaning in every coordinate system.</p>
+<h2 id="metrics-and-geodesics">Metrics and geodesics</h2>
+<p>The Levi–Civita connection is</p>
+<div class="math-block">$$
+\Gamma^\rho_{\mu\nu}=\frac12g^{\rho\sigma}
+(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu}).
+$$</div>
+<p>Free particles follow geodesics,</p>
+<div class="math-block">$$
+\frac{d^2x^\rho}{d\tau^2}+\Gamma^\rho_{\mu\nu}
+\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=0.
+$$</div>
+<p>Null geodesics describe light rays; timelike geodesics describe massive freely falling particles. Gravitational and kinematic time dilation are consequences of the metric and the observer&#39;s worldline.</p>
+<h2 id="curvature">Curvature</h2>
+<p>Curvature is measured by the Riemann tensor</p>
+<div class="math-block">$$
+R^\rho{}_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}
++\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}.
+$$</div>
+<p>Contractions give the Ricci tensor $R_{\mu\nu}=R^\rho{}_{\mu\rho\nu}$ and scalar $R=g^{\mu\nu}R_{\mu\nu}$. The Einstein tensor $G_{\mu\nu}=R_{\mu\nu}-\tfrac12Rg_{\mu\nu}$ is divergence-free, ensuring consistency with local stress-energy conservation.</p>
+<h2 id="einstein-field-equations">Einstein field equations</h2>
+<div class="math-block">$$
+G_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}.
+$$</div>
+<p>Here $T_{\mu\nu}$ contains energy density, momentum density, pressure, and stresses; $\Lambda$ is the cosmological constant. In weak, slowly varying fields these equations reduce to Newtonian gravity.</p>
+<h2 id="schwarzschild-spacetime">Schwarzschild spacetime</h2>
+<p>Outside a static, spherically symmetric, uncharged mass $M$,</p>
+<div class="math-block">$$
+ds^2=-\left(1-\frac{2GM}{rc^2}\right)c^2dt^2+
+\left(1-\frac{2GM}{rc^2}\right)^{-1}dr^2+r^2d\Omega^2.
+$$</div>
+<p>The Schwarzschild radius is $r_s=2GM/c^2$. The surface $r=r_s$ is an event horizon in these coordinates, while $r=0$ is a curvature singularity. Observable effects include gravitational redshift, perihelion precession, light deflection, and black-hole orbital dynamics.</p>
+<h2 id="gravitational-waves">Gravitational waves</h2>
+<p>Small perturbations $h_{\mu\nu}$ about flat spacetime, $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$, contain transverse, tensorial ripples that propagate at $c$. In the far field, changing quadrupole moments generate waves; an isolated system&#39;s changing mass dipole does not. The waves carry energy and produce measurable tidal strain, detected by comparing the separations of freely falling test masses.</p>
+<h2 id="cosmological-applications">Cosmological applications</h2>
+<p>Homogeneity and isotropy lead to the FLRW metric and scale factor $a(t)$. Einstein&#39;s equations yield the Friedmann equations,</p>
+<div class="math-block">$$
+H^2=\left(\frac{\dot a}{a}\right)^2=\frac{8\pi G}{3}\rho-\frac{kc^2}{a^2}+\frac{\Lambda c^2}{3},
+$$</div>
+<p>with matter density $\rho$, spatial-curvature parameter $k$, and cosmological constant $\Lambda$. They describe cosmic expansion, redshift, curvature, and the influence of matter, radiation, and dark energy. The conservation equation $\dot\rho+3H(\rho+p/c^2)=0$ connects expansion to the equation of state.</p>
+<hr />
+<h1 id="general-relativity-gravity-as-geometry">General relativity: gravity as geometry</h1>
+<p>Special relativity handles inertial frames. General relativity extends the framework to accelerated frames and gravity.</p>
+<h2 id="core-idea">Core idea</h2>
+<p>Gravity is not treated as an ordinary force in the Newtonian sense. Instead, mass-energy curves spacetime, and free-falling objects follow geodesics in that curved spacetime.</p>
+<h2 id="equivalence-principle">Equivalence principle</h2>
+<p>Locally, being in a small freely falling elevator is indistinguishable from being in gravity-free inertial motion.</p>
+<p>This principle explains why gravitational effects can be modeled geometrically.</p>
+<h2 id="stress-energy-source">Stress-energy source</h2>
+<p>Matter and energy determine curvature. In broad terms:</p>
+<ul><li><p>Energy density curves spacetime</p></li><li><p>Curved spacetime affects motion</p></li></ul>
+<p>The full field equations are beyond most introductory treatments, but the conceptual link is essential.</p>
+<h2 id="when-general-relativity-matters">When general relativity matters</h2>
+<p>General relativity is important for:</p>
+<ul><li><p>GPS timing corrections</p></li><li><p>Black holes and neutron stars</p></li><li><p>Precision orbital dynamics</p></li><li><p>Gravitational lensing</p></li><li><p>Cosmology</p></li></ul>
+<hr />
+<h1 id="gravitational-time-dilation-and-light-bending">Gravitational time dilation and light bending</h1>
+<h2 id="gravitational-time-dilation">Gravitational time dilation</h2>
+<p>Clocks deeper in a gravitational field tick more slowly relative to clocks higher up.</p>
+<p>Near a non-rotating spherical body, the qualitative result is:</p>
+<ul><li><p>Lower gravitational potential means slower clock rate</p></li><li><p>Higher gravitational potential means faster clock rate</p></li></ul>
+<p>This effect is measurable and must be corrected in satellite navigation.</p>
+<h2 id="gravitational-redshift">Gravitational redshift</h2>
+<p>Light climbing out of a gravitational field loses frequency and gains wavelength.</p>
+<p>If frequency decreases, then:</p>
+<div class="math-block">$$
+E = hf
+$$</div>
+<p>also decreases for the photon.</p>
+<h2 id="light-bending">Light bending</h2>
+<p>Light follows curved spacetime, so its path bends near massive objects.</p>
+<p>This is one of the classic observational tests of general relativity.</p>
+<hr />
+<h1 id="common-problem-solving-workflow">Common problem-solving workflow</h1>
+<p>Use this workflow for most relativity problems.</p>
+<h2 id="step-1-identify-the-regime">Step 1: Identify the regime</h2>
+<p>Decide whether the problem is:</p>
+<ul><li><p>Special relativity</p></li><li><p>General relativity</p></li><li><p>A classical limit where relativistic corrections are negligible</p></li></ul>
+<h2 id="step-2-choose-the-right-frame">Step 2: Choose the right frame</h2>
+<p>Pick the frame where the geometry or conservation law is simplest.</p>
+<p>Common good choices:</p>
+<ul><li><p>Rest frame of the particle</p></li><li><p>Rest frame of the clock</p></li><li><p>Center-of-momentum frame</p></li><li><p>Frame in which an event occurs at a single point</p></li></ul>
+<h2 id="step-3-list-invariants">Step 3: List invariants</h2>
+<p>Useful invariants include:</p>
+<ul><li><p>Speed of light $c$</p></li><li><p>Spacetime interval</p></li><li><p>Rest mass</p></li><li><p>Total energy-momentum relation</p></li></ul>
+<h2 id="step-4-translate-the-geometry-correctly">Step 4: Translate the geometry correctly</h2>
+<p>Be explicit about:</p>
+<ul><li><p>Which events are simultaneous in which frame</p></li><li><p>Which length is proper length</p></li><li><p>Which time is proper time</p></li></ul>
+<h2 id="step-5-write-the-governing-equations">Step 5: Write the governing equations</h2>
+<p>For special relativity:</p>
+<div class="math-block">$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$</div>
+<div class="math-block">$$
+\Delta t = \gamma \Delta \tau
+$$</div>
+<div class="math-block">$$
+E^2 = (pc)^2 + (mc^2)^2
+$$</div>
+<p>For collisions:</p>
+<div class="math-block">$$
+\sum E_{in} = \sum E_{out}
+$$</div>
+<div class="math-block">$$
+\sum \mathbf{p}_{in} = \sum \mathbf{p}_{out}
+$$</div>
+<h2 id="step-6-check-limits">Step 6: Check limits</h2>
+<p>Verify that your result reduces to the classical answer when $v \ll c$.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="lorentz-factor">Lorentz factor</h2>
+<div class="math-block">$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$</div>
+<h2 id="lorentz-transformations-2">Lorentz transformations</h2>
+<div class="math-block">$$
+x&#39; = \gamma(x-vt)
+$$</div>
+<div class="math-block">$$
+t&#39; = \gamma\left(t-\frac{vx}{c^2}\right)
+$$</div>
+<h2 id="interval">Interval</h2>
+<div class="math-block">$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+$$</div>
+<h2 id="time-dilation-2">Time dilation</h2>
+<div class="math-block">$$
+\Delta t = \gamma \Delta \tau
+$$</div>
+<h2 id="length-contraction-2">Length contraction</h2>
+<div class="math-block">$$
+L = \frac{L_0}{\gamma}
+$$</div>
+<h2 id="velocity-addition-2">Velocity addition</h2>
+<div class="math-block">$$
+u = \frac{u&#39;+v}{1+\frac{u&#39;v}{c^2}}
+$$</div>
+<h2 id="momentum-and-energy">Momentum and energy</h2>
+<div class="math-block">$$
+\mathbf{p} = \gamma m\mathbf{v}
+$$</div>
+<div class="math-block">$$
+E = \gamma mc^2
+$$</div>
+<div class="math-block">$$
+E_0 = mc^2
+$$</div>
+<div class="math-block">$$
+K = (\gamma - 1)mc^2
+$$</div>
+<div class="math-block">$$
+E^2 = (pc)^2 + (mc^2)^2
+$$</div>
+<h2 id="photon-relations">Photon relations</h2>
+<p>For light:</p>
+<div class="math-block">$$
+E = hf
+$$</div>
+<div class="math-block">$$
+E = pc
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Using Galilean velocity addition when speeds are relativistic.</p></li><li><p>Treating coordinate time as proper time.</p></li><li><p>Forgetting that proper length is measured in the object&#39;s rest frame.</p></li><li><p>Assuming simultaneity is universal.</p></li><li><p>Mixing up which frame is $S$ and which is $S&#39;$ in Lorentz transformations.</p></li><li><p>Dropping factors of $c$ too early.</p></li><li><p>Using $K = \frac{1}{2}mv^2$ at high speed.</p></li><li><p>Forgetting that momentum is $\gamma mv$, not just $mv$.</p></li><li><p>Applying special-relativity formulas to strong gravity without checking the model.</p></li><li><p>Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p>Halliday, Resnick, and Walker, <em>Fundamentals of Physics</em></p></li><li><p>Serway and Jewett, <em>Physics for Scientists and Engineers</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Griffiths, <em>Introduction to Quantum Mechanics</em></p></li><li><p>Taylor, <em>Classical Mechanics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="why-relativity-is-needed">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Why relativity is needed">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#when-to-use-relativity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="why-relativity-is-needed">When to use relativity</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="special-relativity-postulates-and-frames" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Special relativity: postulates and frames">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#postulates" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-relativity-postulates-and-frames">Postulates</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reference-frames" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-relativity-postulates-and-frames">Reference frames</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#events" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="special-relativity-postulates-and-frames">Events</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="lorentz-transformations" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Lorentz transformations">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#galilean-limit" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lorentz-transformations">Galilean limit</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lorentz-transformations">Interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="spacetime-interval-and-causality" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Spacetime interval and causality">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interval-classification" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spacetime-interval-and-causality">Interval classification</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proper-time" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="spacetime-interval-and-causality">Proper time</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="time-dilation-and-length-contraction" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Time dilation and length contraction">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-dilation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="time-dilation-and-length-contraction">Time dilation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#length-contraction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="time-dilation-and-length-contraction">Length contraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#proper-quantities" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="time-dilation-and-length-contraction">Proper quantities</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="relativity-of-simultaneity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Relativity of simultaneity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-it-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativity-of-simultaneity">Why it matters</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-interpretation-trap" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativity-of-simultaneity">Common interpretation trap</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="velocity-and-acceleration-in-relativity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Velocity and acceleration in relativity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#velocity-addition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="velocity-and-acceleration-in-relativity">Velocity addition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-speeds-do-not-simply-add" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="velocity-and-acceleration-in-relativity">Why speeds do not simply add</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relativistic-momentum-direction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="velocity-and-acceleration-in-relativity">Relativistic momentum direction</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="energy-and-momentum" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Energy and momentum">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relativistic-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Relativistic momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#total-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Total energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rest-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Rest energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kinetic-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Kinetic energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-momentum-relation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Energy-momentum relation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#four-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="energy-and-momentum">Four-momentum</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="relativistic-dynamics-and-collisions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Relativistic dynamics and collisions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Conservation laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inelastic-collisions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Inelastic collisions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#threshold-and-reaction-problems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Threshold and reaction problems</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#practical-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Practical workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#four-vectors-in-special-relativity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Four-vectors in special relativity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electromagnetism-in-covariant-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="relativistic-dynamics-and-collisions">Electromagnetism in covariant form</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="general-relativity" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for General Relativity">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#tensors-and-manifolds" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Tensors and manifolds</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#metrics-and-geodesics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Metrics and geodesics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#curvature" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Curvature</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#einstein-field-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Einstein field equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#schwarzschild-spacetime" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Schwarzschild spacetime</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitational-waves" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Gravitational waves</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cosmological-applications" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity">Cosmological applications</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="general-relativity-gravity-as-geometry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for General relativity: gravity as geometry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-idea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity-gravity-as-geometry">Core idea</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equivalence-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity-gravity-as-geometry">Equivalence principle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stress-energy-source" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity-gravity-as-geometry">Stress-energy source</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#when-general-relativity-matters" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-relativity-gravity-as-geometry">When general relativity matters</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="gravitational-time-dilation-and-light-bending" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Gravitational time dilation and light bending">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitational-time-dilation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitational-time-dilation-and-light-bending">Gravitational time dilation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitational-redshift" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitational-time-dilation-and-light-bending">Gravitational redshift</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#light-bending" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitational-time-dilation-and-light-bending">Light bending</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-identify-the-regime" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 1: Identify the regime</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-choose-the-right-frame" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 2: Choose the right frame</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-list-invariants" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 3: List invariants</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-translate-the-geometry-correctly" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 4: Translate the geometry correctly</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-write-the-governing-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 5: Write the governing equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-6-check-limits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-problem-solving-workflow">Step 6: Check limits</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lorentz-factor" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Lorentz factor</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lorentz-transformations-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Lorentz transformations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interval" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Interval</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#time-dilation-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Time dilation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#length-contraction-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Length contraction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#velocity-addition-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Velocity addition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#momentum-and-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Momentum and energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#photon-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Photon relations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-mistakes-to-avoid" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common mistakes to avoid">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-mistakes-to-avoid">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Probability | Adriamics Study</title>
+  <meta name="description" content="Probability is the mathematics of uncertainty. A probability model has three parts:" />
+  <link rel="canonical" href="https://adriamics.com/study/math/probability/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/math/probability/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#probability-language-and-sample-spaces" data-notes-nav-item data-notes-toc-link>Probability language and sample spaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#counting-methods" data-notes-nav-item data-notes-toc-link>Counting methods</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#axioms-and-basic-rules" data-notes-nav-item data-notes-toc-link>Axioms and basic rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditional-probability-and-bayes-theorem" data-notes-nav-item data-notes-toc-link>Conditional probability and Bayes&#39; theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#random-variables" data-notes-nav-item data-notes-toc-link>Random variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#expectation-variance-and-moments" data-notes-nav-item data-notes-toc-link>Expectation, variance, and moments</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-discrete-distributions" data-notes-nav-item data-notes-toc-link>Common discrete distributions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-continuous-distributions" data-notes-nav-item data-notes-toc-link>Common continuous distributions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#joint-distributions-and-dependence" data-notes-nav-item data-notes-toc-link>Joint distributions and dependence</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#law-of-large-numbers-and-central-limit-theorem" data-notes-nav-item data-notes-toc-link>Law of large numbers and central limit theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-sheet" data-notes-nav-item data-notes-toc-link>Formula sheet</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes-to-avoid" data-notes-nav-item data-notes-toc-link>Common mistakes to avoid</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#quick-reference-for-modeling" data-notes-nav-item data-notes-toc-link>Quick reference for modeling</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Probability</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/math/probability/probability.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fmath%2Fprobability%2Fprobability.md&amp;title=%5BContribute%5D%3A%20Probability" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="2"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/probability/" data-notes-nav-item>Probability</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="probability-language-and-sample-spaces">Probability language and sample spaces</h1>
+<p>Probability is the mathematics of uncertainty. A probability model has three parts:</p>
+<ul><li><p>A <strong>sample space</strong> $\Omega$ of possible outcomes</p></li><li><p>A <strong>collection of events</strong> built from subsets of $\Omega$</p></li><li><p>A <strong>probability measure</strong> $P$ assigning likelihoods to events</p></li></ul>
+<blockquote></blockquote>
+<h2 id="outcomes-events-and-sample-spaces">Outcomes, events, and sample spaces</h2>
+<p>An <strong>outcome</strong> is one possible result of an experiment.</p>
+<p>A <strong>sample space</strong> $\Omega$ is the set of all outcomes.</p>
+<p>An <strong>event</strong> is a subset of the sample space.</p>
+<p>Examples:</p>
+<ul><li><p>Tossing a coin once: $\Omega = \{\text{H}, \text{T}\}$</p></li><li><p>Rolling a die: $\Omega = \{1,2,3,4,5,6\}$</p></li><li><p>Drawing a card from a standard deck: $\Omega$ has 52 outcomes</p></li></ul>
+<h2 id="event-operations">Event operations</h2>
+<p>If $A$ and $B$ are events:</p>
+<ul><li><p>$A^c$ means &quot;not $A$&quot;</p></li><li><p>$A \cup B$ means $A$ or $B$ or both</p></li><li><p>$A \cap B$ means $A$ and $B$</p></li><li><p>$A \setminus B$ means $A$ occurs and $B$ does not</p></li></ul>
+<p>Disjoint events satisfy:</p>
+<div class="math-block">$$
+A \cap B = \varnothing
+$$</div>
+<h2 id="equally-likely-outcomes">Equally likely outcomes</h2>
+<p>If all outcomes in a finite sample space are equally likely, then</p>
+<div class="math-block">$$
+P(A) = \frac{|A|}{|\Omega|}
+$$</div>
+<p>This is the classical model used in many introductory problems.</p>
+<h2 id="probability-as-a-number">Probability as a number</h2>
+<p>For any event $A$:</p>
+<div class="math-block">$$
+0 \le P(A) \le 1
+$$</div>
+<p>Interpretation:</p>
+<ul><li><p>$P(A)=0$ means impossible in the model</p></li><li><p>$P(A)=1$ means certain in the model</p></li><li><p>Values near 0 or 1 mean very unlikely or very likely</p></li></ul>
+<hr />
+<h1 id="counting-methods">Counting methods</h1>
+<p>Counting is often the first step in a probability problem. If you can count outcomes correctly, the probability usually follows.</p>
+<h2 id="product-rule">Product rule</h2>
+<p>If a process has $m$ choices for one step and $n$ choices for a second step, then the total number of outcomes is</p>
+<div class="math-block">$$
+mn
+$$</div>
+<p>More generally, multiply the number of choices at each step.</p>
+<h2 id="factorial">Factorial</h2>
+<p>The factorial of a positive integer $n$ is</p>
+<div class="math-block">$$
+n! = n(n-1)(n-2)\cdots 2 \cdot 1
+$$</div>
+<p>with</p>
+<div class="math-block">$$
+0! = 1
+$$</div>
+<h2 id="permutations">Permutations</h2>
+<p>The number of ways to arrange $r$ objects chosen from $n$ distinct objects is</p>
+<div class="math-block">$$
+{}_nP_r = \frac{n!}{(n-r)!}
+$$</div>
+<p>Use permutations when order matters.</p>
+<p>Example:</p>
+<ul><li><p>Assigning gold, silver, and bronze to 10 runners</p></li></ul>
+<h2 id="combinations">Combinations</h2>
+<p>The number of ways to choose $r$ objects from $n$ distinct objects is</p>
+<div class="math-block">$$
+{n \choose r} = \frac{n!}{r!(n-r)!}
+$$</div>
+<p>Use combinations when order does not matter.</p>
+<p>Example:</p>
+<ul><li><p>Choosing 3 students from a class of 12</p></li></ul>
+<h2 id="with-and-without-replacement">With and without replacement</h2>
+<ul><li><p><strong>With replacement</strong>: an object can be used again, so counts often stay the same from step to step</p></li><li><p><strong>Without replacement</strong>: counts change after each selection</p></li></ul>
+<h2 id="common-counting-patterns">Common counting patterns</h2>
+<h3 id="arrangements-with-repeated-objects">Arrangements with repeated objects</h3>
+<p>If $n$ objects contain repeats of sizes $n_1,n_2,\dots,n_k$, the number of distinct arrangements is</p>
+<div class="math-block">$$
+\frac{n!}{n_1!n_2!\cdots n_k!}
+$$</div>
+<h3 id="stars-and-bars">Stars and bars</h3>
+<p>The number of nonnegative integer solutions to</p>
+<div class="math-block">$$
+x_1 + x_2 + \cdots + x_k = n
+$$</div>
+<p>is</p>
+<div class="math-block">$$
+{n+k-1 \choose k-1}
+$$</div>
+<p>This is useful for allocation and composition problems.</p>
+<hr />
+<h1 id="axioms-and-basic-rules">Axioms and basic rules</h1>
+<p>Probability obeys a few core rules. Most other formulas come from these.</p>
+<h2 id="kolmogorov-axioms">Kolmogorov axioms</h2>
+<p>For any event $A$:</p>
+<ol><li><p>$P(A) \ge 0$</p></li><li><p>$P(\Omega) = 1$</p></li><li><p>If $A_1, A_2, \dots$ are pairwise disjoint, then</p></li></ol>
+<div class="math-block">$$
+P\left(\bigcup_{i=1}^{\infty} A_i\right) = \sum_{i=1}^{\infty} P(A_i)
+$$</div>
+<h2 id="complement-rule">Complement rule</h2>
+<div class="math-block">$$
+P(A^c) = 1 - P(A)
+$$</div>
+<p>This is often the fastest way to compute a probability.</p>
+<h2 id="addition-rule">Addition rule</h2>
+<p>For any two events $A$ and $B$:</p>
+<div class="math-block">$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$</div>
+<p>If $A$ and $B$ are disjoint:</p>
+<div class="math-block">$$
+P(A \cup B) = P(A) + P(B)
+$$</div>
+<h2 id="inclusion-exclusion">Inclusion-exclusion</h2>
+<p>For three events:</p>
+<div class="math-block">$$
+P(A \cup B \cup C)
+= P(A)+P(B)+P(C)
+- P(A\cap B)-P(A\cap C)-P(B\cap C)
+ + P(A\cap B\cap C)
+$$</div>
+<p>This extends to more events with alternating signs.</p>
+<h2 id="union-bound">Union bound</h2>
+<p>For events $A_1,\dots,A_n$:</p>
+<div class="math-block">$$
+P\left(\bigcup_{i=1}^n A_i\right) \le \sum_{i=1}^n P(A_i)
+$$</div>
+<p>The union bound is useful for quick upper bounds.</p>
+<hr />
+<h1 id="conditional-probability-and-bayes-theorem">Conditional probability and Bayes&#39; theorem</h1>
+<p>Conditional probability updates probability after new information is observed.</p>
+<h2 id="conditional-probability">Conditional probability</h2>
+<p>If $P(B) &gt; 0$, then</p>
+<div class="math-block">$$
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}
+$$</div>
+<p>This is the probability of $A$ given that $B$ has occurred.</p>
+<p>Rearranging gives the multiplication rule:</p>
+<div class="math-block">$$
+P(A \cap B) = P(A \mid B)P(B)
+$$</div>
+<p>and also</p>
+<div class="math-block">$$
+P(A \cap B) = P(B \mid A)P(A)
+$$</div>
+<h2 id="independence">Independence</h2>
+<p>Events $A$ and $B$ are independent if</p>
+<div class="math-block">$$
+P(A \cap B) = P(A)P(B)
+$$</div>
+<p>Equivalent forms:</p>
+<div class="math-block">$$
+P(A \mid B) = P(A)
+$$</div>
+<div class="math-block">$$
+P(B \mid A) = P(B)
+$$</div>
+<p>Independence is a structural statement, not just a numerical coincidence in one example.</p>
+<h2 id="law-of-total-probability">Law of total probability</h2>
+<p>If $B_1,\dots,B_n$ are disjoint, exhaustive events with $P(B_i)&gt;0$, then</p>
+<div class="math-block">$$
+P(A) = \sum_{i=1}^n P(A \mid B_i)P(B_i)
+$$</div>
+<p>This is often used with partitions such as machine types, disease status, or urn colors.</p>
+<h2 id="bayes-theorem">Bayes&#39; theorem</h2>
+<p>For $P(B)&gt;0$:</p>
+<div class="math-block">$$
+P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}
+$$</div>
+<p>If $\{A_i\}$ is a partition, then</p>
+<div class="math-block">$$
+P(A_i \mid B) =
+\frac{P(B \mid A_i)P(A_i)}{\sum_j P(B \mid A_j)P(A_j)}
+$$</div>
+<p>This is the standard framework for diagnosis and classification problems.</p>
+<h2 id="diagnostic-interpretation">Diagnostic interpretation</h2>
+<p>In a test problem:</p>
+<ul><li><p>Prior probability: $P(A)$</p></li><li><p>Likelihood: $P(B \mid A)$</p></li><li><p>Evidence: $P(B)$</p></li><li><p>Posterior probability: $P(A \mid B)$</p></li></ul>
+<p>Bayes&#39; theorem converts a test result into an updated belief about the underlying cause.</p>
+<hr />
+<h1 id="random-variables">Random variables</h1>
+<p>A <strong>random variable</strong> maps outcomes to numbers.</p>
+<h2 id="discrete-random-variables">Discrete random variables</h2>
+<p>A discrete random variable takes countably many values.</p>
+<p>Its probability mass function (pmf) is</p>
+<div class="math-block">$$
+p_X(x) = P(X=x)
+$$</div>
+<p>Properties:</p>
+<ul><li><p>$p_X(x) \ge 0$</p></li><li><p>$\sum_x p_X(x) = 1$</p></li></ul>
+<p>The cumulative distribution function (cdf) is</p>
+<div class="math-block">$$
+F_X(x) = P(X \le x)
+$$</div>
+<h2 id="continuous-random-variables">Continuous random variables</h2>
+<p>A continuous random variable has probability density function (pdf) $f_X(x)$.</p>
+<p>Properties:</p>
+<ul><li><p>$f_X(x) \ge 0$</p></li><li><p>$\int_{-\infty}^{\infty} f_X(x)\,dx = 1$</p></li></ul>
+<p>Probabilities come from areas:</p>
+<div class="math-block">$$
+P(a \le X \le b) = \int_a^b f_X(x)\,dx
+$$</div>
+<p>For continuous variables,</p>
+<div class="math-block">$$
+P(X=x) = 0
+$$</div>
+<h2 id="cdf-for-continuous-and-discrete-variables">CDF for continuous and discrete variables</h2>
+<p>For any random variable:</p>
+<div class="math-block">$$
+F_X(x) = P(X \le x)
+$$</div>
+<p>For continuous random variables:</p>
+<div class="math-block">$$
+f_X(x) = \frac{d}{dx}F_X(x)
+$$</div>
+<p>where differentiation is valid when the CDF is smooth enough.</p>
+<h2 id="transformations">Transformations</h2>
+<p>If $Y = g(X)$, then find the distribution of $Y$ by:</p>
+<ol><li><p>Relating $Y$ to $X$</p></li><li><p>Solving for the relevant interval in terms of $X$</p></li><li><p>Integrating or summing over that interval</p></li></ol>
+<p>For monotone transformations of continuous variables, the pdf can often be obtained via the change-of-variables formula.</p>
+<hr />
+<h1 id="expectation-variance-and-moments">Expectation, variance, and moments</h1>
+<p>Expectation is the long-run average value of a random variable.</p>
+<h2 id="expected-value">Expected value</h2>
+<p>For a discrete random variable $X$:</p>
+<div class="math-block">$$
+E[X] = \sum_x x\,p_X(x)
+$$</div>
+<p>For a continuous random variable:</p>
+<div class="math-block">$$
+E[X] = \int_{-\infty}^{\infty} x f_X(x)\,dx
+$$</div>
+<p>More generally, for any function $g$:</p>
+<div class="math-block">$$
+E[g(X)] = \sum_x g(x)p_X(x)
+$$</div>
+<p>or</p>
+<div class="math-block">$$
+E[g(X)] = \int_{-\infty}^{\infty} g(x)f_X(x)\,dx
+$$</div>
+<p>This is the <strong>law of the unconscious statistician</strong>.</p>
+<h2 id="linearity-of-expectation">Linearity of expectation</h2>
+<p>Expectation is linear even when variables are dependent:</p>
+<div class="math-block">$$
+E[aX+bY+c] = aE[X] + bE[Y] + c
+$$</div>
+<p>For sums:</p>
+<div class="math-block">$$
+E\left[\sum_{i=1}^n X_i\right] = \sum_{i=1}^n E[X_i]
+$$</div>
+<p>This is one of the most useful tools in probability.</p>
+<h2 id="variance">Variance</h2>
+<p>Variance measures spread around the mean:</p>
+<div class="math-block">$$
+\mathrm{Var}(X) = E[(X-\mu)^2]
+$$</div>
+<p>where $\mu = E[X]$.</p>
+<p>Equivalent form:</p>
+<div class="math-block">$$
+\mathrm{Var}(X) = E[X^2] - (E[X])^2
+$$</div>
+<p>Standard deviation:</p>
+<div class="math-block">$$
+\sigma_X = \sqrt{\mathrm{Var}(X)}
+$$</div>
+<h2 id="covariance">Covariance</h2>
+<p>For random variables $X$ and $Y$:</p>
+<div class="math-block">$$
+\mathrm{Cov}(X,Y) = E[(X-E[X])(Y-E[Y])]
+$$</div>
+<p>Equivalent form:</p>
+<div class="math-block">$$
+\mathrm{Cov}(X,Y) = E[XY] - E[X]E[Y]
+$$</div>
+<p>If $X$ and $Y$ are independent, then</p>
+<div class="math-block">$$
+\mathrm{Cov}(X,Y)=0
+$$</div>
+<p>The converse is not always true.</p>
+<h2 id="correlation">Correlation</h2>
+<p>The correlation coefficient is</p>
+<div class="math-block">$$
+\rho_{X,Y} =
+\frac{\mathrm{Cov}(X,Y)}{\sigma_X \sigma_Y}
+$$</div>
+<p>It lies between $-1$ and $1$.</p>
+<h2 id="moments">Moments</h2>
+<p>The $k$th raw moment is $E[X^k]$.</p>
+<p>The $k$th central moment is $E[(X-\mu)^k]$.</p>
+<p>These moments are useful for characterizing distributions.</p>
+<hr />
+<h1 id="common-discrete-distributions">Common discrete distributions</h1>
+<p>Discrete distributions model counts, categories, and repeated trials.</p>
+<h2 id="bernoulli-distribution">Bernoulli distribution</h2>
+<p>Used for one success/failure trial.</p>
+<p>For $0\le p\le1$, if $X \sim \mathrm{Bernoulli}(p)$, then</p>
+<div class="math-block">$$
+P(X=1)=p,\qquad P(X=0)=1-p
+$$</div>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X]=p
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X)=p(1-p)
+$$</div>
+<h2 id="binomial-distribution">Binomial distribution</h2>
+<p>Counts successes in $n$ independent Bernoulli trials.</p>
+<p>For an integer $n\ge0$ and $0\le p\le1$, if $X \sim \mathrm{Binomial}(n,p)$, then</p>
+<div class="math-block">$$
+P(X=k) = {n \choose k} p^k(1-p)^{n-k}
+$$</div>
+<p>for $k=0,1,\dots,n$.</p>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X]=np
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X)=np(1-p)
+$$</div>
+<p>Use when:</p>
+<ul><li><p>Fixed number of trials</p></li><li><p>Two outcomes per trial</p></li><li><p>Constant success probability</p></li><li><p>Independence across trials</p></li></ul>
+<h2 id="geometric-distribution">Geometric distribution</h2>
+<p>Models the number of trials until the first success.</p>
+<p>For $0&lt;p\le1$, if $X \sim \mathrm{Geometric}(p)$ on $\{1,2,\dots\}$, then</p>
+<div class="math-block">$$
+P(X=k) = (1-p)^{k-1}p
+$$</div>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X] = \frac{1}{p}
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X) = \frac{1-p}{p^2}
+$$</div>
+<p>Memoryless property:</p>
+<div class="math-block">$$
+P(X &gt; m+n \mid X &gt; m) = P(X &gt; n)
+$$</div>
+<h2 id="negative-binomial-distribution">Negative binomial distribution</h2>
+<p>Counts trials until the $r$th success.</p>
+<p>For an integer $r\ge1$ and $0&lt;p\le1$, if $X$ is the trial count to obtain $r$ successes:</p>
+<div class="math-block">$$
+P(X=k) = {k-1 \choose r-1} p^r(1-p)^{k-r}
+$$</div>
+<p>for $k=r,r+1,\dots$</p>
+<h2 id="poisson-distribution">Poisson distribution</h2>
+<p>Models the number of events in a fixed interval when events occur independently at average rate $\lambda$.</p>
+<p>For $\lambda&gt;0$, if $X \sim \mathrm{Poisson}(\lambda)$, then</p>
+<div class="math-block">$$
+P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
+$$</div>
+<p>for $k=0,1,2,\dots$</p>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X]=\lambda
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X)=\lambda
+$$</div>
+<p>Poisson is a common model for counts of rare events.</p>
+<h2 id="hypergeometric-distribution">Hypergeometric distribution</h2>
+<p>Used for sampling without replacement from a finite population.</p>
+<p>For integers $0\le K\le N$ and $0\le n\le N$, if a population has $N$ items, $K$ successes, and we draw $n$ items without replacement, then</p>
+<div class="math-block">$$
+P(X=k) = \frac{{K \choose k}{N-K \choose n-k}}{{N \choose n}}
+$$</div>
+<p>Mean:</p>
+<div class="math-block">$$
+E[X] = n\frac{K}{N}
+$$</div>
+<p>Use hypergeometric instead of binomial when draws are dependent because the population is finite.</p>
+<hr />
+<h1 id="common-continuous-distributions">Common continuous distributions</h1>
+<p>Continuous distributions model measurements and waiting times.</p>
+<h2 id="uniform-distribution">Uniform distribution</h2>
+<p>For $a&lt;b$, if $X \sim \mathrm{Uniform}(a,b)$, then</p>
+<div class="math-block">$$
+f_X(x) = \frac{1}{b-a}, \quad a \le x \le b
+$$</div>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X] = \frac{a+b}{2}
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X) = \frac{(b-a)^2}{12}
+$$</div>
+<h2 id="exponential-distribution">Exponential distribution</h2>
+<p>Models waiting time to the first Poisson event.</p>
+<p>For $\lambda&gt;0$, if $X \sim \mathrm{Exponential}(\lambda)$, then</p>
+<div class="math-block">$$
+f_X(x) = \lambda e^{-\lambda x}, \quad x \ge 0
+$$</div>
+<p>CDF:</p>
+<div class="math-block">$$
+F_X(x) = 1 - e^{-\lambda x}
+$$</div>
+<p>Mean and variance:</p>
+<div class="math-block">$$
+E[X] = \frac{1}{\lambda}
+$$</div>
+<div class="math-block">$$
+\mathrm{Var}(X)=\frac{1}{\lambda^2}
+$$</div>
+<p>Memoryless property:</p>
+<div class="math-block">$$
+P(X&gt;s+t \mid X&gt;s) = P(X&gt;t)
+$$</div>
+<h2 id="normal-distribution">Normal distribution</h2>
+<p>If $X \sim \mathcal{N}(\mu,\sigma^2)$, then</p>
+<div class="math-block">$$
+f_X(x) = \frac{1}{\sigma\sqrt{2\pi}}
+\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$</div>
+<p>Standardization:</p>
+<div class="math-block">$$
+Z = \frac{X-\mu}{\sigma} \sim \mathcal{N}(0,1)
+$$</div>
+<p>The normal distribution is central to approximation and inference.</p>
+<h2 id="gamma-distribution">Gamma distribution</h2>
+<p>Gamma distributions model waiting times to multiple Poisson events.</p>
+<p>If $X \sim \mathrm{Gamma}(\alpha,\lambda)$ with shape $\alpha$ and rate $\lambda$, then</p>
+<div class="math-block">$$
+f_X(x) = \frac{\lambda^\alpha}{\Gamma(\alpha)}x^{\alpha-1}e^{-\lambda x}, \quad x \ge 0
+$$</div>
+<p>Special cases:</p>
+<ul><li><p>Exponential distribution when $\alpha=1$</p></li><li><p>Chi-square distribution as a gamma special case</p></li></ul>
+<h2 id="beta-distribution">Beta distribution</h2>
+<p>The beta distribution is defined on $[0,1]$ and is often used for probabilities and proportions.</p>
+<p>If $X \sim \mathrm{Beta}(\alpha,\beta)$, then</p>
+<div class="math-block">$$
+f_X(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad 0 \le x \le 1
+$$</div>
+<p>It is especially useful in Bayesian modeling.</p>
+<hr />
+<h1 id="joint-distributions-and-dependence">Joint distributions and dependence</h1>
+<p>Many problems involve multiple random variables.</p>
+<h2 id="joint-distribution">Joint distribution</h2>
+<p>For discrete variables $X$ and $Y$:</p>
+<div class="math-block">$$
+p_{X,Y}(x,y) = P(X=x, Y=y)
+$$</div>
+<p>For continuous variables:</p>
+<div class="math-block">$$
+f_{X,Y}(x,y)
+$$</div>
+<p>with probabilities obtained by double integration.</p>
+<h2 id="marginal-distributions">Marginal distributions</h2>
+<p>From the joint distribution, get the marginal of $X$ by summing or integrating out $Y$:</p>
+<p>Discrete:</p>
+<div class="math-block">$$
+p_X(x) = \sum_y p_{X,Y}(x,y)
+$$</div>
+<p>Continuous:</p>
+<div class="math-block">$$
+f_X(x) = \int_{-\infty}^{\infty} f_{X,Y}(x,y)\,dy
+$$</div>
+<h2 id="conditional-distributions">Conditional distributions</h2>
+<p>Discrete:</p>
+<div class="math-block">$$
+p_{X|Y}(x|y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}
+$$</div>
+<p>Continuous:</p>
+<div class="math-block">$$
+f_{X|Y}(x|y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}
+$$</div>
+<p>when the denominator is positive.</p>
+<h2 id="independence-of-random-variables">Independence of random variables</h2>
+<p>$X$ and $Y$ are independent if their joint distribution factors:</p>
+<p>Discrete:</p>
+<div class="math-block">$$
+p_{X,Y}(x,y) = p_X(x)p_Y(y)
+$$</div>
+<p>Continuous:</p>
+<div class="math-block">$$
+f_{X,Y}(x,y) = f_X(x)f_Y(y)
+$$</div>
+<h2 id="conditional-expectation">Conditional expectation</h2>
+<p>Conditional expectation is the mean of a random variable after conditioning on information.</p>
+<p>For a discrete conditioning event:</p>
+<div class="math-block">$$
+E[X \mid Y=y]
+$$</div>
+<p>This quantity is itself a function of $y$.</p>
+<p>Conditional expectation is useful for:</p>
+<ul><li><p>Regression</p></li><li><p>Prediction</p></li><li><p>Decomposition of variance</p></li></ul>
+<h2 id="covariance-matrix">Covariance matrix</h2>
+<p>For a vector of random variables, the covariance matrix records pairwise covariances:</p>
+<div class="math-block">$$
+\Sigma_{ij} = \mathrm{Cov}(X_i, X_j)
+$$</div>
+<p>The diagonal entries are variances.</p>
+<hr />
+<h1 id="law-of-large-numbers-and-central-limit-theorem">Law of large numbers and central limit theorem</h1>
+<p>These limit theorems explain why averages become stable and why the normal distribution appears so often.</p>
+<h2 id="law-of-large-numbers">Law of large numbers</h2>
+<p>If $X_1, X_2, \dots$ are i.i.d. with mean $\mu$, then the sample average</p>
+<div class="math-block">$$
+\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i
+$$</div>
+<p>converges to $\mu$ as $n$ grows.</p>
+<p>Interpretation:</p>
+<ul><li><p>More data usually means a more stable average</p></li><li><p>The sample mean should approach the true mean</p></li></ul>
+<h2 id="central-limit-theorem">Central limit theorem</h2>
+<p>If $X_1,\dots,X_n$ are i.i.d. with mean $\mu$ and variance $\sigma^2$, then for large $n$,</p>
+<div class="math-block">$$
+\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \approx \mathcal{N}(0,1)
+$$</div>
+<p>Equivalently,</p>
+<div class="math-block">$$
+\bar{X}_n \approx \mathcal{N}\left(\mu, \frac{\sigma^2}{n}\right)
+$$</div>
+<p>This approximation is the foundation of much of statistical inference.</p>
+<h2 id="standard-error">Standard error</h2>
+<p>The standard deviation of the sample mean is</p>
+<div class="math-block">$$
+\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}
+$$</div>
+<p>This shrinks as $n$ increases.</p>
+<h2 id="normal-approximation-to-binomial">Normal approximation to binomial</h2>
+<p>When $n$ is large and $p$ is not too close to 0 or 1, a binomial random variable can often be approximated by a normal distribution:</p>
+<div class="math-block">$$
+X \sim \mathrm{Binomial}(n,p) \approx \mathcal{N}(np, np(1-p))
+$$</div>
+<p>Use a continuity correction when appropriate.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Probability problems are usually easier if you identify the model before doing algebra.</p>
+<h2 id="step-1-define-the-experiment">Step 1: Define the experiment</h2>
+<p>Ask:</p>
+<ul><li><p>What is random?</p></li><li><p>What are the possible outcomes?</p></li><li><p>Is order important?</p></li><li><p>Are draws independent?</p></li></ul>
+<h2 id="step-2-identify-the-event">Step 2: Identify the event</h2>
+<p>Write the event clearly in words first, then in symbols.</p>
+<p>Examples:</p>
+<ul><li><p>At least one success</p></li><li><p>Exactly two defects</p></li><li><p>The first success occurs on trial 4</p></li><li><p>Given that the test was positive</p></li></ul>
+<h2 id="step-3-choose-the-right-tool">Step 3: Choose the right tool</h2>
+<p>Pick the simplest model:</p>
+<ul><li><p>Counting for finite equally likely spaces</p></li><li><p>Conditional probability for updated information</p></li><li><p>Binomial for fixed independent trials</p></li><li><p>Hypergeometric for sampling without replacement</p></li><li><p>Poisson for rare-event counts</p></li><li><p>Exponential for waiting times</p></li><li><p>Normal approximation for large-sample sums and averages</p></li></ul>
+<h2 id="step-4-compute-carefully">Step 4: Compute carefully</h2>
+<p>Useful tactics:</p>
+<ul><li><p>Use the complement when &quot;at least one&quot; is involved</p></li><li><p>Use partitions when information is grouped into cases</p></li><li><p>Use symmetry when outcomes are equivalent</p></li><li><p>Use linearity of expectation for sums of indicators</p></li></ul>
+<h2 id="step-5-check-the-result">Step 5: Check the result</h2>
+<p>Verify:</p>
+<ul><li><p>Probability is between 0 and 1</p></li><li><p>Units make sense if the variable is continuous</p></li><li><p>Independence assumptions are justified</p></li><li><p>The answer matches the event description</p></li></ul>
+<h2 id="indicator-variables">Indicator variables</h2>
+<p>If $I_A$ is the indicator of event $A$, then</p>
+<div class="math-block">$$
+I_A =
+\begin{cases}
+1, &amp; A \text{ occurs} \\
+0, &amp; A \text{ does not occur}
+\end{cases}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+E[I_A] = P(A)
+$$</div>
+<p>Indicator variables are a powerful way to count expected numbers of events.</p>
+<hr />
+<h1 id="formula-sheet">Formula sheet</h1>
+<h2 id="core-rules">Core rules</h2>
+<div class="math-block">$$
+P(A^c)=1-P(A)
+$$</div>
+<div class="math-block">$$
+P(A\cup B)=P(A)+P(B)-P(A\cap B)
+$$</div>
+<div class="math-block">$$
+P(A\mid B)=\frac{P(A\cap B)}{P(B)}
+$$</div>
+<div class="math-block">$$
+P(A\cap B)=P(A\mid B)P(B)
+$$</div>
+<div class="math-block">$$
+P(A\cap B)=P(B\mid A)P(A)
+$$</div>
+<h2 id="bayes-and-total-probability">Bayes and total probability</h2>
+<div class="math-block">$$
+P(A)=\sum_i P(A\mid B_i)P(B_i)
+$$</div>
+<div class="math-block">$$
+P(A_i\mid B)=\frac{P(B\mid A_i)P(A_i)}{\sum_j P(B\mid A_j)P(A_j)}
+$$</div>
+<h2 id="counting">Counting</h2>
+<div class="math-block">$$
+n! = n(n-1)\cdots 1
+$$</div>
+<div class="math-block">$$
+{}_nP_r = \frac{n!}{(n-r)!}
+$$</div>
+<div class="math-block">$$
+{n \choose r} = \frac{n!}{r!(n-r)!}
+$$</div>
+<h2 id="random-variables-2">Random variables</h2>
+<p>Discrete:</p>
+<div class="math-block">$$
+p_X(x)=P(X=x)
+$$</div>
+<p>Continuous:</p>
+<div class="math-block">$$
+F_X(x)=P(X\le x)
+$$</div>
+<div class="math-block">$$
+f_X(x)=\frac{d}{dx}F_X(x)
+$$</div>
+<h2 id="expectation-and-variance">Expectation and variance</h2>
+<p>Discrete:</p>
+<div class="math-block">$$
+E[X]=\sum_x x\,p_X(x)
+$$</div>
+<p>Continuous:</p>
+<div class="math-block">$$
+E[X]=\int_{-\infty}^{\infty} x f_X(x)\,dx
+$$</div>
+<p>Variance:</p>
+<div class="math-block">$$
+\mathrm{Var}(X)=E[X^2]-(E[X])^2
+$$</div>
+<p>Covariance:</p>
+<div class="math-block">$$
+\mathrm{Cov}(X,Y)=E[XY]-E[X]E[Y]
+$$</div>
+<h2 id="standard-distributions">Standard distributions</h2>
+<p>Bernoulli:</p>
+<div class="math-block">$$
+P(X=1)=p,\qquad P(X=0)=1-p
+$$</div>
+<p>Binomial:</p>
+<div class="math-block">$$
+P(X=k)={n \choose k}p^k(1-p)^{n-k}
+$$</div>
+<p>Geometric:</p>
+<div class="math-block">$$
+P(X=k)=(1-p)^{k-1}p
+$$</div>
+<p>Poisson:</p>
+<div class="math-block">$$
+P(X=k)=e^{-\lambda}\frac{\lambda^k}{k!}
+$$</div>
+<p>Exponential:</p>
+<div class="math-block">$$
+f_X(x)=\lambda e^{-\lambda x},\quad x\ge 0
+$$</div>
+<p>Normal:</p>
+<div class="math-block">$$
+Z=\frac{X-\mu}{\sigma}
+$$</div>
+<h2 id="key-moments">Key moments</h2>
+<p>Bernoulli:</p>
+<div class="math-block">$$
+E[X]=p,\quad \mathrm{Var}(X)=p(1-p)
+$$</div>
+<p>Binomial:</p>
+<div class="math-block">$$
+E[X]=np,\quad \mathrm{Var}(X)=np(1-p)
+$$</div>
+<p>Poisson:</p>
+<div class="math-block">$$
+E[X]=\lambda,\quad \mathrm{Var}(X)=\lambda
+$$</div>
+<p>Exponential:</p>
+<div class="math-block">$$
+E[X]=\frac{1}{\lambda},\quad \mathrm{Var}(X)=\frac{1}{\lambda^2}
+$$</div>
+<p>Uniform on $[a,b]$:</p>
+<div class="math-block">$$
+E[X]=\frac{a+b}{2},\quad \mathrm{Var}(X)=\frac{(b-a)^2}{12}
+$$</div>
+<h2 id="limit-theorems">Limit theorems</h2>
+<p>Sample mean:</p>
+<div class="math-block">$$
+\bar{X}_n=\frac{1}{n}\sum_{i=1}^n X_i
+$$</div>
+<p>Standard error:</p>
+<div class="math-block">$$
+\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}
+$$</div>
+<p>CLT approximation:</p>
+<div class="math-block">$$
+\frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} \approx \mathcal{N}(0,1)
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Confusing permutations with combinations.</p></li><li><p>Forgetting whether order matters.</p></li><li><p>Using the binomial model when sampling is without replacement from a small finite population.</p></li><li><p>Applying conditional probability as if events were independent.</p></li><li><p>Treating continuous variables like discrete ones, especially by assigning positive probability to a single point.</p></li><li><p>Forgetting to normalize a pdf or pmf.</p></li><li><p>Misusing Bayes&#39; theorem by swapping $P(A\mid B)$ and $P(B\mid A)$.</p></li><li><p>Ignoring the complement rule for &quot;at least one&quot; problems.</p></li><li><p>Assuming zero covariance implies independence.</p></li><li><p>Forgetting continuity corrections in normal approximations to discrete counts.</p></li></ul>
+<hr />
+<h1 id="quick-reference-for-modeling">Quick reference for modeling</h1>
+<ul><li><p>Use <strong>binomial</strong> for fixed independent trials with success probability $p$.</p></li><li><p>Use <strong>hypergeometric</strong> for sampling without replacement.</p></li><li><p>Use <strong>Poisson</strong> for counts of rare events in time or space.</p></li><li><p>Use <strong>exponential</strong> for waiting times between Poisson events.</p></li><li><p>Use <strong>normal</strong> for sums, averages, and large-sample approximations.</p></li><li><p>Use <strong>Bayes&#39; theorem</strong> when information is observed and beliefs must be updated.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="probability-language-and-sample-spaces">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Probability language and sample spaces">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#outcomes-events-and-sample-spaces" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="probability-language-and-sample-spaces">Outcomes, events, and sample spaces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#event-operations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="probability-language-and-sample-spaces">Event operations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equally-likely-outcomes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="probability-language-and-sample-spaces">Equally likely outcomes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#probability-as-a-number" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="probability-language-and-sample-spaces">Probability as a number</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="counting-methods" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Counting methods">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#product-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">Product rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#factorial" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">Factorial</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#permutations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">Permutations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#combinations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">Combinations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#with-and-without-replacement" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">With and without replacement</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-counting-patterns" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="counting-methods">Common counting patterns</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="axioms-and-basic-rules" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Axioms and basic rules">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kolmogorov-axioms" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="axioms-and-basic-rules">Kolmogorov axioms</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#complement-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="axioms-and-basic-rules">Complement rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#addition-rule" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="axioms-and-basic-rules">Addition rule</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inclusion-exclusion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="axioms-and-basic-rules">Inclusion-exclusion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#union-bound" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="axioms-and-basic-rules">Union bound</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="conditional-probability-and-bayes-theorem" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Conditional probability and Bayes&#39; theorem">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditional-probability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditional-probability-and-bayes-theorem">Conditional probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#independence" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditional-probability-and-bayes-theorem">Independence</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#law-of-total-probability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditional-probability-and-bayes-theorem">Law of total probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bayes-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditional-probability-and-bayes-theorem">Bayes&#39; theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#diagnostic-interpretation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="conditional-probability-and-bayes-theorem">Diagnostic interpretation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="random-variables" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Random variables">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#discrete-random-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="random-variables">Discrete random variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#continuous-random-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="random-variables">Continuous random variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#cdf-for-continuous-and-discrete-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="random-variables">CDF for continuous and discrete variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#transformations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="random-variables">Transformations</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="expectation-variance-and-moments" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Expectation, variance, and moments">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#expected-value" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Expected value</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linearity-of-expectation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Linearity of expectation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#variance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Variance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#covariance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Covariance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#correlation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Correlation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#moments" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="expectation-variance-and-moments">Moments</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-discrete-distributions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common discrete distributions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bernoulli-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Bernoulli distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#binomial-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Binomial distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#geometric-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Geometric distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#negative-binomial-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Negative binomial distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#poisson-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Poisson distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hypergeometric-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-discrete-distributions">Hypergeometric distribution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="common-continuous-distributions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Common continuous distributions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#uniform-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-continuous-distributions">Uniform distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#exponential-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-continuous-distributions">Exponential distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#normal-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-continuous-distributions">Normal distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gamma-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-continuous-distributions">Gamma distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#beta-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="common-continuous-distributions">Beta distribution</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="joint-distributions-and-dependence" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Joint distributions and dependence">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#joint-distribution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Joint distribution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#marginal-distributions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Marginal distributions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditional-distributions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Conditional distributions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#independence-of-random-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Independence of random variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conditional-expectation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Conditional expectation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#covariance-matrix" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="joint-distributions-and-dependence">Covariance matrix</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="law-of-large-numbers-and-central-limit-theorem" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Law of large numbers and central limit theorem">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#law-of-large-numbers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="law-of-large-numbers-and-central-limit-theorem">Law of large numbers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#central-limit-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="law-of-large-numbers-and-central-limit-theorem">Central limit theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-error" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="law-of-large-numbers-and-central-limit-theorem">Standard error</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#normal-approximation-to-binomial" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="law-of-large-numbers-and-central-limit-theorem">Normal approximation to binomial</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-1-define-the-experiment" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 1: Define the experiment</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-2-identify-the-event" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 2: Identify the event</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-3-choose-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 3: Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-4-compute-carefully" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 4: Compute carefully</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#step-5-check-the-result" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Step 5: Check the result</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#indicator-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Indicator variables</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-sheet" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula sheet">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-rules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Core rules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bayes-and-total-probability" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Bayes and total probability</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#counting" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Counting</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#random-variables-2" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Random variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#expectation-and-variance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Expectation and variance</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#standard-distributions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Standard distributions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#key-moments" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Key moments</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limit-theorems" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-sheet">Limit theorems</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="quick-reference-for-modeling" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Quick reference for modeling">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="quick-reference-for-modeling">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

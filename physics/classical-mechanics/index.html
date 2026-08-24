@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classical Mechanics | Adriamics Study</title>
+  <meta name="description" content="Kinematics describes motion without explaining its cause." />
+  <link rel="canonical" href="https://adriamics.com/study/physics/classical-mechanics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/classical-mechanics/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#kinematics-in-one-and-three-dimensions" data-notes-nav-item data-notes-toc-link>Kinematics in one and three dimensions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-laws-and-free-body-diagrams" data-notes-nav-item data-notes-toc-link>Newton&#39;s laws and free-body diagrams</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#work-energy-and-power" data-notes-nav-item data-notes-toc-link>Work, energy, and power</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#momentum-impulse-and-collisions" data-notes-nav-item data-notes-toc-link>Momentum, impulse, and collisions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rotation-and-rigid-bodies" data-notes-nav-item data-notes-toc-link>Rotation and rigid bodies</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#angular-momentum-and-torque" data-notes-nav-item data-notes-toc-link>Angular momentum and torque</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#oscillations-and-simple-harmonic-motion" data-notes-nav-item data-notes-toc-link>Oscillations and simple harmonic motion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitation-and-central-forces" data-notes-nav-item data-notes-toc-link>Gravitation and central forces</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constraints-equilibrium-and-statics" data-notes-nav-item data-notes-toc-link>Constraints, equilibrium, and statics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lagrangian-and-hamiltonian-ideas" data-notes-nav-item data-notes-toc-link>Lagrangian and Hamiltonian ideas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Classical Mechanics</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/classical-mechanics/classical-mechanics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fclassical-mechanics%2Fclassical-mechanics.md&amp;title=%5BContribute%5D%3A%20Classical%20Mechanics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/classical-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="kinematics-in-one-and-three-dimensions">Kinematics in one and three dimensions</h1>
+<p>Kinematics describes motion without explaining its cause.</p>
+<h2 id="position-velocity-and-acceleration">Position, velocity, and acceleration</h2>
+<p>In one dimension:</p>
+<div class="math-block">$$
+v = \frac{dx}{dt}
+$$</div>
+<div class="math-block">$$
+a = \frac{dv}{dt} = \frac{d^2x}{dt^2}
+$$</div>
+<p>In vector form:</p>
+<div class="math-block">$$
+\mathbf{v} = \frac{d\mathbf{r}}{dt}
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = \frac{d\mathbf{v}}{dt}
+$$</div>
+<h2 id="constant-acceleration-relations">Constant-acceleration relations</h2>
+<p>For constant acceleration in one dimension:</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<div class="math-block">$$
+v^2 = v_0^2 + 2a(x - x_0)
+$$</div>
+<div class="math-block">$$
+x - x_0 = \frac{1}{2}(v + v_0)t
+$$</div>
+<p>These are valid only when acceleration is constant.</p>
+<h2 id="projectile-motion">Projectile motion</h2>
+<p>For ideal projectile motion with no air resistance:</p>
+<ul><li><p>horizontal acceleration is zero</p></li><li><p>vertical acceleration is $-g$</p></li></ul>
+<p>So:</p>
+<div class="math-block">$$
+x(t) = x_0 + v_{0x}t
+$$</div>
+<div class="math-block">$$
+y(t) = y_0 + v_{0y}t - \frac{1}{2}gt^2
+$$</div>
+<p>The trajectory is parabolic.</p>
+<h2 id="relative-motion">Relative motion</h2>
+<p>If frame $B$ moves relative to frame $A$, then:</p>
+<div class="math-block">$$
+\mathbf{r}_{P/A} = \mathbf{r}_{P/B} + \mathbf{r}_{B/A}
+$$</div>
+<p>Velocities and accelerations follow by differentiating with respect to time.</p>
+<p>This is essential in moving-platform and rotating-frame problems.</p>
+<hr />
+<h1 id="newtons-laws-and-free-body-diagrams">Newton&#39;s laws and free-body diagrams</h1>
+<p>Newton&#39;s laws connect force to motion.</p>
+<h2 id="newtons-first-law">Newton&#39;s first law</h2>
+<p>A body remains at rest or moves with constant velocity unless acted on by a net external force.</p>
+<p>This defines an inertial frame.</p>
+<h2 id="newtons-second-law">Newton&#39;s second law</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}
+$$</div>
+<p>In components:</p>
+<div class="math-block">$$
+\sum F_x = ma_x,\quad \sum F_y = ma_y,\quad \sum F_z = ma_z
+$$</div>
+<h2 id="newtons-third-law">Newton&#39;s third law</h2>
+<p>For every action there is an equal and opposite reaction.</p>
+<p>If body A exerts a force on body B, then body B exerts an equal-magnitude opposite-direction force on body A.</p>
+<h2 id="free-body-diagrams">Free-body diagrams</h2>
+<p>A free-body diagram is the main setup tool in dynamics.</p>
+<p>Include only external forces acting on the chosen body.</p>
+<p>Typical forces:</p>
+<ul><li><p>weight: $\mathbf{W} = m\mathbf{g}$</p></li><li><p>normal force</p></li><li><p>tension</p></li><li><p>spring force: $\mathbf{F} = -k\mathbf{x}$</p></li><li><p>friction</p></li><li><p>drag</p></li></ul>
+<h2 id="friction">Friction</h2>
+<p>Static friction satisfies:</p>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<p>Kinetic friction is approximately:</p>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<p>Friction opposes relative or impending motion.</p>
+<h2 id="inertial-and-non-inertial-frames">Inertial and non-inertial frames</h2>
+<p>Newton&#39;s second law holds in inertial frames.</p>
+<p>In accelerating or rotating frames, fictitious forces may be needed to preserve a Newtonian form.</p>
+<hr />
+<h1 id="work-energy-and-power">Work, energy, and power</h1>
+<p>Energy methods are often simpler than force balance when displacement is the main unknown.</p>
+<h2 id="work">Work</h2>
+<p>For a force $\mathbf{F}$ along displacement $d\mathbf{r}$:</p>
+<div class="math-block">$$
+dW = \mathbf{F}\cdot d\mathbf{r}
+$$</div>
+<p>So total work is:</p>
+<div class="math-block">$$
+W = \int \mathbf{F}\cdot d\mathbf{r}
+$$</div>
+<p>For constant force over displacement $\Delta \mathbf{r}$:</p>
+<div class="math-block">$$
+W = \mathbf{F}\cdot \Delta \mathbf{r}
+$$</div>
+<h2 id="kinetic-energy">Kinetic energy</h2>
+<div class="math-block">$$
+T = \frac{1}{2}mv^2
+$$</div>
+<h2 id="work-energy-theorem">Work-energy theorem</h2>
+<p>Net work equals change in kinetic energy:</p>
+<div class="math-block">$$
+W_{\text{net}} = \Delta T
+$$</div>
+<h2 id="conservative-forces-and-potential-energy">Conservative forces and potential energy</h2>
+<p>A force is conservative if work depends only on initial and final positions.</p>
+<p>Examples:</p>
+<ul><li><p>gravity</p></li><li><p>ideal spring force</p></li></ul>
+<p>For conservative forces, define potential energy $V$ such that:</p>
+<div class="math-block">$$
+\mathbf{F} = -\nabla V
+$$</div>
+<p>In one dimension:</p>
+<div class="math-block">$$
+F(x) = -\frac{dV}{dx}
+$$</div>
+<p>Common potentials:</p>
+<div class="math-block">$$
+V_g = mgh
+$$</div>
+<div class="math-block">$$
+V_s = \frac{1}{2}kx^2
+$$</div>
+<h2 id="conservation-of-mechanical-energy">Conservation of mechanical energy</h2>
+<p>If only conservative forces act:</p>
+<div class="math-block">$$
+T_1 + V_1 = T_2 + V_2
+$$</div>
+<p>More generally, nonconservative work changes mechanical energy:</p>
+<div class="math-block">$$
+T_1 + V_1 + W_{nc} = T_2 + V_2
+$$</div>
+<h2 id="power">Power</h2>
+<p>Power is the rate of doing work:</p>
+<div class="math-block">$$
+P = \frac{dW}{dt}
+$$</div>
+<p>For a force:</p>
+<div class="math-block">$$
+P = \mathbf{F}\cdot \mathbf{v}
+$$</div>
+<hr />
+<h1 id="momentum-impulse-and-collisions">Momentum, impulse, and collisions</h1>
+<h2 id="linear-momentum">Linear momentum</h2>
+<div class="math-block">$$
+\mathbf{p} = m\mathbf{v}
+$$</div>
+<p>Newton&#39;s second law can be written as:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = \frac{d\mathbf{p}}{dt}
+$$</div>
+<h2 id="impulse">Impulse</h2>
+<p>Impulse is the time integral of force:</p>
+<div class="math-block">$$
+\mathbf{J} = \int_{t_1}^{t_2} \mathbf{F}\,dt
+$$</div>
+<p>Impulse-momentum relation:</p>
+<div class="math-block">$$
+\mathbf{J} = \Delta \mathbf{p}
+$$</div>
+<p>This is especially useful for short-duration forces like impacts.</p>
+<h2 id="conservation-of-linear-momentum">Conservation of linear momentum</h2>
+<p>If the net external impulse is negligible, total momentum is conserved:</p>
+<div class="math-block">$$
+\sum \mathbf{p}_{\text{before}} = \sum \mathbf{p}_{\text{after}}
+$$</div>
+<p>This is often the best approach for collisions and explosions.</p>
+<h2 id="collisions">Collisions</h2>
+<h3 id="perfectly-inelastic-collision">Perfectly inelastic collision</h3>
+<p>Bodies stick together after impact. Momentum is conserved, kinetic energy is not.</p>
+<h3 id="elastic-collision">Elastic collision</h3>
+<p>Momentum and kinetic energy are both conserved.</p>
+<h3 id="coefficient-of-restitution">Coefficient of restitution</h3>
+<p>In one dimension:</p>
+<div class="math-block">$$
+e = \frac{\text{relative speed of separation}}{\text{relative speed of approach}}
+$$</div>
+<p>with $0 \le e \le 1$.</p>
+<h2 id="center-of-mass">Center of mass</h2>
+<p>For discrete masses:</p>
+<div class="math-block">$$
+\mathbf{r}_{cm} = \frac{\sum m_i \mathbf{r}_i}{\sum m_i}
+$$</div>
+<p>The center of mass moves as if all external force were applied there:</p>
+<div class="math-block">$$
+\sum \mathbf{F}_{ext} = M\mathbf{a}_{cm}
+$$</div>
+<hr />
+<h1 id="rotation-and-rigid-bodies">Rotation and rigid bodies</h1>
+<p>Rigid-body motion includes translation and rotation.</p>
+<h2 id="angular-variables">Angular variables</h2>
+<p>Angular displacement:</p>
+<div class="math-block">$$
+\theta
+$$</div>
+<p>Angular velocity:</p>
+<div class="math-block">$$
+\omega = \frac{d\theta}{dt}
+$$</div>
+<p>Angular acceleration:</p>
+<div class="math-block">$$
+\alpha = \frac{d\omega}{dt}
+$$</div>
+<h2 id="rotational-kinematics">Rotational kinematics</h2>
+<p>For constant angular acceleration:</p>
+<div class="math-block">$$
+\omega = \omega_0 + \alpha t
+$$</div>
+<div class="math-block">$$
+\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
+$$</div>
+<div class="math-block">$$
+\omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+$$</div>
+<h2 id="linear-and-angular-relations">Linear and angular relations</h2>
+<p>For a point at radius $r$:</p>
+<div class="math-block">$$
+v = r\omega
+$$</div>
+<div class="math-block">$$
+a_t = r\alpha
+$$</div>
+<div class="math-block">$$
+a_n = r\omega^2
+$$</div>
+<p>Tangential acceleration changes speed, normal acceleration changes direction.</p>
+<h2 id="moment-of-inertia">Moment of inertia</h2>
+<p>Moment of inertia measures resistance to angular acceleration:</p>
+<div class="math-block">$$
+I = \int r^2\,dm
+$$</div>
+<p>Discrete form:</p>
+<div class="math-block">$$
+I = \sum m_i r_i^2
+$$</div>
+<p>Common results:</p>
+<ul><li><p>point mass: $I = mr^2$</p></li><li><p>rod about center: $I = \frac{1}{12}mL^2$</p></li><li><p>rod about end: $I = \frac{1}{3}mL^2$</p></li><li><p>solid disk: $I = \frac{1}{2}mR^2$</p></li><li><p>hoop: $I = mR^2$</p></li></ul>
+<h2 id="parallel-axis-theorem">Parallel-axis theorem</h2>
+<p>If $I_{cm}$ is moment of inertia about a center-of-mass axis, then for a parallel axis offset by $d$:</p>
+<div class="math-block">$$
+I = I_{cm} + md^2
+$$</div>
+<h2 id="rotational-kinetic-energy">Rotational kinetic energy</h2>
+<div class="math-block">$$
+T_{rot} = \frac{1}{2}I\omega^2
+$$</div>
+<p>For rolling motion, total kinetic energy is often:</p>
+<div class="math-block">$$
+T = \frac{1}{2}mv_{cm}^2 + \frac{1}{2}I_{cm}\omega^2
+$$</div>
+<h2 id="rolling-without-slipping">Rolling without slipping</h2>
+<p>The no-slip condition is:</p>
+<div class="math-block">$$
+v_{cm} = R\omega
+$$</div>
+<p>and similarly:</p>
+<div class="math-block">$$
+a_{cm} = R\alpha
+$$</div>
+<p>Rolling problems often combine translation, rotation, and static friction.</p>
+<hr />
+<h1 id="angular-momentum-and-torque">Angular momentum and torque</h1>
+<h2 id="torque">Torque</h2>
+<p>Torque is the rotational effect of force:</p>
+<div class="math-block">$$
+\boldsymbol{\tau} = \mathbf{r}\times \mathbf{F}
+$$</div>
+<p>Magnitude:</p>
+<div class="math-block">$$
+\tau = rF\sin\phi
+$$</div>
+<p>where $\phi$ is the angle between $\mathbf{r}$ and $\mathbf{F}$.</p>
+<h2 id="rotational-equation-of-motion">Rotational equation of motion</h2>
+<p>For a rigid body about a fixed axis:</p>
+<div class="math-block">$$
+\sum \tau = I\alpha
+$$</div>
+<h2 id="angular-momentum">Angular momentum</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+\mathbf{L} = \mathbf{r}\times \mathbf{p}
+$$</div>
+<p>For a rigid body about a fixed axis:</p>
+<div class="math-block">$$
+L = I\omega
+$$</div>
+<h2 id="angular-impulse-momentum">Angular impulse-momentum</h2>
+<div class="math-block">$$
+\int_{t_1}^{t_2}\boldsymbol{\tau}\,dt = \Delta \mathbf{L}
+$$</div>
+<h2 id="conservation-of-angular-momentum">Conservation of angular momentum</h2>
+<p>If the net external torque is zero:</p>
+<div class="math-block">$$
+\mathbf{L}_{before} = \mathbf{L}_{after}
+$$</div>
+<p>This is especially useful for:</p>
+<ul><li><p>spinning skaters</p></li><li><p>satellites</p></li><li><p>planetary motion</p></li><li><p>rotating collisions</p></li></ul>
+<hr />
+<h1 id="oscillations-and-simple-harmonic-motion">Oscillations and simple harmonic motion</h1>
+<h2 id="simple-harmonic-motion">Simple harmonic motion</h2>
+<p>A system exhibits simple harmonic motion when the restoring force is proportional to displacement and directed toward equilibrium:</p>
+<div class="math-block">$$
+F = -kx
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+m\ddot{x} + kx = 0
+$$</div>
+<p>with solution:</p>
+<div class="math-block">$$
+x(t) = A\cos(\omega t + \phi)
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\omega = \sqrt{\frac{k}{m}}
+$$</div>
+<h2 id="period-and-frequency">Period and frequency</h2>
+<div class="math-block">$$
+T = \frac{2\pi}{\omega}
+$$</div>
+<div class="math-block">$$
+f = \frac{1}{T}
+$$</div>
+<h2 id="velocity-and-acceleration-in-shm">Velocity and acceleration in SHM</h2>
+<p>If</p>
+<div class="math-block">$$
+x(t) = A\cos(\omega t + \phi)
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+v(t) = -A\omega\sin(\omega t + \phi)
+$$</div>
+<div class="math-block">$$
+a(t) = -\omega^2 x(t)
+$$</div>
+<p>The acceleration is always directed toward equilibrium.</p>
+<h2 id="energy-in-shm">Energy in SHM</h2>
+<p>Total energy is constant:</p>
+<div class="math-block">$$
+E = \frac{1}{2}kA^2
+$$</div>
+<p>with exchange between kinetic and potential energy:</p>
+<div class="math-block">$$
+T = \frac{1}{2}mv^2,\qquad V = \frac{1}{2}kx^2
+$$</div>
+<h2 id="damping-and-forcing">Damping and forcing</h2>
+<p>Real oscillators may include damping and external forcing:</p>
+<div class="math-block">$$
+m\ddot{x} + c\dot{x} + kx = F_0\cos(\Omega t)
+$$</div>
+<p>Important behaviors:</p>
+<ul><li><p>underdamping: oscillates with decaying amplitude</p></li><li><p>critical damping: fastest return without oscillation</p></li><li><p>overdamping: non-oscillatory and slower</p></li><li><p>resonance: large response near natural frequency</p></li></ul>
+<hr />
+<h1 id="gravitation-and-central-forces">Gravitation and central forces</h1>
+<h2 id="newtons-law-of-gravitation">Newton&#39;s law of gravitation</h2>
+<p>Two masses attract with force:</p>
+<div class="math-block">$$
+F = G\frac{m_1m_2}{r^2}
+$$</div>
+<p>directed along the line joining them.</p>
+<h2 id="gravitational-potential-energy">Gravitational potential energy</h2>
+<p>For two masses:</p>
+<div class="math-block">$$
+U(r) = -G\frac{m_1m_2}{r}
+$$</div>
+<p>Near Earth, the approximation</p>
+<div class="math-block">$$
+U \approx mgh
+$$</div>
+<p>is valid for small height changes.</p>
+<h2 id="circular-orbits">Circular orbits</h2>
+<p>For a body of mass $m$ in a circular orbit of radius $r$ around mass $M$:</p>
+<div class="math-block">$$
+\frac{mv^2}{r} = G\frac{Mm}{r^2}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+v = \sqrt{\frac{GM}{r}}
+$$</div>
+<p>The orbital period is</p>
+<div class="math-block">$$
+T = 2\pi \sqrt{\frac{r^3}{GM}}
+$$</div>
+<h2 id="central-force-intuition">Central-force intuition</h2>
+<p>In central-force motion:</p>
+<ul><li><p>force points toward or away from a center</p></li><li><p>angular momentum is conserved</p></li><li><p>motion often reduces to an effective one-dimensional radial problem</p></li></ul>
+<hr />
+<h1 id="constraints-equilibrium-and-statics">Constraints, equilibrium, and statics</h1>
+<p>Static equilibrium means no translational or rotational acceleration.</p>
+<h2 id="equilibrium-conditions">Equilibrium conditions</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = 0
+$$</div>
+<p>For a rigid body:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = 0
+$$</div>
+<div class="math-block">$$
+\sum \tau = 0
+$$</div>
+<h2 id="typical-statics-workflow">Typical statics workflow</h2>
+<ol><li><p>Draw the free-body diagram.</p></li><li><p>Choose convenient axes.</p></li><li><p>Write force-balance equations.</p></li><li><p>Write torque-balance equations about a smart pivot.</p></li><li><p>Solve for unknown reactions, tensions, or loads.</p></li></ol>
+<h2 id="constraints">Constraints</h2>
+<p>Constraints reduce the degrees of freedom of a system.</p>
+<p>Examples:</p>
+<ul><li><p>bead constrained on a wire</p></li><li><p>block on an incline</p></li><li><p>pulley system</p></li><li><p>rigid rod with pinned supports</p></li></ul>
+<p>Constraint forces often do no work in idealized models, but they still matter in force balance.</p>
+<hr />
+<h1 id="lagrangian-and-hamiltonian-ideas">Lagrangian and Hamiltonian ideas</h1>
+<p>The Lagrangian formulation is a higher-level way to derive equations of motion.</p>
+<h2 id="generalized-coordinates">Generalized coordinates</h2>
+<p>Instead of using Cartesian coordinates directly, choose coordinates $q_i$ that describe the degrees of freedom efficiently.</p>
+<p>Examples:</p>
+<ul><li><p>pendulum angle $\theta$</p></li><li><p>spring extension $x$</p></li><li><p>orbital radius $r$</p></li></ul>
+<h2 id="lagrangian">Lagrangian</h2>
+<div class="math-block">$$
+\mathcal{L} = T - V
+$$</div>
+<p>The Euler-Lagrange equation is:</p>
+<div class="math-block">$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\right) - \frac{\partial \mathcal{L}}{\partial q_i} = 0
+$$</div>
+<p>for each generalized coordinate $q_i$.</p>
+<h2 id="why-use-lagranges-equations">Why use Lagrange&#39;s equations</h2>
+<ul><li><p>constraints are handled naturally</p></li><li><p>coordinate choice can match the geometry</p></li><li><p>fewer force components may need to be resolved</p></li></ul>
+<h2 id="canonical-momentum">Canonical momentum</h2>
+<p>For coordinate $q_i$:</p>
+<div class="math-block">$$
+p_i = \frac{\partial \mathcal{L}}{\partial \dot{q}_i}
+$$</div>
+<h2 id="hamiltonian-idea">Hamiltonian idea</h2>
+<p>The Hamiltonian is often the total energy written in terms of coordinates and momenta:</p>
+<div class="math-block">$$
+\mathcal{H} = \sum_i p_i \dot{q}_i - \mathcal{L}
+$$</div>
+<p>In many standard mechanical systems,</p>
+<div class="math-block">$$
+\mathcal{H} = T + V
+$$</div>
+<p>though this is not universal in all formulations.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<h2 id="start-with-the-model">Start with the model</h2>
+<p>Ask:</p>
+<ul><li><p>Is the body a particle, rigid body, or system of interacting bodies?</p></li><li><p>Is the goal acceleration, velocity, position, force, energy, or time?</p></li><li><p>Are there constraints, collisions, or rotational effects?</p></li></ul>
+<h2 id="choose-the-right-tool">Choose the right tool</h2>
+<ul><li><p>Use Newton&#39;s laws for direct force-acceleration problems.</p></li><li><p>Use energy when forces are conservative or the path is complicated.</p></li><li><p>Use momentum for collisions and short impulses.</p></li><li><p>Use torque and angular momentum for rotation.</p></li><li><p>Use equilibrium equations for static systems.</p></li></ul>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Mixing up mass and weight</p></li><li><p>Using energy methods while forgetting nonconservative work</p></li><li><p>Forgetting direction in vector quantities</p></li><li><p>Applying constant-acceleration formulas when acceleration is not constant</p></li><li><p>Using the wrong sign convention for torque or angular variables</p></li><li><p>Treating a rolling object as pure translation</p></li><li><p>Ignoring whether the frame is inertial</p></li></ul>
+<h2 id="sanity-checks">Sanity checks</h2>
+<ul><li><p>Do units match on both sides?</p></li><li><p>Does the result reduce to a known special case?</p></li><li><p>Does the sign make physical sense?</p></li><li><p>Is the answer bounded or physically plausible?</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="kinematics">Kinematics</h2>
+<div class="math-block">$$
+v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt}
+$$</div>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<div class="math-block">$$
+x = x_0 + v_0t + \frac{1}{2}at^2
+$$</div>
+<h2 id="newtonian-dynamics">Newtonian dynamics</h2>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}
+$$</div>
+<h2 id="work-and-energy">Work and energy</h2>
+<div class="math-block">$$
+W = \int \mathbf{F}\cdot d\mathbf{r}
+$$</div>
+<div class="math-block">$$
+T = \frac{1}{2}mv^2
+$$</div>
+<div class="math-block">$$
+W_{net} = \Delta T
+$$</div>
+<div class="math-block">$$
+T_1 + V_1 + W_{nc} = T_2 + V_2
+$$</div>
+<h2 id="momentum">Momentum</h2>
+<div class="math-block">$$
+\mathbf{p} = m\mathbf{v}
+$$</div>
+<div class="math-block">$$
+\mathbf{J} = \int \mathbf{F}\,dt = \Delta \mathbf{p}
+$$</div>
+<h2 id="rotation">Rotation</h2>
+<div class="math-block">$$
+\tau = rF\sin\phi
+$$</div>
+<div class="math-block">$$
+\sum \tau = I\alpha
+$$</div>
+<div class="math-block">$$
+L = I\omega
+$$</div>
+<div class="math-block">$$
+\mathbf{L} = \mathbf{r}\times \mathbf{p}
+$$</div>
+<div class="math-block">$$
+T_{rot} = \frac{1}{2}I\omega^2
+$$</div>
+<h2 id="spring-and-shm">Spring and SHM</h2>
+<div class="math-block">$$
+F = -kx
+$$</div>
+<div class="math-block">$$
+\omega = \sqrt{\frac{k}{m}}
+$$</div>
+<div class="math-block">$$
+T = \frac{2\pi}{\omega}
+$$</div>
+<h2 id="gravitation">Gravitation</h2>
+<div class="math-block">$$
+F = G\frac{m_1m_2}{r^2}
+$$</div>
+<div class="math-block">$$
+U = -G\frac{m_1m_2}{r}
+$$</div>
+<h2 id="rolling">Rolling</h2>
+<div class="math-block">$$
+v_{cm} = R\omega
+$$</div>
+<h2 id="lagrangian-form">Lagrangian form</h2>
+<div class="math-block">$$
+\mathcal{L} = T - V
+$$</div>
+<div class="math-block">$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q}_i}\right) - \frac{\partial \mathcal{L}}{\partial q_i} = 0
+$$</div>
+<h2 id="compact-takeaway">Compact takeaway</h2>
+<p>Classical mechanics is mostly about choosing the right representation:</p>
+<ul><li><p>force balance for instantaneous dynamics</p></li><li><p>energy for path-independent force fields</p></li><li><p>momentum for impacts and isolated systems</p></li><li><p>torque and angular momentum for rotation</p></li><li><p>generalized coordinates for constrained motion</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p>Halliday, Resnick, and Walker, <em>Fundamentals of Physics</em></p></li><li><p>Serway and Jewett, <em>Physics for Scientists and Engineers</em></p></li><li><p>Griffiths, <em>Introduction to Electrodynamics</em></p></li><li><p>Griffiths, <em>Introduction to Quantum Mechanics</em></p></li><li><p>Taylor, <em>Classical Mechanics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="kinematics-in-one-and-three-dimensions">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Kinematics in one and three dimensions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#position-velocity-and-acceleration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinematics-in-one-and-three-dimensions">Position, velocity, and acceleration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constant-acceleration-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinematics-in-one-and-three-dimensions">Constant-acceleration relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#projectile-motion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinematics-in-one-and-three-dimensions">Projectile motion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#relative-motion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinematics-in-one-and-three-dimensions">Relative motion</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="newtons-laws-and-free-body-diagrams" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Newton&#39;s laws and free-body diagrams">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-first-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Newton&#39;s first law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-second-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Newton&#39;s second law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-third-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Newton&#39;s third law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#free-body-diagrams" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#friction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Friction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#inertial-and-non-inertial-frames" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="newtons-laws-and-free-body-diagrams">Inertial and non-inertial frames</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="work-energy-and-power" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Work, energy, and power">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#work" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Work</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kinetic-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Kinetic energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#work-energy-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Work-energy theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservative-forces-and-potential-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Conservative forces and potential energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-of-mechanical-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Conservation of mechanical energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#power" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="work-energy-and-power">Power</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="momentum-impulse-and-collisions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Momentum, impulse, and collisions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="momentum-impulse-and-collisions">Linear momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#impulse" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="momentum-impulse-and-collisions">Impulse</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-of-linear-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="momentum-impulse-and-collisions">Conservation of linear momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#collisions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="momentum-impulse-and-collisions">Collisions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#center-of-mass" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="momentum-impulse-and-collisions">Center of mass</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="rotation-and-rigid-bodies" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Rotation and rigid bodies">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#angular-variables" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Angular variables</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rotational-kinematics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Rotational kinematics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#linear-and-angular-relations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Linear and angular relations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#moment-of-inertia" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Moment of inertia</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#parallel-axis-theorem" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Parallel-axis theorem</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rotational-kinetic-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Rotational kinetic energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rolling-without-slipping" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="rotation-and-rigid-bodies">Rolling without slipping</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="angular-momentum-and-torque" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Angular momentum and torque">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#torque" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angular-momentum-and-torque">Torque</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rotational-equation-of-motion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angular-momentum-and-torque">Rotational equation of motion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#angular-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angular-momentum-and-torque">Angular momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#angular-impulse-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angular-momentum-and-torque">Angular impulse-momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conservation-of-angular-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="angular-momentum-and-torque">Conservation of angular momentum</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="oscillations-and-simple-harmonic-motion" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Oscillations and simple harmonic motion">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#simple-harmonic-motion" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="oscillations-and-simple-harmonic-motion">Simple harmonic motion</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#period-and-frequency" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="oscillations-and-simple-harmonic-motion">Period and frequency</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#velocity-and-acceleration-in-shm" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="oscillations-and-simple-harmonic-motion">Velocity and acceleration in SHM</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#energy-in-shm" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="oscillations-and-simple-harmonic-motion">Energy in SHM</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#damping-and-forcing" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="oscillations-and-simple-harmonic-motion">Damping and forcing</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="gravitation-and-central-forces" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Gravitation and central forces">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtons-law-of-gravitation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitation-and-central-forces">Newton&#39;s law of gravitation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitational-potential-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitation-and-central-forces">Gravitational potential energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#circular-orbits" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitation-and-central-forces">Circular orbits</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#central-force-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="gravitation-and-central-forces">Central-force intuition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="constraints-equilibrium-and-statics" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Constraints, equilibrium, and statics">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-conditions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="constraints-equilibrium-and-statics">Equilibrium conditions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#typical-statics-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="constraints-equilibrium-and-statics">Typical statics workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#constraints" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="constraints-equilibrium-and-statics">Constraints</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="lagrangian-and-hamiltonian-ideas" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Lagrangian and Hamiltonian ideas">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#generalized-coordinates" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lagrangian-and-hamiltonian-ideas">Generalized coordinates</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lagrangian" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lagrangian-and-hamiltonian-ideas">Lagrangian</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-use-lagranges-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lagrangian-and-hamiltonian-ideas">Why use Lagrange&#39;s equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#canonical-momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lagrangian-and-hamiltonian-ideas">Canonical momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hamiltonian-idea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="lagrangian-and-hamiltonian-ideas">Hamiltonian idea</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#start-with-the-model" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Start with the model</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#choose-the-right-tool" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sanity-checks" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Sanity checks</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kinematics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Kinematics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#newtonian-dynamics" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Newtonian dynamics</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#work-and-energy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Work and energy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#momentum" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Momentum</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rotation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Rotation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#spring-and-shm" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Spring and SHM</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gravitation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Gravitation</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rolling" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Rolling</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lagrangian-form" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Lagrangian form</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#compact-takeaway" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Compact takeaway</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

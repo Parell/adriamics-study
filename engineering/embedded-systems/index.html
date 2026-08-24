@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Embedded Systems | Adriamics Study</title>
+  <meta name="description" content="Begin with measurable requirements:" />
+  <link rel="canonical" href="https://adriamics.com/study/engineering/embedded-systems/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/engineering/embedded-systems/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#requirements-and-system-boundaries" data-notes-nav-item data-notes-toc-link>Requirements and system boundaries</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#signal-conditioning" data-notes-nav-item data-notes-toc-link>Signal conditioning</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#microcontroller-architecture" data-notes-nav-item data-notes-toc-link>Microcontroller architecture</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gpio-timers-adc-and-pwm" data-notes-nav-item data-notes-toc-link>GPIO, timers, ADC, and PWM</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#interrupts-and-concurrency" data-notes-nav-item data-notes-toc-link>Interrupts and concurrency</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#communication-protocols" data-notes-nav-item data-notes-toc-link>Communication protocols</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#real-time-constraints" data-notes-nav-item data-notes-toc-link>Real-time constraints</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#embedded-software-testing" data-notes-nav-item data-notes-toc-link>Embedded software testing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#worked-example-sampling-and-pwm-timing" data-notes-nav-item data-notes-toc-link>Worked example: sampling and PWM timing</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-mistakes" data-notes-nav-item data-notes-toc-link>Common mistakes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#design-checklist" data-notes-nav-item data-notes-toc-link>Design checklist</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-toc-link>Sources</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Embedded Systems</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/engineering/embedded-systems/embedded-systems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fengineering%2Fembedded-systems%2Fembedded-systems.md&amp;title=%5BContribute%5D%3A%20Embedded%20Systems" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/series/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/series/" data-notes-nav-item>Series</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-ii/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/fluid-mechanics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/thermodynamics/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/electrical-circuit-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/heat-transfer/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/systems-of-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="7"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/engineering/electronics/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/electronics/" data-notes-nav-item>Electronics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/engineering/linear-system-signal-analysis/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/second-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="8"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/engineering/embedded-systems/" data-concept-dag-node-link data-concept-dag-note-url="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h2 id="requirements-and-system-boundaries">Requirements and system boundaries</h2>
+<p>Begin with measurable requirements:</p>
+<ul><li><p>What inputs must be measured, and over what range?</p></li><li><p>What output must be controlled, and with what accuracy?</p></li><li><p>What are the sampling rate, deadline, startup, shutdown, and fault-response requirements?</p></li><li><p>What power, memory, processor, temperature, vibration, and environmental limits apply?</p></li><li><p>Which failures must be detected, contained, or made safe?</p></li></ul>
+<p>Separate the system into hardware, firmware, and external plant. Define interfaces between them. A sensor specification should state range, sensitivity, offset, bandwidth, noise, supply, loading, and failure behavior. A firmware specification should state units, timing, valid ranges, state transitions, and diagnostic behavior.</p>
+<p>Do not hide assumptions in code. Record whether a value is signed, its scale, its valid range, its update period, and what should happen if it is missing or out of range.</p>
+<h2 id="signal-conditioning">Signal conditioning</h2>
+<p>Sensors rarely produce a clean, correctly scaled ADC voltage. Signal conditioning adapts the sensor to the measurement input and protects both sides.</p>
+<h3 id="scaling-and-buffering">Scaling and buffering</h3>
+<p>For a linear sensor,</p>
+<div class="math-block">$$
+y=ax+b,
+$$</div>
+<p>where $x$ is the physical quantity and $y$ is sensor output. A two-resistor divider produces</p>
+<div class="math-block">$$
+V_{out}=V_{in}\frac{R_2}{R_1+R_2}.
+$$</div>
+<p>The divider is not ideal when the ADC or next circuit draws current. Treat the load as part of the circuit or buffer the signal with an amplifier. An op-amp buffer presents high input impedance and low output impedance, but its input range, output swing, offset, bandwidth, stability, and supply limits still matter.</p>
+<h3 id="filtering-and-protection">Filtering and protection</h3>
+<p>A first-order low-pass filter has</p>
+<div class="math-block">$$
+H(s)=\frac{1}{1+sRC},\qquad f_c=\frac{1}{2\pi RC}.
+$$</div>
+<p>It attenuates high-frequency noise but adds delay and limits useful signal bandwidth. Choose $f_c$ above the highest signal frequency of interest and below frequencies that would alias into the sampled band.</p>
+<p>Protection may include series impedance, current limiting, clamps, transient suppressors, fuses, and input filtering. Check leakage and capacitance because a protection component can change sensor accuracy or ADC settling time. Use galvanic isolation when ground potentials, hazardous voltages, long cables, or safety boundaries make a direct connection unsafe.</p>
+<h3 id="adc-input-requirements">ADC input requirements</h3>
+<p>For an $N$-bit ADC with reference $V_{ref}$, the nominal voltage step is</p>
+<div class="math-block">$$
+q=\frac{V_{ref}}{2^N}.
+$$</div>
+<p>This is the ideal spacing between adjacent code transitions for a unipolar ADC whose input range is $0$ to $V_{ref}$. It is not the exact endpoint mapping: an ideal converter has $2^N$ codes, from $0$ through $2^N-1$, and the highest code represents the top interval below the reference. Use the data sheet when the converter uses a different range, offset binary, differential inputs, calibration, or a different full-scale definition.</p>
+<p>The code for an input in range is approximately</p>
+<div class="math-block">$$
+\text{code}=\left\lfloor\frac{V_{in}}{V_{ref}}(2^N-1)\right\rfloor.
+$$</div>
+<p>This idealized mapping assumes $0\le V_{in}&lt;V_{ref}$. Clamp or reject out-of-range inputs rather than relying on an integer conversion to make them safe.</p>
+<p>Real accuracy is limited by reference error, offset, gain error, integral nonlinearity, noise, source impedance, acquisition time, and layout. A switched-capacitor ADC input may need a low-impedance driver or an explicit settling interval after a channel change.</p>
+<h2 id="microcontroller-architecture">Microcontroller architecture</h2>
+<p>A microcontroller integrates a processor core, memory, clock system, buses, and peripherals on one device. Flash or other nonvolatile memory stores program code; SRAM stores runtime data; nonvolatile data memory may store configuration or calibration. Stack space holds call state and automatic variables. Heap allocation is often avoided in small real-time systems because fragmentation and unbounded allocation time are difficult to control.</p>
+<p>Memory-mapped peripherals appear at defined addresses. A register may contain data, status flags, configuration bits, or write-one-to-clear events. Read-modify-write operations must be used carefully when hardware or another execution context can change the same register.</p>
+<p>Clock frequency affects instruction time, baud-rate divisors, timer resolution, power, and electromagnetic emissions. Startup normally includes reset release, clock initialization, memory initialization, stack setup, peripheral configuration, and application entry. Brownout, watchdog expiry, invalid clock startup, and unexpected reset should leave the system in a known safe state.</p>
+<p>Track CPU utilization, RAM, nonvolatile storage, peripheral channels, interrupt load, stack depth, power, and thermal limits. A design that works in a nominal bench test may fail when logging, communications, diagnostics, and worst-case sensor processing occur together.</p>
+<h2 id="gpio-timers-adc-and-pwm">GPIO, timers, ADC, and PWM</h2>
+<p>GPIO pins can be configured as inputs or outputs with push-pull, open-drain, pull-up, or pull-down behavior. Check voltage thresholds, drive current, sink/source asymmetry, boot defaults, alternate functions, and whether an external circuit can drive a pin during reset. Mechanical switches bounce; use hardware or software debouncing.</p>
+<p>A timer with clock frequency $f_{clk}$, prescaler $p$, and period register $ARR$ has approximate period</p>
+<div class="math-block">$$
+T=\frac{p(ARR+1)}{f_{clk}}.
+$$</div>
+<p>Timers can generate periodic interrupts, capture event times, compare output transitions, measure pulse widths, and trigger ADC conversions. Hardware triggering is usually more repeatable than starting conversions from software instructions.</p>
+<p>For a signal with highest meaningful frequency $f_{max}$, ideal sampling requires</p>
+<div class="math-block">$$
+f_s&gt;2f_{max}.
+$$</div>
+<p>In practice, sample faster to provide filter transition bandwidth, timing margin, and improved control response. Synchronize sampling with PWM when switching noise would otherwise contaminate measurements.</p>
+<p>For a PWM signal with period $T$, high time $t_h$, and duty cycle $D$,</p>
+<div class="math-block">$$
+D=\frac{t_h}{T}.
+$$</div>
+<p>For a suitable low-pass load, the average of a $0$-to-$V$ waveform is approximately $DV$. Motor inductance, switching frequency, dead time, transistor losses, current ripple, and load dynamics determine whether this approximation is valid. Use a driver stage and flyback path where required; do not drive power loads directly from MCU pins.</p>
+<h2 id="interrupts-and-concurrency">Interrupts and concurrency</h2>
+<p>An interrupt transfers execution to a handler in response to an event such as a timer match, received byte, ADC completion, external edge, or fault. Interrupt latency includes hardware recognition, instruction completion, prioritization, context entry, and any masking.</p>
+<p>An interrupt service routine should be short, deterministic, and safe. It commonly records a timestamp, clears the event, copies a small datum, and signals foreground code. Long calculations, blocking calls, dynamic allocation, and uncontrolled logging inside an ISR create jitter and priority problems.</p>
+<p>Shared data needs a concurrency plan. A naturally aligned flag may be atomic on one MCU, but a multi-byte value, read-modify-write sequence, or shared ring-buffer index may not be. Use atomic operations, critical sections, lock-free protocols appropriate to the hardware, or an RTOS synchronization primitive. <code>volatile</code> tells the compiler that a value can change outside ordinary control flow; it does not make a compound operation atomic or provide mutual exclusion.</p>
+<p>For a serial receive path, a ring buffer decouples byte arrival from message parsing. Define overflow behavior explicitly: drop newest, drop oldest, signal a fault, or apply backpressure.</p>
+<h2 id="communication-protocols">Communication protocols</h2>
+<p>Every protocol design should define electrical levels, framing, byte order, clocking, addressing, maximum message size, timeout, retry, integrity check, and recovery from malformed data.</p>
+<p><strong>UART</strong> is asynchronous point-to-point communication. A frame commonly includes a start bit, data bits, optional parity, and stop bit. UART has no inherent message boundary or delivery guarantee; add framing, length, checksum or CRC, and timeout at the application layer.</p>
+<p><strong>SPI</strong> is synchronous and usually uses clock, data-out, data-in, and chip-select signals. Specify clock polarity, clock phase, bit order, maximum frequency, chip-select timing, and response latency for each device. Multiple slaves need separate chip-select management and careful bus contention control.</p>
+<p><strong>I2C</strong> uses open-drain clock and data lines with pull-up resistors. Rise time depends on pull-up resistance and total bus capacitance. Handle acknowledgements, arbitration, clock stretching, stuck-bus recovery, and address conflicts.</p>
+<p><strong>CAN</strong> is a multi-master differential bus with message arbitration, error detection, and fault confinement. Correct termination, bit timing, transceiver common-mode range, bus loading, message priority, and bus-off recovery are system responsibilities.</p>
+<p>A checksum may detect simple errors; a CRC is generally stronger for burst errors. Neither proves that a packet is fresh, authorized, or semantically valid. Validate ranges and units, and treat malformed or stale messages as faults rather than commands.</p>
+<h2 id="real-time-constraints">Real-time constraints</h2>
+<p>A real-time system is judged partly by when it produces a result. A deadline is the latest acceptable completion time. Periodic tasks have period $T_i$ and execution time $C_i$. A first utilization estimate is</p>
+<div class="math-block">$$
+U=\sum_i\frac{C_i}{T_i}.
+$$</div>
+<p>Utilization below 1 is necessary for many simple schedules but is not sufficient: blocking, release jitter, interrupt work, nonpreemptive sections, deadline differences, and overload behavior also matter.</p>
+<p>Worst-case execution time (WCET) is an upper bound under specified hardware and software conditions. Measure representative paths, inspect generated code, bound loops and retries, and include cache, bus, interrupt, and communication effects where applicable. Average execution time is not a deadline guarantee.</p>
+<p>Rate-monotonic scheduling assigns higher priority to tasks with shorter periods. It is useful intuition for fixed-priority systems, but actual schedulability must account for priorities, blocking, deadlines, and overhead. Define what happens when a task overruns: skip a cycle, finish late, shed optional work, enter degraded mode, or fail safe.</p>
+<p>Use a monotonic time base for elapsed intervals. Avoid comparing wall-clock timestamps with equality, and account for counter wraparound using unsigned modular arithmetic. A watchdog should detect loss of progress, not merely reset a healthy system that has a long but valid operation.</p>
+<h2 id="embedded-software-testing">Embedded software testing</h2>
+<p>Testing must connect requirements to evidence.</p>
+<ul><li><p><strong>Unit tests</strong> exercise functions with normal, boundary, invalid, overflow, and fault inputs.</p></li><li><p><strong>Integration tests</strong> verify drivers, tasks, interrupts, and communication together.</p></li><li><p><strong>Hardware-in-the-loop tests</strong> connect real firmware to simulated or controlled plant behavior.</p></li><li><p><strong>Fault injection</strong> tests missing sensors, stuck bits, bad CRCs, resets, timing overruns, low voltage, and communication loss.</p></li><li><p><strong>Logging and tracing</strong> expose state transitions, timing, counters, and fault causes without changing critical timing.</p></li><li><p><strong>Requirements traceability</strong> maps each requirement to implementation, test, result, and open issue.</p></li></ul>
+<p>Test the boundaries between domains: ADC scaling into control logic, timer events into ISR state, packet fields into physical units, and fault detection into actuator shutdown. Record firmware version, hardware revision, calibration, and test conditions.</p>
+<h2 id="worked-example-sampling-and-pwm-timing">Worked example: sampling and PWM timing</h2>
+<p>A controller measures a temperature signal whose useful bandwidth is at most $20\ \mathrm{Hz}$. It uses a $12$-bit ADC with $V_{ref}=3.3\ \mathrm V$, samples at $200\ \mathrm{Hz}$, and drives a PWM output at $10\ \mathrm{kHz}$. Find the ideal ADC step, the minimum ideal Nyquist rate, and the PWM period.</p>
+<p>The ADC step is</p>
+<div class="math-block">$$
+q=\frac{3.3}{2^{12}}=0.000806\ \mathrm V\approx0.806\ \mathrm{mV}.
+$$</div>
+<p>The minimum ideal sampling rate is</p>
+<div class="math-block">$$
+f_s&gt;2f_{max}=40\ \mathrm{Hz}.
+$$</div>
+<p>The selected $200\ \mathrm{Hz}$ rate provides room for a practical anti-alias filter, though it does not by itself prove adequate control performance. The PWM period is</p>
+<div class="math-block">$$
+T_{PWM}=\frac{1}{10000}=100\ \mu\mathrm{s}.
+$$</div>
+<p>Synchronize ADC acquisition away from switching transients, verify ADC settling and reference accuracy, and test worst-case execution time within the $5\ \mathrm{ms}$ sampling period.</p>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Treating ADC resolution as total measurement accuracy.</p></li><li><p>Forgetting sensor loading, ADC acquisition time, reference error, or protection leakage.</p></li><li><p>Assuming a timer period is exact without checking clock source and prescaler limits.</p></li><li><p>Using <code>volatile</code> as a substitute for atomicity or synchronization.</p></li><li><p>Performing blocking work inside an ISR.</p></li><li><p>Omitting framing, timeout, integrity checks, or malformed-packet handling.</p></li><li><p>Treating average task utilization as proof of real-time schedulability.</p></li><li><p>Testing only nominal inputs and never injecting resets, noise, timing overruns, or communication faults.</p></li><li><p>Driving inductive or high-current loads directly from MCU pins.</p></li><li><p>Failing to define startup, brownout, watchdog, and degraded-mode behavior.</p></li></ul>
+<h2 id="design-checklist">Design checklist</h2>
+<ol><li><p>Every input and output has a range, unit, update rate, and fault response.</p></li><li><p>Signal conditioning meets bandwidth, noise, loading, protection, and isolation requirements.</p></li><li><p>Memory, CPU, stack, power, clock, and thermal budgets include worst-case margins.</p></li><li><p>Timers, ADC triggers, PWM, interrupts, and communication deadlines are deterministic enough for the application.</p></li><li><p>Shared data and task interactions have an explicit concurrency design.</p></li><li><p>Protocols define framing, integrity, timeout, retry, priority, and recovery behavior.</p></li><li><p>Safety-related outputs fail to a known state on reset, watchdog, brownout, and detected sensor faults.</p></li><li><p>Unit, integration, hardware-in-loop, fault-injection, and regression evidence is traceable to requirements.</p></li></ol>
+<h2 id="sources">Sources</h2>
+<ul><li><p>Valvano, <em>Embedded Systems: Introduction to ARM Cortex-M Microcontrollers</em></p></li><li><p>Barr and Massa, <em>Programming Embedded Systems</em></p></li><li><p>Axelson, <em>Serial Port Complete</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li></ul>
+<p>An embedded system is a computing system built into a larger product to sense, decide, communicate, and control. It combines hardware, firmware, electronics, timing, and physical constraints. Unlike a general-purpose computer, it usually has a defined function, limited resources, and an explicit relationship with the real world.</p>
+<p>The central signal path is</p>
+<div class="math-block">$$
+\text{physical variable}
+\rightarrow \text{sensor}
+\rightarrow \text{signal conditioning}
+\rightarrow \text{ADC}
+\rightarrow \text{firmware}
+\rightarrow \text{PWM/DAC/communication}
+\rightarrow \text{actuator or system}
+$$</div>
+<p>This note assumes basic circuit analysis, binary numbers, programming, and algebra. It focuses on design reasoning rather than one particular microcontroller family.</p>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="signal-conditioning" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Signal conditioning">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#scaling-and-buffering" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="signal-conditioning">Scaling and buffering</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#filtering-and-protection" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="signal-conditioning">Filtering and protection</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#adc-input-requirements" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="signal-conditioning">ADC input requirements</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>

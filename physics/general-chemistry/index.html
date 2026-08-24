@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>General Chemistry | Adriamics Study</title>
+  <meta name="description" content="Matter is anything with mass and volume. In chemistry, it is usually classified as:" />
+  <link rel="canonical" href="https://adriamics.com/study/physics/general-chemistry/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
+  <script>
+    (() => {
+      let storedTheme = null;
+
+      try {
+        storedTheme = window.localStorage.getItem("adriamics-study:contrast-mode");
+      } catch {
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../notes.min.css?v=68a972a70a23" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
+  <link rel="preload" href="/study/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/study/webmeji/webmeji.css" /></noscript>
+  <script defer src="/study/webmeji/config.min.js"></script>
+  <script defer src="/study/webmeji/webmeji.min.js"></script>
+  
+  
+  <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] }
+      },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
+      }
+    };
+  </script>
+  <script defer src="../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
+  
+  <script defer src="../../notes.min.js?v=55730aab0d64"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/study/physics/general-chemistry/practice/" data-notes-nav-item>Practice →</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
+          </div>
+          <ul class="subject-list">
+          <li><a class="notes-inline-link" href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
+          </li>
+          </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups"><section class="subjects-panel__group" aria-labelledby="subjects-panel-math">
+          <h2 id="subjects-panel-math">Math</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li><a class="notes-inline-link" href="/study/math/logic/" data-notes-nav-item>Logic</a></li><li><a class="notes-inline-link" href="/study/math/algebra/" data-notes-nav-item>Algebra</a></li><li><a class="notes-inline-link" href="/study/math/geometry/" data-notes-nav-item>Geometry</a></li><li><a class="notes-inline-link" href="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li><a class="notes-inline-link" href="/study/math/functions/" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link" href="/study/math/limits/" data-notes-nav-item>Limits</a></li><li><a class="notes-inline-link" href="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li><a class="notes-inline-link" href="/study/math/integrals/" data-notes-nav-item>Integrals</a></li><li><a class="notes-inline-link" href="/study/math/series/" data-notes-nav-item>Series</a></li><li><a class="notes-inline-link" href="/study/math/vectors/" data-notes-nav-item>Vectors</a></li><li><a class="notes-inline-link" href="/study/math/matrices/" data-notes-nav-item>Matrices</a></li><li><a class="notes-inline-link" href="/study/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li><a class="notes-inline-link" href="/study/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li><a class="notes-inline-link" href="/study/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li><a class="notes-inline-link" href="/study/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li><a class="notes-inline-link" href="/study/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li><a class="notes-inline-link" href="/study/math/optimization/" data-notes-nav-item>Optimization</a></li><li><a class="notes-inline-link" href="/study/math/probability/" data-notes-nav-item>Probability</a></li><li><a class="notes-inline-link" href="/study/math/statistics/" data-notes-nav-item>Statistics</a></li><li><a class="notes-inline-link" href="/study/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li><a class="notes-inline-link" href="/study/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li><a class="notes-inline-link" href="/study/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-physics">
+          <h2 id="subjects-panel-physics">Physics</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li><a class="notes-inline-link" href="/study/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li><a class="notes-inline-link" href="/study/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li><a class="notes-inline-link" href="/study/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li><a class="notes-inline-link" href="/study/physics/thermodynamics/" data-notes-nav-item>Thermodynamics</a></li><li><a class="notes-inline-link" href="/study/physics/optics/" data-notes-nav-item>Optics</a></li><li><a class="notes-inline-link" href="/study/physics/relativity/" data-notes-nav-item>Relativity</a></li><li><a class="notes-inline-link" href="/study/physics/quantum-physics/" data-notes-nav-item>Quantum Physics</a></li><li><a class="notes-inline-link is-active" aria-current="page" href="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li><a class="notes-inline-link" href="/study/physics/atomic-and-molecular/" data-notes-nav-item>Atomic and Molecular Physics</a></li><li><a class="notes-inline-link" href="/study/physics/condensed-matter/" data-notes-nav-item>Condensed Matter Physics</a></li><li><a class="notes-inline-link" href="/study/physics/particle-and-nuclear/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li><a class="notes-inline-link" href="/study/physics/mathematical-mechanics/" data-notes-nav-item>Mathematical Mechanics</a></li></ul>
+        </section><section class="subjects-panel__group" aria-labelledby="subjects-panel-engineering">
+          <h2 id="subjects-panel-engineering">Engineering</h2>
+          <ul class="subjects-panel__list"><li><a class="notes-inline-link" href="/study/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li><a class="notes-inline-link" href="/study/engineering/statics/" data-notes-nav-item>Statics</a></li><li><a class="notes-inline-link" href="/study/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li><a class="notes-inline-link" href="/study/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link" href="/study/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li><a class="notes-inline-link" href="/study/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li><a class="notes-inline-link" href="/study/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li><a class="notes-inline-link" href="/study/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li><a class="notes-inline-link" href="/study/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li><a class="notes-inline-link" href="/study/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li><a class="notes-inline-link" href="/study/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li><a class="notes-inline-link" href="/study/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li><a class="notes-inline-link" href="/study/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li><a class="notes-inline-link" href="/study/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li><a class="notes-inline-link" href="/study/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        </section></div>
+            </div>
+          </section>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        <ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#matter-atoms-and-the-periodic-table" data-notes-nav-item data-notes-toc-link>Matter, atoms, and the periodic table</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electron-structure-and-periodic-trends" data-notes-nav-item data-notes-toc-link>Electron structure and periodic trends</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bonding-and-molecular-shape" data-notes-nav-item data-notes-toc-link>Bonding and molecular shape</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#naming-formulas-and-reactions" data-notes-nav-item data-notes-toc-link>Naming, formulas, and reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#stoichiometry-and-limiting-reagents" data-notes-nav-item data-notes-toc-link>Stoichiometry and limiting reagents</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#states-of-matter-and-gases" data-notes-nav-item data-notes-toc-link>States of matter and gases</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#solutions-and-concentration" data-notes-nav-item data-notes-toc-link>Solutions and concentration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#thermochemistry" data-notes-nav-item data-notes-toc-link>Thermochemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#chemical-equilibrium" data-notes-nav-item data-notes-toc-link>Chemical equilibrium</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#acids-bases-and-buffers" data-notes-nav-item data-notes-toc-link>Acids, bases, and buffers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#kinetics-and-reaction-rate" data-notes-nav-item data-notes-toc-link>Kinetics and reaction rate</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#redox-and-electrochemistry" data-notes-nav-item data-notes-toc-link>Redox and electrochemistry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#general-chemistry-for-biology-and-medicine" data-notes-nav-item data-notes-toc-link>General chemistry for biology and medicine</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#problem-solving-workflow" data-notes-nav-item data-notes-toc-link>Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formula-summary" data-notes-nav-item data-notes-toc-link>Formula summary</a></li></ol>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>General Chemistry</h1>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/adriamics-study/blame/master/source/physics/general-chemistry/general-chemistry.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/adriamics-study/issues/new?template=contribute.yml&amp;page_path=source%2Fphysics%2Fgeneral-chemistry%2Fgeneral-chemistry.md&amp;title=%5BContribute%5D%3A%20General%20Chemistry" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/limits/" data-notes-nav-item>Limits</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/study/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="5"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/study/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/study/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/study/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/study/math/integrals/" data-notes-nav-item>Integrals</a></span></div></div></div>
+    </section>
+        <div data-notes-lesson-body>
+          <h1 id="matter-atoms-and-the-periodic-table">Matter, atoms, and the periodic table</h1>
+<h2 id="matter-and-composition">Matter and composition</h2>
+<p>Matter is anything with mass and volume. In chemistry, it is usually classified as:</p>
+<ul><li><p>Element: one type of atom</p></li><li><p>Compound: chemically combined elements in a fixed ratio</p></li><li><p>Mixture: physical combination of substances</p></li></ul>
+<p>Mixtures may be:</p>
+<ul><li><p>Homogeneous: uniform throughout</p></li><li><p>Heterogeneous: nonuniform</p></li></ul>
+<h2 id="atomic-structure">Atomic structure</h2>
+<p>Atoms contain:</p>
+<ul><li><p>Protons, with charge $+1$</p></li><li><p>Neutrons, with charge $0$</p></li><li><p>Electrons, with charge $-1$</p></li></ul>
+<p>Atomic number $Z$ identifies the element and equals the number of protons.</p>
+<p>Mass number $A$ is:</p>
+<div class="math-block">$$
+A = Z + N
+$$</div>
+<p>where $N$ is the number of neutrons.</p>
+<p>An ion is an atom or group of atoms with a net charge:</p>
+<ul><li><p>Cation: positively charged, usually by losing electrons</p></li><li><p>Anion: negatively charged, usually by gaining electrons</p></li></ul>
+<h2 id="isotopes">Isotopes</h2>
+<p>Isotopes have the same $Z$ but different neutron counts. Their chemical behavior is nearly the same because chemistry depends mainly on electrons, not neutrons.</p>
+<h2 id="periodic-table-structure">Periodic table structure</h2>
+<p>The periodic table is arranged by increasing atomic number. Elements in the same column often have similar chemistry because they have similar valence electron configurations.</p>
+<p>Key regions:</p>
+<ul><li><p>Alkali metals: Group 1, very reactive metals</p></li><li><p>Alkaline earth metals: Group 2</p></li><li><p>Halogens: Group 17, very reactive nonmetals</p></li><li><p>Noble gases: Group 18, chemically stable</p></li></ul>
+<hr />
+<h1 id="electron-structure-and-periodic-trends">Electron structure and periodic trends</h1>
+<h2 id="electron-configuration">Electron configuration</h2>
+<p>Electrons occupy quantized energy levels and orbitals. The main orbital types are:</p>
+<ul><li><p>$s$ holds 2 electrons</p></li><li><p>$p$ holds 6 electrons</p></li><li><p>$d$ holds 10 electrons</p></li><li><p>$f$ holds 14 electrons</p></li></ul>
+<p>The filling order is governed by energy ordering rather than simple shell number alone.</p>
+<h2 id="valence-electrons">Valence electrons</h2>
+<p>Valence electrons are the outer-shell electrons most responsible for bonding and reactivity. For main-group elements, the number of valence electrons usually matches the group number pattern.</p>
+<h2 id="common-periodic-trends">Common periodic trends</h2>
+<p>Across a period from left to right:</p>
+<ul><li><p>Atomic radius decreases</p></li><li><p>Ionization energy generally increases</p></li><li><p>Electronegativity generally increases</p></li><li><p>Metallic character decreases</p></li></ul>
+<p>Down a group:</p>
+<ul><li><p>Atomic radius increases</p></li><li><p>Ionization energy decreases</p></li><li><p>Electronegativity generally decreases</p></li><li><p>Metallic character increases</p></li></ul>
+<h2 id="why-trends-matter">Why trends matter</h2>
+<p>These trends explain why:</p>
+<ul><li><p>Alkali metals lose electrons easily.</p></li><li><p>Halogens attract electrons strongly.</p></li><li><p>Small, highly charged ions interact strongly with water.</p></li><li><p>Highly electronegative atoms create polar bonds.</p></li></ul>
+<hr />
+<h1 id="bonding-and-molecular-shape">Bonding and molecular shape</h1>
+<h2 id="ionic-covalent-and-metallic-bonding">Ionic, covalent, and metallic bonding</h2>
+<ul><li><p>Ionic bonding: electron transfer and electrostatic attraction, typically between metals and nonmetals</p></li><li><p>Covalent bonding: electron sharing between nonmetals</p></li><li><p>Metallic bonding: delocalized electrons among metal atoms</p></li></ul>
+<p>In biological systems, most important molecules are covalent, but ions still matter because they control charge balance, osmotic pressure, and electrical activity.</p>
+<h2 id="lewis-structures">Lewis structures</h2>
+<p>Lewis structures show valence electrons as dots and bonds as shared pairs.</p>
+<p>General procedure:</p>
+<ol><li><p>Count total valence electrons.</p></li><li><p>Choose the central atom, usually the least electronegative except hydrogen.</p></li><li><p>Connect atoms with single bonds.</p></li><li><p>Complete octets on outer atoms.</p></li><li><p>Put remaining electrons on the central atom.</p></li><li><p>Form multiple bonds if needed.</p></li></ol>
+<h2 id="formal-charge">Formal charge</h2>
+<p>Formal charge helps evaluate reasonable Lewis structures:</p>
+<div class="math-block">$$
+\text{FC} = \text{valence e}^- - \left(\text{nonbonding e}^- + \frac{\text{bonding e}^-}{2}\right)
+$$</div>
+<p>Structures with smaller formal charges and minimal charge separation are usually preferred.</p>
+<h2 id="vsepr-geometry">VSEPR geometry</h2>
+<p>Electron groups around a central atom repel each other and arrange to minimize repulsion.</p>
+<p>Common shapes:</p>
+<table><thead><tr><th>Electron groups</th><th>Electron geometry</th><th>Molecular shape</th><th>Example</th></tr></thead><tbody><tr><td>2</td><td>linear</td><td>linear</td><td>CO$_2$</td></tr><tr><td>3</td><td>trigonal planar</td><td>trigonal planar</td><td>BF$_3$</td></tr><tr><td>3</td><td>trigonal planar</td><td>bent</td><td>SO$_2$</td></tr><tr><td>4</td><td>tetrahedral</td><td>tetrahedral</td><td>CH$_4$</td></tr><tr><td>4</td><td>tetrahedral</td><td>trigonal pyramidal</td><td>NH$_3$</td></tr><tr><td>4</td><td>tetrahedral</td><td>bent</td><td>H$_2$O</td></tr></tbody></table>
+<h2 id="polarity">Polarity</h2>
+<p>Bond polarity depends on electronegativity difference. Molecular polarity depends on both bond polarity and geometry.</p>
+<ul><li><p>Symmetric molecules may be nonpolar even if their bonds are polar.</p></li><li><p>Asymmetric molecules are often polar.</p></li></ul>
+<p>Polarity strongly affects:</p>
+<ul><li><p>Solubility</p></li><li><p>Boiling point</p></li><li><p>Membrane permeability</p></li><li><p>Protein-ligand interactions</p></li></ul>
+<hr />
+<h1 id="naming-formulas-and-reactions">Naming, formulas, and reactions</h1>
+<h2 id="chemical-nomenclature">Chemical nomenclature</h2>
+<p>You should be able to identify and name:</p>
+<ul><li><p>Binary ionic compounds</p></li><li><p>Covalent compounds with prefixes</p></li><li><p>Acids</p></li><li><p>Polyatomic ions</p></li></ul>
+<p>Examples:</p>
+<ul><li><p>NaCl: sodium chloride</p></li><li><p>CO$_2$: carbon dioxide</p></li><li><p>HCl(aq): hydrochloric acid</p></li><li><p>CaCO$_3$: calcium carbonate</p></li></ul>
+<h2 id="balancing-equations">Balancing equations</h2>
+<p>Chemical equations must satisfy conservation of atoms and charge.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\text{CH}_4 + 2\text{O}_2 \rightarrow \text{CO}_2 + 2\text{H}_2\text{O}
+$$</div>
+<p>Coefficients change amounts, not formulas.</p>
+<h2 id="common-reaction-types">Common reaction types</h2>
+<ul><li><p>Synthesis: two or more reactants form one product</p></li><li><p>Decomposition: one compound breaks apart</p></li><li><p>Single replacement: one element replaces another</p></li><li><p>Double replacement: ions exchange partners</p></li><li><p>Combustion: reaction with oxygen, often producing CO$_2$ and H$_2$O</p></li><li><p>Acid-base: proton transfer</p></li><li><p>Precipitation: insoluble solid forms</p></li><li><p>Redox: electron transfer</p></li></ul>
+<hr />
+<h1 id="stoichiometry-and-limiting-reagents">Stoichiometry and limiting reagents</h1>
+<p>Stoichiometry converts between substances using balanced equation coefficients.</p>
+<h2 id="mole-concept">Mole concept</h2>
+<p>One mole contains Avogadro&#39;s number of entities:</p>
+<div class="math-block">$$
+N_A = 6.022 \times 10^{23}
+$$</div>
+<p>Moles connect particle count, mass, and volume.</p>
+<h2 id="conversion-ladder">Conversion ladder</h2>
+<p>Typical workflow:</p>
+<div class="math-block">$$
+\text{mass} \rightarrow \text{moles} \rightarrow \text{moles of product} \rightarrow \text{mass}
+$$</div>
+<h2 id="limiting-reagent">Limiting reagent</h2>
+<p>The limiting reagent is the reactant consumed first and therefore limits product formation.</p>
+<p>Method:</p>
+<ol><li><p>Convert each reactant to moles.</p></li><li><p>Divide by its stoichiometric coefficient if needed.</p></li><li><p>The smallest available reaction extent is limiting.</p></li></ol>
+<h2 id="percent-yield">Percent yield</h2>
+<p>Theoretical yield is the amount predicted by stoichiometry.</p>
+<p>Actual yield is what is obtained experimentally.</p>
+<div class="math-block">$$
+\% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100
+$$</div>
+<h2 id="common-stoichiometry-mistakes">Common stoichiometry mistakes</h2>
+<ul><li><p>Forgetting to balance the equation first</p></li><li><p>Using mass ratios instead of mole ratios</p></li><li><p>Confusing limiting reagent with excess reagent</p></li><li><p>Dropping units during conversions</p></li></ul>
+<hr />
+<h1 id="states-of-matter-and-gases">States of matter and gases</h1>
+<h2 id="phases-and-phase-changes">Phases and phase changes</h2>
+<p>Matter exists as solid, liquid, gas, and plasma. General chemistry focuses on the first three.</p>
+<p>Phase changes include:</p>
+<ul><li><p>Melting and freezing</p></li><li><p>Vaporization and condensation</p></li><li><p>Sublimation and deposition</p></li></ul>
+<h2 id="gas-laws">Gas laws</h2>
+<p>The ideal gas law is:</p>
+<div class="math-block">$$
+PV = nRT
+$$</div>
+<p>where:</p>
+<ul><li><p>$P$ is pressure</p></li><li><p>$V$ is volume</p></li><li><p>$n$ is moles</p></li><li><p>$R$ is the gas constant</p></li><li><p>$T$ is temperature in kelvin</p></li></ul>
+<p>Useful forms:</p>
+<div class="math-block">$$
+\frac{P_1V_1}{T_1} = \frac{P_2V_2}{T_2}
+$$</div>
+<p>for a fixed amount of gas.</p>
+<h2 id="partial-pressures">Partial pressures</h2>
+<p>For gas mixtures:</p>
+<div class="math-block">$$
+P_{total} = \sum_i P_i
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+P_i = X_i P_{total}
+$$</div>
+<p>where $X_i$ is mole fraction.</p>
+<h2 id="why-gases-matter-in-medicine">Why gases matter in medicine</h2>
+<p>Gas laws explain:</p>
+<ul><li><p>Oxygen delivery and ventilation</p></li><li><p>Anesthetic partial pressures</p></li><li><p>Carbon dioxide handling</p></li><li><p>Barometric effects at altitude or in diving</p></li></ul>
+<hr />
+<h1 id="solutions-and-concentration">Solutions and concentration</h1>
+<h2 id="dissolution">Dissolution</h2>
+<p>A solution is a homogeneous mixture of solute and solvent.</p>
+<p>Important idea: &quot;like dissolves like.&quot;</p>
+<ul><li><p>Polar and ionic solutes tend to dissolve in polar solvents.</p></li><li><p>Nonpolar solutes tend to dissolve in nonpolar solvents.</p></li></ul>
+<h2 id="concentration-units">Concentration units</h2>
+<p>Common concentration measures:</p>
+<ul><li><p>Molarity:</p></li></ul>
+<div class="math-block">$$
+M = \frac{\text{moles solute}}{\text{liters solution}}
+$$</div>
+<ul><li><p>Molality:</p></li></ul>
+<div class="math-block">$$
+m = \frac{\text{moles solute}}{\text{kg solvent}}
+$$</div>
+<ul><li><p>Mass percent</p></li><li><p>Mole fraction</p></li><li><p>Parts per million</p></li></ul>
+<h2 id="dilution">Dilution</h2>
+<p>For solutions where solute amount is conserved:</p>
+<div class="math-block">$$
+M_1V_1 = M_2V_2
+$$</div>
+<h2 id="colligative-properties">Colligative properties</h2>
+<p>Colligative properties depend on the number of dissolved particles, not identity.</p>
+<p>Examples:</p>
+<ul><li><p>Vapor pressure lowering</p></li><li><p>Boiling point elevation</p></li><li><p>Freezing point depression</p></li><li><p>Osmotic pressure</p></li></ul>
+<p>Osmotic pressure is especially important in physiology because it affects water movement across membranes.</p>
+<hr />
+<h1 id="thermochemistry">Thermochemistry</h1>
+<p>Thermochemistry studies energy transfer as heat in chemical and physical changes.</p>
+<h2 id="system-and-surroundings">System and surroundings</h2>
+<ul><li><p>Exothermic: system releases heat, $q &lt; 0$</p></li><li><p>Endothermic: system absorbs heat, $q &gt; 0$</p></li></ul>
+<h2 id="first-law-idea">First law idea</h2>
+<p>Energy is conserved. In chemistry, heat and work are common forms of energy transfer.</p>
+<h2 id="heat-capacity">Heat capacity</h2>
+<p>Heat required to change temperature:</p>
+<div class="math-block">$$
+q = mc\Delta T
+$$</div>
+<p>where:</p>
+<ul><li><p>$m$ is mass</p></li><li><p>$c$ is specific heat</p></li><li><p>$\Delta T$ is temperature change</p></li></ul>
+<h2 id="enthalpy">Enthalpy</h2>
+<p>At constant pressure, heat flow equals enthalpy change:</p>
+<div class="math-block">$$
+\Delta H = q_p
+$$</div>
+<h2 id="hesss-law">Hess&#39;s law</h2>
+<p>If a reaction can be written as the sum of multiple steps, the total enthalpy change is the sum of the step enthalpies.</p>
+<p>This is useful when a direct reaction enthalpy is not given.</p>
+<h2 id="bond-enthalpy-approximation">Bond enthalpy approximation</h2>
+<p>Rough estimate:</p>
+<div class="math-block">$$
+\Delta H \approx \sum(\text{bonds broken}) - \sum(\text{bonds formed})
+$$</div>
+<hr />
+<h1 id="chemical-equilibrium">Chemical equilibrium</h1>
+<p>Many reactions are reversible and reach dynamic equilibrium.</p>
+<h2 id="equilibrium-constant">Equilibrium constant</h2>
+<p>For a reaction:</p>
+<div class="math-block">$$
+aA + bB \rightleftharpoons cC + dD
+$$</div>
+<p>the equilibrium expression is:</p>
+<div class="math-block">$$
+K = \frac{[C]^c[D]^d}{[A]^a[B]^b}
+$$</div>
+<p>Pure solids and liquids are omitted from $K$.</p>
+<h2 id="reaction-quotient">Reaction quotient</h2>
+<p>The reaction quotient $Q$ has the same form as $K$ but uses current concentrations or pressures.</p>
+<ul><li><p>If $Q &lt; K$, the reaction shifts toward products.</p></li><li><p>If $Q &gt; K$, the reaction shifts toward reactants.</p></li><li><p>If $Q = K$, the system is at equilibrium.</p></li></ul>
+<h2 id="le-chateliers-principle">Le Chatelier&#39;s principle</h2>
+<p>If a system at equilibrium is disturbed, it shifts to oppose the disturbance.</p>
+<p>Changes can involve:</p>
+<ul><li><p>Concentration</p></li><li><p>Pressure or volume</p></li><li><p>Temperature</p></li></ul>
+<h2 id="common-application">Common application</h2>
+<p>Equilibrium problems often combine:</p>
+<ul><li><p>Stoichiometry</p></li><li><p>ICE tables</p></li><li><p>Approximation checks</p></li></ul>
+<p>where ICE stands for initial, change, equilibrium.</p>
+<hr />
+<h1 id="acids-bases-and-buffers">Acids, bases, and buffers</h1>
+<p>Acid-base chemistry is one of the most important parts of general chemistry for biology and medicine.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Common definitions:</p>
+<ul><li><p>Arrhenius acid: produces $H^+$ in water</p></li><li><p>Arrhenius base: produces $OH^-$ in water</p></li><li><p>Bronsted-Lowry acid: proton donor</p></li><li><p>Bronsted-Lowry base: proton acceptor</p></li></ul>
+<h2 id="strong-and-weak-acids-bases">Strong and weak acids/bases</h2>
+<ul><li><p>Strong acids and strong bases dissociate essentially completely.</p></li><li><p>Weak acids and bases only partially ionize and therefore establish equilibria.</p></li></ul>
+<h2 id="ph-and-poh">pH and pOH</h2>
+<div class="math-block">$$
+\text{pH} = -\log[H^+]
+$$</div>
+<div class="math-block">$$
+\text{pOH} = -\log[OH^-]
+$$</div>
+<p>At 25 C:</p>
+<div class="math-block">$$
+\text{pH} + \text{pOH} = 14
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+[H^+][OH^-] = 10^{-14}
+$$</div>
+<h2 id="acid-dissociation-constant">Acid dissociation constant</h2>
+<p>For a weak acid $HA$:</p>
+<div class="math-block">$$
+HA \rightleftharpoons H^+ + A^-
+$$</div>
+<div class="math-block">$$
+K_a = \frac{[H^+][A^-]}{[HA]}
+$$</div>
+<p>Weak base analog:</p>
+<div class="math-block">$$
+K_b = \frac{[BH^+][OH^-]}{[B]}
+$$</div>
+<h2 id="buffers">Buffers</h2>
+<p>A buffer resists pH change and usually contains a weak acid and its conjugate base, or a weak base and its conjugate acid.</p>
+<p>Henderson-Hasselbalch equation:</p>
+<div class="math-block">$$
+\text{pH} = \text{p}K_a + \log\left(\frac{[A^-]}{[HA]}\right)
+$$</div>
+<h2 id="why-buffers-matter-biologically">Why buffers matter biologically</h2>
+<p>Buffers stabilize:</p>
+<ul><li><p>Blood pH</p></li><li><p>Intracellular pH</p></li><li><p>Enzyme activity</p></li><li><p>Protein charge state</p></li></ul>
+<p>Small pH shifts can change protein structure, binding, and catalysis.</p>
+<h2 id="pka-intuition">pKa intuition</h2>
+<ul><li><p>If pH &lt; pKa, the protonated form dominates.</p></li><li><p>If pH &gt; pKa, the deprotonated form dominates.</p></li></ul>
+<p>This is a key idea for amino acids, drug ionization, and membrane transport.</p>
+<hr />
+<h1 id="kinetics-and-reaction-rate">Kinetics and reaction rate</h1>
+<p>Thermodynamics tells whether a reaction is favorable; kinetics tells how fast it happens.</p>
+<h2 id="rate">Rate</h2>
+<p>Reaction rate is the change in concentration per unit time.</p>
+<p>Factors that affect rate:</p>
+<ul><li><p>Concentration</p></li><li><p>Temperature</p></li><li><p>Surface area</p></li><li><p>Catalysts</p></li><li><p>Molecular orientation and activation energy</p></li></ul>
+<h2 id="collision-theory">Collision theory</h2>
+<p>A reaction occurs when particles collide with:</p>
+<ul><li><p>Enough energy to overcome activation energy</p></li><li><p>Proper orientation</p></li></ul>
+<h2 id="rate-laws">Rate laws</h2>
+<p>A typical rate law is:</p>
+<div class="math-block">$$
+\text{rate} = k[A]^m[B]^n
+$$</div>
+<p>where $m$ and $n$ are experimentally determined, not taken from the balanced equation unless the step is elementary.</p>
+<h2 id="activation-energy-and-catalysts">Activation energy and catalysts</h2>
+<p>Catalysts lower activation energy and speed up reactions without being consumed.</p>
+<p>They do not change:</p>
+<ul><li><p>Overall $\Delta G$ or $\Delta H$</p></li><li><p>The equilibrium constant</p></li></ul>
+<p>They only help the system reach equilibrium faster.</p>
+<hr />
+<h1 id="redox-and-electrochemistry">Redox and electrochemistry</h1>
+<h2 id="oxidation-and-reduction">Oxidation and reduction</h2>
+<p>Redox reactions involve electron transfer.</p>
+<ul><li><p>Oxidation: loss of electrons</p></li><li><p>Reduction: gain of electrons</p></li></ul>
+<p>Mnemonic: OIL RIG</p>
+<h2 id="oxidation-numbers">Oxidation numbers</h2>
+<p>Oxidation numbers help track electron transfer.</p>
+<p>Rules are based on common reference states, such as:</p>
+<ul><li><p>Free elements have oxidation number 0</p></li><li><p>Monatomic ions have oxidation number equal to charge</p></li><li><p>Oxygen is usually $-2$</p></li><li><p>Hydrogen is usually $+1$ except in metal hydrides</p></li></ul>
+<h2 id="balancing-redox-reactions">Balancing redox reactions</h2>
+<p>Two common methods:</p>
+<ul><li><p>Oxidation number method</p></li><li><p>Half-reaction method</p></li></ul>
+<p>The half-reaction method is especially useful in acidic or basic solution.</p>
+<h2 id="electrochemical-cells">Electrochemical cells</h2>
+<p>An electrochemical cell converts chemical energy into electrical energy or vice versa.</p>
+<p>Key quantities:</p>
+<ul><li><p>Anode: oxidation occurs</p></li><li><p>Cathode: reduction occurs</p></li></ul>
+<p>For a galvanic cell:</p>
+<ul><li><p>Electrons flow from anode to cathode</p></li><li><p>The cell can perform work spontaneously</p></li></ul>
+<h2 id="biological-relevance">Biological relevance</h2>
+<p>Redox chemistry underlies:</p>
+<ul><li><p>Cellular respiration</p></li><li><p>Photosynthesis</p></li><li><p>Electron transport chains</p></li><li><p>Antioxidant chemistry</p></li><li><p>Metal ion chemistry in enzymes</p></li></ul>
+<hr />
+<h1 id="general-chemistry-for-biology-and-medicine">General chemistry for biology and medicine</h1>
+<p>General chemistry becomes more useful when connected to real systems.</p>
+<h2 id="water-as-the-dominant-solvent">Water as the dominant solvent</h2>
+<p>Water is polar, hydrogen-bonding, and unusually good at stabilizing ions. That makes it the main solvent in living systems.</p>
+<p>Consequences:</p>
+<ul><li><p>Ions dissolve readily.</p></li><li><p>Polar solutes are favored.</p></li><li><p>Hydrophobic molecules cluster together.</p></li><li><p>Hydrogen bonding affects folding and recognition.</p></li></ul>
+<h2 id="ph-and-biomolecules">pH and biomolecules</h2>
+<p>The charge on amino acids, peptides, and drugs depends on pH relative to pKa.</p>
+<p>Practical effects:</p>
+<ul><li><p>Protein solubility changes with pH.</p></li><li><p>Enzyme activity depends on ionizable residues.</p></li><li><p>Drug absorption depends on ionization state.</p></li></ul>
+<h2 id="buffers-in-physiology">Buffers in physiology</h2>
+<p>Buffers keep body fluids within narrow pH ranges.</p>
+<p>The bicarbonate system is the classic example:</p>
+<div class="math-block">$$
+H_2CO_3 \rightleftharpoons H^+ + HCO_3^-
+$$</div>
+<p>This system is linked to respiration and renal control.</p>
+<h2 id="osmosis-and-tonicity">Osmosis and tonicity</h2>
+<p>Water moves across semipermeable membranes toward higher effective solute concentration.</p>
+<p>Clinical relevance:</p>
+<ul><li><p>Hypotonic, isotonic, and hypertonic solutions</p></li><li><p>IV fluid selection</p></li><li><p>Cell swelling or shrinkage</p></li></ul>
+<h2 id="electrolytes">Electrolytes</h2>
+<p>Electrolytes are ions in solution, such as Na$^+$, K$^+$, Ca$^{2+}$, and Cl$^-$. They matter for:</p>
+<ul><li><p>Nerve conduction</p></li><li><p>Muscle contraction</p></li><li><p>Fluid balance</p></li><li><p>Acid-base control</p></li></ul>
+<h2 id="common-laboratory-ideas">Common laboratory ideas</h2>
+<ul><li><p>Concentration and dilution</p></li><li><p>Serial dilution</p></li><li><p>Calibration curves</p></li><li><p>Spectrophotometry</p></li><li><p>Standard solutions</p></li></ul>
+<p>These topics often appear in lab courses and clinical measurements.</p>
+<hr />
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>General chemistry problems are easier when you follow a fixed sequence.</p>
+<h2 id="recommended-workflow">Recommended workflow</h2>
+<ol><li><p>Identify the topic: stoichiometry, equilibrium, pH, gas law, or redox.</p></li><li><p>Write the balanced equation if a reaction is involved.</p></li><li><p>List known quantities with units.</p></li><li><p>Convert to moles when chemistry requires it.</p></li><li><p>Choose the governing relationship.</p></li><li><p>Solve symbolically before plugging in numbers.</p></li><li><p>Check units and significant figures.</p></li><li><p>Sanity-check the magnitude and chemical sense of the answer.</p></li></ol>
+<h2 id="decision-cues">Decision cues</h2>
+<ul><li><p>If the problem asks &quot;how much forms?&quot;, think stoichiometry.</p></li><li><p>If it asks &quot;what is the pH?&quot;, think acid-base equilibrium.</p></li><li><p>If it asks &quot;which direction does it shift?&quot;, think $Q$ vs. $K$.</p></li><li><p>If it asks &quot;how fast?&quot;, think kinetics.</p></li><li><p>If it asks &quot;is it spontaneous?&quot;, think redox or thermodynamics.</p></li></ul>
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Mixing up mass and moles</p></li><li><p>Forgetting temperature must be in kelvin for gas laws</p></li><li><p>Using strong-acid formulas on weak-acid problems</p></li><li><p>Treating rate law orders as coefficients</p></li><li><p>Ignoring phase labels in equilibrium expressions</p></li><li><p>Losing track of charge balance in ionic equations</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="core-formulas">Core formulas</h2>
+<div class="math-block">$$
+A = Z + N
+$$</div>
+<div class="math-block">$$
+n = \frac{m}{M}
+$$</div>
+<div class="math-block">$$
+PV = nRT
+$$</div>
+<div class="math-block">$$
+M = \frac{n}{V}
+$$</div>
+<div class="math-block">$$
+M_1V_1 = M_2V_2
+$$</div>
+<div class="math-block">$$
+q = mc\Delta T
+$$</div>
+<div class="math-block">$$
+\Delta H = q_p
+$$</div>
+<div class="math-block">$$
+\text{pH} = -\log[H^+]
+$$</div>
+<div class="math-block">$$
+\text{pOH} = -\log[OH^-]
+$$</div>
+<div class="math-block">$$
+\text{pH} + \text{pOH} = 14 \quad \text{(at 25 C)}
+$$</div>
+<div class="math-block">$$
+\text{pH} = \text{p}K_a + \log\left(\frac{[A^-]}{[HA]}\right)
+$$</div>
+<div class="math-block">$$
+\text{rate} = k[A]^m[B]^n
+$$</div>
+<div class="math-block">$$
+\% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100
+$$</div>
+<h2 id="high-yield-facts">High-yield facts</h2>
+<ul><li><p>Bonding and shape control polarity.</p></li><li><p>Polarity controls solubility and intermolecular interactions.</p></li><li><p>Moles are the bridge between particles and measurable amounts.</p></li><li><p>Buffers resist pH change but do not make pH immutable.</p></li><li><p>Catalysts speed reactions but do not change equilibrium position.</p></li><li><p>Chemical intuition improves when equations are balanced and units are tracked carefully.</p></li></ul>
+<h2 id="sources">Sources</h2>
+<ul><li><p><a href="https://openstax.org/subjects/science">OpenStax University Physics</a></p></li><li><p><a href="https://phys.libretexts.org/">Physics LibreTexts</a></p></li><li><p><a href="https://openstax.org/details/books/chemistry-2e">OpenStax Chemistry 2e</a></p></li><li><p><a href="https://chem.libretexts.org/">Chemistry LibreTexts</a></p></li><li><p>Brown et al., <em>Chemistry: The Central Science</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
+          
+        </div>
+      </article>
+    </section>
+<aside class="notes-section-toc" aria-label="Subtopics">
+      <section class="notes-section-toc__panel" data-notes-section-toc-panel="matter-atoms-and-the-periodic-table">
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Matter, atoms, and the periodic table">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link is-active" aria-current="location" href="#matter-and-composition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matter-atoms-and-the-periodic-table">Matter and composition</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#atomic-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matter-atoms-and-the-periodic-table">Atomic structure</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#isotopes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matter-atoms-and-the-periodic-table">Isotopes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#periodic-table-structure" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="matter-atoms-and-the-periodic-table">Periodic table structure</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="electron-structure-and-periodic-trends" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Electron structure and periodic trends">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electron-configuration" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electron-structure-and-periodic-trends">Electron configuration</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#valence-electrons" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electron-structure-and-periodic-trends">Valence electrons</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-periodic-trends" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electron-structure-and-periodic-trends">Common periodic trends</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-trends-matter" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="electron-structure-and-periodic-trends">Why trends matter</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="bonding-and-molecular-shape" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Bonding and molecular shape">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ionic-covalent-and-metallic-bonding" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bonding-and-molecular-shape">Ionic, covalent, and metallic bonding</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#lewis-structures" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bonding-and-molecular-shape">Lewis structures</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#formal-charge" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bonding-and-molecular-shape">Formal charge</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#vsepr-geometry" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bonding-and-molecular-shape">VSEPR geometry</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#polarity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="bonding-and-molecular-shape">Polarity</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="naming-formulas-and-reactions" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Naming, formulas, and reactions">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#chemical-nomenclature" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="naming-formulas-and-reactions">Chemical nomenclature</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#balancing-equations" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="naming-formulas-and-reactions">Balancing equations</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-reaction-types" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="naming-formulas-and-reactions">Common reaction types</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="stoichiometry-and-limiting-reagents" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Stoichiometry and limiting reagents">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#mole-concept" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stoichiometry-and-limiting-reagents">Mole concept</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#conversion-ladder" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stoichiometry-and-limiting-reagents">Conversion ladder</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#limiting-reagent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stoichiometry-and-limiting-reagents">Limiting reagent</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#percent-yield" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stoichiometry-and-limiting-reagents">Percent yield</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-stoichiometry-mistakes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="stoichiometry-and-limiting-reagents">Common stoichiometry mistakes</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="states-of-matter-and-gases" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for States of matter and gases">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#phases-and-phase-changes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="states-of-matter-and-gases">Phases and phase changes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#gas-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="states-of-matter-and-gases">Gas laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#partial-pressures" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="states-of-matter-and-gases">Partial pressures</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-gases-matter-in-medicine" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="states-of-matter-and-gases">Why gases matter in medicine</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="solutions-and-concentration" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Solutions and concentration">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dissolution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solutions-and-concentration">Dissolution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#concentration-units" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solutions-and-concentration">Concentration units</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#dilution" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solutions-and-concentration">Dilution</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#colligative-properties" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="solutions-and-concentration">Colligative properties</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="thermochemistry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Thermochemistry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#system-and-surroundings" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">System and surroundings</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#first-law-idea" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">First law idea</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#heat-capacity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">Heat capacity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#enthalpy" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">Enthalpy</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#hesss-law" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">Hess&#39;s law</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#bond-enthalpy-approximation" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="thermochemistry">Bond enthalpy approximation</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="chemical-equilibrium" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Chemical equilibrium">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#equilibrium-constant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="chemical-equilibrium">Equilibrium constant</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#reaction-quotient" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="chemical-equilibrium">Reaction quotient</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#le-chateliers-principle" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="chemical-equilibrium">Le Chatelier&#39;s principle</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-application" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="chemical-equilibrium">Common application</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="acids-bases-and-buffers" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Acids, bases, and buffers">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#definitions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">Definitions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#strong-and-weak-acids-bases" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">Strong and weak acids/bases</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ph-and-poh" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">pH and pOH</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#acid-dissociation-constant" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">Acid dissociation constant</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#buffers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">Buffers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#why-buffers-matter-biologically" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">Why buffers matter biologically</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#pka-intuition" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="acids-bases-and-buffers">pKa intuition</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="kinetics-and-reaction-rate" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Kinetics and reaction rate">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rate" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinetics-and-reaction-rate">Rate</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#collision-theory" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinetics-and-reaction-rate">Collision theory</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#rate-laws" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinetics-and-reaction-rate">Rate laws</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#activation-energy-and-catalysts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="kinetics-and-reaction-rate">Activation energy and catalysts</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="redox-and-electrochemistry" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Redox and electrochemistry">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#oxidation-and-reduction" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="redox-and-electrochemistry">Oxidation and reduction</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#oxidation-numbers" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="redox-and-electrochemistry">Oxidation numbers</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#balancing-redox-reactions" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="redox-and-electrochemistry">Balancing redox reactions</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrochemical-cells" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="redox-and-electrochemistry">Electrochemical cells</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#biological-relevance" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="redox-and-electrochemistry">Biological relevance</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="general-chemistry-for-biology-and-medicine" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for General chemistry for biology and medicine">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#water-as-the-dominant-solvent" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">Water as the dominant solvent</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#ph-and-biomolecules" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">pH and biomolecules</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#buffers-in-physiology" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">Buffers in physiology</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#osmosis-and-tonicity" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">Osmosis and tonicity</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#electrolytes" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">Electrolytes</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-laboratory-ideas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="general-chemistry-for-biology-and-medicine">Common laboratory ideas</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="problem-solving-workflow" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Problem-solving workflow">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#recommended-workflow" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Recommended workflow</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#decision-cues" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Decision cues</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#common-pitfalls" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="problem-solving-workflow">Common pitfalls</a></li></ol>
+        </nav>
+      </section><section class="notes-section-toc__panel" data-notes-section-toc-panel="formula-summary" hidden>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for Formula summary">
+          <ol class="notes-section-toc__list"><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#core-formulas" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Core formulas</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#high-yield-facts" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">High-yield facts</a></li><li class="notes-toc__item"><a class="notes-lesson-nav__link" href="#sources" data-notes-nav-item data-notes-subtopic-link data-notes-section-id="formula-summary">Sources</a></li></ol>
+        </nav>
+      </section>
+    </aside>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+</body>
+</html>
