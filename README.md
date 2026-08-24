@@ -30,7 +30,7 @@ adriamics-study/
 ├── math/         Generated mathematics pages
 ├── physics/      Generated physics pages
 ├── engineering/  Generated engineering pages
-├── public/       Cloudflare deployment output (generated, ignored)
+├── public/study/ Cloudflare deployment output (generated, ignored)
 └── index.html    The main study introduction
 ```
 
