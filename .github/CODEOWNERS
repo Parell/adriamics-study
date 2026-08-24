@@ -1,0 +1,29 @@
+# Default: maintainer reviews everything
+* @Parell
+
+# Protect repo governance/config
+/.github/ @Parell
+/.github/CODEOWNERS @Parell
+/LICENSE @Parell
+/README.md @Parell
+
+# Main website files
+/index.html @Parell
+/notes.css @Parell
+/notes.js @Parell
+/assets/ @Parell
+
+# Notes system/build
+/build-notes.mjs @Parell
+/minify-assets.mjs @Parell
+/stage-public.mjs @Parell
+/package.json @Parell
+/package-lock.json @Parell
+/search-index.json @Parell
+
+# Educational content
+/general/ @Parell
+/math/ @Parell
+/physics/ @Parell
+/engineering/ @Parell
+/source/ @Parell

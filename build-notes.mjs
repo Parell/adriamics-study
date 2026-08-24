@@ -2019,7 +2019,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
         <button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search for a topic</button>
         <a class="notes-action-chip" href="/study/math/arithmetic/" data-notes-nav-item>Follow prerequisites</a>
         <a class="notes-action-chip notes-action-chip--practice" href="/study/math/arithmetic/practice/" data-notes-nav-item>Practice problems</a>
-        <a class="notes-action-chip" href="${githubRepoUrl}/tree/master" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
+        <a class="notes-action-chip" href="${githubRepoUrl}" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
         <a class="notes-action-chip" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" data-notes-nav-item>Support</a>
       </div>
     </section>

@@ -1,0 +1,105 @@
+name: Contribute to Adriamics
+description: Suggest a fix, example, problem, explanation, or improvement for the notes.
+title: "[Contribution]: "
+labels:
+  - feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve Adriamics.
+
+        Keep it focused: one page, one issue, one clear request.
+
+  - type: input
+    id: page_path
+    attributes:
+      label: Page or section
+      description: Paste the page link or source path where the issue is.
+      placeholder: "Example: /study/physics/physics-i/ or source/physics/physics-i/physics-i.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What kind of contribution is this?
+      options:
+        - Typo or grammar fix
+        - Unclear explanation
+        - Incorrect content
+        - Missing example
+        - Missing practice problem
+        - Better visual or diagram
+        - Citation or source needed
+        - Course/path mapping
+        - Accessibility or formatting issue
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: subject
+    attributes:
+      label: Subject area
+      options:
+        - General
+        - Math
+        - Calculus
+        - Physics
+        - Engineering
+        - Programming
+        - Website / navigation
+        - Not sure
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What should be changed?
+      description: Describe the issue or improvement clearly.
+      placeholder: "The explanation of torque could use a short example with units."
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested replacement or addition
+      description: Optional. Write the exact text, example, problem, or correction you suggest.
+      placeholder: "Suggested text, equation, example, or problem..."
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or reference
+      description: Optional. Add a textbook, course note, paper, website, or explanation source.
+      placeholder: "Example: OpenStax University Physics, Ch. 10"
+
+  - type: dropdown
+    id: contributor_role
+    attributes:
+      label: How are you contributing?
+      options:
+        - Student / learner
+        - Subject reviewer
+        - Content contributor
+        - Problem writer
+        - Visual builder
+        - Instructor / course mapper
+        - Not sure
+        - Other
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked that this is about one focused issue or improvement.
+          required: true
+        - label: I included the page or section where this applies.
+          required: true
