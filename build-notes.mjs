@@ -30,7 +30,7 @@ function renderMathJaxConfig(outputDir, assetVersions) {
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] }
+        packages: { '[+]': ['ams', 'boldsymbol'] }
       },
       svg: {
         fontCache: '${MATHJAX_SVG_FONT_CACHE}',
@@ -1984,7 +1984,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
         <h1 id="landing-title">Learn what you need, one concept at a time.</h1>
         <p class="landing-hero__lead">Free, structured lessons that help you build understanding in order, revisit individual topics, and practice until the ideas hold together.</p>
       </div>
-      <section class="landing-router" aria-labelledby="landing-router-title">
+      <!-- <section class="landing-router" aria-labelledby="landing-router-title">
         <p class="section-label">Start here</p>
         <h2 id="landing-router-title">What do you want to learn?</h2>
         <div class="landing-subject-grid">
@@ -2007,9 +2007,9 @@ function buildLandingHtml(structures, assetVersions, dag) {
             <span class="landing-subject-card__link" aria-hidden="true">Start with Statics <span>→</span></span>
           </a>
         </div>
-      </section>
+      </section> -->
     </section>
-    <section class="landing-support panel" aria-labelledby="landing-support-title">
+    <!-- <section class="landing-support panel" aria-labelledby="landing-support-title">
       <div>
         <p class="section-label">Choose your next step</p>
         <h2 id="landing-support-title">Not sure where to start?</h2>
@@ -2022,7 +2022,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
         <a class="notes-action-chip" href="${githubRepoUrl}" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
         <a class="notes-action-chip" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" data-notes-nav-item>Support</a>
       </div>
-    </section>
+    </section> -->
     <section class="landing-philosophy" id="learning-path" aria-labelledby="landing-philosophy-title">
       <p class="section-label">The idea behind the notes</p>
       <h2 id="landing-philosophy-title">Learning should have a path.</h2>
